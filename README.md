@@ -1,2 +1,2 @@
-# open_reference
-소스참조
+# study-node
+node 관련 스터디
