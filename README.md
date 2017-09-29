@@ -1,2 +1,2 @@
-# study-node
-node 관련 스터디
+# study
+프론트 관련 스터디
