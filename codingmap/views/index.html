@@ -1,0 +1,166 @@
+<!doctype html>
+<!--[if IE 9 ]> <html lang="ko" class="ie9"> <![endif]-->
+<!--[if (gt IE 9)|!(IE)]><!-->
+<html>
+<!--<![endif]-->
+
+<head>
+<title>Realtime Publishing Codingmap</title>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<link rel="stylesheet" href="/stylesheets/handsontable.css">
+<link rel="stylesheet" href="/stylesheets/style.css">
+<script>
+	var loadRange = [<%= range %>];
+    var columnStr = "<%= column %>"
+	columnStr = columnStr.split(',');
+	var loadcolumn = [];
+	for(var i=0;i<columnStr.length;i++){
+		loadcolumn[i] = columnStr[i];
+	}
+</script>
+</head>
+
+<body>
+<input type="hidden" id="refresh" value="no">
+<div id="header">
+    <ul class="menu">
+        <li>
+            <button id="goHome" class="menu-btn">HOME</button>
+        </li>
+        <li>
+            <button class="menu-btn">프로젝트</button>
+            <ul id="rooms" class="menu-list line"></ul>
+        </li>
+         <li class="adm-hidden">
+            <button id="server-btn" class="menu-btn">서버변경</button>
+            <ul id="server" class="menu-list line"></ul>
+        </li>
+        <li class="adm-hidden">
+            <button id="colShow-btn" class="menu-btn">뎁스설정</button>
+            <div class="menu-list" id="configDepth">
+                <p class="comment">* 선택된 뎁스는 노출되지 않습니다.</p>
+                <input class="toggleDepth" data-column="0" type="button" value="1" disabled title="1뎁스는 삭제할수 없습니다.">
+                <input class="toggleDepth" data-column="1" type="button" value="2">
+                <input class="toggleDepth" data-column="2" type="button" value="3">
+                <input class="toggleDepth" data-column="3" type="button" value="4">
+                <input class="toggleDepth" data-column="4" type="button" value="5">
+                <input class="toggleDepth" data-column="5" type="button" value="6">
+                <input class="toggleDepth" data-column="6" type="button" value="7">  
+                <input class="toggleDepth" data-column="7" type="button" value="8">  
+                <input class="toggleDepth" data-column="8" type="button" value="9">  
+                <input class="toggleDepth" data-column="9" type="button" value="10">  
+            </div>
+        </li>
+       
+        <li>
+            <button id="preview-btn" class="menu-btn">미리보기</button>
+            <ul class="menu-list line">
+                <li>
+                    <input type="radio" name="view" id="view3">
+                    <label for="view3" class="viewer frameview">새창뷰로 보기</label>
+                </li>
+                <li>
+                    <input type="radio" name="view" id="view2">
+                    <label for="view2" class="viewer frameview">분할뷰로 보기</label>
+                </li>
+                <li>
+                    <input type="radio" name="view" id="view1" checked>
+                    <label for="view1" class="viewer">단독뷰로 보기</label>
+                </li>
+            </ul>
+        </li>
+        <li>
+            <button id="toggleBtn" class="menu-btn"><span>수정요청</span><span id="mcount" class="badge"></span>
+            </button>
+            <div id="toggleModifyWrap" class="menu-list">
+                <h3>수정요청파일 업로드하기</h3>
+                <form action="/upload" id="uploadForm" enctype="multipart/form-data" method="post">
+                    <input type="file" id="upload" name="mdoc" />
+                    <input type="submit" value="업로드" name="submit">
+                </form>
+                <p class="comment">* 파워포인트, 엑셀파일만 업로드 가능합니다.</p>
+                <h3>수정파일 리스트</h3>
+                <ul id="uploadList"></ul>
+            </div>
+        </li>        
+        
+        <!-- li>
+            <button id="logout" class="menu-btn">로그아웃</button>
+        </li -->
+        <li class="adm-hidden">
+            <button id="distribute" class="menu-btn">소스배포</button>
+            <ul class="menu-list">
+                <li>
+                    <button id="svnToPub">SVN → PUB Server 배포</button>
+                </li>
+                <li>
+                    <button id="PubToDev">PUB → DEV Server 배포</button>
+                </li>
+                <li>
+                    <button id="svnToPubAndDev">SVN → PUB+DEV Server 배포</button>
+                </li>
+            </ul>
+        </li>
+        <li>
+            <button id="globalUI" class="menu-btn">여행 공통스타일</button>
+        </li>
+        <li>
+            <button id="archive" class="menu-btn">아카이브 코딩맵</button>
+        </li>
+        <li>
+            <button id="help" class="menu-btn">도움말</button>
+        </li>
+        
+    </ul>
+    <div class="util">
+        <div id="progressStatus"><strong id="currentRoom"></strong> : <strong id="ing">0</strong> / <span id="total">0</span> ( <span id="per">0</span> % )</div>
+        <div id="currentJoin"></div>
+        <button id="logout" class="menu-btn"><span id="currentUserName" class="none-visible"><%= loginUserName %></span>로그아웃</button>
+    </div>
+</div>
+<div class="wrapper-outer">
+    <div class="wrapper">
+        <div id="example2" class="handsontable" style="clear:both"></div>
+    </div>
+</div>
+<div id="previewWrap">
+    <div id="preview">
+        <div class="preview-inner">
+            <iframe id="previewIfm" src="/blank.html" width="100%" frameborder="0"></iframe>
+        </div>
+        <button id="addPreview">Add Preview</button>
+    </div>
+    <ul id="tab"></ul>
+</div>
+
+<div id="previewFullscreen-wrapper">
+    <iframe id="previewFullscreen" name="previewFullscreen" frameborder="0" allowtransparency="false"></iframe>
+    <div id="previewFullscreen-close" class="btn-frame-handler" title="해당 프로젝트 코딩맵으로 돌아갑니다.">X</div>
+    <div id="previewFullscreen-prev" class="btn-frame-handler" title="이전화면으로 돌아갑니다."></div>
+</div>
+
+<div id="help-content" class="layer-pop"><iframe id="help-ifm" class="iframe" frameborder="0"></iframe></div>
+
+<div id="dist-log" class="layer-pop">
+    <h4 class="layer-title">배포 결과</h4>
+    <textarea name="" id="dist-log-result" readonly></textarea>
+</div>
+
+<div class="handson-search-layer">
+	<input type="text" id="handson-search" style="width:200px">
+	<strong class="search-count">0</strong><span>개의 검색결과가 있습니다.</span>
+	<span class="btn-close">x</span>
+</div>
+
+<script charset="utf-8" src="/socket.io/socket.io.js"></script>
+<script charset="utf-8" src="/javascripts/jquery-1.8.3.min.js"></script>
+<script charset="utf-8" src="/javascripts/jquery.form.min.js"></script>
+<script charset="utf-8" src="/javascripts/handsontable.full.min.js"></script>
+<script charset="utf-8" src="/javascripts/highlight.js"></script>
+<script charset="utf-8" src="/javascripts/myip.js"></script>
+<script charset="utf-8" src="/javascripts/codingmapServer.js"></script>
+<script charset="utf-8" src="/javascripts/main.js"></script>
+<script charset="utf-8" src="/javascripts/dimm.js"></script>
+</body>
+</html>

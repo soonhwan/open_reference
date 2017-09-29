@@ -1,0 +1,147 @@
+<!doctype html>
+<!--[if IE 9 ]> <html lang="ko" class="ie9"> <![endif]-->
+<!--[if (gt IE 9)|!(IE)]><!-->
+<html lang="ko">
+<!--<![endif]-->
+
+<head>
+<title>Realtime Publishing Codingmap</title>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<link rel="stylesheet" href="/stylesheets/jquery.mCustomScrollbar.min.css">
+<link rel="stylesheet" href="/stylesheets/style.css">
+
+
+</head>
+<body onpageshow="if (event.persisted) noBack();" style="padding:0px 100px 0 30px">
+
+<div class="btnWrap2">
+    <div class="logoutWrap">
+        <div id="userName"><span><%= loginUserName %></span>님</div>   
+        <button type="button" class="log-out btn-gray">로그아웃</button>
+    </div>
+    <a class="ico-new create-open adm-hidden" data-btn="프로젝트생성">프로젝트생성</a>    
+    <a class="ico-update update-src adm-hidden superAdm-hidden" data-btn="코딩맵업데이트">코딩맵소스 업데이트</a>
+    <a class="ico-exclude exclude-list adm-hidden superAdm-hidden" data-btn="제외파일목록">제외파일목록</button>
+    <a class="ico-notice create-notice adm-hidden superAdm-hidden" data-btn="공지사항쓰기">공지사항쓰기</a>
+    
+</div>
+
+<div id="join">
+    <div class="list-wrapper myIssue-wrapper">
+        <div class="toggle"><span class="max"></span></div>
+        <h3 class="project-title">내가 맡은 일감(<span id="issueCnt" >0</span>) <span class="comment" style="color:lightgrey">- TS Redmine</span></h3>
+	    <div class="table-wrapper">
+	        <table id="my-issues" class="table1">
+	            <col width="7%"><col width="15%"><col width="10%"><col width="*"><col width="20%">
+	            <thead><tr><th>#</th><th>프로젝트</th><th>유형</th><th>제목</th><th>등록일</th></tr></thead>
+	            <tbody></tbody>
+	        </table>
+	    </div>
+	</div>
+	
+	<div class="list-wrapper project-wrapper">
+        <div class="toggle"><span class="max"></span></div>
+	    <h3 class="project-title">프로젝트 리스트</h3>
+	    <!-- ul class="project-list"></ul -->
+	    <div class="table-wrapper">
+	        <table class="table1 project-list">
+            <% if(isAdmin == 'Y'){ %>
+            <col width="*"><col width="10%"><col width="10%">
+            <thead><tr><th>프로젝트</th><th>컬럼편집</th><th>삭제</th></tr></thead>
+            <% } else { %>	        
+            <thead><tr><th>프로젝트</th></tr></thead>
+            <% } %>
+            <tbody></tbody>
+	        </table>
+	    </div>
+	</div>
+	
+	<div id="p-list-create-layer" class="layer-pop">
+		<form id="project-create">
+			<h4 id="create-tit" class="sub-content-title">신규 프로젝트 생성하기</h4>
+			프로젝트명 <input type="text" id="name" name="name" placeholder="예) 해외패키지" style="margin-right:5px"> 프로젝트ID <input type="text" id="router" name="router" placeholder="예) pkg">
+			<p class="comment">* 프로젝트 ID의 경우 영숫자만 가능하며, 첫문자는 영문이어야 합니다.</p>
+			<h4 class="sub-content-title">
+                공개여부
+                <input type="radio" name="privateYN" id="pyn1" class="vam" value="0" checked> <label for="pyn1">공개</label>
+                <input type="radio" name="privateYN" id="pyn2" class="vam" value="1"> <label for="pyn2">비공개</label>
+            </h4>
+			<h4 class="sub-content-title"><label for="add-set">컬럼 설정</label> <input id="add-set" class="vam" type="checkbox"></h4>
+			<p class="comment">* 필요한 경우 컬럼 명를 설정할 수 있습니다.</p>
+			<ul class="column-set s-hidden">
+				<li><input type="checkbox" name="columnHidden1" checked="checked"> <span>컬럼 1 :</span> <input type="text" name="column1" value="1depth"></li>
+				<li><input type="checkbox" name="columnHidden2" checked="checked"> <span>컬럼 2 :</span> <input type="text" name="column2" value="2depth"></li>
+				<li><input type="checkbox" name="columnHidden3" checked="checked"> <span>컬럼 3 :</span> <input type="text" name="column3" value="3depth"></li>
+				<li><input type="checkbox" name="columnHidden4" checked="checked"> <span>컬럼 4 :</span> <input type="text" name="column4" value="4depth"></li>
+				<li><input type="checkbox" name="columnHidden5" checked="checked"> <span>컬럼 5 :</span> <input type="text" name="column5" value="5depth"></li>
+				<li><input type="checkbox" name="columnHidden6" checked="checked"> <span>컬럼 6 :</span> <input type="text" name="column6" value="6depth"></li>
+				<li><input type="checkbox" name="columnHidden7" checked="checked"> <span>컬럼 7 :</span> <input type="text" name="column7" value="7depth"></li>
+				<li><input type="checkbox" name="columnHidden8" checked="checked"> <span>기본컬럼 1 :</span> <input type="text" name="column8" value="화면ID" disabled="disabled"></li>
+				<li><input type="checkbox" name="columnHidden9" checked="checked"> <span>기본컬럼 2 :</span> <input type="text" name="column9" value="상태" disabled="disabled"></li>
+				<li><input type="checkbox" name="columnHidden10" checked="checked"> <span>기본컬럼 3 :</span> <input type="text" name="column10" value="Description" disabled="disabled"></li>
+				<li class="comment">* 체크박스 내 체크를 해제하면 해당 컬럼은 숨김처리됩니다.</li>
+			</ul>	
+			<div class="btnWrap" id="create-btn"><input type="submit" class="btn-gray" value="프로젝트 생성하기"></div>
+			<div class="btnWrap" id="mod-btn" style="display:none">
+				<input type="hidden" id="modRouter" name="modRouter">
+				<input type="submit" class="btn-gray" value="컬럼명 수정하기"></div>
+			</div>
+		</form>
+	</div>
+	<!--
+	<div id="p-list-mod-layer" class="layer-pop">
+		<form id="project-modify">
+			<h4 class="sub-content-title">컬럼 재 설정</h4>
+			<ul class="column-set">
+				<li><input type="checkbox" name="columnHidden1"> <span>컬럼 1 :</span> <input type="text" name="column1" value=""></li>
+				<li><input type="checkbox" name="columnHidden2"> <span>컬럼 2 :</span> <input type="text" name="column2" value=""></li>
+				<li><input type="checkbox" name="columnHidden3"> <span>컬럼 3 :</span> <input type="text" name="column3" value=""></li>
+				<li><input type="checkbox" name="columnHidden4"> <span>컬럼 4 :</span> <input type="text" name="column4" value=""></li>
+				<li><input type="checkbox" name="columnHidden5"> <span>컬럼 5 :</span> <input type="text" name="column5" value=""></li>
+				<li><input type="checkbox" name="columnHidden6"> <span>컬럼 6 :</span> <input type="text" name="column6" value=""></li>
+				<li><input type="checkbox" name="columnHidden7"> <span>컬럼 7 :</span> <input type="text" name="column7" value=""></li>
+			</ul>	
+			<input type="hidden" id="modRouter" name="modRouter">
+			<div class="btnWrap"><input type="submit" class="btn-gray" value="컬럼명 수정하기"></div>
+		</form>
+	</div>
+	-->
+</div>
+<div id="dist-log" class="layer-pop">
+    <h4 class="layer-title">배포 결과</h4>
+    <textarea name="" id="dist-log-result" readonly></textarea>
+</div>
+<div id="notice-write" class="layer-pop">
+    <h4 class="layer-title">R2PC 코딩맵 업데이트 사항</h4>
+    <div id="notice-list" contenteditable="true"></div>
+    <div class="tac"><button id="notice-dist" class="btn-gray adm-hidden superAdm-hidden">지금 공지하기</button></div>
+</div>
+<div id="notice-view" class="layer-pop">
+    <h4 class="layer-title">R2PC 코딩맵 업데이트 사항</h4>
+    <div id="notice-lastest"></div>
+</div>
+<div id="exclude-log" class="layer-pop">
+    <h4 class="layer-title">개발계 배포 예외파일 리스트</h4>
+    <ul class="comment">
+        <li>* 편집하기 전 현재 노출된 목록은 현재 개발계에 배포 예외파일로 지정된 파일의 목록입니다.</li>
+        <li>* 배포 버튼 종류에 상관없이 PUB서버까지만 반영됩니다.</li>
+        <li>* 파일단위로 기재하며, 한줄에 한 파일만 입력합니다.(라인으로 구분됨)</li>
+        <li>* 파일의 경로 지정은 privia-statics/WebContent/이후부터 기재합니다.(맨앞에 '/'슬래쉬기호 없어야함)</li>
+        <li>* 예)css/front/travel/common.css</li>
+    </ul>
+    <textarea name="" id="exclude-log-result" spellcheck="false"></textarea>
+    <div class="tac"><button id="update-exclude-list" class="btn-gray">업데이트</button></div>
+</div>
+<script charset="utf-8" src="/javascripts/jquery-1.8.3.min.js"></script>
+<script src="/javascripts/jquery.mCustomScrollbar.concat.min.js"></script>
+<script src="/javascripts/create.js"></script>
+<script src="/javascripts/dimm.js"></script>
+<script>
+var destination = "<%= dest %>";
+
+window.history.forward();
+function noBack(){window.history.forward();}
+</script>
+</body>
+</html>

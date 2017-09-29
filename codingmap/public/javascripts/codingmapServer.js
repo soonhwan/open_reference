@@ -1,0 +1,1 @@
+var codingmapServerPrefix = "http://pstatic.priviatravel.com";

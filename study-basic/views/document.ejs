@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Hello World!</title>
+    <link rel="stylesheet" href="/css/master.css">
+  </head>
+  <body>
+    <h1>document
+      <% if(name){ %>
+        <span class="name"><%= name %>!</span>
+      <% } else { %>
+        <span class="stranger">No! Param</span>
+      <% } %>
+    </h1>
+    
+    <form action="/form_receiver" method="post">
+      <p><input type="text" name="title"></p>
+      <p><textarea name="description"></textarea></p>
+      <p><input type="submit"></p>
+    </form>
+  </body>
+</html>

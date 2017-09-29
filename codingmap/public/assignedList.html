@@ -1,0 +1,139 @@
+<!doctype html>
+<!--[if IE 9 ]> <html lang="ko" class="ie9"> <![endif]-->
+<!--[if (gt IE 9)|!(IE)]><!-->
+<html lang="ko">
+<!--<![endif]-->
+
+<head>
+<title>Realtime Publishing Codingmap</title>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<link rel="stylesheet" href="/stylesheets/jquery.mCustomScrollbar.min.css">
+<link rel="stylesheet" href="/stylesheets/style.css">
+</head>
+<body>
+<div id="join" style="max-width:1200px;margin-left:auto;margin-right:auto"></div>
+<script charset="utf-8" src="/javascripts/jquery-1.8.3.min.js"></script>
+<script src="/javascripts/jquery.mCustomScrollbar.concat.min.js"></script>
+<script>
+var isStandAlone  = !(window.location == window.parent.location);
+var issue_worker={}
+var members = [
+    //{name:'정일영GJ',id:'188'},
+	{name:'서성우DR',id:'200'},
+    {name:'권순환DR',id:'300'},    
+    {name:'김예솔SW',id:'219'},
+    {name:'d',id:'128'}
+]
+var Notification = window.Notification || window.mozNotification || window.webkitNotification;
+
+if(Notification){
+    Notification.requestPermission(function (permission) {
+         //console.log(permission);
+    });
+}
+
+
+function displayNotification(title_text,body_text) {
+    if(!Notification) return false;
+    window.setTimeout(function () {            
+        var instance = new Notification(
+            title_text, {
+                body: body_text,
+                icon: '/images/logo_1.png'
+            }
+        );
+        instance.onclick = function () {
+            window.focus();
+        };
+        instance.onerror = function () {
+            alert('상대방에게 메시지 전달 요청 중 문제가 발생했습니다. 새로고침 후에도 문제가 있다면 관리자에게 문의하십시오.')
+        };
+        instance.onshow = function () {
+            
+        };
+        instance.onclose = function () {
+            // Something to do
+        };
+    }, 2000);
+}
+function reqIssues(userName,userId,holderId,whoNum){
+    var userID = encodeURIComponent('iyjeong@priviamall.com');
+    var userPW = encodeURIComponent('dlfdud#0');
+    $.getJSON('https://'+userID+':'+userPW+'@redmine.tidesquare.com/issues.json?assigned_to_id='+userId+'&callback=?',function(res){ 
+        //console.log(JSON.stringify(res))
+        var $dest = $('#'+holderId+'>tbody');
+        $('#issueCnt_'+holderId).text(res.total_count).attr('data-num',res.total_count)
+        if(res.total_count){
+            $dest.empty();
+            $.each(res.issues,function(i){
+                $dest.prepend('<tr><td>'+this.id+'</td><td>'+this.project.name+'</td><td>'+this.tracker.name+'</td><td class="tal"><a href="https://redmine.tidesquare.com/issues/'+this.id+'" target="_blank">'+this.subject+'</a> ('+this.status.name+')</td><td>'+this.created_on.substr(0,10)+'</td><td>'+(this.due_date?this.due_date:'-')+'</td></tr>')
+            });            
+        } else {
+            $dest.html('<tr><td colspan="6">표시할 데이터가 없습니다.</td></tr>')
+        }
+        if(typeof(Worker) !== "undefined") {
+            if(typeof(issue_worker["whois"+whoNum]) == "undefined") {
+                issue_worker["whois"+whoNum] = new Worker('/javascripts/issue'+whoNum+'_worker.js');
+            }
+            issue_worker["whois"+whoNum].onmessage = function(e) {
+                myIssueList = e.data;
+                var oldVal = $('#issueCnt_'+holderId).text();
+                if(oldVal < e.data.total_count){
+                    displayNotification('TS Redmine Says :','새로운 일감이 '+members[whoNum].name+'님에게 할당되었습니다.');
+                }
+                $('#issueCnt_'+holderId).text(e.data.total_count).attr('data-num',e.data.total_count);
+                if(e.data.total_count == 0) {
+                    $dest.html('<tr><td colspan="6">표시할 데이터가 없습니다.</td></tr>');
+                } else {
+                     $dest.empty();
+                     $.each(e.data.issues,function(i){
+                        $dest.prepend('<tr><td>'+this.id+'</td><td>'+this.project.name+'</td><td>'+this.tracker.name+'</td><td class="tal"><a href="https://redmine.tidesquare.com/issues/'+this.id+'" target="_blank">'+this.subject+'</a> ('+this.status.name+')</td><td>'+this.created_on.substr(0,10)+'</td><td>'+(this.due_date?this.due_date:'-')+'</td></tr>')
+                        });
+                    
+                } 
+            }
+        }
+    });
+}
+$(function(){    
+    $.each(members,function(i){
+        var genHolderId = 'user_'+i;
+        var issueTemplate = [
+            '<div class="list-wrapper">',
+                '<div class="toggle"><span class="max"></span></div>',
+                    '<h3 class="project-title">'+this.name+'이(가) 맡은 일감<span style="vertical-align:middle" class="circle-num" id="issueCnt_'+genHolderId+'" >0</span> <span class="comment">- TS Redmine</span></h3>',
+                    '<div class="table-wrapper">',
+                        '<table id="'+genHolderId+'" class="table1">',
+                        '<col width="7%"><col width="15%"><col width="15%"><col width="*"><col width="10%"><col width="10%">',
+                        '<thead><tr><th>#</th><th>프로젝트</th><th>유형</th><th>제목</th><th>등록일</th><th>완료기한</th></tr></thead>',
+                        '<tbody></tbody>',
+                    '</table>',
+                '</div>',
+            '</div>'
+        ].join('\n');
+        $('#join').append(issueTemplate);
+        reqIssues(this.name,this.id,genHolderId,i);
+    });
+    $('.toggle,.project-title').live('click',function(e){
+        e.stopPropagation(); 
+        $(this).siblings('.table-wrapper').toggle();
+        var $selector = this.className == 'project-title' ? $(this).siblings('.toggle').children():$(this).children();
+        $selector.attr('class',function(){
+            return this.className == 'min' ? 'max' : 'min';
+        });
+    });
+    
+    $('.list-wrapper td.tal a').on('click',function(e){
+        e.preventDefault();
+        if(isStandAlone){
+            window.parent.postMessage(this.href,'*');
+        } else {
+            window.open(this.href);
+        }
+    });
+    $('#join').mCustomScrollbar({theme:"minimal-dark"});
+});
+</script>
+</body>
+</html>
