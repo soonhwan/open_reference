@@ -1,0 +1,30 @@
+{
+  "data" : {
+    "movies": [
+      {
+        "title" : "Matrix",
+        "medium_cover_image" : "http://movie2.phinf.naver.net/20170922_258/1506041340550kr370_JPEG/movie_image.jpg?type=f125"
+      },
+      {
+        "title" : "Full Metal Jacket",
+        "medium_cover_image" : "http://movie2.phinf.naver.net/20170925_246/1506307175130N35Jq_JPEG/movie_image.jpg?type=f125"
+      },
+      {
+        "title" : "Oldboy",
+        "medium_cover_image" : "http://movie2.phinf.naver.net/20170925_211/1506305961212SYWl2_JPEG/movie_image.jpg?type=f125"
+      },
+      {
+        "title" : "Star wars",
+        "medium_cover_image" : "http://movie2.phinf.naver.net/20170906_281/1504661660780autBq_JPEG/movie_image.jpg?type=f125"
+      },
+      {
+        "title" : "atch Me If You Can",
+        "medium_cover_image" : "http://movie.phinf.naver.net/20170922_105/1506046826399HohdV_JPEG/movie_image.jpg?type=f125"
+      },
+      {
+        "title" : "catch Me",
+        "medium_cover_image" : "http://movie2.phinf.naver.net/20170920_28/1505873514375MOGBi_JPEG/movie_image.jpg?type=f125"
+      }    
+    ]
+  }
+}

@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React from 'react'; //Component 삭제
 import PropTypes from 'prop-types';
 import './Movie.css';
 
@@ -28,7 +28,8 @@ class Movie extends Component {
 //하지만 state를 잃게되지. 업데이트하고, 그런 멋진것들이 다 사라짐
 function Movie({title, poster}){
   return(
-    <div>
+    //JSX에서는 className을 사용함
+    <div className="Movie">
         <h1>{title}</h1>
         <MoviePoster poster={poster} />
     </div>
@@ -36,7 +37,9 @@ function Movie({title, poster}){
 }
 Movie.propTypes = {
   title : PropTypes.string.isRequired,    
-  poster : PropTypes.string.isRequired    
+  poster : PropTypes.string.isRequired,  
+  genres : PropTypes.array.isRequired,    
+  synopsis : PropTypes.string.isRequired      
 }
 
 /*
@@ -47,7 +50,7 @@ class MoviePoster extends Component{
 
   render(){
     return(
-      <img src={this.props.poster} alt=""/>
+      <img src={this.props.poster} alt="Movie Poster"/>
     );
   }
 }
@@ -55,7 +58,7 @@ class MoviePoster extends Component{
 
 function MoviePoster({poster}){
   return(
-    <img src={poster} alt=""/>
+    <img src={poster} alt="Movie Poster"/>
   )
 }
 MoviePoster.propTypes = {
