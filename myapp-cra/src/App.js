@@ -3,8 +3,9 @@ import './App.css';
 import Movie from './Movie.js';
 
 class App extends Component {
- state = {};
-
+ state = {
+   a:0
+ };
   // Render : componentWillMount() -> render() -> componentDidMount()
   // Update : componentWillReceivePreps() -> shouldComponentUpdate() -> componentWillUpdate() -> render() -> componentDidlUpdate()
 
@@ -13,9 +14,11 @@ class App extends Component {
   }  
   componentDidMount() {
     console.log('componentDidMount : 컴포넌트 성공');
-    this._getMovies();
-  }
-  
+    
+    setTimeout(() => {
+      this._getMovies();
+    },1000);    
+  }  
   componentWillUpdate() {
     console.log('componentWillUpdate : 업데이트중...');
   }
@@ -36,7 +39,7 @@ class App extends Component {
   
   _renderMovies = () => {
     const movies = this.state.movies.map(movie => {
-      console.log(movie);
+      //console.log(movie);
       return <Movie 
         title={movie.title_english} 
         poster={movie.medium_cover_image} 
@@ -48,13 +51,22 @@ class App extends Component {
     
     return movies;
   }
-
+  
+  clickhandle(){
+    this.setState({
+      a: 1
+    })
+    //console.log(this.state)
+  }
   render() {
     console.log('render');
+    const { movies } = this.state;
     return (
-      <div className="App">
-        {this.state.movies ? this._renderMovies() : 'Loding...'}         
+      <div className={movies ? "App" : "App--loading"}>
+        {movies ? this._renderMovies() : 'Loading...'}         
+        
       </div>
+      /*<p onClick={this.clickhandle.bind(this)}>onClick</p>*/
     );
   }
 }
