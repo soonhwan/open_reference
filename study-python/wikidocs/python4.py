@@ -7,6 +7,7 @@ calendar.prmonth(2018, 3)
 
 print('-------------------------')
 
+# 안됨
 from tkinter import *
 widget = Label(None, text='I love Python!')
 widget.pack()
