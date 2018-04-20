@@ -1,6 +1,5 @@
 # phonebook list
 pList = []
-
 while True:
     select = int(input("1.입력 2.출력 3.검색 4.수정 5.삭제 6.종료\n선택: "))
     if select == 1:
@@ -18,12 +17,23 @@ while True:
         for i,p in enumerate(pList):
             # print("%-10s%-20s")
             print("{:^3}{:^10}{:^15}{:^20}".format(i+1, p["name"],p["phone"],p["addr"]))
+        
     elif select == 3:
         print("{:-^50}".format(" 검색기능 "))
+        keyword = input("검색어 입력>>> ")
+        # [{'name': '1', 'phone': '1', 'addr': '1'}]
+        for i, p in enumerate(pList):
+            for k in p:
+                print(p[k].values())
+
+        print("검색 완료!")
     elif select == 4:
         print("{:-^50}".format(" 수정기능 "))
     elif select == 5:
         print("{:-^50}".format(" 삭제기능 "))
+        delNum = int(input("삭제 번호>>> "))
+        del pList[delNum-1]        
+        print("삭제 완료!")
     elif select == 6:
         print("{:-^50}".format(" 프로그램 종료 - 굿바이 "))
         break
