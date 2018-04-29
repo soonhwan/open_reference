@@ -1,0 +1,21 @@
+mysql -ucomstudy21 -pcomstudy21
+
+---------- mysql -----------------------------------
+
+show databases;
+
+use comstudy21;
+
+create table if not exists saram(
+	no int not null primary key auto_increment,
+	id varchar(20),	
+	name varchar(20),
+	age int
+);
+
+desc saram;
+
+insert into saram(id,name,age) values('Hong','GILDONG',34);
+insert into saram(id,name,age) values(null,'GILDONG',34);
+
+select * from saram;
