@@ -41,6 +41,7 @@
     font-family:'NotoSansKR';
     font-style:normal;
     font-weight:300;
+	src: url('/fonts/NotoSansKR-Light.eot');
     src: local(☺),
          url('/fonts/NotoSansKR-Light.woff2') format('woff2'),
          url('/fonts/NotoSansKR-Light.woff') format('woff'),
@@ -50,6 +51,7 @@
     font-family:'NotoSansKR';
     font-style:normal;
     font-weight:400;
+	src: url('/fonts/NotoSansKR-Regular.eot');
     src: local(☺),
          url('/fonts/NotoSansKR-Regular.woff2') format('woff2'),
          url('/fonts/NotoSansKR-Regular.woff') format('woff'),
@@ -59,6 +61,7 @@
     font-family:'NotoSansKR';
     font-style:normal;
     font-weight:500;
+	src: url('/fonts/NotoSansKR-Medium.eot');
     src: local(☺),
          url('/fonts/NotoSansKR-Medium.woff2') format('woff2'),
          url('/fonts/NotoSansKR-Medium.woff') format('woff'),
@@ -68,6 +71,7 @@
     font-family:'NotoSansKR';
     font-style:normal;
     font-weight:700;
+	src: url('/fonts/NotoSansKR-Bold.eot');
     src: local(☺),
          url('/fonts/NotoSansKR-Bold.woff2') format('woff2'),
          url('/fonts/NotoSansKR-Bold.woff') format('woff'),
@@ -77,6 +81,7 @@
     font-family:'NotoSansKR';
     font-style:normal;
     font-weight:900;
+	src: url('/fonts/NotoSansKR-Black.eot');
     src: local(☺),
          url('/fonts/NotoSansKR-Black.woff2') format('woff2'),
          url('/fonts/NotoSansKR-Black.woff') format('woff'),
