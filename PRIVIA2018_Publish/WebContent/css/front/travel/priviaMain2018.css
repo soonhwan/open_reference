@@ -1,0 +1,251 @@
+@charset "utf-8";
+
+/*--------------------------------------------------------------------------------------------------------------
+ *  fonts
+ *--------------------------------------------------------------------------------------------------------------*/
+@font-face {
+    font-family: 'YouandiModernTR'; 
+    font-style: normal; 
+    font-weight: normal; 
+    src: url(/fonts/Youandi_Modern_TextRegular.eot); 
+    src: url(/fonts/Youandi_Modern_TextRegular.eot?#iefix) format('embedded-opentype'),
+         url(/fonts/Youandi_Modern_TextRegular.woff) format('woff')
+}
+@font-face {
+    font-family: 'YouandiModernTB'; 
+    font-style: normal; 
+    font-weight: normal; 
+    src: url(/fonts/Youandi_Modern_TextBold.eot); 
+    src: url(/fonts/Youandi_Modern_TextBold.eot?#iefix) format('embedded-opentype'),
+         url(/fonts/Youandi_Modern_TextBold.woff) format('woff')
+}
+@font-face {
+    font-family:'YouandiModernHEB'; 
+    font-style: normal; 
+    font-weight: normal; 
+    src: url(/fonts/Youandi_Modern_HeadExtraBold.eot); 
+    src: url(/fonts/Youandi_Modern_HeadExtraBold.eot?#iefix) format('embedded-opentype'),
+         url(/fonts/Youandi_Modern_HeadExtraBold.woff) format('woff')
+}
+@font-face {
+    font-family:'NotoSansKR';
+    font-style:normal;
+    font-weight:100;
+    src: url('/fonts/NotoSansKR-Thin.eot');
+    src: local(☺),
+         url('/fonts/NotoSansKR-Thin.woff2') format('woff2'),
+         url('/fonts/NotoSansKR-Thin.woff') format('woff'),
+         url('/fonts/NotoSansKR-Thin.otf') format('opentype');
+}
+@font-face {
+    font-family:'NotoSansKR';
+    font-style:normal;
+    font-weight:300;
+    src: local(☺),
+         url('/fonts/NotoSansKR-Light.woff2') format('woff2'),
+         url('/fonts/NotoSansKR-Light.woff') format('woff'),
+         url('/fonts/NotoSansKR-Light.otf') format('opentype');
+}
+@font-face {
+    font-family:'NotoSansKR';
+    font-style:normal;
+    font-weight:400;
+    src: local(☺),
+         url('/fonts/NotoSansKR-Regular.woff2') format('woff2'),
+         url('/fonts/NotoSansKR-Regular.woff') format('woff'),
+         url('/fonts/NotoSansKR-Regular.otf') format('opentype');
+}
+@font-face {
+    font-family:'NotoSansKR';
+    font-style:normal;
+    font-weight:500;
+    src: local(☺),
+         url('/fonts/NotoSansKR-Medium.woff2') format('woff2'),
+         url('/fonts/NotoSansKR-Medium.woff') format('woff'),
+         url('/fonts/NotoSansKR-Medium.otf') format('opentype');
+}
+@font-face {
+    font-family:'NotoSansKR';
+    font-style:normal;
+    font-weight:700;
+    src: local(☺),
+         url('/fonts/NotoSansKR-Bold.woff2') format('woff2'),
+         url('/fonts/NotoSansKR-Bold.woff') format('woff'),
+         url('/fonts/NotoSansKR-Bold.otf') format('opentype');
+}
+@font-face {
+    font-family:'NotoSansKR';
+    font-style:normal;
+    font-weight:900;
+    src: local(☺),
+         url('/fonts/NotoSansKR-Black.woff2') format('woff2'),
+         url('/fonts/NotoSansKR-Black.woff') format('woff'),
+         url('/fonts/NotoSansKR-Black.otf') format('opentype');
+}
+
+/*--------------------------------------------------------------------------------------------------------------
+ *  common - lyout
+ *  css naming : s- for Section, b- for Button, ly- for Layout, u- for UI, c- for Components, o- for Object
+ *--------------------------------------------------------------------------------------------------------------*/
+#skipnav a {position:absolute; top:-400px; left:0; display:block; width:100%; padding:10px 0; border-bottom:1px solid #d2d2d2; background:#fff; text-align:center}
+#skipnav a:hover, #skipnav a:focus, #skipnav a:active {position:static}
+.a11y {overflow:hidden;position:absolute;clip:rect(0 0 0 0);/*IE6,7*/clip:rect(0,0,0,0);width:1px !important;height:1px !important;margin:-1px !important;border:0 !important;padding:0 !important;}
+.a11y.focusable:focus {overflow:visible;position:static;clip:auto;width:auto;height:auto;margin:0;}
+.ly-inner {width:1200px;margin:0 auto;position:relative;}
+
+.w-content-sec *, .w-content-sec *:after, .w-content-sec *:before,
+#top-area-sec *, #top-area-sec *:after, #top-area-sec *:before,
+#header-sec *, #header-sec *:after, #header-sec *:before, 
+#footer-sec *, #footer-sec *:after, #footer-sec *:before {font-family: "NotoSansKR", "YouandiModernTR", sans-serif;-moz-box-sizing:border-box;-webkit-box-sizing:border-box;box-sizing: border-box;}
+#top-area-sec, #header-sec, #footer-sec, .w-content-sec {min-width: 1200px;}
+
+/*--------------------------------------------------------------------------------------------------------------
+ *  common - header
+ *--------------------------------------------------------------------------------------------------------------*/
+#top-area-sec {background-color: #000;}
+.w-tas-promotion {padding: 30px 0;border-bottom: 1px solid #1a1a1a;}
+.w-tas-promotion * {color: #ddd;}
+.w-tas-promotion .tasp-list {display: table;width: 100%;}
+.w-tas-promotion .tasp-list li {display: table-cell;position: relative;padding-left: 30px;}
+.w-tas-promotion .tasp-list li:first-child {padding-left:0;}
+.w-tas-promotion .tasp-list .tasp-tit {position: relative;}
+.w-tas-promotion .tasp-list .tasp-tit:after {content: '';display: block;width: 10px;height: 19px;position: absolute;right: 0;top: 24px;background: url(/images/front/travel2018/common/icon-common-sec.png) 0 -1px no-repeat;}
+.w-tas-promotion .tasp-list .tasp-tit .label {font-size: 12px;display: inline-block;min-width: 25px;padding: 2px 10px;border:1px solid #ddd;border-radius: 10px;text-align: center;margin-bottom: 5px;}
+.w-tas-promotion .tasp-list .tasp-tit .tit a {color: #ddd;font-size: 14px;line-height: 24px;}
+.w-tas-promotion .tasp-list .tasp-tit .tit a:hover {text-decoration: underline;}
+.w-tas-promotion .tasp-detail {padding: 10px 0 35px 0;}
+.w-tas-promotion .tasp-detail dt, .tasp-detail dd {font-size: 12px;line-height: 20px;}
+.w-tas-promotion .tasp-detail dd em {color: #e93a84;}
+.w-tas-promotion .tasp-detail .b-tasp-more {display: inline-block;position: absolute;bottom: 0;}
+.w-tas-promotion .tasp-detail .b-tasp-more a {display: inline-block;padding: 3px 10px;font-size:12px;color: #000;text-align: center;background-color: #fff;border-radius: 10px;}
+.w-tas-promotion .tasp-detail .b-tasp-more a:hover {text-decoration: underline;}
+.w-tas-top {height: 40px;padding-top: 10px;overflow: hidden;text-align: right;}
+.w-tas-top:after {content: '';display: block;clear:both;}
+.w-tas-top .tast-control {float: left;margin-right: 30px;text-align: left;}
+.w-tas-top .tast-control > span {display: inline-block;vertical-align: middle;}
+.w-tas-top .tast-control .c-chk label {display: inline-block;height: 20px;color: #ddd;font-size:12px;padding-left: 24px;vertical-align: middle;position: relative;}
+.w-tas-top .tast-control .c-chk label:after {content: '';display: block;width: 15px;height: 15px;position: absolute;left: 0;top: 2px;background: url(/images/front/travel2018/common/icon-common-sec.png) 0 -45px no-repeat;}
+.w-tas-top .tast-control .b-crt {display: inline-block;vertical-align: middle;}
+.w-tas-top .tast-control .b-crt a {display: inline-block;width: 18px;height: 18px;background: url(/images/front/travel2018/common/icon-common-sec.png) 0 -49px no-repeat;}
+.w-tas-top .tast-control .b-crt.bc-close {margin-left: 20px;}
+.w-tas-top .tast-control .b-crt.bc-close a {background-position: 2px -24px;}
+.w-tas-top .tast-control .b-crt.bc-open {margin-left: 5px;}
+.w-tas-top .tast-control .b-crt.bc-open a {background-position: -38px -24px;}
+.w-tas-top .tast-control .b-crt.bc-open.on a {background-position: -19px -24px;}
+.w-tas-top .tast-notice {float: left;height: 20px;overflow: hidden;text-align: left;}
+.w-tas-top .tast-notice ul {height: 20px;}
+.w-tas-top .tast-notice li {width: 400px;height: 20px;text-overflow:ellipsis;white-space:nowrap;overflow:hidden;}
+.w-tas-top .tast-notice .point a {color: #e93a84;}
+.w-tas-top .tast-notice li a {font-size:12px;color: #ddd;display: inline-block;vertical-align: middle;}
+.w-tas-top .tast-notice li a:hover {text-decoration: underline;}
+.w-tas-top .tast-notice .point strong {display: inline-block;font-size:12px;font-weight: 300;color: #fff;background-color: #e93a84;border-radius: 10px;padding: 0 10px 1px 10px;margin-right: 8px;vertical-align: middle;}
+.w-tas-top .tast-user {display: inline-block;text-align: right;vertical-align: top;}
+.w-tas-top .tast-user span {display: inline-block;font-size:12px;color: #ddd;padding-left: 22px;position: relative;}
+.w-tas-top .tast-user span:after {content: '';display: block;width: 14px;height: 14px;position: absolute;left:0;top:4px;background: url(/images/front/travel2018/common/icon-common-sec.png) 0 0 no-repeat;}
+.w-tas-top .tast-user.privia span:after {background-position: 0px -65px;}
+.w-tas-top .tast-user.naver span:after {background-position: 0 -84px;}
+.w-tas-top .tast-user.facebook span:after {background-position: 0 -103px;}
+.w-tas-top .tast-user.twitter span:after {background-position: 0 -122px;}
+.w-tas-top .nav-mypage {display: inline-block;margin-right: -20px;text-align: left;}
+.w-tas-top .nav-mypage:after {content: '';display: block;clear:both;}
+.w-tas-top .nav-mypage li {float: left;position: relative;}
+.w-tas-top .nav-mypage li:after {content: '';display: block;width: 1px;height: 12px;background-color: #333;position: absolute;top: 5px;left: 0;}
+.w-tas-top .nav-mypage li:first-child:after {display: none;}
+.w-tas-top .nav-mypage li a {display: inline-block;color: #ddd;font-size:12px;padding: 1px 20px;}
+.w-tas-top .nav-mypage li a:hover {text-decoration: underline;}
+.w-tas-top .nav-mypage .on a {color: #e93a84;}
+
+.o-bg-air {background-color: #288ecc;}
+.o-bg-hotel {background-color: #00b290;}
+#header-sec {background-color: #fff;}
+
+/*--------------------------------------------------------------------------------------------------------------
+ *  common - footer
+ *--------------------------------------------------------------------------------------------------------------*/
+#footer-sec {background-color: #000;}
+.w-footer-sec {padding: 80px 0;}
+.w-footer-sec .fts-call a {color: #fff;font-size:16px;}
+.w-footer-sec .fts-call a:hover {text-decoration: underline;}
+.w-footer-sec .fts-call em {color: #e93a84;}
+.w-footer-sec .nav-fnb {margin-top: 20px;}
+.w-footer-sec .nav-fnb:after {content: '';display: block;clear:both;}
+.w-footer-sec .nav-fnb li {float: left;position: relative;}
+.w-footer-sec .nav-fnb li a {display: inline-block;color: #fff;font-size:14px;padding: 1px 10px;}
+.w-footer-sec .nav-fnb li a:hover {text-decoration: underline;}
+.w-footer-sec .nav-fnb li:first-child a {padding-left:0;}
+.w-footer-sec .nav-fnb li:after {content: '';display: block;width: 1px;height: 12px;background-color: #333;position: absolute;top: 6px;left: 0;}
+.w-footer-sec .nav-fnb li:first-child:after {display: none;}
+.w-footer-sec .nav-fnb li a strong {color: #fff;font-weight: bold;}
+.w-footer-sec .fts-info {margin-top: 20px;}
+.w-footer-sec .fts-info * {color: #ddd;font-size:12px;}
+.w-footer-sec .fts-info:after {content: '';display: block;clear:both;}
+.w-footer-sec .fts-info li {float: left;position: relative;color: #ddd;font-size:12px;padding: 0 10px;line-height: 22px;}
+.w-footer-sec .fts-info li a {text-decoration: underline;}
+.w-footer-sec .fts-info li:after {content: '';display: block;width: 1px;height: 10px;background-color: #333;position: absolute;top: 7px;left: 0;}
+.w-footer-sec .fts-info li:first-child {padding-left:0;}
+.w-footer-sec .fts-info li:first-child:after {display: none;}
+.w-footer-sec .fts-info .line-down {float: none;clear: both;padding-left: 0;}
+.w-footer-sec .fts-info .line-down:after {display: none;}
+.w-footer-sec .fts-partnership {margin-top: 20px;font-size:12px;color: #ddd;font-weight: bold;line-height: 22px;}
+
+/*--------------------------------------------------------------------------------------------------------------
+ *  contents
+ *--------------------------------------------------------------------------------------------------------------*/
+.w-main-cont {padding-top: 80px;}
+.s-rec-list-cont {margin-bottom: 80px;}
+.s-rec-list-cont:after {content: '';display: block;clear:both;}
+.s-rec-list-cont .rlc-left {float: left;width: 580px;}
+.s-rec-list-cont .rlc-right {float: right;width: 580px;}
+.s-rec-list-cont .rlc-list-main {margin-bottom: 80px;}
+.s-rec-list-cont .rlc-list-main ul {width: 100%;overflow: hidden;}
+.s-rec-list-cont .rlc-list-main ul li {width: 100%;}
+.s-rec-list-cont .rlc-list-main .tit a {color: #000;font-size:26px;line-height: 36px;margin-bottom: 10px;}
+.s-rec-list-cont .rlc-list-main .tit a:hover {text-decoration: underline;}
+.s-rec-list-cont .rlc-list-main .exp {color: #000;font-size:14px;line-height: 20px;margin-bottom: 30px;}
+.s-rec-list-cont .rlc-list-main .vis {overflow: hidden;border-radius: 6px;}
+.s-rec-list-cont .rlc-list-sub .rlc-ls-left {float: left;width: 280px;}
+.s-rec-list-cont .rlc-list-sub .rlc-ls-right {float: right;width: 280px;}
+.s-rec-list-cont .rlc-list-sub ul {width: 100%;overflow: hidden;}
+.s-rec-list-cont .rlc-list-sub ul li {width: 100%;}
+.s-rec-list-cont .rlc-list-sub .tit a {color: #000;font-size:18px;line-height: 28px;margin-bottom: 10px;}
+.s-rec-list-cont .rlc-list-sub .tit a:hover {text-decoration: underline;}
+.s-rec-list-cont .rlc-list-sub .date {color: #000;font-size:14px;line-height: 24px;margin-bottom: 30px;}
+.s-rec-list-cont .rlc-list-sub .vis {overflow: hidden;border-radius: 6px;}
+.s-rec-list-cont .c-b-crt {position: absolute;width: 100%;top:242px;}
+.s-rec-list-cont .c-b-crt .b-crt {display: inline-block;position: absolute;top:0;}
+.s-rec-list-cont .c-b-crt .b-crt a {display: inline-block;width: 60px;height: 60px;background: url(/images/front/travel2018/common/icon-ui-content.png) 0 0 no-repeat;}
+.s-rec-list-cont .c-b-crt .b-crt.bc-next a {background-position: 0 -70px;}
+.s-rec-list-cont .c-b-crt .b-crt.bc-prev {left: -30px;}
+.s-rec-list-cont .c-b-crt .b-crt.bc-next {right: -30px;}
+
+.s-banner-cont {position: relative;margin-bottom: 80px;}
+.s-banner-cont .bc-list li {height: 320px;}
+.s-banner-cont .bc-list .vis {height: 100%;}
+.s-banner-cont .bc-list .b-link {display: inline-block;margin-top: 190px;}
+.s-banner-cont .bc-list .b-link a {display: inline-block;color: #000;font-size:14px;border-radius: 2px;background-color: #fff;padding: 9px 22px;}
+.s-banner-cont .bc-list .b-link a:hover {text-decoration: underline;}
+.s-banner-cont .bc-crt {position: absolute;top: 0;left: 50%;margin-left: -600px;}
+.s-banner-cont .c-b-crt {position: absolute;width:1200px;top:145px;}
+.s-banner-cont .c-b-crt .b-crt {display: inline-block;position: absolute;top:0px;}
+.s-banner-cont .c-b-crt .b-crt a {display: inline-block;width: 60px;height: 60px;background: url(/images/front/travel2018/common/icon-ui-content.png) 0 0 no-repeat;}
+.s-banner-cont .c-b-crt .b-crt.bc-next a {background-position: 0 -70px;}
+.s-banner-cont .c-b-crt .b-crt.bc-next {right: -30px;}
+
+.s-benefit-cont {margin-bottom: 80px;}
+.s-benefit-cont .list-benefit:after {content: '';display: block;clear:both;}
+.s-benefit-cont .list-benefit li {float: left;width: 283px;padding: 45px 0;margin-left: 20px;border:1px solid #e2e6eb;border-radius: 3px;background-color: #eef1f6;}
+.s-benefit-cont .list-benefit li:first-child {margin-left: 0;}
+.s-benefit-cont .list-benefit li > a {display: table;width: 100%;text-align: center;font-size: 18px;color: #000;height: 60px;}
+.s-benefit-cont .list-benefit li > a:hover {text-decoration: underline;}
+.s-benefit-cont .list-benefit .txt {display: table-cell;vertical-align: middle;}
+
+.s-information-cont {margin-bottom: 80px;}
+.s-information-cont:after {content: '';display: block;clear:both;}
+.s-information-cont .sic-board {float: left;width: 876px;}
+.s-information-cont .sic-board .tit {font-size:24px;color: #000;margin-bottom: 24px;}
+.s-information-cont .sic-board .list li {padding: 11px 0 13px 0;border-bottom: 1px solid #e2e2e2;position: relative;}
+.s-information-cont .sic-board .list li a {font-size: 16px;color: #000;display:block;text-overflow: ellipsis; white-space: nowrap; overflow: hidden; width:780px;}
+.s-information-cont .sic-board .list li a:hover {text-decoration: underline;}
+.s-information-cont .sic-board .list .date {font-size: 16px;color: #818181;position: absolute;right: 0;top: 10px;}
+.s-information-cont .sic-aside {float: right;width: 285px;}
+

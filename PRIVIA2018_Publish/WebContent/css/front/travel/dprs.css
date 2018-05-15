@@ -1,0 +1,307 @@
+@charset "utf-8";
+/* 기타 공용 */
+a.underline,
+a.underline *{text-decoration:underline}
+em.devide {padding-right:10px; padding-left:10px}
+.help_text div.tip_box .tip > span.top {width: 13px; height: 12px; margin: 0; padding: 0; background: url(/images/front/travel/search/bg_tip_top2.png) no-repeat left top;}
+.tip span.top {display:inline-block; position:absolute; right:220px; top:-7px;}
+
+
+/* 메세지 */
+.caution_air p.message_top {text-align:center; padding:20px 0 38px 0}
+/* 곂 th scope row 그리드 맞춤 */
+table.view_complication tbody tr td p {padding-left:11px}
+/* 검색결과 단품 테이블 */
+table.list_table_sg {border-collapse: separate}
+table.list_table_sg thead th {height:60px}
+table.list_table_sg tbody tr td {height:43px}
+table.list_table_sg tbody tr td p {padding-top:0; padding-bottom:0}
+table.list_table_sg tbody tr td.subj p {padding-left:20px; text-align:left}
+table.list_table_sg tbody tr td {border-bottom:1px solid #f1f1f1; border-top:1px solid #f1f1f1;}
+table.list_table_sg tbody tr td.last {border-right:1px solid #fff;}
+table.list_table_sg tbody tr td:first-child {border-left:1px solid #f1f1f1;}
+table.list_table_sg tbody tr:first-child td {border-top:1px solid #fff;}
+table.list_table_sg tbody tr:hover td {border-color:#999}
+/* 참 이상한 테이블가이드 맞춤 */
+table.list_ar20 thead tr th.ar p,
+table.list_ar20 tbody tr td.ar p,
+table.list_ar20 tfoot tr td.ar p {padding-right:20px}
+/* 테이블 대치하는 검색결과 없음 영역 */
+.nodata_result {border:1px solid #999; background:#fff; text-align:center; padding:42px 0}
+/* 검색 하단 가이드 */
+.use_guide_basic {background:#fff; padding:20px; padding-bottom:12px; *zoom:1}
+.use_guide_basic:after {content:""; display:block; clear:both}
+.use_guide_basic h3 {height:27px}
+.use_guide_basic ul {float:left}
+.use_guide_basic ul li {line-height:0; padding-left:8px; background: url(/images/front/travel/common/bul_3x3_999.gif) 0 4px no-repeat;}
+.use_guide_basic ul li > img {padding-bottom:9px}
+/* 검색 목록 헤더 말풍선 */
+.help_down_center {position:relative; display:inline-block; *display:inline; *zoom:1 width:18px; height:18px; overflow:visible}
+.help_down_center .help {margin-top:0}
+.help_down_center .tip_box {display:none; position:absolute; left:50%; top:26px; padding:6px 0 0 0}
+.help_down_center .tip_box .tip {text-align:left}
+.help_down_center .s {position:absolute; left:50%; top:0; margin:0 0 0 -6px; width:12px; height:7px; font-size:0; line-height:0; background:url(/images/front/travel/search/bg_tip_up_center.gif) center top no-repeat}
+.help_down_center .tip_box .tip dl {color:#333; line-height:14px; margin:-2px 0}
+.help_down_center .tip_box .tip dl dt {font-weight:bold; padding-top:7px}
+.help_down_center .tip_box .tip dl dd {padding-bottom:7px}
+html.no_ios_device .help_down_center a:hover + div.tip_box,
+html.no_ios_device .help_down_center a:active + div.tip_box,
+html.no_ios_device .help_down_center a:focus + div.tip_box {display:block}
+*:first-child+html .help_down_center:hover,
+*:first-child+html .help_down_center:active,
+*:first-child+html .help_down_center:focus {position:relative;} /* position:relative 버그 ie7 */
+*:first-child+html .help_down_center:hover .tip_box,
+*:first-child+html .help_down_center:active .tip_box,
+*:first-child+html .help_down_center:focus .tip_box {display:block} /* 말풍선 처리 ie7 */
+/* 결제요금 계산 UI 변경 */
+.pay_calculation_sum4 {}
+.pay_calculation_sum4 .ico_air {margin:0 6px -2px 6px}
+.pay_calculation_sum4 .cont.result {width:150px}
+
+/* 예약 상단 프로세스 표기 */
+/* 3단계인 경우 */
+.reserve_steps3 {position:relative; height:45px; overflow:hidden; background:url(/images/front/travel/search/bg_reserve_step3.gif) left top no-repeat}
+.reserve_steps3 p {position:absolute; left:-9999px; width:0; height:0}
+.reserve_steps3.step1 {background-position:0px 0px}
+.reserve_steps3.step2 {background-position:0px -50px}
+.reserve_steps3.step3 {background-position:0px -100px}
+/* 2단계인 경우 */
+.reserve_steps2 {position:relative; height:45px; overflow:hidden; background:url(/images/front/travel/search/bg_reserve_step2.gif) left top no-repeat}
+.reserve_steps2 p {position:absolute; left:-9999px; width:0; height:0}
+.reserve_steps2.step1 {background-position:0px 0px}
+.reserve_steps2.step2 {background-position:0px -50px}
+/* 선택상품 정보 테이블 */
+table.list.row {border-top:1px solid #666}
+table.list.row td.ar p {padding-right:20px}
+table.list.row th[scope="row"] {border-bottom: 1px solid #e2e2e2; border-right: 1px solid #e2e2e2;}
+/* 선택 상품정보 공용 테이블(교통패스 예약 최초) */
+table.list.goods_info tbody tr th {border-bottom: 1px solid #e2e2e2;}
+table.list.goods_info tbody tr td,
+table.list.goods_info tbody tr td p {text-align:left}
+table.list.goods_info tbody tr td p {padding-left:10px}
+table.list.goods_info tbody tr td p em {text-align:center; padding:0 10px}
+table.list.goods_info tbody tr td.ar p {padding-right:20px; text-align:right}
+table.list.goods_info tbody tr td.ac p {padding-left:0; padding-right:0; text-align:center}
+table.list.goods_info tbody tr.selects td p,
+table.list.goods_info tbody tr td.selects p {padding-top:10px; padding-bottom:10px}
+.write_row {padding:5px 0; border-top:1px solid #636363; border-bottom:1px solid #e2e2e2}
+.write_row th {text-align:left}
+.write_row td {padding:5px 0}
+.write_row td input {vertical-align:middle}
+
+/* 단품 공통 */
+.sub_part_payment .pay_calculation {border-bottom:0 none; padding-bottom:5px}
+/* 배송티켓 주의사항 */
+.caution_delivery {padding:0 20px !important}
+td .caution_delivery {padding-top:10px !important}
+.caution_delivery img {vertical-align:top}
+.caution_delivery h4 {height:26px}
+.caution_delivery ul {padding:0 0 8px 0}
+.caution_delivery ul li {padding:0 0 8px 8px; background:url(/images/front/travel/common/bul_3x3_666.gif) left 4px no-repeat}
+.caution_delivery ul li ul {padding:8px 0 0 0}
+.caution_delivery ul li ul li {background:url(/images/front/travel/common/bul_4x1_666.gif) left 5px no-repeat}
+/* 성인, 아동 등 여행자 정보 복수 입력시 숫자 처리 */
+table.list_data tbody tr th strong.num_person {height:11px; line-height:1em; padding-left:3px; vertical-align:baseline; font: 14px "맑은 고딕","맑은고딕", "Malgun Gothic", Dotum, Gulim; font-weight: bold; color: #333;}
+table.list_data tbody tr th.numbering p > img {display:inline-block; vertical-align:baseline}
+table.view tbody tr th p.numbering > img {display:inline-block; vertical-align:baseline}
+table.view tbody tr th p.numbering strong.num_person {height:11px; line-height:1em; padding-left:3px; vertical-align:baseline; font: 14px "맑은 고딕","맑은고딕", "Malgun Gothic", Dotum, Gulim; font-weight: bold; color: #333;}
+
+/* 렌터카 */
+/* 예약상세 상단 상품명 아이콘 */
+.reserve_complete.rent_car .tit {background:#666 url(/images/front/travel/account/ico_check_dprs.png) 0px  0px no-repeat}
+.reserve_complete.pass_ticket .tit {background:#666 url(/images/front/travel/account/ico_check_dprs.png) 0px -44px no-repeat}
+.reserve_complete.tour_oversea .tit {background:#666 url(/images/front/travel/account/ico_check_dprs.png) 0px -88px no-repeat}
+.reserve_complete.entrance_ticket .tit {background:#666 url(/images/front/travel/account/ico_check_dprs.png) 0px -132px no-repeat}
+.reserve_complete.make_travle .tit {background:#666}
+/* 렌터카 예약정보 중 추가사항 */
+.rentcar_extra {padding:20px 0 0 0 !important; vertical-align:top}
+.rentcar_extra1 {width:360px}
+.rentcar_extra2 {width:370px}
+.rentcar_extra .set {padding:0 0 20px 0; *zoom:1}
+.rentcar_extra .set:after {content:""; display:block; clear:both}
+.rentcar_extra .set select, .rentcar_extra .set .selectbox_title {float:right; vertical-align:top; *zoom:1}
+.rentcar_extra .set p {display:inline-block; *display:inline; *zoom:1; padding:8px 0 0 19px}
+
+/* 검색결과 */
+.search_title .search_re {position:absolute; right:0; top:-3px}
+.search_box_sg .select {margin-left:-20px}
+.search_box_sg .select dt {margin-right:10px; margin-left:20px}
+.search_box_sg .select dd {margin-right:0}
+ul.result_rent_car li {border-bottom:2px solid #f1f1f1}
+ul.result_rent_car li .inset {padding:9px; border:1px solid #fff; background:#fff; *zoom:1}
+ul.result_rent_car li .inset:after {content:""; display:block; clear:both}
+ul.result_rent_car li .inset:hover {border:1px solid #999}
+ul.result_rent_car li .inset .pic,
+ul.result_rent_car li .inset .info {float:left}
+ul.result_rent_car li .inset .info {color:#747474}
+ul.result_rent_car li .inset .pic {margin-right:27px; border:1px solid #e2e2e2}
+ul.result_rent_car li .inset .pic img {float:left}
+ul.result_rent_car li .inset .info {position:relative; width:520px; height:123px; padding:7px 0 0 0}
+ul.result_rent_car li .inset .info .subj {display:inline-block; font-family:"맑은 고딕", "맑은고딕", "Malgun Gothic", Dotum, Gulim; font-size:16px; line-height:1.3em; color:#333}
+/*ul.result_rent_car li .inset .info .subj:hover,
+ul.result_rent_car li .inset .info .subj:focus {text-decoration:underline}*/
+ul.result_rent_car li .inset .info .summ {font-size:11px; padding:9px 0 0 0}
+ul.result_rent_car li .inset .info .summ a {text-decoration:underline; color:#747474}
+ul.result_rent_car li .inset .info .opt {position:absolute; left:0; bottom:8px}	
+ul.result_rent_car li .inset .info .opt p {padding-top:4px}
+ul.result_rent_car li .inset .etc {float:right; position:relative; width:200px; height:110px; padding:10px; padding-left:0; text-align:right}
+ul.result_rent_car li .inset .etc .price {padding:18px 0 0 0; color:#747474}
+ul.result_rent_car li .inset .etc .price *{display:inline-block; vertical-align:bottom; line-height:normal}
+ul.result_rent_car li .inset .etc .price span {padding-bottom:1	px}
+ul.result_rent_car li .inset .etc .price strong {padding:0 3px 0 12px; color:#333; font-family:"맑은 고딕", "맑은고딕", "Malgun Gothic", Dotum, Gulim; font-size:18px}
+ul.result_rent_car li .inset .etc .price em {padding-bottom:1px; color:#333; font-family:"맑은 고딕", "맑은고딕", "Malgun Gothic", Dotum, Gulim; font-size:12px}
+ul.result_rent_car li .inset .etc .btns {position:absolute; right:10px; bottom:10px}
+ul.result_rent_car li.nodata .inset {border:1px solid #999}
+ul.result_rent_car li.nodata .inset {padding:43px; text-align:center}
+/* 교통패스 검색결과 */
+.use_guide_rent ul.left {width:454px}
+.use_guide_rent ul.left li a {display:inline-block; margin-top:-3px}
+.use_guide_pass ul li a {display:inline-block; vertical-align:top; margin:-4px 0 0 9px}
+/* 현지투어 검색결과 */
+ul.result_ex_tour li .inset .pic {border:0 none}
+ul.result_ex_tour li .inset .info {position:relative; width:520px; height:103px; padding:7px 0 0 0}
+ul.result_ex_tour li .inset .etc {height:90px}
+ul.result_ex_tour li .inset .etc .icon img {padding:0 4px}
+ul.result_ex_tour li .inset .etc .price {position:absolute; right:10px; bottom:10px; padding:0;}
+ul.result_ex_tour li .inset .info .subj:hover,
+ul.result_ex_tour li .inset .info .subj:focus {text-decoration:underline}
+
+/* 팝업 */
+/* 검색 */
+/* 발칸 패스 팝업 */
+.view.balkan tr td p {*zoom:1;}
+.view.balkan tr td p span {display:inline-block; padding-left:10px; padding-right:10px; background:url(/images/front/travel/common/bar_1x11_747474.gif) no-repeat 0 1px;}
+.view.balkan tr td p span:first-child {background:none; padding-left:0;}
+.view.balkan tr td div ul li {line-height:20px;}
+.explain_pop {font-size:12px; color:#747474; line-height:18px;}
+.strong_word {color:#fc3b33; font-weight:bold;}
+.counsel_info_area22 ul {*zoom:1;}
+.counsel_info_area22 ul li {float:left; width:265px; height:20px; padding:10px 10px 0 10px; background:#f5f5f5; border:1px solid #e2e2e2; border-left:0; text-align:center;}
+.counsel_info_area22 ul li:first-child {width:264px; border-left:1px solid #e2e2e2;}
+.counsel_info_area22 ul li img {vertical-align:top;}
+.counsel_info_area22 ul:after {display:block; content:""; clear:both;}
+/* 면책금 보호 팝업 */
+span.damage_protect {display:inline-block; margin-left:15px; margin-top:1px; color:#666; vertical-align:top;}
+span.damage_protect span.damage_bld {font-weight:bold; color:#fc3b33;}
+/* 이용약관(보험/취소규정)팝업 */
+table.view.yakgwan tr th {font-size:11px; font-weight:bold; color:#666; line-height:21px;}
+div.yakgwan_list ul li {margin-bottom: 5px; padding-left: 8px; background: url(/images/front/travel/common/bul_3x3_aaa.gif) 0 4px no-repeat;}
+div.yakgwan_list ul ul li {margin-bottom:5px; background: url(/images/front/travel/common/bul_5x1_666.gif) 0 6px no-repeat; line-height:14px;}
+div.yakgwan_list ul ul li:first-child {margin-top:5px;}
+/* 지점 지도/주소 팝업 */
+div.jido_area {overflow:hidden; width:620px; height:398px;}
+div.addr_area {height:12px; padding:19px 20px; background:#f5f5f5; border:1px solid #e2e2e2;}
+div.addr_area span {font-size:12px; color:#333;}
+
+/* 마이페이지 */
+/* 인보이스, 환불 인보이스 팝업 */
+strong.chong_yogum {color:#fc3b33; font-weight:bold;}
+span.hyetek_halin {color:#fc3b33;}
+/* 예약취소 팝업 */
+.caution_gray2.yeyak_chiwso {position:relative;}
+.caution_gray2.yeyak_chiwso > ul li {position:relative; height:20px; line-height:0;}
+.caution_gray2.yeyak_chiwso > ul li > span {display:block; position:absolute; right:100px; top:0;}
+.caution_gray2.yeyak_chiwso > div {position:absolute; right:20px; top:25px;}
+.caution_gray2.yeyak_chiwso img {vertical-align:top; margin-top:3px;}	
+.caution_gray2.yeyak_chiwso input {vertical-align:top; margin-top:1px; height:13px; display:inline-block;}
+.caution_gray2.yeyak_chiwso label {margin-top:2px; display:inline-block; vertical-align:top; font-size:11px; color:#999;}
+
+/* travel voucher */
+.layer_pop .isp_guide_list.voucher li img {margin-bottom:9px;}
+
+/* 자유여행만들기 검색결과 */
+.layer_pop .bt_addinfo.type2 {width:100%;}
+.layer_pop .bt_addinfo.type2 .bt_total .add_fee {color:#666;}
+.layer_pop .bt_addinfo.type2 .bt_total .etc {padding-top:10px; font-size:11px; color:#747474;}
+
+/* 할인티켓 */
+.layer_pop .heading.heading222 {height:33px;}
+.layer_pop .heading.heading222 .title {padding:0 0 5px; color:#fff; font-size:20px; line-height:15px; display:block; font-family:"맑은 고딕";}
+.layer_pop ul.listdprs {*zoom:1;}
+.layer_pop ul.listdprs:after {display:block; content:""; clear:both;}
+.layer_pop ul.listdprs li {float:left;padding:0 15px; background:url(/images/front/travel/common/bar_1x11_747474.gif) no-repeat 0 1px;color:#747474;}
+.layer_pop ul.listdprs li:first-child {padding-left:0; background:none;}
+.layer_pop ul.listdprs li span.clred {color:#fc3b33; font-weight:bold;}
+.check_box.ticket {height:auto; position:relative; }
+.check_box.ticket span {font-weight:bold; color:#636363;}
+.check_box.ticket p.first {padding:10px 0 20px 10px; border-bottom:1px solid #e2e2e2;}
+.check_box.ticket p.second {padding:15px 0 5px 10px;}
+.check_box.ticket .ticket_dprs {position:absolute; right:15px; top:83px;}
+.check_box.ticket .ticket_dprs img {vertical-align:top; margin-top:8px;}
+.check_box.ticket .ticket_dprs strong {height:24px; font-size:18px; font-weight:bold; vertical-align:top;}
+.yakgwan_list.ticket {position:relative;}
+.yakgwan_list.ticket .btn_wrap {position:absolute; right:0; top:-5px;}
+
+/* 현지투어 상품상세 */
+.select_tour01 {margin-top:10px; padding:20px; border:1px solid #999; background:#fff; font-size:12px;}
+.select_tour01 div {margin-top:10px; margin-bottom:18px; color:#666;}
+.select_tour01 div.tit_float {*zoom:1;}
+.select_tour01 div.tit_float:after {display:block; content:""; clear:both;}
+.select_tour01 div.tit_float strong {float:left;}
+.select_tour01 div.tit_float span {float:right;}
+.select_tour01 ol li {margin-top:10px; color:#666;}
+.select_tour01 ol li:first-child {margin-top:0;}
+
+.hotel_detail .detail_info.dprs_detail_infoo {width:270px;}
+.hotel_detail .detail_info.dprs_detail_infoo dl dt {width:90px;}
+.hotel_detail .detail_info.dprs_detail_infoo dl dd {width:160px; margin-left:10px;}
+
+.dprs_cal {*zoom:1;}
+.dprs_cal:after {display:block; content:""; clear:both;}
+.dprs_cal table {float:left; width:400px;}
+.dprs_cal table thead tr th {background:#666;text-align:center; border:1px solid #e2e2e2;}
+.dprs_cal table thead tr th div {*zoom:1;margin:0; padding:14px 0 13px;}
+.dprs_cal table thead tr th div span {display:inline-block; width:115px; font-size:14px; color:#fff; font-weight:bold;}
+.dprs_cal table thead tr th div a.prev {display:inline-block; width:10px; height:14px;background:url(/images/front/travel/popup/btn_prev.gif) no-repeat 0 3px; line-height:0;}
+.dprs_cal table thead tr th div a.next {display:inline-block; width:10px; height:14px;background:url(/images/front/travel/popup/btn_next2.gif) no-repeat 0 3px; line-height:0;}
+.dprs_cal table tbody tr td {border-bottom:1px solid #e2e2e2; border-right:1px solid #e2e2e2;}
+.dprs_cal table tbody tr td:first-child {border-left:1px solid #e2e2e2;}
+.dprs_cal table tbody tr.top td {padding:9px 0; text-align:center; font-weight:bold; border-bottom:1px solid #e2e2e2; border-right:none;}
+
+.dprs_cal table tbody tr.top td.clred {color:#fc3b33;}
+.dprs_cal table tbody tr.top td.last {border-right:1px solid #e2e2e2;}
+.dprs_cal table tbody tr.date td {width:52px; height:48px; vertical-align:top; font-weight:bold;}
+.dprs_cal table tbody tr.date td a {display:block; height:48px;padding:4px 0 0 10px;}
+.dprs_cal table tbody tr.date td.clskyblue {background:#fafafa;}
+.dprs_cal table tbody tr.date td.clwhitepink a{background:#fdebf2;}
+.dprs_cal table tbody tr.date td.selected a {background:#e42073 !important; color:#fff;}
+
+.dprs_yeyak .check_box.ticket p.first span.dotted {display:inline-block; width:100px; padding-left:10px; font-weight:normal; background:url(/images/front/travel/common/bul_3x3_666.gif) no-repeat 0 3px;}
+.dprs_yeyak .check_box.ticket p.second > span {margin-left:0; padding-left:10px; background:url(/images/front/travel/common/bar_1x11_747474.gif) no-repeat 0 0;}
+.dprs_yeyak .check_box.ticket p.second > em {margin-right:10px;}
+.dprs_yeyak .check_box.ticket p.second > span:first-child {background:none;}
+.dprs_yeyak .check_box.ticket .ticket_dprs {top:72px;}
+
+.dprs_sangpum {margin-top:10px; padding:20px; border:1px solid #999;}
+.dprs_sangpum > ul > li {border-top:1px solid #ccc;}
+.dprs_sangpum > ul > li:first-child {border-top:none;}
+.dprs_sangpum > ul > li:first-child dl dt,.dprs_sangpum > ul > li:first-child dl dd {padding-top:0;}
+.dprs_sangpum ul li dl {*zoom:1;}
+.dprs_sangpum ul li dl:after {display:block; content:""; clear:both;}
+.dprs_sangpum ul li dl dt {float:left; width:131px; padding:15px 0 14px 10px; font-weight:bold; }
+.dprs_sangpum ul li dl dd {float:left; width:660px;padding:10px 0 14px;}
+.dprs_sangpum ul li dl dd p {line-height:20px;}
+.dprs_sangpum ul li dl dd ol li {line-height:20px;}
+.dprs_sangpum ul li dl dd ul li {padding-left:10px; background:url(/images/front/travel/common/bul_3x3_666.gif) no-repeat 0 7px; line-height:20px;}
+.dprs_sangpum ul li dl dd ul li strong,.dprs_sangpum ul li dl dd p strong {font-weight:bold;}
+
+.il_jung {margin-top:10px; padding:20px; border:1px solid #999;}
+.il_jung div table thead tr th {padding:10px 0 9px; border-top:1px solid #666; border-bottom:1px solid #666;}
+.il_jung div table tbody tr td {padding:15px 0 15px 10px; line-height:20px; border-bottom:1px solid #e2e2e2; color:#666;}
+.il_jung div table tbody tr td.center {text-align:center; padding-left:0; border-right:1px solid #e2e2e2; }
+
+.clred {color:#fc3b33 !important;font-weight:bold;}
+
+.help_text.help_dprs22 div.tip_box {right:-114px; bottom:0;}
+.help_text.help_dprs22 .tip span.bot {right:119px; bottom:-12px;}
+
+/* 할인티켓 h3 */
+.flting_h {height:12px;}
+.flting_h img {float:right;}
+.flting_h img:first-child {float:left;}
+
+/* 총요금 */
+.ticket_dprs {text-align:right;}
+.ticket_dprs span img {vertical-align:top; margin-top:10px !important;}
+.ticket_dprs strong.chong_yo_gum {font-size:20px !important; font-family:'맑은 고딕'; color:#222 !important; margin-left:10px; margin-right:-1px; font-size:20px;}
+.chong_yo_gum {}
