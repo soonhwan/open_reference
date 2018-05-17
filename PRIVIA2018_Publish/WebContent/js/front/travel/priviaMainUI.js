@@ -124,14 +124,14 @@ if(not_chrome == true){
 		});	
 	}
 }
-function setBanner( obj, autorolling, dtime, align, duration) {
+function setBanner( obj, autorolling, dtime, align, duration, interval) {
 	var w = obj.find('.roll_img > ul > li').width(),
 	leng = obj.find('.roll_img > ul > li').length,
 	btns = '',
 	autoplayclass = '',
 	autoplay = autorolling,
 	flag = 0,
-	interval = 4000, //자동롤링 인터벌
+	interval = parseInt(interval || 4000), //자동롤링 인터벌
 	speed = parseInt(duration || 600), //롤링 소요시간
 	delay = dtime,
 	_timer,
@@ -176,7 +176,7 @@ function setBanner( obj, autorolling, dtime, align, duration) {
 		if(window_focus == "focus"){
 			if(flag == leng - 1){			
 				for(var x = 0; x < leng; x++){
-					obj.find('.roll_img > ul').find("li").eq(x).clone().addClass("copied").appendTo(obj.find('.roll_img > ul'));
+					obj.find('.roll_img > ul').find("li").eq(x).clone(true).addClass("copied").appendTo(obj.find('.roll_img > ul'));
 				}
 				obj.find('.roll_btn').find('em').removeClass("on");
 				obj.find('.roll_btn').find('em').eq(0).addClass("on");
@@ -320,6 +320,272 @@ function setBanner( obj, autorolling, dtime, align, duration) {
 			}
 		});
 	}
+	
+	
+	
+	
+	/*
+	if(leng > 1){
+		obj.prepend($("<span class='roll_btn' />").html(btns));
+	}
+	obj.find('.roll_btn').find('em').click(function(i) {
+		for ( i = 0; i < eval( obj.find('.roll_btn').children().length ); i++ ) {
+			if ( i == $(this).index() ) {
+				obj.find('.roll_btn').find('em').eq(i).addClass("on");
+			} else {
+				obj.find('.roll_btn').find('em').eq(i).removeClass("on");
+			}
+		}
+		obj.find('.roll_img > ul').animate( { 'margin-left': eval( $(this).index() ) * ( -w ) }, 600, function() {} );
+		return false;
+	});	
+	*/
+}
+
+// 여러개 한번에 롤링되는 타입의 carousel 배너
+function setBannerMulti(obj, autorolling, dtime, items, circulation) {
+	var w = obj.find('.roll_img > ul > li').outerWidth() * items,
+	leng = obj.find('.roll_img > ul > li').length,
+	retu = obj.find('.roll_img > ul > li').outerWidth() * leng,
+	pages = parseInt(leng / items),
+	btns = '',
+	autoplayclass = '',
+	autoplay = autorolling,
+	flag = 0,
+	interval = 4000, //자동롤링 인터벌
+	speed = 600, //롤링 소요시간
+	delay = dtime,
+	_timer;
+	
+	speed = speed * items / 2;
+
+	if(leng % items > 0){
+		pages = pages + 1;
+	}
+	if(leng <= items){
+		return;
+	}
+	
+	obj.attr("checkAnimate","false");
+	obj.find('.roll_img > ul').width(obj.find('.roll_img > ul > li').outerWidth() * (leng*2) + 100)
+	
+	var clearRoll = function() {
+		if(_timer) {
+			clearTimeout(_timer);
+			_timer = null;
+		}
+	};
+	var repeatRoll = function(){
+		clearRoll();
+		_timer = setTimeout(timeoutRoll, interval);
+	};
+
+	var _carousel = function(direction){
+		if(direction == "left"){
+			if(obj.attr("checkAnimate") == "true"){
+				return;
+			}
+			obj.attr("checkAnimate","true");
+			for(var x = 0; x < leng; x++){
+				obj.find('.roll_img > ul').find("li").eq(x).clone().addClass("copied").appendTo(obj.find('.roll_img > ul'));
+			}
+			obj.find('.roll_img > ul').css("margin-left", retu * -1);
+			obj.find('.roll_btn').find('em').removeClass("on");
+			obj.find('.roll_btn').find('em').eq(pages - 1).addClass("on");
+			obj.find('.roll_img > ul').animate({'margin-left': - retu + w}, speed, function(){
+				var count = 0;
+				obj.find('.roll_img > ul').find("li").each(function(){
+					count = count + 1;
+					if(!$(this).hasClass("copied")){
+						$(this).remove();
+					}
+					if(count == leng * 2){
+						obj.find('.roll_img > ul').find("li").removeClass("copied");
+					}
+				});
+				flag = pages - 1;
+				obj.attr("checkAnimate","false");
+				if(autoplay == true){
+					repeatRoll();
+				}
+			});			
+		}else if(direction == "right"){
+			if(obj.attr("checkAnimate") == "true"){
+					return;
+			}		
+			obj.attr("checkAnimate","true");
+			for(var x = 0; x < leng; x++){
+				obj.find('.roll_img > ul').find("li").eq(x).clone().addClass("copied").appendTo(obj.find('.roll_img > ul'));
+			}
+			obj.find('.roll_btn').find('em').removeClass("on");
+			obj.find('.roll_btn').find('em').eq(0).addClass("on");
+			obj.find('.roll_img > ul').animate({'margin-left': - retu}, speed,function(){
+				var count = 0;
+				obj.find('.roll_img > ul').find("li").each(function(){
+					count = count + 1;
+					if(!$(this).hasClass("copied")){
+						$(this).remove();
+						flag = 0;
+					}
+					if(count == leng * 2){
+						obj.find('.roll_img > ul').find("li").removeClass("copied");
+					}
+				});
+				obj.find('.roll_img > ul').css("margin-left","0");
+				obj.attr("checkAnimate","false");
+				if(autoplay == true){
+					repeatRoll();
+				}
+			});
+		}
+	}
+
+	var timeoutRoll = function(){
+		if(window_focus == "focus"){
+			if(flag == pages - 1){
+				_carousel("right");
+			}else{
+				obj.find('.roll_btn').find('em').eq(flag + 1).trigger("click");
+			}
+			repeatRoll();
+		}else{
+			repeatRoll();
+			return;
+		}
+	};
+	
+	if(autoplay == true){
+		_timer = setTimeout(function(){
+			timeoutRoll();
+		},delay);
+	}
+	for(var x = 0; x < pages; x++){
+		if(x == 0){
+			btns += '<em class="on"></em>\n';
+		}else{
+			btns += '<em></em>\n';
+		}
+	}
+	
+	if(circulation == false){
+		obj.append($("<div class='roll_btn_center' />"));
+	}else{
+		if(autoplay == true){
+			obj.append($("<div class='roll_btn_center' />").prepend($("<span class='btn_move' />").html('일시정지')));
+		}else{
+			obj.append($("<div class='roll_btn_center' />").prepend($("<span class='btn_move btn_play' />").html('재생')));
+		}
+	}
+
+	obj.find(".roll_btn_center").append($("<span class='roll_btn' />").html(btns));
+	if(circulation == false){
+		obj.append('<span class="btn_side btn_side_left btn_off" />').append('<span class="btn_side btn_side_right" />');
+	}else{
+		obj.append('<span class="btn_side btn_side_left" />').append('<span class="btn_side btn_side_right" />');
+	}
+	
+	obj.find('.roll_btn').find('em').click(function(i) {
+		if(obj.attr("checkAnimate") == "true"){
+			return;
+		}
+		//console.log(flag)
+		obj.attr("checkAnimate","true");
+		flag = $(this).index();
+		if(autoplay == true){
+			clearRoll();
+		}
+		if(circulation == false){
+			if($(this).index() == 0){
+				obj.find(".btn_side_left").addClass("btn_off");
+			}else{
+				obj.find(".btn_side_left").removeClass("btn_off");
+			}
+			if($(this).index() + 1 == pages){
+				obj.find(".btn_side_right").addClass("btn_off");
+			}else{
+				obj.find(".btn_side_right").removeClass("btn_off");
+			}
+			
+		}
+		for (var i = 0; i < eval( obj.find('.roll_btn').children().length ); i++ ) {
+			if ( i == $(this).index() ) {
+				obj.find('.roll_btn').find('em').eq(i).addClass("on");
+			} else {
+				obj.find('.roll_btn').find('em').eq(i).removeClass("on");
+			}
+		}
+		//console.log($(this).index())
+		obj.find('.roll_img > ul').animate({ 'margin-left': eval( $(this).index() ) * ( -w ) }, speed, function() {
+			obj.attr("checkAnimate","false");
+			if(autoplay == true){
+				repeatRoll();
+			}
+		});
+		return false;
+	});
+	obj.find('.btn_side').click(function(){
+		if(autoplay == true){
+			clearRoll();
+		}
+		if($(this).hasClass("btn_side_left")){
+			if(circulation == false){
+				obj.find('.roll_btn').find('em').eq(flag - 1).trigger("click");
+			}else{
+				if(flag == 0){
+					_carousel("left");
+				}else{
+					obj.find('.roll_btn').find('em').eq(flag - 1).trigger("click");
+				}
+			}
+		}else if($(this).hasClass("btn_side_right")){
+			if(circulation == false){
+				obj.find('.roll_btn').find('em').eq(flag + 1).trigger("click");
+			}else{
+				if(flag == pages - 1){
+					_carousel("right");
+				}else{
+					obj.find('.roll_btn').find('em').eq(flag + 1).trigger("click");
+				}
+			}
+		}
+	});
+	
+	obj.find('.btn_move').click(function(){
+		if(autoplay == true){
+			autoplay = false;
+			$(this).addClass("btn_play").text("재생");
+			clearRoll();
+		}else{
+			autoplay = true;
+			$(this).removeClass("btn_play").text("일시정지");
+			repeatRoll();
+		}
+	});
+	if(autoplay == true){
+		obj.mouseenter(function(){
+			if(autoplay == true){
+				clearRoll();
+			}
+		});
+		obj.mouseleave(function(){
+			if(autoplay == true){
+				repeatRoll();
+			}
+		});
+		obj.find("li > a").bind({
+			focus: function(){
+				idx = $(this).parent("li").index();
+
+				obj.find('.roll_btn').find('em').removeClass("on");
+				obj.find('.roll_btn').find('em').eq(idx).addClass("on");
+
+			},
+			blur: function(){
+
+			}
+		});
+	}
+
 }
 
 /*

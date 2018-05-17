@@ -17,6 +17,20 @@
 <link type="text/css" rel="stylesheet" href="/css/front/travel/priviaMain.css" />
 <link type="text/css" rel="stylesheet" href="/css/front/travel/jquery.mCustomScrollbar.min.css" />
 <link type="text/css" rel="stylesheet" href="/css/front/travel/commonModule.css" />
+<script type="text/javascript" src="//static.priviatravel.com/js/front/travel/jquery-1.8.3.min.js"></script>
+<script type="text/javascript" src="//static.priviatravel.com/js/front/travel/jquery-ui.js"></script>
+<script type="text/javascript" src="//static.priviatravel.com/js/front/travel/fakeselect.js"></script>
+<script type="text/javascript" src="/js/front/travel/jquery.mCustomScrollbar.concat.min.js"></script>
+<script type="text/javascript" src="/js/front/travel/jquery.lazyLoad.js"></script>
+<script type="text/javascript" src="/js/front/travel/gnbContent.js"></script>
+<script type="text/javascript" src="/js/front/travel/quick-search.js"></script>
+<script type="text/javascript" src="/js/front/travel/priviaMainUI.js"></script>
+<script type="text/javascript" src="/js/front/travel/TweenMax.js"></script>
+<script type="text/javascript" src="/js/front/travel/randomRoll_common.js"></script>
+<script type="text/javascript" src="/js/front/travel/tileUpdateTransition.js"></script>
+<script type="text/javascript" src="/js/front/travel/tileUpdateTransitionHost.js"></script>
+<script type="text/javascript" src="/js/front/travel/slick.min.js"></script>
+<script type="text/javascript" src="/js/front/travel/commonModule.js"></script>
 </head>
 <body>
 
@@ -32,9 +46,8 @@
 <div id="wrap">
 	<!-- #top-area-sec -->
 	<div id="top-area-sec">
-		<div class="w-tas-promotion">
-			<div class="ly-inner">
-				<ul class="tasp-list">
+		<div class="w-tas-promotion ly-inner">
+			<ul class="tasp-list">
 				<li>
 					<div class="tasp-tit">
 						<p class="label">현대카드 PRIVIA 여행</p>
@@ -136,39 +149,46 @@
 					</div>
 				</li>
 			</ul>
-			</div>
-		</div>
-		<div class="w-tas-top ly-inner">
-			<div class="tast-control">
-				<span class="c-chk">
-					<span class="a11y"><input type="checkbox" id="closeToday"></span>
-					<label for="closeToday">오늘 하루 열지 않기</label>
-					<span class="b-crt bc-close"><a href="#"><span class="a11y">상단영역 닫기 버튼</span></a></span>
-				</span>
-				<span class="b-crt bc-open on"><a href="#"><span class="a11y">상단영역 열고 닫기 버튼</span></a></span>
-			</div>
-			<div class="tast-notice">
-				<ul>
-					<li class="point"><strong>중요</strong><a href="#">2018년 3월 국제선 유류할증료 안내</a></li>
-					<li><a href="#">2018년 3월 국제선 유류할증료 안내</a></li>
-					<li><a href="#">2018년 3월 국제선 유류할증료 안내</a></li>
-				</ul>
-			</div>
-			<div class="tast-user privia"><span>qwwiueoeuorsdfkdjflgdfjkljlarjt님</span></div>
-			<ul class="nav-mypage">
-				<li class="on"><a href="#">로그아웃</a></li>
-				<!--<li class="on"><a href="#">로그인</a></li>-->
-				<li><a href="#">마이페이지</a></li>
-				<li><a href="#">나의 혜택</a></li>
-				<li><a href="#">고객센터</a></li>
-			</ul>
 		</div>
 	</div>
 	<!--// #top-area-sec -->
 	
 	<!-- #header-sec -->
 	<div id="header-sec" class="o-bg-air">
-		<div class="w-header-sec">
+		<div class="w-header-util">
+			<div class="ly-inner">
+				<div class="hu-control">
+					<span class="c-chk">
+						<span class="a11y"><input type="checkbox" id="closeToday"></span>
+						<label for="closeToday">오늘 하루 열지 않기</label>
+						<span class="b-crt bc-close"><a href="#"><span class="a11y">상단영역 닫기 버튼</span></a></span>
+					</span>
+					<span class="b-crt bc-open on"><a href="#"><span class="a11y">상단영역 열고 닫기 버튼</span></a></span>
+				</div>
+				<div class="hu-notice">
+					<ul>
+						<li class="point"><strong>중요</strong><a href="#">2018년 3월 국제선 유류할증료 안내</a></li>
+						<li><a href="#">2018년 3월 국제선 유류할증료 안내</a></li>
+						<li><a href="#">2018년 3월 국제선 유류할증료 안내</a></li>
+					</ul>
+				</div>
+				<div class="hu-user privia"><span>qwwiueoeuorsdfkdjflgdfjkljlarjt님</span></div>
+				<!--<div class="hu-user naver"><span>sddfsdfoeuorsdfkdjflgdfjkljlarjt님</span></div> 
+				<div class="hu-user facebook"><span>sddfsdfoeuorsdfkdjflgdfjkljlarjt님</span></div> 
+				<div class="hu-user twitter"><span>sddfsdfoeuorsdfkdjflgdfjkljlarjt님</span></div> -->
+				<ul class="nav-util">
+					<li class="on"><a href="#">로그아웃</a></li>
+					<!--<li class="on"><a href="#">로그인</a></li>-->
+					<li><a href="#">마이페이지</a></li>
+					<li><a href="#">나의 혜택</a></li>
+					<li><a href="#">고객센터</a></li>
+				</ul>
+			</div>
+		</div>
+		<div class="w-header-gnb">
+			
+		</div>
+		<div class="w-header-search">
 			
 		</div>
 	</div>
@@ -178,7 +198,7 @@
 	<div id="content-sec">
 		<div class="w-content-sec ws-main-cont">
 			<div class="s-rec-list-cont ly-inner">
-				<h2 class="a11y">메인 추천 상품</h2>
+				<h2 class="a11y">메인 추천 프로모션</h2>
 				<div class="rlc-left">
 					<div class="rlc-list-main">
 						<ul>
@@ -186,28 +206,28 @@
 								<a href="#">
 									<span class="tit">하와이안 항공<br />프리미엄 클래스 특별 이벤트</span>
 									<span class="exp">현대카드 PRIVIA 항공 특가 + 카드별 7%, 10% 청구 할인</span>
-									<span class="vis"><img src="/images/front/travel/temp/vis-580x300.jpg" alt="&nbsp;"></span>
+									<span class="vis"><img src="/images/front/travel/contents/vis-580x300.jpg" alt="&nbsp;"></span>
 								</a>
 							</li>
 							<li class="o-box">
 								<a href="#">
 									<span class="tit">하와이안 항공<br />프리미엄 클래스 특별 이벤트</span>
 									<span class="exp">현대카드 PRIVIA 항공 특가 + 카드별 7%, 10% 청구 할인</span>
-									<span class="vis"><img src="/images/front/travel/temp/vis-580x300.jpg" alt="&nbsp;"></span>
+									<span class="vis"><img src="/images/front/travel/contents/vis-580x300.jpg" alt="&nbsp;"></span>
 								</a>
 							</li>
 							<li class="o-box">
 								<a href="#">
 									<span class="tit">하와이안 항공<br />프리미엄 클래스 특별 이벤트</span>
 									<span class="exp">현대카드 PRIVIA 항공 특가 + 카드별 7%, 10% 청구 할인</span>
-									<span class="vis"><img src="/images/front/travel/temp/vis-580x300.jpg" alt="&nbsp;"></span>
+									<span class="vis"><img src="/images/front/travel/contents/vis-580x300.jpg" alt="&nbsp;"></span>
 								</a>
 							</li>
 							<li class="o-box">
 								<a href="#">
 									<span class="tit">하와이안 항공<br />프리미엄 클래스 특별 이벤트</span>
 									<span class="exp">현대카드 PRIVIA 항공 특가 + 카드별 7%, 10% 청구 할인</span>
-									<span class="vis"><img src="/images/front/travel/temp/vis-580x300.jpg" alt="&nbsp;"></span>
+									<span class="vis"><img src="/images/front/travel/contents/vis-580x300.jpg" alt="&nbsp;"></span>
 								</a>
 							</li>
 						</ul>
@@ -219,21 +239,21 @@
 									<a href="#">
 										<span class="tit">롯데면세점 <br />적립금 증정 프로모션</span>
 										<span class="date">예약기간  :  2018. 04. 01 ~ 2018. 12. 31</span>
-										<span class="vis"><img src="/images/front/travel/temp/vis-280x170.jpg" alt="&nbsp;"></span>
+										<span class="vis"><img src="/images/front/travel/contents/vis-280x170.jpg" alt="&nbsp;"></span>
 									</a>
 								</li>
 								<li class="o-box">
 									<a href="#">
 										<span class="tit">롯데면세점 <br />적립금 증정 프로모션</span>
 										<span class="date">예약기간  :  2018. 04. 01 ~ 2018. 12. 31</span>
-										<span class="vis"><img src="/images/front/travel/temp/vis-280x170.jpg" alt="&nbsp;"></span>
+										<span class="vis"><img src="/images/front/travel/contents/vis-280x170.jpg" alt="&nbsp;"></span>
 									</a>
 								</li>
 								<li class="o-box">
 									<a href="#">
 										<span class="tit">롯데면세점 <br />적립금 증정 프로모션</span>
 										<span class="date">예약기간  :  2018. 04. 01 ~ 2018. 12. 31</span>
-										<span class="vis"><img src="/images/front/travel/temp/vis-280x170.jpg" alt="&nbsp;"></span>
+										<span class="vis"><img src="/images/front/travel/contents/vis-280x170.jpg" alt="&nbsp;"></span>
 									</a>
 								</li>
 							</ul>
@@ -244,21 +264,21 @@
 									<a href="#">
 										<span class="tit">에어캐나다 <br />미국/캐나다 주요 도시 특별 할인</span>
 										<span class="date">예약기간  :  2018. 01. 31 ~ 2018. 05. 31</span>
-										<span class="vis"><img src="/images/front/travel/temp/vis-280x170.jpg" alt="&nbsp;"></span>
+										<span class="vis"><img src="/images/front/travel/contents/vis-280x170.jpg" alt="&nbsp;"></span>
 									</a>
 								</li>
 								<li class="o-box">
 									<a href="#">
 										<span class="tit">에어캐나다 <br />미국/캐나다 주요 도시 특별 할인</span>
 										<span class="date">예약기간  :  2018. 01. 31 ~ 2018. 05. 31</span>
-										<span class="vis"><img src="/images/front/travel/temp/vis-280x170.jpg" alt="&nbsp;"></span>
+										<span class="vis"><img src="/images/front/travel/contents/vis-280x170.jpg" alt="&nbsp;"></span>
 									</a>
 								</li>
 								<li class="o-box">
 									<a href="#">
 										<span class="tit">에어캐나다 <br />미국/캐나다 주요 도시 특별 할인</span>
 										<span class="date">예약기간  :  2018. 01. 31 ~ 2018. 05. 31</span>
-										<span class="vis"><img src="/images/front/travel/temp/vis-280x170.jpg" alt="&nbsp;"></span>
+										<span class="vis"><img src="/images/front/travel/contents/vis-280x170.jpg" alt="&nbsp;"></span>
 									</a>
 								</li>
 							</ul>
@@ -272,28 +292,28 @@
 								<a href="#">
 									<span class="tit">오키나와 호텔 예약하고<br />츄라우미 수족관 무료 입장</span>
 									<span class="exp">츄라우미 입장권 증정, 바닷속 생물들 마주할 기회 </span>
-									<span class="vis"><img src="/images/front/travel/temp/vis-580x300.jpg" alt="&nbsp;"></span>
+									<span class="vis"><img src="/images/front/travel/contents/vis-580x300.jpg" alt="&nbsp;"></span>
 								</a>
 							</li>
 							<li class="o-box">
 								<a href="#">
 									<span class="tit">오키나와 호텔 예약하고<br />츄라우미 수족관 무료 입장</span>
 									<span class="exp">츄라우미 입장권 증정, 바닷속 생물들 마주할 기회 </span>
-									<span class="vis"><img src="/images/front/travel/temp/vis-580x300.jpg" alt="&nbsp;"></span>
+									<span class="vis"><img src="/images/front/travel/contents/vis-580x300.jpg" alt="&nbsp;"></span>
 								</a>
 							</li>
 							<li class="o-box">
 								<a href="#">
 									<span class="tit">오키나와 호텔 예약하고<br />츄라우미 수족관 무료 입장</span>
 									<span class="exp">츄라우미 입장권 증정, 바닷속 생물들 마주할 기회 </span>
-									<span class="vis"><img src="/images/front/travel/temp/vis-580x300.jpg" alt="&nbsp;"></span>
+									<span class="vis"><img src="/images/front/travel/contents/vis-580x300.jpg" alt="&nbsp;"></span>
 								</a>
 							</li>
 							<li class="o-box">
 								<a href="#">
 									<span class="tit">오키나와 호텔 예약하고<br />츄라우미 수족관 무료 입장</span>
 									<span class="exp">츄라우미 입장권 증정, 바닷속 생물들 마주할 기회 </span>
-									<span class="vis"><img src="/images/front/travel/temp/vis-580x300.jpg" alt="&nbsp;"></span>
+									<span class="vis"><img src="/images/front/travel/contents/vis-580x300.jpg" alt="&nbsp;"></span>
 								</a>
 							</li>
 						</ul>
@@ -305,21 +325,21 @@
 									<a href="#">
 										<span class="tit">Summer holiday in <br />닛코 괌 호텔</span>
 										<span class="date">예약기간  :  2018. 04. 20 ~ 2018. 05. 31</span>
-										<span class="vis"><img src="/images/front/travel/temp/vis-280x170.jpg" alt="&nbsp;"></span>
+										<span class="vis"><img src="/images/front/travel/contents/vis-280x170.jpg" alt="&nbsp;"></span>
 									</a>
 								</li>
 								<li class="o-box">
 									<a href="#">
 										<span class="tit">Summer holiday in <br />닛코 괌 호텔</span>
 										<span class="date">예약기간  :  2018. 04. 20 ~ 2018. 05. 31</span>
-										<span class="vis"><img src="/images/front/travel/temp/vis-280x170.jpg" alt="&nbsp;"></span>
+										<span class="vis"><img src="/images/front/travel/contents/vis-280x170.jpg" alt="&nbsp;"></span>
 									</a>
 								</li>
 								<li class="o-box">
 									<a href="#">
 										<span class="tit">Summer holiday in <br />닛코 괌 호텔</span>
 										<span class="date">예약기간  :  2018. 04. 20 ~ 2018. 05. 31</span>
-										<span class="vis"><img src="/images/front/travel/temp/vis-280x170.jpg" alt="&nbsp;"></span>
+										<span class="vis"><img src="/images/front/travel/contents/vis-280x170.jpg" alt="&nbsp;"></span>
 									</a>
 								</li>
 							</ul>
@@ -330,21 +350,21 @@
 									<a href="#">
 										<span class="tit">세계의 지붕, 네팔, <br />주요 도시 BEST 호텔 추천</span>
 										<span class="date">예약기간  :  2018. 04. 11 ~ 2018. 05. 13</span>
-										<span class="vis"><img src="/images/front/travel/temp/vis-280x170.jpg" alt="&nbsp;"></span>
+										<span class="vis"><img src="/images/front/travel/contents/vis-280x170.jpg" alt="&nbsp;"></span>
 									</a>
 								</li>
 								<li class="o-box">
 									<a href="#">
 										<span class="tit">세계의 지붕, 네팔, <br />주요 도시 BEST 호텔 추천</span>
 										<span class="date">예약기간  :  2018. 04. 11 ~ 2018. 05. 13</span>
-										<span class="vis"><img src="/images/front/travel/temp/vis-280x170.jpg" alt="&nbsp;"></span>
+										<span class="vis"><img src="/images/front/travel/contents/vis-280x170.jpg" alt="&nbsp;"></span>
 									</a>
 								</li>
 								<li class="o-box">
 									<a href="#">
 										<span class="tit">세계의 지붕, 네팔, <br />주요 도시 BEST 호텔 추천</span>
 										<span class="date">예약기간  :  2018. 04. 11 ~ 2018. 05. 13</span>
-										<span class="vis"><img src="/images/front/travel/temp/vis-280x170.jpg" alt="&nbsp;"></span>
+										<span class="vis"><img src="/images/front/travel/contents/vis-280x170.jpg" alt="&nbsp;"></span>
 									</a>
 								</li>
 							</ul>
@@ -358,25 +378,35 @@
 			</div>
 			
 			<div class="s-banner-cont">
-				<h2 class="a11y">추천 배너 영역</h2>
+				<h2 class="a11y">추천 프로모션 배너</h2>
 				<ul class="bc-list">
 					<li>
-						<div class="vis" style="background: url(/images/front/travel/temp/vis-1920x320.jpg) 50% 0 no-repeat;">
+						<div class="vis" style="background: url(/images/front/travel/contents/vis-1920x320.jpg) 50% 0 no-repeat;">
 							<div class="ly-inner"><span class="b-link"><a href="#">항공 예약하기</a></span></div>
 						</div>
 					</li>
 					<li>
-						<div class="vis" style="background: url(/images/front/travel/temp/vis-1920x320.jpg) 50% 0 no-repeat;">
+						<div class="vis" style="background: url(/images/front/travel/contents/vis-1920x320.jpg) 50% 0 no-repeat;">
 							<div class="ly-inner"><span class="b-link"><a href="#">항공 예약하기</a></span></div>
 						</div>
 					</li>
 					<li>
-						<div class="vis" style="background: url(/images/front/travel/temp/vis-1920x320.jpg) 50% 0 no-repeat;">
+						<div class="vis" style="background: url(/images/front/travel/contents/vis-1920x320.jpg) 50% 0 no-repeat;">
+							<div class="ly-inner"><span class="b-link"><a href="#">항공 예약하기</a></span></div>
+						</div>
+					</li>
+					<li>
+						<div class="vis" style="background: url(/images/front/travel/contents/vis-1920x320.jpg) 50% 0 no-repeat;">
 							<div class="ly-inner"><span class="b-link"><a href="#">항공 예약하기</a></span></div>
 						</div>
 					</li>
 				</ul>
 				<div class="bc-crt ly-inner">
+					<div class="w-slick-dots">
+						<span class="cs-dots-crt">
+							<button class="b-slick-crt on"><span class="a11y">재생/일시정지 버튼</span></button>
+						</span>
+					</div>
 					<div class="c-b-crt">
 						<span class="b-crt bc-next"><a href="#"><span class="a11y">다음 보기 버튼</span></a></span>
 					</div>
@@ -386,10 +416,10 @@
 			<div class="s-benefit-cont ly-inner">
 				<h2 class="a11y">PRIVIA 혜택</h2>
 				<ul class="list-benefit">
-					<li><a href="#"><span class="txt">카드별 할인</span></a></li>
-					<li><a href="#"><span class="txt">5월 카드사<br />무이자 할부 안내</span></a></li>
-					<li><a href="#"><span class="txt">the Purple 특별혜택</span></a></li>
-					<li><a href="#"><span class="txt">쿠폰 다운로드</span></a></li>
+					<li class="bfit1"><a href="#"><span class="inner"><span class="txt">카드별 할인</span></span></a></li>
+					<li class="bfit2"><a href="#"><span class="inner"><span class="txt">5월 카드사<br />무이자 할부 안내</span></span></a></li>
+					<li class="bfit3"><a href="#"><span class="inner"><span class="txt">the Purple 특별혜택</span></span></a></li>
+					<li class="bfit4"><a href="#"><span class="inner"><span class="txt">쿠폰 다운로드</span></span></a></li>
 				</ul>
 			</div>
 					
@@ -404,8 +434,29 @@
 					</ul>
 				</div>
 				<div class="sic-aside">
-					<p class="tit">더 즐거운 여행이 되려면?<br /><em class="c-point1">나의 항공 할인 혜택</em> 바로 확인 서비스</p>
-					<p class="vis"><img src="/images/front/travel/temp/vis-285x170.jpg" alt="연회비 캐시백"></p>
+					<a href="#">
+						<span class="tit">더 즐거운 여행이 되려면?<br /><em class="c-point1">나의 항공 할인 혜택</em> 바로 확인 서비스</span>
+						<span class="vis"><img src="/images/front/travel/contents/vis-285x170.jpg" alt="연회비 캐시백"></span>
+					</a>
+				</div>
+			</div>
+			
+			<div class="s-fix-promotion">
+				<a href="#" class="b-open">
+					<span class="txt c-point2">모바일 혜택</span>
+				</a>
+				<div class="fpromo-box">
+					<div class="cont">
+						<p class="tit">현대카드 PRIVIA 여행<br />5월 모바일 특별 프로모션</p>
+						<dl>
+							<dt>특별 혜택 : </dt>
+							<dd>모바일 예약/결제 시 모바일 특가 제공</dd>
+						</dl>
+					</div>
+					<ul class="">
+						<li><a href="#"></a></li>
+					</ul>
+					<a href="#" class="b-close"><span class="a11y">프로모션 닫기 버튼</span></a>
 				</div>
 			</div>
 		</div>
@@ -439,47 +490,30 @@
 	<!--// #footer-sec -->
 </div>
 
-<script type="text/javascript" src="//static.priviatravel.com/js/front/travel/jquery-1.8.3.min.js"></script>
-<script type="text/javascript" src="//static.priviatravel.com/js/front/travel/jquery-ui.js"></script>
-<script type="text/javascript" src="//static.priviatravel.com/js/front/travel/fakeselect.js"></script>
-<script type="text/javascript" src="/js/front/travel/jquery.mCustomScrollbar.concat.min.js"></script>
-<script type="text/javascript" src="/js/front/travel/jquery.lazyLoad.js"></script>
-<script type="text/javascript" src="/js/front/travel/gnbContent.js"></script>
-<script type="text/javascript" src="/js/front/travel/quick-search.js"></script>
-<script type="text/javascript" src="/js/front/travel/priviaMainUI.js"></script>
-<script type="text/javascript" src="/js/front/travel/TweenMax.js"></script>
-<script type="text/javascript" src="/js/front/travel/randomRoll_common.js"></script>
-<script type="text/javascript" src="/js/front/travel/tileUpdateTransition.js"></script>
-<script type="text/javascript" src="/js/front/travel/tileUpdateTransitionHost.js"></script>
-<script type="text/javascript" src="/js/front/travel/commonModule.js"></script>
-
 <script>
 $(function(){
-	$.getScript("/js/front/travel/slick.min.js", function(){
-		var slickDefaultSetting, rlcLeftMain, rlcLeftSub, rlcRightMain, rlcRightsub, bannerCont;
-		slickDefaultSetting = {
-			draggable: false,
-			arrows:false,
-			autoplay: true,
-			autoplaySpeed: 10000
-		};
-		rlcLeftMain = $('.rlc-left .rlc-list-main ul').slick(slickDefaultSetting);
-		rlcLeftSub = $('.rlc-right .rlc-list-main ul').slick(slickDefaultSetting);
-		rlcRightMain = $('.rlc-left .rlc-list-sub ul').slick(slickDefaultSetting);
-		rlcRightsub = $('.rlc-right .rlc-list-sub ul').slick(slickDefaultSetting);
-		bannerCont = $('.s-banner-cont .bc-list').slick(slickDefaultSetting);
-		//bannerCont.slickSetOption('autoplay', false, false);
-		//$('.s-banner-cont .bc-list').slick('slickSetOption', 'autoplay', false, false);
-		//console.log($('.s-banner-cont .bc-list').slick('slickSetOption'));
-		
-		$('.s-banner-cont .c-b-crt .bc-next a').on('click', function(e){
-			bannerCont.slick('slickNext');
-			e.preventDefault();
-		})
-	});
-
+	
 });	
 </script>
+
+<!--
+<탑>
+	리본
+<네임 div 뭉치 박>
+	리본닫기 & 유틸
+	헤더
+	검색
+	<script>
+		헤더 컨트롤 , 검색 컨트롤
+	</script>
+</div>
+<컨텐츠>
+	내용
+<풋터>
+	ui.js 우리가쓸거
+	리본 열고닫기
+	달력 셀렉트
+-->
 
 
 </body>
