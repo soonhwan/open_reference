@@ -111,9 +111,7 @@ $(function(){
 			draggable: false,
 			arrows:false,
 			dots: false,
-			pauseOnHover: false,
-			autoplay: true,
-			autoplaySpeed: 5000
+			pauseOnHover: false
 		};
 		
 		//메인 추천 프로모션
@@ -145,6 +143,28 @@ $(function(){
 		
 		rlcLeftSub = $('.rlc-left .rlc-list-sub ul').slick(mainSlickSettings);
 		rlcRightsub = $('.rlc-right .rlc-list-sub ul').slick(mainSlickSettings);
+		
+		//메인 slick 컨트롤
+		var mSlickPrevBtn, mSlickNextBtn, mSlickCrt, mslickArr;
+		mSlickPrevBtn =  $('.s-rec-list-cont .cb-crt .bc-prev a');
+		mSlickNextBtn = $('.s-rec-list-cont .cb-crt .bc-next a');
+		mSlickCrt = $('.rlc-right .rlc-list-main .b-slick-crt');
+		mslickArr = [rlcLeftMain, rlcLeftSub, rlcRightMain, rlcRightsub]
+		mSlickPrevBtn.on('click', function(e){
+			for(var i in mslickArr){
+				mslickArr[i].slick('slickPrev');
+			}
+			e.preventDefault();
+		});
+		mSlickNextBtn.on('click', function(e){
+			for(var i in mslickArr){
+				mslickArr[i].slick('slickNext');
+			}
+			e.preventDefault();
+		});
+		mSlickCrt.on('click', function(){
+			
+		});
 		
 		//상시 프로모션
 		bannerCont = $('.s-banner-cont .bc-list').on('init', function(event, slick){
