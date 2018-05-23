@@ -1,0 +1,133 @@
+@charset "utf-8";
+
+/* layout.css,common.css */
+html{background:#fff} /* 대상 css 적용완료 */
+
+
+/* common.css */
+table.list_table tbody tr td {border-bottom:1px solid #d7d7d7} /* 대상 css 적용완료 */
+table.list_table2 tbody tr td {border-bottom:1px solid #d7d7d7} /* 대상 css 적용완료 */
+table.write_table tbody tr th {border-bottom:1px solid #e2e2e2} /* 대상 css 적용완료 */
+table.write_table tbody tr td {border-bottom:1px solid #e2e2e2} /* 대상 css 적용완료 */
+table.write_table tbody tr td.line, table.write_table tbody tr th.line {border-right:1px solid #e2e2e2} /* 대상 css 적용완료 */
+.total_search .search_form {width:511px; *position:relative; /**z-index:2;*/
+	-webkit-box-shadow: none;
+    -moz-box-shadow: none;
+    -o-box-shadow: none;
+    -ms-box-shadow: none;
+    box-shadow: none;
+} /* 대상 css 적용완료 */
+.total_search div.nav {position:relative; z-index:2; height:55px; *zoom:1;
+	-webkit-box-shadow: none;
+    -moz-box-shadow: none;
+    -o-box-shadow: none;
+    -ms-box-shadow: none;
+    box-shadow: none;
+} /* 대상 css 적용완료 */
+.caution_basic {padding:20px 19px; padding-bottom:12px; background:#fff;border:1px solid #e2e2e2} /* 대상 css 적용완료 */
+.question_answer {padding:20px 19px; background:#fff;border:1px solid #e2e2e2} /* 대상 css 적용완료 */
+
+
+
+/* content.css */
+body:first-of-type .ico_acc.receipt, body:first-of-type .ico_acc.prog_on, body:first-of-type .ico_acc.done,  body:first-of-type .ico_acc.stand {margin-top:-2px;} /*safari전용*/ /* 대상 css 적용완료 */
+.oldprivia_wrap {position:relative; margin-top:20px; padding:29px 20px; background-color:#fff;border:1px solid #e2e2e2} /* 대상 css 적용완료 */
+.result_air > li {position:relative; margin:0; line-height:0; color:#666; background:#fff;border-bottom:1px solid #d7d7d7} /* 대상 css 적용완료 */
+.result_air li.on {margin:-1px 0 0; border:2px solid #666;} /* 대상 css 적용완료 */
+.result_air li .list_class {margin-bottom:-1px; background:#fff; *zoom:1;border-bottom:1px solid #d7d7d7} /* 대상 css 적용완료 */
+.result_air li .list_class:after {content:""; display:inline-block; clear:both;} /* 대상 css 적용완료 */
+.result_air li .list_class > li {margin:0; height:43px; border-top:1px solid #d7d7d7; border-bottom:1px solid #f8f8f8; background-color:#f8f8f8; *vertical-align:top} /* 대상 css 적용완료 */
+.result_air li .list_class > li.on {border:1px solid #363636;background-color:#fff} /* 대상 css 적용완료 */
+.result_air li .list_class > li.on:hover{border:1px solid #363636} /* 신규추가 */ /* 대상 css 적용완료 */
+.list_search tbody tr td {border-bottom:1px solid #d7d7d7; border-top:1px solid #fff;} /* 대상 css 적용완료 */
+table.list_data {table-layout:fixed; width:100%; background:#fff;border-top:1px solid #666} /* 대상 css 적용완료 */
+table.list_data tbody tr th, 
+table.list_data tbody tr td {border-bottom:1px solid #e2e2e2;} /* 대상 css 적용완료 */
+table.list_data tbody tr td.caution_air2{border-left:0 none} /* 신규추가 */ /* 대상 css 적용완료 */
+.promo_air li {margin:0; *margin:0;} /* 대상 css 적용완료 */
+.promo_air > li{border-bottom:1px solid #d7d7d7}  /* 신규추가 */ /* 대상 css 적용완료 */
+.promo_air li.on {margin:-1px 0 0; *margin-bottom:1px; border:2px solid #666;} /* 대상 css 적용완료 */
+.air_info_box {padding:20px 19px; background:#fff;*zoom:1;border:1px solid #e2e2e2} /* white box padding:20px *//* 대상 css 적용완료 */
+.air_info_box + .air_info_box{margin-top:10px !important} /* 신규추가 */ /* 대상 css 적용완료 */
+.air_info_box + .air_info_box.resView{margin-top:-1px !important} /* 신규추가 */ /* 대상 css 적용완료 */
+/*
+.air_info_box.resView{padding:0 19px !important;border-top:0 none;margin-top:-1px !important}
+.air_info_box .res_view{ border:2px solid #666; padding:18px 18px; *zoom:1; background:#fff;margin-top:-21px;margin-bottom:20px}
+.air_info_box .res_view table { margin:0 !important; padding:0 !important;width:auto}
+.air_info_box .reserve {*zoom:1;padding-bottom:20px;margin-bottom:0 !important;margin-top:30px;}
+.air_info_box .reserve:first-child{margin-top:0}*/ /* 신규추가 */
+/*
+.air_info_box .res_btn{*zoom:1; padding-left:90px; margin-top:0;margin-bottom:20px;}
+*/
+.air_info_box.ptb0{padding-bottom:20px !important} /* 대상 css 적용완료 */
+.air_info_box.resView{margin-top:-1px !important;padding:0 19px !important;border-top:0 none} /* 대상 css 적용완료 */
+.air_info_box .res_view{ border:2px solid #666; padding:18px; *zoom:1; background:#fff;margin-top:-21px;margin-bottom:20px} /* 대상 css 적용완료 */
+.air_info_box .res_view .textarea_comment{box-sizing:border-box;width:100% !important} /* 신규추가 */
+.air_info_box .res_view table { margin:0 !important; padding:0 !important;width:100%;table-layout:auto} /* 대상 css 적용완료 */
+.air_info_box .reserve{*zoom:1;margin-top:0;margin-bottom:0 !important} /* 대상 css 적용완료 */
+
+.caution_air {background:#fff; *zoom:1; margin-top:20px !important;padding:20px 19px;border:1px solid #e2e2e2} /* 대상 css 적용완료 */
+.caution_air .list {margin-bottom:-8px} /* 대상 css 적용완료 */
+.caution_air2 {padding:30px 19px; background:#fff;*zoom:1;border:1px solid #e2e2e2} /* 대상 css 적용완료 */
+.caution_air2.top {margin-top:30px;padding-top:0} /* 대상 css 적용완료 */
+.agreeWrap {padding:0; background-color:#fff;border:0 none} /* 대상 css 적용완료 */
+.member_box {padding:20px; background:#fff;border:1px solid #e2e2e2} /* 대상 css 적용완료 */
+.member_box .gray_box {padding:14px 18px; border:1px solid #e2e2e2; background:#f5f5f5;} /* 대상 css 적용완료 */
+.mem_benefit .item {position:relative; float:left; width:230px; height:124px; margin-right:7px; background:#fff;border:1px solid #e2e2e2} /* 대상 css 적용완료 */
+.reserve_complete {margin-top:20px; border:1px solid #e2e2e2; background:#f5f5f5;
+	-webkit-box-shadow: none;
+    -moz-box-shadow: none;
+    -o-box-shadow: none;
+    -ms-box-shadow: none;
+    box-shadow: none;
+} /* 대상 css 적용완료 */
+.reserve_complete .tit {position:relative;min-height:30px; *zoom:1;padding-bottom:15px; color:#fff; font-size:16px;background:#666 url(/images/front/travel/search/ico_search_alone.png) 19px 0px no-repeat;margin:0 -1px} /* 대상 css 적용완료 */
+.payment_info_box .paym_table tr.tr_pd1 td div {padding:20px 15px;border:0 none} /* 대상 css 적용완료 */
+.hotel_list{border-top:1px solid #666} /* 신규추가 */ /* 대상 css 적용완료 */
+.hotel_list > li {margin-bottom:0; background:#fff;border-bottom:1px solid #d7d7d7} /* 대상 css 적용완료 */
+.hotel_map {height:auto; margin-top:20px;} /* 대상 css 적용완료 */
+.hotel_map:after{content:'';display:block;clear:both} /* 신규추가 */ /* 대상 css 적용완료 */
+.hotel_map li {position:relative; float:left; width:468px; height:68px; margin-bottom:2px; border:1px solid #d7d7d7; background:#fff;} /* 대상 css 적용완료 */
+.promo_list{border-top:1px solid #666}/* 신규추가 */ /* 대상 css 적용완료 */
+.promo_list li {margin-bottom:0; background:#fff;border-bottom:1px solid #d7d7d7} /* 대상 css 적용완료 */
+.view_area {padding-bottom:20px; background-color:#fff;border-bottom:1px solid #e2e2e2} /* 대상 css 적용완료 */
+.view_btlist {position:relative; margin-top:20px; overflow:hidden; text-align:left;border-top:1px solid #666;border-bottom:1px solid #d7d7d7} /* 대상 css 적용완료 */
+.view_btlist dd.next {margin-bottom:2px;border-bottom:1px solid #d7d7d7} /* 대상 css 적용완료 */
+.faqRdoBox {width:910px; height:365px; margin-top:30px; padding:30px 19px; background:#fff;border:1px solid #e2e2e2} /* 대상 css 적용완료 */
+ul.board_faq li {margin:0; *margin:0; color:#666;border-bottom:1px solid #d7d7d7} /* 대상 css 적용완료 */
+ul.board_faq li.on {margin:0;*margin:-1px 0 0 0; border:2px solid #666;} /* 대상 css 적용완료 */
+ul.board_faq li.top .board_cont div {font-weight:bold; background:0 none} /* 대상 css 적용완료 */
+ul.board_faq li .board_detail {background:#fff; padding:20px 34px; line-height:20px;border-top:1px solid #d7d7d7} /* 대상 css 적용완료 */
+.about_privia_box {margin-top:10px; padding:66px 49px 29px; background:#fff;border:1px solid #e2e2e2} /* 대상 css 적용완료 */
+.manual_box {margin-top:10px; padding:37px 49px; background:#fff;border:1px solid #e2e2e2} /* 대상 css 적용완료 */
+.card_box {overflow:hidden; margin-top:20px; padding:0; *padding-bottom:0; background-color:#fff;} /* 대상 css 적용완료 */
+.card_box .card_list.card3 {width:308px; height:448px} /* 대상 css 적용완료 */
+.card_box .card_list.card4 {width:228px; height:385px} /* 대상 css 적용완료 */
+.discount_list_box {overflow:hidden; margin-top:20px; padding:30px 29px; background-color:#fff;border:1px solid #e2e2e2} /* 대상 css 적용완료 */
+.makeGuideBook {padding:10px; margin-top:30px; background-color:#fff;*zoom:1;border:1px solid #e2e2e2} /* 대상 css 적용완료 */
+.guide_cont {margin-top:10px; padding:20px 19px; background:#fff; *zoom:1;border:1px solid #e2e2e2} /* 대상 css 적용완료 */
+.guidebook_complete_area {padding:10px 0 0;margin-top:10px;border:1px solid #e2e2e2} /* 대상 css 적용완료 */
+.join_end {text-align:center; background:#fff;border:1px solid #e2e2e2} /* 대상 css 적용완료 */
+.layer_hotel .content {padding:20px; background:#fff;} /* 대상 css 적용완료 */
+.gusetinfo + .gusetinfo{margin-top:10px} /* 신규추가 */ /* 대상 css 적용완료 */
+.gusetinfo .gusetroom + .list_data{border-top:0 none}/* 신규추가 */ /* 대상 css 적용완료 */
+
+/* style.css */
+div.caution_air2 .cautionL,
+div.caution_air2 .cautionR {margin-left:0; margin-right:0; padding-left:0; padding-right:0; border-top:0 none; padding-top:0; margin-top:0 !important;border:0 none;padding-bottom:0} /* 대상 css 적용완료 */
+div.caution_air2 > div {margin-left:-20px; margin-right:-20px; padding:20px 20px 15px} /* 대상 css 적용완료 */
+div.caution_air2 > div + div {border-top:1px solid #e2e2e2;padding-top:20px; margin-top:0 !important} /* 대상 css 적용완료 */
+div.caution_delete {padding:18px; background:#fff;margin-top:20px;border:1px solid #e2e2e2} /* 대상 css 적용완료 */
+.airline_table_tp div.th{background-image:url(/images/front/travel/search/th_table_airline_white.gif)} /* 대상 css 적용완료 */
+.airline_table_tp .scroll{background:url(/images/front/travel/search/th_table_airline_white.gif) repeat-x 0 -211px} /* 대상 css 적용완료 */
+.airline_table_tp .scroll ul {height:187px;background:url(/images/front/travel/search/th_table_airline_white.gif) 0 -211px repeat-x; padding-left:117px; *zoom:1} /* 대상 css 적용완료 */
+.airline_table .scroll ul li div.price {height:41px; line-height:41px; padding-right:18px; text-align:right} /* 대상 css 적용완료 */
+.airline_table .scroll ul li div.price1 {border-bottom:1px solid #d7d7d7} /* 대상 css 적용완료 */
+.airline_table_tp .scroll ul li div.price2{border-bottom:1px solid #d7d7d7} /* 대상 css 적용완료 */
+.airline_table .scroll ul li div.price a {display:block; height:39px; padding:0 8px 0 0; margin:0 -8px 0 0; line-height:39px; text-align:right; border:1px solid #fff} /* 대상 css 적용완료 */
+.airtel-new-view .trip_safe_guide{background-color:white;margin:0 0 30px;padding:20px 0 23px 20px;border:1px solid #e2e2e2} /* 대상 css 적용완료 */
+.corp_visual > dl {width:950px; height:141px; background:url(/images/front/travel/corp/bg_corp_benefit.gif) no-repeat 0 0;border-bottom:1px solid #e2e2e2} /* 대상 css 적용완료 */
+.list_table.corp_table td .member_box {padding:20px;border:0 none} /* 대상 css 적용완료 */
+.set_info_passenger {padding:19px; padding-bottom:9px; background:#fff; margin-top:2px;border:1px solid #e2e2e2} /* 대상 css 적용완료 */
+.set_info_passenger + .set_info_passenger{margin-top:10px} /* 신규추가 */ /* 대상 css 적용완료 */
+.total_search div.nav {z-index:0; height:56px; border-bottom:0 none} /* 대상 css 적용완료 */
