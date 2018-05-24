@@ -85,7 +85,7 @@ $(function(){
 							<dt>기간 :</dt>
 							<dd>2018.04.01 ~ 2018.12.31</dd>							
 						</dl>
-						<span class="b-tasp-more"><a href="#">자세히보기</a></span>
+						<span class="btn-base bbr-st1 b-tasp-more"><a href="#">자세히보기</a></span>
 					</div>
 				</li>
 				<li>
@@ -102,7 +102,7 @@ $(function(){
 							<dt>이벤트 기간 :</dt> 
 							<dd>~ 2018. 05. 15 (오후 5시까지)</dd>						
 						</dl>
-						<span class="b-tasp-more"><a href="#">자세히보기</a></span>
+						<span class="btn-base bbr-st1 b-tasp-more"><a href="#">자세히보기</a></span>
 					</div>
 				</li>
 				<li>
@@ -119,7 +119,7 @@ $(function(){
 							<dt>이벤트 기간 :</dt> 
 							<dd>2018. 04. 13 ~ 06. 30</dd>						
 						</dl>
-						<span class="b-tasp-more"><a href="#">자세히보기</a></span>
+						<span class="btn-base bbr-st1 b-tasp-more"><a href="#">자세히보기</a></span>
 					</div>
 				</li>
 				<li>
@@ -136,7 +136,7 @@ $(function(){
 							<dt>이벤트 기간 :</dt> 
 							<dd>~ 2018. 06. 29 (오후 5시까지)</dd>						
 						</dl>
-						<span class="b-tasp-more"><a href="#">자세히보기</a></span>
+						<span class="btn-base bbr-st1 b-tasp-more"><a href="#">자세히보기</a></span>
 					</div>
 				</li>
 				<li>
@@ -153,7 +153,7 @@ $(function(){
 							<dt>이벤트 기간 :</dt> 
 							<dd>~ 2018. 06. 30</dd>						
 						</dl>
-						<span class="b-tasp-more"><a href="#">자세히보기</a></span>
+						<span class="btn-base bbr-st1 b-tasp-more"><a href="#">자세히보기</a></span>
 					</div>
 				</li>
 				<li>
@@ -170,7 +170,7 @@ $(function(){
 							<dt>대상 :</dt> 
 							<dd>한진관광 유럽 전세기 상품 예약 회원</dd>						
 						</dl>
-						<span class="b-tasp-more"><a href="#">자세히보기</a></span>
+						<span class="btn-base bbr-st1 b-tasp-more"><a href="#">자세히보기</a></span>
 					</div>
 				</li>
 			</ul>
@@ -179,7 +179,7 @@ $(function(){
 	<!--// #top-area-sec -->
 	
 	<!-- #header-sec -->
-	<div id="header-sec" class="c-bg-air">
+	<div id="header-sec" class="o-bg-air">
 		<div class="w-header-util">
 			<div class="ly-inner">
 				<div class="hu-control">
@@ -231,57 +231,71 @@ $(function(){
 			<div class="ly-inner">
 				<h2 class="a11y">검색 영역</h2>
 				<!-- 항공 -->
-				<div class="s-quick-cont sq-air" id="SQ-AIR">
+				<div class="hs-quick-cont sq-air on" id="SQ-AIR">
 					<div class="sq-menu">
 						<h3 class="sqm-main"><a href="#">항공</a></h3>
 						<ul class="sqm-sub">
-							<li><a href="#">왕복</a></li>
-							<li><a href="#">편도</a></li>
-							<li><a href="#">다구간</a></li>
+							<li class="on"><span class="btn-base bbr-st2 b-shuttle"><a href="#">왕복</a></span></li>
+							<li><span class="btn-base bbr-st2 b-oneway"><a href="#">편도</a></span></li>
+							<li><span class="btn-base bbr-st2 b-multiway"><a href="#">다구간</a></span></li>
 						</ul>
 					</div>
-					<div class="inner-cont">
-						air
+					<div class="sq-inner-cont">
+						<div class="sq-search-box">
+							
+						</div>
 					</div>
 				</div> 
 				<!--// 항공 -->
 				
 				<!-- 호텔 -->
-				<div class="s-quick-cont sq-hotel" id="SQ-HOTEL">
+				<div class="hs-quick-cont sq-hotel" id="SQ-HOTEL">
 					<h3 class="sqm-main"><a href="#">호텔</a></h3>
 					<ul class="sqm-sub">
-						<li><a href="#">해외</a></li>
-						<li><a href="#">국내</a></li>
+						<ul class="sqm-sub">
+							<li><span class="btn-base bbr-st2 b-int"><a href="#">해외</a></span></li>
+							<li><span class="btn-base bbr-st2 b-dom"><a href="#">국내</a></span></li>
+						</ul>
 					</ul>
-					<div class="inner-cont">
+					<div class="sq-inner-cont">
 						hotel
 					</div>
 				</div> 
 				<!--// 호텔 -->
 				
 				<!-- 자유여행 -->
-				<div class="s-quick-cont sq-free" id="SQ-FREE">
+				<div class="hs-quick-cont sq-free" id="SQ-FREE">
 					<h3 class="sqm-main"><a href="#">자유여행</a></h3>
-					<ul class="sqm-sub">
-						<li><a href="#">자유</a></li>
-					</ul>
-					<div class="inner-cont">
+					<div class="sq-inner-cont">
 						free
 					</div>
 				</div> 
 				<!--// 자유여행 -->
 				
 				<!-- 투어&액티비티 -->
-				<div class="s-quick-cont sq-freetour" id="SQ-FREETOUR">
-					<h3 class="sqm-main"><a href="#">투어&nbsp;액티비티</a></h3>
+				<div class="hs-quick-cont sq-freetour" id="SQ-FREETOUR">
+					<h3 class="sqm-main"><a href="#">투어&amp;액티비티</a></h3>
 					<ul class="sqm-sub">
-						<li><a href="#">투어</a></li>
+						<li><span class="btn-base bbr-st2 b-rentv"><a href="#">렌터카</a></span></li>
+						<li><span class="btn-base bbr-st2 b-intticket"><a href="#">해외 입장권</a></span></li>
+						<li><span class="btn-base bbr-st2 b-actualtour"><a href="#">현지투어</a></span></li>
+						<li><span class="btn-base bbr-st2 b-transpass"><a href="#">교통패스</a></span></li>
+						<li><span class="btn-base bbr-st2 b-airpicup"><a href="#">공항픽업</a></span></li>
 					</ul>
-					<div class="inner-cont">
+					<div class="sq-inner-cont">
 						freetour
 					</div>
 				</div> 
 				<!--// 투어&액티비티 -->
+				
+				<!-- 기획전 롤링 -->
+				<div class="hs-prom-roll">
+					<h3 class="a11y">기획전 롤링</h3>
+					<ul>
+						<li><a href="#"></a></li>
+					</ul>
+				</div>
+				<!--// 기획전 롤링 -->
 			</div>
 		</div>
 	</div>
