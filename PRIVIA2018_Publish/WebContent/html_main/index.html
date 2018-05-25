@@ -159,7 +159,7 @@
 	<!--// #top-area-sec -->
 	
 	<!-- #header-sec -->
-	<div id="header-sec" class="o-bg-air">
+	<div id="header-sec" class="c-bg-air">
 		<div class="w-header-util">
 			<div class="ly-inner">
 				<div class="hu-control">
@@ -213,34 +213,49 @@
 				<!-- 항공 -->
 				<div class="hs-quick-cont sq-air on" id="SQ-AIR">
 					<div class="sq-menu">
-						<h3 class="sqm-main"><a href="#">항공</a></h3>
+						<h3 class="sqm-main"><a href="#" data-type="sq-air">항공</a></h3>
 						<ul class="sqm-sub">
-							<li class="on"><span class="btn-base bbr-st2 b-shuttle"><a href="#">왕복</a></span></li>
-							<li><span class="btn-base bbr-st2 b-oneway"><a href="#">편도</a></span></li>
-							<li><span class="btn-base bbr-st2 b-multiway"><a href="#">다구간</a></span></li>
+							<li class="on"><span class="btn-base bbr-st2 b-shuttle"><a href="#" data-type="shuttle">왕복</a></span></li>
+							<li><span class="btn-base bbr-st2 b-oneway"><a href="#" data-type="oneway">편도</a></span></li>
+							<li><span class="btn-base bbr-st2 b-multiway"><a href="#" data-type="multiway">다구간</a></span></li>
 						</ul>
 					</div>
 					<div class="sq-inner-cont">
 						<!-- 왕복(.o-shuttle), 편도(.o-oneway) -->
-						<div class="sq-search-box o-shuttle o-oneway">
+						<div class="sq-search-box o-shuttle">
 							<div class="w-qsb-cont">
-								<div class="qsb-cont qsb-places">
-									<div class="places-out">
+								<div class="qsb-cont qsb-places on">
+									<div class="places-exit">
 										<a href="#" class="qsb-area">
 											<span class="qsb-label">출발도시</span>
-											<span class="qsb-input">서울 인천 (<em>ICN</em>)</span>
+											<span class="qsb-input">서울 인천 (<em class="qsb-c">ICN</em>)</span>
 										</a>
 									</div>
-									<div class="places-in">
-										 <a href="#" class="qsb-area">
+									<div class="places-entry">
+										<a href="#" class="qsb-area">
 											<span class="qsb-label">도착도시</span>
-											<span class="qsb-input">미주 뉴욕 (<em>JFK</em>)</span>
+											<span class="qsb-input">미주 뉴욕 (<em class="qsb-c">JFK</em>)</span>
 										</a>
 									</div>
 								</div>
-								<div class="qsb-cont qsb-dates"></div>
-								<div class="qsb-cont qsb-capacity"></div>
-								<div class="qsb-cont qsb-btn-search"></div>
+								<div class="qsb-cont qsb-dates on">
+									<a href="#" class="qsb-area">
+										<span class="qsb-label">여행날짜</span>
+										<span class="qsb-input">
+											<span class="qsb-chkin">02월 15일 (목)</span>
+											<span class="qsb-chkout">02월 17일 (토)</span>
+										</span>
+									</a>
+								</div>
+								<div class="qsb-cont qsb-capacity">
+									<a href="#" class="qsb-area">
+										<span class="qsb-label">인원, 좌석등급</span>
+										<span class="qsb-input">승객<em class="total-num">1</em>, <em class="seat-type">일반석</em></span>
+									</a>
+								</div>
+								<div class="qsb-cont qsb-btn-search">
+									<button type="button" class="b-search">검색</button>
+								</div>
 							</div>
 						</div>
 						
@@ -261,11 +276,11 @@
 				
 				<!-- 호텔 -->
 				<div class="hs-quick-cont sq-hotel" id="SQ-HOTEL">
-					<h3 class="sqm-main"><a href="#">호텔</a></h3>
+					<h3 class="sqm-main"><a href="#" data-type="sq-hotel">호텔</a></h3>
 					<ul class="sqm-sub">
 						<ul class="sqm-sub">
-							<li><span class="btn-base bbr-st2 b-int"><a href="#">해외</a></span></li>
-							<li><span class="btn-base bbr-st2 b-dom"><a href="#">국내</a></span></li>
+							<li><span class="btn-base bbr-st2 b-int"><a href="#" data-type="int">해외</a></span></li>
+							<li><span class="btn-base bbr-st2 b-dom"><a href="#" data-type="dom">국내</a></span></li>
 						</ul>
 					</ul>
 					<div class="sq-inner-cont">
@@ -284,7 +299,7 @@
 				
 				<!-- 자유여행 -->
 				<div class="hs-quick-cont sq-free" id="SQ-FREE">
-					<h3 class="sqm-main"><a href="#">자유여행</a></h3>
+					<h3 class="sqm-main"><a href="#" data-type="sq-free">자유여행</a></h3>
 					<div class="sq-inner-cont">
 						free
 					</div>
@@ -293,13 +308,13 @@
 				
 				<!-- 투어&액티비티 -->
 				<div class="hs-quick-cont sq-freetour" id="SQ-FREETOUR">
-					<h3 class="sqm-main"><a href="#">투어&amp;액티비티</a></h3>
+					<h3 class="sqm-main"><a href="#" data-type="sq-freetour">투어&amp;액티비티</a></h3>
 					<ul class="sqm-sub">
-						<li><span class="btn-base bbr-st2 b-rentv"><a href="#">렌터카</a></span></li>
-						<li><span class="btn-base bbr-st2 b-intticket"><a href="#">해외 입장권</a></span></li>
-						<li><span class="btn-base bbr-st2 b-actualtour"><a href="#">현지투어</a></span></li>
-						<li><span class="btn-base bbr-st2 b-transpass"><a href="#">교통패스</a></span></li>
-						<li><span class="btn-base bbr-st2 b-airpicup"><a href="#">공항픽업</a></span></li>
+						<li><span class="btn-base bbr-st2 b-rentv"><a href="#" data-type="sq-rentv">렌터카</a></span></li>
+						<li><span class="btn-base bbr-st2 b-intticket"><a href="#" data-type="sq-intticket">해외 입장권</a></span></li>
+						<li><span class="btn-base bbr-st2 b-actualtour"><a href="#" data-type="sq-actualtour">현지투어</a></span></li>
+						<li><span class="btn-base bbr-st2 b-transpass"><a href="#" data-type="sq-transpass">교통패스</a></span></li>
+						<li><span class="btn-base bbr-st2 b-airpicup"><a href="#" data-type="sq-airpicup">공항픽업</a></span></li>
 					</ul>
 					<div class="sq-inner-cont">
 						freetour
