@@ -543,9 +543,13 @@
 					</div>
 					<!--// 투어&액티비티 -->
 					
-					<div class="sq-ui-search-box ui-city-air">
-						<div class=""><input type="text"></div>
-						<table class="uic-list">
+					<!-- 항공 도시 검색 -->
+					<div class="sq-ui-search-box ui-maincity-air ui-citysearch-air">
+						<div class="uis-input">
+							<input type="text" class="input-base ipu-search" placeholder="도시명을 검색하거나 아래 주요도시에서 선택하세요">
+						</div>
+						<!-- 주요도시 리스트 -->
+						<table class="uic-table">
 							<caption>항공 주요도시 선택</caption>
 							<colgroup>
 								<col width="16.66666666666667%">
@@ -722,11 +726,51 @@
 								</tr>
 							</tbody>
 						</table>
+						<!--// 주요도시 리스트 -->
+						
+						<!-- 검색도시 리스트 -->
+						<div class="uis-list">
+							<ul class="list">
+								<li>
+									<a href="#">
+										<span class="name-city">서울</span>
+										<span class="name-air">대한민국, 모든 공항 (SEL)</span>
+									</a>
+									<ul class="list-sub">
+										<li>
+											<a href="#">
+												<span class="name-city c-txt-point1">샤를드골</span>
+												<span class="name-air">프랑스 파리, 샤를드골 공항 (CDG)</span>
+											</a>
+										</li>
+									</ul>
+								</li>
+								<li>
+									<a href="#">
+										<span class="name-city c-txt-point1">인천</span>
+										<span class="name-air">대한민국, 인천 국제 공항 (ICN)</span>
+									</a>
+									<ul class="list-sub">
+										<li>
+											<a href="#">
+												<span class="name-city c-txt-point1">샤를드골</span>
+												<span class="name-air">프랑스 파리, 샤를드골 공항 (CDG)</span>
+											</a>
+										</li>
+									</ul>
+								</li>
+								<li>
+									<a href="#">
+										<span class="name-city">김포</span>
+										<span class="name-air">대한민국, 김포국제 공항 (GMP)</span>
+									</a>
+								</li>
+							</ul>
+							<div class="tip-exp"><span class="c-txt-point1">대한민국에서 출발하는 80%가 이 공항을 선택했습니다.</span></div>
+						</div>
+						<!--// 검색도시 리스트 -->
 					</div>
-					
-					<div class="sq-ui-search-box ui-city-hotel">
-						ui-city-hotel
-					</div>
+					<!--// 항공 도시 검색 -->
 				</div>
 				<!--// 검색 컨텐츠 -->
 				
