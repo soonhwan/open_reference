@@ -171,6 +171,78 @@ $(function(){
 	comFixPromotionCrt(); //하단 프로모션 열기/닫기
 	comHeaderCrt(); //공통 헤더 컨트롤(상단리본, 공지사항, 스크롤 헤더반응형, 검색UI)
 	$('.input-base').placeholder(); //IE9부터 실행
+	
+	$('.uis-datepicker').datepicker({
+		minDate: '0',
+		maxDate: '+362',
+		dayNamesMin: ['일', '월', '화', '수', '목', '금', '토'],
+		beforeShowDay: function(date) {
+			//var date1 = $.datepicker.parseDate('yy-mm-dd', $(".chk-in .selectDay").val());
+			//var date2 = $.datepicker.parseDate('yy-mm-dd', $(".chk-out .selectDay").val());
+			
+			var date1 = $.datepicker.parseDate('yy-mm-dd', '2018-06-10');
+			var date2 = $.datepicker.parseDate('yy-mm-dd', '2018-06-15');
+			var addClassName = '';
+			if(date1){
+				if(date.getTime() == date1.getTime()){
+					if(date2){
+						addClassName = 'dp-highlight dp-first';
+					}
+					else{
+						addClassName = 'dp-highlight';
+					}
+				}
+				else if(date2){
+					if(date.getTime() == date2.getTime()){
+					   addClassName = 'dp-highlight dp-end';
+					}
+					else if(date > date1 && date < date2){
+						addClassName = 'dp-highlight pd-between';
+					 }
+				}
+			}
+			else{
+				addClassName = '';
+			}
+			return [true, addClassName];
+		},
+		onSelect: function(dateText, inst) {
+			/*var date1 = $.datepicker.parseDate('yy-mm-dd', $(".chk-in .selectDay").val());
+			var date2 = $.datepicker.parseDate('yy-mm-dd', $(".chk-out .selectDay").val());
+			var selectedDate = $.datepicker.parseDate('yy-mm-dd', dateText);
+			var month = (selectedDate.getMonth()+1) < 10 ? '0' + (selectedDate.getMonth()+1)  : selectedDate.getMonth()+1;
+			var day = selectedDate.getDate() < 10 ? '0' + selectedDate.getDate()  : selectedDate.getDate();
+
+			if (!date1 || date2) {
+				$(".chk-in .selectDay").val(dateText);
+				$(".chk-out .selectDay").val('');
+				$(".chk-in .cd-date").html('<em class="month">'+month+'</em>월 <em class="day">'+day+'</em>일');
+				$(".chk-out .cd-date").html('');
+				$('.wrap-select-date .c-fix-btn, .result-days').hide();
+				$(this).datepicker();
+			} else {
+				if( selectedDate < date1 ) {
+					$(".chk-out .selectDay").val( $(".chk-in .selectDay").val() );
+					$(".chk-in .selectDay").val(dateText);							
+					$(".chk-out .cd-date").html($(".chk-in .cd-date").html());
+					$(".chk-in .cd-date").html('<em class="month">'+month+'</em>월 <em class="day">'+day+'</em>일');
+				} else {
+					if($(".chk-in .selectDay").val() == dateText){return}
+					$(".chk-out .selectDay").val(dateText);
+					$(".chk-out .cd-date").html('<em class="month">'+month+'</em>월 <em class="day">'+day+'</em>일');
+				}
+
+				var chkIn = $(".chk-in .selectDay").val().split('-');
+				var chkOut = $(".chk-out .selectDay").val().split('-');
+				var chkInDate = new Date(chkIn[0], chkIn[1], chkIn[2]);
+				var chkOutDate = new Date(chkOut[0], chkOut[1], chkOut[2]);
+				var duration = (chkOutDate-chkInDate)/1000/60/60/24;
+				$('.result-days .days').text(duration);
+				$('.wrap-select-date .c-fix-btn, .result-days').show();
+				$(this).datepicker();
+			}*/
+		}
+	});		
 });
 
 /*

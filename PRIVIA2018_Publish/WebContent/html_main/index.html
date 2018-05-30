@@ -165,7 +165,7 @@
 				<div class="hu-control">
 					<span class="c-chk">
 						<span class="a11y"><input type="checkbox" id="closeToday"></span>
-						<label for="closeToday" class="closeToday">오늘 하루 열지 않기</label>
+						<label for="closeToday" class="label-base closeToday">오늘 하루 열지 않기</label>
 						<span class="b-crt bc-close"><a href="#"><span class="a11y">상단리본 닫기 버튼</span></a></span>
 					</span>
 					<span class="b-crt bc-open"><a href="#"><span class="a11y txt">상단리본 열기 버튼</span></a></span>
@@ -256,7 +256,7 @@
 				</div> 
 				<!--// 검색 메뉴 -->
 				
-				<!-- 검색 컨텐츠 -->
+				<!-- 검색 섹션 -->
 				<div class="hs-quick-cont">
 					<!-- 항공 -->
 					<div class="sq-inner-cont on sq-air" id="SQ-AIR">
@@ -543,12 +543,11 @@
 					</div>
 					<!--// 투어&액티비티 -->
 					
-					<!-- 항공 도시 검색 -->
-					<div class="sq-ui-search-box ui-maincity-air ui-citysearch-air">
+					<!-- 항공 주요도시 리스트 -->
+					<div class="sq-ui-search-box ui-maincity-air">
 						<div class="uis-input">
 							<input type="text" class="input-base ipu-search" placeholder="도시명을 검색하거나 아래 주요도시에서 선택하세요">
-						</div>
-						<!-- 주요도시 리스트 -->
+						</div>						
 						<table class="uic-table">
 							<caption>항공 주요도시 선택</caption>
 							<colgroup>
@@ -726,9 +725,14 @@
 								</tr>
 							</tbody>
 						</table>
-						<!--// 주요도시 리스트 -->
-						
-						<!-- 검색도시 리스트 -->
+					</div>
+					<!--// 항공 주요도시 리스트 -->
+					
+					<!-- 검색 리스트 -->
+					<div class="sq-ui-search-box ui-citysearch-auto">
+						<div class="uis-input">
+							<input type="text" class="input-base ipu-search" placeholder="도시명을 검색하거나 아래 주요도시에서 선택하세요">
+						</div>
 						<div class="uis-list">
 							<ul class="list">
 								<li>
@@ -768,11 +772,24 @@
 							</ul>
 							<div class="tip-exp"><span class="c-txt-point1">대한민국에서 출발하는 80%가 이 공항을 선택했습니다.</span></div>
 						</div>
-						<!--// 검색도시 리스트 -->
 					</div>
-					<!--// 항공 도시 검색 -->
+					<!--// 검색 리스트 -->
+					
+					<div class="sq-ui-search-box ui-date-calendar">
+						<div class="uis-input">
+							<span class="uis-date-chkin"><input type="text" class="input-base ipu-day" placeholder="출발일을 선택해주세요." readonly></span>
+							<span class="uis-date-chkout"><input type="text" class="input-base ipu-day" placeholder="도착일을 선택해주세요." readonly></span>
+							<span class="uis-chk">
+								<span class="a11y"><input type="checkbox" id="unDay"></span>
+								<label for="unDay" class="label-base unDay">도착일 미정</label> 
+							</span>
+						</div>
+						<div class="uis-calendar">
+							<div class="uis-datepicker"></div>
+						</div> 
+					</div>
 				</div>
-				<!--// 검색 컨텐츠 -->
+				<!--// 검색 섹션 -->
 				
 				
 				
