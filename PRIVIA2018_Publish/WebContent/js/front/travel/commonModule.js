@@ -151,7 +151,7 @@ function comHeaderCrt(){
 		});
 		
 		//공지사항 롤링
-		var headerNoticeRoll = $('.w-header-util .hu-notice ul').slick({
+		var headerNoticeRoll = $('.w-header-util .hu-notice .list').slick({
 			draggable: false,
 			arrows:false,
 			dots: false,
@@ -160,7 +160,93 @@ function comHeaderCrt(){
 			autoplay: true,
 			autoplaySpeed: 5000
 		});	
-	}	
+		
+		//기획전 롤링
+		var headerPromRoll = $('.w-header-search .hs-prom-roll .list').on('init', function(event, slick){
+			utilSlickCrt($('.w-header-search .hs-prom-roll .b-slick-crt'), slick); //autoplay control
+		}).slick({
+			draggable: false,
+			arrows:false,
+			pauseOnHover: true,
+			dots: true,
+			appendDots: $('.w-header-search .hs-prom-roll .c-slick-dots'),
+			autoplay: true,
+			autoplaySpeed: 5000
+		});	
+		
+		//검색 UI 부분
+		$('.uis-datepicker').datepicker({
+			minDate: '0',
+			maxDate: '+362',
+			dayNamesMin: ['일', '월', '화', '수', '목', '금', '토'],
+			beforeShowDay: function(date) {
+				//var date1 = $.datepicker.parseDate('yy-mm-dd', $(".chk-in .selectDay").val());
+				//var date2 = $.datepicker.parseDate('yy-mm-dd', $(".chk-out .selectDay").val());
+
+				var date1 = $.datepicker.parseDate('yy-mm-dd', '2018-06-10');
+				var date2 = $.datepicker.parseDate('yy-mm-dd', '2018-06-15');
+				var addClassName = '';
+				if(date1){
+					if(date.getTime() == date1.getTime()){
+						if(date2){
+							addClassName = 'dp-highlight dp-first';
+						}
+						else{
+							addClassName = 'dp-highlight';
+						}
+					}
+					else if(date2){
+						if(date.getTime() == date2.getTime()){
+						   addClassName = 'dp-highlight dp-end';
+						}
+						else if(date > date1 && date < date2){
+							addClassName = 'dp-highlight pd-between';
+						 }
+					}
+				}
+				else{
+					addClassName = '';
+				}
+				return [true, addClassName];
+			},
+			onSelect: function(dateText, inst) {
+				/*var date1 = $.datepicker.parseDate('yy-mm-dd', $(".chk-in .selectDay").val());
+				var date2 = $.datepicker.parseDate('yy-mm-dd', $(".chk-out .selectDay").val());
+				var selectedDate = $.datepicker.parseDate('yy-mm-dd', dateText);
+				var month = (selectedDate.getMonth()+1) < 10 ? '0' + (selectedDate.getMonth()+1)  : selectedDate.getMonth()+1;
+				var day = selectedDate.getDate() < 10 ? '0' + selectedDate.getDate()  : selectedDate.getDate();
+
+				if (!date1 || date2) {
+					$(".chk-in .selectDay").val(dateText);
+					$(".chk-out .selectDay").val('');
+					$(".chk-in .cd-date").html('<em class="month">'+month+'</em>월 <em class="day">'+day+'</em>일');
+					$(".chk-out .cd-date").html('');
+					$('.wrap-select-date .c-fix-btn, .result-days').hide();
+					$(this).datepicker();
+				} else {
+					if( selectedDate < date1 ) {
+						$(".chk-out .selectDay").val( $(".chk-in .selectDay").val() );
+						$(".chk-in .selectDay").val(dateText);							
+						$(".chk-out .cd-date").html($(".chk-in .cd-date").html());
+						$(".chk-in .cd-date").html('<em class="month">'+month+'</em>월 <em class="day">'+day+'</em>일');
+					} else {
+						if($(".chk-in .selectDay").val() == dateText){return}
+						$(".chk-out .selectDay").val(dateText);
+						$(".chk-out .cd-date").html('<em class="month">'+month+'</em>월 <em class="day">'+day+'</em>일');
+					}
+
+					var chkIn = $(".chk-in .selectDay").val().split('-');
+					var chkOut = $(".chk-out .selectDay").val().split('-');
+					var chkInDate = new Date(chkIn[0], chkIn[1], chkIn[2]);
+					var chkOutDate = new Date(chkOut[0], chkOut[1], chkOut[2]);
+					var duration = (chkOutDate-chkInDate)/1000/60/60/24;
+					$('.result-days .days').text(duration);
+					$('.wrap-select-date .c-fix-btn, .result-days').show();
+					$(this).datepicker();
+				}*/
+			}
+		});	
+	}//.if
 }
 
 /*
@@ -169,80 +255,8 @@ function comHeaderCrt(){
 $(function(){	
 	comChkTasp(); //상단리본 쿠키 체크
 	comFixPromotionCrt(); //하단 프로모션 열기/닫기
-	comHeaderCrt(); //공통 헤더 컨트롤(상단리본, 공지사항, 스크롤 헤더반응형, 검색UI)
-	$('.input-base').placeholder(); //IE9부터 실행
-	
-	$('.uis-datepicker').datepicker({
-		minDate: '0',
-		maxDate: '+362',
-		dayNamesMin: ['일', '월', '화', '수', '목', '금', '토'],
-		beforeShowDay: function(date) {
-			//var date1 = $.datepicker.parseDate('yy-mm-dd', $(".chk-in .selectDay").val());
-			//var date2 = $.datepicker.parseDate('yy-mm-dd', $(".chk-out .selectDay").val());
-			
-			var date1 = $.datepicker.parseDate('yy-mm-dd', '2018-06-10');
-			var date2 = $.datepicker.parseDate('yy-mm-dd', '2018-06-15');
-			var addClassName = '';
-			if(date1){
-				if(date.getTime() == date1.getTime()){
-					if(date2){
-						addClassName = 'dp-highlight dp-first';
-					}
-					else{
-						addClassName = 'dp-highlight';
-					}
-				}
-				else if(date2){
-					if(date.getTime() == date2.getTime()){
-					   addClassName = 'dp-highlight dp-end';
-					}
-					else if(date > date1 && date < date2){
-						addClassName = 'dp-highlight pd-between';
-					 }
-				}
-			}
-			else{
-				addClassName = '';
-			}
-			return [true, addClassName];
-		},
-		onSelect: function(dateText, inst) {
-			/*var date1 = $.datepicker.parseDate('yy-mm-dd', $(".chk-in .selectDay").val());
-			var date2 = $.datepicker.parseDate('yy-mm-dd', $(".chk-out .selectDay").val());
-			var selectedDate = $.datepicker.parseDate('yy-mm-dd', dateText);
-			var month = (selectedDate.getMonth()+1) < 10 ? '0' + (selectedDate.getMonth()+1)  : selectedDate.getMonth()+1;
-			var day = selectedDate.getDate() < 10 ? '0' + selectedDate.getDate()  : selectedDate.getDate();
-
-			if (!date1 || date2) {
-				$(".chk-in .selectDay").val(dateText);
-				$(".chk-out .selectDay").val('');
-				$(".chk-in .cd-date").html('<em class="month">'+month+'</em>월 <em class="day">'+day+'</em>일');
-				$(".chk-out .cd-date").html('');
-				$('.wrap-select-date .c-fix-btn, .result-days').hide();
-				$(this).datepicker();
-			} else {
-				if( selectedDate < date1 ) {
-					$(".chk-out .selectDay").val( $(".chk-in .selectDay").val() );
-					$(".chk-in .selectDay").val(dateText);							
-					$(".chk-out .cd-date").html($(".chk-in .cd-date").html());
-					$(".chk-in .cd-date").html('<em class="month">'+month+'</em>월 <em class="day">'+day+'</em>일');
-				} else {
-					if($(".chk-in .selectDay").val() == dateText){return}
-					$(".chk-out .selectDay").val(dateText);
-					$(".chk-out .cd-date").html('<em class="month">'+month+'</em>월 <em class="day">'+day+'</em>일');
-				}
-
-				var chkIn = $(".chk-in .selectDay").val().split('-');
-				var chkOut = $(".chk-out .selectDay").val().split('-');
-				var chkInDate = new Date(chkIn[0], chkIn[1], chkIn[2]);
-				var chkOutDate = new Date(chkOut[0], chkOut[1], chkOut[2]);
-				var duration = (chkOutDate-chkInDate)/1000/60/60/24;
-				$('.result-days .days').text(duration);
-				$('.wrap-select-date .c-fix-btn, .result-days').show();
-				$(this).datepicker();
-			}*/
-		}
-	});		
+	comHeaderCrt(); //공통 헤더 컨트롤(상단리본, 공지사항롤링, 기획전롤링)
+	$('.input-base').placeholder(); //IE9부터 실행	
 });
 
 /*
@@ -264,7 +278,7 @@ $(function(){
 		};
 		
 		//main left
-		rlcLeftMain = $('.rlc-left .rlc-list-main ul').on('init', function(event, slick){
+		rlcLeftMain = $('.rlc-left .rlc-list-main .list').on('init', function(event, slick){
 			slick.slickSetOption({
 				dots: true,
 				appendDots: $('.rlc-left .rlc-list-main .c-slick-dots'),
@@ -278,7 +292,7 @@ $(function(){
 		}).slick(mainSlickSettings);
 		
 		//main right
-		rlcRightMain = $('.rlc-right .rlc-list-main ul').on('init', function(event, slick){
+		rlcRightMain = $('.rlc-right .rlc-list-main .list').on('init', function(event, slick){
 			slick.slickSetOption({
 				dots: true,
 				appendDots: $('.rlc-right .rlc-list-main .c-slick-dots'),
@@ -292,10 +306,10 @@ $(function(){
 		}).slick(mainSlickSettings);
 		
 		//main sub
-		rlcLeftSub1 = $('.rlc-left .rlc-ls-left ul').slick(mainSlickSettings);
-		rlcLeftSub2 = $('.rlc-left .rlc-ls-right ul').slick(mainSlickSettings);
-		rlcRightsub1 = $('.rlc-right .rlc-ls-left ul').slick(mainSlickSettings);
-		rlcRightsub2 = $('.rlc-right .rlc-ls-right ul').slick(mainSlickSettings);
+		rlcLeftSub1 = $('.rlc-left .rlc-ls-left .list').slick(mainSlickSettings);
+		rlcLeftSub2 = $('.rlc-left .rlc-ls-right .list').slick(mainSlickSettings);
+		rlcRightsub1 = $('.rlc-right .rlc-ls-left .list').slick(mainSlickSettings);
+		rlcRightsub2 = $('.rlc-right .rlc-ls-right .list').slick(mainSlickSettings);
 		
 		//메인 slick 컨트롤
 		mSlickPrevBtn =  $('.s-rec-list-cont .cb-crt .bc-prev a');
@@ -371,5 +385,5 @@ $(function(){
 			}, true);
 			utilSlickCrt($('.s-banner-cont .b-slick-crt'), slick); //autoplay control
 		}).slick(mainSlickSettings);
-	}
+	}//.if
 });
