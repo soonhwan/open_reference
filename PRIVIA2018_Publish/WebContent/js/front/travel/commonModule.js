@@ -124,6 +124,18 @@ function comHeaderCrt(){
 			}			
 		});
 		
+		//하단 프로모션
+		if($('.s-fix-promotion').length > 0){
+			$('.s-fix-promotion .b-open').on('click', function(e){
+				$('.s-fix-promotion .fpromo-box').fadeIn('fast');
+				e.preventDefault();
+			});
+			$('.s-fix-promotion .b-close').on('click', function(e){
+				$('.s-fix-promotion .fpromo-box').fadeOut('fast');
+				e.preventDefault();
+			});
+		}
+		
 		//공지사항 롤링
 		$('.w-header-util .hu-notice .list').slick({
 			draggable: false,
@@ -224,56 +236,18 @@ function comHeaderCrt(){
 }
 
 /*
- * 함수명 : comContentCrt
- * 설명   : 공통 컨텐츠 컨트롤(상시 프로모션, 하단 고정 모바일 프로모션)
- * 사용처 : document.ready 구문에 실행함수 탑재
- * 작성자 : 권순환
- */
-function comContentCrt(){
-	//상시 프로모션
-	if($('.s-banner-cont').length > 0){
-		$('.s-banner-cont .bc-list').on('init', function(event, slick){
-			utilSlickCrt($('.s-banner-cont .b-slick-crt'), slick); //autoplay control
-		}).slick({
-			draggable: false,
-			speed: 1000,
-			pauseOnHover: true,
-			dots: true,
-			appendDots: $('.s-banner-cont .c-slick-dots'),
-			arrows: true,
-			prevArrow: false,
-			nextArrow: $('.s-banner-cont .cb-crt .bc-next a'),
-			autoplaySpeed: 10000,
-			autoplay: true
-		});
-	}
-	
-	//하단 프로모션
-	if($('.s-fix-promotion').length > 0){
-		$('.s-fix-promotion .b-open').on('click', function(e){
-			$('.s-fix-promotion .fpromo-box').fadeIn('fast');
-			e.preventDefault();
-		});
-		$('.s-fix-promotion .b-close').on('click', function(e){
-			$('.s-fix-promotion .fpromo-box').fadeOut('fast');
-			e.preventDefault();
-		});
-	}
-}
-
-/*
  * document ready시 실행함수모음(공통)
  */
 $(function(){	
+	$('.input-base').placeholder(); //IE9 이하 부터 실행	
 	comHeaderCrt(); //공통 헤더 컨트롤(상단리본, 공지사항롤링, 기획전롤링)
-	comContentCrt(); //공통 컨텐츠 컨트롤(상시 프로모션, 하단 고정 모바일 프로모션)
-	$('.input-base').placeholder(); //IE9부터 실행	
 });
 
 /*
- * document ready시 실행함수모음(메인전용)
+ * 임시용
  */
 $(function(){
+	//메인전용
 	if($('.w-content-sec.ws-main-cont').length > 0){		
 		//메인 추천 프로모션
 		var mainSlickSettings, rlcLeftMain, rlcLeftSub1, rlcLeftSub2, rlcRightMain, rlcRightsub1, rlcRightsub2, mSlickPrevBtn, mSlickNextBtn, mSlickCrt, mslickArr, isMainSlickMotion;
@@ -323,8 +297,8 @@ $(function(){
 		rlcRightsub2 = $('.rlc-right .rlc-ls-right .list').slick(mainSlickSettings);
 		
 		//메인 slick 컨트롤
-		mSlickPrevBtn =  $('.s-rec-prom-cont .cb-crt .bc-prev a');
-		mSlickNextBtn = $('.s-rec-prom-cont .cb-crt .bc-next a');
+		mSlickPrevBtn =  $('.s-rec-prom-cont .cb-crt .bb-prev button');
+		mSlickNextBtn = $('.s-rec-prom-cont .cb-crt .bb-next button');
 		mSlickCrt = $('.rlc-right .rlc-list-main .b-slick-crt');
 		mslickArr = [rlcLeftMain, rlcRightMain, rlcLeftSub1, rlcLeftSub2, rlcRightsub1, rlcRightsub2];
 		//이전
@@ -382,4 +356,51 @@ $(function(){
 		$('.s-rec-prom-cont .rlc-list-main .slick-dots button').on('click', function(e){e.stopPropagation();}); // slick dots disable click
 		mainSlickMotion('slickPlay'); //autoplay		
 	}//.if
+	
+	//상시 프로모션
+	if($('.s-banner-cont').length > 0){
+		$('.s-banner-cont .bc-list').on('init', function(event, slick){
+			utilSlickCrt($('.s-banner-cont .b-slick-crt'), slick); //autoplay control
+		}).slick({
+			draggable: false,
+			pauseOnHover: true,
+			dots: true,
+			appendDots: $('.s-banner-cont .c-slick-dots'),
+			arrows: true,
+			prevArrow: false,
+			nextArrow: $('.s-banner-cont .bb-next button'),
+			speed: 1000,
+			autoplaySpeed: 10000,
+			autoplay: true
+		});
+	}
+	
+	//섹션 메인 프로모션
+	if($('.s-sec-rec-prom-cont').length > 0){
+		var sectionMainSlickSettings, srpcLeft, srpcRight;
+		sectionMainSlickSettings = {
+			draggable: false,
+			arrows:false,
+			dots: true,
+			pauseOnHover: true,
+			pauseOnFocus: false,
+			speed: 1000,
+			customPaging : function(slider, i) {
+				var txt = $(slider.$slides[i]).find('.o-txt').attr('alt');
+				return '<button type="button" data-role="none" role="button" tabindex="'+i+'" class="btn">'+txt+'</button>';
+			}
+		};
+		srpcLeft = $('.srpc-prom .srpc-left .list').slick(sectionMainSlickSettings);
+		srpcRight = $('.srpc-prom .srpc-right .list').on('init', function(event, slick){
+			slick.slickSetOption({
+				autoplaySpeed: 15000,
+				autoplay: true,
+				arrows: true,
+				prevArrow: false,
+				nextArrow: $('.srpc-right .bb-next button')
+				//appendDots: $('.srpc-prom .srpc-right .c-slick-dots')
+			}, true);
+			//utilSlickCrt($('.srpc-prom .srpc-right .b-slick-crt'), slick); //autoplay control
+		}).slick(sectionMainSlickSettings);
+	}
 });
