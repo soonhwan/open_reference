@@ -17,6 +17,7 @@
 		today.setDate( today.getDate() + expiredays );
 		document.cookie = name + "=" + escape( value ) + "; expires=" + today.toGMTString() + "; path=/";
 	};
+	
 	$.getCookie = function (name) {
 		var dc = document.cookie;
 		var prefix = name + "=";
@@ -231,7 +232,7 @@ function comHeaderCrt(){
 					$(this).datepicker();
 				}*/
 			}
-		});	
+		}).find(".ui-state-active").removeClass("ui-state-active");	
 	}//.if
 }
 
@@ -243,14 +244,17 @@ $(function(){
 	comHeaderCrt(); //공통 헤더 컨트롤(상단리본, 공지사항롤링, 기획전롤링)
 });
 
+// datepicker 구동에 필요한것들 -> var holidays, datepicker 설정값, checkMobile()
+//------------------------------------------------------------------------------// common
+
 /*
  * 임시용
  */
 $(function(){
 	//메인전용
-	if($('.w-content-sec.ws-main-cont').length > 0){		
+	if($('.w-content-sec.ws-main-sec').length > 0){		
 		//메인 추천 프로모션
-		var mainSlickSettings, rlcLeftMain, rlcLeftSub1, rlcLeftSub2, rlcRightMain, rlcRightsub1, rlcRightsub2, mSlickPrevBtn, mSlickNextBtn, mSlickCrt, mslickArr, isMainSlickMotion;
+		var mainSlickSettings, rlcLeftMain, rlcLeftSub1, rlcLeftSub2, rlcRightMain, rlcRightsub1, rlcRightsub2, mSlickPrevBtn, mSlickNextBtn, mSlickCrt;
 		//기본셋팅
 		mainSlickSettings = {
 			draggable: false,
@@ -258,14 +262,15 @@ $(function(){
 			dots: false,
 			pauseOnHover: false,
 			pauseOnFocus: false,
-			autoplaySpeed: 15000,
-			speed: 1000
+			speed: 500
 		};
 		
 		//main left
 		rlcLeftMain = $('.rlc-left .rlc-list-main .list').on('init', function(event, slick){
 			slick.slickSetOption({
 				dots: true,
+				autoplay: true,
+				autoplaySpeed: 10000,
 				appendDots: $('.rlc-left .rlc-list-main .c-slick-dots'),
 				customPaging : function(slider, i) {
 					var className, title;
@@ -274,7 +279,9 @@ $(function(){
 					return '<button type="button" data-role="none" role="button" tabindex="'+i+'" class="'+className+'">'+title+'</button>';
 				}
 			}, true);
-		}).slick(mainSlickSettings);
+		}).slick(mainSlickSettings).on('afterChange', function(event, slick, currentSlide, nextSlide){
+		 	rlcLeftSub1.slick('slickNext');
+		});
 		
 		//main right
 		rlcRightMain = $('.rlc-right .rlc-list-main .list').on('init', function(event, slick){
@@ -288,19 +295,26 @@ $(function(){
 					return '<button type="button" data-role="none" role="button" tabindex="'+i+'" class="'+className+'">'+title+'</button>';
 				}
 			}, true);
-		}).slick(mainSlickSettings);
+		}).slick(mainSlickSettings).on('afterChange', function(event, slick, currentSlide, nextSlide){
+		 	rlcRightsub1.slick('slickNext');
+		});
 		
 		//main sub
-		rlcLeftSub1 = $('.rlc-left .rlc-ls-left .list').slick(mainSlickSettings);
-		rlcLeftSub2 = $('.rlc-left .rlc-ls-right .list').slick(mainSlickSettings);
-		rlcRightsub1 = $('.rlc-right .rlc-ls-left .list').slick(mainSlickSettings);
+		rlcLeftSub1 = $('.rlc-left .rlc-ls-left .list').slick(mainSlickSettings).on('afterChange', function(event, slick, currentSlide, nextSlide){
+		 	rlcLeftSub2.slick('slickNext');
+		});
+		rlcLeftSub2 = $('.rlc-left .rlc-ls-right .list').slick(mainSlickSettings).on('afterChange', function(event, slick, currentSlide, nextSlide){
+		 	rlcRightMain.slick('slickNext');
+		});
+		rlcRightsub1 = $('.rlc-right .rlc-ls-left .list').slick(mainSlickSettings).on('afterChange', function(event, slick, currentSlide, nextSlide){
+		 	rlcRightsub2.slick('slickNext');
+		});
 		rlcRightsub2 = $('.rlc-right .rlc-ls-right .list').slick(mainSlickSettings);
 		
 		//메인 slick 컨트롤
 		mSlickPrevBtn =  $('.s-rec-promotion .cb-crt .bb-prev button');
 		mSlickNextBtn = $('.s-rec-promotion .cb-crt .bb-next button');
 		mSlickCrt = $('.rlc-right .rlc-list-main .b-slick-crt');
-		mslickArr = [rlcLeftMain, rlcRightMain, rlcLeftSub1, rlcLeftSub2, rlcRightsub1, rlcRightsub2];
 		//이전
 		mSlickPrevBtn.on('click', function(e){
 			mainSlickMotion('slickPrev');
@@ -326,35 +340,12 @@ $(function(){
 				}
 			}
 		});
-				
-		//메인 slick 모션
-		isMainSlickMotion = false;
+		//slick opt
 		function mainSlickMotion(opt){
-			if(!isMainSlickMotion){
-				var total = $('.s-rec-promotion .slick-slider').length;
-				isMainSlickMotion = true;
-				$('.s-rec-promotion .slick-slider').each(function(index){
-					var _this = $(this);
-					if(opt == 'slickPause'){
-						_this.slick(opt);   
-						isMainSlickMotion = false;
-					}
-					else{
-						setTimeout(function(){
-							_this.slick(opt);
-							if(total-1 == index){
-							   isMainSlickMotion = false;
-							}
-							console.log(index, total);
-						}, 500*index);
-					}
-				});
-			   
-			}
+			rlcLeftMain.slick(opt);
 		}
-
-		$('.s-rec-promotion .rlc-list-main .slick-dots button').on('click', function(e){e.stopPropagation();}); // slick dots disable click
-		mainSlickMotion('slickPlay'); //autoplay		
+		// slick dots disable click
+		$('.s-rec-promotion .rlc-list-main .slick-dots button').on('click', function(e){e.stopPropagation();}); 
 	}//.if
 		
 	//섹션 메인 프로모션
@@ -408,16 +399,16 @@ $(function(){
 		});
 	}
 	
-	//텝메뉴
+	//탭메뉴
 	if($('.o-tab-menu').length > 0){
 		$('.o-tab-menu').each(function(){
 			var _this = $(this);
-			$('a', _this).on('click', function(e){
+			$('.ui-tab-menu a', _this).on('click', function(e){
 				if(!$(this).closest('li').hasClass('on')){
 					var show = $(this).attr('href');
-					_this.parent().find('.tab-on').removeClass('tab-on');
-					_this.parent().find(show).addClass('tab-on');
-					$('.on', _this).removeClass('on');
+					_this.find('.tab-on').removeClass('tab-on');
+					_this.find(show).addClass('tab-on');
+					$('.ui-tab-menu .on', _this).removeClass('on');
 					$(this).closest('li').addClass('on');
 				}
 				e.preventDefault();
