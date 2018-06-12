@@ -161,78 +161,99 @@ function comHeaderCrt(){
 			autoplaySpeed: 5000
 		});	
 		
-		//검색 UI 부분
-		$('.uis-datepicker').datepicker({
+		//검색 datepicker 구동에 필요한것들 -> var holidays, datepicker 설정값, checkMobile()
+		var baseDatepicker = {
 			minDate: '0',
 			maxDate: '+362',
 			dayNamesMin: ['일', '월', '화', '수', '목', '금', '토'],
+			dateFormat: 'yy-mm-dd',
 			beforeShowDay: function(date) {
-				//var date1 = $.datepicker.parseDate('yy-mm-dd', $(".chk-in .selectDay").val());
-				//var date2 = $.datepicker.parseDate('yy-mm-dd', $(".chk-out .selectDay").val());
-
-				var date1 = $.datepicker.parseDate('yy-mm-dd', '2018-06-10');
-				var date2 = $.datepicker.parseDate('yy-mm-dd', '2018-06-15');
-				var addClassName = '';
+				var result;
+				var holiday = holidays[$.datepicker.formatDate("mmdd",date )];
+				if(!holiday){
+					holiday = holidays[$.datepicker.formatDate("yymmdd",date )];
+				}
+				var thisYear = $.datepicker.formatDate("yy", date);
+				if (holiday) {
+					if(thisYear == holiday.year || holiday.year == "") {
+						result =  [true, "date-holiday", holiday.title];
+					}
+				}
+				
+				var date1 = $.datepicker.parseDate('yy-mm-dd', $(".uis-date-chkin .ipu-day").val());
+				var date2 = $.datepicker.parseDate('yy-mm-dd', $(".uis-date-chkout .ipu-day").val());
 				if(date1){
 					if(date.getTime() == date1.getTime()){
 						if(date2){
-							addClassName = 'dp-highlight dp-first';
+							result = [true, "dp-highlight dp-first"];
 						}
 						else{
-							addClassName = 'dp-highlight';
+							result = [true, "dp-highlight"];
 						}
 					}
 					else if(date2){
 						if(date.getTime() == date2.getTime()){
-						   addClassName = 'dp-highlight dp-end';
+							result = [true, "dp-highlight dp-end"];
 						}
 						else if(date > date1 && date < date2){
-							addClassName = 'dp-highlight pd-between';
+							result = [true, "dp-highlight pd-between"];
 						 }
 					}
 				}
-				else{
-					addClassName = '';
-				}
-				return [true, addClassName];
+				
+				if(!result) {
+					switch (date.getDay()) {
+						case 0:
+							result = [true, "date-sunday"];
+							break;
+						case 6:
+							result = [true, "date-saturday"];
+							break;
+						default:
+							result = [true, ""];
+							break;
+					}
+				}		
+				return result;	
 			},
 			onSelect: function(dateText, inst) {
-				/*var date1 = $.datepicker.parseDate('yy-mm-dd', $(".chk-in .selectDay").val());
-				var date2 = $.datepicker.parseDate('yy-mm-dd', $(".chk-out .selectDay").val());
+				var date1 = $.datepicker.parseDate('yy-mm-dd', $(".uis-date-chkin .ipu-day").val());
+				var date2 = $.datepicker.parseDate('yy-mm-dd', $(".uis-date-chkout .ipu-day").val());
 				var selectedDate = $.datepicker.parseDate('yy-mm-dd', dateText);
 				var month = (selectedDate.getMonth()+1) < 10 ? '0' + (selectedDate.getMonth()+1)  : selectedDate.getMonth()+1;
 				var day = selectedDate.getDate() < 10 ? '0' + selectedDate.getDate()  : selectedDate.getDate();
 
 				if (!date1 || date2) {
-					$(".chk-in .selectDay").val(dateText);
-					$(".chk-out .selectDay").val('');
-					$(".chk-in .cd-date").html('<em class="month">'+month+'</em>월 <em class="day">'+day+'</em>일');
-					$(".chk-out .cd-date").html('');
-					$('.wrap-select-date .c-fix-btn, .result-days').hide();
+					$(".uis-date-chkin .ipu-day").val(dateText);
+					$(".uis-date-chkout .ipu-day").val('');
+					//$(".chk-in .cd-date").html('<em class="month">'+month+'</em>월 <em class="day">'+day+'</em>일');
+					//$(".chk-out .cd-date").html('');
+					//$('.wrap-select-date .c-fix-btn, .result-days').hide();
 					$(this).datepicker();
 				} else {
 					if( selectedDate < date1 ) {
-						$(".chk-out .selectDay").val( $(".chk-in .selectDay").val() );
-						$(".chk-in .selectDay").val(dateText);							
-						$(".chk-out .cd-date").html($(".chk-in .cd-date").html());
-						$(".chk-in .cd-date").html('<em class="month">'+month+'</em>월 <em class="day">'+day+'</em>일');
+						$(".uis-date-chkout .ipu-day").val( $(".uis-date-chkin .ipu-day").val() );
+						$(".uis-date-chkin .ipu-day").val(dateText);							
+						//$(".chk-out .cd-date").html($(".chk-in .cd-date").html());
+						//$(".chk-in .cd-date").html('<em class="month">'+month+'</em>월 <em class="day">'+day+'</em>일');
 					} else {
-						if($(".chk-in .selectDay").val() == dateText){return}
-						$(".chk-out .selectDay").val(dateText);
-						$(".chk-out .cd-date").html('<em class="month">'+month+'</em>월 <em class="day">'+day+'</em>일');
+						if($(".uis-date-chkin .ipu-day").val() == dateText){return}
+						$(".uis-date-chkout .ipu-day").val(dateText);
+						//$(".chk-out .cd-date").html('<em class="month">'+month+'</em>월 <em class="day">'+day+'</em>일');
 					}
 
-					var chkIn = $(".chk-in .selectDay").val().split('-');
+					/*var chkIn = $(".chk-in .selectDay").val().split('-');
 					var chkOut = $(".chk-out .selectDay").val().split('-');
 					var chkInDate = new Date(chkIn[0], chkIn[1], chkIn[2]);
 					var chkOutDate = new Date(chkOut[0], chkOut[1], chkOut[2]);
 					var duration = (chkOutDate-chkInDate)/1000/60/60/24;
 					$('.result-days .days').text(duration);
-					$('.wrap-select-date .c-fix-btn, .result-days').show();
+					$('.wrap-select-date .c-fix-btn, .result-days').show();*/
 					$(this).datepicker();
-				}*/
+				}
 			}
-		}).find(".ui-state-active").removeClass("ui-state-active");	
+		}		
+		$('.uis-datepicker').datepicker(baseDatepicker).find(".ui-state-active").removeClass("ui-state-active");	
 	}//.if
 }
 
@@ -244,7 +265,7 @@ $(function(){
 	comHeaderCrt(); //공통 헤더 컨트롤(상단리본, 공지사항롤링, 기획전롤링)
 });
 
-// datepicker 구동에 필요한것들 -> var holidays, datepicker 설정값, checkMobile()
+
 //------------------------------------------------------------------------------// common
 
 /*
@@ -416,5 +437,10 @@ $(function(){
 		})
 		
 		
+	}
+	
+	//gnb, search 관련 
+	if($('#header-sec').length > 0){
+		//comSearchInit();
 	}
 });

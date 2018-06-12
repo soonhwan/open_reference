@@ -158,7 +158,7 @@
 	<!--// #top-area-sec -->
 	
 	<!-- #header-sec -->
-	<div id="header-sec" class="c-bg-hotel">
+	<div id="header-sec" class="o-bg-hotel">
 		<div class="w-header-util">
 			<div class="ly-inner">
 				<div class="hu-control">
@@ -212,13 +212,23 @@
 			<div class="ly-inner">
 				<h2 class="a11y">검색 영역</h2>
 				<!-- 검색 메뉴 -->
-				<div class="hs-quick-menu">
+				<div class="hs-search-menu">
+					<!-- 항공 -->
+					<div class="hss-menu hss-air">
+						<h3 class="hss-main"><a href="#" data-type="hss-air">항공</a></h3>
+						<ul class="hss-sub">
+							<li class="on"><span class="btn-base bbr-st2 b-shuttle"><a href="#" data-type="shuttle">왕복</a></span></li>
+							<li><span class="btn-base bbr-st2 b-oneway"><a href="#" data-type="oneway">편도</a></span></li>
+							<li><span class="btn-base bbr-st2 b-multiway"><a href="#" data-type="multiway">다구간</a></span></li>
+						</ul>
+					</div>
+					<!--// 항공 -->
 					
 					<!-- 호텔 -->
-					<div class="sq-menu sqm-hotel on">
-						<h3 class="sqm-main"><a href="#" data-type="sq-hotel">호텔</a></h3>
-						<ul class="sqm-sub">
-							<ul class="sqm-sub">
+					<div class="hss-menu hss-hotel on">
+						<h3 class="hss-main"><a href="#" data-type="hss-hotel">호텔</a></h3>
+						<ul class="hss-sub">
+							<ul class="ssm-sub">
 								<li class="on"><span class="btn-base bbr-st2 b-int"><a href="#" data-type="inth">해외</a></span></li>
 								<li><span class="btn-base bbr-st2 b-dom"><a href="#" data-type="domh">국내</a></span></li>
 							</ul>
@@ -226,16 +236,226 @@
 					</div>
 					<!--// 호텔 -->
 					
+					<!-- 자유여행 -->
+					<div class="hss-menu hss-free">
+						<h3 class="hss-main"><a href="#" data-type="hss-free">자유여행</a></h3>
+					</div>	
+					<!--// 자유여행 -->
 					
+					<!-- 투어&액티비티 -->
+					<div class="hss-menu hss-freetour">
+						<h3 class="hss-main"><a href="#" data-type="hss-freetour">투어&amp;액티비티</a></h3>
+						<ul class="hss-sub">
+							<li class="on"><span class="btn-base bbr-st2 b-rentv"><a href="#" data-type="rentv">렌터카</a></span></li>
+							<li><span class="btn-base bbr-st2 b-intticket"><a href="#" data-type="intticket">해외 입장권</a></span></li>
+							<li><span class="btn-base bbr-st2 b-actualtour"><a href="#" data-type="actualtour">현지투어</a></span></li>
+							<li><span class="btn-base bbr-st2 b-transpass"><a href="#" data-type="transpass">교통패스</a></span></li>
+							<li><span class="btn-base bbr-st2 b-airpicup"><a href="#" data-type="sm-airpicup">공항픽업</a></span></li>
+						</ul>
+					</div>	
+					<!--// 투어&액티비티 -->
 				</div> 
 				<!--// 검색 메뉴 -->
 				
 				<!-- 검색 섹션 -->
-				<div class="hs-quick-cont">
+				<div class="hs-search-cont">
+					<!-- 항공 -->
+					<div class="hss-inner-cont sc-air" id="SC-AIR">
+						<!-- 왕복인 경우(.o-shuttle), 편도인 경우(.o-shuttle .o-oneway) -->
+						<div class="sc-search-box on o-shuttle">
+							<div class="w-qsb-cont">
+								<div class="qsb-cont qsb-places">
+									<div class="places-exit">
+										<a href="#" class="qsb-area">
+											<span class="qsb-label">출발도시</span>
+											<span class="qsb-input">서울 인천 (<em class="qsb-c">ICN</em>)</span>
+										</a>
+										<span class="btn-base b-change-places"><button type="button"><span class="a11y">출발도시, 도착도시 변경</span></button></span>
+									</div>
+									<div class="places-entry">
+										<a href="#" class="qsb-area">
+											<span class="qsb-label">도착도시</span>
+											<span class="qsb-input">미주 뉴욕 (<em class="qsb-c">JFK</em>)</span>
+										</a>
+									</div>
+								</div>
+								<div class="qsb-cont qsb-dates">
+									<a href="#" class="qsb-area">
+										<span class="qsb-label">여행날짜</span>
+										<span class="qsb-input">
+											<span class="qsb-chkin">02월 15일 (목)</span>
+											<span class="qsb-chkout">02월 18일 (일)</span>
+										</span>
+									</a>
+								</div>
+								<div class="qsb-cont qsb-capacity">
+									<a href="#" class="qsb-area">
+										<span class="qsb-label">인원, 좌석등급</span>
+										<span class="qsb-input"><em class="total-num">승객1</em>, <em class="type-seat">일반석</em></span>
+									</a>
+								</div>
+								<div class="qsb-cont qsb-btn-search">
+									<button type="button" class="b-search">검색</button>
+								</div>
+							</div>
+						</div>
+						<!-- 다구간(.o-multiway) -->
+						<div class="sc-search-box o-multiway">
+							<div class="w-qsb-cont">
+								<div class="qsb-cont qsb-number">
+									<div class="qsb-number-inner">
+										<span class="txt1 qsb-c">여정</span>
+										<span class="txt2 qsb-c">01</span>
+									</div>
+								</div>
+								<div class="qsb-cont qsb-places on">
+									<div class="places-exit">
+										<a href="#" class="qsb-area">
+											<span class="qsb-label">출발도시</span>
+											<span class="qsb-input">서울 인천 (<em class="qsb-c">ICN</em>)</span>
+										</a>
+									</div>
+									<div class="places-entry">
+										<a href="#" class="qsb-area">
+											<span class="qsb-label">도착도시</span>
+											<span class="qsb-input">미주 뉴욕 (<em class="qsb-c">JFK</em>)</span>
+										</a>
+									</div>
+								</div>
+								<div class="qsb-cont qsb-dates on">
+									<a href="#" class="qsb-area">
+										<span class="qsb-label">여행날짜</span>
+										<span class="qsb-input">
+											<span class="qsb-chkin">02월 15일 (목)</span>
+											<span class="qsb-chkout">02월 17일 (토)</span>
+										</span>
+									</a>
+								</div>
+							</div>
+							<div class="w-qsb-cont">
+								<div class="qsb-cont qsb-number">
+									<div class="qsb-number-inner">
+										<span class="txt1 qsb-c">여정</span>
+										<span class="txt2 qsb-c">02</span>
+									</div>
+								</div>
+								<div class="qsb-cont qsb-places on">
+									<div class="places-exit">
+										<a href="#" class="qsb-area">
+											<span class="qsb-label">출발도시</span>
+											<span class="qsb-input">서울 인천 (<em class="qsb-c">ICN</em>)</span>
+										</a>
+									</div>
+									<div class="places-entry">
+										<a href="#" class="qsb-area">
+											<span class="qsb-label">도착도시</span>
+											<span class="qsb-input">미주 뉴욕 (<em class="qsb-c">JFK</em>)</span>
+										</a>
+									</div>
+								</div>
+								<div class="qsb-cont qsb-dates on">
+									<a href="#" class="qsb-area">
+										<span class="qsb-label">여행날짜</span>
+										<span class="qsb-input">
+											<span class="qsb-chkin">02월 15일 (목)</span>
+											<span class="qsb-chkout">02월 17일 (토)</span>
+										</span>
+									</a>
+								</div>
+								<div class="qsb-btn-add">
+									<button type="button" class="b-add-multiway"><span class="a11y">다구간 추가</span></button>
+									<button type="button" class="b-remove-multiway"><span class="a11y">다구간 삭제</span></button>
+								</div>
+							</div>
+							<div class="w-qsb-cont">
+								<div class="qsb-cont qsb-number">
+									<div class="qsb-number-inner">
+										<span class="txt1 qsb-c">여정</span>
+										<span class="txt2 qsb-c">03</span>
+									</div>
+								</div>
+								<div class="qsb-cont qsb-places on">
+									<div class="places-exit">
+										<a href="#" class="qsb-area">
+											<span class="qsb-label">출발도시</span>
+											<span class="qsb-input">서울 인천 (<em class="qsb-c">ICN</em>)</span>
+										</a>
+									</div>
+									<div class="places-entry">
+										<a href="#" class="qsb-area">
+											<span class="qsb-label">도착도시</span>
+											<span class="qsb-input">미주 뉴욕 (<em class="qsb-c">JFK</em>)</span>
+										</a>
+									</div>
+								</div>
+								<div class="qsb-cont qsb-dates on">
+									<a href="#" class="qsb-area">
+										<span class="qsb-label">여행날짜</span>
+										<span class="qsb-input">
+											<span class="qsb-chkin">02월 15일 (목)</span>
+											<span class="qsb-chkout">02월 17일 (토)</span>
+										</span>
+									</a>
+								</div>
+								<div class="qsb-btn-add">
+									<button type="button" class="b-add-multiway"><span class="a11y">다구간 추가</span></button>
+									<button type="button" class="b-remove-multiway"><span class="a11y">다구간 삭제</span></button>
+								</div>
+							</div>
+							<div class="w-qsb-cont">
+								<div class="qsb-cont qsb-number">
+									<div class="qsb-number-inner">
+										<span class="txt1 qsb-c">여정</span>
+										<span class="txt2 qsb-c">04</span>
+									</div>
+								</div>
+								<div class="qsb-cont qsb-places on">
+									<div class="places-exit">
+										<a href="#" class="qsb-area">
+											<span class="qsb-label">출발도시</span>
+											<span class="qsb-input">서울 인천 (<em class="qsb-c">ICN</em>)</span>
+										</a>
+									</div>
+									<div class="places-entry">
+										<a href="#" class="qsb-area">
+											<span class="qsb-label">도착도시</span>
+											<span class="qsb-input">미주 뉴욕 (<em class="qsb-c">JFK</em>)</span>
+										</a>
+									</div>
+								</div>
+								<div class="qsb-cont qsb-dates on">
+									<a href="#" class="qsb-area">
+										<span class="qsb-label">여행날짜</span>
+										<span class="qsb-input">
+											<span class="qsb-chkin">02월 15일 (목)</span>
+											<span class="qsb-chkout">02월 17일 (토)</span>
+										</span>
+									</a>
+								</div>
+								<div class="qsb-btn-add">
+									<button type="button" class="b-add-multiway"><span class="a11y">다구간 추가</span></button>
+									<button type="button" class="b-remove-multiway"><span class="a11y">다구간 삭제</span></button>
+								</div>
+							</div>
+							<div class="w-qsb-cont-indep">
+								<div class="qsb-cont qsb-capacity">
+									<a href="#" class="qsb-area">
+										<span class="qsb-label">인원, 좌석등급</span>
+										<span class="qsb-input">승객<em class="total-num">1</em>, <em class="seat-type">일반석</em></span>
+									</a>
+								</div>
+								<div class="qsb-cont qsb-btn-search">
+									<button type="button" class="b-search">검색</button>
+								</div>
+							</div>
+						</div>
+					</div>
+					<!--// 항공 -->
+					
 					<!-- 호텔 -->
-					<div class="sq-inner-cont on sq-hotel" id="SQ-HOTEL">
+					<div class="hss-inner-cont sc-hotel on" id="SC-HOTEL">
 						<!-- 해외인 경우(.o-inth) -->
-						<div class="sq-search-box o-inth on">
+						<div class="sc-search-box o-inth on">
 							<div class="w-qsb-cont">
 								<div class="qsb-cont qsb-places on">
 									<div class="places-exit">
@@ -261,19 +481,13 @@
 										<span class="qsb-input"><em class="type-room">1인실</em>, <em class="total-num">1개</em></span>
 									</a>
 								</div>
-								<div class="qsb-cont qsb-capacity-name on">
-									<a href="#" class="qsb-area">
-										<span class="qsb-label">호텔명</span>
-										<span class="qsb-input">브릴리언트 호텔</span>
-									</a>
-								</div>
 								<div class="qsb-cont qsb-btn-search">
 									<button type="button" class="b-search">검색</button>
 								</div>
 							</div>
 						</div>
 						<!-- 국내인 경우(.o-domh) -->
-						<div class="sq-search-box o-domh">
+						<div class="sc-search-box o-domh">
 							<div class="w-qsb-cont">
 								<div class="qsb-cont qsb-places">
 									<div class="places-exit">
@@ -299,12 +513,6 @@
 										<span class="qsb-input"><em class="type-room">1인실</em>, <em class="total-num">1개</em></span>
 									</a>
 								</div>
-								<div class="qsb-cont qsb-capacity-name">
-									<a href="#" class="qsb-area">
-										<span class="qsb-label">호텔명</span>
-										<span class="qsb-input"></span>
-									</a>
-								</div>
 								<div class="qsb-cont qsb-btn-search">
 									<button type="button" class="b-search">검색</button>
 								</div>
@@ -312,6 +520,422 @@
 						</div>
 					</div>
 					<!--// 호텔 -->
+
+					<!-- 자유여행 -->
+					<div class="hss-inner-cont sc-free" id="SC-FREE">
+						free
+					</div>
+					<!--// 자유여행 -->
+
+					<!-- 투어&액티비티 -->
+					<div class="hss-inner-cont sc-freetour" id="SC-FREETOUR">
+						freetour
+					</div>
+					<!--// 투어&액티비티 -->
+					
+					<!-- 항공 주요도시 리스트 -->
+					<div class="sc-ui-search-box ui-maincity-air">
+						<div class="uis-input">
+							<input type="text" class="input-base ipu-search" placeholder="도시명을 검색하거나 아래 주요도시에서 선택하세요.">
+						</div>						
+						<table class="uis-maincity-table">
+							<caption>주요도시 선택 리스트</caption>
+							<colgroup>
+								<col width="16.66666666666667%">
+								<col width="16.66666666666667%">
+								<col width="16.66666666666667%">
+								<col width="16.66666666666667%">
+								<col width="16.66666666666667%">
+								<col width="16.66666666666667%">
+							</colgroup>
+							<tbody>
+								<tr>
+									<td rowspan="2">
+										<p class="tit">국내</p>
+										<ul class="list">
+											<li><a href="#">인천/김포</a></li>
+											<li><a href="#">인천</a></li>
+											<li><a href="#">김포</a></li>
+											<li><a href="#">부산</a></li>
+											<li><a href="#">대구</a></li>
+											<li><a href="#">제주</a></li>
+											<li><a href="#">광주</a></li>
+											<li><a href="#">울산</a></li>
+											<li><a href="#">포항</a></li>
+											<li><a href="#">전주</a></li>
+											<li><a href="#">여수</a></li>
+											<li><a href="#">양양</a></li>
+											<li><a href="#">군산</a></li>
+											<li><a href="#">원주</a></li>
+											<li><a href="#">청주</a></li>
+											<li><a href="#">무안</a></li>
+										</ul>
+									</td>
+									<td>
+										<p class="tit">일본</p>
+										<ul class="list">
+											<li><a href="#">도쿄(나리타)</a></li>
+											<li><a href="#">도쿄(하네다)</a></li>
+											<li><a href="#">오사카</a></li>
+											<li><a href="#">나고야</a></li>
+											<li><a href="#">후쿠오카</a></li>
+											<li><a href="#">오키나와</a></li>
+											<li><a href="#">삿포로</a></li>
+											<li><a href="#">히로시마</a></li>
+											<li><a href="#">가고시마</a></li>
+											<li><a href="#">미야자키</a></li>
+											<li><a href="#">도야마</a></li>
+											<li><a href="#">시즈오카</a></li>
+										</ul>
+									</td>
+									<td>
+										<p class="tit">홍콩/대만/중국</p>
+										<ul class="list">
+											<li><a href="#">홍콩</a></li>
+											<li><a href="#">타이베이(타오위안)</a></li>
+											<li><a href="#">상해(푸동)</a></li>
+											<li><a href="#">상해(홍차오)</a></li>
+											<li><a href="#">북경</a></li>
+											<li><a href="#">청도</a></li>
+											<li><a href="#">심양</a></li>
+											<li><a href="#">천진</a></li>
+											<li><a href="#">광저우</a></li>
+											<li><a href="#">대련</a></li>
+											<li><a href="#">항주</a></li>
+										</ul>
+									</td>
+									<td>
+										<p class="tit">동남아</p>
+										<ul class="list">
+											<li><a href="#">방콕</a></li>
+											<li><a href="#">마닐라</a></li>
+											<li><a href="#">싱가포르</a></li>
+											<li><a href="#">마카오</a></li>
+											<li><a href="#">호치민</a></li>
+											<li><a href="#">푸켓</a></li>
+											<li><a href="#">세부</a></li>
+											<li><a href="#">발리</a></li>
+											<li><a href="#">하노이</a></li>
+											<li><a href="#">다낭</a></li>
+											<li><a href="#">쿠알라룸푸르</a></li>
+											<li><a href="#">코타키나발루</a></li>
+										</ul>
+									</td>
+									<td>
+										<p class="tit">미주</p>
+										<ul class="list">
+											<li><a href="#">호놀룰루(하와이)</a></li>
+											<li><a href="#">로스앤젤레스</a></li>
+											<li><a href="#">뉴욕(전체)</a></li>
+											<li><a href="#">뉴욕(JFK)</a></li>
+											<li><a href="#">뉴욕(라과디아)</a></li>
+											<li><a href="#">뉴욕(뉴왁)</a></li>
+											<li><a href="#">샌프란시스코</a></li>
+											<li><a href="#">시애틀</a></li>
+											<li><a href="#">시카고</a></li>
+											<li><a href="#">워싱톤</a></li>
+											<li><a href="#">달라스</a></li>
+											<li><a href="#">애틀란타</a></li>
+											<li><a href="#">보스톤</a></li>
+										</ul>
+									</td>
+									<td>
+										<p class="tit">유럽</p>
+										<ul class="list">
+											<li><a href="#">런던</a></li>
+											<li><a href="#">파리</a></li>
+											<li><a href="#">로마</a></li>
+											<li><a href="#">프랑크푸르트</a></li>
+											<li><a href="#">이스탄불</a></li>
+											<li><a href="#">밀라노</a></li>
+											<li><a href="#">마드리드</a></li>
+											<li><a href="#">바르셀로나</a></li>
+											<li><a href="#">프라하</a></li>
+											<li><a href="#">취리히</a></li>
+											<li><a href="#">암스테르담</a></li>
+											<li><a href="#">베니스</a></li>
+										</ul>
+									</td>
+								</tr>
+								<tr>
+									<td>
+										<p class="tit">남태평양</p>
+										<ul class="list">
+											<li><a href="#">시드니</a></li>
+											<li><a href="#">브리즈번</a></li>
+											<li><a href="#">멜버른</a></li>
+											<li><a href="#">오클랜드</a></li>
+											<li><a href="#">괌</a></li>
+											<li><a href="#">사이판</a></li>
+										</ul>
+									</td>
+									<td>
+										<p class="tit">중남미</p>
+										<ul class="list">
+											<li><a href="#">상파울로</a></li>
+											<li><a href="#">멕시코시티</a></li>
+											<li><a href="#">칸쿤</a></li>
+											<li><a href="#">리마</a></li>
+											<li><a href="#">하바나</a></li>
+										</ul>
+									</td>
+									<td>
+										<p class="tit">서남아</p>
+										<ul class="list">
+											<li><a href="#">몰디브</a></li>
+											<li><a href="#">카트만두</a></li>
+											<li><a href="#">델리</a></li>
+											<li><a href="#">뭄바이</a></li>
+											<li><a href="#">콜롬보</a></li>
+											<li><a href="#">양곤</a></li>
+											<li><a href="#">다카</a></li>
+										</ul>
+									</td>
+									<td>
+										<p class="tit">캐나다</p>
+										<ul class="list">
+											<li><a href="#">밴쿠버</a></li>
+											<li><a href="#">토론토</a></li>
+											<li><a href="#">몬트리올</a></li>
+											<li><a href="#">캘거리</a></li>
+											<li><a href="#">오타와</a></li>
+										</ul>
+									</td>
+									<td>
+										<p class="tit">중동/아프리카</p>
+										<ul class="list">
+											<li><a href="#">두바이</a></li>
+											<li><a href="#">카이로</a></li>
+											<li><a href="#">아부다비</a></li>
+											<li><a href="#">나이로비</a></li>
+											<li><a href="#">요하네스버그</a></li>
+											<li><a href="#">케이프타운</a></li>
+										</ul>
+									</td>
+								</tr>
+							</tbody>
+						</table>
+					</div>
+					<!--// 항공 주요도시 리스트 -->
+					
+					<!-- 호텔 주요도시 리스트 -->
+					<div class="sc-ui-search-box ui-maincity-hotel">
+						<div class="uis-input">
+							<input type="text" class="input-base ipu-search" placeholder="도시, 호텔명을 검색하거나 아래 주요도시에서 선택하세요.">
+						</div>						
+						<table class="uis-maincity-table-htl">
+							<caption>주요도시 선택 리스트</caption>
+							<colgroup>
+								<col width="16.6147455867082%">
+								<col>
+							</colgroup>
+							<tbody>
+								<tr>
+									<th><p class="tit">아시아</p></th>
+									<td>
+										<ul class="list"> 
+										   <li><a href="#">다낭</a></li> 
+										   <li><a href="#">싱가포르</a></li> 
+										   <li><a href="#">방콕</a></li> 
+										   <li><a href="#">세부</a></li> 
+										   <li><a href="#">코타키나발루</a></li> 
+										   <li><a href="#">발리</a></li> 
+										   <li><a href="#">푸켓</a></li> 
+										   <li><a href="#">마닐라</a></li> 
+										   <li><a href="#">파타야</a></li> 
+										   <li><a href="#">보라카이</a></li> 
+										   <li><a href="#">나트랑</a></li> 
+										   <li><a href="#">호이안</a></li> 
+										   <li><a href="#">호치민</a></li> 
+										   <li><a href="#">하노이</a></li> 
+										   <li><a href="#">쿠알라룸푸르</a></li> 
+									  </ul>
+									</td>
+								</tr>
+								<tr>
+									<th><p class="tit">홍콩/중국</p></th>
+									<td>
+										<ul class="list"> 
+											<li><a href="#">홍콩</a></li> 
+											<li><a href="#">타이페이</a></li> 
+											<li><a href="#">마카오</a></li> 
+											<li><a href="#">상해</a></li> 
+											<li><a href="#">북경</a></li> 
+											<li><a href="#">청도</a></li> 
+											<li><a href="#">광저우</a></li> 
+										</ul>
+									</td>
+								</tr>
+								<tr>
+									<th><p class="tit">일본</p></th>
+									<td>
+										<ul class="list"> 
+											<li><a href="#">오키나와</a></li> 
+											<li><a href="#">오사카</a></li> 
+											<li><a href="#">도쿄</a></li> 
+											<li><a href="#">후쿠오카</a></li> 
+											<li><a href="#">삿포로</a></li> 
+											<li><a href="#">교토</a></li> 
+											<li><a href="#">유후인</a></li> 
+											<li><a href="#">나고야</a></li> 
+											<li><a href="#">노보리베츠</a></li> 
+										</ul>
+									</td>
+								</tr>
+								<tr>
+									<th><p class="tit">남태평양</p></th>
+									<td>
+										<ul class="list"> 
+											<li><a href="#">괌</a></li> 
+											<li><a href="#">사이판</a></li> 
+											<li><a href="#">시드니</a></li> 
+											<li><a href="#">멜버른</a></li> 
+										</ul>
+									</td>
+								</tr>
+								<tr>
+									<th><p class="tit">유럽</p></th>
+									<td>
+										<ul class="list"> 
+											<li><a href="#">파리</a></li> 
+											<li><a href="#">로마</a></li> 
+											<li><a href="#">런던</a></li> 
+											<li><a href="#">프라하</a></li> 
+											<li><a href="#">피렌체</a></li> 
+											<li><a href="#">바로셀로나</a></li> 
+											<li><a href="#">밀라노</a></li> 
+											<li><a href="#">베니스</a></li> 
+											<li><a href="#">부다페스트</a></li> 
+											<li><a href="#">비엔나</a></li> 
+										</ul>
+									</td>
+								</tr>
+								<tr>
+									<th><p class="tit">미주/캐나다</p></th>
+									<td>
+										<ul class="list"> 
+											<li><a href="#">호놀룰루</a></li> 
+											<li><a href="#">마우이</a></li> 
+											<li><a href="#">라스베가스</a></li> 
+											<li><a href="#">뉴욕</a></li> 
+											<li><a href="#">샌프란시스코</a></li> 
+											<li><a href="#">시카고</a></li> 
+											<li><a href="#">로스엔젤레스</a></li> 
+											<li><a href="#">벤쿠버</a></li> 
+											<li><a href="#">토론토</a></li> 
+										</ul>
+									</td>
+								</tr>
+							</tbody>
+						</table>
+					</div>
+					<!--// 호텔 주요도시 리스트 -->
+					
+					<!-- 검색 리스트 -->
+					<div class="sc-ui-search-box ui-citysearch-auto">
+						<div class="uis-input">
+							<input type="text" class="input-base ipu-search" placeholder="도시명을 검색하거나 아래 주요도시에서 선택하세요">
+						</div>
+						<div class="uis-citysearch-list">
+							<ul class="list">
+								<li>
+									<a href="#">
+										<span class="name-city">서울</span>
+										<span class="name-air">대한민국, 모든 공항 (SEL)</span>
+									</a>
+									<ul class="list-sub">
+										<li>
+											<a href="#">
+												<span class="name-city c-txt-point1">샤를드골</span>
+												<span class="name-air">프랑스 파리, 샤를드골 공항 (CDG)</span>
+											</a>
+										</li>
+									</ul>
+								</li>
+								<li>
+									<a href="#">
+										<span class="name-city c-txt-point1">인천</span>
+										<span class="name-air">대한민국, 인천 국제 공항 (ICN)</span>
+									</a>
+									<ul class="list-sub">
+										<li>
+											<a href="#">
+												<span class="name-city c-txt-point1">샤를드골</span>
+												<span class="name-air">프랑스 파리, 샤를드골 공항 (CDG)</span>
+											</a>
+										</li>
+									</ul>
+								</li>
+								<li>
+									<a href="#">
+										<span class="name-city">김포</span>
+										<span class="name-air">대한민국, 김포국제 공항 (GMP)</span>
+									</a>
+								</li>
+							</ul>
+							<div class="tip-exp"><span class="c-txt-point1">대한민국에서 출발하는 80%가 이 공항을 선택했습니다.</span></div>
+						</div>
+					</div>
+					<!--// 검색 리스트 -->
+					
+					<!-- 캘린더 -->
+					<div class="sc-ui-search-box ui-date-calendar">
+						<div class="uis-input">
+							<span class="uis-date-chkin"><input type="text" class="input-base ipu-day" placeholder="출발일을 선택해주세요." readonly></span>
+							<span class="uis-date-chkout"><input type="text" class="input-base ipu-day" placeholder="도착일을 선택해주세요." readonly></span>
+							<span class="uis-chk">
+								<span class="a11y"><input type="checkbox" id="unDay"></span>
+								<label for="unDay" class="label-base unDay">도착일 미정</label> 
+							</span>
+						</div>
+						<div class="uis-calendar">
+							<div class="uis-datepicker"></div>
+						</div> 
+					</div>
+					<!--// 캘린더 -->
+					
+					<!-- 인원,좌석,객실 -->
+					<div class="sc-ui-search-box ui-capacity">
+						<div class="uis-capacity">
+							<ul class="uis-capacity-number">
+								<li>
+									<div class="tit"><em>성인</em> (만 12세 이상)</div>
+									<div class="uis-custom-number">
+										<span class="btn-base ucn-crt b-minus"><button type="button"><span class="a11y">빼기</span></button></span>
+										<span class="ucn-num on">1</span>
+										<span class="btn-base ucn-crt b-plus"><button type="button"><span class="a11y">더하기</span></button></span>
+									</div>
+								</li>
+								<li>
+									<div class="tit"><em>아동</em> (만 12세 미만)</div>
+									<div class="uis-custom-number">
+										<span class="btn-base ucn-crt b-minus"><button type="button"><span class="a11y">빼기</span></button></span>
+										<span class="ucn-num">0</span>
+										<span class="btn-base ucn-crt b-plus"><button type="button"><span class="a11y">더하기</span></button></span>
+									</div>
+								</li>
+								<li>
+									<div class="tit"><em>유아</em> (만 24개월 미만)</div>
+									<div class="uis-custom-number">
+										<span class="btn-base ucn-crt b-minus"><button type="button"><span class="a11y">빼기</span></button></span>
+										<span class="ucn-num">0</span>
+										<span class="btn-base ucn-crt b-plus"><button type="button"><span class="a11y">더하기</span></button></span>
+									</div>
+								</li>
+							</ul>
+							<ul class="uis-capacity-select">
+								<li><a href="#">일반석</a></li>
+								<li class="on"><a href="#">프리미엄 이코노미</a></li>
+								<li><a href="#">비지니스석</a></li>
+								<li><a href="#">일등석</a></li>
+							</ul>
+							<div class="uis-set-btn">
+								<span class="btn-base bb-st2 b-cancel"><a href="#">취소</a></span>
+								<span class="btn-base bb-st3 b-complete"><a href="#">완료</a></span>
+							</div>
+						</div> 
+					</div>
+					<!--// 인원,좌석,객실 -->
 				</div>
 				<!--// 검색 섹션 -->
 								
@@ -444,7 +1068,7 @@
 									<span class="label-base lbr-st1"><span>뉴욕</span></span>
 									<span class="label-base lbr-st1"><span>5성급</span></span>
 								</span>
-								<span class="tit"><span class="txt-over"><span>안다즈 싱가포르</span></span></span>
+								<span class="tit tit-over"><span>안다즈 싱가포르</span></span>
 								<span class="info">
 									<span class="label-base lbr-st3"><span>특전</span></span>
 									<span class="txt">11주념기념특전 : 마고쨈1종 + 시그니처버거 + 소프트드링크 1인 1회</span>
@@ -459,7 +1083,7 @@
 									<span class="label-base lbr-st1"><span>뉴욕</span></span>
 									<span class="label-base lbr-st1"><span>5성급</span></span>
 								</span>
-								<span class="tit"><span class="txt-over"><span>하와이안 빌리지 와이키키 비치 타운 인터내셔널 호텔</span></span></span>
+								<span class="tit tit-over"><span>하와이안 빌리지 와이키키 비치 타운 인터내셔널 호텔</span></span>
 								<span class="info">
 									<span class="label-base lbr-st3"><span>특전</span></span>
 									<span class="txt">11주념기념특전 : 마고쨈1종 + 시그니처버거 + 소프트드링크 1인 1회</span>
@@ -474,7 +1098,7 @@
 									<span class="label-base lbr-st1"><span>뉴욕</span></span>
 									<span class="label-base lbr-st1"><span>5성급</span></span>
 								</span>
-								<span class="tit"><span class="txt-over"><span>트럼프 인터내셔널 호텔</span></span></span>
+								<span class="tit tit-over"><span>트럼프 인터내셔널 호텔</span></span>
 								<span class="info">
 									<span class="label-base lbr-st3"><span>특전</span></span>
 									<span class="txt">11주념기념특전 : 마고쨈1종 + 시그니처버거 + 소프트드링크 1인 1회</span>
@@ -489,7 +1113,7 @@
 									<span class="label-base lbr-st1"><span>뉴욕</span></span>
 									<span class="label-base lbr-st1"><span>5성급</span></span>
 								</span>
-								<span class="tit"><span class="txt-over"><span>안다즈 싱가포르</span></span></span>
+								<span class="tit tit-over"><span>안다즈 싱가포르</span></span>
 								<span class="info">
 									<span class="label-base lbr-st3"><span>특전</span></span>
 									<span class="txt">11주념기념특전 : 마고쨈1종 + 시그니처버거 + 소프트드링크 1인 1회</span>
@@ -506,7 +1130,7 @@
 									<span class="label-base lbr-st1"><span>뉴욕</span></span>
 									<span class="label-base lbr-st1"><span>5성급</span></span>
 								</span>
-								<span class="tit"><span class="txt-over"><span>안다즈 싱가포르</span></span></span>
+								<span class="tit tit-over"><span>안다즈 싱가포르</span></span>
 								<span class="info">
 									<span class="label-base lbr-st3"><span>특전</span></span>
 									<span class="txt">11주념기념특전 : 마고쨈1종 + 시그니처버거 + 소프트드링크 1인 1회</span>
@@ -521,7 +1145,7 @@
 									<span class="label-base lbr-st1"><span>뉴욕</span></span>
 									<span class="label-base lbr-st1"><span>5성급</span></span>
 								</span>
-								<span class="tit"><span class="txt-over"><span>안다즈 싱가포르</span></span></span>
+								<span class="tit tit-over"><span>안다즈 싱가포르</span></span>
 								<span class="info">
 									<span class="label-base lbr-st3"><span>특전</span></span>
 									<span class="txt">11주념기념특전 : 마고쨈1종 + 시그니처버거 + 소프트드링크 1인 1회</span>
@@ -536,7 +1160,7 @@
 									<span class="label-base lbr-st1"><span>뉴욕</span></span>
 									<span class="label-base lbr-st1"><span>5성급</span></span>
 								</span>
-								<span class="tit"><span class="txt-over"><span>안다즈 싱가포르</span></span></span>
+								<span class="tit tit-over"><span>안다즈 싱가포르</span></span>
 								<span class="info">
 									<span class="label-base lbr-st3"><span>특전</span></span>
 									<span class="txt">11주념기념특전 : 마고쨈1종 + 시그니처버거 + 소프트드링크 1인 1회</span>
@@ -551,7 +1175,7 @@
 									<span class="label-base lbr-st1"><span>뉴욕</span></span>
 									<span class="label-base lbr-st1"><span>5성급</span></span>
 								</span>
-								<span class="tit"><span class="txt-over"><span>안다즈 싱가포르</span></span></span>
+								<span class="tit tit-over"><span>안다즈 싱가포르</span></span>
 								<span class="info">
 									<span class="label-base lbr-st3"><span>특전</span></span>
 									<span class="txt">11주념기념특전 : 마고쨈1종 + 시그니처버거 + 소프트드링크 1인 1회</span>
@@ -568,7 +1192,7 @@
 									<span class="label-base lbr-st1"><span>뉴욕</span></span>
 									<span class="label-base lbr-st1"><span>5성급</span></span>
 								</span>
-								<span class="tit"><span class="txt-over"><span>안다즈 싱가포르</span></span></span>
+								<span class="tit tit-over"><span>안다즈 싱가포르</span></span>
 								<span class="info">
 									<span class="label-base lbr-st3"><span>특전</span></span>
 									<span class="txt">11주념기념특전 : 마고쨈1종 + 시그니처버거 + 소프트드링크 1인 1회</span>
@@ -583,7 +1207,7 @@
 									<span class="label-base lbr-st1"><span>뉴욕</span></span>
 									<span class="label-base lbr-st1"><span>5성급</span></span>
 								</span>
-								<span class="tit"><span class="txt-over"><span>안다즈 싱가포르</span></span></span>
+								<span class="tit tit-over"><span>안다즈 싱가포르</span></span>
 								<span class="info">
 									<span class="label-base lbr-st3"><span>특전</span></span>
 									<span class="txt">11주념기념특전 : 마고쨈1종 + 시그니처버거 + 소프트드링크 1인 1회</span>
@@ -598,7 +1222,7 @@
 									<span class="label-base lbr-st1"><span>뉴욕</span></span>
 									<span class="label-base lbr-st1"><span>5성급</span></span>
 								</span>
-								<span class="tit"><span class="txt-over"><span>안다즈 싱가포르</span></span></span>
+								<span class="tit tit-over"><span>안다즈 싱가포르</span></span>
 								<span class="info">
 									<span class="label-base lbr-st3"><span>특전</span></span>
 									<span class="txt">11주념기념특전 : 마고쨈1종 + 시그니처버거 + 소프트드링크 1인 1회</span>
@@ -613,7 +1237,7 @@
 									<span class="label-base lbr-st1"><span>뉴욕</span></span>
 									<span class="label-base lbr-st1"><span>5성급</span></span>
 								</span>
-								<span class="tit"><span class="txt-over"><span>안다즈 싱가포르</span></span></span>
+								<span class="tit tit-over"><span>안다즈 싱가포르</span></span>
 								<span class="info">
 									<span class="label-base lbr-st3"><span>특전</span></span>
 									<span class="txt">11주념기념특전 : 마고쨈1종 + 시그니처버거 + 소프트드링크 1인 1회</span>
@@ -644,7 +1268,7 @@
 									<span class="label-base lbr-st1"><span>뉴욕</span></span>
 									<span class="label-base lbr-st1"><span>5성급</span></span>
 								</span>
-								<span class="tit"><span class="txt-over"><span>로열 퍼시픽 호텔 앤드 타워</span></span></span>
+								<span class="tit tit-over"><span>로열 퍼시픽 호텔 앤드 타워 로열 퍼시픽 호텔 앤드 타워 로열 퍼시픽 호텔 앤드 타워</span></span>
 								<span class="tit-ori">The Royal Pacific Hotel &amp; Towers</span>
 								<span class="price">1박 <em>413,300</em> 원~</span>
 							</a>
@@ -656,7 +1280,7 @@
 									<span class="label-base lbr-st1"><span>뉴욕</span></span>
 									<span class="label-base lbr-st1"><span>5성급</span></span>
 								</span>
-								<span class="tit"><span class="txt-over"><span>인터컨티넨탈</span></span></span>
+								<span class="tit tit-over"><span>인터컨티넨탈</span></span>
 								<span class="tit-ori">InterContinental</span>
 								<span class="price">1박 <em>413,300</em> 원~</span>
 							</a>
@@ -671,7 +1295,7 @@
 									<span class="label-base lbr-st1"><span>뉴욕</span></span>
 									<span class="label-base lbr-st1"><span>5성급</span></span>
 								</span>
-								<span class="tit"><span class="txt-over"><span>그랜드 하얏트 홍콩</span></span></span>
+								<span class="tit tit-over"><span>그랜드 하얏트 홍콩</span></span>
 								<span class="tit-ori">Grand Hyatt Hong Kong</span>
 								<span class="price">1박 <em>413,300</em> 원~</span>
 							</a>
@@ -683,7 +1307,7 @@
 									<span class="label-base lbr-st1"><span>뉴욕</span></span>
 									<span class="label-base lbr-st1"><span>5성급</span></span>
 								</span>
-								<span class="tit"><span class="txt-over"><span>로열 퍼시픽 호텔 앤드 타워</span></span></span>
+								<span class="tit tit-over"><span>로열 퍼시픽 호텔 앤드 타워</span></span>
 								<span class="tit-ori">The Royal Pacific Hotel &amp; Towers</span>
 								<span class="price">1박 <em>413,300</em> 원~</span>
 							</a>
@@ -697,7 +1321,7 @@
 									<span class="label-base lbr-st1"><span>뉴욕</span></span>
 									<span class="label-base lbr-st1"><span>5성급</span></span>
 								</span>
-								<span class="tit"><span class="txt-over"><span>인터컨티넨탈</span></span></span>
+								<span class="tit tit-over"><span>인터컨티넨탈</span></span>
 								<span class="tit-ori">InterContinental</span>
 								<span class="price">1박 <em>413,300</em> 원~</span>
 							</a>
@@ -712,7 +1336,7 @@
 									<span class="label-base lbr-st1"><span>뉴욕</span></span>
 									<span class="label-base lbr-st1"><span>5성급</span></span>
 								</span>
-								<span class="tit"><span class="txt-over"><span>로열 퍼시픽 호텔 앤드 타워</span></span></span>
+								<span class="tit tit-over"><span>로열 퍼시픽 호텔 앤드 타워</span></span>
 								<span class="tit-ori">The Royal Pacific Hotel &amp; Towers</span>
 								<span class="price">1박 <em>413,300</em> 원~</span>
 							</a>
@@ -727,7 +1351,7 @@
 									<span class="label-base lbr-st1"><span>뉴욕</span></span>
 									<span class="label-base lbr-st1"><span>5성급</span></span>
 								</span>
-								<span class="tit"><span class="txt-over"><span>그랜드 하얏트 홍콩</span></span></span>
+								<span class="tit tit-over"><span>그랜드 하얏트 홍콩</span></span>
 								<span class="tit-ori">Grand Hyatt Hong Kong</span>
 								<span class="price">1박 <em>413,300</em> 원~</span>
 							</a>
@@ -739,7 +1363,7 @@
 									<span class="label-base lbr-st1"><span>뉴욕</span></span>
 									<span class="label-base lbr-st1"><span>5성급</span></span>
 								</span>
-								<span class="tit"><span class="txt-over"><span>로열 퍼시픽 호텔 앤드 타워</span></span></span>
+								<span class="tit tit-over"><span>로열 퍼시픽 호텔 앤드 타워</span></span>
 								<span class="tit-ori">The Royal Pacific Hotel &amp; Towers</span>
 								<span class="price">1박 <em>413,300</em> 원~</span>
 							</a>
@@ -756,7 +1380,7 @@
 									<span class="label-base lbr-st1"><span>뉴욕</span></span>
 									<span class="label-base lbr-st1"><span>5성급</span></span>
 								</span>
-								<span class="tit"><span class="txt-over"><span>로열 퍼시픽 호텔 앤드 타워</span></span></span>
+								<span class="tit tit-over"><span>로열 퍼시픽 호텔 앤드 타워</span></span>
 								<span class="tit-ori">The Royal Pacific Hotel &amp; Towers</span>
 								<span class="price">1박 <em>413,300</em> 원~</span>
 							</a>
@@ -768,7 +1392,7 @@
 									<span class="label-base lbr-st1"><span>뉴욕</span></span>
 									<span class="label-base lbr-st1"><span>5성급</span></span>
 								</span>
-								<span class="tit"><span class="txt-over"><span>인터컨티넨탈</span></span></span>
+								<span class="tit tit-over"><span>인터컨티넨탈</span></span>
 								<span class="tit-ori">InterContinental</span>
 								<span class="price">1박 <em>413,300</em> 원~</span>
 							</a>
@@ -780,7 +1404,7 @@
 									<span class="label-base lbr-st1"><span>뉴욕</span></span>
 									<span class="label-base lbr-st1"><span>5성급</span></span>
 								</span>
-								<span class="tit"><span class="txt-over"><span>로열 퍼시픽 호텔 앤드 타워</span></span></span>
+								<span class="tit tit-over"><span>로열 퍼시픽 호텔 앤드 타워</span></span>
 								<span class="tit-ori">The Royal Pacific Hotel &amp; Towers</span>
 								<span class="price">1박 <em>413,300</em> 원~</span>
 							</a>
@@ -795,13 +1419,12 @@
 									<span class="label-base lbr-st1"><span>뉴욕</span></span>
 									<span class="label-base lbr-st1"><span>5성급</span></span>
 								</span>
-								<span class="tit"><span class="txt-over"><span>그랜드 하얏트 홍콩</span></span></span>
+								<span class="tit tit-over"><span>그랜드 하얏트 홍콩</span></span>
 								<span class="tit-ori">Grand Hyatt Hong Kong</span>
 								<span class="price">1박 <em>413,300</em> 원~</span>
 							</a>
 						</li>
 					</ul>
-					
 				</div>
 			</div>
 			

@@ -1,0 +1,450 @@
+<div class="quick-sub-menu">
+	<ul class="sch-1dep item-5">
+		<li><a href="#" class="on">해외<br />렌터카</a></li>
+		<li><a href="#">현지<br />투어</a></li>
+		<li><a href="#">공항<br />픽업</a></li>
+		<li><a href="#">교통<br />패스</a></li>
+		<li><a href="#">해외<br />입장권</a></li>
+	</ul>
+</div>
+<!-- 해외렌터카 -->
+<div class="sch-1dep-cont on">
+	<div class="item renterAutoComplete">
+		<input type="text" id="rent_city" class="text holder input-lg" style="width:258px" title="대여도시" value="대여도시">
+		<!-- 도시검색 레이어 -->
+		<div class="city-search-lpu">
+			<ul class="text-list-sm">
+				<li>대여도시란에 도시명(한글, 영문)으로 검색하거나 아래 주요도시에서 선택하세요.</li>
+			</ul>
+			<table class="table-li-mix item-5" summary="대한민국, 일본, 중국, 유럽, 대양주, 아시아, 미주의 각 주요도시를 선택할 수 있는표입니다.">
+			<caption>주요도시 바로선택표</caption>
+			<colgroup>
+				<col width="100" /><col />
+			</colgroup>
+			<tbody>
+			<!-- loop -->
+			<tr>
+				<th scope="row" class="bg"><b>미주/캐나다</b></th>
+				<td>
+					<ul>
+						<li><a href="#">오하우(호놀룰루)</a></li>
+						<li><a href="#">마우이</a></li>
+						<li><a href="#">로스엔젤레스</a></li>
+						<li><a href="#">샌프란시스코</a></li>
+						<li><a href="#">라스베가스</a></li>
+						<li><a href="#">뉴욕(JFK)</a></li>
+						<li><a href="#">시카고</a></li>
+						<li><a href="#">시애틀</a></li>
+						<li><a href="#">아틀란타</a></li>
+						<li><a href="#">워싱턴 DC</a></li>
+						<li><a href="#">올랜도</a></li>
+						<li><a href="#">벤쿠버</a></li>
+						<li><a href="#">캘거리</a></li>
+						<li><a href="#">토론토</a></li>
+					</ul>
+				</td>
+			</tr>
+			<tr>
+				<th scope="row" class="bg"><b>남태평양</b></th>
+				<td>
+					<ul>
+						<li><a href="#">괌</a></li>
+						<li><a href="#">오클랜드</a></li>
+						<li><a href="#">시드니</a></li>
+						<li><a href="#">브리즈번</a></li>
+						<li><a href="#">멜버른</a></li>
+					</ul>
+				</td>
+			</tr>
+			<tr>
+				<th scope="row" class="bg"><b>유럽</b></th>
+				<td>
+					<ul>
+						<li><a href="#">파리</a></li>
+						<li><a href="#">프랑크푸르트</a></li>
+						<li><a href="#">로마</a></li>
+						<li><a href="#">밀라노</a></li>
+						<li><a href="#">피렌체</a></li>
+						<li><a href="#">런던</a></li>
+						<li><a href="#">자그레브</a></li>
+						<li><a href="#">두브르크닉</a></li>
+						<li><a href="#">마드리드</a></li>
+						<li><a href="#">바로셀로나</a></li>
+						<li><a href="#">그라나다</a></li>
+						<li><a href="#">세비야</a></li>
+						<li><a href="#">프라하</a></li>
+						<li><a href="#">비엔나</a></li>
+						<li><a href="#">뮌헨</a></li>
+						<li><a href="#">니스</a></li>
+						<li><a href="#">취리히</a></li>
+						<li><a href="#">나폴리</a></li>
+						<li><a href="#">마요르카</a></li>
+						<li><a href="#">산토리니</a></li>
+					</ul>
+				</td>
+			</tr>
+			<tr>
+				<th scope="row" class="bg"><b>일본</b></th>
+				<td>
+					<ul>
+						<li><a href="#">오키나와</a></li>
+						<li><a href="#">후쿠오카</a></li>
+						<li><a href="#">홋카이도(삿포로)</a></li>
+						<li><a href="#">오사카</a></li>
+					</ul>
+				</td>
+			</tr>
+			<tr>
+				<th scope="row" class="bg"><b>기타지역</b></th>
+				<td>
+					<ul>
+						<li><a href="#">방콕</a></li>
+						<li><a href="#">푸켓</a></li>
+						<li><a href="#">두바이</a></li>
+					</ul>
+				</td>
+			</tr>
+			</tbody>
+			</table> 
+		</div>
+		<!-- //도시검색 레이어 -->
+	</div>
+	<div class="item">
+		<select class="selectbox-lg bd-black selectbox-option-width:270px" style="width:245px">
+			<option>대여장소</option>
+		</select>
+	</div>
+	<div class="item rent-equal-cont">
+		<div class="col2">
+			<span class="fl">
+				<select class="bd-black" style="width:133px">
+					<option>반납도시</option>
+				</select>
+			</span>
+			<span class="fr">
+				<select class="bd-black" style="width:132px">
+					<option>반납장소</option>
+				</select>
+			</span>
+		</div>
+	</div>
+	<div class="item rent-equal-check">
+		<input type="checkbox" name="rent_equal" id="qu_rent_equal" checked="checked">
+		<label for="qu_rent_equal" class="fs-11">대여/반납 장소 동일</label>
+	</div>
+	<div class="item">
+		<div class="col3-2">
+			<span class="fl">
+				<input type="text" name="" class="text_cal holder datepicker" style="width:121px;" value="대여날짜" readonly="readonly" title="대여날짜">
+			</span>
+			<span class="fl.time">
+				<select class="bd-black" style="width:64px">
+					<option>12시</option>
+				</select>
+			</span>
+			<span class="fr">
+				<select class="bd-black" style="width:64px">
+					<option>00분</option>
+				</select>
+			</span>
+		</div>
+	</div>
+	<div class="item">
+		<div class="col3-2">
+			<span class="fl">
+				<input type="text" name="" class="text_cal holder datepicker" style="width:121px;" value="대여날짜" readonly="readonly" title="대여날짜">
+			</span>
+			<span class="fl.time">
+				<select class="bd-black" style="width:64px">
+					<option>12시</option>
+				</select>
+			</span>
+			<span class="fr">
+				<select class="bd-black" style="width:64px">
+					<option>00분</option>
+				</select>
+			</span>
+		</div>
+	</div>
+	<div class="item">
+		<input type="checkbox" name="rent_age" id="qu_unit_rent_age" checked="checked">
+		<label for="qu_unit_rent_age" class="fs-11">운전자 연령이 25세 ~ 70세인 경우</label>
+		<span class="help-text">
+			<a href="#">도움말</a>
+			<!-- tip box -->
+			<span class="tip-box right">
+				<span class="tip" style="width:200px;">
+					<span>차량을 대여할 당시 운전자 연령이<br /> <b>만 25세 미만인 경우 추가요금이<br /> 발생할 수 있습니다.</b>자세한 사항은<br /> 이용약관을 확인하여주시기 바랍니다.
+					</span>
+					<span class="bot"></span>
+				</span>
+			</span>
+			<!-- //tip box -->
+		</span>
+	</div>
+	<!-- 160118 수정 -->
+	<div class="btn-search-type2"><a href="#"><img src="/images/front/travel/btn_quick_cont_search.gif" alt="검색하기" /></a></div>
+	<!-- //160118 수정 -->
+</div>
+<!-- //해외렌터카 -->
+
+<!-- 현지투어 -->
+<div class="sch-1dep-cont">
+	<div class="item">
+		<select class="selectbox-lg bd-black selectbox-option-width:270px" style="width:245px">
+			<option>여행국가</option>
+		</select>
+	</div>
+	<div class="item">
+		<select class="selectbox-lg bd-black selectbox-option-width:270px" style="width:245px">
+			<option>여행도시</option>
+		</select>
+	</div>
+	<div class="item tour-theme-choose">
+		<p class="msg"><strong>여행 테마 선택하기</strong></p>
+		<div class="col3">
+			<span>
+				<input type="checkbox" name="daytourCategory" id="qu_unit_tour_M026" value="M026" categorydesc="콤보할인">
+				<label for="qu_unit_tour_M026">콤보할인</label>
+			</span>
+			<span>
+				<input type="checkbox" name="daytourCategory" id="qu_unit_tour_M023" value="M023" categorydesc="즐길거리">
+				<label for="qu_unit_tour_M023">즐길거리</label>
+			</span>
+			<span>
+				<input type="checkbox" name="daytourCategory" id="qu_unit_tour_M022" value="M022" categorydesc="관광">
+				<label for="qu_unit_tour_M022">관광</label>
+			</span>
+			<span>
+				<input type="checkbox" name="daytourCategory" id="qu_unit_tour_M024" value="M024" categorydesc="음식">
+				<label for="qu_unit_tour_M024">음식</label>
+			</span>
+			<span>
+				<input type="checkbox" name="daytourCategory" id="qu_unit_tour_M025" value="M025" categorydesc="가이드/차량">
+				<label for="qu_unit_tour_M025">가이드/차량</label>
+			</span>
+			<span>
+				<input type="checkbox" name="daytourCategory" id="qu_unit_tour_M050" value="M050" categorydesc="골프">
+				<label for="qu_unit_tour_M050">골프</label>
+			</span>						
+		</div>
+	</div>
+	<!-- 160118 수정 -->
+	<div class="btn-search-type2"><a href="#"><img src="/images/front/travel/btn_quick_cont_search.gif" alt="검색하기" /></a></div>
+	<!-- //160118 수정 -->
+</div>
+<!-- //현지투어 -->
+
+<!-- 공항픽업 -->
+<div class="sch-1dep-cont">
+	<div class="item">
+		<select class="selectbox-lg bd-black selectbox-option-width:270px" style="width:245px">
+			<option>여행국가</option>
+		</select>
+	</div>
+	<div class="item">
+		<select class="selectbox-lg bd-black selectbox-option-width:270px" style="width:245px">
+			<option>여행도시</option>
+		</select>
+	</div>
+	<div class="item">
+		<div class="col2">
+			<span class="fl">
+				<select class="bd-black" style="width:133px">
+					<option>픽업장소</option>
+				</select>
+			</span>
+			<span class="fr">
+				<select class="bd-black" style="width:132px">
+					<option>하차장소</option>
+				</select>
+			</span>
+		</div>
+	</div>
+	<div class="item">
+		<div class="col2">
+			<span class="fl">
+				<input type="text" name="" class="text_cal holder datepicker" style="width:120px;" value="날짜선택" readonly="readonly" title="날짜선택">
+			</span>
+			<span class="fr">
+				<select class="bd-black" style="width:132px">
+					<option>이용고객1명</option>
+				</select>
+			</span>
+		</div>
+	</div>
+	<div class="item">
+		<div class="col2">
+			<span class="fl">
+				<select class="bd-black" style="width:133px">
+					<option>한국어</option>
+				</select>
+			</span>
+			<span class="fr">
+				<select class="bd-black" style="width:132px">
+					<option>영어</option>
+				</select>
+			</span>
+		</div>
+	</div>
+	<!-- 160118 수정 -->
+	<div class="btn-search-type2"><a href="#"><img src="/images/front/travel/btn_quick_cont_search.gif" alt="검색하기" /></a></div>
+	<!-- //160118 수정 -->
+</div>
+<!-- //공항픽업 -->
+
+<!-- 교통패스 -->
+<div class="sch-1dep-cont">
+	<div class="sch-2dep">
+		<div class="col2">
+			<span class="fl"><input type="radio" name="dprs_sch1" id="dprs_sch1_1" checked="checked"> <label for="dprs_sch1_1">일본/중국</label></span>
+			<span class="fr"><input type="radio" name="dprs_sch1" id="dprs_sch1_2"> <label for="dprs_sch1_2">유럽</label></span>
+		</div>
+	</div>
+	<!-- 일본/중국 -->
+	<div class="sch-2dep-cont">
+		<div class="item">
+			<select class="selectbox-lg bd-black selectbox-option-width:270px" style="width:245px">
+				<option>여행지역</option>
+			</select>
+		</div>
+		<div class="item">
+			<select class="selectbox-lg bd-black selectbox-option-width:270px" style="width:245px">
+				<option>여행국가</option>
+			</select>
+		</div>
+		<div class="item custom-select">
+			<span class="selectbox_title i-select2 bd-black" style="width:240px;">
+				<strong>성인 2, 아동 1</strong>
+			</span>
+			<div class="i-select2-cont">
+				<div class="adtNum">
+					<span class="num">성인 2</span>
+					<a href="#" class="btn-plus"><span class="blind">인원 추가</span></a>
+					<a href="#" class="btn-minus"><span class="blind">인원 빼기</span></a>
+				</div>
+				<div class="chdNum">
+					<span class="num">아동 1</span>
+					<a href="#" class="btn-plus"><span class="blind">인원 추가</span></a>
+					<a href="#" class="btn-minus"><span class="blind">인원 빼기</span></a>
+				</div>
+				<ul>
+					<li>· <strong>성인</strong> : 만 12세 이상</li>
+					<li>· <strong>아동</strong> : 만 4세 ~ 11세</li>								
+					<li>· 패스별 연령기준이 다를 수 있습니다.</li>
+				</ul>
+			</div>
+		</div>
+		<!-- 160118 수정 -->
+		<div class="btn-search-type2"><a href="#"><img src="/images/front/travel/btn_quick_cont_search.gif" alt="검색하기" /></a></div>
+		<!-- //160118 수정 -->
+	</div>
+	<div class="sch-2dep-cont">
+		<div class="item">
+			<p class="eu-pass">유럽 여행의 필수품,유럽철도</p>
+			<p class="eu-pass-text">자유여행상품, 항공과 함께 예약하면<br />추가 2% 더 저렴해집니다.</p>
+		</div>
+		<!-- 160118 수정 -->
+		<div class="btn-search-type2"><a href="#"><img src="/images/front/travel/btn_quick_eu_pass.gif" alt="유럽구간/유럽패스 검색하기" /></a></div>
+		<!-- //160118 수정 -->
+	</div>
+</div>
+<!-- //교통패스 -->
+
+<!-- 해외입장권 -->
+<div class="sch-1dep-cont">
+	<div class="item">
+		<select class="selectbox-lg bd-black selectbox-option-width:270px" style="width:245px">
+			<option>여행지역</option>
+		</select>
+	</div>
+	<div class="item">
+		<select class="selectbox-lg bd-black selectbox-option-width:270px" style="width:245px">
+			<option>여행국가</option>
+		</select>
+	</div>
+	<div class="item custom-select">
+		<span class="selectbox_title i-select2 bd-black" style="width:240px;">
+			<strong>성인 2, 아동 1</strong>
+		</span>
+		<div class="i-select2-cont">
+			<div class="adtNum">
+				<span class="num">성인 2</span>
+				<a href="#" class="btn-plus"><span class="blind">인원 추가</span></a>
+				<a href="#" class="btn-minus"><span class="blind">인원 빼기</span></a>
+			</div>
+			<div class="chdNum">
+				<span class="num">아동 1</span>
+				<a href="#" class="btn-plus"><span class="blind">인원 추가</span></a>
+				<a href="#" class="btn-minus"><span class="blind">인원 빼기</span></a>
+			</div>
+			<ul>
+				<li>· <strong>성인</strong> : 만 12세 이상</li>
+				<li>· <strong>아동</strong> : 만 4세 ~ 11세</li>
+				<li>· 입장권별 연령기준이 다를 수 있습니다.</li>
+			</ul>
+		</div>
+	</div>
+	<!-- 160118 수정 -->
+	<div class="btn-search-type2"><a href="#"><img src="/images/front/travel/btn_quick_cont_search.gif" alt="검색하기" /></a></div>
+	<!-- 160118 수정 -->
+
+</div>
+<!-- //해외입장권 -->
+
+<!-- 최근검색 -->
+<div class="recently-search">
+	<div class="recently-search-title">
+		<p class="tit">최근검색</p>
+		<a href="#" id="recently-search-close">퀵검색 닫기</a>
+	</div>
+	<!-- 최근검색 데이터-->
+	<div class="recently-search-cont" class="content light">
+		<!-- 해외렌터카 -->
+		<ul class="recently-search-list">
+			<li><a href="#">도쿄 | 도쿄 마치다도쿄 | 도쿄 마치다도쿄 | 도쿄 마치다<br />1/10 14시30분 대여<br />도쿄 | 도쿄 마치다도쿄 | 도쿄 마치다도쿄 | 도쿄 마치다<br />1/12 12시30분 반납<br />총 2일 18시간 15분</a></li>
+			<li><a href="#">도쿄 | 도쿄 마치다도쿄 | 도쿄 마치다도쿄 | 도쿄 마치다<br />1/10 14시30분 대여<br />도쿄 | 도쿄 마치다도쿄 | 도쿄 마치다도쿄 | 도쿄 마치다<br />1/12 12시30분 반납<br />총 2일 18시간 15분</a></li>
+			<li><a href="#">도쿄 | 도쿄 마치다도쿄 | 도쿄 마치다도쿄 | 도쿄 마치다<br />1/10 14시30분 대여<br />도쿄 | 도쿄 마치다도쿄 | 도쿄 마치다도쿄 | 도쿄 마치다<br />1/12 12시30분 반납<br />총 2일 18시간 15분</a></li>
+		</ul>
+		<!-- 해외렌터카 -->
+
+		<!-- 현지투어 -->
+		<ul class="recently-search-list">
+			<li><a href="#">프랑스 > 파리<br />콤보할인, 즐길거리, 관광, 음식, 가이드/차량, 골프</a></li>
+			<li><a href="#">프랑스 > 파리<br />콤보할인, 즐길거리, 관광, 음식, 가이드/차량, 골프</a></li>
+			<li><a href="#">프랑스 > 파리<br />콤보할인, 즐길거리, 관광, 음식, 가이드/차량, 골프</a></li>
+			<li><a href="#">프랑스 > 파리<br />콤보할인, 즐길거리, 관광, 음식, 가이드/차량, 골프</a></li>
+		</ul>
+		<!-- 현지투어 -->
+
+		<!-- 공항픽업 -->
+		<ul class="recently-search-list">
+			<li><a href="#">Durres | 숙박시설 → 숙박시설<br />11/30 이용고객 4명<br />한국어</a></li>
+			<li><a href="#">Durres | 숙박시설 → 숙박시설<br />11/30 이용고객 4명<br />한국어</a></li>
+			<li><a href="#">Durres | 숙박시설 → 숙박시설<br />11/30 이용고객 4명<br />한국어</a></li>
+			<li><a href="#">Durres | 숙박시설 → 숙박시설<br />11/30 이용고객 4명<br />한국어</a></li>
+		</ul>
+		<!-- 공항픽업 -->
+
+		<!-- 교통패스 -->
+		<ul class="recently-search-list">
+			<li><a href="#">중국/홍콩 >  홍콩<br />성인 1명, 아동 0명</a></li>
+			<li><a href="#">중국/홍콩 >  홍콩<br />성인 1명, 아동 0명</a></li>
+			<li><a href="#">중국/홍콩 >  홍콩<br />성인 1명, 아동 0명</a></li>
+			<li><a href="#">중국/홍콩 >  홍콩<br />성인 1명, 아동 0명</a></li>
+			<li><a href="#">중국/홍콩 >  홍콩<br />성인 1명, 아동 0명</a></li>
+		</ul>
+		<!-- 교통패스 -->
+
+		<!-- 해외입장권 -->
+		<ul class="recently-search-list">
+			<li><a href="#">동남아 > 세부<br />성인 1명, 아동 0명</a></li>
+			<li><a href="#">동남아 > 세부<br />성인 1명, 아동 0명</a></li>
+			<li><a href="#">동남아 > 세부<br />성인 1명, 아동 0명</a></li>
+			<li><a href="#">동남아 > 세부<br />성인 1명, 아동 0명</a></li>
+			<li><a href="#">동남아 > 세부<br />성인 1명, 아동 0명</a></li>
+		</ul>
+		<!-- 해외입장권 -->
+	</div>
+</div>
+<!-- 최근검색 -->

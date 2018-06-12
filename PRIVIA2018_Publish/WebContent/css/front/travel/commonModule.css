@@ -99,7 +99,9 @@
 #footer-sec *, #footer-sec *:after, #footer-sec *:before {font-family: "NotoSansKR", "Malgun Gothic", sans-serif;font-weight: 300;-moz-box-sizing:border-box;-webkit-box-sizing:border-box;box-sizing: border-box;}
 
 /* lyout */ 
-#top-area-sec, #header-sec, #content-sec, #footer-sec {min-width: 1200px;}
+#skipnav a {position:absolute; top:-400px; left:0; display:block; width:100%; padding:10px 0; border-bottom:1px solid #d2d2d2; background:#fff; text-align:center}
+#skipnav a:hover, #skipnav a:focus, #skipnav a:active {position:static}
+#top-area-sec, #header-sec, #content-sec, #footer-sec {min-width: 1200px;width: 100%;margin:0 auto;}
 #content-sec {position: relative;}
 .ly-inner {width:1200px;margin:0 auto;position:relative;}
 .w-content-sec {padding: 80px 0;}
@@ -117,12 +119,6 @@
 .c-point1-400{color:#e93a84 !important;font-weight:400 !important}
 .c-point2{color:#1f7ab1 !important}
 .c-point3{color:#ffe400 !important}
-
-/* gnb 배경색상 */
-.c-bg-air {background-color: #288ecc !important;}
-.c-bg-hotel {background-color: #00b290 !important;}
-.c-bg-free {background-color: #00a3b2 !important;}
-.c-bg-freetour {background-color: #00b290 !important;}
 
 /* 텍스트 */
 .c-txt-point1 {margin-left: -9px;padding-left: 9px;position: relative;}
@@ -283,144 +279,141 @@
 .w-header-gnb .nav-gnb .b-total-nav a {width: 28px;height: 23px;overflow: hidden;padding-right: 0;padding-left: 48px;background: url(/images/front/travel/contents/icon-common-sec.png) 22px -160px no-repeat;}
 
 /* 검색 영역 */
-.w-header-search {padding: 84px 0 50px 0;/*padding-bottom: 160px;padding-bottom: 364px;padding-bottom: 466px;padding-bottom: 568px;*/} /* 204px, 102px */
+.w-header-search {padding: 84px 0 50px 0;overflow: hidden;/*padding-bottom: 160px;padding-bottom: 364px;padding-bottom: 466px;padding-bottom: 568px;*/} /* 204px, 102px */
 .w-header-search .ly-inner:after {content: '';display: block;clear:both;}
-.hs-quick-menu:after {content: '';display: block;clear:both;}
-.hs-quick-menu .sq-menu {float: left;margin-right: 35px;}
-.hs-quick-menu .sqm-main {display: inline-block;vertical-align: middle;}
-.hs-quick-menu .sqm-main a {font-size:24px;color: #fff;opacity: 0.4;}
-.hs-quick-menu .sqm-sub {display: none;vertical-align: middle;margin-top: 4px;}
-.hs-quick-menu .sqm-sub a {min-width: 75px;}
-.hs-quick-menu .sqm-sub:after {content: '';display: block;clear:both;}
-.hs-quick-menu .sqm-sub li {float: left;margin-left: 10px;}
-.hs-quick-cont {margin-top: 28px;position: relative;}
-.hs-quick-cont .sq-inner-cont {display: none;position: relative;z-index: 0;}
-.hs-quick-cont .sq-inner-cont.on {display: block;}
+.hs-search-menu:after {content: '';display: block;clear:both;}
+.hs-search-menu .hss-menu {float: left;margin-right: 35px;}
+.hs-search-menu .hss-main {display: inline-block;vertical-align: middle;}
+.hs-search-menu .hss-main a {font-size:24px;color: #fff;opacity: 0.4;}
+.hs-search-menu .hss-sub {display: none;vertical-align: middle;margin-top: 4px;}
+.hs-search-menu .hss-sub a {min-width: 75px;}
+.hs-search-menu .hss-sub:after {content: '';display: block;clear:both;}
+.hs-search-menu .hss-sub li {float: left;margin-left: 10px;}
+.hs-search-cont {margin-top: 28px;position: relative;}
+.hs-search-cont .hss-inner-cont {display: none;position: relative;z-index: 0;}
+.hs-search-cont .hss-inner-cont.on {display: block;}
 /* 검색 메뉴 - 항공섹션 */
-.hs-quick-menu .sqm-air .sqm-sub a {position: relative;padding-right: 30px;}
-.hs-quick-menu .sqm-air .sqm-sub a:before {content: '';display: block;width: 12px;height: 9px;top: 7px;right: 14px;position: absolute;background: url(/images/front/travel/contents/icon-common-sec.png) 0 -198px no-repeat;}
-.hs-quick-menu .sqm-air .b-shuttle a:before {background-position: 0 -198px;}
-.hs-quick-menu .sqm-air .b-shuttle a:hover:before {background-position: -20px -198px;}
-.hs-quick-menu .sqm-air .b-oneway a:before {height: 4px;top: 9px;background-position: 0 -212px;}
-.hs-quick-menu .sqm-air .b-oneway a:hover:before {height: 4px;top: 10px;background-position: -20px -212px;}
-.hs-quick-menu .sqm-air .b-multiway a {padding-left: 14px;padding-right: 25px;}
-.hs-quick-menu .sqm-air .b-multiway a:before {width: 9px;right: 11px;background-position: 0 -221px;}
-.hs-quick-menu .sqm-air .b-multiway a:hover:before {width: 9px;background-position: -20px -221px;}
+.hs-search-menu .hss-air .hss-sub a {position: relative;padding-right: 30px;}
+.hs-search-menu .hss-air .hss-sub a:before {content: '';display: block;width: 12px;height: 9px;top: 7px;right: 14px;position: absolute;background: url(/images/front/travel/contents/icon-common-sec.png) 0 -198px no-repeat;}
+.hs-search-menu .hss-air .b-shuttle a:before {background-position: 0 -198px;}
+.hs-search-menu .hss-air .b-shuttle a:hover:before {background-position: -20px -198px;}
+.hs-search-menu .hss-air .b-oneway a:before {height: 4px;top: 9px;background-position: 0 -212px;}
+.hs-search-menu .hss-air .b-oneway a:hover:before {height: 4px;top: 10px;background-position: -20px -212px;}
+.hs-search-menu .hss-air .b-multiway a {padding-left: 14px;padding-right: 25px;}
+.hs-search-menu .hss-air .b-multiway a:before {width: 9px;right: 11px;background-position: 0 -221px;}
+.hs-search-menu .hss-air .b-multiway a:hover:before {width: 9px;background-position: -20px -221px;}
 /* 검색 메뉴 - 활성화 */
-.hs-quick-menu .sq-menu.on .sqm-main a {font-weight: 500 !important;opacity: 1;}
-.hs-quick-menu .sq-menu.on .sqm-sub {display: inline-block;}
-.hs-quick-menu .sq-menu.on .sqm-sub .on a {color: #000;}
-.hs-quick-menu .sq-menu.on .sqm-sub .on .bbr-st2:before {opacity: 1;}
-.hs-quick-menu .sq-menu.on .sqm-sub .on .b-shuttle a:before {background-position: -20px -198px;}
-.hs-quick-menu .sq-menu.on .sqm-sub .on .b-oneway a:before {background-position: -20px -198px;}
-.hs-quick-menu .sq-menu.on .sqm-sub .on .b-multiway a:before {background-position: -20px -198px;}
+.hs-search-menu .hss-menu.on .hss-main a {font-weight: 500 !important;opacity: 1;}
+.hs-search-menu .hss-menu.on .hss-sub {display: inline-block;}
+.hs-search-menu .hss-menu.on .hss-sub .on a {color: #000;}
+.hs-search-menu .hss-menu.on .hss-sub .on .bbr-st2:before {opacity: 1;}
+.hs-search-menu .hss-menu.on .hss-sub .on .b-shuttle a:before {background-position: -20px -198px;}
+.hs-search-menu .hss-menu.on .hss-sub .on .b-oneway a:before {background-position: -20px -198px;}
+.hs-search-menu .hss-menu.on .hss-sub .on .b-multiway a:before {background-position: -20px -198px;}
 /* 검색 박스 - 공통 */
-.sq-search-box {display: none;}
-.sq-search-box.on {display: block;}
-.sq-search-box .w-qsb-cont {overflow: hidden;margin-bottom: 12px;border-radius: 6px;position: relative;}
-.sq-search-box .w-qsb-cont:after {content: '';display: block;clear:both;}
-.sq-search-box .w-qsb-cont .qsb-cont {float: left;border-left: 1px solid #ddd;}
-.sq-search-box .w-qsb-cont .qsb-cont:first-child {border-left: 0;}
-.sq-search-box .w-qsb-cont-indep {border-radius: 0;}
-.sq-search-box .w-qsb-cont-indep:after {content: '';display: block;clear:both;}
-.sq-search-box .w-qsb-cont-indep .qsb-cont {overflow: hidden;border-radius: 6px;}
-.sq-search-box .qsb-cont {background-color: #fff;padding: 22px 30px;height: 90px;}
-.sq-search-box .qsb-cont .qsb-area {display: block;z-index: 0;}
-.sq-search-box .qsb-cont .qsb-label {display: block;font-size: 18px;color: #999;font-weight: 500 !important;margin-top: 10px;}
-.sq-search-box .qsb-cont .qsb-input {display: none;}
-.sq-air .sq-search-box .qsb-cont .qsb-c {color: #288ecc;}
-.sq-hotel .sq-search-box .qsb-cont .qsb-c {color: #00a57e;}
-.sq-search-box .qsb-cont.on .qsb-label, 
-.sq-search-box .qsb-capacity .qsb-label {font-size: 12px;color: #666;font-weight: 300 !important;margin-top: 0;}
-.sq-search-box .qsb-cont.on .qsb-input, 
-.sq-search-box .qsb-capacity .qsb-input {display: block;font-size:18px;color: #000;font-weight: 500 !important;margin-top: 5px;}
-.sq-search-box .qsb-cont.on .qsb-input em, .sq-search-box .qsb-capacity .qsb-input em {font-size:18px;font-weight: 500 !important;}
+.sc-search-box {display: none;}
+.sc-search-box.on {display: block;}
+.sc-search-box .w-qsb-cont {overflow: hidden;margin-bottom: 12px;border-radius: 6px;position: relative;}
+.sc-search-box .w-qsb-cont:after {content: '';display: block;clear:both;}
+.sc-search-box .w-qsb-cont .qsb-cont {float: left;border-left: 1px solid #ddd;}
+.sc-search-box .w-qsb-cont .qsb-cont:first-child {border-left: 0;}
+.sc-search-box .w-qsb-cont-indep {border-radius: 0;}
+.sc-search-box .w-qsb-cont-indep:after {content: '';display: block;clear:both;}
+.sc-search-box .w-qsb-cont-indep .qsb-cont {overflow: hidden;border-radius: 6px;}
+.sc-search-box .qsb-cont {background-color: #fff;padding: 22px 30px;height: 90px;}
+.sc-search-box .qsb-cont .qsb-area {display: block;z-index: 0;}
+.sc-search-box .qsb-cont .qsb-label {display: block;font-size: 18px;color: #999;font-weight: 500 !important;margin-top: 10px;}
+.sc-search-box .qsb-cont .qsb-input {display: none;}
+.sc-air .sc-search-box .qsb-cont .qsb-c {color: #288ecc;}
+.sc-hotel .sc-search-box .qsb-cont .qsb-c {color: #00a57e;}
+.sc-search-box .qsb-cont.on .qsb-label, 
+.sc-search-box .qsb-capacity .qsb-label {font-size: 12px;color: #666;font-weight: 300 !important;margin-top: 0;}
+.sc-search-box .qsb-cont.on .qsb-input, 
+.sc-search-box .qsb-capacity .qsb-input {display: block;font-size:18px;color: #000;font-weight: 500 !important;margin-top: 5px;}
+.sc-search-box .qsb-cont.on .qsb-input em, .sc-search-box .qsb-capacity .qsb-input em {font-size:18px;font-weight: 500 !important;}
 /*  검색 박스 - places */ 
-.sq-search-box .qsb-places:after {content: '';display: block;clear:both;}
-.sq-search-box .qsb-places .places-exit {float: left;width: 50%;}
-.sq-search-box .qsb-places .places-entry {float: left;width: 50%;}
+.sc-search-box .qsb-places:after {content: '';display: block;clear:both;}
+.sc-search-box .qsb-places .places-exit {float: left;width: 50%;}
+.sc-search-box .qsb-places .places-entry {float: left;width: 50%;}
 /* 검색 박스 - dates */
-.sq-search-box .qsb-dates.on .qsb-chkin, .sq-search-box .qsb-dates.on .qsb-chkout, .sq-search-box .qsb-dates.on .qsb-result-days {display: inline-block;font-size:18px;color: #000;font-weight: 500 !important;} 
-.sq-search-box .qsb-dates.on .qsb-chkin {margin-right: 24px;} 
-.sq-search-box .qsb-dates.on .qsb-chkout {padding-left: 24px;position: relative;} 
-.sq-search-box .qsb-dates.on .qsb-chkout:before {content: '';display: block;width: 10px;height: 1px;background-color: #909090;position: absolute;left: 0;top: 14px;}
-.sq-search-box .qsb-dates:after {content: '';display: block;clear:both;}
-.sq-search-box .qsb-dates.on .qsb-result-days {margin-left: 10px;}
+.sc-search-box .qsb-dates.on .qsb-chkin, .sc-search-box .qsb-dates.on .qsb-chkout, .sc-search-box .qsb-dates.on .qsb-result-days {display: inline-block;font-size:18px;color: #000;font-weight: 500 !important;} 
+.sc-search-box .qsb-dates.on .qsb-chkin {margin-right: 24px;} 
+.sc-search-box .qsb-dates.on .qsb-chkout {padding-left: 24px;position: relative;} 
+.sc-search-box .qsb-dates.on .qsb-chkout:before {content: '';display: block;width: 10px;height: 1px;background-color: #909090;position: absolute;left: 0;top: 14px;}
+.sc-search-box .qsb-dates:after {content: '';display: block;clear:both;}
+.sc-search-box .qsb-dates.on .qsb-result-days {margin-left: 10px;}
 /* 검색 박스 - capacity, capacity-name */
 /* 검색 박스 - 검색버튼 */
-.sq-search-box .qsb-btn-search {background-color: #000;padding: 0;position: relative;}
-/*.sq-search-box .qsb-btn-search:before {content: '';display: block;width: 100%;height: 100%;position: absolute;top: 0;left: 0;z-index: 0;transition: opacity 0.3s;}*/
-.sq-search-box .qsb-btn-search .b-search {background-color: transparent;display: block;width: 100%;text-align: center;color: #fff;font-size:18px;font-weight: 500 !important;line-height: 90px;position: relative;z-index: 1;}
-.sq-search-box .qsb-btn-search.on:before {opacity: 0;}
-/*.sq-air .sq-search-box .qsb-btn-search:before {background-color: #c8e2f1;}
-.sq-hotel .sq-search-box .qsb-btn-search:before {background-color: #aae2d7;}*/
+.sc-search-box .qsb-btn-search {background-color: #000;padding: 0;position: relative;}
+/*.sc-search-box .qsb-btn-search:before {content: '';display: block;width: 100%;height: 100%;position: absolute;top: 0;left: 0;z-index: 0;transition: opacity 0.3s;}*/
+.sc-search-box .qsb-btn-search .b-search {background-color: transparent;display: block;width: 100%;text-align: center;color: #fff;font-size:18px;font-weight: 500 !important;line-height: 90px;cursor: pointer;position: relative;z-index: 1;}
+.sc-search-box .qsb-btn-search.on:before {opacity: 0;}
+/*.sc-air .sc-search-box .qsb-btn-search:before {background-color: #c8e2f1;}
+.sc-hotel .sc-search-box .qsb-btn-search:before {background-color: #aae2d7;}*/
 /* 검색 박스 - 다구간 추가, 삭제 버튼 */
-.sq-search-box .qsb-btn-add {position: absolute;top: 22px;right: 24px;border-radius: 2px;overflow: hidden;}
-.sq-search-box .b-add-multiway {display: block;width: 46px;height: 46px;background-color: #fff;padding: 0;border:2px solid #288ecc;}
-.sq-search-box .b-add-multiway:before, .sq-search-box .b-add-multiway:after {content: '';display: block;position: absolute;background-color: #288ecc;}
-.sq-search-box .b-add-multiway:before {width: 2px;height: 24px;top:50%;left: 50%;margin-top: -12px;margin-left: -1px;}
-.sq-search-box .b-add-multiway:after {width: 24px;height: 2px;top:50%;left: 50%;;margin-top: -1px;margin-left: -12px;}
-.sq-search-box .b-remove-multiway {display: none;width: 46px;height: 46px;background-color: #fff;premoveing: 0;border:2px solid #288ecc;width: 46px;height: 46px;}
-.sq-search-box .b-remove-multiway:after {content: '';display: block;position: absolute;background-color: #288ecc;}
-.sq-search-box .b-remove-multiway:after {width: 24px;height: 2px;top:50%;left: 50%;;margin-top: -1px;margin-left: -12px;}
-.sq-search-box .qsb-btn-add.on .b-add-multiway {display: none;}
-.sq-search-box .qsb-btn-add.on .b-remove-multiway {display: block;}
+.sc-search-box .qsb-btn-add {position: absolute;top: 22px;right: 24px;border-radius: 2px;overflow: hidden;}
+.sc-search-box .b-add-multiway {display: block;width: 46px;height: 46px;background-color: #fff;padding: 0;border:2px solid #288ecc;}
+.sc-search-box .b-add-multiway:before, .sc-search-box .b-add-multiway:after {content: '';display: block;position: absolute;background-color: #288ecc;}
+.sc-search-box .b-add-multiway:before {width: 2px;height: 24px;top:50%;left: 50%;margin-top: -12px;margin-left: -1px;}
+.sc-search-box .b-add-multiway:after {width: 24px;height: 2px;top:50%;left: 50%;;margin-top: -1px;margin-left: -12px;}
+.sc-search-box .b-remove-multiway {display: none;width: 46px;height: 46px;background-color: #fff;premoveing: 0;border:2px solid #288ecc;width: 46px;height: 46px;}
+.sc-search-box .b-remove-multiway:after {content: '';display: block;position: absolute;background-color: #288ecc;}
+.sc-search-box .b-remove-multiway:after {width: 24px;height: 2px;top:50%;left: 50%;;margin-top: -1px;margin-left: -12px;}
+.sc-search-box .qsb-btn-add.on .b-add-multiway {display: none;}
+.sc-search-box .qsb-btn-add.on .b-remove-multiway {display: block;}
 /* 검색 박스 - 다구간 여정 number */
-.sq-search-box .qsb-number {text-align: center;padding: 20px 0;}
-.sq-search-box .qsb-number .qsb-number-inner {border-right: 1px solid #ddd;padding: 4px 30px;}
-.sq-search-box .qsb-number .qsb-number-inner > span {display: inline-block;vertical-align: middle;}
-.sq-search-box .qsb-number .txt1 {font-size: 12px;}
-.sq-search-box .qsb-number .txt2 {font-size: 26px;font-family: 'YouandiModernTB' !important;}
+.sc-search-box .qsb-number {text-align: center;padding: 20px 0;}
+.sc-search-box .qsb-number .qsb-number-inner {border-right: 1px solid #ddd;padding: 4px 30px;}
+.sc-search-box .qsb-number .qsb-number-inner > span {display: inline-block;vertical-align: middle;}
+.sc-search-box .qsb-number .txt1 {font-size: 12px;}
+.sc-search-box .qsb-number .txt2 {font-size: 26px;font-family: 'YouandiModernTB' !important;}
 /* 검색 박스 - lyout 왕복, 편도*/
-/*.sq-air .qsb-places .places-exit:before {content: '';display: block;width: 16px;height: 14px;position: absolute;top: 50%;margin-top: -7px;right: 0;background: url(/images/front/travel/contents/icon-common-sec.png) -41px -198px no-repeat;}
-.sq-air .qsb-places .places-exit {padding-right: 20px;}
-.sq-air .qsb-places .places-entry {padding-left: 20px;}
-.sq-inner-cont .o-oneway .qsb-places .places-exit:before {background-position: -41px -214px;}*/
-.sq-inner-cont .o-shuttle .places-exit {position: relative;}
-.sq-inner-cont .o-shuttle .b-change-places {position: absolute;right: 0;top: -22px;}
-.sq-inner-cont .o-shuttle .b-change-places button {display: block;width: 50px;height: 90px;position: relative;}
-.sq-inner-cont .o-shuttle .b-change-places button:before {content: '';display: block;width: 16px;height: 14px;position: absolute;top: 50%;margin-top: -7px;left: 50%;margin-left: -8px;background: url(/images/front/travel/contents/icon-common-sec.png) -41px -198px no-repeat;}
-.sq-inner-cont .o-oneway .b-change-places button:before {background-position: -41px -214px;}
-.sq-inner-cont .o-shuttle .qsb-places {width: 39.08333333333333%;}
-.sq-inner-cont .o-shuttle .qsb-dates {width: 28.16666666666667%;}
-.sq-inner-cont .o-shuttle .qsb-capacity {width: 24.41666666666667%;}
-.sq-inner-cont .o-shuttle .qsb-btn-search {width: 8.333333333333333%;}
+/*.sc-air .qsb-places .places-exit:before {content: '';display: block;width: 16px;height: 14px;position: absolute;top: 50%;margin-top: -7px;right: 0;background: url(/images/front/travel/contents/icon-common-sec.png) -41px -198px no-repeat;}
+.sc-air .qsb-places .places-exit {padding-right: 20px;}
+.sc-air .qsb-places .places-entry {padding-left: 20px;}
+.hss-inner-cont .o-oneway .qsb-places .places-exit:before {background-position: -41px -214px;}*/
+.hss-inner-cont .o-shuttle .places-exit {position: relative;}
+.hss-inner-cont .o-shuttle .b-change-places {position: absolute;right: 0;top: -22px;}
+.hss-inner-cont .o-shuttle .b-change-places button {display: block;width: 50px;height: 90px;position: relative;}
+.hss-inner-cont .o-shuttle .b-change-places button:before {content: '';display: block;width: 16px;height: 14px;position: absolute;top: 50%;margin-top: -7px;left: 50%;margin-left: -8px;background: url(/images/front/travel/contents/icon-common-sec.png) -41px -198px no-repeat;}
+.hss-inner-cont .o-oneway .b-change-places button:before {background-position: -41px -214px;}
+.hss-inner-cont .o-shuttle .qsb-places {width: 39.08333333333333%;}
+.hss-inner-cont .o-shuttle .qsb-dates {width: 28.16666666666667%;}
+.hss-inner-cont .o-shuttle .qsb-capacity {width: 24.41666666666667%;}
+.hss-inner-cont .o-shuttle .qsb-btn-search {width: 8.333333333333333%;}
 /* 검색 박스 - lyout 다구간 */
-.sq-inner-cont .o-multiway .qsb-number {width: 8.416666666666667%;}
-.sq-inner-cont .o-multiway .qsb-places {width: 55.08333333333333%;border-left: 0;}
-.sq-inner-cont .o-multiway .qsb-places .places-exit {position: relative;padding-right: 20px;}
-.sq-inner-cont .o-multiway .qsb-places .places-entry {padding-left: 20px;}
-.sq-inner-cont .o-multiway .qsb-places .places-exit:before {content: '';display: block;width: 16px;height: 14px;position: absolute;top: 50%;margin-top: -7px;right: 0;background: url(/images/front/travel/contents/icon-common-sec.png) -41px -214px no-repeat;}
-.sq-inner-cont .o-multiway .qsb-dates {width: 36.5%;}
-.sq-inner-cont .o-multiway .qsb-dates .qsb-area {padding-right: 0px;margin-right: 60px;}
-.sq-inner-cont .o-multiway .w-qsb-cont-indep .qsb-capacity {width: 24.33333333333333%;float: left;}
-.sq-inner-cont .o-multiway .w-qsb-cont-indep .qsb-btn-search {width: 9.166666666666667%;float: right;}
+.hss-inner-cont .o-multiway .qsb-number {width: 8.416666666666667%;}
+.hss-inner-cont .o-multiway .qsb-places {width: 55.08333333333333%;border-left: 0;}
+.hss-inner-cont .o-multiway .qsb-places .places-exit {position: relative;padding-right: 20px;}
+.hss-inner-cont .o-multiway .qsb-places .places-entry {padding-left: 20px;}
+.hss-inner-cont .o-multiway .qsb-places .places-exit:before {content: '';display: block;width: 16px;height: 14px;position: absolute;top: 50%;margin-top: -7px;right: 0;background: url(/images/front/travel/contents/icon-common-sec.png) -41px -214px no-repeat;}
+.hss-inner-cont .o-multiway .qsb-dates {width: 36.5%;}
+.hss-inner-cont .o-multiway .qsb-dates .qsb-area {padding-right: 0px;margin-right: 60px;}
+.hss-inner-cont .o-multiway .w-qsb-cont-indep .qsb-capacity {width: 24.33333333333333%;float: left;}
+.hss-inner-cont .o-multiway .w-qsb-cont-indep .qsb-btn-search {width: 9.166666666666667%;float: right;}
 /* 검색 박스 - lyout 해외호텔 */
-.sq-inner-cont .o-inth .qsb-places {width: 20%;border-left: 0;}
-.sq-inner-cont .o-inth .qsb-places .places-exit {width: 100%;}
-.sq-inner-cont .o-inth .qsb-dates {width: 32.08333333333333%;}
-.sq-inner-cont .o-inth .qsb-capacity {width: 19.33333333333333%;}
-.sq-inner-cont .o-inth .qsb-capacity-name {width: 20%;}
-.sq-inner-cont .o-inth .qsb-btn-search {width: 8.333333333333333%;}
+.hss-inner-cont .o-inth .qsb-places {width: 33.58333333333333%;border-left: 0;}
+.hss-inner-cont .o-inth .qsb-places .places-exit {width: 100%;}
+.hss-inner-cont .o-inth .qsb-dates {width: 33.66666666666667%;}
+.hss-inner-cont .o-inth .qsb-capacity {width: 24.41666666666667%;}
+.hss-inner-cont .o-inth .qsb-btn-search {width: 8.333333333333333%;}
 /* 검색 박스 - lyout 국내호텔 */
-.sq-inner-cont .o-domh .qsb-places {width: 20%;border-left: 0;}
-.sq-inner-cont .o-domh .qsb-places .places-exit {width: 100%;}
-.sq-inner-cont .o-domh .qsb-dates {width: 32.08333333333333%;}
-.sq-inner-cont .o-domh .qsb-capacity {width: 19.33333333333333%;}
-.sq-inner-cont .o-domh .qsb-capacity-name {width: 20%;}
-.sq-inner-cont .o-domh .qsb-btn-search {width: 8.333333333333333%;}
+.hss-inner-cont .o-domh .qsb-places {width: 33.58333333333333%;border-left: 0;}
+.hss-inner-cont .o-domh .qsb-places .places-exit {width: 100%;}
+.hss-inner-cont .o-domh .qsb-dates {width: 33.66666666666667%;}
+.hss-inner-cont .o-domh .qsb-capacity {width: 24.41666666666667%;}
+.hss-inner-cont .o-domh .qsb-btn-search {width: 8.333333333333333%;}
 /* 검색 ui - 공통 */
-.hs-quick-cont .sq-ui-search-box {display: block;background-color: #fff;overflow: hidden;border-radius: 6px; position: relative;z-index: 1;
+.hs-search-cont .sc-ui-search-box {display: block;background-color: #fff;overflow: hidden;border-radius: 6px;z-index: 1;position: absolute;left: -9999px;top: -9999px;
 -webkit-box-shadow: 7px 7px 13px 0px rgba(0,0,0,0.3);
 -moz-box-shadow: 7px 7px 13px 0px rgba(0,0,0,0.3);
 box-shadow: 7px 7px 13px 0px rgba(0,0,0,0.3);
 }
-.hs-quick-cont .sq-ui-search-box {display: block;}
-.hs-quick-cont .ui-maincity-air {width: 963px;}
-.hs-quick-cont .ui-maincity-hotel {width: 963px;}
-.hs-quick-cont .ui-citysearch-auto {width: 470px;}
-.hs-quick-cont .ui-date-calendar {width: 770px;}
-.hs-quick-cont .ui-capacity {width: 393px;}
+.hs-search-cont .ui-maincity-air {width: 963px;}
+.hs-search-cont .ui-maincity-hotel {width: 963px;}
+.hs-search-cont .ui-citysearch-auto {width: 470px;}
+.hs-search-cont .ui-date-calendar {width: 770px;}
+.hs-search-cont .ui-capacity {width: 393px;}
 /* 검색 ui - 상단 input */
 .uis-input {padding: 45px 28px;border-bottom: 1px solid #ededed;} 
 .uis-input .input-base {border:0;width: 100%;font-size:18px;font-weight: 500 !important;} 
@@ -467,6 +460,8 @@ box-shadow: 7px 7px 13px 0px rgba(0,0,0,0.3);
 .uis-datepicker .ui-datepicker-multi:after {content: '';display: block;clear:both;}
 .uis-datepicker .ui-datepicker-multi-2 .ui-datepicker-group {float: left;width: 50% !important;}
 .uis-datepicker .ui-datepicker-header {padding-bottom:25px;background-color: #fff;position: relative;z-index: 10;}
+.uis-datepicker .ui-datepicker-header a {cursor: pointer;}
+.uis-datepicker .ui-datepicker-header .ui-state-disabled {opacity:0.5;}
 .uis-datepicker .ui-datepicker-header .ui-datepicker-title span {font-size:18px;}
 .uis-datepicker .ui-datepicker-header .ui-datepicker-prev span {display:inline-block;width:10px;height:18px;text-indent:-9999px;background: url(/images/front/travel/contents/icon-common-sec.png) 0 -302px no-repeat;}
 .uis-datepicker .ui-datepicker-header .ui-datepicker-next span {display:inline-block;width:10px;height:18px;text-indent:-9999px;background: url(/images/front/travel/contents/icon-common-sec.png) -15px -302px no-repeat;}
@@ -478,27 +473,28 @@ box-shadow: 7px 7px 13px 0px rgba(0,0,0,0.3);
 .uis-datepicker .ui-datepicker-calendar tbody tr td {vertical-align: middle;}
 .uis-datepicker .ui-datepicker-calendar thead tr th .Sunday, 
 .uis-datepicker .ui-datepicker-calendar tbody tr td.date-sunday *, 
-.uis-datepicker .ui-datepicker-calendar tbody tr td.date-holiday * {color: #ff3333;}
+.uis-datepicker .ui-datepicker-calendar tbody tr td.date-holiday * {color: #ff3333 !important;}
 .uis-datepicker .ui-datepicker-calendar thead tr th .Saturday,
-.uis-datepicker .ui-datepicker-calendar tbody tr td.date-saturday * {color: #2c5ade;}
+.uis-datepicker .ui-datepicker-calendar tbody tr td.date-saturday * {color: #2c5ade !important;}
 .uis-datepicker .ui-datepicker-calendar tbody tr td a, 
 .uis-datepicker .ui-datepicker-calendar tbody tr td span {display: block;width:34px;height:40px;line-height:40px;margin: 0 auto;color:#000;font-size:14px;font-weight: 500 !important;position: relative;}
 .uis-datepicker .ui-datepicker-calendar tbody tr td.ui-state-disabled {opacity: 0.4;}
 .uis-datepicker .ui-datepicker-calendar tbody tr td .ui-state-default, 
 .uis-datepicker .ui-datepicker-calendar tbody tr td.ui-datepicker-today .ui-state-default {background: none;color: #000;}
-.uis-datepicker .ui-datepicker-calendar tbody tr td.ui-datepicker-today:before {content: 'Today';width: 100%;font-size:12px;color: #f2006b;text-align: center;position: absolute;left: 0;bottom: -4px;}
+.uis-datepicker .ui-datepicker-calendar tbody tr td.ui-datepicker-today a:before {content: 'Today';width: 100%;font-size:12px;color: #f2006b;text-align: center;position: absolute;left: 0;bottom: -14px;}
+.uis-datepicker .ui-datepicker-calendar tbody tr td.ui-datepicker-today .ui-state-active:before {font-size:0;}
 .uis-datepicker .ui-datepicker-calendar tbody tr td .ui-state-hover {background-color: #eee;}
 .uis-datepicker .ui-datepicker-calendar tbody tr td .ui-state-active {background-color: #f30774 !important;color: #fff !important;border-radius: 3px;}
 .uis-datepicker .dp-highlight {position: relative;}
-.uis-datepicker .dp-highlight.ui-datepicker-today:before {font-size:0 !important;}
+.uis-datepicker .dp-highlight.ui-datepicker-today a:before {font-size:0 !important;}
 .uis-datepicker .dp-highlight .ui-state-default {background-color: #f30774 !important;color: #fff !important;border-radius: 3px;}
 .uis-datepicker .dp-highlight .ui-state-hover {background: none;}
 .uis-datepicker .dp-highlight.pd-between .ui-state-default {background: none !important;color: #000 !important;border-radius: 0;}
 .uis-datepicker .dp-highlight.pd-between:before,
 .uis-datepicker .dp-highlight.dp-first:before,
 .uis-datepicker .dp-highlight.dp-end:before {content:'';display:block;width:100%;height:30px;position:absolute;left:0;top:5px;background: #fde9f1;z-index:0;}
-.uis-datepicker .dp-highlight.dp-first:before {left: 10px;}
-.uis-datepicker .dp-highlight.dp-end:before {left: -10px;}
+.uis-datepicker .dp-highlight.dp-first:before {left: 10px;width: 90%;}
+.uis-datepicker .dp-highlight.dp-end:before {left: -5px;width: 90%;}
 .uis-datepicker .dp-highlight.dp-first.ui-datepicker-today:before {font-size:0 !important;left: 10px !important;bottom: 0 !important;}
 .uis-datepicker .dp-highlight.dp-first .ui-state-default:after {content:'';display:block;height:100%;position:absolute;top:0;right:-12px;z-index:1;width:0;height:0;
 border-top:20px solid transparent;
@@ -535,8 +531,18 @@ border-left:0;
 .uis-set-btn {border-top: 1px solid #ededed;padding: 15px 30px;text-align: right;}
 .uis-set-btn .b-cancel {margin-right: 8px;}
 
-
-
+/* gnb, 검색부분 활성화 */
+.o-bg-base {background-color: #288ecc !important;}
+.o-bg-air {background-color: #288ecc !important;}
+.o-bg-hotel {background-color: #00b290 !important;}
+.o-bg-free {background-color: #00a3b2 !important;}
+.o-bg-freetour {background-color: #00b290 !important;}
+.w-header-search .hs-search-menu .hss-menu, .w-header-search .hs-search-cont .hss-inner-cont {display: none;}
+.o-bg-base .hs-search-menu .hss-menu, .o-bg-base .hs-search-cont .sc-air,
+.o-bg-air .hs-search-menu .hss-air, .o-bg-air .hs-search-cont .sc-air,
+.o-bg-hotel .hs-search-menu .hss-hotel, .o-bg-hotel .hs-search-cont .sc-hotel,
+.o-bg-free .hs-search-menu .hss-free, .o-bg-free .hs-search-cont .sc-free,
+.o-bg-freetour .hs-search-menu .hss-freetour, .o-bg-freetour .hs-search-cont .sc-freetour {display: block;}
 
 
 /*--------------------------------------------------------------------------------------------------------------
@@ -739,10 +745,9 @@ box-shadow: 0px 5px 20px 0px rgba(0,0,0,0.2);
 .sspc-list-sub .lbr-st1 {margin-right: 6px;}
 .sspc-list-sub .tit {display:block;margin-top:15px;min-height:28px;position:relative;z-index: 1;}
 .sspc-list-sub .tit span {display: inline-block;width:100%;color:#000;font-size:18px;line-height:28px;text-overflow:ellipsis;white-space:nowrap;overflow:hidden;transition:all 0.3s;}
-.sspc-list-sub .tit .txt-over {display:block;width:100%;height: 28px;position:absolute;top:0;left:0;transition:height 0.3s;}
-.sspc-list-sub li > a:hover .tit span {color: #e93a84;}
-.sspc-list-sub li > a:hover .tit .txt-over {height: 70px;white-space: inherit;}
-.sspc-list-sub li > a:hover .tit .txt-over span {color: #e93a84;background-color: #fff;padding-bottom: 15px;white-space: inherit;}
+.sspc-list-sub .tit.tit-over span {width:100%;height: 28px;position:absolute;top:0;left:0;}
+.sspc-list-sub li > a:hover .tit span {color: #e93a84;background-color: #fff;}
+.sspc-list-sub li > a:hover .tit-over span {height: auto;max-height:62px;padding-bottom: 10px;white-space: inherit;}
 .sspc-list-sub .tit-ori {display: block;color: #000;font-size:14px;line-height: 24px;margin-top: 12px;height: 24px;}
 .sspc-list-sub .date {display: block;color: #000;font-size:14px;line-height: 24px;margin-top: 12px;height: 24px;}
 .sspc-list-sub .price {display: block;color: #ec0d61;font-size:14px;line-height: 20px;margin-top: 10px;}
