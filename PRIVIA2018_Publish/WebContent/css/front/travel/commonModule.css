@@ -102,7 +102,7 @@
 #skipnav a {position:absolute; top:-400px; left:0; display:block; width:100%; padding:10px 0; border-bottom:1px solid #d2d2d2; background:#fff; text-align:center}
 #skipnav a:hover, #skipnav a:focus, #skipnav a:active {position:static}
 #top-area-sec, #header-sec, #content-sec, #footer-sec {min-width: 1200px;width: 100%;margin:0 auto;}
-#content-sec {position: relative;}
+#content-sec {position: relative;z-index: 0;}
 .ly-inner {width:1200px;margin:0 auto;position:relative;}
 .w-content-sec {padding: 80px 0;}
 
@@ -201,7 +201,7 @@
  *  common - header
  *--------------------------------------------------------------------------------------------------------------*/
 /* 상단 리본 영역 */
-#top-area-sec {background-color: #000;display: none;}
+#top-area-sec {background-color: #000;display: none;z-index: 10;}
 .w-tas-promotion {padding: 30px 0;border-bottom: 1px solid #1a1a1a;}
 .w-tas-promotion .tasp-list {display: table;table-layout: fixed;width: 100%;}
 .w-tas-promotion .tasp-list li {display: table-cell;position: relative;padding-left: 30px;width: 16.66666666666667%;word-wrap: break-word;}
@@ -219,7 +219,7 @@
 .w-tas-promotion .tasp-list.on .b-tasp-more {opacity: 1;transition: opacity 1s;}
 
 /* 헤더 영역 */
-#header-sec {background-color: #fff;}
+#header-sec {background-color: #fff;position: relative;z-index: 10;}
 /* 유틸 영역 */
 .w-header-util {height: 40px;padding-top: 10px;overflow: hidden;text-align: right;background-color: #000;}
 .w-header-util:after {content: '';display: block;clear:both;}
@@ -260,7 +260,7 @@
 .w-header-util .nav-util .on a {color: #e93a84;}
 
 /* 프로모션 롤링 */
-.w-header-search .hs-prom-roll {position: absolute;top: -36px;right: 0;text-align: right;}
+.w-header-search .hs-prom-roll {position: absolute;top: -36px;right: 0;text-align: right;z-index: 0;}
 .w-header-search .hs-prom-roll .c-slick-dots {display: inline-block;vertical-align: bottom;padding: 0 15px 20px 0;}
 .w-header-search .hs-prom-roll .list {display: inline-block;width: 190px;height: 90px;overflow: hidden;vertical-align: bottom;}
 
@@ -279,17 +279,18 @@
 .w-header-gnb .nav-gnb .b-total-nav a {width: 28px;height: 23px;overflow: hidden;padding-right: 0;padding-left: 48px;background: url(/images/front/travel/contents/icon-common-sec.png) 22px -160px no-repeat;}
 
 /* 검색 영역 */
-.w-header-search {padding: 84px 0 50px 0;overflow: hidden;/*padding-bottom: 160px;padding-bottom: 364px;padding-bottom: 466px;padding-bottom: 568px;*/} /* 204px, 102px */
+.w-header-search {padding: 84px 0 50px 0;/*padding-bottom: 160px;padding-bottom: 364px;padding-bottom: 466px;padding-bottom: 568px;*/} /* 204px, 102px */
 .w-header-search .ly-inner:after {content: '';display: block;clear:both;}
 .hs-search-menu:after {content: '';display: block;clear:both;}
-.hs-search-menu .hss-menu {float: left;margin-right: 35px;}
+.hs-search-menu .hss-menu {float: left;margin-right: 35px;display: none;}
+.hs-search-menu .hss-menu.on {display: inline-block;}
 .hs-search-menu .hss-main {display: inline-block;vertical-align: middle;}
 .hs-search-menu .hss-main a {font-size:24px;color: #fff;opacity: 0.4;}
 .hs-search-menu .hss-sub {display: none;vertical-align: middle;margin-top: 4px;}
 .hs-search-menu .hss-sub a {min-width: 75px;}
 .hs-search-menu .hss-sub:after {content: '';display: block;clear:both;}
 .hs-search-menu .hss-sub li {float: left;margin-left: 10px;}
-.hs-search-cont {margin-top: 28px;position: relative;}
+.hs-search-cont {margin-top: 28px;position: relative;z-index: 1;}
 .hs-search-cont .hss-inner-cont {display: none;position: relative;z-index: 0;}
 .hs-search-cont .hss-inner-cont.on {display: block;}
 /* 검색 메뉴 - 항공섹션 */
@@ -297,7 +298,7 @@
 .hs-search-menu .hss-air .hss-sub a:before {content: '';display: block;width: 12px;height: 9px;top: 7px;right: 14px;position: absolute;background: url(/images/front/travel/contents/icon-common-sec.png) 0 -198px no-repeat;}
 .hs-search-menu .hss-air .b-shuttle a:before {background-position: 0 -198px;}
 .hs-search-menu .hss-air .b-shuttle a:hover:before {background-position: -20px -198px;}
-.hs-search-menu .hss-air .b-oneway a:before {height: 4px;top: 9px;background-position: 0 -212px;}
+.hs-search-menu .hss-air .b-oneway a:before {height: 4px;top: 10px;background-position: 0 -212px;}
 .hs-search-menu .hss-air .b-oneway a:hover:before {height: 4px;top: 10px;background-position: -20px -212px;}
 .hs-search-menu .hss-air .b-multiway a {padding-left: 14px;padding-right: 25px;}
 .hs-search-menu .hss-air .b-multiway a:before {width: 9px;right: 11px;background-position: 0 -221px;}
@@ -309,7 +310,7 @@
 .hs-search-menu .hss-menu.on .hss-sub .on .bbr-st2:before {opacity: 1;}
 .hs-search-menu .hss-menu.on .hss-sub .on .b-shuttle a:before {background-position: -20px -198px;}
 .hs-search-menu .hss-menu.on .hss-sub .on .b-oneway a:before {background-position: -20px -198px;}
-.hs-search-menu .hss-menu.on .hss-sub .on .b-multiway a:before {background-position: -20px -198px;}
+.hs-search-menu .hss-menu.on .hss-sub .on .b-multiway a:before {background-position: -20px -221px;}
 /* 검색 박스 - 공통 */
 .sc-search-box {display: none;}
 .sc-search-box.on {display: block;}
@@ -352,13 +353,13 @@
 .sc-hotel .sc-search-box .qsb-btn-search:before {background-color: #aae2d7;}*/
 /* 검색 박스 - 다구간 추가, 삭제 버튼 */
 .sc-search-box .qsb-btn-add {position: absolute;top: 22px;right: 24px;border-radius: 2px;overflow: hidden;}
-.sc-search-box .b-add-multiway {display: block;width: 46px;height: 46px;background-color: #fff;padding: 0;border:2px solid #288ecc;}
-.sc-search-box .b-add-multiway:before, .sc-search-box .b-add-multiway:after {content: '';display: block;position: absolute;background-color: #288ecc;}
-.sc-search-box .b-add-multiway:before {width: 2px;height: 24px;top:50%;left: 50%;margin-top: -12px;margin-left: -1px;}
-.sc-search-box .b-add-multiway:after {width: 24px;height: 2px;top:50%;left: 50%;;margin-top: -1px;margin-left: -12px;}
-.sc-search-box .b-remove-multiway {display: none;width: 46px;height: 46px;background-color: #fff;premoveing: 0;border:2px solid #288ecc;width: 46px;height: 46px;}
-.sc-search-box .b-remove-multiway:after {content: '';display: block;position: absolute;background-color: #288ecc;}
-.sc-search-box .b-remove-multiway:after {width: 24px;height: 2px;top:50%;left: 50%;;margin-top: -1px;margin-left: -12px;}
+.sc-search-box .qsb-btn-add button {display: block;width: 46px;height: 46px;background-color: #fff;padding: 0;border:2px solid #288ecc;cursor: pointer;position: relative;}
+.sc-search-box .qsb-btn-add .b-add-multiway:before, .sc-search-box .qsb-btn-add .b-add-multiway:after, 
+.sc-search-box .qsb-btn-add .b-remove-multiway:after {content: '';display: block;position: absolute;background-color: #288ecc;top:50%;left: 50%;}
+.sc-search-box .qsb-btn-add .b-add-multiway:before {width: 2px;height: 24px;margin-top: -12px;margin-left: -1px;}
+.sc-search-box .qsb-btn-add .b-add-multiway:after {width: 24px;height: 2px;margin-top: -1px;margin-left: -12px;}
+.sc-search-box .qsb-btn-add .b-remove-multiway:after {width: 24px;height: 2px;margin-top: -1px;margin-left: -12px;}
+.sc-search-box .qsb-btn-add .b-remove-multiway {display: none;}
 .sc-search-box .qsb-btn-add.on .b-add-multiway {display: none;}
 .sc-search-box .qsb-btn-add.on .b-remove-multiway {display: block;}
 /* 검색 박스 - 다구간 여정 number */
@@ -386,7 +387,7 @@
 .hss-inner-cont .o-multiway .qsb-places {width: 55.08333333333333%;border-left: 0;}
 .hss-inner-cont .o-multiway .qsb-places .places-exit {position: relative;padding-right: 20px;}
 .hss-inner-cont .o-multiway .qsb-places .places-entry {padding-left: 20px;}
-.hss-inner-cont .o-multiway .qsb-places .places-exit:before {content: '';display: block;width: 16px;height: 14px;position: absolute;top: 50%;margin-top: -7px;right: 0;background: url(/images/front/travel/contents/icon-common-sec.png) -41px -214px no-repeat;}
+.hss-inner-cont .o-multiway .qsb-places .places-exit:before {content: '';display: block;width: 16px;height: 14px;position: absolute;top: 50%;margin-top: -3px;right: 0;background: url(/images/front/travel/contents/icon-common-sec.png) -41px -214px no-repeat;}
 .hss-inner-cont .o-multiway .qsb-dates {width: 36.5%;}
 .hss-inner-cont .o-multiway .qsb-dates .qsb-area {padding-right: 0px;margin-right: 60px;}
 .hss-inner-cont .o-multiway .w-qsb-cont-indep .qsb-capacity {width: 24.33333333333333%;float: left;}
@@ -404,11 +405,12 @@
 .hss-inner-cont .o-domh .qsb-capacity {width: 24.41666666666667%;}
 .hss-inner-cont .o-domh .qsb-btn-search {width: 8.333333333333333%;}
 /* 검색 ui - 공통 */
-.hs-search-cont .sc-ui-search-box {display: block;background-color: #fff;overflow: hidden;border-radius: 6px;z-index: 1;position: absolute;left: -9999px;top: -9999px;
+.hs-search-cont .sc-ui-search-box {background-color: #fff;overflow: hidden;border-radius: 6px;z-index: 1;display: block;opacity: 0;position: absolute;top: -9999px;left: -9999px;visibility: hidden;transition: opacity 0.3s, visibility 0.3s;
 -webkit-box-shadow: 7px 7px 13px 0px rgba(0,0,0,0.3);
 -moz-box-shadow: 7px 7px 13px 0px rgba(0,0,0,0.3);
 box-shadow: 7px 7px 13px 0px rgba(0,0,0,0.3);
 }
+.hs-search-cont .sc-ui-search-box.on {opacity:1;visibility: visible;}
 .hs-search-cont .ui-maincity-air {width: 963px;}
 .hs-search-cont .ui-maincity-hotel {width: 963px;}
 .hs-search-cont .ui-citysearch-auto {width: 470px;}
@@ -531,19 +533,13 @@ border-left:0;
 .uis-set-btn {border-top: 1px solid #ededed;padding: 15px 30px;text-align: right;}
 .uis-set-btn .b-cancel {margin-right: 8px;}
 
-/* gnb, 검색부분 활성화 */
+/* 배경색상 활성화 */
 .o-bg-base {background-color: #288ecc !important;}
 .o-bg-air {background-color: #288ecc !important;}
 .o-bg-hotel {background-color: #00b290 !important;}
 .o-bg-free {background-color: #00a3b2 !important;}
 .o-bg-freetour {background-color: #00b290 !important;}
-.w-header-search .hs-search-menu .hss-menu, .w-header-search .hs-search-cont .hss-inner-cont {display: none;}
-.o-bg-base .hs-search-menu .hss-menu, .o-bg-base .hs-search-cont .sc-air,
-.o-bg-air .hs-search-menu .hss-air, .o-bg-air .hs-search-cont .sc-air,
-.o-bg-hotel .hs-search-menu .hss-hotel, .o-bg-hotel .hs-search-cont .sc-hotel,
-.o-bg-free .hs-search-menu .hss-free, .o-bg-free .hs-search-cont .sc-free,
-.o-bg-freetour .hs-search-menu .hss-freetour, .o-bg-freetour .hs-search-cont .sc-freetour {display: block;}
-
+.o-bg-base .hs-search-menu .hss-menu {display: inline-block;}
 
 /*--------------------------------------------------------------------------------------------------------------
  *  common - footer

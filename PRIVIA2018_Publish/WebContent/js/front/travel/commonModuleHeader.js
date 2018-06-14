@@ -17,7 +17,7 @@ var GNB_CODE_PROMOTION = "PROMOTION";
 var QUICK_CODE = null;
 var GNB_CODE = null;
 
-function _scSearchInt(quickCode){
+function _showSearchInt(quickCode){
 	var _quickCode = quickCode ? quickCode : QUICK_CODE;
 	
 	$('#header-sec').attr('class','');
@@ -25,41 +25,226 @@ function _scSearchInt(quickCode){
 	switch (_quickCode) {
 		case QUICK_CODE_AIR:
 			$('#header-sec').addClass('o-bg-air');
+			$('.hs-search-menu .hss-menu [data-tabmain="air"]').trigger('click');
+			$('.hs-search-menu .hss-menu [data-tabsub="shuttle"]').trigger('click');
 			break;
 		case QUICK_CODE_HOTEL:
 			$('#header-sec').addClass('o-bg-hotel');
+			$('.hs-search-menu .hss-menu [data-tabmain="hotel"]').trigger('click');
+			$('.hs-search-menu .hss-menu [data-tabsub="inth"]').trigger('click');
 			break;
 		case QUICK_CODE_FREE:
 			$('#header-sec').addClass('o-bg-free');
+			$('.hs-search-menu .hss-menu [data-tabmain="free"]').trigger('click');
+			$('.hs-search-menu .hss-menu [data-tabsub="free"]').trigger('click');
 			break;
 		case QUICK_CODE_DPRS_ITEM:
 			$('#header-sec').addClass('o-bg-freetour');
+			$('.hs-search-menu .hss-menu [data-tabmain="freetour"]').trigger('click');
+			$('.hs-search-menu .hss-menu [data-tabsub="rentv"]').trigger('click');
 			break;
 		default :
 			$('#header-sec').attr('class','o-bg-base');
+			$('.hs-search-menu .hss-menu [data-tabmain="air"]').trigger('click');
+			$('.hs-search-menu .hss-menu [data-tabsub="shuttle"]').trigger('click');
 	}
 }
 
 function comSearchEvent(){
+	//검색 리스트 스크롤
+	$(".uis-citysearch-list .list").mCustomScrollbar({theme:"minimal-dark"})	
 	
+	//캘린더 (priviaMainUI.js 기반 -> var holidays, $.datepicker.regional['ko'] = {}, checkMobile())
+	var baseDatepicker = {
+		minDate: '0',
+		maxDate: '+362',
+		dayNamesMin: ['일', '월', '화', '수', '목', '금', '토'],
+		dateFormat: 'yy-mm-dd',
+		beforeShowDay: function(date) {
+			var result;
+			var holiday = holidays[$.datepicker.formatDate("mmdd",date )];
+			if(!holiday){
+				holiday = holidays[$.datepicker.formatDate("yymmdd",date )];
+			}
+			var thisYear = $.datepicker.formatDate("yy", date);
+			if (holiday) {
+				if(thisYear == holiday.year || holiday.year == "") {
+					result =  [true, "date-holiday", holiday.title];
+				}
+			}
+
+			var date1 = $.datepicker.parseDate('yy-mm-dd', $(".uis-date-chkin .ipu-day").val());
+			var date2 = $.datepicker.parseDate('yy-mm-dd', $(".uis-date-chkout .ipu-day").val());
+			if(date1){
+				if(date.getTime() == date1.getTime()){
+					if(date2){
+						result = [true, "dp-highlight dp-first"];
+					}
+					else{
+						result = [true, "dp-highlight"];
+					}
+				}
+				else if(date2){
+					if(date.getTime() == date2.getTime()){
+						result = [true, "dp-highlight dp-end"];
+					}
+					else if(date > date1 && date < date2){
+						result = [true, "dp-highlight pd-between"];
+					 }
+				}
+			}
+
+			if(!result) {
+				switch (date.getDay()) {
+					case 0:
+						result = [true, "date-sunday"];
+						break;
+					case 6:
+						result = [true, "date-saturday"];
+						break;
+					default:
+						result = [true, ""];
+						break;
+				}
+			}		
+			return result;	
+		},
+		onSelect: function(dateText, inst) {
+			var date1 = $.datepicker.parseDate('yy-mm-dd', $(".uis-date-chkin .ipu-day").val());
+			var date2 = $.datepicker.parseDate('yy-mm-dd', $(".uis-date-chkout .ipu-day").val());
+			var selectedDate = $.datepicker.parseDate('yy-mm-dd', dateText);
+			var month = (selectedDate.getMonth()+1) < 10 ? '0' + (selectedDate.getMonth()+1)  : selectedDate.getMonth()+1;
+			var day = selectedDate.getDate() < 10 ? '0' + selectedDate.getDate()  : selectedDate.getDate();
+
+			if (!date1 || date2) {
+				$(".uis-date-chkin .ipu-day").val(dateText);
+				$(".uis-date-chkout .ipu-day").val('');
+				//$(".chk-in .cd-date").html('<em class="month">'+month+'</em>월 <em class="day">'+day+'</em>일');
+				//$(".chk-out .cd-date").html('');
+				//$('.wrap-select-date .c-fix-btn, .result-days').hide();
+				$(this).datepicker();
+			} else {
+				if( selectedDate < date1 ) {
+					$(".uis-date-chkout .ipu-day").val( $(".uis-date-chkin .ipu-day").val() );
+					$(".uis-date-chkin .ipu-day").val(dateText);							
+					//$(".chk-out .cd-date").html($(".chk-in .cd-date").html());
+					//$(".chk-in .cd-date").html('<em class="month">'+month+'</em>월 <em class="day">'+day+'</em>일');
+				} else {
+					if($(".uis-date-chkin .ipu-day").val() == dateText){return}
+					$(".uis-date-chkout .ipu-day").val(dateText);
+					//$(".chk-out .cd-date").html('<em class="month">'+month+'</em>월 <em class="day">'+day+'</em>일');
+				}
+
+				/*var chkIn = $(".chk-in .selectDay").val().split('-');
+				var chkOut = $(".chk-out .selectDay").val().split('-');
+				var chkInDate = new Date(chkIn[0], chkIn[1], chkIn[2]);
+				var chkOutDate = new Date(chkOut[0], chkOut[1], chkOut[2]);
+				var duration = (chkOutDate-chkInDate)/1000/60/60/24;
+				$('.result-days .days').text(duration);
+				$('.wrap-select-date .c-fix-btn, .result-days').show();*/
+				$(this).datepicker();
+			}
+		}
+	}		
+	$('.uis-datepicker').datepicker(baseDatepicker).find(".ui-state-active").removeClass("ui-state-active");
 }
 
-function comSearchInit(){
-	//검색섹션 메인 click event
-	$('.hs-search-menu .hss-menu [data-main]').on('click', function(e){
-		var code = $(this).data('main');
-		console.log(code);
-		//$('.hs-search-menu .hss-menu.on').hasClass('on').removeClass('on');
-		
+function comSearchCrt(){
+	//검색 메인 tab click
+	$('.hs-search-menu .hss-menu [data-tabmain]').on('click', function(e){
+		if(!$(this).closest('.hss-menu').hasClass('on')){
+			var code = $(this).data('tabmain');
+			$('.hs-search-menu .hss-menu.on').removeClass('on');
+			$(this).closest('.hss-menu').addClass('on');
+			$('.hs-search-cont .hss-inner-cont.on').removeClass('on');
+			$('.hs-search-cont .hss-inner-cont.sc-'+code).addClass('on');	
+			
+			//서브메뉴 첫번째메뉴 활성화
+			if($(this).closest('.hss-menu').find('.hss-sub .on').length <= 0){
+				$(this).closest('.hss-menu').find('.hss-sub li:first-child [data-tabsub]').trigger('click');
+			}
+		}		
 		e.preventDefault();
 	});	
 	
+	//검색 서브 tab click
+	$('.hs-search-menu .hss-menu [data-tabsub]').on('click', function(e){
+		if(!$(this).closest('li').hasClass('on')){
+			var code = $(this).data('tabsub');
+			$(this).closest('.hss-sub').find('.on').removeClass('on');
+			$(this).closest('li').addClass('on');
+			
+			//왕복, 편도는 같은 마크업 사용
+			switch (code) {
+				case 'shuttle':
+					if($('.hs-search-cont .o-oneway').hasClass('o-oneway')){
+						$('.hs-search-cont .o-oneway').removeClass('o-oneway');
+					}
+					break;
+				case 'oneway':
+					$('.hs-search-cont .o-shuttle').addClass('o-oneway');
+					break;			
+			}
+			$('.hs-search-cont .o-'+code).closest('.hss-inner-cont').find('.sc-search-box.on').removeClass('on');	
+			$('.hs-search-cont .o-'+code).addClass('on');
+		}	
+		e.preventDefault();
+	});	
+	
+	//항공 - 주요도시 click
+	$('.hs-search-cont .sc-air .qsb-places .qsb-area').on('click', function(e){
+		$(this).closest('.hss-inner-cont').find('.ui-maincity-air').position({
+			my: 'left-30 top-42',
+			at: 'left top',
+			collision: 'none',
+			of: this
+		}).addClass('on');
+		e.preventDefault();
+	});
+	
+	//항공 - 캘린더 click
+	$('.hs-search-cont .sc-air .qsb-dates .qsb-area').on('click', function(e){
+		$(this).closest('.hss-inner-cont').find('.ui-date-calendar').position({
+			my: 'left-30 top-42',
+			at: 'left top',
+			collision: 'none',
+			of: this
+		}).addClass('on');
+		e.preventDefault();
+	});
+	
+	//항공 - 인원,좌석,객실 click
+	$('.hs-search-cont .sc-air .qsb-capacity .qsb-area').on('click', function(e){
+		$(this).closest('.hss-inner-cont').find('.ui-capacity').position({
+			my: 'left-30 top-42',
+			at: 'left top',
+			collision: 'none',
+			of: this
+		}).addClass('on');
+		e.preventDefault();
+	});
+	
+	//도시 체인지
+	$('.sc-air .b-change-places button').on('click', function(e){
+		
+		e.preventDefault();
+	})
+	
+	//document 클릭시 옵션 팝업 닫힘
+	$(document).on('mousedown', function(e){
+		if($(e.target).closest(".sc-ui-search-box.on").length <= 0){
+			$('.hss-inner-cont .sc-ui-search-box.on').removeClass('on');
+		}
+	});
+}
+
+function comSearchInit(){
+	comSearchEvent();
+	comSearchCrt();
+	
+	//해당 페이지 활성화
 	if (QUICK_CODE == null || QUICK_CODE == "") {
 		QUICK_CODE = '';
 	}	
-	_scSearchInt(QUICK_CODE);
-}
-
-function comHeaderInit(){
-	
+	_showSearchInt(QUICK_CODE);
 }
