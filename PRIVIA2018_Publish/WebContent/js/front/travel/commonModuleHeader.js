@@ -1,11 +1,21 @@
-//navData
-var navData = {}
-//QUICK_CODE
-var QUICK_CODE_AIR = "AIR";
-var QUICK_CODE_HOTEL = "HOTEL";
-var QUICK_CODE_FREE = "FREE";
-var QUICK_CODE_DPRS = "DPRS";
-//GNB_CODE
+var navData = {};
+
+
+/**********************************************************************
+  GNB와 Quick서치 관련
+   
+   1. 퀵서치와 메뉴의 활성화 상태를 지정한다.
+   2. 각 페이지 별로 아래의 상수를 이용하여 설정
+   3. 샘플 
+        <script type="text/javascript">
+            setActiveCode(SEARCH_CODE_HOTEL, GNB_CODE_AIR);
+        </script>
+**********************************************************************/
+var SEARCH_CODE_AIR = "AIR";
+var SEARCH_CODE_HOTEL = "HOTEL";
+var SEARCH_CODE_FREE = "FREE";
+var SEARCH_CODE_DPRS_ITEM = "DPRS_ITEM";
+
 var GNB_CODE_AIR = "AIR";
 var GNB_CODE_HOTEL = "HOTEL";
 var GNB_CODE_FREE = "FREE";
@@ -13,32 +23,57 @@ var GNB_CODE_DPRS = "DPRS";
 var GNB_CODE_PACKAGE = "PACKAGE";
 var GNB_CODE_DOMESTIC = "DOMESTIC";
 var GNB_CODE_PROMOTION = "PROMOTION";
-//CODE int
-var QUICK_CODE = null;
+
+
+
+
+
+
+
+
+
+//document.domain = "priviatravel.com";
+
+var SEARCH_CODE = null;
 var GNB_CODE = null;
 
-function _showSearchInt(quickCode){
-	var _quickCode = quickCode ? quickCode : QUICK_CODE;
+
+// 활성화
+function setActiveSearch(searchCode, gnbCode) {
+
+	if (searchCode) SEARCH_CODE = searchCode;
+	if (gnbCode) GNB_CODE = gnbCode;
+
+	comGbnFocus();
+}
+
+$(function(){
+	comSearchInit();
+	comGbnInit();
+});
+
+function showSearchTap(searchCode){
+	var _searchCode = searchCode ? searchCode : SEARCH_CODE;
 	
 	$('#header-sec').attr('class','');
 	
-	switch (_quickCode) {
-		case QUICK_CODE_AIR:
+	switch (_searchCode) {
+		case SEARCH_CODE_AIR:
 			$('#header-sec').addClass('o-bg-air');
 			$('.hs-search-menu .hss-menu [data-tabmain="air"]').trigger('click');
 			$('.hs-search-menu .hss-menu [data-tabsub="shuttle"]').trigger('click');
 			break;
-		case QUICK_CODE_HOTEL:
+		case SEARCH_CODE_HOTEL:
 			$('#header-sec').addClass('o-bg-hotel');
 			$('.hs-search-menu .hss-menu [data-tabmain="hotel"]').trigger('click');
 			$('.hs-search-menu .hss-menu [data-tabsub="inth"]').trigger('click');
 			break;
-		case QUICK_CODE_FREE:
+		case SEARCH_CODE_FREE:
 			$('#header-sec').addClass('o-bg-free');
 			$('.hs-search-menu .hss-menu [data-tabmain="free"]').trigger('click');
 			$('.hs-search-menu .hss-menu [data-tabsub="free"]').trigger('click');
 			break;
-		case QUICK_CODE_DPRS_ITEM:
+		case SEARCH_CODE_DPRS_ITEM:
 			$('#header-sec').addClass('o-bg-freetour');
 			$('.hs-search-menu .hss-menu [data-tabmain="freetour"]').trigger('click');
 			$('.hs-search-menu .hss-menu [data-tabsub="rentv"]').trigger('click');
@@ -205,7 +240,7 @@ function comSearchCrt(){
 	//항공 - 캘린더 click
 	$('.hs-search-cont .sc-air .qsb-dates .qsb-area').on('click', function(e){
 		$(this).closest('.hss-inner-cont').find('.ui-date-calendar').position({
-			my: 'left-30 top-42',
+			my: 'left-60 top-42',
 			at: 'left top',
 			collision: 'none',
 			of: this
@@ -216,7 +251,7 @@ function comSearchCrt(){
 	//항공 - 인원,좌석,객실 click
 	$('.hs-search-cont .sc-air .qsb-capacity .qsb-area').on('click', function(e){
 		$(this).closest('.hss-inner-cont').find('.ui-capacity').position({
-			my: 'left-30 top-42',
+			my: 'left-30 top-32',
 			at: 'left top',
 			collision: 'none',
 			of: this
@@ -238,13 +273,46 @@ function comSearchCrt(){
 	});
 }
 
+//검색 초기화
 function comSearchInit(){
 	comSearchEvent();
 	comSearchCrt();
 	
-	//해당 페이지 활성화
-	if (QUICK_CODE == null || QUICK_CODE == "") {
-		QUICK_CODE = '';
+	if (SEARCH_CODE == null || SEARCH_CODE == "") {
+		SEARCH_CODE = '';
 	}	
-	_showSearchInt(QUICK_CODE);
+	showSearchTap(SEARCH_CODE);
+}
+
+//GNB활성화
+function comGbnFocus(){
+	switch (GNB_CODE) {
+		case GNB_CODE_AIR:
+			$("#n-gnb-air").addClass("on");
+			break;
+		case GNB_CODE_HOTEL:
+			$("#n-gnb-hotel").addClass("on");
+			break;
+		case GNB_CODE_FREE:
+			$("#n-gnb-airtel").addClass("on");
+			break;
+		case GNB_CODE_DPRS:
+			$("#n-gnb-dprs").addClass("on");
+			break;
+		case GNB_CODE_PACKAGE:
+			$("#n-gnb-pkg").addClass("on");
+			break;
+		case GNB_CODE_DOMESTIC:
+			$("#n-gnb-domestic").addClass("on");
+			break;
+		case GNB_CODE_PROMOTION:
+			$("#n-gnb-promotion").addClass("on");
+			break;
+	}
+	
+}
+
+//GNB초기화
+function comGbnInit(){
+	
 }

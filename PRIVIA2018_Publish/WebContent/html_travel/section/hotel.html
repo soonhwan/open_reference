@@ -27,12 +27,14 @@
 <script type="text/javascript" src="//static.priviatravel.com/js/front/travel/ui.js"></script>
 <script type="text/javascript" src="//static.priviatravel.com/js/front/travel/init.js"></script>
 <script type="text/javascript" src="//static.priviatravel.com/js/front/travel/myTravel.js"></script>
-<script type="text/javascript" src="//air.priviatravel.com/script/front/travel/quickSearchHistory.js"></script>
 <script type="text/javascript" src="//static.priviatravel.com/js/utils.js"></script>
-<script type="text/javascript" src="//www.priviatravel.com/share/headerManager"></script>
+<!--<script type="text/javascript" src="//air.priviatravel.com/script/front/travel/quickSearchHistory.js"></script>
+<script type="text/javascript" src="//www.priviatravel.com/share/headerManager"></script>-->
 <script type="text/javascript" src="https://auth.priviatravel.com/check"></script>
 <script type="text/javascript" src="/js/front/travel/slick.min.js"></script> <!-- 프비 리뉴얼 js -->
 <script type="text/javascript" src="/js/front/travel/commonModule.js"></script> <!-- 프비 리뉴얼 js -->
+<script type="text/javascript" src="/js/front/travel/commonModuleHeader.js"></script> <!-- 프비 리뉴얼 js -->
+
 
 </head>
 
@@ -49,7 +51,8 @@
 <div id="wrap">
 	<!-- #top-area-sec -->
 	<div id="top-area-sec">
-		<div class="w-tas-promotion ly-inner">
+		<div class="top-area-sec">
+			<div class="w-tas-promotion ly-inner">
 			<h2 class="a11y">섹션별 프로모션 영역</h2>
 			<ul class="tasp-list">
 				<li>
@@ -154,810 +157,772 @@
 				</li>
 			</ul>
 		</div>
+		</div>
 	</div>
 	<!--// #top-area-sec -->
 	
 	<!-- #header-sec -->
-	<div id="header-sec" class="o-bg-hotel">
-		<div class="w-header-util">
-			<div class="ly-inner">
-				<div class="hu-control">
-					<span class="c-chk">
-						<span class="a11y"><input type="checkbox" id="closeToday"></span>
-						<label for="closeToday" class="label-base closeToday">오늘 하루 열지 않기</label>
-						<span class="b-crt bc-close"><a href="#"><span class="a11y">상단리본 닫기 버튼</span></a></span>
-					</span>
-					<span class="b-crt bc-open"><a href="#"><span class="a11y txt">상단리본 열기 버튼</span></a></span>
-				</div>
-				<div class="hu-notice">
-					<h2 class="a11y">유틸메뉴 영역</h2>
-					<ul class="list">
-						<li class="point"><strong>중요</strong><a href="#">2018년 3월 국제선 유류할증료 안내</a></li>
-						<li><a href="#">2018년 5월 국제선 유류할증료 안내</a></li>
-						<li><a href="#">진에어 국내선 시스템 점검 안내</a></li>
-						<li><a href="#">제주항공 국내선 환불 수수료 변경 안내</a></li>
-						<li><a href="#">인천국제공항 제2여객터미널 개장으로 인천국제공항 제2여객터미널 개장으로</a></li>
+	<div id="header-sec" class="o-bg-base">
+		<div class="header-sec">
+			<!-- 기획전 배경 롤링 -->
+			<div class="hs-prom-roll-bg">
+				<ul class="list">
+				<li><img src="/images/front/travel/vis-size/vis-900x418.png" alt="&nbsp;"></li>
+				<li><img src="/images/front/travel/vis-size/vis-900x418-2.png" alt="&nbsp;"></li>
+			</ul>
+			</div>
+			<!--// 기획전 배경 롤링 -->
+			<div class="w-header-util">
+				<div class="ly-inner">
+					<div class="hu-control">
+						<span class="txt">주요 프로모션 및 안내 보기</span>
+						<span class="b-crt bc-close"><a href="#"><span class="a11y txt">상단리본 닫기 버튼</span></a></span>
+						<span class="b-crt bc-open"><a href="#"><span class="a11y txt">상단리본 열기 버튼</span></a></span>
+					</div>
+					<div class="hu-notice">
+						<h2 class="a11y">유틸메뉴 영역</h2>
+						<ul class="list">
+							<li class="point"><strong>중요</strong><a href="#">2018년 3월 국제선 유류할증료 안내</a></li>
+							<li><a href="#">2018년 5월 국제선 유류할증료 안내</a></li>
+							<li><a href="#">진에어 국내선 시스템 점검 안내</a></li>
+							<li><a href="#">제주항공 국내선 환불 수수료 변경 안내</a></li>
+							<li><a href="#">인천국제공항 제2여객터미널 개장으로 인천국제공항 제2여객터미널 개장으로</a></li>
+						</ul>
+					</div>
+					<div class="hu-user privia"><span>qwwiueoeuorsdfkdjflgdfjkljlarjt님</span></div>
+					<!--<div class="hu-user naver"><span>sddfsdfoeuorsdfkdjflgdfjkljlarjt님</span></div> 
+					<div class="hu-user facebook"><span>sddfsdfoeuorsdfkdjflgdfjkljlarjt님</span></div> 
+					<div class="hu-user twitter"><span>sddfsdfoeuorsdfkdjflgdfjkljlarjt님</span></div> -->
+					<ul id="nav-util" class="nav-util">
+						<li><a href="#">로그아웃</a></li>
+						<!--<li><a href="#">로그인</a></li>-->
+						<li><a href="#">마이페이지</a></li>
+						<li><a href="#">나의 혜택</a></li>
+						<li><a href="#">고객센터</a></li>
 					</ul>
 				</div>
-				<div class="hu-user privia"><span>qwwiueoeuorsdfkdjflgdfjkljlarjt님</span></div>
-				<!--<div class="hu-user naver"><span>sddfsdfoeuorsdfkdjflgdfjkljlarjt님</span></div> 
-				<div class="hu-user facebook"><span>sddfsdfoeuorsdfkdjflgdfjkljlarjt님</span></div> 
-				<div class="hu-user twitter"><span>sddfsdfoeuorsdfkdjflgdfjkljlarjt님</span></div> -->
-				<ul id="nav-util" class="nav-util">
-					<li><a href="#">로그아웃</a></li>
-					<!--<li><a href="#">로그인</a></li>-->
-					<li><a href="#">마이페이지</a></li>
-					<li><a href="#">나의 혜택</a></li>
-					<li><a href="#">고객센터</a></li>
-				</ul>
 			</div>
-		</div>
-		<div class="w-header-gnb">
-			<div class="ly-inner">
-				<h1 class="h-logo"><a href="/"><img src="/images/front/travel/contents/logo-privia.png" alt="현대카드 PRIVIA 여행"></a></h1>
-				<h2 class="a11y">GNB 영역</h2>
-				<ul id="nav-gnb" class="nav-gnb">
-					<li id="n-gnb-air"><a href="#"><span class="txt">항공</span></a></li>
-					<li id="n-gnb-hotel" class="on"><a href="#"><span class="txt">호텔</span></a></li>
-					<li id="n-gnb-free"><a href="#"><span class="txt">자유여행</span></a></li>
-					<li id="n-gnb-freetour"><a href="#"><span class="txt">투어&nbsp;액티비티</span></a></li>
-					<li id="n-gnb-pkg"><a href="#"><span class="txt">해외패키지</span></a></li>
-					<li id="n-gnb-domestic"><a href="#"><span class="txt">국내숙박</span></a></li>
-					<li id="n-gnb-promotion"><a href="#"><span class="txt">기획전</span></a></li>
-					<li class="b-total-nav"><a href="#"><span class="a11y">전체메뉴</span></a></li>
-				</ul>
+			<div class="w-header-gnb">
+				<div class="ly-inner">
+					<h1 class="h-logo"><a href="/"><img src="/images/front/travel/contents/logo-privia.png" alt="현대카드 PRIVIA 여행"></a></h1>
+					<h2 class="a11y">GNB 영역</h2>
+					<ul id="nav-gnb" class="nav-gnb">
+						<li id="n-gnb-air"><a href="#"><span class="txt">항공</span></a></li>
+						<li id="n-gnb-hotel"><a href="#"><span class="txt">호텔</span></a></li>
+						<li id="n-gnb-free"><a href="#"><span class="txt">자유여행</span></a></li>
+						<li id="n-gnb-freetour"><a href="#"><span class="txt">투어&nbsp;액티비티</span></a></li>
+						<li id="n-gnb-pkg"><a href="#"><span class="txt">해외패키지</span></a></li>
+						<li id="n-gnb-domestic"><a href="#"><span class="txt">국내숙박</span></a></li>
+						<li id="n-gnb-promotion"><a href="#"><span class="txt">기획전</span></a></li>
+						<li class="b-total-nav"><a href="#"><span class="a11y">전체메뉴</span></a></li>
+					</ul>
+				</div>
 			</div>
-		</div>
-		<div class="w-header-search">
-			<div class="ly-inner">
-				<h2 class="a11y">검색 영역</h2>
-				<!-- 검색 메뉴 -->
-				<div class="hs-search-menu">
-					<!-- 항공 -->
-					<div class="hss-menu hss-air">
-						<h3 class="hss-main"><a href="#" data-type="hss-air">항공</a></h3>
-						<ul class="hss-sub">
-							<li class="on"><span class="btn-base bbr-st2 b-shuttle"><a href="#" data-type="shuttle">왕복</a></span></li>
-							<li><span class="btn-base bbr-st2 b-oneway"><a href="#" data-type="oneway">편도</a></span></li>
-							<li><span class="btn-base bbr-st2 b-multiway"><a href="#" data-type="multiway">다구간</a></span></li>
-						</ul>
-					</div>
-					<!--// 항공 -->
-					
-					<!-- 호텔 -->
-					<div class="hss-menu hss-hotel on">
-						<h3 class="hss-main"><a href="#" data-type="hss-hotel">호텔</a></h3>
-						<ul class="hss-sub">
-							<ul class="ssm-sub">
-								<li class="on"><span class="btn-base bbr-st2 b-int"><a href="#" data-type="inth">해외</a></span></li>
-								<li><span class="btn-base bbr-st2 b-dom"><a href="#" data-type="domh">국내</a></span></li>
+			<div class="w-header-search">
+				<div class="ly-inner">
+					<h2 class="a11y">검색 영역</h2>
+					<!-- 검색 메뉴 -->
+					<div class="hs-search-menu">
+						<!-- 항공 -->
+						<div class="hss-menu hss-air">
+							<h3 class="hss-main"><a href="#" data-tabmain="air">항공</a></h3>
+							<ul class="hss-sub">
+								<li><span class="btn-base bbr-st2 b-shuttle"><a href="#" data-tabsub="shuttle">왕복</a></span></li>
+								<li><span class="btn-base bbr-st2 b-oneway"><a href="#" data-tabsub="oneway">편도</a></span></li>
+								<li><span class="btn-base bbr-st2 b-multiway"><a href="#" data-tabsub="multiway">다구간</a></span></li>
 							</ul>
-						</ul>
-					</div>
-					<!--// 호텔 -->
-					
-					<!-- 자유여행 -->
-					<div class="hss-menu hss-free">
-						<h3 class="hss-main"><a href="#" data-type="hss-free">자유여행</a></h3>
-					</div>	
-					<!--// 자유여행 -->
-					
-					<!-- 투어&액티비티 -->
-					<div class="hss-menu hss-freetour">
-						<h3 class="hss-main"><a href="#" data-type="hss-freetour">투어&amp;액티비티</a></h3>
-						<ul class="hss-sub">
-							<li class="on"><span class="btn-base bbr-st2 b-rentv"><a href="#" data-type="rentv">렌터카</a></span></li>
-							<li><span class="btn-base bbr-st2 b-intticket"><a href="#" data-type="intticket">해외 입장권</a></span></li>
-							<li><span class="btn-base bbr-st2 b-actualtour"><a href="#" data-type="actualtour">현지투어</a></span></li>
-							<li><span class="btn-base bbr-st2 b-transpass"><a href="#" data-type="transpass">교통패스</a></span></li>
-							<li><span class="btn-base bbr-st2 b-airpicup"><a href="#" data-type="sm-airpicup">공항픽업</a></span></li>
-						</ul>
-					</div>	
-					<!--// 투어&액티비티 -->
-				</div> 
-				<!--// 검색 메뉴 -->
-				
-				<!-- 검색 섹션 -->
-				<div class="hs-search-cont">
-					<!-- 항공 -->
-					<div class="hss-inner-cont sc-air" id="SC-AIR">
-						<!-- 왕복인 경우(.o-shuttle), 편도인 경우(.o-shuttle .o-oneway) -->
-						<div class="sc-search-box on o-shuttle">
-							<div class="w-qsb-cont">
-								<div class="qsb-cont qsb-places">
-									<div class="places-exit">
-										<a href="#" class="qsb-area">
-											<span class="qsb-label">출발도시</span>
-											<span class="qsb-input">서울 인천 (<em class="qsb-c">ICN</em>)</span>
-										</a>
-										<span class="btn-base b-change-places"><button type="button"><span class="a11y">출발도시, 도착도시 변경</span></button></span>
-									</div>
-									<div class="places-entry">
-										<a href="#" class="qsb-area">
-											<span class="qsb-label">도착도시</span>
-											<span class="qsb-input">미주 뉴욕 (<em class="qsb-c">JFK</em>)</span>
-										</a>
-									</div>
-								</div>
-								<div class="qsb-cont qsb-dates">
-									<a href="#" class="qsb-area">
-										<span class="qsb-label">여행날짜</span>
-										<span class="qsb-input">
-											<span class="qsb-chkin">02월 15일 (목)</span>
-											<span class="qsb-chkout">02월 18일 (일)</span>
-										</span>
-									</a>
-								</div>
-								<div class="qsb-cont qsb-capacity">
-									<a href="#" class="qsb-area">
-										<span class="qsb-label">인원, 좌석등급</span>
-										<span class="qsb-input"><em class="total-num">승객1</em>, <em class="type-seat">일반석</em></span>
-									</a>
-								</div>
-								<div class="qsb-cont qsb-btn-search">
-									<button type="button" class="b-search">검색</button>
-								</div>
-							</div>
 						</div>
-						<!-- 다구간(.o-multiway) -->
-						<div class="sc-search-box o-multiway">
-							<div class="w-qsb-cont">
-								<div class="qsb-cont qsb-number">
-									<div class="qsb-number-inner">
-										<span class="txt1 qsb-c">여정</span>
-										<span class="txt2 qsb-c">01</span>
-									</div>
-								</div>
-								<div class="qsb-cont qsb-places on">
-									<div class="places-exit">
-										<a href="#" class="qsb-area">
-											<span class="qsb-label">출발도시</span>
-											<span class="qsb-input">서울 인천 (<em class="qsb-c">ICN</em>)</span>
-										</a>
-									</div>
-									<div class="places-entry">
-										<a href="#" class="qsb-area">
-											<span class="qsb-label">도착도시</span>
-											<span class="qsb-input">미주 뉴욕 (<em class="qsb-c">JFK</em>)</span>
-										</a>
-									</div>
-								</div>
-								<div class="qsb-cont qsb-dates on">
-									<a href="#" class="qsb-area">
-										<span class="qsb-label">여행날짜</span>
-										<span class="qsb-input">
-											<span class="qsb-chkin">02월 15일 (목)</span>
-											<span class="qsb-chkout">02월 17일 (토)</span>
-										</span>
-									</a>
-								</div>
-							</div>
-							<div class="w-qsb-cont">
-								<div class="qsb-cont qsb-number">
-									<div class="qsb-number-inner">
-										<span class="txt1 qsb-c">여정</span>
-										<span class="txt2 qsb-c">02</span>
-									</div>
-								</div>
-								<div class="qsb-cont qsb-places on">
-									<div class="places-exit">
-										<a href="#" class="qsb-area">
-											<span class="qsb-label">출발도시</span>
-											<span class="qsb-input">서울 인천 (<em class="qsb-c">ICN</em>)</span>
-										</a>
-									</div>
-									<div class="places-entry">
-										<a href="#" class="qsb-area">
-											<span class="qsb-label">도착도시</span>
-											<span class="qsb-input">미주 뉴욕 (<em class="qsb-c">JFK</em>)</span>
-										</a>
-									</div>
-								</div>
-								<div class="qsb-cont qsb-dates on">
-									<a href="#" class="qsb-area">
-										<span class="qsb-label">여행날짜</span>
-										<span class="qsb-input">
-											<span class="qsb-chkin">02월 15일 (목)</span>
-											<span class="qsb-chkout">02월 17일 (토)</span>
-										</span>
-									</a>
-								</div>
-								<div class="qsb-btn-add">
-									<button type="button" class="b-add-multiway"><span class="a11y">다구간 추가</span></button>
-									<button type="button" class="b-remove-multiway"><span class="a11y">다구간 삭제</span></button>
-								</div>
-							</div>
-							<div class="w-qsb-cont">
-								<div class="qsb-cont qsb-number">
-									<div class="qsb-number-inner">
-										<span class="txt1 qsb-c">여정</span>
-										<span class="txt2 qsb-c">03</span>
-									</div>
-								</div>
-								<div class="qsb-cont qsb-places on">
-									<div class="places-exit">
-										<a href="#" class="qsb-area">
-											<span class="qsb-label">출발도시</span>
-											<span class="qsb-input">서울 인천 (<em class="qsb-c">ICN</em>)</span>
-										</a>
-									</div>
-									<div class="places-entry">
-										<a href="#" class="qsb-area">
-											<span class="qsb-label">도착도시</span>
-											<span class="qsb-input">미주 뉴욕 (<em class="qsb-c">JFK</em>)</span>
-										</a>
-									</div>
-								</div>
-								<div class="qsb-cont qsb-dates on">
-									<a href="#" class="qsb-area">
-										<span class="qsb-label">여행날짜</span>
-										<span class="qsb-input">
-											<span class="qsb-chkin">02월 15일 (목)</span>
-											<span class="qsb-chkout">02월 17일 (토)</span>
-										</span>
-									</a>
-								</div>
-								<div class="qsb-btn-add">
-									<button type="button" class="b-add-multiway"><span class="a11y">다구간 추가</span></button>
-									<button type="button" class="b-remove-multiway"><span class="a11y">다구간 삭제</span></button>
-								</div>
-							</div>
-							<div class="w-qsb-cont">
-								<div class="qsb-cont qsb-number">
-									<div class="qsb-number-inner">
-										<span class="txt1 qsb-c">여정</span>
-										<span class="txt2 qsb-c">04</span>
-									</div>
-								</div>
-								<div class="qsb-cont qsb-places on">
-									<div class="places-exit">
-										<a href="#" class="qsb-area">
-											<span class="qsb-label">출발도시</span>
-											<span class="qsb-input">서울 인천 (<em class="qsb-c">ICN</em>)</span>
-										</a>
-									</div>
-									<div class="places-entry">
-										<a href="#" class="qsb-area">
-											<span class="qsb-label">도착도시</span>
-											<span class="qsb-input">미주 뉴욕 (<em class="qsb-c">JFK</em>)</span>
-										</a>
-									</div>
-								</div>
-								<div class="qsb-cont qsb-dates on">
-									<a href="#" class="qsb-area">
-										<span class="qsb-label">여행날짜</span>
-										<span class="qsb-input">
-											<span class="qsb-chkin">02월 15일 (목)</span>
-											<span class="qsb-chkout">02월 17일 (토)</span>
-										</span>
-									</a>
-								</div>
-								<div class="qsb-btn-add">
-									<button type="button" class="b-add-multiway"><span class="a11y">다구간 추가</span></button>
-									<button type="button" class="b-remove-multiway"><span class="a11y">다구간 삭제</span></button>
-								</div>
-							</div>
-							<div class="w-qsb-cont-indep">
-								<div class="qsb-cont qsb-capacity">
-									<a href="#" class="qsb-area">
-										<span class="qsb-label">인원, 좌석등급</span>
-										<span class="qsb-input">승객<em class="total-num">1</em>, <em class="seat-type">일반석</em></span>
-									</a>
-								</div>
-								<div class="qsb-cont qsb-btn-search">
-									<button type="button" class="b-search">검색</button>
-								</div>
-							</div>
-						</div>
-					</div>
-					<!--// 항공 -->
-					
-					<!-- 호텔 -->
-					<div class="hss-inner-cont sc-hotel on" id="SC-HOTEL">
-						<!-- 해외인 경우(.o-inth) -->
-						<div class="sc-search-box o-inth on">
-							<div class="w-qsb-cont">
-								<div class="qsb-cont qsb-places on">
-									<div class="places-exit">
-										<a href="#" class="qsb-area">
-											<span class="qsb-label">목적지</span>
-											<span class="qsb-input">파리, 프랑스</span>
-										</a>
-									</div>
-								</div>
-								<div class="qsb-cont qsb-dates on">
-									<a href="#" class="qsb-area">
-										<span class="qsb-label">숙박 날짜</span>
-										<span class="qsb-input">
-											<span class="qsb-chkin">02월 15일 (목)</span>
-											<span class="qsb-chkout">02월 18일 (일)</span>
-											<span class="qsb-result-days"><em class="days qsb-c">3박</em></span>
-										</span> 
-									</a>
-								</div>
-								<div class="qsb-cont qsb-capacity">
-									<a href="#" class="qsb-area">
-										<span class="qsb-label">인원, 좌석등급</span>
-										<span class="qsb-input"><em class="type-room">1인실</em>, <em class="total-num">1개</em></span>
-									</a>
-								</div>
-								<div class="qsb-cont qsb-btn-search">
-									<button type="button" class="b-search">검색</button>
-								</div>
-							</div>
-						</div>
-						<!-- 국내인 경우(.o-domh) -->
-						<div class="sc-search-box o-domh">
-							<div class="w-qsb-cont">
-								<div class="qsb-cont qsb-places">
-									<div class="places-exit">
-										<a href="#" class="qsb-area">
-											<span class="qsb-label">목적지</span>
-											<span class="qsb-input"></span>
-										</a>
-									</div>
-								</div>
-								<div class="qsb-cont qsb-dates">
-									<a href="#" class="qsb-area">
-										<span class="qsb-label">숙박 날짜</span>
-										<span class="qsb-input">
-											<span class="qsb-chkin">02월 15일 (목)</span>
-											<span class="qsb-chkout">02월 18일 (일)</span>
-											<span class="qsb-result-days"><em class="days qsb-c">3박</em></span>
-										</span> 
-									</a>
-								</div>
-								<div class="qsb-cont qsb-capacity">
-									<a href="#" class="qsb-area">
-										<span class="qsb-label">인원, 좌석등급</span>
-										<span class="qsb-input"><em class="type-room">1인실</em>, <em class="total-num">1개</em></span>
-									</a>
-								</div>
-								<div class="qsb-cont qsb-btn-search">
-									<button type="button" class="b-search">검색</button>
-								</div>
-							</div>
-						</div>
-					</div>
-					<!--// 호텔 -->
+						<!--// 항공 -->
 
-					<!-- 자유여행 -->
-					<div class="hss-inner-cont sc-free" id="SC-FREE">
-						free
-					</div>
-					<!--// 자유여행 -->
-
-					<!-- 투어&액티비티 -->
-					<div class="hss-inner-cont sc-freetour" id="SC-FREETOUR">
-						freetour
-					</div>
-					<!--// 투어&액티비티 -->
-					
-					<!-- 항공 주요도시 리스트 -->
-					<div class="sc-ui-search-box ui-maincity-air">
-						<div class="uis-input">
-							<input type="text" class="input-base ipu-search" placeholder="도시명을 검색하거나 아래 주요도시에서 선택하세요.">
-						</div>						
-						<table class="uis-maincity-table">
-							<caption>주요도시 선택 리스트</caption>
-							<colgroup>
-								<col width="16.66666666666667%">
-								<col width="16.66666666666667%">
-								<col width="16.66666666666667%">
-								<col width="16.66666666666667%">
-								<col width="16.66666666666667%">
-								<col width="16.66666666666667%">
-							</colgroup>
-							<tbody>
-								<tr>
-									<td rowspan="2">
-										<p class="tit">국내</p>
-										<ul class="list">
-											<li><a href="#">인천/김포</a></li>
-											<li><a href="#">인천</a></li>
-											<li><a href="#">김포</a></li>
-											<li><a href="#">부산</a></li>
-											<li><a href="#">대구</a></li>
-											<li><a href="#">제주</a></li>
-											<li><a href="#">광주</a></li>
-											<li><a href="#">울산</a></li>
-											<li><a href="#">포항</a></li>
-											<li><a href="#">전주</a></li>
-											<li><a href="#">여수</a></li>
-											<li><a href="#">양양</a></li>
-											<li><a href="#">군산</a></li>
-											<li><a href="#">원주</a></li>
-											<li><a href="#">청주</a></li>
-											<li><a href="#">무안</a></li>
-										</ul>
-									</td>
-									<td>
-										<p class="tit">일본</p>
-										<ul class="list">
-											<li><a href="#">도쿄(나리타)</a></li>
-											<li><a href="#">도쿄(하네다)</a></li>
-											<li><a href="#">오사카</a></li>
-											<li><a href="#">나고야</a></li>
-											<li><a href="#">후쿠오카</a></li>
-											<li><a href="#">오키나와</a></li>
-											<li><a href="#">삿포로</a></li>
-											<li><a href="#">히로시마</a></li>
-											<li><a href="#">가고시마</a></li>
-											<li><a href="#">미야자키</a></li>
-											<li><a href="#">도야마</a></li>
-											<li><a href="#">시즈오카</a></li>
-										</ul>
-									</td>
-									<td>
-										<p class="tit">홍콩/대만/중국</p>
-										<ul class="list">
-											<li><a href="#">홍콩</a></li>
-											<li><a href="#">타이베이(타오위안)</a></li>
-											<li><a href="#">상해(푸동)</a></li>
-											<li><a href="#">상해(홍차오)</a></li>
-											<li><a href="#">북경</a></li>
-											<li><a href="#">청도</a></li>
-											<li><a href="#">심양</a></li>
-											<li><a href="#">천진</a></li>
-											<li><a href="#">광저우</a></li>
-											<li><a href="#">대련</a></li>
-											<li><a href="#">항주</a></li>
-										</ul>
-									</td>
-									<td>
-										<p class="tit">동남아</p>
-										<ul class="list">
-											<li><a href="#">방콕</a></li>
-											<li><a href="#">마닐라</a></li>
-											<li><a href="#">싱가포르</a></li>
-											<li><a href="#">마카오</a></li>
-											<li><a href="#">호치민</a></li>
-											<li><a href="#">푸켓</a></li>
-											<li><a href="#">세부</a></li>
-											<li><a href="#">발리</a></li>
-											<li><a href="#">하노이</a></li>
-											<li><a href="#">다낭</a></li>
-											<li><a href="#">쿠알라룸푸르</a></li>
-											<li><a href="#">코타키나발루</a></li>
-										</ul>
-									</td>
-									<td>
-										<p class="tit">미주</p>
-										<ul class="list">
-											<li><a href="#">호놀룰루(하와이)</a></li>
-											<li><a href="#">로스앤젤레스</a></li>
-											<li><a href="#">뉴욕(전체)</a></li>
-											<li><a href="#">뉴욕(JFK)</a></li>
-											<li><a href="#">뉴욕(라과디아)</a></li>
-											<li><a href="#">뉴욕(뉴왁)</a></li>
-											<li><a href="#">샌프란시스코</a></li>
-											<li><a href="#">시애틀</a></li>
-											<li><a href="#">시카고</a></li>
-											<li><a href="#">워싱톤</a></li>
-											<li><a href="#">달라스</a></li>
-											<li><a href="#">애틀란타</a></li>
-											<li><a href="#">보스톤</a></li>
-										</ul>
-									</td>
-									<td>
-										<p class="tit">유럽</p>
-										<ul class="list">
-											<li><a href="#">런던</a></li>
-											<li><a href="#">파리</a></li>
-											<li><a href="#">로마</a></li>
-											<li><a href="#">프랑크푸르트</a></li>
-											<li><a href="#">이스탄불</a></li>
-											<li><a href="#">밀라노</a></li>
-											<li><a href="#">마드리드</a></li>
-											<li><a href="#">바르셀로나</a></li>
-											<li><a href="#">프라하</a></li>
-											<li><a href="#">취리히</a></li>
-											<li><a href="#">암스테르담</a></li>
-											<li><a href="#">베니스</a></li>
-										</ul>
-									</td>
-								</tr>
-								<tr>
-									<td>
-										<p class="tit">남태평양</p>
-										<ul class="list">
-											<li><a href="#">시드니</a></li>
-											<li><a href="#">브리즈번</a></li>
-											<li><a href="#">멜버른</a></li>
-											<li><a href="#">오클랜드</a></li>
-											<li><a href="#">괌</a></li>
-											<li><a href="#">사이판</a></li>
-										</ul>
-									</td>
-									<td>
-										<p class="tit">중남미</p>
-										<ul class="list">
-											<li><a href="#">상파울로</a></li>
-											<li><a href="#">멕시코시티</a></li>
-											<li><a href="#">칸쿤</a></li>
-											<li><a href="#">리마</a></li>
-											<li><a href="#">하바나</a></li>
-										</ul>
-									</td>
-									<td>
-										<p class="tit">서남아</p>
-										<ul class="list">
-											<li><a href="#">몰디브</a></li>
-											<li><a href="#">카트만두</a></li>
-											<li><a href="#">델리</a></li>
-											<li><a href="#">뭄바이</a></li>
-											<li><a href="#">콜롬보</a></li>
-											<li><a href="#">양곤</a></li>
-											<li><a href="#">다카</a></li>
-										</ul>
-									</td>
-									<td>
-										<p class="tit">캐나다</p>
-										<ul class="list">
-											<li><a href="#">밴쿠버</a></li>
-											<li><a href="#">토론토</a></li>
-											<li><a href="#">몬트리올</a></li>
-											<li><a href="#">캘거리</a></li>
-											<li><a href="#">오타와</a></li>
-										</ul>
-									</td>
-									<td>
-										<p class="tit">중동/아프리카</p>
-										<ul class="list">
-											<li><a href="#">두바이</a></li>
-											<li><a href="#">카이로</a></li>
-											<li><a href="#">아부다비</a></li>
-											<li><a href="#">나이로비</a></li>
-											<li><a href="#">요하네스버그</a></li>
-											<li><a href="#">케이프타운</a></li>
-										</ul>
-									</td>
-								</tr>
-							</tbody>
-						</table>
-					</div>
-					<!--// 항공 주요도시 리스트 -->
-					
-					<!-- 호텔 주요도시 리스트 -->
-					<div class="sc-ui-search-box ui-maincity-hotel">
-						<div class="uis-input">
-							<input type="text" class="input-base ipu-search" placeholder="도시, 호텔명을 검색하거나 아래 주요도시에서 선택하세요.">
-						</div>						
-						<table class="uis-maincity-table-htl">
-							<caption>주요도시 선택 리스트</caption>
-							<colgroup>
-								<col width="16.6147455867082%">
-								<col>
-							</colgroup>
-							<tbody>
-								<tr>
-									<th><p class="tit">아시아</p></th>
-									<td>
-										<ul class="list"> 
-										   <li><a href="#">다낭</a></li> 
-										   <li><a href="#">싱가포르</a></li> 
-										   <li><a href="#">방콕</a></li> 
-										   <li><a href="#">세부</a></li> 
-										   <li><a href="#">코타키나발루</a></li> 
-										   <li><a href="#">발리</a></li> 
-										   <li><a href="#">푸켓</a></li> 
-										   <li><a href="#">마닐라</a></li> 
-										   <li><a href="#">파타야</a></li> 
-										   <li><a href="#">보라카이</a></li> 
-										   <li><a href="#">나트랑</a></li> 
-										   <li><a href="#">호이안</a></li> 
-										   <li><a href="#">호치민</a></li> 
-										   <li><a href="#">하노이</a></li> 
-										   <li><a href="#">쿠알라룸푸르</a></li> 
-									  </ul>
-									</td>
-								</tr>
-								<tr>
-									<th><p class="tit">홍콩/중국</p></th>
-									<td>
-										<ul class="list"> 
-											<li><a href="#">홍콩</a></li> 
-											<li><a href="#">타이페이</a></li> 
-											<li><a href="#">마카오</a></li> 
-											<li><a href="#">상해</a></li> 
-											<li><a href="#">북경</a></li> 
-											<li><a href="#">청도</a></li> 
-											<li><a href="#">광저우</a></li> 
-										</ul>
-									</td>
-								</tr>
-								<tr>
-									<th><p class="tit">일본</p></th>
-									<td>
-										<ul class="list"> 
-											<li><a href="#">오키나와</a></li> 
-											<li><a href="#">오사카</a></li> 
-											<li><a href="#">도쿄</a></li> 
-											<li><a href="#">후쿠오카</a></li> 
-											<li><a href="#">삿포로</a></li> 
-											<li><a href="#">교토</a></li> 
-											<li><a href="#">유후인</a></li> 
-											<li><a href="#">나고야</a></li> 
-											<li><a href="#">노보리베츠</a></li> 
-										</ul>
-									</td>
-								</tr>
-								<tr>
-									<th><p class="tit">남태평양</p></th>
-									<td>
-										<ul class="list"> 
-											<li><a href="#">괌</a></li> 
-											<li><a href="#">사이판</a></li> 
-											<li><a href="#">시드니</a></li> 
-											<li><a href="#">멜버른</a></li> 
-										</ul>
-									</td>
-								</tr>
-								<tr>
-									<th><p class="tit">유럽</p></th>
-									<td>
-										<ul class="list"> 
-											<li><a href="#">파리</a></li> 
-											<li><a href="#">로마</a></li> 
-											<li><a href="#">런던</a></li> 
-											<li><a href="#">프라하</a></li> 
-											<li><a href="#">피렌체</a></li> 
-											<li><a href="#">바로셀로나</a></li> 
-											<li><a href="#">밀라노</a></li> 
-											<li><a href="#">베니스</a></li> 
-											<li><a href="#">부다페스트</a></li> 
-											<li><a href="#">비엔나</a></li> 
-										</ul>
-									</td>
-								</tr>
-								<tr>
-									<th><p class="tit">미주/캐나다</p></th>
-									<td>
-										<ul class="list"> 
-											<li><a href="#">호놀룰루</a></li> 
-											<li><a href="#">마우이</a></li> 
-											<li><a href="#">라스베가스</a></li> 
-											<li><a href="#">뉴욕</a></li> 
-											<li><a href="#">샌프란시스코</a></li> 
-											<li><a href="#">시카고</a></li> 
-											<li><a href="#">로스엔젤레스</a></li> 
-											<li><a href="#">벤쿠버</a></li> 
-											<li><a href="#">토론토</a></li> 
-										</ul>
-									</td>
-								</tr>
-							</tbody>
-						</table>
-					</div>
-					<!--// 호텔 주요도시 리스트 -->
-					
-					<!-- 검색 리스트 -->
-					<div class="sc-ui-search-box ui-citysearch-auto">
-						<div class="uis-input">
-							<input type="text" class="input-base ipu-search" placeholder="도시명을 검색하거나 아래 주요도시에서 선택하세요">
+						<!-- 호텔 -->
+						<div class="hss-menu hss-hotel">
+							<h3 class="hss-main"><a href="#" data-tabmain="hotel">호텔</a></h3>
+							<ul class="hss-sub">
+								<ul class="ssm-sub">
+									<li><span class="btn-base bbr-st2 b-int"><a href="#" data-tabsub="inth">해외</a></span></li>
+									<li><span class="btn-base bbr-st2 b-dom"><a href="#" data-tabsub="domh">국내</a></span></li>
+								</ul>
+							</ul>
 						</div>
-						<div class="uis-citysearch-list">
-							<ul class="list">
-								<li>
-									<a href="#">
-										<span class="name-city">서울</span>
-										<span class="name-air">대한민국, 모든 공항 (SEL)</span>
-									</a>
-									<ul class="list-sub">
+						<!--// 호텔 -->
+
+						<!-- 자유여행 -->
+						<div class="hss-menu hss-free">
+							<h3 class="hss-main"><a href="#" data-tabmain="free">자유여행</a></h3>
+						</div>	
+						<!--// 자유여행 -->
+
+						<!-- 투어&액티비티 -->
+						<div class="hss-menu hss-freetour">
+							<h3 class="hss-main"><a href="#" data-tabmain="freetour">투어&amp;액티비티</a></h3>
+							<ul class="hss-sub">
+								<li><span class="btn-base bbr-st2 b-rentv"><a href="#" data-tabsub="rentv">렌터카</a></span></li>
+								<li><span class="btn-base bbr-st2 b-intticket"><a href="#" data-tabsub="intticket">해외 입장권</a></span></li>
+								<li><span class="btn-base bbr-st2 b-actualtour"><a href="#" data-tabsub="actualtour">현지투어</a></span></li>
+								<li><span class="btn-base bbr-st2 b-transpass"><a href="#" data-tabsub="transpass">교통패스</a></span></li>
+								<li><span class="btn-base bbr-st2 b-airpicup"><a href="#" data-tabsub="airpicup">공항픽업</a></span></li>
+							</ul>
+						</div>	
+						<!--// 투어&액티비티 -->
+					</div> 
+					<!--// 검색 메뉴 -->
+
+					<!-- 검색 섹션 -->
+					<div class="hs-search-cont">
+						<!-- 항공 -->
+						<div class="hss-inner-cont sc-air" id="SC-AIR">
+							<!-- 왕복인 경우(.o-shuttle), 편도인 경우(.o-shuttle .o-oneway) -->
+							<div class="sc-search-box o-shuttle">
+								<div class="w-qsb-cont">
+									<div class="qsb-cont qsb-places">
+										<div class="places-exit">
+											<a href="#" class="qsb-area">
+												<span class="qsb-label">출발도시</span>
+												<span class="qsb-input">서울 인천 (<em class="qsb-c">ICN</em>)</span>
+											</a>
+											<span class="btn-base b-change-places"><button type="button"><span class="a11y">출발도시, 도착도시 변경</span></button></span>
+										</div>
+										<div class="places-entry">
+											<a href="#" class="qsb-area">
+												<span class="qsb-label">도착도시</span>
+												<span class="qsb-input">미주 뉴욕 (<em class="qsb-c">JFK</em>)</span>
+											</a>
+										</div>
+									</div>
+									<div class="qsb-cont qsb-dates">
+										<a href="#" class="qsb-area">
+											<span class="qsb-label">여행날짜</span>
+											<span class="qsb-input">
+												<span class="qsb-chkin">02월 15일 (목)</span>
+												<span class="qsb-chkout">02월 18일 (일)</span>
+											</span>
+										</a>
+									</div>
+									<div class="qsb-cont qsb-capacity">
+										<a href="#" class="qsb-area">
+											<span class="qsb-label">인원, 좌석등급</span>
+											<span class="qsb-input"><em class="total-num">승객1</em>, <em class="type-seat">일반석</em></span>
+										</a>
+									</div>
+									<div class="qsb-cont qsb-btn-search">
+										<button type="button" class="b-search">검색</button>
+									</div>
+								</div>
+							</div>
+							<!-- 다구간(.o-multiway) -->
+							<div class="sc-search-box o-multiway">
+								<ol class="at-qsb-cont">
+									<li><div class="w-qsb-cont">
+											<div class="qsb-cont qsb-number">
+												<div class="qsb-number-inner">
+													<span class="txt1 qsb-c">여정</span>
+													<span class="txt2 qsb-c">01</span>
+												</div>
+											</div>
+											<div class="qsb-cont qsb-places">
+												<div class="places-exit">
+													<a href="#" class="qsb-area">
+														<span class="qsb-label">출발도시</span>
+														<span class="qsb-input">서울 인천 (<em class="qsb-c">ICN</em>)</span>
+													</a>
+												</div>
+												<div class="places-entry">
+													<a href="#" class="qsb-area">
+														<span class="qsb-label">도착도시</span>
+														<span class="qsb-input">미주 뉴욕 (<em class="qsb-c">JFK</em>)</span>
+													</a>
+												</div>
+											</div>
+											<div class="qsb-cont qsb-dates">
+												<a href="#" class="qsb-area">
+													<span class="qsb-label">여행날짜</span>
+													<span class="qsb-input">
+														<span class="qsb-chkin">02월 15일 (목)</span>
+														<span class="qsb-chkout">02월 17일 (토)</span>
+													</span>
+												</a>
+											</div>
+										</div></li>
+									<li><div class="w-qsb-cont">
+											<div class="qsb-cont qsb-number">
+												<div class="qsb-number-inner">
+													<span class="txt1 qsb-c">여정</span>
+													<span class="txt2 qsb-c">02</span>
+												</div>
+											</div>
+											<div class="qsb-cont qsb-places">
+												<div class="places-exit">
+													<a href="#" class="qsb-area">
+														<span class="qsb-label">출발도시</span>
+														<span class="qsb-input">서울 인천 (<em class="qsb-c">ICN</em>)</span>
+													</a>
+												</div>
+												<div class="places-entry">
+													<a href="#" class="qsb-area">
+														<span class="qsb-label">도착도시</span>
+														<span class="qsb-input">미주 뉴욕 (<em class="qsb-c">JFK</em>)</span>
+													</a>
+												</div>
+											</div>
+											<div class="qsb-cont qsb-dates">
+												<a href="#" class="qsb-area">
+													<span class="qsb-label">여행날짜</span>
+													<span class="qsb-input">
+														<span class="qsb-chkin">02월 15일 (목)</span>
+														<span class="qsb-chkout">02월 17일 (토)</span>
+													</span>
+												</a>
+											</div>
+											<div class="qsb-btn-add">
+												<button type="button" class="b-add-multiway"><span class="a11y">다구간 추가</span></button>
+												<button type="button" class="b-remove-multiway"><span class="a11y">다구간 삭제</span></button>
+											</div>
+										</div></li>							
+								</ol>
+								<div class="w-qsb-cont-indep">
+									<div class="qsb-cont qsb-capacity">
+										<a href="#" class="qsb-area">
+											<span class="qsb-label">인원, 좌석등급</span>
+											<span class="qsb-input">승객<em class="total-num">1</em>, <em class="seat-type">일반석</em></span>
+										</a>
+									</div>
+									<div class="qsb-cont qsb-btn-search">
+										<button type="button" class="b-search">검색</button>
+									</div>
+								</div>
+							</div>
+
+							<!-- ================================================================== -->
+							<!-- 항공 주요도시 리스트 -->
+							<div class="sc-ui-search-box ui-maincity-air">
+								<div class="uis-input">
+									<input type="text" class="input-base ipu-search" placeholder="도시명을 검색하거나 아래 주요도시에서 선택하세요.">
+								</div>						
+								<table class="uis-maincity-table">
+									<caption>주요도시 선택 리스트</caption>
+									<colgroup>
+										<col width="16.66666666666667%">
+										<col width="16.66666666666667%">
+										<col width="16.66666666666667%">
+										<col width="16.66666666666667%">
+										<col width="16.66666666666667%">
+										<col width="16.66666666666667%">
+									</colgroup>
+									<tbody>
+										<tr>
+											<td rowspan="2">
+												<p class="tit">국내</p>
+												<ul class="list">
+													<li><a href="#">인천/김포</a></li>
+													<li><a href="#">인천</a></li>
+													<li><a href="#">김포</a></li>
+													<li><a href="#">부산</a></li>
+													<li><a href="#">대구</a></li>
+													<li><a href="#">제주</a></li>
+													<li><a href="#">광주</a></li>
+													<li><a href="#">울산</a></li>
+													<li><a href="#">포항</a></li>
+													<li><a href="#">전주</a></li>
+													<li><a href="#">여수</a></li>
+													<li><a href="#">양양</a></li>
+													<li><a href="#">군산</a></li>
+													<li><a href="#">원주</a></li>
+													<li><a href="#">청주</a></li>
+													<li><a href="#">무안</a></li>
+												</ul>
+											</td>
+											<td>
+												<p class="tit">일본</p>
+												<ul class="list">
+													<li><a href="#">도쿄(나리타)</a></li>
+													<li><a href="#">도쿄(하네다)</a></li>
+													<li><a href="#">오사카</a></li>
+													<li><a href="#">나고야</a></li>
+													<li><a href="#">후쿠오카</a></li>
+													<li><a href="#">오키나와</a></li>
+													<li><a href="#">삿포로</a></li>
+													<li><a href="#">히로시마</a></li>
+													<li><a href="#">가고시마</a></li>
+													<li><a href="#">미야자키</a></li>
+													<li><a href="#">도야마</a></li>
+													<li><a href="#">시즈오카</a></li>
+												</ul>
+											</td>
+											<td>
+												<p class="tit">홍콩/대만/중국</p>
+												<ul class="list">
+													<li><a href="#">홍콩</a></li>
+													<li><a href="#">타이베이(타오위안)</a></li>
+													<li><a href="#">상해(푸동)</a></li>
+													<li><a href="#">상해(홍차오)</a></li>
+													<li><a href="#">북경</a></li>
+													<li><a href="#">청도</a></li>
+													<li><a href="#">심양</a></li>
+													<li><a href="#">천진</a></li>
+													<li><a href="#">광저우</a></li>
+													<li><a href="#">대련</a></li>
+													<li><a href="#">항주</a></li>
+												</ul>
+											</td>
+											<td>
+												<p class="tit">동남아</p>
+												<ul class="list">
+													<li><a href="#">방콕</a></li>
+													<li><a href="#">마닐라</a></li>
+													<li><a href="#">싱가포르</a></li>
+													<li><a href="#">마카오</a></li>
+													<li><a href="#">호치민</a></li>
+													<li><a href="#">푸켓</a></li>
+													<li><a href="#">세부</a></li>
+													<li><a href="#">발리</a></li>
+													<li><a href="#">하노이</a></li>
+													<li><a href="#">다낭</a></li>
+													<li><a href="#">쿠알라룸푸르</a></li>
+													<li><a href="#">코타키나발루</a></li>
+												</ul>
+											</td>
+											<td>
+												<p class="tit">미주</p>
+												<ul class="list">
+													<li><a href="#">호놀룰루(하와이)</a></li>
+													<li><a href="#">로스앤젤레스</a></li>
+													<li><a href="#">뉴욕(전체)</a></li>
+													<li><a href="#">뉴욕(JFK)</a></li>
+													<li><a href="#">뉴욕(라과디아)</a></li>
+													<li><a href="#">뉴욕(뉴왁)</a></li>
+													<li><a href="#">샌프란시스코</a></li>
+													<li><a href="#">시애틀</a></li>
+													<li><a href="#">시카고</a></li>
+													<li><a href="#">워싱톤</a></li>
+													<li><a href="#">달라스</a></li>
+													<li><a href="#">애틀란타</a></li>
+													<li><a href="#">보스톤</a></li>
+												</ul>
+											</td>
+											<td>
+												<p class="tit">유럽</p>
+												<ul class="list">
+													<li><a href="#">런던</a></li>
+													<li><a href="#">파리</a></li>
+													<li><a href="#">로마</a></li>
+													<li><a href="#">프랑크푸르트</a></li>
+													<li><a href="#">이스탄불</a></li>
+													<li><a href="#">밀라노</a></li>
+													<li><a href="#">마드리드</a></li>
+													<li><a href="#">바르셀로나</a></li>
+													<li><a href="#">프라하</a></li>
+													<li><a href="#">취리히</a></li>
+													<li><a href="#">암스테르담</a></li>
+													<li><a href="#">베니스</a></li>
+												</ul>
+											</td>
+										</tr>
+										<tr>
+											<td>
+												<p class="tit">남태평양</p>
+												<ul class="list">
+													<li><a href="#">시드니</a></li>
+													<li><a href="#">브리즈번</a></li>
+													<li><a href="#">멜버른</a></li>
+													<li><a href="#">오클랜드</a></li>
+													<li><a href="#">괌</a></li>
+													<li><a href="#">사이판</a></li>
+												</ul>
+											</td>
+											<td>
+												<p class="tit">중남미</p>
+												<ul class="list">
+													<li><a href="#">상파울로</a></li>
+													<li><a href="#">멕시코시티</a></li>
+													<li><a href="#">칸쿤</a></li>
+													<li><a href="#">리마</a></li>
+													<li><a href="#">하바나</a></li>
+												</ul>
+											</td>
+											<td>
+												<p class="tit">서남아</p>
+												<ul class="list">
+													<li><a href="#">몰디브</a></li>
+													<li><a href="#">카트만두</a></li>
+													<li><a href="#">델리</a></li>
+													<li><a href="#">뭄바이</a></li>
+													<li><a href="#">콜롬보</a></li>
+													<li><a href="#">양곤</a></li>
+													<li><a href="#">다카</a></li>
+												</ul>
+											</td>
+											<td>
+												<p class="tit">캐나다</p>
+												<ul class="list">
+													<li><a href="#">밴쿠버</a></li>
+													<li><a href="#">토론토</a></li>
+													<li><a href="#">몬트리올</a></li>
+													<li><a href="#">캘거리</a></li>
+													<li><a href="#">오타와</a></li>
+												</ul>
+											</td>
+											<td>
+												<p class="tit">중동/아프리카</p>
+												<ul class="list">
+													<li><a href="#">두바이</a></li>
+													<li><a href="#">카이로</a></li>
+													<li><a href="#">아부다비</a></li>
+													<li><a href="#">나이로비</a></li>
+													<li><a href="#">요하네스버그</a></li>
+													<li><a href="#">케이프타운</a></li>
+												</ul>
+											</td>
+										</tr>
+									</tbody>
+								</table>
+							</div>
+							<!--// 항공 주요도시 리스트 -->
+
+							<!-- 검색 리스트 -->
+							<div class="sc-ui-search-box ui-citysearch-auto">
+								<div class="uis-input">
+									<input type="text" class="input-base ipu-search" placeholder="도시명을 검색하거나 아래 주요도시에서 선택하세요">
+								</div>
+								<div class="uis-citysearch-list">
+									<ul class="list">
 										<li>
 											<a href="#">
-												<span class="name-city c-txt-point1">샤를드골</span>
-												<span class="name-air">프랑스 파리, 샤를드골 공항 (CDG)</span>
+												<span class="name-city">서울</span>
+												<span class="name-air">대한민국, 모든 공항 (SEL)</span>
+											</a>
+											<ul class="list-sub">
+												<li>
+													<a href="#">
+														<span class="name-city c-txt-point1">샤를드골</span>
+														<span class="name-air">프랑스 파리, 샤를드골 공항 (CDG)</span>
+													</a>
+												</li>
+											</ul>
+										</li>
+										<li>
+											<a href="#">
+												<span class="name-city c-txt-point1">인천</span>
+												<span class="name-air">대한민국, 인천 국제 공항 (ICN)</span>
+											</a>
+											<ul class="list-sub">
+												<li>
+													<a href="#">
+														<span class="name-city c-txt-point1">샤를드골</span>
+														<span class="name-air">프랑스 파리, 샤를드골 공항 (CDG)</span>
+													</a>
+												</li>
+											</ul>
+										</li>
+										<li>
+											<a href="#">
+												<span class="name-city">김포</span>
+												<span class="name-air">대한민국, 김포국제 공항 (GMP)</span>
 											</a>
 										</li>
 									</ul>
-								</li>
-								<li>
-									<a href="#">
-										<span class="name-city c-txt-point1">인천</span>
-										<span class="name-air">대한민국, 인천 국제 공항 (ICN)</span>
-									</a>
-									<ul class="list-sub">
+									<div class="tip-exp"><span class="c-txt-point1">대한민국에서 출발하는 80%가 이 공항을 선택했습니다.</span></div>
+								</div>
+							</div>
+							<!--// 검색 리스트 -->
+
+							<!-- 캘린더 -->
+							<div class="sc-ui-search-box ui-date-calendar">
+								<div class="uis-input">
+									<span class="uis-date-chkin"><input type="text" class="input-base ipu-day" placeholder="출발일을 선택해주세요." readonly></span>
+									<span class="uis-date-chkout"><input type="text" class="input-base ipu-day" placeholder="도착일을 선택해주세요." readonly></span>
+									<span class="uis-chk">
+										<span class="a11y"><input type="checkbox" id="unDay"></span>
+										<label for="unDay" class="label-base unDay">도착일 미정</label> 
+									</span>
+								</div>
+								<div class="uis-calendar">
+									<div class="uis-datepicker"></div>
+								</div> 
+							</div>
+							<!--// 캘린더 -->
+
+							<!-- 인원,좌석,객실 -->
+							<div class="sc-ui-search-box ui-capacity">
+								<div class="uis-capacity">
+									<ul class="uis-capacity-number">
 										<li>
-											<a href="#">
-												<span class="name-city c-txt-point1">샤를드골</span>
-												<span class="name-air">프랑스 파리, 샤를드골 공항 (CDG)</span>
-											</a>
+											<div class="tit"><em>성인</em> (만 12세 이상)</div>
+											<div class="uis-custom-number">
+												<span class="btn-base ucn-crt b-minus"><button type="button"><span class="a11y">빼기</span></button></span>
+												<span class="ucn-num on">1</span>
+												<span class="btn-base ucn-crt b-plus"><button type="button"><span class="a11y">더하기</span></button></span>
+											</div>
+										</li>
+										<li>
+											<div class="tit"><em>아동</em> (만 12세 미만)</div>
+											<div class="uis-custom-number">
+												<span class="btn-base ucn-crt b-minus"><button type="button"><span class="a11y">빼기</span></button></span>
+												<span class="ucn-num">0</span>
+												<span class="btn-base ucn-crt b-plus"><button type="button"><span class="a11y">더하기</span></button></span>
+											</div>
+										</li>
+										<li>
+											<div class="tit"><em>유아</em> (만 24개월 미만)</div>
+											<div class="uis-custom-number">
+												<span class="btn-base ucn-crt b-minus"><button type="button"><span class="a11y">빼기</span></button></span>
+												<span class="ucn-num">0</span>
+												<span class="btn-base ucn-crt b-plus"><button type="button"><span class="a11y">더하기</span></button></span>
+											</div>
 										</li>
 									</ul>
-								</li>
-								<li>
-									<a href="#">
-										<span class="name-city">김포</span>
-										<span class="name-air">대한민국, 김포국제 공항 (GMP)</span>
-									</a>
-								</li>
-							</ul>
-							<div class="tip-exp"><span class="c-txt-point1">대한민국에서 출발하는 80%가 이 공항을 선택했습니다.</span></div>
+									<ul class="uis-capacity-select">
+										<li class="on"><a href="#">일반석</a></li>
+										<li><a href="#">프리미엄 이코노미</a></li>
+										<li><a href="#">비지니스석</a></li>
+										<li><a href="#">일등석</a></li>
+									</ul>
+									<div class="uis-set-btn">
+										<span class="btn-base bb-st2 b-cancel"><a href="#">취소</a></span>
+										<span class="btn-base bb-st3 b-complete"><a href="#">완료</a></span>
+									</div>
+								</div> 
+							</div>
+							<!--// 인원,좌석,객실 -->
 						</div>
+						<!--// 항공 -->
+
+						<!-- 호텔 -->
+						<div class="hss-inner-cont sc-hotel" id="SC-HOTEL">
+							<!-- 해외인 경우(.o-inth) -->
+							<div class="sc-search-box o-inth">
+								<div class="w-qsb-cont">
+									<div class="qsb-cont qsb-places">
+										<div class="places-exit">
+											<a href="#" class="qsb-area">
+												<span class="qsb-label">목적지</span>
+												<span class="qsb-input">파리, 프랑스</span>
+											</a>
+										</div>
+									</div>
+									<div class="qsb-cont qsb-dates">
+										<a href="#" class="qsb-area">
+											<span class="qsb-label">숙박 날짜</span>
+											<span class="qsb-input">
+												<span class="qsb-chkin">02월 15일 (목)</span>
+												<span class="qsb-chkout">02월 18일 (일)</span>
+												<span class="qsb-result-days"><em class="days qsb-c">3박</em></span>
+											</span> 
+										</a>
+									</div>
+									<div class="qsb-cont qsb-capacity">
+										<a href="#" class="qsb-area">
+											<span class="qsb-label">인원, 좌석등급</span>
+											<span class="qsb-input"><em class="type-room">1인실</em>, <em class="total-num">1개</em></span>
+										</a>
+									</div>
+									<div class="qsb-cont qsb-btn-search">
+										<button type="button" class="b-search">검색</button>
+									</div>
+								</div>
+							</div>
+							<!-- 국내인 경우(.o-domh) -->
+							<div class="sc-search-box o-domh">
+								<div class="w-qsb-cont">
+									<div class="qsb-cont qsb-places">
+										<div class="places-exit">
+											<a href="#" class="qsb-area">
+												<span class="qsb-label">목적지</span>
+												<span class="qsb-input"></span>
+											</a>
+										</div>
+									</div>
+									<div class="qsb-cont qsb-dates">
+										<a href="#" class="qsb-area">
+											<span class="qsb-label">숙박 날짜</span>
+											<span class="qsb-input">
+												<span class="qsb-chkin">02월 15일 (목)</span>
+												<span class="qsb-chkout">02월 18일 (일)</span>
+												<span class="qsb-result-days"><em class="days qsb-c">3박</em></span>
+											</span> 
+										</a>
+									</div>
+									<div class="qsb-cont qsb-capacity">
+										<a href="#" class="qsb-area">
+											<span class="qsb-label">인원, 좌석등급</span>
+											<span class="qsb-input"><em class="type-room">1인실</em>, <em class="total-num">1개</em></span>
+										</a>
+									</div>
+									<div class="qsb-cont qsb-btn-search">
+										<button type="button" class="b-search">검색</button>
+									</div>
+								</div>
+							</div>
+
+							<!-- ================================================================== -->
+							<!-- 호텔 주요도시 리스트 -->
+							<div class="sc-ui-search-box ui-maincity-hotel">
+								<div class="uis-input">
+									<input type="text" class="input-base ipu-search" placeholder="도시, 호텔명을 검색하거나 아래 주요도시에서 선택하세요.">
+								</div>						
+								<table class="uis-maincity-table-htl">
+									<caption>주요도시 선택 리스트</caption>
+									<colgroup>
+										<col width="16.6147455867082%">
+										<col>
+									</colgroup>
+									<tbody>
+										<tr>
+											<th><p class="tit">아시아</p></th>
+											<td>
+												<ul class="list"> 
+												   <li><a href="#">다낭</a></li> 
+												   <li><a href="#">싱가포르</a></li> 
+												   <li><a href="#">방콕</a></li> 
+												   <li><a href="#">세부</a></li> 
+												   <li><a href="#">코타키나발루</a></li> 
+												   <li><a href="#">발리</a></li> 
+												   <li><a href="#">푸켓</a></li> 
+												   <li><a href="#">마닐라</a></li> 
+												   <li><a href="#">파타야</a></li> 
+												   <li><a href="#">보라카이</a></li> 
+												   <li><a href="#">나트랑</a></li> 
+												   <li><a href="#">호이안</a></li> 
+												   <li><a href="#">호치민</a></li> 
+												   <li><a href="#">하노이</a></li> 
+												   <li><a href="#">쿠알라룸푸르</a></li> 
+											  </ul>
+											</td>
+										</tr>
+										<tr>
+											<th><p class="tit">홍콩/중국</p></th>
+											<td>
+												<ul class="list"> 
+													<li><a href="#">홍콩</a></li> 
+													<li><a href="#">타이페이</a></li> 
+													<li><a href="#">마카오</a></li> 
+													<li><a href="#">상해</a></li> 
+													<li><a href="#">북경</a></li> 
+													<li><a href="#">청도</a></li> 
+													<li><a href="#">광저우</a></li> 
+												</ul>
+											</td>
+										</tr>
+										<tr>
+											<th><p class="tit">일본</p></th>
+											<td>
+												<ul class="list"> 
+													<li><a href="#">오키나와</a></li> 
+													<li><a href="#">오사카</a></li> 
+													<li><a href="#">도쿄</a></li> 
+													<li><a href="#">후쿠오카</a></li> 
+													<li><a href="#">삿포로</a></li> 
+													<li><a href="#">교토</a></li> 
+													<li><a href="#">유후인</a></li> 
+													<li><a href="#">나고야</a></li> 
+													<li><a href="#">노보리베츠</a></li> 
+												</ul>
+											</td>
+										</tr>
+										<tr>
+											<th><p class="tit">남태평양</p></th>
+											<td>
+												<ul class="list"> 
+													<li><a href="#">괌</a></li> 
+													<li><a href="#">사이판</a></li> 
+													<li><a href="#">시드니</a></li> 
+													<li><a href="#">멜버른</a></li> 
+												</ul>
+											</td>
+										</tr>
+										<tr>
+											<th><p class="tit">유럽</p></th>
+											<td>
+												<ul class="list"> 
+													<li><a href="#">파리</a></li> 
+													<li><a href="#">로마</a></li> 
+													<li><a href="#">런던</a></li> 
+													<li><a href="#">프라하</a></li> 
+													<li><a href="#">피렌체</a></li> 
+													<li><a href="#">바로셀로나</a></li> 
+													<li><a href="#">밀라노</a></li> 
+													<li><a href="#">베니스</a></li> 
+													<li><a href="#">부다페스트</a></li> 
+													<li><a href="#">비엔나</a></li> 
+												</ul>
+											</td>
+										</tr>
+										<tr>
+											<th><p class="tit">미주/캐나다</p></th>
+											<td>
+												<ul class="list"> 
+													<li><a href="#">호놀룰루</a></li> 
+													<li><a href="#">마우이</a></li> 
+													<li><a href="#">라스베가스</a></li> 
+													<li><a href="#">뉴욕</a></li> 
+													<li><a href="#">샌프란시스코</a></li> 
+													<li><a href="#">시카고</a></li> 
+													<li><a href="#">로스엔젤레스</a></li> 
+													<li><a href="#">벤쿠버</a></li> 
+													<li><a href="#">토론토</a></li> 
+												</ul>
+											</td>
+										</tr>
+									</tbody>
+								</table>
+							</div>
+							<!--// 호텔 주요도시 리스트 -->
+						</div>
+						<!--// 호텔 -->
+
+						<!-- 자유여행 -->
+						<div class="hss-inner-cont sc-free" id="SC-FREE">
+							free
+							<!-- ================================================================== -->
+						</div>
+						<!--// 자유여행 -->
+
+						<!-- 투어&액티비티 -->
+						<div class="hss-inner-cont sc-freetour" id="SC-FREETOUR">
+							freetour
+							<!-- ================================================================== -->
+						</div>
+						<!--// 투어&액티비티 -->
 					</div>
-					<!--// 검색 리스트 -->
-					
-					<!-- 캘린더 -->
-					<div class="sc-ui-search-box ui-date-calendar">
-						<div class="uis-input">
-							<span class="uis-date-chkin"><input type="text" class="input-base ipu-day" placeholder="출발일을 선택해주세요." readonly></span>
-							<span class="uis-date-chkout"><input type="text" class="input-base ipu-day" placeholder="도착일을 선택해주세요." readonly></span>
-							<span class="uis-chk">
-								<span class="a11y"><input type="checkbox" id="unDay"></span>
-								<label for="unDay" class="label-base unDay">도착일 미정</label> 
+					<!--// 검색 섹션 -->
+
+					<!-- 기획전 롤링 -->
+					<div class="hs-prom-roll">
+						<h3 class="a11y">기획전 롤링</h3>
+						<ul class="list">
+							<li><a href="#"><img src="/images/front/travel/vis-size/vis-180x80.png" alt="&nbsp;"></a></li>
+							<li><a href="#"><img src="/images/front/travel/vis-size/vis-180x80.png" alt="&nbsp;"></a></li>
+						</ul>
+						<div class="c-slick-dots">
+							<span class="cs-dots-crt">
+								<button type="button" class="b-slick-crt on"><span class="a11y txt">일시정지 버튼</span></button>
 							</span>
 						</div>
-						<div class="uis-calendar">
-							<div class="uis-datepicker"></div>
-						</div> 
 					</div>
-					<!--// 캘린더 -->
-					
-					<!-- 인원,좌석,객실 -->
-					<div class="sc-ui-search-box ui-capacity">
-						<div class="uis-capacity">
-							<ul class="uis-capacity-number">
-								<li>
-									<div class="tit"><em>성인</em> (만 12세 이상)</div>
-									<div class="uis-custom-number">
-										<span class="btn-base ucn-crt b-minus"><button type="button"><span class="a11y">빼기</span></button></span>
-										<span class="ucn-num on">1</span>
-										<span class="btn-base ucn-crt b-plus"><button type="button"><span class="a11y">더하기</span></button></span>
-									</div>
-								</li>
-								<li>
-									<div class="tit"><em>아동</em> (만 12세 미만)</div>
-									<div class="uis-custom-number">
-										<span class="btn-base ucn-crt b-minus"><button type="button"><span class="a11y">빼기</span></button></span>
-										<span class="ucn-num">0</span>
-										<span class="btn-base ucn-crt b-plus"><button type="button"><span class="a11y">더하기</span></button></span>
-									</div>
-								</li>
-								<li>
-									<div class="tit"><em>유아</em> (만 24개월 미만)</div>
-									<div class="uis-custom-number">
-										<span class="btn-base ucn-crt b-minus"><button type="button"><span class="a11y">빼기</span></button></span>
-										<span class="ucn-num">0</span>
-										<span class="btn-base ucn-crt b-plus"><button type="button"><span class="a11y">더하기</span></button></span>
-									</div>
-								</li>
-							</ul>
-							<ul class="uis-capacity-select">
-								<li><a href="#">일반석</a></li>
-								<li class="on"><a href="#">프리미엄 이코노미</a></li>
-								<li><a href="#">비지니스석</a></li>
-								<li><a href="#">일등석</a></li>
-							</ul>
-							<div class="uis-set-btn">
-								<span class="btn-base bb-st2 b-cancel"><a href="#">취소</a></span>
-								<span class="btn-base bb-st3 b-complete"><a href="#">완료</a></span>
-							</div>
-						</div> 
-					</div>
-					<!--// 인원,좌석,객실 -->
+					<!--// 기획전 롤링 -->
 				</div>
-				<!--// 검색 섹션 -->
-								
-				<!-- 기획전 롤링 -->
-				<div class="hs-prom-roll">
-					<h3 class="a11y">기획전 롤링</h3>
-					<div class="c-slick-dots">
-						<span class="cs-dots-crt">
-							<button type="button" class="b-slick-crt on"><span class="a11y txt">일시정지 버튼</span></button>
-						</span>
-					</div>
-					<ul class="list">
-						<li><a href="#"><img src="/images/front/travel/vis-size/vis-180x90.png" alt="&nbsp;"></a></li>
-						<li><a href="#"><img src="/images/front/travel/vis-size/vis-180x90.png" alt="&nbsp;"></a></li>
-						<li><a href="#"><img src="/images/front/travel/vis-size/vis-180x90.png" alt="&nbsp;"></a></li>
-					</ul>
+			</div>
+		</div>
+		<script>
+			setActiveSearch(SEARCH_CODE_HOTEL, GNB_CODE_HOTEL);
+		</script>
+	</div>
+	<!--// #header-sec -->
+	
+	<!-- #mobile-promotion-sec -->
+	<div id="mobile-promotion-sec">
+		<div class="w-mobile-promotion">
+			<a href="#" class="b-open">
+				<span class="txt c-point2">모바일 혜택</span>
+			</a>
+			<div class="fpromo-box">
+				<div class="cont">
+					<p><img src="/images/front/travel/contents/img_quick_air_layer_290x450.png" alt="현대카드 PRIVIA 여행 특별 프로모션"></p>
 				</div>
-				<!--// 기획전 롤링 -->
+				<a href="#" class="b-close"><span class="a11y">프로모션 닫기 버튼</span></a>
 			</div>
 		</div>
 	</div>
-	<!--// #header-sec -->
+	<!--// #mobile-promotion-sec -->
 	
 	<!-- #content -->
 	<div id="content-sec">
@@ -978,11 +943,6 @@
 							<li><a href="#"><img src="/images/front/travel/vis-size/vis-770x300-2.jpg" alt="아시아나항공 유럽<br />주요 도시 특별 할인" class="o-txt"></a></li>
 							<li><a href="#"><img src="/images/front/travel/vis-size/vis-770x300.jpg" alt="에바항공 주요 도시<br />특별 할인 이벤트" class="o-txt"></a></li>
 						</ul>
-						<!--<div class="c-slick-dots">
-							<span class="cs-dots-crt">
-								<button  type="button" class="b-slick-crt on"><span class="a11y txt">일시정지 버튼</span></button>
-							</span>
-						</div>-->
 						<span class="btn-base bb-st4 bb-next"><button tyle="button"><span class="a11y">다음 보기 버튼</span></button></span>
 					</div>
 				</div>
@@ -991,28 +951,28 @@
 						<a href="#">
 							<span class="tit">롯데면세점 <br />적립금 증정 프로모션</span>
 							<span class="date">예약기간  :  2018. 04. 01 ~ 2018. 12. 31</span>
-							<span class="vis"><img src="/images/front/travel/vis-size/vis-285x170-3.jpg" alt="&nbsp;"></span>
+							<span class="vis"><img src="/images/front/travel/vis-size/vis-278x170-3.jpg" alt="&nbsp;"></span>
 						</a>
 					</li>
 					<li>
 						<a href="#">
 							<span class="tit">롯데면세점 <br />적립금 증정 프로모션</span>
 							<span class="date">예약기간  :  2018. 04. 01 ~ 2018. 12. 31</span>
-							<span class="vis"><img src="/images/front/travel/vis-size/vis-285x170-2.jpg" alt="&nbsp;"></span>
+							<span class="vis"><img src="/images/front/travel/vis-size/vis-278x170-2.jpg" alt="&nbsp;"></span>
 						</a>
 					</li>
 					<li>
 						<a href="#">
 							<span class="tit">롯데면세점 <br />적립금 증정 프로모션</span>
 							<span class="date">예약기간  :  2018. 04. 01 ~ 2018. 12. 31</span>
-							<span class="vis"><img src="/images/front/travel/vis-size/vis-285x170-3.jpg" alt="&nbsp;"></span>
+							<span class="vis"><img src="/images/front/travel/vis-size/vis-278x170-3.jpg" alt="&nbsp;"></span>
 						</a>
 					</li>
 					<li>
 						<a href="#">
 							<span class="tit">롯데면세점 <br />적립금 증정 프로모션</span>
 							<span class="date">예약기간  :  2018. 04. 01 ~ 2018. 12. 31</span>
-							<span class="vis"><img src="/images/front/travel/vis-size/vis-285x170-2.jpg" alt="&nbsp;"></span>
+							<span class="vis"><img src="/images/front/travel/vis-size/vis-278x170-2.jpg" alt="&nbsp;"></span>
 						</a>
 					</li>
 				</ul>
@@ -1063,7 +1023,7 @@
 					<ul class="sspc-list-sub ui-tab-cont tab-on" id="htlPromList1">
 						<li>
 							<a href="#">
-								<span class="vis"><img src="/images/front/travel/vis-size/vis-285x170-4.jpg" alt="&nbsp;"></span>
+								<span class="vis"><img src="/images/front/travel/vis-size/vis-278x170-4.jpg" alt="&nbsp;"></span>
 								<span class="mark">
 									<span class="label-base lbr-st1"><span>뉴욕</span></span>
 									<span class="label-base lbr-st1"><span>5성급</span></span>
@@ -1078,7 +1038,7 @@
 						</li>
 						<li>
 							<a href="#">
-								<span class="vis"><img src="/images/front/travel/vis-size/vis-285x170-5.jpg" alt="&nbsp;"></span>
+								<span class="vis"><img src="/images/front/travel/vis-size/vis-278x170-5.jpg" alt="&nbsp;"></span>
 								<span class="mark">
 									<span class="label-base lbr-st1"><span>뉴욕</span></span>
 									<span class="label-base lbr-st1"><span>5성급</span></span>
@@ -1093,7 +1053,7 @@
 						</li>
 						<li>
 							<a href="#">
-								<span class="vis"><img src="/images/front/travel/vis-size/vis-285x170-6.jpg" alt="&nbsp;"></span>
+								<span class="vis"><img src="/images/front/travel/vis-size/vis-278x170-6.jpg" alt="&nbsp;"></span>
 								<span class="mark">
 									<span class="label-base lbr-st1"><span>뉴욕</span></span>
 									<span class="label-base lbr-st1"><span>5성급</span></span>
@@ -1108,7 +1068,7 @@
 						</li>
 						<li>
 							<a href="#">
-								<span class="vis"><img src="/images/front/travel/vis-size/vis-285x170-4.jpg" alt="&nbsp;"></span>
+								<span class="vis"><img src="/images/front/travel/vis-size/vis-278x170-4.jpg" alt="&nbsp;"></span>
 								<span class="mark">
 									<span class="label-base lbr-st1"><span>뉴욕</span></span>
 									<span class="label-base lbr-st1"><span>5성급</span></span>
@@ -1125,7 +1085,7 @@
 					<ul class="sspc-list-sub ui-tab-cont" id="htlPromList2">
 						<li>
 							<a href="#">
-								<span class="vis"><img src="/images/front/travel/vis-size/vis-285x170-5.jpg" alt="&nbsp;"></span>
+								<span class="vis"><img src="/images/front/travel/vis-size/vis-278x170-5.jpg" alt="&nbsp;"></span>
 								<span class="mark">
 									<span class="label-base lbr-st1"><span>뉴욕</span></span>
 									<span class="label-base lbr-st1"><span>5성급</span></span>
@@ -1140,7 +1100,7 @@
 						</li>
 						<li>
 							<a href="#">
-								<span class="vis"><img src="/images/front/travel/vis-size/vis-285x170-4.jpg" alt="&nbsp;"></span>
+								<span class="vis"><img src="/images/front/travel/vis-size/vis-278x170-4.jpg" alt="&nbsp;"></span>
 								<span class="mark">
 									<span class="label-base lbr-st1"><span>뉴욕</span></span>
 									<span class="label-base lbr-st1"><span>5성급</span></span>
@@ -1155,7 +1115,7 @@
 						</li>
 						<li>
 							<a href="#">
-								<span class="vis"><img src="/images/front/travel/vis-size/vis-285x170-6.jpg" alt="&nbsp;"></span>
+								<span class="vis"><img src="/images/front/travel/vis-size/vis-278x170-6.jpg" alt="&nbsp;"></span>
 								<span class="mark">
 									<span class="label-base lbr-st1"><span>뉴욕</span></span>
 									<span class="label-base lbr-st1"><span>5성급</span></span>
@@ -1170,7 +1130,7 @@
 						</li>
 						<li>
 							<a href="#">
-								<span class="vis"><img src="/images/front/travel/vis-size/vis-285x170-4.jpg" alt="&nbsp;"></span>
+								<span class="vis"><img src="/images/front/travel/vis-size/vis-278x170-4.jpg" alt="&nbsp;"></span>
 								<span class="mark">
 									<span class="label-base lbr-st1"><span>뉴욕</span></span>
 									<span class="label-base lbr-st1"><span>5성급</span></span>
@@ -1187,7 +1147,7 @@
 					<ul class="sspc-list-sub ui-tab-cont" id="htlPromList3">
 						<li>
 							<a href="#">
-								<span class="vis"><img src="/images/front/travel/vis-size/vis-285x170-4.jpg" alt="&nbsp;"></span>
+								<span class="vis"><img src="/images/front/travel/vis-size/vis-278x170-4.jpg" alt="&nbsp;"></span>
 								<span class="mark">
 									<span class="label-base lbr-st1"><span>뉴욕</span></span>
 									<span class="label-base lbr-st1"><span>5성급</span></span>
@@ -1202,7 +1162,7 @@
 						</li>
 						<li>
 							<a href="#">
-								<span class="vis"><img src="/images/front/travel/vis-size/vis-285x170-5.jpg" alt="&nbsp;"></span>
+								<span class="vis"><img src="/images/front/travel/vis-size/vis-278x170-5.jpg" alt="&nbsp;"></span>
 								<span class="mark">
 									<span class="label-base lbr-st1"><span>뉴욕</span></span>
 									<span class="label-base lbr-st1"><span>5성급</span></span>
@@ -1217,7 +1177,7 @@
 						</li>
 						<li>
 							<a href="#">
-								<span class="vis"><img src="/images/front/travel/vis-size/vis-285x170-4.jpg" alt="&nbsp;"></span>
+								<span class="vis"><img src="/images/front/travel/vis-size/vis-278x170-4.jpg" alt="&nbsp;"></span>
 								<span class="mark">
 									<span class="label-base lbr-st1"><span>뉴욕</span></span>
 									<span class="label-base lbr-st1"><span>5성급</span></span>
@@ -1232,7 +1192,7 @@
 						</li>
 						<li>
 							<a href="#">
-								<span class="vis"><img src="/images/front/travel/vis-size/vis-285x170-6.jpg" alt="&nbsp;"></span>
+								<span class="vis"><img src="/images/front/travel/vis-size/vis-278x170-6.jpg" alt="&nbsp;"></span>
 								<span class="mark">
 									<span class="label-base lbr-st1"><span>뉴욕</span></span>
 									<span class="label-base lbr-st1"><span>5성급</span></span>
@@ -1263,7 +1223,7 @@
 								<span class="rec-mark">
 									<span class="label-base lbr-st2"><span>MD 추천</span></span>
 								</span>
-								<span class="vis"><img src="/images/front/travel/vis-size/vis-285x170-3.jpg" alt="&nbsp;"></span>
+								<span class="vis"><img src="/images/front/travel/vis-size/vis-278x170-3.jpg" alt="&nbsp;"></span>
 								<span class="mark">
 									<span class="label-base lbr-st1"><span>뉴욕</span></span>
 									<span class="label-base lbr-st1"><span>5성급</span></span>
@@ -1275,7 +1235,7 @@
 						</li>
 						<li>
 							<a href="#">
-								<span class="vis"><img src="/images/front/travel/vis-size/vis-285x170-4.jpg" alt="&nbsp;"></span>
+								<span class="vis"><img src="/images/front/travel/vis-size/vis-278x170-4.jpg" alt="&nbsp;"></span>
 								<span class="mark">
 									<span class="label-base lbr-st1"><span>뉴욕</span></span>
 									<span class="label-base lbr-st1"><span>5성급</span></span>
@@ -1290,7 +1250,7 @@
 								<span class="rec-mark">
 									<span class="label-base lbr-st2"><span>MD 추천</span></span>
 								</span>
-								<span class="vis"><img src="/images/front/travel/vis-size/vis-285x170-5.jpg" alt="&nbsp;"></span>
+								<span class="vis"><img src="/images/front/travel/vis-size/vis-278x170-5.jpg" alt="&nbsp;"></span>
 								<span class="mark">
 									<span class="label-base lbr-st1"><span>뉴욕</span></span>
 									<span class="label-base lbr-st1"><span>5성급</span></span>
@@ -1302,7 +1262,7 @@
 						</li>
 						<li>
 							<a href="#">
-								<span class="vis"><img src="/images/front/travel/vis-size/vis-285x170-6.jpg" alt="&nbsp;"></span>
+								<span class="vis"><img src="/images/front/travel/vis-size/vis-278x170-6.jpg" alt="&nbsp;"></span>
 								<span class="mark">
 									<span class="label-base lbr-st1"><span>뉴욕</span></span>
 									<span class="label-base lbr-st1"><span>5성급</span></span>
@@ -1316,7 +1276,7 @@
 					<ul class="sspc-list-sub ui-tab-cont" id="htlBestList2">
 						<li>
 							<a href="#">
-								<span class="vis"><img src="/images/front/travel/vis-size/vis-285x170-4.jpg" alt="&nbsp;"></span>
+								<span class="vis"><img src="/images/front/travel/vis-size/vis-278x170-4.jpg" alt="&nbsp;"></span>
 								<span class="mark">
 									<span class="label-base lbr-st1"><span>뉴욕</span></span>
 									<span class="label-base lbr-st1"><span>5성급</span></span>
@@ -1331,7 +1291,7 @@
 								<span class="rec-mark">
 									<span class="label-base lbr-st2"><span>MD 추천</span></span>
 								</span>
-								<span class="vis"><img src="/images/front/travel/vis-size/vis-285x170-3.jpg" alt="&nbsp;"></span>
+								<span class="vis"><img src="/images/front/travel/vis-size/vis-278x170-3.jpg" alt="&nbsp;"></span>
 								<span class="mark">
 									<span class="label-base lbr-st1"><span>뉴욕</span></span>
 									<span class="label-base lbr-st1"><span>5성급</span></span>
@@ -1346,7 +1306,7 @@
 								<span class="rec-mark">
 									<span class="label-base lbr-st2"><span>MD 추천</span></span>
 								</span>
-								<span class="vis"><img src="/images/front/travel/vis-size/vis-285x170-5.jpg" alt="&nbsp;"></span>
+								<span class="vis"><img src="/images/front/travel/vis-size/vis-278x170-5.jpg" alt="&nbsp;"></span>
 								<span class="mark">
 									<span class="label-base lbr-st1"><span>뉴욕</span></span>
 									<span class="label-base lbr-st1"><span>5성급</span></span>
@@ -1358,7 +1318,7 @@
 						</li>
 						<li>
 							<a href="#">
-								<span class="vis"><img src="/images/front/travel/vis-size/vis-285x170-6.jpg" alt="&nbsp;"></span>
+								<span class="vis"><img src="/images/front/travel/vis-size/vis-278x170-6.jpg" alt="&nbsp;"></span>
 								<span class="mark">
 									<span class="label-base lbr-st1"><span>뉴욕</span></span>
 									<span class="label-base lbr-st1"><span>5성급</span></span>
@@ -1375,7 +1335,7 @@
 								<span class="rec-mark">
 									<span class="label-base lbr-st2"><span>MD 추천</span></span>
 								</span>
-								<span class="vis"><img src="/images/front/travel/vis-size/vis-285x170-3.jpg" alt="&nbsp;"></span>
+								<span class="vis"><img src="/images/front/travel/vis-size/vis-278x170-3.jpg" alt="&nbsp;"></span>
 								<span class="mark">
 									<span class="label-base lbr-st1"><span>뉴욕</span></span>
 									<span class="label-base lbr-st1"><span>5성급</span></span>
@@ -1387,7 +1347,7 @@
 						</li>
 						<li>
 							<a href="#">
-								<span class="vis"><img src="/images/front/travel/vis-size/vis-285x170-4.jpg" alt="&nbsp;"></span>
+								<span class="vis"><img src="/images/front/travel/vis-size/vis-278x170-4.jpg" alt="&nbsp;"></span>
 								<span class="mark">
 									<span class="label-base lbr-st1"><span>뉴욕</span></span>
 									<span class="label-base lbr-st1"><span>5성급</span></span>
@@ -1399,7 +1359,7 @@
 						</li>
 						<li>
 							<a href="#">
-								<span class="vis"><img src="/images/front/travel/vis-size/vis-285x170-6.jpg" alt="&nbsp;"></span>
+								<span class="vis"><img src="/images/front/travel/vis-size/vis-278x170-6.jpg" alt="&nbsp;"></span>
 								<span class="mark">
 									<span class="label-base lbr-st1"><span>뉴욕</span></span>
 									<span class="label-base lbr-st1"><span>5성급</span></span>
@@ -1414,7 +1374,7 @@
 								<span class="rec-mark">
 									<span class="label-base lbr-st2"><span>MD 추천</span></span>
 								</span>
-								<span class="vis"><img src="/images/front/travel/vis-size/vis-285x170-5.jpg" alt="&nbsp;"></span>
+								<span class="vis"><img src="/images/front/travel/vis-size/vis-278x170-5.jpg" alt="&nbsp;"></span>
 								<span class="mark">
 									<span class="label-base lbr-st1"><span>뉴욕</span></span>
 									<span class="label-base lbr-st1"><span>5성급</span></span>
@@ -1441,7 +1401,7 @@
 						<li><span class="btn-base bbr-st3"><a href="#recAreaList7">미주/캐나다</a></span></li>
 					</ul>
 					<ul class="srac-list-sub ui-tab-cont tab-on" id="recAreaList1">
-						<li><a href="#" style="background: url(/images/front/travel/vis-size/vis-386x440.jpg) 50% 50% no-repeat;">
+						<li><a href="#" style="background: url(/images/front/travel/vis-size/vis-380x450.jpg) 50% 50% no-repeat;">
 							<span class="inner">
 								<span class="label-base lbr-st2"><span>방콕</span></span>
 								<span class="tit">르메르디앙 에투알</span>
@@ -1454,7 +1414,7 @@
 								</span>
 							</span>
 						</a></li>
-						<li><a href="#" style="background: url(/images/front/travel/vis-size/vis-387x210.jpg) 50% 50% no-repeat;">
+						<li><a href="#" style="background: url(/images/front/travel/vis-size/vis-380x210.jpg) 50% 50% no-repeat;">
 							<span class="inner">
 								<span class="label-base lbr-st2"><span>푸켓</span></span>
 								<span class="tit">호텔 방케</span>
@@ -1467,7 +1427,7 @@
 								</span>
 							</span>
 						</a></li>
-						<li><a href="#" style="background: url(/images/front/travel/vis-size/vis-387x210-2.jpg) 50% 50% no-repeat;">
+						<li><a href="#" style="background: url(/images/front/travel/vis-size/vis-380x210-2.jpg) 50% 50% no-repeat;">
 							<span class="inner">
 								<span class="label-base lbr-st2"><span>코타키나발루</span></span>
 								<span class="tit">하얏트 리젠시 파리 에투알</span>
@@ -1480,7 +1440,7 @@
 								</span>
 							</span>
 						</a></li>
-						<li><a href="#" style="background: url(/images/front/travel/vis-size/vis-387x210-2.jpg) 50% 50% no-repeat;">
+						<li><a href="#" style="background: url(/images/front/travel/vis-size/vis-380x210-2.jpg) 50% 50% no-repeat;">
 							<span class="inner">
 								<span class="label-base lbr-st2"><span>방콕</span></span>
 								<span class="tit">로열 퍼시픽 호텔 앤드 타워</span>
@@ -1493,7 +1453,7 @@
 								</span>
 							</span>
 						</a></li>
-						<li><a href="#" style="background: url(/images/front/travel/vis-size/vis-387x210-3.jpg) 50% 50% no-repeat;">
+						<li><a href="#" style="background: url(/images/front/travel/vis-size/vis-380x210-3.jpg) 50% 50% no-repeat;">
 							<span class="inner">
 								<span class="label-base lbr-st2"><span>파리</span></span>
 								<span class="tit">풀먼 파리 타워 에펠</span>
@@ -1508,7 +1468,7 @@
 						</a></li>
 					</ul>
 					<ul class="srac-list-sub ui-tab-cont" id="recAreaList2">
-						<li><a href="#" style="background: url(/images/front/travel/vis-size/vis-386x440.jpg) 50% 50% no-repeat;">
+						<li><a href="#" style="background: url(/images/front/travel/vis-size/vis-380x450.jpg) 50% 50% no-repeat;">
 							<span class="inner">
 								<span class="label-base lbr-st2"><span>방콕</span></span>
 								<span class="tit">르메르디앙 에투알</span>
@@ -1521,7 +1481,7 @@
 								</span>
 							</span>
 						</a></li>
-						<li><a href="#" style="background: url(/images/front/travel/vis-size/vis-387x210-2.jpg) 50% 50% no-repeat;">
+						<li><a href="#" style="background: url(/images/front/travel/vis-size/vis-380x210-2.jpg) 50% 50% no-repeat;">
 							<span class="inner">
 								<span class="label-base lbr-st2"><span>푸켓</span></span>
 								<span class="tit">호텔 방케</span>
@@ -1534,7 +1494,7 @@
 								</span>
 							</span>
 						</a></li>
-						<li><a href="#" style="background: url(/images/front/travel/vis-size/vis-387x210-3.jpg) 50% 50% no-repeat;">
+						<li><a href="#" style="background: url(/images/front/travel/vis-size/vis-380x210-3.jpg) 50% 50% no-repeat;">
 							<span class="inner">
 								<span class="label-base lbr-st2"><span>코타키나발루</span></span>
 								<span class="tit">하얏트 리젠시 파리 에투알</span>
@@ -1547,7 +1507,7 @@
 								</span>
 							</span>
 						</a></li>
-						<li><a href="#" style="background: url(/images/front/travel/vis-size/vis-387x210-3.jpg) 50% 50% no-repeat;">
+						<li><a href="#" style="background: url(/images/front/travel/vis-size/vis-380x210-3.jpg) 50% 50% no-repeat;">
 							<span class="inner">
 								<span class="label-base lbr-st2"><span>방콕</span></span>
 								<span class="tit">로열 퍼시픽 호텔 앤드 타워</span>
@@ -1560,7 +1520,7 @@
 								</span>
 							</span>
 						</a></li>
-						<li><a href="#" style="background: url(/images/front/travel/vis-size/vis-387x210.jpg) 50% 50% no-repeat;">
+						<li><a href="#" style="background: url(/images/front/travel/vis-size/vis-380x210.jpg) 50% 50% no-repeat;">
 							<span class="inner">
 								<span class="label-base lbr-st2"><span>파리</span></span>
 								<span class="tit">풀먼 파리 타워 에펠</span>
@@ -1575,7 +1535,7 @@
 						</a></li>
 					</ul>
 					<ul class="srac-list-sub ui-tab-cont" id="recAreaList3">
-						<li><a href="#" style="background: url(/images/front/travel/vis-size/vis-386x440.jpg) 50% 50% no-repeat;">
+						<li><a href="#" style="background: url(/images/front/travel/vis-size/vis-380x450.jpg) 50% 50% no-repeat;">
 							<span class="inner">
 								<span class="label-base lbr-st2"><span>방콕</span></span>
 								<span class="tit">르메르디앙 에투알</span>
@@ -1588,7 +1548,7 @@
 								</span>
 							</span>
 						</a></li>
-						<li><a href="#" style="background: url(/images/front/travel/vis-size/vis-387x210.jpg) 50% 50% no-repeat;">
+						<li><a href="#" style="background: url(/images/front/travel/vis-size/vis-380x210.jpg) 50% 50% no-repeat;">
 							<span class="inner">
 								<span class="label-base lbr-st2"><span>푸켓</span></span>
 								<span class="tit">호텔 방케</span>
@@ -1601,7 +1561,7 @@
 								</span>
 							</span>
 						</a></li>
-						<li><a href="#" style="background: url(/images/front/travel/vis-size/vis-387x210-2.jpg) 50% 50% no-repeat;">
+						<li><a href="#" style="background: url(/images/front/travel/vis-size/vis-380x210-2.jpg) 50% 50% no-repeat;">
 							<span class="inner">
 								<span class="label-base lbr-st2"><span>코타키나발루</span></span>
 								<span class="tit">하얏트 리젠시 파리 에투알</span>
@@ -1614,7 +1574,7 @@
 								</span>
 							</span>
 						</a></li>
-						<li><a href="#" style="background: url(/images/front/travel/vis-size/vis-387x210-2.jpg) 50% 50% no-repeat;">
+						<li><a href="#" style="background: url(/images/front/travel/vis-size/vis-380x210-2.jpg) 50% 50% no-repeat;">
 							<span class="inner">
 								<span class="label-base lbr-st2"><span>방콕</span></span>
 								<span class="tit">로열 퍼시픽 호텔 앤드 타워</span>
@@ -1627,7 +1587,7 @@
 								</span>
 							</span>
 						</a></li>
-						<li><a href="#" style="background: url(/images/front/travel/vis-size/vis-387x210-3.jpg) 50% 50% no-repeat;">
+						<li><a href="#" style="background: url(/images/front/travel/vis-size/vis-380x210-3.jpg) 50% 50% no-repeat;">
 							<span class="inner">
 								<span class="label-base lbr-st2"><span>파리</span></span>
 								<span class="tit">풀먼 파리 타워 에펠</span>
@@ -1642,7 +1602,7 @@
 						</a></li>
 					</ul>
 					<ul class="srac-list-sub ui-tab-cont" id="recAreaList4">
-						<li><a href="#" style="background: url(/images/front/travel/vis-size/vis-386x440.jpg) 50% 50% no-repeat;">
+						<li><a href="#" style="background: url(/images/front/travel/vis-size/vis-380x450.jpg) 50% 50% no-repeat;">
 							<span class="inner">
 								<span class="label-base lbr-st2"><span>방콕</span></span>
 								<span class="tit">르메르디앙 에투알</span>
@@ -1655,7 +1615,7 @@
 								</span>
 							</span>
 						</a></li>
-						<li><a href="#" style="background: url(/images/front/travel/vis-size/vis-387x210-2.jpg) 50% 50% no-repeat;">
+						<li><a href="#" style="background: url(/images/front/travel/vis-size/vis-380x210-2.jpg) 50% 50% no-repeat;">
 							<span class="inner">
 								<span class="label-base lbr-st2"><span>푸켓</span></span>
 								<span class="tit">호텔 방케</span>
@@ -1668,7 +1628,7 @@
 								</span>
 							</span>
 						</a></li>
-						<li><a href="#" style="background: url(/images/front/travel/vis-size/vis-387x210-3.jpg) 50% 50% no-repeat;">
+						<li><a href="#" style="background: url(/images/front/travel/vis-size/vis-380x210-3.jpg) 50% 50% no-repeat;">
 							<span class="inner">
 								<span class="label-base lbr-st2"><span>코타키나발루</span></span>
 								<span class="tit">하얏트 리젠시 파리 에투알</span>
@@ -1681,7 +1641,7 @@
 								</span>
 							</span>
 						</a></li>
-						<li><a href="#" style="background: url(/images/front/travel/vis-size/vis-387x210-3.jpg) 50% 50% no-repeat;">
+						<li><a href="#" style="background: url(/images/front/travel/vis-size/vis-380x210-3.jpg) 50% 50% no-repeat;">
 							<span class="inner">
 								<span class="label-base lbr-st2"><span>방콕</span></span>
 								<span class="tit">로열 퍼시픽 호텔 앤드 타워</span>
@@ -1694,7 +1654,7 @@
 								</span>
 							</span>
 						</a></li>
-						<li><a href="#" style="background: url(/images/front/travel/vis-size/vis-387x210.jpg) 50% 50% no-repeat;">
+						<li><a href="#" style="background: url(/images/front/travel/vis-size/vis-380x210.jpg) 50% 50% no-repeat;">
 							<span class="inner">
 								<span class="label-base lbr-st2"><span>파리</span></span>
 								<span class="tit">풀먼 파리 타워 에펠</span>
@@ -1709,7 +1669,7 @@
 						</a></li>
 					</ul>
 					<ul class="srac-list-sub ui-tab-cont" id="recAreaList5">
-						<li><a href="#" style="background: url(/images/front/travel/vis-size/vis-386x440.jpg) 50% 50% no-repeat;">
+						<li><a href="#" style="background: url(/images/front/travel/vis-size/vis-380x450.jpg) 50% 50% no-repeat;">
 							<span class="inner">
 								<span class="label-base lbr-st2"><span>방콕</span></span>
 								<span class="tit">르메르디앙 에투알</span>
@@ -1722,7 +1682,7 @@
 								</span>
 							</span>
 						</a></li>
-						<li><a href="#" style="background: url(/images/front/travel/vis-size/vis-387x210.jpg) 50% 50% no-repeat;">
+						<li><a href="#" style="background: url(/images/front/travel/vis-size/vis-380x210.jpg) 50% 50% no-repeat;">
 							<span class="inner">
 								<span class="label-base lbr-st2"><span>푸켓</span></span>
 								<span class="tit">호텔 방케</span>
@@ -1735,7 +1695,7 @@
 								</span>
 							</span>
 						</a></li>
-						<li><a href="#" style="background: url(/images/front/travel/vis-size/vis-387x210-2.jpg) 50% 50% no-repeat;">
+						<li><a href="#" style="background: url(/images/front/travel/vis-size/vis-380x210-2.jpg) 50% 50% no-repeat;">
 							<span class="inner">
 								<span class="label-base lbr-st2"><span>코타키나발루</span></span>
 								<span class="tit">하얏트 리젠시 파리 에투알</span>
@@ -1748,7 +1708,7 @@
 								</span>
 							</span>
 						</a></li>
-						<li><a href="#" style="background: url(/images/front/travel/vis-size/vis-387x210-2.jpg) 50% 50% no-repeat;">
+						<li><a href="#" style="background: url(/images/front/travel/vis-size/vis-380x210-2.jpg) 50% 50% no-repeat;">
 							<span class="inner">
 								<span class="label-base lbr-st2"><span>방콕</span></span>
 								<span class="tit">로열 퍼시픽 호텔 앤드 타워</span>
@@ -1761,7 +1721,7 @@
 								</span>
 							</span>
 						</a></li>
-						<li><a href="#" style="background: url(/images/front/travel/vis-size/vis-387x210-3.jpg) 50% 50% no-repeat;">
+						<li><a href="#" style="background: url(/images/front/travel/vis-size/vis-380x210-3.jpg) 50% 50% no-repeat;">
 							<span class="inner">
 								<span class="label-base lbr-st2"><span>파리</span></span>
 								<span class="tit">풀먼 파리 타워 에펠</span>
@@ -1776,7 +1736,7 @@
 						</a></li>
 					</ul>
 					<ul class="srac-list-sub ui-tab-cont" id="recAreaList6">
-						<li><a href="#" style="background: url(/images/front/travel/vis-size/vis-386x440.jpg) 50% 50% no-repeat;">
+						<li><a href="#" style="background: url(/images/front/travel/vis-size/vis-380x450.jpg) 50% 50% no-repeat;">
 							<span class="inner">
 								<span class="label-base lbr-st2"><span>방콕</span></span>
 								<span class="tit">르메르디앙 에투알</span>
@@ -1789,7 +1749,7 @@
 								</span>
 							</span>
 						</a></li>
-						<li><a href="#" style="background: url(/images/front/travel/vis-size/vis-387x210-2.jpg) 50% 50% no-repeat;">
+						<li><a href="#" style="background: url(/images/front/travel/vis-size/vis-380x210-2.jpg) 50% 50% no-repeat;">
 							<span class="inner">
 								<span class="label-base lbr-st2"><span>푸켓</span></span>
 								<span class="tit">호텔 방케</span>
@@ -1802,7 +1762,7 @@
 								</span>
 							</span>
 						</a></li>
-						<li><a href="#" style="background: url(/images/front/travel/vis-size/vis-387x210.jpg) 50% 50% no-repeat;">
+						<li><a href="#" style="background: url(/images/front/travel/vis-size/vis-380x210.jpg) 50% 50% no-repeat;">
 							<span class="inner">
 								<span class="label-base lbr-st2"><span>코타키나발루</span></span>
 								<span class="tit">하얏트 리젠시 파리 에투알</span>
@@ -1815,7 +1775,7 @@
 								</span>
 							</span>
 						</a></li>
-						<li><a href="#" style="background: url(/images/front/travel/vis-size/vis-387x210.jpg) 50% 50% no-repeat;">
+						<li><a href="#" style="background: url(/images/front/travel/vis-size/vis-380x210.jpg) 50% 50% no-repeat;">
 							<span class="inner">
 								<span class="label-base lbr-st2"><span>방콕</span></span>
 								<span class="tit">로열 퍼시픽 호텔 앤드 타워</span>
@@ -1828,7 +1788,7 @@
 								</span>
 							</span>
 						</a></li>
-						<li><a href="#" style="background: url(/images/front/travel/vis-size/vis-387x210-3.jpg) 50% 50% no-repeat;">
+						<li><a href="#" style="background: url(/images/front/travel/vis-size/vis-380x210-3.jpg) 50% 50% no-repeat;">
 							<span class="inner">
 								<span class="label-base lbr-st2"><span>파리</span></span>
 								<span class="tit">풀먼 파리 타워 에펠</span>
@@ -1843,7 +1803,7 @@
 						</a></li>
 					</ul>
 					<ul class="srac-list-sub ui-tab-cont" id="recAreaList7">
-						<li><a href="#" style="background: url(/images/front/travel/vis-size/vis-386x440.jpg) 50% 50% no-repeat;">
+						<li><a href="#" style="background: url(/images/front/travel/vis-size/vis-380x450.jpg) 50% 50% no-repeat;">
 							<span class="inner">
 								<span class="label-base lbr-st2"><span>방콕</span></span>
 								<span class="tit">르메르디앙 에투알</span>
@@ -1856,7 +1816,7 @@
 								</span>
 							</span>
 						</a></li>
-						<li><a href="#" style="background: url(/images/front/travel/vis-size/vis-387x210-3.jpg) 50% 50% no-repeat;">
+						<li><a href="#" style="background: url(/images/front/travel/vis-size/vis-380x210-3.jpg) 50% 50% no-repeat;">
 							<span class="inner">
 								<span class="label-base lbr-st2"><span>푸켓</span></span>
 								<span class="tit">호텔 방케</span>
@@ -1869,7 +1829,7 @@
 								</span>
 							</span>
 						</a></li>
-						<li><a href="#" style="background: url(/images/front/travel/vis-size/vis-387x210-2.jpg) 50% 50% no-repeat;">
+						<li><a href="#" style="background: url(/images/front/travel/vis-size/vis-380x210-2.jpg) 50% 50% no-repeat;">
 							<span class="inner">
 								<span class="label-base lbr-st2"><span>코타키나발루</span></span>
 								<span class="tit">하얏트 리젠시 파리 에투알</span>
@@ -1882,7 +1842,7 @@
 								</span>
 							</span>
 						</a></li>
-						<li><a href="#" style="background: url(/images/front/travel/vis-size/vis-387x210-2.jpg) 50% 50% no-repeat;">
+						<li><a href="#" style="background: url(/images/front/travel/vis-size/vis-380x210-2.jpg) 50% 50% no-repeat;">
 							<span class="inner">
 								<span class="label-base lbr-st2"><span>방콕</span></span>
 								<span class="tit">로열 퍼시픽 호텔 앤드 타워</span>
@@ -1895,7 +1855,7 @@
 								</span>
 							</span>
 						</a></li>
-						<li><a href="#" style="background: url(/images/front/travel/vis-size/vis-387x210.jpg) 50% 50% no-repeat;">
+						<li><a href="#" style="background: url(/images/front/travel/vis-size/vis-380x210.jpg) 50% 50% no-repeat;">
 							<span class="inner">
 								<span class="label-base lbr-st2"><span>파리</span></span>
 								<span class="tit">풀먼 파리 타워 에펠</span>
@@ -2009,18 +1969,6 @@
 					</div>
 				</div>
 			</div>
-			
-			<div class="s-fix-promotion">
-				<a href="#" class="b-open">
-					<span class="txt c-point2">모바일 혜택</span>
-				</a>
-				<div class="fpromo-box">
-					<div class="cont">
-						<p><img src="/images/front/travel/contents/img_quick_air_layer_290x450.png" alt="현대카드 PRIVIA 여행 특별 프로모션"></p>
-					</div>
-					<a href="#" class="b-close"><span class="a11y">프로모션 닫기 버튼</span></a>
-				</div>
-			</div>
 		</div>
 	</div>
 	<!--// #content -->
@@ -2051,6 +1999,7 @@
 	</div>	
 	<!--// #footer-sec -->
 </div>
+
 
 
 </body>
