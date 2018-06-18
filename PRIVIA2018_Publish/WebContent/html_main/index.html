@@ -54,7 +54,8 @@
 		<div class="top-area-sec">
 			<div class="w-tas-promotion ly-inner">
 			<h2 class="a11y">섹션별 프로모션 영역</h2>
-			<ul class="tasp-list">
+			<div class="w-tasp-list">
+				<ul class="tasp-list">
 				<li>
 					<div class="tasp-tit">
 						<p class="label">현대카드 PRIVIA 여행</p>
@@ -156,6 +157,7 @@
 					</div>
 				</li>
 			</ul>
+			</div>
 		</div>
 		</div>
 	</div>
@@ -271,8 +273,69 @@
 					<div class="hs-search-cont">
 						<!-- 항공 -->
 						<div class="hss-inner-cont sc-air" id="SC-AIR">
-							<!-- 왕복인 경우(.o-shuttle), 편도인 경우(.o-shuttle .o-oneway) -->
+							<!-- 왕복(.o-shuttle) -->
 							<div class="sc-search-box o-shuttle">
+								<div class="w-qsb-cont">
+									<div class="qsb-cont qsb-places">
+										<div class="places-exit">
+											<a href="#" class="qsb-area">
+												<span class="qsb-label">출발도시</span>
+												<span class="qsb-input">서울 인천 (<em class="qsb-c">ICN</em>)</span>
+												<input type="hidden" id="AIR_RT_dep">
+											</a>
+											<span class="btn-base b-change-places"><button type="button"><span class="a11y">출발도시, 도착도시 변경</span></button></span>
+										</div>
+										<div class="places-entry">
+											<a href="#" class="qsb-area">
+												<span class="qsb-label">도착도시</span>
+												<span class="qsb-input">미주 뉴욕 (<em class="qsb-c">JFK</em>)</span>
+												<input type="hidden" id="AIR_RT_arr">
+											</a>
+										</div>
+									</div>
+									<div class="qsb-cont qsb-dates">
+										<a href="#" class="qsb-area">
+											<span class="qsb-label">여행날짜</span>
+											<span class="qsb-input">
+												<span class="qsb-chkin">02월 15일 (목)</span>
+												<span class="qsb-chkout">02월 18일 (일)</span>
+												<input type="hidden" id="AIR_RT_depdate">
+												<input type="hidden" id="AIR_RT_arrdate">
+											</span>
+										</a>
+									</div>
+									<div class="qsb-cont qsb-capacity">
+										<a href="#" class="qsb-area">
+											<span class="qsb-label">인원, 좌석등급</span>
+											<span class="qsb-input"><em class="total-num">승객1</em>, <em class="type-seat">일반석</em></span>
+											<input type="hidden" id="INT_RT_adt" value="1"/>
+											<input type="hidden" id="INT_RT_chd" value="0"/>
+											<input type="hidden" id="INT_RT_inf" value="0"/>
+											<input type="hidden" id="AIR_RT_comp" value="Y"/>
+										</a>
+									</div>
+									<div class="qsb-cont qsb-btn-search">
+										<button type="button" class="b-search">검색</button>
+									</div>
+								</div>
+								<!-- 캘린더 -->
+								<div class="sc-ui-search-box ui-date-calendar">
+									<div class="uis-input">
+										<span class="uis-date-chkin"><input type="text" class="input-base ipu-day" placeholder="출발일을 선택해주세요." readonly></span>
+										<span class="uis-date-chkout"><input type="text" class="input-base ipu-day" placeholder="도착일을 선택해주세요." readonly></span>
+										<span class="uis-chk">
+											<span class="a11y"><input type="checkbox" id="unDay"></span>
+											<label for="unDay" class="label-base unDay">도착일 미정</label> 
+										</span>
+									</div>
+									<div class="uis-calendar">
+										<div class="uis-datepicker"></div>
+									</div> 
+								</div>
+								<!--// 캘린더 -->
+							</div>
+							<!-- 편도(.o-oneway) -->
+							<div class="sc-search-box o-oneway">
 								<div class="w-qsb-cont">
 									<div class="qsb-cont qsb-places">
 										<div class="places-exit">
@@ -294,7 +357,6 @@
 											<span class="qsb-label">여행날짜</span>
 											<span class="qsb-input">
 												<span class="qsb-chkin">02월 15일 (목)</span>
-												<span class="qsb-chkout">02월 18일 (일)</span>
 											</span>
 										</a>
 									</div>
@@ -392,7 +454,6 @@
 								</div>
 							</div>
 
-							<!-- ================================================================== -->
 							<!-- 항공 주요도시 리스트 -->
 							<div class="sc-ui-search-box ui-maincity-air">
 								<div class="uis-input">
@@ -575,6 +636,45 @@
 										</tr>
 									</tbody>
 								</table>
+								<div class="uis-citysearch-list">
+									<ul class="list">
+										<li>
+											<a href="#">
+												<span class="name-city">서울</span>
+												<span class="name-air">대한민국, 모든 공항 (SEL)</span>
+											</a>
+											<ul class="list-sub">
+												<li>
+													<a href="#">
+														<span class="name-city c-txt-point1">샤를드골</span>
+														<span class="name-air">프랑스 파리, 샤를드골 공항 (CDG)</span>
+													</a>
+												</li>
+											</ul>
+										</li>
+										<li>
+											<a href="#">
+												<span class="name-city c-txt-point1">인천</span>
+												<span class="name-air">대한민국, 인천 국제 공항 (ICN)</span>
+											</a>
+											<ul class="list-sub">
+												<li>
+													<a href="#">
+														<span class="name-city c-txt-point1">샤를드골</span>
+														<span class="name-air">프랑스 파리, 샤를드골 공항 (CDG)</span>
+													</a>
+												</li>
+											</ul>
+										</li>
+										<li>
+											<a href="#">
+												<span class="name-city">김포</span>
+												<span class="name-air">대한민국, 김포국제 공항 (GMP)</span>
+											</a>
+										</li>
+									</ul>
+									<div class="tip-exp"><span class="c-txt-point1">대한민국에서 출발하는 80%가 이 공항을 선택했습니다.</span></div>
+								</div>
 							</div>
 							<!--// 항공 주요도시 리스트 -->
 
@@ -623,23 +723,7 @@
 									<div class="tip-exp"><span class="c-txt-point1">대한민국에서 출발하는 80%가 이 공항을 선택했습니다.</span></div>
 								</div>
 							</div>
-							<!--// 검색 리스트 -->
-
-							<!-- 캘린더 -->
-							<div class="sc-ui-search-box ui-date-calendar">
-								<div class="uis-input">
-									<span class="uis-date-chkin"><input type="text" class="input-base ipu-day" placeholder="출발일을 선택해주세요." readonly></span>
-									<span class="uis-date-chkout"><input type="text" class="input-base ipu-day" placeholder="도착일을 선택해주세요." readonly></span>
-									<span class="uis-chk">
-										<span class="a11y"><input type="checkbox" id="unDay"></span>
-										<label for="unDay" class="label-base unDay">도착일 미정</label> 
-									</span>
-								</div>
-								<div class="uis-calendar">
-									<div class="uis-datepicker"></div>
-								</div> 
-							</div>
-							<!--// 캘린더 -->
+							<!--// 검색 리스트 -->							
 
 							<!-- 인원,좌석,객실 -->
 							<div class="sc-ui-search-box ui-capacity">
@@ -688,7 +772,7 @@
 
 						<!-- 호텔 -->
 						<div class="hss-inner-cont sc-hotel" id="SC-HOTEL">
-							<!-- 해외인 경우(.o-inth) -->
+							<!-- 해외(.o-inth) -->
 							<div class="sc-search-box o-inth">
 								<div class="w-qsb-cont">
 									<div class="qsb-cont qsb-places">
@@ -720,7 +804,7 @@
 									</div>
 								</div>
 							</div>
-							<!-- 국내인 경우(.o-domh) -->
+							<!-- 국내(.o-domh) -->
 							<div class="sc-search-box o-domh">
 								<div class="w-qsb-cont">
 									<div class="qsb-cont qsb-places">
@@ -902,6 +986,9 @@
 				</div>
 			</div>
 		</div>
+		<script>
+			setActiveSearch(null, null);
+		</script>
 	</div>
 	<!--// #header-sec -->
 	

@@ -4,7 +4,7 @@ var navData = {};
 /**********************************************************************
   GNB와 Quick서치 관련
    
-   1. 퀵서치와 메뉴의 활성화 상태를 지정한다.
+   1. 서치와 메뉴의 활성화 상태를 지정한다.
    2. 각 페이지 별로 아래의 상수를 이용하여 설정
    3. 샘플 
         <script type="text/javascript">
@@ -85,10 +85,11 @@ function showSearchTap(searchCode){
 	}
 }
 
+//검색 공통 이벤트
 function comSearchEvent(){
 	//검색 리스트 스크롤
-	$(".uis-citysearch-list .list").mCustomScrollbar({theme:"minimal-dark"})	
-	
+	$(".uis-citysearch-list .list").mCustomScrollbar({theme:"minimal-dark"});
+		
 	//캘린더 (priviaMainUI.js 기반 -> var holidays, $.datepicker.regional['ko'] = {}, checkMobile())
 	var baseDatepicker = {
 		minDate: '0',
@@ -182,9 +183,7 @@ function comSearchEvent(){
 		}
 	}		
 	$('.uis-datepicker').datepicker(baseDatepicker).find(".ui-state-active").removeClass("ui-state-active");
-}
-
-function comSearchCrt(){
+	
 	//검색 메인 tab click
 	$('.hs-search-menu .hss-menu [data-tabmain]').on('click', function(e){
 		if(!$(this).closest('.hss-menu').hasClass('on')){
@@ -192,7 +191,7 @@ function comSearchCrt(){
 			$('.hs-search-menu .hss-menu.on').removeClass('on');
 			$(this).closest('.hss-menu').addClass('on');
 			$('.hs-search-cont .hss-inner-cont.on').removeClass('on');
-			$('.hs-search-cont .hss-inner-cont.sc-'+code).addClass('on');	
+			$('.hs-search-cont .hss-inner-cont.sc-'+code).addClass('on');
 			
 			//서브메뉴 첫번째메뉴 활성화
 			if($(this).closest('.hss-menu').find('.hss-sub .on').length <= 0){
@@ -208,25 +207,23 @@ function comSearchCrt(){
 			var code = $(this).data('tabsub');
 			$(this).closest('.hss-sub').find('.on').removeClass('on');
 			$(this).closest('li').addClass('on');
-			
-			//왕복, 편도는 같은 마크업 사용
-			switch (code) {
-				case 'shuttle':
-					if($('.hs-search-cont .o-oneway').hasClass('o-oneway')){
-						$('.hs-search-cont .o-oneway').removeClass('o-oneway');
-					}
-					break;
-				case 'oneway':
-					$('.hs-search-cont .o-shuttle').addClass('o-oneway');
-					break;			
-			}
 			$('.hs-search-cont .o-'+code).closest('.hss-inner-cont').find('.sc-search-box.on').removeClass('on');	
 			$('.hs-search-cont .o-'+code).addClass('on');
 		}	
 		e.preventDefault();
 	});	
 	
-	//항공 - 주요도시 click
+	//document 클릭시 옵션 팝업 닫힘
+	$(document).on('mousedown', function(e){
+		if($(e.target).closest(".sc-ui-search-box.on").length <= 0){
+			$('.hss-inner-cont .sc-ui-search-box.on').removeClass('on');
+		}
+	});
+}
+
+//검색 항공 관련
+function comSearchAir(){	
+	//주요도시 팝업
 	$('.hs-search-cont .sc-air .qsb-places .qsb-area').on('click', function(e){
 		$(this).closest('.hss-inner-cont').find('.ui-maincity-air').position({
 			my: 'left-30 top-42',
@@ -237,7 +234,26 @@ function comSearchCrt(){
 		e.preventDefault();
 	});
 	
-	//항공 - 캘린더 click
+	//주요도시 리스트 click
+	$('.sc-air .uis-maincity-table td .list a').on('click', function(e){
+		var city = $(this).text();
+		console.log(city);
+		e.preventDefault();
+	});
+	
+	$('.ui-maincity-air .uis-input .ipu-search').on('focus', function(){
+		/*$('.ui-maincity-air').removeClass('on');
+		$('.ui-citysearch-auto').position({
+			my: 'left-30 top-42',
+			at: 'left top',
+			collision: 'none',
+			of: $('.hs-search-cont .sc-air .qsb-places .places-exit .qsb-area')
+		}).addClass('on')
+		setTimeout(function(){}, 1000);*/
+	})
+	
+	//---------------------- 왕복
+	//캘린더
 	$('.hs-search-cont .sc-air .qsb-dates .qsb-area').on('click', function(e){
 		$(this).closest('.hss-inner-cont').find('.ui-date-calendar').position({
 			my: 'left-60 top-42',
@@ -248,7 +264,7 @@ function comSearchCrt(){
 		e.preventDefault();
 	});
 	
-	//항공 - 인원,좌석,객실 click
+	//인원,좌석,객실
 	$('.hs-search-cont .sc-air .qsb-capacity .qsb-area').on('click', function(e){
 		$(this).closest('.hss-inner-cont').find('.ui-capacity').position({
 			my: 'left-30 top-32',
@@ -263,23 +279,21 @@ function comSearchCrt(){
 	$('.sc-air .b-change-places button').on('click', function(e){
 		
 		e.preventDefault();
-	})
-	
-	//document 클릭시 옵션 팝업 닫힘
-	$(document).on('mousedown', function(e){
-		if($(e.target).closest(".sc-ui-search-box.on").length <= 0){
-			$('.hss-inner-cont .sc-ui-search-box.on').removeClass('on');
-		}
 	});
+	
+	//---------------------- 편도
+	
+	
+	//---------------------- 다구간
 }
 
 //검색 초기화
 function comSearchInit(){
 	comSearchEvent();
-	comSearchCrt();
+	comSearchAir();
 	
 	if (SEARCH_CODE == null || SEARCH_CODE == "") {
-		SEARCH_CODE = '';
+		SEARCH_CODE = null;
 	}	
 	showSearchTap(SEARCH_CODE);
 }

@@ -65,39 +65,33 @@ function utilSlickCrt(btn, slick){
  */
 function comHeaderControl(){
 	if($('#header-sec').length > 0){
-		//리본 프로모션 열고 닫기
-		$('.w-header-util .hu-control .bc-open a, #top-area-sec .tasp-list .tasp-tit .tit a').on('click', function(e){
-			if($('#top-area-sec').hasClass('close') == false){
-				var btn = $('.w-header-util .hu-control .bc-open a');
-				if($('#top-area-sec .tasp-list').hasClass('on')){
-					$('#top-area-sec .tasp-detail').slideUp('fast');
-					$('#top-area-sec .tasp-list').removeClass('on');
-					btn.find('.txt').text('상단리본 열기 버튼');
-					btn.parent().removeClass('on');
-				}
-				else{
-					$('#top-area-sec .tasp-detail').slideDown('fast');
-					$('#top-area-sec .tasp-list').addClass('on');
-					btn.find('.txt').text('상단리본 닫기 버튼');
-					btn.parent().addClass('on');
-				}			
+		//리본 프로모션 닫기
+		$('.w-header-util .hu-control .b-crt.bc-close a').on('click', function(e){
+			if($('.top-area-sec .w-tasp-list .tasp-detail').css('display') == 'block'){
+				$('.top-area-sec .w-tasp-list .tasp-list').removeClass('on');
+				$('.top-area-sec .w-tasp-list .tasp-detail').slideUp('fast');
+			}
+			
+			if($('.top-area-sec .w-tasp-list').css('display') == 'block' && $('.top-area-sec .w-tasp-list .tasp-detail').css('display') == 'none'){
+				$('.top-area-sec').slideUp('fast');
 			}
 			e.preventDefault();
 		});
 		
-		//상단 리본 닫기
-		$('.w-header-util .hu-control .bc-close a').on('click', function(e){
-			$('#top-area-sec').slideUp('fast', function(){
-				var btn = $('.w-header-util .hu-control .bc-open a');
-				$('#top-area-sec .tasp-list').removeClass('on');
-				btn.find('.txt').text('상단리본 열기 버튼');
-				btn.parent().removeClass('on');
-				$('#top-area-sec').addClass('close');
-			});
+		//리본 프로모션 열기
+		$('.w-header-util .hu-control .b-crt.bc-open a, .w-tas-promotion .tasp-list .tasp-tit .tit a').on('click', function(e){
+			if($('.top-area-sec').css('display') == 'block' && $('.top-area-sec .w-tasp-list').css('display') == 'block'){
+				$('.top-area-sec .w-tasp-list .tasp-detail').slideDown('fast', function(){
+					$('.top-area-sec .w-tasp-list .tasp-list').addClass('on');
+				});
+			}
 			
-			//오늘 하루 열지 않기 체크시
-			if($('#closeToday').is(':checked')){
-				$.setCookie('topAreaSec', "Y", 1);
+			if($('.top-area-sec .w-tasp-list .tasp-list').hasClass('on')){
+				$('.w-header-util .hu-control .b-crt.bc-close a').click();
+			}
+			
+			if($('.top-area-sec').css('display') == 'none'){
+				$('.top-area-sec').slideDown('fast');
 			}
 			e.preventDefault();
 		});
@@ -328,5 +322,18 @@ $(function(){
 		})
 		
 		
+	}
+	
+	//타이틀 오버시 풀
+	if($('.sspc-list-sub .tit-over').length > 0){
+		$('.sspc-list-sub .tit-over').hover(function(){
+			if($('span', this).height() > 30){
+				$(this).next().addClass('sspc-hide');
+			}
+		},function(){
+			if($(this).next().hasClass('sspc-hide')){
+				$(this).next().removeClass('sspc-hide');
+			}
+		});
 	}
 });
