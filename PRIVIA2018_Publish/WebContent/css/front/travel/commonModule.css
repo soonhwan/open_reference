@@ -332,22 +332,22 @@
 .sc-search-box .qsb-cont .qsb-input {display: none;}
 .sc-air .sc-search-box .qsb-cont .qsb-c {color: #288ecc;}
 .sc-hotel .sc-search-box .qsb-cont .qsb-c {color: #00a57e;}
-.sc-search-box .qsb-cont.on .qsb-label, 
+.sc-search-box .qsb-cont .qsb-area.on .qsb-label, 
 .sc-search-box .qsb-capacity .qsb-label {font-size: 12px;color: #666;font-weight: 300 !important;margin-top: 0;}
-.sc-search-box .qsb-cont.on .qsb-input, 
+.sc-search-box .qsb-cont .qsb-area.on .qsb-input, 
 .sc-search-box .qsb-capacity .qsb-input {display: block;font-size:18px;color: #000;font-weight: 500 !important;margin-top: 5px;}
-.sc-search-box .qsb-cont.on .qsb-input em, .sc-search-box .qsb-capacity .qsb-input em {font-size:18px;font-weight: 500 !important;}
+.sc-search-box .qsb-cont .qsb-area.on .qsb-input * , .sc-search-box .qsb-capacity .qsb-input * {font-size:18px;font-weight: 500 !important;}
 /*  검색 박스 - places */ 
 .sc-search-box .qsb-places:after {content: '';display: block;clear:both;}
 .sc-search-box .qsb-places .places-exit {float: left;width: 50%;}
 .sc-search-box .qsb-places .places-entry {float: left;width: 50%;}
 /* 검색 박스 - dates */
-.sc-search-box .qsb-dates.on .qsb-chkin, .sc-search-box .qsb-dates.on .qsb-chkout, .sc-search-box .qsb-dates.on .qsb-result-days {display: inline-block;font-size:18px;color: #000;font-weight: 500 !important;} 
-.sc-search-box .qsb-dates.on .qsb-chkin {margin-right: 24px;} 
-.sc-search-box .qsb-dates.on .qsb-chkout {padding-left: 24px;position: relative;} 
-.sc-search-box .qsb-dates.on .qsb-chkout:before {content: '';display: block;width: 10px;height: 1px;background-color: #909090;position: absolute;left: 0;top: 14px;}
+.sc-search-box .qsb-dates .qsb-chkin, .sc-search-box .qsb-dates .qsb-chkout, .sc-search-box .qsb-dates .qsb-result-days {display: inline-block;font-size:18px;color: #000;font-weight: 500 !important;} 
+.sc-search-box .qsb-dates .qsb-chkin {margin-right: 14px;} 
+.sc-search-box .qsb-dates .qsb-chkout {padding-left: 24px;position: relative;} 
+.sc-search-box .qsb-dates .qsb-chkout.on:before {content: '';display: block;width: 10px;height: 1px;background-color: #909090;position: absolute;left: 0;top: 14px;}
 .sc-search-box .qsb-dates:after {content: '';display: block;clear:both;}
-.sc-search-box .qsb-dates.on .qsb-result-days {margin-left: 10px;}
+.sc-search-box .qsb-dates .qsb-result-days {margin-left: 10px;}
 /* 검색 박스 - capacity, capacity-name */
 /* 검색 박스 - 검색버튼 */
 .sc-search-box .qsb-btn-search {background-color: #000;padding: 0;position: relative;}
@@ -386,6 +386,7 @@
 .hss-inner-cont .o-shuttle .qsb-dates {width: 28.16666666666667%;}
 .hss-inner-cont .o-shuttle .qsb-capacity {width: 24.41666666666667%;}
 .hss-inner-cont .o-shuttle .qsb-btn-search {width: 8.333333333333333%;}
+.hss-inner-cont .o-shuttle .ui-date-calendar {top: -10px;left: 430px;}
 /* 검색 박스 - lyout 편도*/
 .hss-inner-cont .o-oneway .places-exit {position: relative;}
 .hss-inner-cont .o-oneway .b-change-places {position: absolute;right: 0;top: -22px;}
@@ -395,6 +396,8 @@
 .hss-inner-cont .o-oneway .qsb-dates {width: 28.16666666666667%;}
 .hss-inner-cont .o-oneway .qsb-capacity {width: 24.41666666666667%;}
 .hss-inner-cont .o-oneway .qsb-btn-search {width: 8.333333333333333%;}
+.hss-inner-cont .o-oneway .ui-date-calendar {top: -10px;left: 430px;}
+
 /* 검색 박스 - lyout 다구간 */
 .hss-inner-cont .o-multiway .qsb-number {width: 8.416666666666667%;}
 .hss-inner-cont .o-multiway .qsb-places {width: 55.08333333333333%;border-left: 0;}
@@ -434,9 +437,10 @@ box-shadow: 7px 7px 13px 0px rgba(0,0,0,0.3);
 /* 검색 ui - 상단 input */
 .uis-input {padding: 45px 28px;border-bottom: 1px solid #ededed;} 
 .uis-input .input-base {border:0;width: 100%;font-size:18px;font-weight: 500 !important;} 
-.uis-input .uis-date-chkin, .uis-input .uis-date-chkout {display: inline-block;width: 200px;} 
+.uis-input .uis-date-chkin .txt-day, .uis-input .uis-date-chkout .txt-day {display: inline-block;width: 200px;font-size:18px;color: #999;} 
+.uis-input .uis-date-chkin .txt-day.on, .uis-input .uis-date-chkout .txt-day.on {color: #000;font-weight: 500 !important;} 
 .uis-input .uis-date-chkout {position: relative;padding-left: 28px;} 
-.uis-input .uis-date-chkout:before {content: '';display: block;width: 10px;height: 1px;background-color: #909090;position: absolute;left: 0;top: 14px;}
+.uis-input .uis-date-chkout:before {content: '';display: block;width: 10px;height: 1px;background-color: #909090;position: absolute;left: 0;top: 7px;}
 .uis-input .uis-chk {position: absolute;top: 45px;right: 30px;}
 .uis-input .uis-chk .unDay {height: 20px;padding-left: 30px;font-size:14px;color: #000;}
 .uis-input .uis-chk .unDay:before {content: '';display: block;width: 20px;height: 20px;background: url(/images/front/travel/contents/icon-common-sec.png) 0 -235px no-repeat;position: absolute;top: 0;left: 0;}
@@ -464,6 +468,7 @@ box-shadow: 7px 7px 13px 0px rgba(0,0,0,0.3);
 .uis-citysearch-list .list li {border-top: 1px solid #ededed;}
 .uis-citysearch-list .list li:first-child {border-top: 0;}
 .uis-citysearch-list .list li a {display: block;padding: 15px 29px;background-color: #fff;}
+.uis-citysearch-list .list li a:hover {background-color: #f9f9f9;}
 .uis-citysearch-list .list li .name-city {display: inline-block;font-size:16px;color: #000;font-weight: 500 !important;}
 .uis-citysearch-list .list li .name-air {display: inline-block;font-size:16px;color: #000;margin-left: 15px;}
 .uis-citysearch-list .list-sub li {border-top: 1px solid #ededed !important;position: relative;}
