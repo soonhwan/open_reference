@@ -273,211 +273,351 @@
 					<div class="hs-search-cont">
 						<!-- 항공 -->
 						<div class="hss-inner-cont sc-air" id="SC-AIR">
-							<!-- 왕복(.o-shuttle) -->
+							<!-- 왕복 -->
 							<div class="sc-search-box o-shuttle">
 								<div class="w-qsb-cont">
-									<div class="qsb-cont qsb-places">
-										<div class="places-exit">
-											<a href="#" class="qsb-area">
-												<span class="qsb-label">출발도시</span>
-												<span class="qsb-input"><span class="city"></span> (<em class="qsb-c"></em>)</span>
-											</a>
-											<span class="btn-base b-change-places"><button type="button"><span class="a11y">출발도시, 도착도시 변경</span></button></span>
+									<div class="qsb-cont-box">
+										<div class="qsb-cont qsb-places">
+											<div class="places-exit">
+												<a href="#" class="qsb-area">
+													<span class="qsb-label">출발도시</span>
+													<span class="qsb-input"><span class="city" data-city=""></span> (<em class="qsb-c"></em>)</span>
+												</a>
+												<span class="btn-base b-change-places"><button type="button"><span class="a11y">출발도시, 도착도시 변경</span></button></span>
+											</div>
+											<div class="places-entry">
+												<a href="#" class="qsb-area">
+													<span class="qsb-label">도착도시</span>
+													<span class="qsb-input"><span class="city" data-city=""></span> (<em class="qsb-c"></em>)</span>
+												</a>
+											</div>
 										</div>
-										<div class="places-entry">
+										<div class="qsb-cont qsb-dates">
 											<a href="#" class="qsb-area">
-												<span class="qsb-label">도착도시</span>
-												<span class="qsb-input"><span class="city"></span> (<em class="qsb-c"></em>)</span>
+												<span class="qsb-label">여행날짜</span>
+												<span class="qsb-input">
+													<span class="qsb-chkin"></span>
+													<span class="qsb-chkout"></span>
+												</span>
 											</a>
 										</div>
-									</div>
-									<div class="qsb-cont qsb-dates">
-										<a href="#" class="qsb-area">
-											<span class="qsb-label">여행날짜</span>
-											<span class="qsb-input">
-												<span class="qsb-chkin"></span>
-												<span class="qsb-chkout"></span>
+										<div class="qsb-cont qsb-capacity">
+											<a href="#" class="qsb-area">
+												<span class="qsb-label">인원, 좌석등급</span>
+												<span class="qsb-input" data-adt="1" data-chd="0" data-inf="0" data-comp="0">
+													<span>승객<em class="total-num">1</em></span>
+													<span class="type-seat">, 일반석</span>
+												</span>
+											</a>
+										</div>
+										<div class="qsb-cont qsb-btn-search">
+											<button type="button" class="b-search">검색</button>
+										</div>
+									</div>	
+																
+									<!-- 캘린더 왕복 -->
+									<div class="sc-ui-search-box ui-date-calendar">
+										<div class="uis-input">
+											<span class="uis-date-chkin">
+												<span class="txt-day" data-day="">출발일을 선택해주세요.</span>
 											</span>
-										</a>
+											<span class="uis-date-chkout">
+												<span class="txt-day" data-day="">도착일을 선택해주세요.</span>
+											</span>
+											<span class="uis-chk">
+												<span class="a11y"><input type="checkbox" id="unDayAir"></span>
+												<label for="unDayAir" class="label-base unDay">도착일 미정</label> 
+											</span>
+										</div>
+										<div class="uis-calendar">
+											<div class="uis-datepicker"></div>
+										</div> 
 									</div>
-									<div class="qsb-cont qsb-capacity">
-										<a href="#" class="qsb-area">
-											<span class="qsb-label">인원, 좌석등급</span>
-											<span class="qsb-input"><span>승객<em class="total-num">1</em></span>, <span class="type-seat">일반석</span></span>
-											<input type="hidden" class="val-adt" value="1"/>
-											<input type="hidden" class="val-chd" value="0"/>
-											<input type="hidden" class="val-inf" value="0"/>
-											<input type="hidden" class="val-comp" value="0"/>
-										</a>
-									</div>
-									<div class="qsb-cont qsb-btn-search">
-										<button type="button" class="b-search">검색</button>
-									</div>
+									<!--// 캘린더 왕복 -->
 								</div>
-								
-								<!-- 캘린더 왕복 -->
-								<div class="sc-ui-search-box ui-date-calendar">
-									<div class="uis-input">
-										<span class="uis-date-chkin">
-											<span class="txt-day">출발일을 선택해주세요.</span>
-											<input type="hidden" class="ipu-day">
-										</span>
-										<span class="uis-date-chkout">
-											<span class="txt-day">도착일을 선택해주세요.</span>
-											<input type="hidden" class="ipu-day">
-										</span>
-										<span class="uis-chk">
-											<span class="a11y"><input type="checkbox" id="unDayAir"></span>
-											<label for="unDayAir" class="label-base unDay">도착일 미정</label> 
-										</span>
-									</div>
-									<div class="uis-calendar">
-										<div class="uis-datepicker"></div>
-									</div> 
-								</div>
-								<!--// 캘린더 왕복 -->
 							</div>
-							<!-- 편도(.o-oneway) -->
+							<!--// 왕복 -->
+							
+							<!-- 편도 -->
 							<div class="sc-search-box o-oneway">
 								<div class="w-qsb-cont">
-									<div class="qsb-cont qsb-places">
-										<div class="places-exit">
-											<a href="#" class="qsb-area">
-												<span class="qsb-label">출발도시</span>
-												<span class="qsb-input"><span class="city"></span> (<em class="qsb-c"></em>)</span>
-											</a>
-											<span class="btn-base b-change-places"><button type="button"><span class="a11y">출발도시, 도착도시 변경</span></button></span>
+									<div class="qsb-cont-box">
+										<div class="qsb-cont qsb-places">
+											<div class="places-exit">
+												<a href="#" class="qsb-area">
+													<span class="qsb-label">출발도시</span>
+													<span class="qsb-input"><span class="city" data-city=""></span> (<em class="qsb-c"></em>)</span>
+												</a>
+												<span class="btn-base b-change-places"><button type="button"><span class="a11y">출발도시, 도착도시 변경</span></button></span>
+											</div>
+											<div class="places-entry">
+												<a href="#" class="qsb-area">
+													<span class="qsb-label">도착도시</span>
+													<span class="qsb-input"><span class="city" data-city=""></span> (<em class="qsb-c"></em>)</span>
+												</a>
+											</div>
 										</div>
-										<div class="places-entry">
+										<div class="qsb-cont qsb-dates">
 											<a href="#" class="qsb-area">
-												<span class="qsb-label">도착도시</span>
-												<span class="qsb-input"><span class="city"></span> (<em class="qsb-c"></em>)</span>
+												<span class="qsb-label">여행날짜</span>
+												<span class="qsb-input">
+													<span class="qsb-chkin"></span>
+												</span>
 											</a>
+										</div>
+										<div class="qsb-cont qsb-capacity">
+											<a href="#" class="qsb-area">
+												<span class="qsb-label">인원, 좌석등급</span>
+												<span class="qsb-input" data-adt="1" data-chd="0" data-inf="0" data-comp="0">
+													<span>승객<em class="total-num">1</em></span>
+													<span class="type-seat">, 일반석</span>
+												</span>
+											</a>
+										</div>
+										<div class="qsb-cont qsb-btn-search">
+											<button type="button" class="b-search">검색</button>
 										</div>
 									</div>
-									<div class="qsb-cont qsb-dates">
-										<a href="#" class="qsb-area">
-											<span class="qsb-label">여행날짜</span>
-											<span class="qsb-input">
-												<span class="qsb-chkin"></span>
+									
+									<!-- 캘린더 편도 -->
+									<div class="sc-ui-search-box ui-date-calendar">
+										<div class="uis-input">
+											<span class="uis-date-chkin">
+												<span class="txt-day" data-day="">출발일을 선택해주세요.</span>
 											</span>
-										</a>
+										</div>
+										<div class="uis-calendar">
+											<div class="uis-datepicker"></div>
+										</div> 
 									</div>
-									<div class="qsb-cont qsb-capacity">
-										<a href="#" class="qsb-area">
-											<span class="qsb-label">인원, 좌석등급</span>
-											<span class="qsb-input"><span>승객<em class="total-num">1</em></span>, <span class="type-seat">일반석</span></span>
-											<input type="hidden" class="val-adt" value="1"/>
-											<input type="hidden" class="val-chd" value="0"/>
-											<input type="hidden" class="val-inf" value="0"/>
-											<input type="hidden" class="val-comp" value="0"/>
-										</a>
-									</div>
-									<div class="qsb-cont qsb-btn-search">
-										<button type="button" class="b-search">검색</button>
-									</div>
+									<!--// 캘린더 편도 -->
 								</div>
 								
-								<!-- 캘린더 편도 -->
-								<div class="sc-ui-search-box ui-date-calendar">
-									<div class="uis-input">
-										<span class="uis-date-chkin">
-											<span class="txt-day">출발일을 선택해주세요.</span>
-											<input type="hidden" class="ipu-day">
-										</span>
-									</div>
-									<div class="uis-calendar">
-										<div class="uis-datepicker"></div>
-									</div> 
-								</div>
-								<!--// 캘린더 편도 -->
 							</div>
-							<!-- 다구간(.o-multiway) -->
+							<!--// 편도 -->
+							
+							<!-- 다구간 -->
 							<div class="sc-search-box o-multiway">
-								<ol class="at-qsb-cont">
-									<li><div class="w-qsb-cont">
-											<div class="qsb-cont qsb-number">
-												<div class="qsb-number-inner">
-													<span class="txt1 qsb-c">여정</span>
-													<span class="txt2 qsb-c">01</span>
+								<ol class="list-qsb-cont">
+									<li class="air-md-1 on">
+										<div class="w-qsb-cont">
+											<div class="qsb-cont-box">
+												<div class="qsb-cont qsb-number">
+													<div class="qsb-number-inner">
+														<span class="txt1 qsb-c">여정</span>
+														<span class="txt2 qsb-c">01</span>
+													</div>
 												</div>
-											</div>
-											<div class="qsb-cont qsb-places">
-												<div class="places-exit">
+												<div class="qsb-cont qsb-places">
+													<div class="places-exit">
+														<a href="#" class="qsb-area">
+															<span class="qsb-label">출발도시</span>
+															<span class="qsb-input"><span class="city" data-city=""></span> (<em class="qsb-c"></em>)</span>
+														</a>
+													</div>
+													<div class="places-entry">
+														<a href="#" class="qsb-area">
+															<span class="qsb-label">도착도시</span>
+															<span class="qsb-input"><span class="city" data-city=""></span> (<em class="qsb-c"></em>)</span>
+														</a>
+													</div>
+												</div>
+												<div class="qsb-cont qsb-dates">
 													<a href="#" class="qsb-area">
-														<span class="qsb-label">출발도시</span>
-														<span class="qsb-input">서울 인천 (<em class="qsb-c">ICN</em>)</span>
+														<span class="qsb-label">여행날짜</span>
+														<span class="qsb-input">
+															<span class="qsb-chkin"></span>
+														</span>
 													</a>
 												</div>
-												<div class="places-entry">
-													<a href="#" class="qsb-area">
-														<span class="qsb-label">도착도시</span>
-														<span class="qsb-input">미주 뉴욕 (<em class="qsb-c">JFK</em>)</span>
-													</a>
-												</div>
 											</div>
-											<div class="qsb-cont qsb-dates">
-												<a href="#" class="qsb-area">
-													<span class="qsb-label">여행날짜</span>
-													<span class="qsb-input">
-														<span class="qsb-chkin">02월 15일 (목)</span>
-														<span class="qsb-chkout">02월 17일 (토)</span>
+											
+											<!-- 캘린더 다구간1 -->
+											<div class="sc-ui-search-box ui-date-calendar">
+												<div class="uis-input">
+													<span class="uis-date-chkin">
+														<span class="txt-day" data-day="">출발일을 선택해주세요.</span>
 													</span>
-												</a>
-											</div>
-										</div></li>
-									<li><div class="w-qsb-cont">
-											<div class="qsb-cont qsb-number">
-												<div class="qsb-number-inner">
-													<span class="txt1 qsb-c">여정</span>
-													<span class="txt2 qsb-c">02</span>
 												</div>
+												<div class="uis-calendar">
+													<div class="uis-datepicker"></div>
+												</div> 
 											</div>
-											<div class="qsb-cont qsb-places">
-												<div class="places-exit">
+											<!--// 캘린더 다구간1 -->
+										</div>
+									</li>
+									<li class="air-md-2 on">
+										<div class="w-qsb-cont">
+											<div class="qsb-cont-box">
+												<div class="qsb-cont qsb-number">
+													<div class="qsb-number-inner">
+														<span class="txt1 qsb-c">여정</span>
+														<span class="txt2 qsb-c">02</span>
+													</div>
+												</div>
+												<div class="qsb-cont qsb-places">
+													<div class="places-exit">
+														<a href="#" class="qsb-area">
+															<span class="qsb-label">출발도시</span>
+															<span class="qsb-input"><span class="city" data-city=""></span> (<em class="qsb-c"></em>)</span>
+														</a>
+													</div>
+													<div class="places-entry">
+														<a href="#" class="qsb-area">
+															<span class="qsb-label">도착도시</span>
+															<span class="qsb-input"><span class="city" data-city=""></span> (<em class="qsb-c"></em>)</span>
+														</a>
+													</div>
+												</div>
+												<div class="qsb-cont qsb-dates">
 													<a href="#" class="qsb-area">
-														<span class="qsb-label">출발도시</span>
-														<span class="qsb-input">서울 인천 (<em class="qsb-c">ICN</em>)</span>
+														<span class="qsb-label">여행날짜</span>
+														<span class="qsb-input">
+															<span class="qsb-chkin"></span>
+														</span>
 													</a>
 												</div>
-												<div class="places-entry">
-													<a href="#" class="qsb-area">
-														<span class="qsb-label">도착도시</span>
-														<span class="qsb-input">미주 뉴욕 (<em class="qsb-c">JFK</em>)</span>
-													</a>
+												<div class="qsb-btn-add">
+													<button type="button" class="b-add-multiway"><span class="a11y">다구간 추가</span></button>
+													<button type="button" class="b-remove-multiway"><span class="a11y">다구간 삭제</span></button>
 												</div>
 											</div>
-											<div class="qsb-cont qsb-dates">
-												<a href="#" class="qsb-area">
-													<span class="qsb-label">여행날짜</span>
-													<span class="qsb-input">
-														<span class="qsb-chkin">02월 15일 (목)</span>
-														<span class="qsb-chkout">02월 17일 (토)</span>
+											
+											<!-- 캘린더 다구간2 -->
+											<div class="sc-ui-search-box ui-date-calendar">
+												<div class="uis-input">
+													<span class="uis-date-chkin">
+														<span class="txt-day" data-day="">출발일을 선택해주세요.</span>
 													</span>
-												</a>
+												</div>
+												<div class="uis-calendar">
+													<div class="uis-datepicker"></div>
+												</div> 
 											</div>
-											<div class="qsb-btn-add">
-												<button type="button" class="b-add-multiway"><span class="a11y">다구간 추가</span></button>
-												<button type="button" class="b-remove-multiway"><span class="a11y">다구간 삭제</span></button>
+											<!--// 캘린더 다구간2 -->
+										</div>
+									</li>
+									<li class="air-md-3">
+										<div class="w-qsb-cont">
+											<div class="qsb-cont-box">
+												<div class="qsb-cont qsb-number">
+													<div class="qsb-number-inner">
+														<span class="txt1 qsb-c">여정</span>
+														<span class="txt2 qsb-c">03</span>
+													</div>
+												</div>
+												<div class="qsb-cont qsb-places">
+													<div class="places-exit">
+														<a href="#" class="qsb-area">
+															<span class="qsb-label">출발도시</span>
+															<span class="qsb-input"><span class="city" data-city=""></span> (<em class="qsb-c"></em>)</span>
+														</a>
+													</div>
+													<div class="places-entry">
+														<a href="#" class="qsb-area">
+															<span class="qsb-label">도착도시</span>
+															<span class="qsb-input"><span class="city" data-city=""></span> (<em class="qsb-c"></em>)</span>
+														</a>
+													</div>
+												</div>
+												<div class="qsb-cont qsb-dates">
+													<a href="#" class="qsb-area">
+														<span class="qsb-label">여행날짜</span>
+														<span class="qsb-input">
+															<span class="qsb-chkin"></span>
+														</span>
+													</a>
+												</div>
+												<div class="qsb-btn-add">
+													<button type="button" class="b-add-multiway"><span class="a11y">다구간 추가</span></button>
+													<button type="button" class="b-remove-multiway"><span class="a11y">다구간 삭제</span></button>
+												</div>
 											</div>
-										</div></li>							
+											
+											<!-- 캘린더 다구간3 -->
+											<div class="sc-ui-search-box ui-date-calendar">
+												<div class="uis-input">
+													<span class="uis-date-chkin">
+														<span class="txt-day" data-day="">출발일을 선택해주세요.</span>
+													</span>
+												</div>
+												<div class="uis-calendar">
+													<div class="uis-datepicker"></div>
+												</div> 
+											</div>
+											<!--// 캘린더 다구간3 -->
+										</div>
+									</li>	
+									<li class="air-md-4">
+										<div class="w-qsb-cont">
+											<div class="qsb-cont-box">
+												<div class="qsb-cont qsb-number">
+													<div class="qsb-number-inner">
+														<span class="txt1 qsb-c">여정</span>
+														<span class="txt2 qsb-c">04</span>
+													</div>
+												</div>
+												<div class="qsb-cont qsb-places">
+													<div class="places-exit">
+														<a href="#" class="qsb-area">
+															<span class="qsb-label">출발도시</span>
+															<span class="qsb-input"><span class="city" data-city=""></span> (<em class="qsb-c"></em>)</span>
+														</a>
+													</div>
+													<div class="places-entry">
+														<a href="#" class="qsb-area">
+															<span class="qsb-label">도착도시</span>
+															<span class="qsb-input"><span class="city" data-city=""></span> (<em class="qsb-c"></em>)</span>
+														</a>
+													</div>
+												</div>
+												<div class="qsb-cont qsb-dates">
+													<a href="#" class="qsb-area">
+														<span class="qsb-label">여행날짜</span>
+														<span class="qsb-input">
+															<span class="qsb-chkin"></span>
+														</span>
+													</a>
+												</div>
+												<div class="qsb-btn-add on">
+													<button type="button" class="b-add-multiway"><span class="a11y">다구간 추가</span></button>
+													<button type="button" class="b-remove-multiway"><span class="a11y">다구간 삭제</span></button>
+												</div>
+											</div>
+											
+											<!-- 캘린더 다구간4 -->
+											<div class="sc-ui-search-box ui-date-calendar">
+												<div class="uis-input">
+													<span class="uis-date-chkin">
+														<span class="txt-day" data-day="">출발일을 선택해주세요.</span>
+													</span>
+												</div>
+												<div class="uis-calendar">
+													<div class="uis-datepicker"></div>
+												</div> 
+											</div>
+											<!--// 캘린더 다구간4 -->
+										</div>
+									</li>							
 								</ol>
-								<div class="w-qsb-cont-indep">
-									<div class="qsb-cont qsb-capacity">
-										<a href="#" class="qsb-area">
-											<span class="qsb-label">인원, 좌석등급</span>
-											<span class="qsb-input"><span>승객<em class="total-num">1</em></span>, <span class="type-seat">일반석</span></span>
-											<input type="hidden" class="val-adt" value="1"/>
-											<input type="hidden" class="val-chd" value="0"/>
-											<input type="hidden" class="val-inf" value="0"/>
-											<input type="hidden" class="val-comp" value="0"/>
-										</a>
-									</div>
-									<div class="qsb-cont qsb-btn-search">
-										<button type="button" class="b-search">검색</button>
+								<div class="w-qsb-cont">
+									<div class="qsb-cont-indep">
+										<div class="qsb-cont qsb-capacity">
+											<a href="#" class="qsb-area">
+												<span class="qsb-label">인원, 좌석등급</span>
+												<span class="qsb-input" data-adt="1" data-chd="0" data-inf="0" data-comp="0">
+													<span>승객<em class="total-num">1</em></span>
+													<span class="type-seat">, 일반석</span>
+												</span>
+											</a>
+										</div>
+										<div class="qsb-cont qsb-btn-search">
+											<button type="button" class="b-search">검색</button>
+										</div>
 									</div>
 								</div>
 							</div>
+							<!--// 다구간 -->
 
 							<!-- 항공 주요도시 리스트 -->
 							<div class="sc-ui-search-box ui-maincity-air">
@@ -706,8 +846,8 @@
 									<div class="tip-exp"><span class="c-txt-point1">대한민국에서 출발하는 80%가 이 공항을 선택했습니다.</span></div>
 								</div>
 							</div>
-							<!--// 항공 주요도시 리스트 -->														
-
+							<!--// 항공 주요도시 리스트 -->
+							
 							<!-- 인원,좌석 -->
 							<div class="sc-ui-search-box ui-capacity">
 								<div class="uis-capacity">
@@ -767,72 +907,78 @@
 
 						<!-- 호텔 -->
 						<div class="hss-inner-cont sc-hotel" id="SC-HOTEL">
-							<!-- 해외(.o-inth) -->
+							<!-- 해외 -->
 							<div class="sc-search-box o-inth">
 								<div class="w-qsb-cont">
-									<div class="qsb-cont qsb-places">
-										<div class="places-exit">
+									<div class="qsb-cont-box">
+										<div class="qsb-cont qsb-places">
+											<div class="places-exit">
+												<a href="#" class="qsb-area">
+													<span class="qsb-label">목적지</span>
+													<span class="qsb-input">파리, 프랑스</span>
+												</a>
+											</div>
+										</div>
+										<div class="qsb-cont qsb-dates">
 											<a href="#" class="qsb-area">
-												<span class="qsb-label">목적지</span>
-												<span class="qsb-input">파리, 프랑스</span>
+												<span class="qsb-label">숙박 날짜</span>
+												<span class="qsb-input">
+													<span class="qsb-chkin">02월 15일 (목)</span>
+													<span class="qsb-chkout">02월 18일 (일)</span>
+													<span class="qsb-result-days"><em class="days qsb-c">3박</em></span>
+												</span> 
 											</a>
 										</div>
-									</div>
-									<div class="qsb-cont qsb-dates">
-										<a href="#" class="qsb-area">
-											<span class="qsb-label">숙박 날짜</span>
-											<span class="qsb-input">
-												<span class="qsb-chkin">02월 15일 (목)</span>
-												<span class="qsb-chkout">02월 18일 (일)</span>
-												<span class="qsb-result-days"><em class="days qsb-c">3박</em></span>
-											</span> 
-										</a>
-									</div>
-									<div class="qsb-cont qsb-capacity">
-										<a href="#" class="qsb-area">
-											<span class="qsb-label">인원, 좌석등급</span>
-											<span class="qsb-input"><em class="type-room">1인실</em>, <em class="total-num">1개</em></span>
-										</a>
-									</div>
-									<div class="qsb-cont qsb-btn-search">
-										<button type="button" class="b-search">검색</button>
+										<div class="qsb-cont qsb-capacity">
+											<a href="#" class="qsb-area">
+												<span class="qsb-label">인원, 좌석등급</span>
+												<span class="qsb-input"><em class="type-room">1인실</em>, <em class="total-num">1개</em></span>
+											</a>
+										</div>
+										<div class="qsb-cont qsb-btn-search">
+											<button type="button" class="b-search">검색</button>
+										</div>
 									</div>
 								</div>
 							</div>
-							<!-- 국내(.o-domh) -->
+							<!--// 해외 -->
+							
+							<!-- 국내 -->
 							<div class="sc-search-box o-domh">
 								<div class="w-qsb-cont">
-									<div class="qsb-cont qsb-places">
-										<div class="places-exit">
+									<div class="qsb-cont-box">
+										<div class="qsb-cont qsb-places">
+											<div class="places-exit">
+												<a href="#" class="qsb-area">
+													<span class="qsb-label">목적지</span>
+													<span class="qsb-input"></span>
+												</a>
+											</div>
+										</div>
+										<div class="qsb-cont qsb-dates">
 											<a href="#" class="qsb-area">
-												<span class="qsb-label">목적지</span>
-												<span class="qsb-input"></span>
+												<span class="qsb-label">숙박 날짜</span>
+												<span class="qsb-input">
+													<span class="qsb-chkin">02월 15일 (목)</span>
+													<span class="qsb-chkout">02월 18일 (일)</span>
+													<span class="qsb-result-days"><em class="days qsb-c">3박</em></span>
+												</span> 
 											</a>
 										</div>
-									</div>
-									<div class="qsb-cont qsb-dates">
-										<a href="#" class="qsb-area">
-											<span class="qsb-label">숙박 날짜</span>
-											<span class="qsb-input">
-												<span class="qsb-chkin">02월 15일 (목)</span>
-												<span class="qsb-chkout">02월 18일 (일)</span>
-												<span class="qsb-result-days"><em class="days qsb-c">3박</em></span>
-											</span> 
-										</a>
-									</div>
-									<div class="qsb-cont qsb-capacity">
-										<a href="#" class="qsb-area">
-											<span class="qsb-label">인원, 좌석등급</span>
-											<span class="qsb-input"><em class="type-room">1인실</em>, <em class="total-num">1개</em></span>
-										</a>
-									</div>
-									<div class="qsb-cont qsb-btn-search">
-										<button type="button" class="b-search">검색</button>
+										<div class="qsb-cont qsb-capacity">
+											<a href="#" class="qsb-area">
+												<span class="qsb-label">인원, 좌석등급</span>
+												<span class="qsb-input"><em class="type-room">1인실</em>, <em class="total-num">1개</em></span>
+											</a>
+										</div>
+										<div class="qsb-cont qsb-btn-search">
+											<button type="button" class="b-search">검색</button>
+										</div>
 									</div>
 								</div>
 							</div>
-
-							<!-- ================================================================== -->
+							<!--// 국내 -->
+							
 							<!-- 호텔 주요도시 리스트 -->
 							<div class="sc-ui-search-box ui-maincity-hotel">
 								<div class="uis-input">
@@ -943,8 +1089,107 @@
 										</tr>
 									</tbody>
 								</table>
+								<div class="uis-citysearch-list">
+									<ul class="list">
+										<li>
+											<a href="#">
+												<span>검색 결과가 없습니다.</span>
+											</a>
+										</li>
+										<li>
+											<a href="#">
+												<span class="name-city">서울</span>
+												<span class="name-air">대한민국, 모든 공항 (SEL)</span>
+											</a>
+											<ul class="list-sub">
+												<li>
+													<a href="#">
+														<span class="name-city c-txt-point1">샤를드골</span>
+														<span class="name-air">프랑스 파리, 샤를드골 공항 (CDG)</span>
+													</a>
+												</li>
+											</ul>
+										</li>
+										<li>
+											<a href="#">
+												<span class="name-city c-txt-point1">인천</span>
+												<span class="name-air">대한민국, 인천 국제 공항 (ICN)</span>
+											</a>
+											<ul class="list-sub">
+												<li>
+													<a href="#">
+														<span class="name-city c-txt-point1">샤를드골</span>
+														<span class="name-air">프랑스 파리, 샤를드골 공항 (CDG)</span>
+													</a>
+												</li>
+											</ul>
+										</li>
+										<li>
+											<a href="#">
+												<span class="name-city">김포</span>
+												<span class="name-air">대한민국, 김포국제 공항 (GMP)</span>
+											</a>
+										</li>
+									</ul>
+									<div class="tip-exp"><span class="c-txt-point1">대한민국에서 출발하는 80%가 이 공항을 선택했습니다.</span></div>
+								</div>
 							</div>
 							<!--// 호텔 주요도시 리스트 -->
+							
+							<!-- 객실타입,객실 -->
+							<div class="sc-ui-search-box ui-capacity">
+								<div class="uis-capacity">
+									<ul class="uis-capacity-number">
+										<li>
+											<div class="tit"><em>성인</em> (만 12세 이상)</div>
+											<div class="uis-custom-number">
+												<span class="btn-base ucn-crt b-minus">
+													<button type="button" data-type="adt-minus"><span class="a11y">빼기</span></button>
+												</span>
+												<span class="ucn-num num-adt on">1</span>
+												<span class="btn-base ucn-crt b-plus">
+													<button type="button" data-type="adt-plus"><span class="a11y">더하기</span></button>
+												</span>
+											</div>
+										</li>
+										<li>
+											<div class="tit"><em>아동</em> (만 12세 미만)</div>
+											<div class="uis-custom-number">
+												<span class="btn-base ucn-crt b-minus">
+													<button type="button" data-type="chd-minus"><span class="a11y">빼기</span></button>
+												</span>
+												<span class="ucn-num num-chd">0</span>
+												<span class="btn-base ucn-crt b-plus">
+													<button type="button" data-type="chd-plus"><span class="a11y">더하기</span></button>
+												</span>
+											</div>
+										</li>
+										<li>
+											<div class="tit"><em>유아</em> (만 24개월 미만)</div>
+											<div class="uis-custom-number">
+												<span class="btn-base ucn-crt b-minus">
+													<button type="button" data-type="inf-minus"><span class="a11y">빼기</span></button>
+												</span>
+												<span class="ucn-num num-inf">0</span>
+												<span class="btn-base ucn-crt b-plus">
+													<button type="button" data-type="inf-plus"><span class="a11y">더하기</span></button>
+												</span>
+											</div>
+										</li>
+									</ul>
+									<ul class="uis-capacity-select select-comp">
+										<li class="on"><a href="#">일반석</a></li>
+										<li><a href="#">프리미엄 이코노미</a></li>
+										<li><a href="#">비지니스석</a></li>
+										<li><a href="#">일등석</a></li>
+									</ul>
+									<div class="uis-set-btn">
+										<span class="btn-base bb-st2 b-cancel"><a href="#">취소</a></span>
+										<span class="btn-base bb-st3 b-complete"><a href="#">완료</a></span>
+									</div>
+								</div> 
+							</div>
+							<!--// 객실타입,객실 -->
 							
 							<!-- 검색 리스트 -->
 							<div class="sc-ui-search-box ui-citysearch-auto">
@@ -998,14 +1243,12 @@
 						<!-- 자유여행 -->
 						<div class="hss-inner-cont sc-free" id="SC-FREE">
 							free
-							<!-- ================================================================== -->
 						</div>
 						<!--// 자유여행 -->
 
 						<!-- 투어&액티비티 -->
 						<div class="hss-inner-cont sc-freetour" id="SC-FREETOUR">
 							freetour
-							<!-- ================================================================== -->
 						</div>
 						<!--// 투어&액티비티 -->
 					</div>

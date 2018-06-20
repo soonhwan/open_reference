@@ -132,15 +132,17 @@ function comSearchEvent(){
 		e.preventDefault();
 	});
 	
-	//캘린더 주의 (priviaMainUI.js 기반 -> var holidays, $.datepicker.regional['ko'] = {}, checkMobile())
+	//캘린더 참고 (priviaMainUI.js 기반 -> var holidays, $.datepicker.regional['ko'] = {}, checkMobile())
 }
 
 //검색 항공 관련
 function comSearchAir(){	
-	//++++++++++++++++++++++++++++++++++++++++++++++++++++++ 도시
-	var _currentAirCity = null; // 출발,도착 도시 저장
-	var _currenCapacity = null; // 인원,좌석,객실 저장
+	var _currentAirCity = null; // 도시영역 저장
+	var _currenCapacity = null; // 인원,좌석 저장
+	var _MDCnt = 2; // 다구간 기본
+	var _MDMax = 4; //다구간 최대
 	
+	//+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ 도시
 	//도시셋팅
 	function setAirCity(city, code){
 		setTimeout(function(){$(document).mousedown();}, 100);
@@ -151,11 +153,12 @@ function comSearchAir(){
 		}
 
 		//도시,코드 텍스트 적용
+		_currentAirCity.find('[data-city]').data('city', city);
 		_currentAirCity.find('.city').text(city);
 		_currentAirCity.find('.qsb-c').text(code);
 	}
 	
-	//출발, 도착 도시 팝업(1개만 존재)
+	//출발, 도착 도시 팝업
 	$('.sc-air .qsb-places .qsb-area').on('click', function(e){
 		//position
 		var p = $(this).closest('.hss-inner-cont').find('.ui-maincity-air');
@@ -166,12 +169,12 @@ function comSearchAir(){
 			of: this
 		}).addClass('on');
 		
-		//기존 자동완성 클래스 삭제
+		//기존 검색리스트 삭제
 		if($('.ui-maincity-air').hasClass('ui-citysearch-auto')){
 		   $('.ui-maincity-air').removeClass('ui-citysearch-auto');
 		}
 		
-		//places area 저장
+		//places 저장
 		_currentAirCity = $(this);
 		
 		//도시가 있으면 팝업 인풋에 내용 표시
@@ -197,6 +200,16 @@ function comSearchAir(){
 		//도시 셋팅
 		setAirCity(city, code);
 		e.preventDefault();
+	});
+	
+	//도시 검색하기 focus
+	$('.ui-maincity-air .uis-input .ipu-search').on('focus', function(){
+		$(this).val('');
+	});
+	
+	//도시 검색하기 blur
+	$('.ui-maincity-air .uis-input .ipu-search').on('blur', function(){
+		$(this).val(_currentAirCity.find('[data-city]').data('city'));
 	});
 	
 	//도시 검색하기(자동완성) keydown
@@ -227,7 +240,7 @@ function comSearchAir(){
 		e.preventDefault();
 	});
 	
-	//++++++++++++++++++++++++++++++++++++++++++++++++++++++ 인원,좌석
+	//+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ 인원,좌석
 	//인원 컨트롤
 	function setCapacity(type, action){
 		var cType = type;
@@ -235,7 +248,7 @@ function comSearchAir(){
 		var adtCnt = parseInt($('.sc-air .uis-capacity-number .num-adt').text()); //성인
 		var chdCnt = parseInt($('.sc-air .uis-capacity-number .num-chd').text()); //아이
 		var infCnt = parseInt($('.sc-air .uis-capacity-number .num-inf').text()); //유아
-		//console.log('click = ', cType, cAction, adtCnt, chdCnt, infCnt);
+		console.log('setCapacity click = ', cType, cAction, adtCnt, chdCnt, infCnt);
 		
 		//성인
 		if(cType == 'adt'){
@@ -304,7 +317,7 @@ function comSearchAir(){
 		}
 	}
 	
-	//인원,좌석 팝업(섹션 내부에 1개만 존재)
+	//인원,좌석 팝업
 	$('.sc-air .qsb-capacity .qsb-area').on('click', function(e){
 		//position
 		$(this).closest('.hss-inner-cont').find('.ui-capacity').position({
@@ -314,14 +327,14 @@ function comSearchAir(){
 			of: this
 		}).addClass('on');
 		
-		//capacity area 저장
+		//capacity 저장
 		_currenCapacity = $(this);
 
 		//값 가져오기
-		var adt = _currenCapacity.find('.val-adt').val(); //성인
-		var chd = _currenCapacity.find('.val-chd').val(); //아이
-		var inf = _currenCapacity.find('.val-inf').val(); //유아
-		var comp = _currenCapacity.find('.val-comp').val(); //좌석(0,1,2,3... 리스트 순서로 되어있음)
+		var adt = _currenCapacity.find('[data-adt]').data('adt'); //성인
+		var chd = _currenCapacity.find('[data-chd]').data('chd'); //아이
+		var inf = _currenCapacity.find('[data-inf]').data('inf'); //유아
+		var comp = _currenCapacity.find('[data-comp]').data('comp'); //좌석
 		console.log('가져오기 = ', adt, chd, inf, comp);
 		
 		//셋팅
@@ -336,6 +349,9 @@ function comSearchAir(){
 		$('.sc-air .uis-capacity-number .num-inf').text(inf);
 		$('.sc-air .select-comp li.on').removeClass('on');
 		$('.sc-air .select-comp li').eq(comp).addClass('on');
+		
+		//국내선인 경우 좌석 숨김
+		//$('.sc-air .ui-capacity .select-comp').hide();
 		
 		e.preventDefault();
 	});
@@ -367,23 +383,29 @@ function comSearchAir(){
 		console.log('완료 = ', adtCnt, chdCnt, infCnt, adtCnt+chdCnt+infCnt, compIdx, comp);
 		
 		//input
-		_currenCapacity.find('.val-adt').val(adtCnt);
-		_currenCapacity.find('.val-chd').val(chdCnt);
-		_currenCapacity.find('.val-inf').val(infCnt);	
-		_currenCapacity.find('.val-comp').val(compIdx);	
+		_currenCapacity.find('[data-adt]').data('adt',adtCnt);
+		_currenCapacity.find('[data-chd]').data('chd',chdCnt);
+		_currenCapacity.find('[data-inf]').data('inf',infCnt);	
+		_currenCapacity.find('[data-comp]').data('comp',compIdx);	
 		
 		//search input
 		_currenCapacity.find('.total-num').text(adtCnt+chdCnt+infCnt);
-		_currenCapacity.find('.type-seat').text(comp);
+		_currenCapacity.find('.type-seat').text(', '+comp);
 		$(document).mousedown();
 		e.preventDefault();
 	});
 	
-	//++++++++++++++++++++++++++++++++++++++++++++++++++++++ 캘린더
-	//캘린더 팝업(항목별로 존재하므로 css로 위치 셋팅)
+	//+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ 캘린더
+	//캘린더 팝업
 	$('.sc-air .qsb-dates .qsb-area').on('click', function(e){
 		//position
-		$(this).closest('.hss-inner-cont').find('.ui-date-calendar').addClass('on');
+		/*$(this).closest('.hss-inner-cont').find('.ui-date-calendar').position({
+			my: 'left-70 top-42',
+			at: 'left top',
+			collision: 'none',
+			of: this
+		}).addClass('on');*/
+		$(this).closest('.w-qsb-cont').find('.ui-date-calendar').addClass('on');
 		e.preventDefault();
 	});
 	
@@ -392,7 +414,7 @@ function comSearchAir(){
 		minDate: '0',
 		maxDate: '+362',
 		dayNamesMin: ['일', '월', '화', '수', '목', '금', '토'],
-		dateFormat: 'yy-mm-dd',
+		dateFormat: 'yy/mm/dd',
 		beforeShowDay: function(date) {
 			var result;
 			var holiday = holidays[$.datepicker.formatDate("mmdd",date )];
@@ -406,8 +428,8 @@ function comSearchAir(){
 				}
 			}
 
-			var date1 = $.datepicker.parseDate('yy-mm-dd', $(".sc-air .o-shuttle .uis-date-chkin .ipu-day").val());
-			var date2 = $.datepicker.parseDate('yy-mm-dd', $(".sc-air .o-shuttle .uis-date-chkout .ipu-day").val());
+			var date1 = $.datepicker.parseDate('yy/mm/dd', $(".sc-air .o-shuttle .uis-date-chkin [data-day]").data('day'));
+			var date2 = $.datepicker.parseDate('yy/mm/dd', $(".sc-air .o-shuttle .uis-date-chkout [data-day]").data('day'));
 			if(date1){
 				if(date.getTime() == date1.getTime()){
 					if(date2){
@@ -443,9 +465,9 @@ function comSearchAir(){
 			return result;	
 		},
 		onSelect: function(dateText, inst) {
-			var date1 = $.datepicker.parseDate('yy-mm-dd', $(".sc-air .o-shuttle .uis-date-chkin .ipu-day").val());
-			var date2 = $.datepicker.parseDate('yy-mm-dd', $(".sc-air .o-shuttle .uis-date-chkout .ipu-day").val());
-			var selectedDate = $.datepicker.parseDate('yy-mm-dd', dateText);
+			var date1 = $.datepicker.parseDate('yy/mm/dd', $(".sc-air .o-shuttle .uis-date-chkin [data-day]").data('day'));
+			var date2 = $.datepicker.parseDate('yy/mm/dd', $(".sc-air .o-shuttle .uis-date-chkout [data-day]").data('day'));
+			var selectedDate = $.datepicker.parseDate('yy/mm/dd', dateText);
 			var month = (selectedDate.getMonth()+1) < 10 ? '0' + (selectedDate.getMonth()+1)  : selectedDate.getMonth()+1;
 			var day = selectedDate.getDate() < 10 ? '0' + selectedDate.getDate()  : selectedDate.getDate();
 			var dayName = selectedDate.getUTCDay() < 6 ? $(this).datepicker('option', 'dayNamesMin')[selectedDate.getUTCDay()+1] : $(this).datepicker('option', 'dayNamesMin')[0];
@@ -454,8 +476,8 @@ function comSearchAir(){
 			//출발, 도착 모두 선택인 경우, 아무것도 선택이 없는 경우(출발)
 			if (!date1 || date2) {
 				//input
-				$(".sc-air .o-shuttle .uis-date-chkin .ipu-day").val(dateText);
-				$(".sc-air .o-shuttle .uis-date-chkout .ipu-day").val('');
+				$(".sc-air .o-shuttle .uis-date-chkin [data-day]").data('day',dateText);
+				$(".sc-air .o-shuttle .uis-date-chkout [data-day]").data('day','');
 				//pop input
 				$(".sc-air .o-shuttle .uis-date-chkin .txt-day").addClass('on');
 				$(".sc-air .o-shuttle .uis-date-chkin .txt-day").html(txtDay+' 출발');
@@ -471,7 +493,7 @@ function comSearchAir(){
 				if( selectedDate < date1 ) {
 					//출발 -> 도착 이동
 					//input 
-					$(".sc-air .o-shuttle .uis-date-chkout .ipu-day").val($(".sc-air .o-shuttle .uis-date-chkin .ipu-day").val());
+					$(".sc-air .o-shuttle .uis-date-chkout [data-day]").data('day',$(".sc-air .o-shuttle .uis-date-chkin [data-day]").data('day'));
 					//pop input
 					$(".sc-air .o-shuttle .uis-date-chkout .txt-day").addClass('on');
 					$(".sc-air .o-shuttle .uis-date-chkout .txt-day").html($(".sc-air .o-shuttle .qsb-dates .qsb-chkin").html()+' 도착');
@@ -481,7 +503,7 @@ function comSearchAir(){
 					
 					//출발 셋팅
 					//input 
-					$(".sc-air .o-shuttle .uis-date-chkin .ipu-day").val(dateText);
+					$(".sc-air .o-shuttle .uis-date-chkin [data-day]").data('day',dateText);
 					//pop input
 					$(".sc-air .o-shuttle .uis-date-chkin .txt-day").html(txtDay+' 출발');
 					//search input
@@ -491,7 +513,7 @@ function comSearchAir(){
 				} else {
 					//출발이후 선택시(도착)
 					//input 				
-					$(".sc-air .o-shuttle .uis-date-chkout .ipu-day").val(dateText);
+					$(".sc-air .o-shuttle .uis-date-chkout [data-day]").data('day',dateText);
 					//pop input
 					$(".sc-air .o-shuttle .uis-date-chkout .txt-day").addClass('on');
 					$(".sc-air .o-shuttle .uis-date-chkout .txt-day").html(txtDay+' 도착');
@@ -503,8 +525,8 @@ function comSearchAir(){
 				}
 				
 				//if($(".sc-air .o-shuttle .uis-date-chkin .ipu-day").val() == dateText){return} //같은날짜는 return
-				/*var chkIn = $(".chk-in .selectDay").val().split('-');
-				var chkOut = $(".chk-out .selectDay").val().split('-');
+				/*var chkIn = $(".chk-in .selectDay").val().split('/');
+				var chkOut = $(".chk-out .selectDay").val().split('/');
 				var chkInDate = new Date(chkIn[0], chkIn[1], chkIn[2]);
 				var chkOutDate = new Date(chkOut[0], chkOut[1], chkOut[2]);
 				var duration = (chkOutDate-chkInDate)/1000/60/60/24;
@@ -512,23 +534,25 @@ function comSearchAir(){
 				$('.wrap-select-date .c-fix-btn, .result-days').show();*/
 			}
 		}
-	}).find(".ui-state-active").removeClass("ui-state-active");
+	});
+	
+	//$('.sc-air .o-shuttle .uis-datepicker').datepicker('refresh');
 	
 	//캘린더 datepicker - 편도
 	$('.sc-air .o-oneway .uis-datepicker').datepicker({
 		minDate: '0',
 		maxDate: '+362',
 		dayNamesMin: ['일', '월', '화', '수', '목', '금', '토'],
-		dateFormat: 'yy-mm-dd',
+		dateFormat: 'yy/mm/dd',
 		onSelect: function(dateText, inst) {
-			var selectedDate = $.datepicker.parseDate('yy-mm-dd', dateText);
+			var selectedDate = $.datepicker.parseDate('yy/mm/dd', dateText);
 			var month = (selectedDate.getMonth()+1) < 10 ? '0' + (selectedDate.getMonth()+1)  : selectedDate.getMonth()+1;
 			var day = selectedDate.getDate() < 10 ? '0' + selectedDate.getDate()  : selectedDate.getDate();
 			var dayName = selectedDate.getUTCDay() < 6 ? $(this).datepicker('option', 'dayNamesMin')[selectedDate.getUTCDay()+1] : $(this).datepicker('option', 'dayNamesMin')[0];
 			var txtDay = month + '월 ' + day + '일 (' + dayName + ')';
 			
 			//input
-			$(".sc-air .o-oneway .uis-date-chkin .ipu-day").val(dateText);
+			$(".sc-air .o-oneway .uis-date-chkin [data-day]").data('day',dateText);
 			//pop input
 			$(".sc-air .o-oneway .uis-date-chkin .txt-day").addClass('on');
 			$(".sc-air .o-oneway .uis-date-chkin .txt-day").html(txtDay+' 출발');
@@ -538,9 +562,197 @@ function comSearchAir(){
 			
 			setTimeout(function(){$(document).mousedown();}, 100);
 		}
-	}).find(".ui-state-active").removeClass("ui-state-active");
+	});
 	
+	//캘린더 datepicker - 다구간1
+	$('.sc-air .o-multiway .air-md-1 .uis-datepicker').datepicker({
+		minDate: '0',
+		maxDate: '+362',
+		dayNamesMin: ['일', '월', '화', '수', '목', '금', '토'],
+		dateFormat: 'yy/mm/dd',
+		onSelect: function(dateText, inst) {
+			var selectedDate = $.datepicker.parseDate('yy/mm/dd', dateText);
+			var month = (selectedDate.getMonth()+1) < 10 ? '0' + (selectedDate.getMonth()+1)  : selectedDate.getMonth()+1;
+			var day = selectedDate.getDate() < 10 ? '0' + selectedDate.getDate()  : selectedDate.getDate();
+			var dayName = selectedDate.getUTCDay() < 6 ? $(this).datepicker('option', 'dayNamesMin')[selectedDate.getUTCDay()+1] : $(this).datepicker('option', 'dayNamesMin')[0];
+			var txtDay = month + '월 ' + day + '일 (' + dayName + ')';
+			
+			//input
+			$(".sc-air .o-multiway .air-md-1 .uis-date-chkin [data-day]").data('day',dateText);
+			//pop input
+			$(".sc-air .o-multiway .air-md-1 .uis-date-chkin .txt-day").addClass('on');
+			$(".sc-air .o-multiway .air-md-1 .uis-date-chkin .txt-day").html(txtDay+' 출발');
+			//search input
+			$(".sc-air .o-multiway .air-md-1 .qsb-dates .qsb-area").addClass('on');
+			$(".sc-air .o-multiway .air-md-1 .qsb-dates .qsb-chkin").html(txtDay);	
+			
+			setTimeout(function(){$(document).mousedown();}, 100);
+		}
+	});
 	
+	//캘린더 datepicker - 다구간2
+	$('.sc-air .o-multiway .air-md-2 .uis-datepicker').datepicker({
+		minDate: '0',
+		maxDate: '+362',
+		dayNamesMin: ['일', '월', '화', '수', '목', '금', '토'],
+		dateFormat: 'yy/mm/dd',
+		onSelect: function(dateText, inst) {
+			var selectedDate = $.datepicker.parseDate('yy/mm/dd', dateText);
+			var month = (selectedDate.getMonth()+1) < 10 ? '0' + (selectedDate.getMonth()+1)  : selectedDate.getMonth()+1;
+			var day = selectedDate.getDate() < 10 ? '0' + selectedDate.getDate()  : selectedDate.getDate();
+			var dayName = selectedDate.getUTCDay() < 6 ? $(this).datepicker('option', 'dayNamesMin')[selectedDate.getUTCDay()+1] : $(this).datepicker('option', 'dayNamesMin')[0];
+			var txtDay = month + '월 ' + day + '일 (' + dayName + ')';
+			
+			//input
+			$(".sc-air .o-multiway .air-md-2 .uis-date-chkin [data-day]").data('day',dateText);
+			//pop input
+			$(".sc-air .o-multiway .air-md-2 .uis-date-chkin .txt-day").addClass('on');
+			$(".sc-air .o-multiway .air-md-2 .uis-date-chkin .txt-day").html(txtDay+' 출발');
+			//search input
+			$(".sc-air .o-multiway .air-md-2 .qsb-dates .qsb-area").addClass('on');
+			$(".sc-air .o-multiway .air-md-2 .qsb-dates .qsb-chkin").html(txtDay);	
+			
+			setTimeout(function(){$(document).mousedown();}, 100);
+		}
+	});
+	
+	//캘린더 datepicker - 다구간3
+	$('.sc-air .o-multiway .air-md-3 .uis-datepicker').datepicker({
+		minDate: '0',
+		maxDate: '+362',
+		dayNamesMin: ['일', '월', '화', '수', '목', '금', '토'],
+		dateFormat: 'yy/mm/dd',
+		onSelect: function(dateText, inst) {
+			var selectedDate = $.datepicker.parseDate('yy/mm/dd', dateText);
+			var month = (selectedDate.getMonth()+1) < 10 ? '0' + (selectedDate.getMonth()+1)  : selectedDate.getMonth()+1;
+			var day = selectedDate.getDate() < 10 ? '0' + selectedDate.getDate()  : selectedDate.getDate();
+			var dayName = selectedDate.getUTCDay() < 6 ? $(this).datepicker('option', 'dayNamesMin')[selectedDate.getUTCDay()+1] : $(this).datepicker('option', 'dayNamesMin')[0];
+			var txtDay = month + '월 ' + day + '일 (' + dayName + ')';
+			
+			//input
+			$(".sc-air .o-multiway .air-md-3 .uis-date-chkin [data-day]").data('day',dateText);
+			//pop input
+			$(".sc-air .o-multiway .air-md-3 .uis-date-chkin .txt-day").addClass('on');
+			$(".sc-air .o-multiway .air-md-3 .uis-date-chkin .txt-day").html(txtDay+' 출발');
+			//search input
+			$(".sc-air .o-multiway .air-md-3 .qsb-dates .qsb-area").addClass('on');
+			$(".sc-air .o-multiway .air-md-3 .qsb-dates .qsb-chkin").html(txtDay);	
+			
+			setTimeout(function(){$(document).mousedown();}, 100);
+		}
+	});
+	
+	//캘린더 datepicker - 다구간4
+	$('.sc-air .o-multiway .air-md-4 .uis-datepicker').datepicker({
+		minDate: '0',
+		maxDate: '+362',
+		dayNamesMin: ['일', '월', '화', '수', '목', '금', '토'],
+		dateFormat: 'yy/mm/dd',
+		onSelect: function(dateText, inst) {
+			var selectedDate = $.datepicker.parseDate('yy/mm/dd', dateText);
+			var month = (selectedDate.getMonth()+1) < 10 ? '0' + (selectedDate.getMonth()+1)  : selectedDate.getMonth()+1;
+			var day = selectedDate.getDate() < 10 ? '0' + selectedDate.getDate()  : selectedDate.getDate();
+			var dayName = selectedDate.getUTCDay() < 6 ? $(this).datepicker('option', 'dayNamesMin')[selectedDate.getUTCDay()+1] : $(this).datepicker('option', 'dayNamesMin')[0];
+			var txtDay = month + '월 ' + day + '일 (' + dayName + ')';
+			
+			//input
+			$(".sc-air .o-multiway .air-md-4 .uis-date-chkin [data-day]").data('day',dateText);
+			//pop input
+			$(".sc-air .o-multiway .air-md-4 .uis-date-chkin .txt-day").addClass('on');
+			$(".sc-air .o-multiway .air-md-4 .uis-date-chkin .txt-day").html(txtDay+' 출발');
+			//search input
+			$(".sc-air .o-multiway .air-md-4 .qsb-dates .qsb-area").addClass('on');
+			$(".sc-air .o-multiway .air-md-4 .qsb-dates .qsb-chkin").html(txtDay);	
+			
+			setTimeout(function(){$(document).mousedown();}, 100);
+		}
+	});
+			
+	//구간 추가 click
+	$('.sc-search-box .qsb-btn-add .b-add-multiway').on('click', function(){
+		_MDCnt++;
+		if(_MDCnt > _MDMax){
+			_MDCnt = _MDMax;
+			alert("여정은 총 " + _MDCnt + "개 까지만 가능합니다.\n" + _MDCnt + "개 이상의 여정이 있으시다면 1;1문의로 요청해 주시기 바랍니다.");
+			return false;
+		}
+		else{
+			$(this).parent('.qsb-btn-add').addClass('on');
+			$('.sc-air .o-multiway .air-md-'+_MDCnt).addClass('on');
+		}
+	});
+	
+	//구간 제거 click
+	$('.sc-search-box .qsb-btn-add .b-remove-multiway').on('click', function(){
+		_MDCnt--;
+		if(_MDCnt < 2){
+			_MDCnt = 2;
+			alert("출발 및 귀국 여정은 삭제하실 수 없습니다.");
+			return false;
+		}
+		else{
+			var removeIdx = $(this).closest('li[class*="air-md-"].on').index();
+			var openTotal = $('.sc-air .o-multiway .list-qsb-cont li[class*="air-md-"].on').length;
+			console.log('삭제번호 = ', removeIdx+1, '노출된 총구간 = ', openTotal);
+									
+			//삭제구간 부터 데이터 초기화하고 한칸씩 옮김
+			$('.sc-air .o-multiway .list-qsb-cont li[class*="air-md-"].on').each(function(){
+				var idx = $(this).index();
+				if(idx >= removeIdx){
+					//초기화
+					$(this).find('.qsb-area.on, .uis-date-chkin .txt-day.on').removeClass('on');
+					$(this).find('.qsb-places .city, .qsb-places .qsb-c, .qsb-dates .qsb-chkin, .uis-date-chkin .txt-day').text('');
+					$(this).find('.uis-date-chkin .txt-day').text('출발일을 선택해주세요.');
+					$(this).find('.qsb-places [data-city]').data('city','');
+					$(this).find('.uis-date-chkin [data-day]').data('day','');
+					$(this).find('.ui-date-calendar .uis-datepicker').find(".ui-state-active").removeClass("ui-state-active");
+					
+					//다음 데이터 적용
+					var exit = $(this).next().find('.places-exit .qsb-area'); //출발
+					var entry = $(this).next().find('.places-entry .qsb-area'); //도착
+					var dates = $(this).next().find('.qsb-dates .qsb-area'); //캘린더
+					
+					if(exit.hasClass('on')){
+						$(this).find('.places-exit .qsb-area').addClass('on');					
+						$(this).find('.places-exit .city').text($(this).next().find('.places-exit .city').text());
+						$(this).find('.places-exit .qsb-c').text($(this).next().find('.places-exit .qsb-c').text());
+						$(this).find('.places-exit [data-city]').data('city', $(this).next().find('.places-exit [data-city]').data('city'));
+					}
+					
+					if(entry.hasClass('on')){
+						$(this).find('.places-entry .qsb-area').addClass('on');					
+						$(this).find('.places-entry .city').text($(this).next().find('.places-entry .city').text());
+						$(this).find('.places-entry .qsb-c').text($(this).next().find('.places-entry .qsb-c').text());
+						$(this).find('.places-entry [data-city]').data('city', $(this).next().find('.places-entry [data-city]').data('city'));
+					}
+					
+					if(dates.hasClass('on')){
+						$(this).find('.qsb-dates .qsb-area, .uis-date-chkin .txt-day').addClass('on');		
+						$(this).find('.qsb-dates .qsb-chkin').text($(this).next().find('.qsb-dates .qsb-chkin').text());
+						$(this).find('.uis-date-chkin .txt-day').text($(this).next().find('.uis-date-chkin .txt-day').text());
+						$(this).find('.uis-date-chkin [data-day]').data('day', $(this).next().find('.uis-date-chkin [data-day]').data('day'));
+						$(this).find('.ui-date-calendar .uis-datepicker').datepicker('setDate', new Date($(this).find('.uis-date-chkin [data-day]').data('day')));
+					}
+				}
+			});
+			
+			//맨뒤에 있는 구간 숨김
+			$('.sc-air .o-multiway .air-md-'+openTotal).removeClass('on');
+			
+			//버튼 변경
+			if(openTotal >= _MDMax){
+				$('.sc-air .o-multiway .air-md-'+(openTotal-1)+' .qsb-btn-add').removeClass('on');			
+			}
+			
+			//버튼 변경 - 구간 2개 남을때
+			if(openTotal <= 3){
+				$('.sc-air .o-multiway .air-md-2 .qsb-btn-add').removeClass('on');			
+			}
+		}
+	});
+	
+	//캘린더 today 제거
+	$('.sc-air .uis-datepicker').find(".ui-state-active").removeClass("ui-state-active");
 }
 
 //검색 초기화
