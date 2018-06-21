@@ -192,7 +192,7 @@
 /* label - radius 라벨1 */ 
 .lbr-st1 span {font-size:12px;color: #000;border:1px solid #666;text-align: center;min-width: 42px;padding: 0 10px;border-radius:12px;}
 /* label - radius 라벨2 */ 
-.lbr-st2 span {font-size:12px;color: #fff;text-align: center;min-width: 44px;padding: 1px 10px;border-radius:12px;background-color: #f42a86;}
+.lbr-st2 span {font-size:12px;color: #fff;text-align: center;min-width: 44px;padding: 1px 12px;border-radius:12px;background-color: #f42a86;}
 /* label - radius 라벨3 */ 
 .lbr-st3 span {font-size:12px;color: #f42a86;text-align: center;min-width: 38px;padding: 9px 7px;border-radius:2px;border:1px solid #ec0d61;}
 
@@ -264,7 +264,7 @@
 .w-header-search .hs-prom-roll {position: absolute;top: -50px;right: 0;text-align: right;z-index: 0;}
 .w-header-search .hs-prom-roll .c-slick-dots {display: inline-block;vertical-align: bottom;margin-left: 15px;}
 .w-header-search .hs-prom-roll .list {display: inline-block;width: 180px;height: 80px;overflow: hidden;vertical-align: bottom;}
-.hs-prom-roll-bg {position: absolute;width: 100%;height: 100%;overflow: hidden;top: 0;left: 0;z-index: 0;}
+.hs-prom-roll-bg {position: absolute;width: 100%;height: 100%;overflow: hidden;top: 0;left: 0;z-index: 0;pointer-events:none;}
 .hs-prom-roll-bg .list {width: 900px;position: absolute;right: 0;top: 80px;}
 
 /* GNB */
@@ -286,9 +286,9 @@
 .w-header-search {padding: 80px 0 80px 0;}
 .w-header-search .ly-inner:after {content: '';display: block;clear:both;}
 .hs-search-menu:after {content: '';display: block;clear:both;}
-.hs-search-menu .hss-menu {float: left;margin-right: 35px;display: none;}
+.hs-search-menu .hss-menu {float: left;margin-right: 35px;display: inline-block;}
 .hs-search-menu .hss-menu:after {content: '';display: block;clear:both;}
-.hs-search-menu .hss-menu.on {display: block;}
+.hs-search-menu .hss-menu.on {display: inline-block !important;}
 .hs-search-menu .hss-main {float: left;}
 .hs-search-menu .hss-main a {font-size:24px;color: #fff;opacity: 0.4;}
 .hs-search-menu .hss-sub {float: left;margin-top: 8px;overflow: hidden;display: none;}
@@ -316,6 +316,10 @@
 .hs-search-menu .hss-menu.on .hss-sub .on .b-shuttle a:before {background-position: -20px -198px;}
 .hs-search-menu .hss-menu.on .hss-sub .on .b-oneway a:before {background-position: -20px -198px;}
 .hs-search-menu .hss-menu.on .hss-sub .on .b-multiway a:before {background-position: -20px -221px;}
+.o-search-air .hs-search-menu .hss-menu,
+.o-search-hotel .hs-search-menu .hss-menu,
+.o-search-free .hs-search-menu .hss-menu,
+.o-search-freetour .hs-search-menu .hss-menu {display: none;}
 /* 검색 박스 - 공통 */
 .sc-search-box {display: none;}
 .sc-search-box.on {display: block;}
@@ -330,8 +334,8 @@
 .sc-search-box .qsb-cont .qsb-area {display: block;z-index: 0;}
 .sc-search-box .qsb-cont .qsb-label {display: block;font-size: 18px;color: #999;font-weight: 500 !important;margin-top: 10px;}
 .sc-search-box .qsb-cont .qsb-input {display: none;}
-.sc-air .sc-search-box .qsb-cont .qsb-c {color: #288ecc;}
-.sc-hotel .sc-search-box .qsb-cont .qsb-c {color: #00a57e;}
+.sc-air .sc-search-box .qsb-c {color: #288ecc;}
+.sc-hotel .sc-search-box .qsb-c {color: #00a57e;}
 .sc-search-box .qsb-cont .qsb-area.on .qsb-label, 
 .sc-search-box .qsb-capacity .qsb-label {font-size: 12px;color: #666;font-weight: 300 !important;margin-top: 0;}
 .sc-search-box .qsb-cont .qsb-area.on .qsb-input, 
@@ -345,11 +349,12 @@
 .sc-search-box .qsb-dates .qsb-chkin, 
 .sc-search-box .qsb-dates .qsb-chkout, 
 .sc-search-box .qsb-dates .qsb-result-days {display: inline-block;font-size:18px;color: #000;font-weight: 500 !important;} 
+.sc-search-box .qsb-result-days {margin-left: 10px;display: none;}
+.sc-search-box .qsb-result-days .num {color: inherit;} 
 .sc-search-box .qsb-dates .qsb-chkin {margin-right: 14px;} 
 .sc-search-box .qsb-dates .qsb-chkout {padding-left: 24px;position: relative;} 
 .sc-search-box .qsb-dates .qsb-chkout.on:before {content: '';display: block;width: 10px;height: 1px;background-color: #909090;position: absolute;left: 0;top: 14px;}
 .sc-search-box .qsb-dates:after {content: '';display: block;clear:both;}
-.sc-search-box .qsb-dates .qsb-result-days {margin-left: 10px;}
 /* 검색 박스 - capacity, capacity-name */
 /* 검색 박스 - 검색버튼 */
 .sc-search-box .qsb-btn-search {background-color: #000;padding: 0;position: relative;}
@@ -420,12 +425,16 @@
 .hss-inner-cont .o-inth .qsb-dates {width: 33.66666666666667%;}
 .hss-inner-cont .o-inth .qsb-capacity {width: 24.41666666666667%;}
 .hss-inner-cont .o-inth .qsb-btn-search {width: 8.333333333333333%;}
+.hss-inner-cont .o-inth .ui-date-calendar {top: -10px;left: 404px;}
+.hss-inner-cont .ui-maincity-hotel {top: -10px;left: 0;}
 /* 검색 박스 - lyout 국내호텔 */
 .hss-inner-cont .o-domh .qsb-places {width: 33.58333333333333%;border-left: 0;}
 .hss-inner-cont .o-domh .qsb-places .places-exit {width: 100%;}
 .hss-inner-cont .o-domh .qsb-dates {width: 33.66666666666667%;}
 .hss-inner-cont .o-domh .qsb-capacity {width: 24.41666666666667%;}
 .hss-inner-cont .o-domh .qsb-btn-search {width: 8.333333333333333%;}
+.hss-inner-cont .o-domh .ui-date-calendar {top: -10px;left: 404px;}
+.hss-inner-cont .ui-maincity-hotel-dom {top: -10px;left: 0;}
 /* 검색 ui - 공통 */
 .hs-search-cont .sc-ui-search-box {background-color: #fff;overflow: hidden;border-radius: 6px;z-index: 5;display: block;opacity: 0;position: absolute;visibility: hidden;transition: opacity 0.3s, visibility 0.3s;
 -webkit-box-shadow: 7px 7px 13px 0px rgba(0,0,0,0.3);
@@ -435,24 +444,30 @@ box-shadow: 7px 7px 13px 0px rgba(0,0,0,0.3);
 .hs-search-cont .sc-ui-search-box.on {opacity:1;visibility: visible;}
 .hs-search-cont .ui-maincity-air {width: 963px;}
 .hs-search-cont .ui-maincity-hotel {width: 963px;}
+.hs-search-cont .ui-maincity-hotel-dom {width: 520px;}
 .hs-search-cont .ui-citysearch-auto {width: 470px;}
 .hs-search-cont .ui-date-calendar {width: 770px;}
 .hs-search-cont .ui-capacity {width: 393px;}
-.hs-search-cont .ui-maincity-air .uis-citysearch-list {display: none;}
-.hs-search-cont .ui-maincity-hotel .uis-citysearch-list {display: none;}
+.hs-search-cont .ui-maincity-air .uis-citysearch-list,
+.hs-search-cont .ui-maincity-hotel .uis-citysearch-list,
+.hs-search-cont .ui-maincity-hotel-dom .uis-citysearch-list {display: none;}
 .hs-search-cont .ui-citysearch-auto .uis-citysearch-list {display: block;}
 .hs-search-cont .ui-citysearch-auto .uis-maincity-table, 
-.hs-search-cont .ui-citysearch-auto .uis-maincity-table-htl {display: none;}
+.hs-search-cont .ui-citysearch-auto .uis-maincity-table-htl,
+.hs-search-cont .ui-citysearch-auto .uis-maincity-list {display: none;}
 /* 검색 ui - 상단 input */
 .uis-input {padding: 45px 28px;border-bottom: 1px solid #ededed;} 
 .uis-input .input-base {border:0;width: 100%;font-size:18px;font-weight: 500 !important;} 
-.uis-input .uis-date-chkin .txt-day, .uis-input .uis-date-chkout .txt-day {display: inline-block;width: 200px;font-size:18px;color: #999;} 
+.uis-input .uis-date-chkin .txt-day, .uis-input .uis-date-chkout .txt-day {display: inline-block;min-width: 226px;font-size:18px;color: #999;} 
+.uis-input .uis-date-chkout .txt-day {min-width: auto;}
 .uis-input .uis-date-chkin .txt-day.on, .uis-input .uis-date-chkout .txt-day.on {color: #000;font-weight: 500 !important;} 
 .uis-input .uis-date-chkout {position: relative;padding-left: 28px;} 
 .uis-input .uis-date-chkout:before {content: '';display: block;width: 10px;height: 1px;background-color: #909090;position: absolute;left: 0;top: 7px;}
 .uis-input .uis-chk {position: absolute;top: 45px;right: 30px;}
 .uis-input .uis-chk .unDay {height: 20px;padding-left: 30px;font-size:14px;color: #000;}
 .uis-input .uis-chk .unDay:before {content: '';display: block;width: 20px;height: 20px;background: url(/images/front/travel/contents/icon-common-sec.png) 0 -235px no-repeat;position: absolute;top: 0;left: 0;}
+.uis-input .qsb-result-days * {font-size:18px;font-weight: 500 !important;} 
+.uis-input .qsb-result-days {display: none;}
 /* 검색 ui - 주요도시 */
 .uis-maincity-table {width: 100%;table-layout: fixed;}
 .uis-maincity-table td {vertical-align: top;border-top:1px solid #ececec;position: relative;overflow: hidden;}
@@ -484,6 +499,14 @@ box-shadow: 7px 7px 13px 0px rgba(0,0,0,0.3);
 .uis-citysearch-list .list-sub li:before {content: '';display: block;width: 11px;height: 15px;border-left: 1px solid #adb0b7;border-bottom: 1px solid #adb0b7;position: absolute;left: 29px;top: 19px;}
 .uis-citysearch-list .list-sub li a {padding-left: 50px;}
 .uis-citysearch-list .tip-exp {font-size:16px;color: #000;padding: 15px 29px;background-color: #f9f9f9;border-top: 1px solid #ededed;}
+/* 검색 ui - 도시검색(주요도시) */
+.uis-maincity-list {overflow: hidden;}
+.uis-maincity-list .list {overflow-y: auto;max-height:290px;}
+.uis-maincity-list .list li {border-top: 1px solid #ededed;}
+.uis-maincity-list .list li:first-child {border-top: 0;}
+.uis-maincity-list .list li a {display: block;padding: 15px 29px;background-color: #fff;}
+.uis-maincity-list .list li a:hover {background-color: #f9f9f9;}
+.uis-maincity-list .list li .name-city {display: inline-block;font-size:16px;color: #000;font-weight: 500 !important;}
 /* 검색 ui - 달력 */
 .uis-datepicker .ui-datepicker {margin:0;padding:25px 20px 30px 20px;border:0;}
 .uis-datepicker .ui-datepicker * {margin:0;padding:0;border:0;background:none;text-align:center;color:#000;font-weight: 500 !important;}
@@ -563,13 +586,20 @@ border-left:0;
 .uis-set-btn {border-top: 1px solid #ededed;padding: 15px 30px;text-align: right;}
 .uis-set-btn .b-cancel {margin-right: 8px;}
 
-/* 배경색상 활성화 */
-.o-bg-base {background-color: #288ecc !important;}
+/* 헤더 배경색상 */
 .o-bg-air {background-color: #288ecc !important;}
 .o-bg-hotel {background-color: #00b290 !important;}
-.o-bg-free {background-color: #00a3b2 !important;}
-.o-bg-freetour {background-color: #00b290 !important;}
-.o-bg-base .hs-search-menu .hss-menu {display: inline-block;}
+.o-bg-free {background-color: #c94c80 !important;}
+.o-bg-freetour {background-color: #c9914c !important;}
+
+/* 헤더타입 */
+.o-CHO-section .hs-prom-roll, 
+.o-CHO-section .hs-prom-roll-bg,
+.o-CHO-quick .hs-prom-roll, 
+.o-CHO-quick .hs-prom-roll-bg {display: none;}
+
+/* 헤더 퀵버전 */
+.header-sec-fixed {}
 
 /*--------------------------------------------------------------------------------------------------------------
  *  common - footer
@@ -724,12 +754,11 @@ box-shadow: 0px 5px 20px 0px rgba(0,0,0,0.2);
 /* 메인 공지사항 */
 .s-information-cont:after {content: '';display: block;clear:both;}
 .s-information-cont .sic-left {float: left;width: 892px;position: relative;}
-.s-information-cont .sic-board {width: 100%;}
-.s-information-cont .sic-board .c-tit-sec {margin-bottom: 25px;}
-.s-information-cont .sic-board .list li {border-bottom: 1px solid #e2e2e2;position: relative;}
-.s-information-cont .sic-board .list li a {font-size: 16px;color: #000;padding: 11px 0 13px 0;display:block;text-overflow: ellipsis; white-space: nowrap; overflow: hidden; width:780px;transition: color 0.3s;}
-.s-information-cont .sic-board .list li a:hover {color: #e93a84;}
-.s-information-cont .sic-board .list .date {font-size: 16px;color: #818181;position: absolute;right: 0;top: 10px;}
+.sic-board .c-tit-sec {margin-bottom: 25px;}
+.sic-board .list li {border-bottom: 1px solid #e2e2e2;position: relative;}
+.sic-board .list li a {font-size: 16px;color: #000;padding: 11px 0 13px 0;display:block;text-overflow: ellipsis; white-space: nowrap; overflow: hidden; width:780px;transition: color 0.3s;}
+.sic-board .list li a:hover {color: #e93a84;}
+.sic-board .list .date {font-size: 16px;color: #818181;position: absolute;right: 0;top: 10px;}
 .s-information-cont .sic-right {float: right;width: 285px}
 .s-information-cont .sic-aside .tit {display: block;font-size:18px;color: #000;line-height: 28px;height: 56px;font-weight: 300;margin-bottom: 30px;transition: color 0.3s;}
 .s-information-cont .sic-aside > a:hover .tit {color: #e93a84;}
@@ -753,17 +782,33 @@ box-shadow: 0px 5px 20px 0px rgba(0,0,0,0.2);
 .s-rec-promotion-cont .srpc-prom .srpc-right {float: right;width: 770px;margin-left: 40px;border-radius: 6px;overflow: hidden;}
 .s-rec-promotion-cont .srpc-prom .srpc-right .slick-dots li {width: 25%;}
 .s-rec-promotion-cont .srpc-prom .srpc-right .bb-next {position: absolute;top:187px;right: -30px;}
-.srpc-list-sub {margin-top: 80px;}
+.s-rec-promotion-cont .srpc-list-sub {margin-top: 80px;}
 .srpc-list-sub:after {content: '';display: block;clear:both;}
 .srpc-list-sub li {float: left;width: 278px;margin-left: 29px;}
 .srpc-list-sub li:first-child {margin-left: 0;}
-.srpc-list-sub li > a:hover .tit {color: #e93a84;}
-.srpc-list-sub .tit {display: block;color: #000;font-size:18px;line-height: 28px;transition: color 0.3s;}
+.srpc-list-sub li > a {display: block;position: relative;}
+.srpc-list-sub .vis {display: block;overflow: hidden;border-radius: 6px;z-index: 1;}
+.srpc-list-sub .info-box {display: block;z-index: 0;padding: 35px 19px 28px 19px;border:1px solid #e2e6eb;border-radius: 6px;margin-top: -10px;}
+.srpc-list-sub .tit {display:block;min-height:28px;position:relative;z-index: 1;}
+.srpc-list-sub .tit span {display: inline-block;width:100%;color:#000;font-size:18px;line-height:28px;text-overflow:ellipsis;white-space:nowrap;overflow:hidden;transition:all 0.3s;}
+.srpc-list-sub .tit.tit-over span {width:100%;height: 28px;position:absolute;top:0;left:0;}
+.srpc-list-sub li > a:hover .tit span {color: #e93a84;}
+.srpc-list-sub li > a:hover .tit-over span {height: auto;max-height:62px;padding-bottom: 10px;white-space: inherit;}
+.srpc-list-sub .tit-ori {display: block;color: #000;font-size:14px;line-height: 24px;margin-top: 12px;}
 .srpc-list-sub .date {display: block;color: #000;font-size:14px;line-height: 24px;margin-top: 10px;}
-.srpc-list-sub .vis {display: block;overflow: hidden;border-radius: 6px;margin-top: 30px;}
+.srpc-list-sub .logo-airline {display: block;margin-bottom:15px;padding-left: 8px;}
+.srpc-list-sub .rec-mark {display: block;position: absolute;top: 10px;right: 10px;text-align: right;}
+.srpc-list-sub .mark {display: block;margin-bottom:15px;}
+.srpc-list-sub .lbr-st1 {margin-right: 6px;}
+.srpc-list-sub .price {display: block;color: #ec0d61;font-size:14px;line-height: 20px;margin-top: 10px;}
+.srpc-list-sub .price em {color: #ec0d61;font-size:20px;font-weight: 500 !important;margin-left: 3px;}
+.srpc-list-sub .info {display: block;margin-top: 12px;height: 44px;}
+.srpc-list-sub .info span {vertical-align: middle;}
+.srpc-list-sub .info .txt {display: inline-block;width: 180px;height: 44px;overflow: hidden;margin-left: 10px;color: #000;font-size:14px;line-height: 22px;}
+.srpc-list-sub .srpc-hide {opacity: 0;transition: opacity 0.3s;}
 
 /* Special 프로모션, Best Deal 프로모션 */
-.sspc-list-sub:after {content: '';display: block;clear:both;}
+/*.sspc-list-sub:after {content: '';display: block;clear:both;}
 .sspc-list-sub li {float: left;width: 278px;margin-left: 29px;}
 .sspc-list-sub li:first-child {margin-left: 0;}
 .sspc-list-sub li > a {display: block;position: relative;}
@@ -783,8 +828,7 @@ box-shadow: 0px 5px 20px 0px rgba(0,0,0,0.2);
 .sspc-list-sub .price em {color: #ec0d61;font-size:20px;font-weight: 500 !important;margin-left: 3px;}
 .sspc-list-sub .info {display: block;margin-top: 12px;height: 44px;}
 .sspc-list-sub .info span {vertical-align: middle;}
-.sspc-list-sub .info .txt {display: inline-block;width: 220px;height: 44px;overflow: hidden;margin-left: 10px;color: #000;font-size:14px;line-height: 22px;}
-.sspc-list-sub .sspc-hide {opacity: 0;transition: opacity 0.3s;}
+.sspc-list-sub .info .txt {display: inline-block;width: 220px;height: 44px;overflow: hidden;margin-left: 10px;color: #000;font-size:14px;line-height: 22px;}*/
 
 /* 인기지역 프로모션 */
 .srac-list-sub:after {content: '';display: block;clear:both;}

@@ -17,7 +17,6 @@
 		today.setDate( today.getDate() + expiredays );
 		document.cookie = name + "=" + escape( value ) + "; expires=" + today.toGMTString() + "; path=/";
 	};
-	
 	$.getCookie = function (name) {
 		var dc = document.cookie;
 		var prefix = name + "=";
@@ -58,13 +57,33 @@ function utilSlickCrt(btn, slick){
 }
 
 /*
+ * 함수명 : CHOScrollEvent
+ * 설명   : 공통 헤더 스크롤 이벤트
+ * 사용처 : document.ready 구문에 실행함수 탑재
+ * 작성자 : 권순환
+ */
+function CHOScrollEvent(){
+	var st, headerType;
+	var $CHO = $('.commonHeaderObject');
+	
+	function pos(){
+		st = $(window).scrollTop();	
+		console.log('scrollTop = ', st);
+	}
+	
+	headerType = $CHO.attr('class');
+	
+	$(window).on('scroll', pos);
+}
+
+/*
  * 함수명 : comHeaderControl
  * 설명   : 공통 헤더 컨트롤(상단리본, 공지사항, 스크롤 헤더반응형, 검색UI)
  * 사용처 : document.ready 구문에 실행함수 탑재
  * 작성자 : 권순환
  */
 function comHeaderControl(){
-	if($('#header-sec').length > 0){
+	if($('.commonHeaderObject').length > 0){
 		//리본 프로모션 닫기
 		$('.w-header-util .hu-control .b-crt.bc-close a').on('click', function(e){
 			if($('.top-area-sec .w-tasp-list .tasp-detail').css('display') == 'block'){
@@ -119,26 +138,31 @@ function comHeaderControl(){
 			autoplaySpeed: 5000
 		});	
 		
-		//기획전 롤링
-		$('.hs-prom-roll .list').on('init', function(event, slick){
-			utilSlickCrt($('.w-header-search .hs-prom-roll .b-slick-crt'), slick); //autoplay control
-		}).slick({
-			draggable: false,
-			arrows:false,
-			pauseOnHover: true,
-			dots: true,
-			appendDots: $('.w-header-search .hs-prom-roll .c-slick-dots'),
-			asNavFor: $('.hs-prom-roll-bg .list'),
-			autoplay: true,
-			autoplaySpeed: 5000
-		});	
+		if($('.o-CHO-full').length > 0){
+			//기획전 롤링
+			$('.hs-prom-roll .list').on('init', function(event, slick){
+				utilSlickCrt($('.w-header-search .hs-prom-roll .b-slick-crt'), slick); //autoplay control
+			}).slick({
+				draggable: false,
+				arrows:false,
+				pauseOnHover: true,
+				dots: true,
+				appendDots: $('.w-header-search .hs-prom-roll .c-slick-dots'),
+				asNavFor: $('.hs-prom-roll-bg .list'),
+				autoplay: true,
+				autoplaySpeed: 5000
+			});	
+
+			//기획전 배경 롤링
+			$('.hs-prom-roll-bg .list').slick({
+				draggable: false,
+				arrows:false,
+				fade: true
+			});	
+		}
 		
-		//기획전 배경 롤링
-		$('.hs-prom-roll-bg .list').slick({
-			draggable: false,
-			arrows:false,
-			fade: true
-		});	
+		//헤더 스크롤
+		CHOScrollEvent();
 	}//.if
 }
 
@@ -154,7 +178,7 @@ $(function(){
 //------------------------------------------------------------------------------// common
 
 /*
- * 임시용
+ * contents
  */
 $(function(){
 	//메인전용
@@ -325,15 +349,17 @@ $(function(){
 	}
 	
 	//타이틀 오버시 풀
-	if($('.sspc-list-sub .tit-over').length > 0){
-		$('.sspc-list-sub .tit-over').hover(function(){
-			if($('span', this).height() > 30){
-				$(this).next().addClass('sspc-hide');
-			}
-		},function(){
-			if($(this).next().hasClass('sspc-hide')){
-				$(this).next().removeClass('sspc-hide');
-			}
+	if($('.srpc-list-sub .tit-over').length > 0){
+		$('.srpc-list-sub .tit-over').each(function(){
+			$(this).closest('li > a').hover(function(){
+				if($('.tit-over span', this).height() > 30){
+					$('.tit-over', this).next().addClass('srpc-hide');
+				}
+			},function(){
+				if($('.tit-over', this).next().hasClass('srpc-hide')){
+					$('.tit-over', this).next().removeClass('srpc-hide');
+				}
+			});
 		});
 	}
 });
