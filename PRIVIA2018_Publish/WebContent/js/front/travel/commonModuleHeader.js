@@ -64,7 +64,12 @@ function settingHeaderType(headerType){
 		case HEADER_TYPE_QUICK:
 			$('.commonHeaderObject').addClass('o-CHO-quick');
 			break;
+		default :
+			$('.commonHeaderObject').addClass('o-CHO-full');
+			
 	}
+	
+	comHeaderControl(); //공통 헤더 컨트롤(헤더 스크롤 이벤트, 기획전롤링) commonModule.js 
 }
 
 //검색 셋팅
@@ -95,7 +100,6 @@ function showSearchTap(searchCode){
 			$('.hs-search-menu .hss-menu [data-tabsub="rentv"]').trigger('click');
 			break;
 		default :
-			
 			$('#header-sec').addClass('o-search-all');
 			$('.hs-search-menu .hss-menu [data-tabmain="air"]').trigger('click');
 			$('.hs-search-menu .hss-menu [data-tabsub="shuttle"]').trigger('click');
@@ -1369,22 +1373,23 @@ function comSearchFreetour(){
 
 //검색, 헤더 초기화
 function comSearchInit(){
+	//검색 관련
 	comSearchEvent();
 	comSearchAir();
 	comSearchHotel();
 	comSearchFree();
 	comSearchFreetour();
 	
-	if (QUICK_CODE == null || QUICK_CODE == "") {
-		QUICK_CODE = null;
-	}	
-	showSearchTap(QUICK_CODE);
-	
 	//헤더타입
 	if (HEADER_TYPE == null || HEADER_TYPE == "") {
 		HEADER_TYPE = null;
 	}	
 	settingHeaderType(HEADER_TYPE);
+	
+	if (QUICK_CODE == null || QUICK_CODE == "") {
+		QUICK_CODE = null;
+	}	
+	showSearchTap(QUICK_CODE);
 }
 
 //GNB활성화
