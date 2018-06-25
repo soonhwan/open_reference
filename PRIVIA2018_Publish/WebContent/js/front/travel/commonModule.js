@@ -96,7 +96,7 @@ function CHOScrollEvent(){
 	var $CHO, scTop, isFix = false, scUTarget;
 	$CHO = $('.commonHeaderObject');
 	
-	//fixed 모드에서 스크롤시 최기화
+	//fixed 모드에서 스크롤시 초기화
 	function isFixed(){
 		//리본영역
 		if($('.header-sec-fixed #top-area-sec .top-area-sec').css('display') == 'block'){
@@ -126,6 +126,8 @@ function CHOScrollEvent(){
 				//fixed, height 설정
 				$('.commonHeaderObject').height($('.commonHeaderObject').height());
 				$('.commonHeaderObject .o-CHO-inner').addClass('header-sec-fixed');
+				$('.commonHeaderObject .o-CHO-inner').hide();
+				$('.commonHeaderObject .o-CHO-inner').fadeIn();
 				
 				//리본영역
 				$('.header-sec-fixed #top-area-sec .top-area-sec').hide();
@@ -225,7 +227,7 @@ function comHeaderControl(){
 			e.preventDefault();
 		});
 		
-		//리본 프로모션 열기(텍스트클릭)
+		//리본 프로모션 열기(타이틀 클릭)
 		$('.w-tas-promotion .tasp-list .tasp-tit .tit a').on('click', function(e){
 			if($('#top-area-sec .top-area-sec .tasp-list').hasClass('on')){
 				$('#top-area-sec .top-area-sec .tasp-list').removeClass('on');
@@ -265,6 +267,19 @@ function comHeaderControl(){
 		//헤더 퀵모드 검색영역 열기
 		$('.w-header-gnb .b-open-search button').on('click', function(){
 			$('.header-sec-fixed #header-sec .w-header-search').slideDown('fast');
+		});
+		
+		//gnb 전체메뉴 열고 닫기
+		$('.w-header-gnb .nav-gnb .b-total-nav > a').on('click', function(e){
+			if($(this).hasClass('on')){
+				$('.w-header-gnb .nav-gnb .w-nav-gnb-total').slideUp('fast');
+				$(this).removeClass('on');
+			}
+			else{
+				$('.w-header-gnb .nav-gnb .w-nav-gnb-total').slideDown('fast');
+				$(this).addClass('on');
+			}
+			e.preventDefault();
 		});
 		
 		//헤더 타입에 따른 설정

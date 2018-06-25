@@ -145,7 +145,7 @@ function comSearchEvent(){
 	//document 클릭시 옵션 팝업 닫힘
 	$(document).on('mousedown', function(e){
 		if($(e.target).closest(".sc-ui-search-box.on").length <= 0){
-			$('.hss-inner-cont .sc-ui-search-box.on').removeClass('on');
+			$('.sc-ui-search-box.on').removeClass('on');
 		}
 	});
 	
@@ -156,6 +156,12 @@ function comSearchEvent(){
 	});
 	
 	//캘린더 참고 (priviaMainUI.js 기반 -> var holidays, $.datepicker.regional['ko'] = {}, checkMobile())
+	
+	//최근검색 click
+	$('.hss-recently-search .qrs-area').on('click', function(e){
+		$('.hss-recently-search .ui-recently-search').addClass('on');
+		e.preventDefault();
+	});
 }
 
 //검색 - 항공 관련
@@ -369,8 +375,24 @@ function comSearchAir(){
 		$('.sc-air .uis-capacity-number .num-adt').text(adt);
 		$('.sc-air .uis-capacity-number .num-chd').text(chd);
 		$('.sc-air .uis-capacity-number .num-inf').text(inf);
+		
 		$('.sc-air .select-comp li.on').removeClass('on');
-		$('.sc-air .select-comp li').eq(comp).addClass('on');
+		//일반석
+		if(comp == 'Y'){
+			$('.sc-air .select-comp li').eq(0).addClass('on');
+		}
+		//프리미엄 이코노미
+		if(comp == 'P'){
+			$('.sc-air .select-comp li').eq(1).addClass('on');
+		}
+		//비지니스석
+		if(comp == 'C'){
+			$('.sc-air .select-comp li').eq(2).addClass('on');
+		}
+		//일등석
+		if(comp == 'F'){
+			$('.sc-air .select-comp li').eq(3).addClass('on');
+		}		
 		
 		//국내선인 경우 좌석 숨김
 		//$('.sc-air .ui-capacity .select-comp').hide();
@@ -400,15 +422,15 @@ function comSearchAir(){
 		var adtCnt = parseInt($('.sc-air .uis-capacity-number .num-adt').text()); //성인
 		var chdCnt = parseInt($('.sc-air .uis-capacity-number .num-chd').text()); //아이
 		var infCnt = parseInt($('.sc-air .uis-capacity-number .num-inf').text()); //유아
-		var compIdx = $('.sc-air .uis-capacity .select-comp li.on').index();
 		var comp = $('.sc-air .uis-capacity .select-comp li.on a').text(); //좌석
-		console.log('완료 = ', adtCnt, chdCnt, infCnt, adtCnt+chdCnt+infCnt, compIdx, comp);
+		var compOpt = $('.sc-air .uis-capacity .select-comp li.on a').data('option');
+		console.log('완료 = ', adtCnt, chdCnt, infCnt, adtCnt+chdCnt+infCnt, compOpt, comp);
 		
 		//input
 		$currenCapacity.find('[data-adt]').data('adt',adtCnt);
 		$currenCapacity.find('[data-chd]').data('chd',chdCnt);
 		$currenCapacity.find('[data-inf]').data('inf',infCnt);	
-		$currenCapacity.find('[data-comp]').data('comp',compIdx);	
+		$currenCapacity.find('[data-comp]').data('comp',compOpt);	
 		
 		//search input
 		$currenCapacity.find('.total-num').text(adtCnt+chdCnt+infCnt);
@@ -450,7 +472,8 @@ function comSearchAir(){
 					result =  [true, "date-holiday", holiday.title];
 				}
 			}
-
+			
+			
 			var date1 = $.datepicker.parseDate('yy/mm/dd', $(".sc-air .o-shuttle .uis-date-chkin [data-day]").data('day'));
 			var date2 = $.datepicker.parseDate('yy/mm/dd', $(".sc-air .o-shuttle .uis-date-chkout [data-day]").data('day'));
 			if(date1){
@@ -496,66 +519,90 @@ function comSearchAir(){
 			var dayName = selectedDate.getUTCDay() < 6 ? $(this).datepicker('option', 'dayNamesMin')[selectedDate.getUTCDay()+1] : $(this).datepicker('option', 'dayNamesMin')[0];
 			var txtDay = month + '월 ' + day + '일 (' + dayName + ')';
 			
-			//출발, 도착 모두 선택인 경우, 아무것도 선택이 없는 경우(출발)
-			if (!date1 || date2) {
+			//도착일 미정인경우
+			if($('#unDayAir').is(':checked')){
 				//input
 				$(".sc-air .o-shuttle .uis-date-chkin [data-day]").data('day',dateText);
-				$(".sc-air .o-shuttle .uis-date-chkout [data-day]").data('day','');
 				//pop input
 				$(".sc-air .o-shuttle .uis-date-chkin .txt-day").addClass('on');
 				$(".sc-air .o-shuttle .uis-date-chkin .txt-day").html(txtDay+' 출발');
-				$(".sc-air .o-shuttle .uis-date-chkout .txt-day").removeClass('on');
-				$(".sc-air .o-shuttle .uis-date-chkout .txt-day").html('도착일을 선택해주세요.');				
 				//search input
 				$(".sc-air .o-shuttle .qsb-dates .qsb-area").addClass('on');
 				$(".sc-air .o-shuttle .qsb-dates .qsb-chkin").html(txtDay);	
-				$(".sc-air .o-shuttle .qsb-dates .qsb-chkout").removeClass('on');
-				$(".sc-air .o-shuttle .qsb-dates .qsb-chkout").html('');
-			} else {
-				//출발 보다 이전 날짜 선택
-				if( selectedDate < date1 ) {
-					//출발 -> 도착 이동
-					//input 
-					$(".sc-air .o-shuttle .uis-date-chkout [data-day]").data('day',$(".sc-air .o-shuttle .uis-date-chkin [data-day]").data('day'));
-					//pop input
-					$(".sc-air .o-shuttle .uis-date-chkout .txt-day").addClass('on');
-					$(".sc-air .o-shuttle .uis-date-chkout .txt-day").html($(".sc-air .o-shuttle .qsb-dates .qsb-chkin").html()+' 도착');
-					//search input
-					$(".sc-air .o-shuttle .qsb-dates .qsb-chkout").addClass('on');
-					$(".sc-air .o-shuttle .qsb-dates .qsb-chkout").html($(".sc-air .o-shuttle .qsb-dates .qsb-chkin").html());	
-					
-					//출발 셋팅
-					//input 
+
+				setTimeout(function(){$(document).mousedown();}, 100);   
+			}else{
+			//출발, 도착 모두 선택인 경우, 아무것도 선택이 없는 경우(출발)
+				if (!date1 || date2) {
+					//input
 					$(".sc-air .o-shuttle .uis-date-chkin [data-day]").data('day',dateText);
+					$(".sc-air .o-shuttle .uis-date-chkout [data-day]").data('day','');
 					//pop input
+					$(".sc-air .o-shuttle .uis-date-chkin .txt-day").addClass('on');
 					$(".sc-air .o-shuttle .uis-date-chkin .txt-day").html(txtDay+' 출발');
+					$(".sc-air .o-shuttle .uis-date-chkout .txt-day").removeClass('on');
+					$(".sc-air .o-shuttle .uis-date-chkout .txt-day").html('도착일을 선택해주세요.');				
 					//search input
-					$(".sc-air .o-shuttle .qsb-dates .qsb-chkin").html(txtDay);
-					
-					setTimeout(function(){$(document).mousedown();}, 100);
+					$(".sc-air .o-shuttle .qsb-dates .qsb-area").addClass('on');
+					$(".sc-air .o-shuttle .qsb-dates .qsb-chkin").html(txtDay);	
+					$(".sc-air .o-shuttle .qsb-dates .qsb-chkout").removeClass('on');
+					$(".sc-air .o-shuttle .qsb-dates .qsb-chkout").html('');
 				} else {
-					//출발이후 선택시(도착)
-					//input 				
-					$(".sc-air .o-shuttle .uis-date-chkout [data-day]").data('day',dateText);
-					//pop input
-					$(".sc-air .o-shuttle .uis-date-chkout .txt-day").addClass('on');
-					$(".sc-air .o-shuttle .uis-date-chkout .txt-day").html(txtDay+' 도착');
-					//search input
-					$(".sc-air .o-shuttle .qsb-dates .qsb-chkout").addClass('on');
-					$(".sc-air .o-shuttle .qsb-dates .qsb-chkout").html(txtDay);
-					
-					setTimeout(function(){$(document).mousedown();}, 100);
+					//출발 보다 이전 날짜 선택
+					if( selectedDate < date1 ) {
+						//출발 -> 도착 이동
+						//input 
+						$(".sc-air .o-shuttle .uis-date-chkout [data-day]").data('day',$(".sc-air .o-shuttle .uis-date-chkin [data-day]").data('day'));
+						//pop input
+						$(".sc-air .o-shuttle .uis-date-chkout .txt-day").addClass('on');
+						$(".sc-air .o-shuttle .uis-date-chkout .txt-day").html($(".sc-air .o-shuttle .qsb-dates .qsb-chkin").html()+' 도착');
+						//search input
+						$(".sc-air .o-shuttle .qsb-dates .qsb-chkout").addClass('on');
+						$(".sc-air .o-shuttle .qsb-dates .qsb-chkout").html($(".sc-air .o-shuttle .qsb-dates .qsb-chkin").html());	
+
+						//출발 셋팅
+						//input 
+						$(".sc-air .o-shuttle .uis-date-chkin [data-day]").data('day',dateText);
+						//pop input
+						$(".sc-air .o-shuttle .uis-date-chkin .txt-day").html(txtDay+' 출발');
+						//search input
+						$(".sc-air .o-shuttle .qsb-dates .qsb-chkin").html(txtDay);
+
+						setTimeout(function(){$(document).mousedown();}, 100);
+					} else {
+						//출발이후 선택시(도착)
+						//input 				
+						$(".sc-air .o-shuttle .uis-date-chkout [data-day]").data('day',dateText);
+						//pop input
+						$(".sc-air .o-shuttle .uis-date-chkout .txt-day").addClass('on');
+						$(".sc-air .o-shuttle .uis-date-chkout .txt-day").html(txtDay+' 도착');
+						//search input
+						$(".sc-air .o-shuttle .qsb-dates .qsb-chkout").addClass('on');
+						$(".sc-air .o-shuttle .qsb-dates .qsb-chkout").html(txtDay);
+
+						setTimeout(function(){$(document).mousedown();}, 100);
+					}
 				}
-				
-				//if($(".sc-air .o-shuttle .uis-date-chkin .ipu-day").val() == dateText){return} //같은날짜는 return
-				/*var chkIn = $(".chk-in .selectDay").val().split('/');
-				var chkOut = $(".chk-out .selectDay").val().split('/');
-				var chkInDate = new Date(chkIn[0], chkIn[1], chkIn[2]);
-				var chkOutDate = new Date(chkOut[0], chkOut[1], chkOut[2]);
-				var duration = (chkOutDate-chkInDate)/1000/60/60/24;
-				$('.result-days .days').text(duration);
-				$('.wrap-select-date .c-fix-btn, .result-days').show();*/
 			}
+		}
+	});
+	
+	//캘린더 - 왕복 도착일 미정
+	$('.sc-air .o-shuttle .uis-input .uis-chk .unDay').on('click', function(){
+		if($('#unDayAir').is(':checked')){
+			$('.sc-air .o-shuttle .uis-date-chkout').show();
+			$(this).removeClass('on');
+		}
+		else{
+			$('.sc-air .o-shuttle .uis-date-chkout').hide();
+			if($('.sc-air .o-shuttle .uis-date-chkout .txt-day').hasClass('on')){
+				$('.sc-air .o-shuttle .uis-date-chkout .txt-day').removeClass('on');
+				$('.sc-air .o-shuttle .qsb-dates .qsb-chkout').text('');
+				$('.sc-air .o-shuttle .uis-date-chkout .txt-day').text('도착일을 선택해주세요.');
+				$('.sc-air .o-shuttle .uis-date-chkout [data-day]').data('day', '');
+				$('.sc-air .o-shuttle .uis-datepicker').datepicker('refresh').find(".ui-state-active").removeClass("ui-state-active");;	
+			}
+			$(this).addClass('on');
 		}
 	});
 	
@@ -1066,6 +1113,7 @@ function comSearchHotel(){
 		var room2dCnt = parseInt($('.sc-hotel .uis-capacity-number .num-room2d').text()); //2인실 더블
 		var room2tCnt = parseInt($('.sc-hotel .uis-capacity-number .num-room2t').text()); //2인실 트윈
 		var room3Cnt = parseInt($('.sc-hotel .uis-capacity-number .num-room3').text()); //3인실
+		var roomArr = [];
 		console.log('완료 = ', room1Cnt, room2dCnt, room2tCnt, room3Cnt);
 		
 		//input
@@ -1074,9 +1122,32 @@ function comSearchHotel(){
 		$currenCapacity.find('[data-room2t]').data('room2t',room2tCnt);	
 		$currenCapacity.find('[data-room3]').data('room3',room3Cnt);	
 		
-		//search input
-		//$currenCapacity.find('.total-num').text();
+		var txt = '';
+		if(room1Cnt > 0){
+			roomArr.push('<span class="type-room">1인실</span><span><em class="total-num"> '+room1Cnt+'</em>개</span>');
+		}
 		
+		if(room2dCnt > 0){
+			roomArr.push('<span class="type-room">2인실(더블요청)</span><span><em class="total-num"> '+room2dCnt+'</em>개</span>');
+		}
+		
+		if(room2tCnt > 0){
+			roomArr.push('<span class="type-room">2인실(트윈요청)</span><span><em class="total-num"> '+room2tCnt+'</em>개</span>');
+		}
+		
+		if(room3Cnt > 0){
+			roomArr.push('<span class="type-room">3인실</span><span><em class="total-num"> '+room3Cnt+'</em>개</span>');
+		}
+		
+		for(var i in roomArr){
+			if(i > 0){
+				txt += ', ';
+			}
+			txt += roomArr[i];
+		}
+			
+		$currenCapacity.find('.qsb-input').html('');
+		$currenCapacity.find('.qsb-input').html(txt);
 		$(document).mousedown();
 		e.preventDefault();
 	});
