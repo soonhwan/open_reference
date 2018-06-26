@@ -263,7 +263,10 @@ function comHeaderControl(){
 			autoplay: true,
 			autoplaySpeed: 5000
 		});	
-				
+		
+		//기획전 롤링
+		onHeaderPromRoll(); 
+		
 		//헤더 퀵모드 검색영역 열기
 		$('.w-header-gnb .b-open-search button').on('click', function(){
 			$('.header-sec-fixed #header-sec .w-header-search').slideDown('fast');
@@ -290,7 +293,6 @@ function comHeaderControl(){
 		
 		//o-CHO-full
 		if($('.commonHeaderObject').hasClass('o-CHO-full')){
-			onHeaderPromRoll(); //기획전 롤링
 			$('#top-area-sec .top-area-sec').addClass('on'); // 상단 리본 1단계 오픈
 		}		
 		

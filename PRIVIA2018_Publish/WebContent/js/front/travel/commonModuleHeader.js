@@ -75,9 +75,6 @@ function settingHeaderType(headerType){
 //검색 셋팅
 function showSearchTap(searchCode){
 	var _searchCode = searchCode ? searchCode : QUICK_CODE;
-	
-	$('#header-sec').attr('class','');
-
 	switch (_searchCode) {
 		case QUICK_CODE_AIR:
 			$('#header-sec').addClass('o-search-air');
@@ -92,7 +89,6 @@ function showSearchTap(searchCode){
 		case QUICK_CODE_FREE:	
 			$('#header-sec').addClass('o-search-free');
 			$('.hs-search-menu .hss-menu [data-tabmain="free"]').trigger('click');
-			$('.hs-search-menu .hss-menu [data-tabsub="free"]').trigger('click');
 			break;
 		case QUICK_CODE_DPRS_ITEM:
 			$('#header-sec').addClass('o-search-freetour');
@@ -108,7 +104,7 @@ function showSearchTap(searchCode){
 
 //검색 공통 이벤트
 function comSearchEvent(){
-	//검색(도시) 리스트 스크롤
+	//검색(도시) 리스트, 최근검색 스크롤
 	$(".hs-search-cont .o-customscrollbar").mCustomScrollbar({theme:"minimal-dark"});
 		
 	//검색 메인 tab click
@@ -117,14 +113,26 @@ function comSearchEvent(){
 			var code = $(this).data('tabmain');
 			$('.hs-search-menu .hss-menu.on').removeClass('on');
 			$(this).closest('.hss-menu').addClass('on');
+			
+			//섹션 영역 클래스			
 			$('.hs-search-cont .hss-inner-cont.on').removeClass('on');
 			$('.hs-search-cont .hss-inner-cont.sc-'+code).addClass('on');
-			$('#header-sec .header-sec').attr('class','header-sec');
+			
+			//배경 클래스
+			$('#header-sec .header-sec').removeClass(function (index, css) {
+				return (css.match (/\bo-bg-\S+/g) || []).join(' ');
+			});	
 			$('#header-sec .header-sec').addClass('o-bg-'+code);
 			
-			//서브메뉴 첫번째메뉴 활성화
+			//하단옵션 제거
+			$('.hss-inner-cont-bottom .opt-box.on').removeClass('on');	
+			
+			//서브메뉴 활성화
 			if($(this).closest('.hss-menu').find('.hss-sub .on').length <= 0){
 				$(this).closest('.hss-menu').find('.hss-sub li:first-child [data-tabsub]').trigger('click');
+			}
+			else if($(this).closest('.hss-menu').find('.hss-sub .on').length > 0){
+				$(this).closest('.hss-menu').find('.hss-sub .on [data-tabsub]').trigger('click');
 			}
 		}		
 		e.preventDefault();
@@ -132,21 +140,30 @@ function comSearchEvent(){
 	
 	//검색 서브 tab click
 	$('.hs-search-menu .hss-menu [data-tabsub]').on('click', function(e){
+		var code = $(this).data('tabsub');
 		if(!$(this).closest('li').hasClass('on')){
-			var code = $(this).data('tabsub');
 			$(this).closest('.hss-sub').find('.on').removeClass('on');
 			$(this).closest('li').addClass('on');
 			$('.hs-search-cont .o-'+code).closest('.hss-inner-cont').find('.sc-search-box.on').removeClass('on');	
 			$('.hs-search-cont .o-'+code).addClass('on');
-		}	
+		}			
+		//하단옵션
+		$('.hss-inner-cont-bottom .opt-box.on').removeClass('on');	
+		$('.hss-inner-cont-bottom .opt-box.o-'+code).addClass('on');
 		e.preventDefault();
 	});	
 	
 	//document 클릭시 옵션 팝업 닫힘
 	$(document).on('mousedown', function(e){
 		if($(e.target).closest(".sc-ui-search-box.on").length <= 0){
-			$('.sc-ui-search-box.on').removeClass('on');
+			$('.w-header-search .sc-ui-search-box.on').removeClass('on');
 		}
+	});
+	
+	//팝업 닫기 클릭시 옵션 팝업 닫힘
+	$('.w-header-search .b-scb-close').on('click', function(e){
+		$(this).closest('.sc-ui-search-box.on').removeClass('on');
+		e.preventDefault();
 	});
 	
 	//인원,좌석,객실 취소 click
@@ -156,10 +173,16 @@ function comSearchEvent(){
 	});
 	
 	//캘린더 참고 (priviaMainUI.js 기반 -> var holidays, $.datepicker.regional['ko'] = {}, checkMobile())
-	
-	//최근검색 click
+		
+	//최근검색 열기 click
 	$('.hss-recently-search .qrs-area').on('click', function(e){
 		$('.hss-recently-search .ui-recently-search').addClass('on');
+		e.preventDefault();
+	});
+	
+	//최근검색 닫기 click
+	$('.hss-recently-search .ui-recently-search .urs-tit a').on('click', function(e){
+		$('.hss-recently-search .ui-recently-search').removeClass('on');
 		e.preventDefault();
 	});
 }
@@ -588,8 +611,8 @@ function comSearchAir(){
 	});
 	
 	//캘린더 - 왕복 도착일 미정
-	$('.sc-air .o-shuttle .uis-input .uis-chk .unDay').on('click', function(){
-		if($('#unDayAir').is(':checked')){
+	$('.sc-air .o-shuttle .chk-unday label').on('click', function(){
+		if($('.sc-air .o-shuttle #unDayAir').is(':checked')){
 			$('.sc-air .o-shuttle .uis-date-chkout').show();
 			$(this).removeClass('on');
 		}
