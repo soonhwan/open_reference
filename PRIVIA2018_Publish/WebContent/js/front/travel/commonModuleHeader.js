@@ -215,15 +215,15 @@ function comSearchAir(){
 		//position
 		var $p = $(this).closest('.hss-inner-cont').find('.ui-maincity-air');
 		$p.position({
-			my: 'left-30 top-42',
+			my: 'left top-10',
 			at: 'left top',
 			collision: 'none',
-			of: this
+			of: $(this).closest('.qsb-cont-box')
 		}).addClass('on');
 		
 		//기존 검색리스트 삭제
-		if($p.hasClass('ui-citysearch-auto')){
-		   $p.removeClass('ui-citysearch-auto');
+		if($p.hasClass('ui-search-auto')){
+		   $p.removeClass('ui-search-auto');
 		}
 		
 		//places 저장
@@ -241,7 +241,7 @@ function comSearchAir(){
 	});
 	
 	//주요도시 리스트 click
-	$('.ui-maincity-air .uis-maincity-table td .list a').on('click', function(e){
+	$('.ui-maincity-air .uis-mainsel-table td .list a').on('click', function(e){
 		var city = $(this).text(); //도시 이름(임시)
 		var code = 'ICN';		   //도시 코드(임시)
 		
@@ -255,15 +255,18 @@ function comSearchAir(){
 	
 	//도시 검색하기(자동완성) keydown
 	$('.ui-maincity-air .uis-input .ipu-search').on('keydown', function(){
-		if(!$('.ui-maincity-air').hasClass('ui-citysearch-auto') && $(this).val('')){
-		   $('.ui-maincity-air').addClass('ui-citysearch-auto');
+		if(!$('.ui-maincity-air').hasClass('ui-search-auto') && $(this).val('')){
+		   $('.ui-maincity-air').addClass('ui-search-auto');
 		}
 	});
 	
 	//도시 검색 결과(자동완성) click
-	$('.ui-maincity-air .uis-citysearch-list .list a').on('click', function(e){
+	$('.ui-maincity-air .uis-list-auto .list a').on('click', function(e){
 		var city = '자동'; //도시 이름(임시)
 		var code = 'AUTO'; //도시 코드(임시)
+		
+		//도시 input
+		$('.hs-search-cont .ui-maincity-air .uis-input .ipu-search').val(city);
 		
 		//도시 셋팅
 		setAirCity(city, code);
@@ -375,7 +378,7 @@ function comSearchAir(){
 			my: 'left-30 top-32',
 			at: 'left top',
 			collision: 'none',
-			of: this
+			of: $(this)
 		}).addClass('on');
 		
 		//capacity 저장
@@ -496,7 +499,6 @@ function comSearchAir(){
 				}
 			}
 			
-			
 			var date1 = $.datepicker.parseDate('yy/mm/dd', $(".sc-air .o-shuttle .uis-date-chkin [data-day]").data('day'));
 			var date2 = $.datepicker.parseDate('yy/mm/dd', $(".sc-air .o-shuttle .uis-date-chkout [data-day]").data('day'));
 			if(date1){
@@ -611,9 +613,9 @@ function comSearchAir(){
 	});
 	
 	//캘린더 - 왕복 도착일 미정
-	$('.sc-air .o-shuttle .chk-unday label').on('click', function(){
-		if($('.sc-air .o-shuttle #unDayAir').is(':checked')){
-			$('.sc-air .o-shuttle .uis-date-chkout').show();
+	$('.opt-box.o-shuttle .chk-unday label').on('click', function(){
+		if($('.opt-box.o-shuttle #unDayAir').is(':checked')){
+			$('.opt-box.o-shuttle .uis-date-chkout').show();
 			$(this).removeClass('on');
 		}
 		else{
@@ -888,15 +890,15 @@ function comSearchHotel(){
 			$p = $(this).closest('.hss-inner-cont').find('.ui-maincity-hotel'); //해외
 		}
 		else if($(this).closest('.sc-search-box').hasClass('o-domh')){
-			$p = $(this).closest('.hss-inner-cont').find('.ui-maincity-hotel-dom'); //국내
+			$p = $(this).closest('.hss-inner-cont').find('.ui-mainsel-hotel-dom'); //국내
 		}
 		
 		//position
 		$p.addClass('on');
 		
 		//기존 검색리스트 삭제
-		if($p.hasClass('ui-citysearch-auto')){
-		   $p.removeClass('ui-citysearch-auto');
+		if($p.hasClass('ui-search-auto')){
+		   $p.removeClass('ui-search-auto');
 		}
 		
 		//places 저장
@@ -914,7 +916,7 @@ function comSearchHotel(){
 	});
 	
 	//해외 주요도시 리스트 click
-	$('.ui-maincity-hotel .uis-maincity-table-htl td .list a').on('click', function(e){
+	$('.ui-maincity-hotel .uis-mainsel-table td .list a').on('click', function(e){
 		var nation = '국가명'; //국가(임시)
 		var city = $(this).text(); //도시(임시)
 		
@@ -928,15 +930,18 @@ function comSearchHotel(){
 		
 	//해외 도시 검색하기(자동완성) keydown
 	$('.ui-maincity-hotel .uis-input .ipu-search').on('keydown', function(){
-		if(!$('.ui-maincity-hotel').hasClass('ui-citysearch-auto') && $(this).val('')){
-		   $('.ui-maincity-hotel').addClass('ui-citysearch-auto');
+		if(!$('.ui-maincity-hotel').hasClass('ui-search-auto') && $(this).val('')){
+		   $('.ui-maincity-hotel').addClass('ui-search-auto');
 		}
 	});
 	
 	//해외 도시 검색 결과(자동완성) click
-	$('.ui-maincity-hotel .uis-citysearch-list .list a').on('click', function(e){
+	$('.ui-maincity-hotel .uis-list-auto .list a').on('click', function(e){
 		var nation = '국가명'; //국가(임시)
-		var city = 'AUTO'; //도시(임시)
+		var city = $(this).text(); //도시(임시)
+		
+		//도시 input
+		$('.hs-search-cont .ui-maincity-hotel .uis-input .ipu-search').val(nation+' ,'+city);
 		
 		//도시 셋팅
 		setHotelCity(nation, city);
@@ -944,11 +949,11 @@ function comSearchHotel(){
 	});
 	
 	//국내 주요도시 리스트 click
-	$('.ui-maincity-hotel-dom .uis-maincity-list .list a').on('click', function(e){
+	$('.ui-mainsel-hotel-dom .uis-maincity-list .list a').on('click', function(e){
 		var city = $(this).text(); //도시(임시)
 		
 		//도시 input
-		$('.hs-search-cont .ui-maincity-hotel-dom .uis-input .ipu-search').val(city);
+		$('.hs-search-cont .ui-mainsel-hotel-dom .uis-input .ipu-search').val(city);
 				
 		//도시 셋팅
 		setDomHotelCity(city);
@@ -956,15 +961,18 @@ function comSearchHotel(){
 	});
 	
 	//국내 도시 검색하기(자동완성) keydown
-	$('.ui-maincity-hotel-dom .uis-input .ipu-search').on('keydown', function(){
-		if(!$('.ui-maincity-hotel-dom').hasClass('ui-citysearch-auto') && $(this).val('')){
-		   $('.ui-maincity-hotel-dom').addClass('ui-citysearch-auto');
+	$('.ui-mainsel-hotel-dom .uis-input .ipu-search').on('keydown', function(){
+		if(!$('.ui-mainsel-hotel-dom').hasClass('ui-search-auto') && $(this).val('')){
+		   $('.ui-mainsel-hotel-dom').addClass('ui-search-auto');
 		}
 	});
 	
 	//국내 도시 검색 결과(자동완성) click
-	$('.ui-maincity-hotel-dom .uis-citysearch-list .list a').on('click', function(e){
-		var city = 'AUTO'; //도시(임시)
+	$('.ui-mainsel-hotel-dom .uis-list-auto .list a').on('click', function(e){
+		var city = $(this).text(); //도시(임시)
+		
+		//도시 input
+		$('.hs-search-cont .ui-mainsel-hotel-dom .uis-input .ipu-search').val(city);
 		
 		//도시 셋팅
 		setDomHotelCity(city);
@@ -972,12 +980,12 @@ function comSearchHotel(){
 	});
 	
 	//도시 검색하기 focus
-	$('.ui-maincity-hotel .uis-input .ipu-search, .ui-maincity-hotel-dom .uis-input .ipu-search').on('focus', function(){
+	$('.ui-maincity-hotel .uis-input .ipu-search, .ui-mainsel-hotel-dom .uis-input .ipu-search').on('focus', function(){
 		$(this).val('');
 	});
 	
 	//도시 검색하기 blur
-	$('.ui-maincity-hotel .uis-input .ipu-search, .ui-maincity-hotel-dom .uis-input .ipu-search').on('blur', function(){
+	$('.ui-maincity-hotel .uis-input .ipu-search, .ui-mainsel-hotel-dom .uis-input .ipu-search').on('blur', function(){
 		$(this).val($currentHotelCity.find('[data-city]').data('city'));
 	});
 	
@@ -1092,7 +1100,7 @@ function comSearchHotel(){
 			my: 'left-30 top-32',
 			at: 'left top',
 			collision: 'none',
-			of: this
+			of: $(this)
 		}).addClass('on');
 		
 		//capacity 저장
@@ -1452,7 +1460,46 @@ function comSearchHotel(){
 
 //검색 - 자유여행 관련
 function comSearchFree(){
+	var $currentSelect = null; // select 저장
 	
+	//프리미엄 에어텔 보기 click 팝업
+	$('.hss-inner-cont .o-airtel .sel-cus-airtel').on('click', function(e){
+		var $p;
+		$p = $(this).closest('.hss-inner-cont').find('.ui-mainsel-airtel').addClass('on');
+		e.preventDefault();
+	});
+	
+	//select click 팝업
+	$('.sc-free .qsb-select .qsb-area').on('click', function(e){
+		//position
+		var $sel = $(this).data('sel');
+		var $p = $(this).closest('.hss-inner-cont').find('.'+$sel);
+		$p.position({
+			my: 'left-30 top-42',
+			at: 'left top',
+			collision: 'none',
+			of: $(this)
+		}).addClass('on');
+		
+		//places 저장
+		$currentSelect = $(this);
+		
+		e.preventDefault();
+	});
+		
+	//select list click
+	$('.sc-free .ui-select-list .uis-list .list li a').on('click', function(e){
+		var v = $(this).text();
+		
+		//select list input
+		if(!$currentSelect.hasClass('on')){
+			$currentSelect.addClass('on');   
+		}
+		$currentSelect.find('.qsb-input .opt').text(v);
+		
+		setTimeout(function(){$(document).mousedown();}, 100);
+		e.preventDefault();
+	});
 }
 //..검색 - 자유여행 관련
 

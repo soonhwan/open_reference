@@ -298,6 +298,10 @@ function comHeaderControl(){
 		
 		//공통 헤더 스크롤 이벤트
 		CHOScrollEvent();		
+		
+		/*setTimeout(function(){
+			$('html, body').stop().animate({scrollTop:$('#header-sec').offset().top}, 800);
+		}, 800);*/
 	}//.if
 }
 
