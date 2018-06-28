@@ -309,7 +309,16 @@ function comHeaderControl(){
  * document ready시 실행함수모음(공통)
  */
 $(function(){	
-	$('.input-base').placeholder(); //IE9 이하 부터 실행	
+	//placeholder 공통(IE9 이하 부터 실행)
+	if($('.input-base').length > 0){$('.input-base').placeholder();}
+	//체크박스 click 공통
+	if($('.chk-base label').length > 0){
+		$('.chk-base label').on('click', function(){
+			if($(this).hasClass('on')){$(this).removeClass('on');}
+			else{$(this).addClass('on');}
+		});
+	}
+	
 	//comHeaderControl(); //commonModuleHeader.js 에서 실행
 });
 
