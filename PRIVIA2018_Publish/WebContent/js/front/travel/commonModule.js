@@ -311,13 +311,31 @@ function comHeaderControl(){
 $(function(){	
 	//placeholder 공통(IE9 이하 부터 실행)
 	if($('.input-base').length > 0){$('.input-base').placeholder();}
-	//체크박스 click 공통
-	if($('.chk-base label').length > 0){
-		$('.chk-base label').on('click', function(){
-			if($(this).hasClass('on')){$(this).removeClass('on');}
-			else{$(this).addClass('on');}
+	//체크박스 공통
+	if($('.chk-base').length > 0){
+		$('.chk-base').each(function(){
+			//checked 유효체크
+			if($(this).find('[type="checkbox"]').prop('checked')){
+				$(this).find('label').addClass('on');
+			}
+			else{
+				$(this).find('label').removeClass('on');
+			}
+			//label click
+			$(this).find('label').on('click', function(){
+				if($(this).hasClass('on')){
+					$(this).removeClass('on');
+				}
+				else{
+					$(this).addClass('on');
+				}
+			});
 		});
 	}
+	
+	/*fakeselect.initialize({
+		title : {classname : 'select-base selectbox_title'}
+	});	*/
 	
 	//comHeaderControl(); //commonModuleHeader.js 에서 실행
 });

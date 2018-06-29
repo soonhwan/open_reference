@@ -8,7 +8,6 @@
 <title>PRIVIA 여행</title> 
 <link rel="shortcut icon" type="image/x-icon" href="//static.priviatravel.com/images/front/travel/favicon.ico"> 
 <link type="text/css" rel="stylesheet" href="//static.priviatravel.com/css/front/travel/base.css"> 
-<link type="text/css" rel="stylesheet" href="//static.priviatravel.com/css/front/travel/priviaMain.css"> 
 <link type="text/css" rel="stylesheet" href="/css/front/travel/commonModule.css" /> <!-- 프비 리뉴얼 css -->
 <script type="text/javascript" src="//static.priviatravel.com/js/front/travel/jquery-1.8.3.min.js"></script> 
 <script type="text/javascript" src="//static.priviatravel.com/js/front/travel/jquery-ui.js"></script> 
@@ -90,6 +89,44 @@
 			<h2 class="tit">radius 라벨3</h2>
 			<div class="gb-inner">
 				<span class="label-base lbr-st3"><span>특전</span></span>
+			</div>
+		</div>
+		<div class="guide-box">
+			<h2 class="tit">checkbox 1 + tooltip</h2>
+			<div class="gb-inner o-bg-air">
+				<span class="chk-base chk-st1">
+					<input type="checkbox" id="checkbox1" class="a11y">
+					<label for="checkbox1" class="label-base">운전자 연령 25~70세</label> 
+					<span class="help-tooltip">
+						<span class="over">?</span>
+						<span class="cont" style="width:350px">
+							차량을 대여할 당시 운전자 연령이 <strong>만 25세 미만인 경우 추가요금이 발생할 수 있습니다.</strong><br />
+							자세한 사항은 이용약관을 확인하여주시기 바랍니다.
+						</span>
+					</span>
+				</span>		
+			</div>
+		</div>
+		<div class="guide-box">
+			<h2 class="tit">checkbox 2</h2>
+			<div class="gb-inner">
+				<span class="chk-base chk-st2">
+					<input type="checkbox" id="checkbox2" class="a11y" checked>
+					<label for="checkbox2" class="label-base on">콤보할인</label> 
+				</span>
+			</div>
+		</div>
+		<div class="guide-box">
+			<h2 class="tit">select 1 (fakeselect.js 기반)</h2>
+			<div class="gb-inner">
+				<span class="select-base">
+					<select class="sb-opt" style="width:80px">
+						<option value="10" chacked>10시</option>
+						<option value="11">11시</option>
+						<option value="12">12시</option>
+						<option value="13">13시</option>
+					</select>
+				</span>
 			</div>
 		</div>
 	</div>
