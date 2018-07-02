@@ -20,6 +20,7 @@
 	.guide-sec .tit {font-size:20px;margin-bottom: 10px;}
 	.guide-sec .guide-box {margin-top: 10px;padding: 10px;}
 	.guide-sec .guide-box .gb-inner {padding: 10px;}
+	.guide-sec .guide-box .gb-inner .chk-base {margin-left: 5px;}
 </style>
 </head>
 <body>
@@ -95,8 +96,8 @@
 			<h2 class="tit">checkbox 1 + tooltip</h2>
 			<div class="gb-inner o-bg-air">
 				<span class="chk-base chk-st1">
-					<input type="checkbox" id="checkbox1" class="a11y">
-					<label for="checkbox1" class="label-base">운전자 연령 25~70세</label> 
+					<input type="checkbox" id="checkbox1-1" class="a11y">
+					<label for="checkbox1-1" class="label-base">운전자 연령 25~70세</label> 
 					<span class="help-tooltip">
 						<span class="over">?</span>
 						<span class="cont" style="width:350px">
@@ -104,6 +105,14 @@
 							자세한 사항은 이용약관을 확인하여주시기 바랍니다.
 						</span>
 					</span>
+				</span>	
+				<span class="chk-base chk-st1">
+					<input type="checkbox" id="checkbox1-2" class="a11y" checked>
+					<label for="checkbox1-2" class="label-base">운전자 연령 25~70세</label> 
+				</span>		
+				<span class="chk-base chk-st1">
+					<input type="checkbox" id="checkbox1-3" class="a11y" checked disabled>
+					<label for="checkbox1-3" class="label-base">운전자 연령 25~70세</label> 
 				</span>		
 			</div>
 		</div>
@@ -111,8 +120,16 @@
 			<h2 class="tit">checkbox 2</h2>
 			<div class="gb-inner">
 				<span class="chk-base chk-st2">
-					<input type="checkbox" id="checkbox2" class="a11y" checked>
-					<label for="checkbox2" class="label-base on">콤보할인</label> 
+					<input type="checkbox" id="checkbox2-1" class="a11y">
+					<label for="checkbox2-1" class="label-base on">콤보할인</label> 
+				</span>
+				<span class="chk-base chk-st2">
+					<input type="checkbox" id="checkbox2-2" class="a11y" checked>
+					<label for="checkbox2-2" class="label-base on">콤보할인</label> 
+				</span>
+				<span class="chk-base chk-st2">
+					<input type="checkbox" id="checkbox2-3" class="a11y" disabled>
+					<label for="checkbox2-3" class="label-base on">콤보할인</label> 
 				</span>
 			</div>
 		</div>

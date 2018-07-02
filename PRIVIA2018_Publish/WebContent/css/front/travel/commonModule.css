@@ -111,7 +111,7 @@
 #skipnav a:hover, #skipnav a:focus, #skipnav a:active {position:static}
 
 /* 접근성 */
-.a11y {overflow:hidden;position:absolute;clip:rect(0 0 0 0);/*IE6,7*/clip:rect(0,0,0,0);width:1px;height:1px;margin:-1px;border:0;padding:0;}
+.a11y {overflow:hidden;position:absolute;clip:rect(0 0 0 0);/*IE6,7*/clip:rect(0,0,0,0);width:1px !important;height:1px !important;margin:-1px !important;border:0 !important;padding:0 !important;}
 .a11y.focusable:focus {overflow:visible;position:static;clip:auto;width:auto;height:auto;margin:0;}
 
 /* ------------- 1.6.0 slick.min */
@@ -186,36 +186,53 @@
 .lbr-st3 span {font-size:12px;color: #f42a86;text-align: center;min-width: 38px;padding: 9px 7px;border-radius:2px;border:1px solid #ec0d61;}
 
 /* ------------- checkbox */
+.chk-base {transition: opacity 0.3s;}
+.chk-base.disabled {opacity: 0.4;pointer-events: none;}
+.chk-base label {display: inline-block;vertical-align: middle;position: relative;}
 /* checkbox1 */ 
 .chk-st1 label {height: 20px;padding-left: 30px;font-size:14px;color: #fff;}
 .chk-st1 label:before {content: '';display: block;width: 20px;height: 20px;background: url(/images/front/travel/contents/icon-common-sec.png) 0px -235px no-repeat;position: absolute;top: 0;left: 0;}
-.chk-st1 input[type="checkbox"]:checked + label:before {background-position: -25px -235px;}
+.chk-st1 input[type="checkbox"]:checked ~ label:before {background-position: -25px -235px;}
 .chk-st1 label.on:before {background-position: -25px -235px;}
 /* checkbox2 */ 
 .chk-st2 label {height: 20px;padding-left: 30px;font-size:14px;color: #000;}
 .chk-st2 label:before {content: '';display: block;width: 20px;height: 20px;background: url(/images/front/travel/contents/icon-common-sec.png) 0px -260px no-repeat;position: absolute;top: 0;left: 0;}
-.chk-st2 input[type="checkbox"]:checked + label:before {background-position: -25px -260px;}
+.chk-st2 input[type="checkbox"]:checked ~ label:before {background-position: -25px -260px;}
 .chk-st2 label.on:before {background-position: -25px -260px;}
+
+/* ------------- radio */
+.radio-base {transition: opacity 0.3s;}
+.radio-base.disabled {opacity: 0.4;pointer-events: none;}
+.radio-base label {display: inline-block;vertical-align: middle;position: relative;}
+/* radio1 */ 
+.radio-st1 label {height: 20px;padding-left: 30px;font-size:14px;color: #fff;}
+.radio-st1 label:before {content: '';display: block;width: 20px;height: 20px;background: url(/images/front/travel/contents/icon-common-sec.png) 0px -235px no-repeat;position: absolute;top: 0;left: 0;}
+.radio-st1 input[type="radio"]:checked ~ label:before {background-position: -25px -235px;}
+.radio-st1 label.on:before {background-position: -25px -235px;}
 
 /* ------------- selectbox(기존 fakeselect.js 기반) */
 .select-base {display: inline-block;vertical-align: middle;}
-.select-base .selectbox_title{padding:4px 15px 0 15px !important;display:inline-block; position:relative; vertical-align: middle; height:40px !important; border:1px solid #bdc0c6 !important;background: none !important;text-align:left !important; text-decoration: none !important; overflow: hidden; color:#000;font-size:14px;zoom:1;border-radius: 3px;}
-.select-base .selectbox_title:after {content: '';display: block;width: 12px;height: 7px;overflow: hidden;background: url(/images/front/travel/contents/icon-common-sec.png) -66px -360px no-repeat;position: absolute;top: 16px;right: 15px;}
-.select-base .selectbox_title.selectbox_title_disabled {cursor:default !important;background-color:#eee !important}
-.select-base .selectbox_title strong {padding-left:1px; outline: none; line-height:28px; font-weight:normal; color:#000 !important;}
-.select-base .selectbox_title.selectbox_title_disabled strong{color:#999}
-.select-base .selectbox_title:hover,
-.select-base .selectbox_title:focus{border-color:#333;-webkit-transition:all 0.5s;}
-.select-base .selectbox_title strong {padding-left:1px; outline: none; line-height:28px; font-weight:normal; color:#000 !important}
-.select-base .selectbox_title_focus{border-color:#333}
-.select-base .selectbox_title_active{border-color:#333}
-.selectbox_option.sb-base {margin-top:-1px;border:1px solid #333;z-index:1001 !important;-moz-box-sizing:border-box;-webkit-box-sizing:border-box;box-sizing: border-box;}
-.selectbox_option.sb-opt * {-moz-box-sizing:border-box;-webkit-box-sizing:border-box;box-sizing: border-box;}
-.selectbox_option.sb-opt a{color:#333 !important}
-.selectbox_option.sb-opt .scroll ul li a {display:block;padding-left:10px; line-height:28px; color:#898989; background:#fff;}
-.selectbox_option.sb-opt .scroll ul li a:hover {background:#eee;}
-.selectbox_option.sb-opt.bd-black {border:1px solid #000}
-.selectbox_option.sb-opt.selectbox-lg a{padding:5px 0}
+/* select-title */
+.select-title.select-base {text-align: left; vertical-align: middle; padding: 10px 15px 9px 15px; border: 1px solid #bdc0c6; display: inline-block;font-size:14px;color: #000;border-radius: 3px;position: relative;}
+.select-title.select-base:after {content: '';display: block;width: 12px;height: 7px;overflow: hidden;background: url(/images/front/travel/contents/icon-common-sec.png) -66px -360px no-repeat;position: absolute;top: 16px;right: 15px;}
+.select-title.select-base strong {width: 100%; /*height: 1em;*/ font-weight: normal; font-size:14px;color: #000; word-break: break-all; line-height: 1.2em; padding: 1px 0 2px; display: block; overflow: hidden;}
+.select-title.select-base.focus,
+.select-title.select-base.active {color: #000; border-color: #333;}
+.select-title.select-base.focus {background-position: 100% -22px;}
+.select-title.select-base.active {background-position: 100% -44px;}
+.select-title.select-base.disabled {color: #999; text-shadow: 1px 1px 0 #fff; border-color: #bbb; background-color: #eee;}
+/* select-option */
+.select-option.select-base {border: 1px solid #333; background: #fff; overflow: auto;}
+.select-option.select-base ul {margin: 0; padding: 0;}
+.select-option.select-base li {list-style: none;}
+.select-option.select-base span,
+.select-option.select-base strong {height: 1.1em; font-size: 11px; font-weight: normal; color: #777; white-space: nowrap; text-overflow: ellipsis; line-height: 1.4; text-decoration: none; padding: 4px 5px 7px; display: block; overflow: hidden; cursor: default;}
+.select-option.select-base strong {font-weight: bold; color: #000; border-top: 1px solid #eee; border-bottom: 1px solid #ccc;}
+.select-option.select-base li li span {padding-left: 10px;}
+.select-option.select-base span:hover,
+.select-option.select-base span.selected {color: #000; background: #eee;}
+.select-option.select-base .disabled span,
+.select-option.select-base .disabled strong {color: #bbb; text-decoration: line-through; background: none;}
 
 /* ------------- slick dots 스타일(기본 white) */
 .c-slick-dots .cs-dots-crt {display: inline-block;vertical-align: middle;margin-right: 2px;}
@@ -267,6 +284,7 @@ box-shadow: 0 3px 3px 0px rgba(0,0,0,0.1);
 .w-tas-promotion .tasp-list.on .b-tasp-more {opacity: 1;transition: opacity 1s;}
 
 /* ------------- 헤더 영역 */
+.commonHeaderObject {transition: height 0.3s;}
 #header-sec .header-sec {width: 100%;background-color: inherit;z-index: 10;transition: background-color 0.5s;}
 /* 유틸 영역 */
 .w-header-util {height: 40px;padding-top: 10px;overflow: hidden;text-align: right;background-color: #000;}
@@ -314,13 +332,13 @@ box-shadow: 0 3px 3px 0px rgba(0,0,0,0.1);
 .w-header-search .hs-prom-roll.on, .header-sec .hs-prom-roll-bg.on {display: block;}
 
 /* ------------- GNB */
+.w-header-gnb {padding: 56px 0 26px 0;position: relative;z-index: 2;}
 .w-header-gnb * {transition: all 0.3s;}
-.w-header-gnb {padding: 56px 0 26px 0;position: relative;}
 .w-header-gnb .ly-inner {z-index: 1;}
 .w-header-gnb .ly-inner:after {content: '';display: block;clear:both;}
 .w-header-gnb:before {content: '';display: block;width: 100%;height: 1px;background-color: #fff;opacity: 0.1;position: absolute;bottom: 0;left: 0;}
-.w-header-gnb:after {content: '';display: block;width: 100%;height: 55px;background-color: #f9f9f9;border-top:1px solid #e2e2e2;border-bottom:1px solid #e2e2e2;position: absolute;bottom: -54px;left: 0;z-index: 0;display: none;}
-.w-header-gnb .h-logo {float: left;}
+.w-header-gnb.is2dep:after {content: '';display: block;width: 100%;height: 55px;background-color: #f9f9f9;border-top:1px solid #e2e2e2;border-bottom:1px solid #e2e2e2;position: absolute;bottom: -54px;left: 0;z-index: 0;}
+.w-header-gnb .h-logo {float: left;margin-top: 5px;}
 .w-header-gnb .h-logo a {display: block;width: 174px;height: 20px;background: url(/images/front/travel/contents/logo-privia.png) 0 0 no-repeat;transition: background-position 0;}
 .w-header-gnb .nav-gnb {float: right;}
 .w-header-gnb .nav-gnb:after {content: '';display: block;clear:both;}
@@ -333,14 +351,19 @@ box-shadow: 0 3px 3px 0px rgba(0,0,0,0.1);
 .w-header-gnb .nav-gnb .b-total-nav {width: 50px;}
 .w-header-gnb .nav-gnb .b-total-nav > a {padding: 0;width: 26px;height: 26px;position: absolute;right: 0;top: 0;overflow: hidden;background: url(/images/front/travel/contents/icon-common-sec.png) 0px -162px no-repeat;transition: background-position 0s;}
 .w-header-gnb .nav-gnb .b-total-nav > a.on {background-position: -30px -165px;}
-.w-header-gnb .b-open-search {margin-left: 35px;display: none;}
+.w-header-gnb .b-open-search {margin-left: 35px;margin-top: 3px;display: none;}
 .w-header-gnb .b-open-search button {width: 23px;height: 23px;background: url(/images/front/travel/contents/icon-common-sec.png) -62px -198px no-repeat;}
 /* GNB - 2뎁스 */
 .w-header-gnb .list-gsub {display: inline-block;position: absolute;right: 0;top: 70px;display: none;}
 .w-header-gnb .list-gsub li {float: left;margin-left: 40px;}
 .w-header-gnb .list-gsub a {font-size:14px;font-weight: 500 !important;}
+.w-header-gnb .nav-gnb .on .list-gsub {display: inline-block;}
 /* GNB - 전체메뉴 */
-.w-nav-gnb-total {overflow: hidden;z-index: 2;position: absolute;left: 0;top: 49px;width: 100%;display: none;}
+.w-nav-gnb-total {overflow: hidden;z-index: 2;position: absolute;left: 0;top: 49px;width: 100%;display: none;
+-webkit-box-shadow: 7px 7px 13px 0px rgba(0,0,0,0.3);
+-moz-box-shadow: 7px 7px 13px 0px rgba(0,0,0,0.3);
+box-shadow: 7px 7px 13px 0px rgba(0,0,0,0.3);
+}
 .nav-gnb-total {border-top:4px solid #ee2a74;margin-right: -2px;overflow: hidden;}
 .nav-gnb-total > li {float: left;width: 16.66666666666667%;height: 270px;background-color: #fff;position: relative;border-bottom:1px solid #ededed;}
 .nav-gnb-total > li .tit {display: block;font-size:14px;color: #000;font-weight: 500 !important;background-color: #f9f9f9;padding: 17px 10px 17px 20px;position: relative;z-index: 1;border-bottom:1px solid #ededed;}
@@ -361,20 +384,25 @@ box-shadow: 0 3px 3px 0px rgba(0,0,0,0.1);
 .header-sec-fixed #top-area-sec .top-area-sec {display: none;} 
 .header-sec-fixed #header-sec .w-header-search {display: none;}
 .header-sec-fixed #header-sec .header-sec {
--webkit-box-shadow: 0 3px 3px 0px rgba(0,0,0,0.1);
--moz-box-shadow: 0 3px 3px 0px rgba(0,0,0,0.1);
-box-shadow: 0 3px 3px 0px rgba(0,0,0,0.1);
+-webkit-box-shadow: 0 3px 7px 0px rgba(0,0,0,0.1);
+-moz-box-shadow: 0 3px 7px 0px rgba(0,0,0,0.1);
+box-shadow: 0 3px 7px 0px rgba(0,0,0,0.1);
+}
+.header-sec-fixed #header-sec {
+-webkit-box-shadow: 0 10px 20px 0px rgba(0,0,0,0.1);
+-moz-box-shadow: 0 10px 20px 0px rgba(0,0,0,0.1);
+box-shadow: 0 10px 20px 0px rgba(0,0,0,0.1);
 }
 
 /* ------------- 헤더 배경색상 */
 .o-bg-air {background-color: #288ecc !important;}
 .o-bg-hotel {background-color: #00b290 !important;}
-.o-bg-free {background-color: #c94c80 !important;}
-.o-bg-freetour {background-color: #7732a1 !important;}
+.o-bg-free {background-color: #c45190 !important;}
+.o-bg-freetour {background-color: #765cba !important;}
 
 /* ------------- 검색 영역 */
 .o-CHO-full .w-header-search {padding: 80px 0 40px 0;}
-.w-header-search {padding: 55px 0 40px 0;}
+.w-header-search {padding: 55px 0 40px 0;z-index: 1;}
 .w-header-search .ly-inner:after {content: '';display: block;clear:both;}
 .hs-search-menu:after {content: '';display: block;clear:both;}
 /* ------- 검색 메뉴 */
@@ -727,7 +755,7 @@ box-shadow: 7px 7px 13px 0px rgba(0,0,0,0.3);
 .hss-inner-cont .o-rentv .ui-date-calendar .uis-date-chkin {position: relative;}
 .hss-inner-cont .o-rentv .ui-date-calendar .txt-day {width: 300px;}
 .hss-inner-cont .o-rentv .ui-date-calendar .set-time {position: absolute;top: 13px;left: 120px;display: none;}
-.hss-inner-cont .o-rentv .ui-date-calendar .set-time .selectbox_title {width: 80px !important;}
+.hss-inner-cont .o-rentv .ui-date-calendar .set-time select {width: 80px;}
 .hss-inner-cont .o-rentv .ui-date-calendar .uis-date-chkout .set-time {left: 150px;}
 .hss-inner-cont .o-rentv .ui-date-calendar .set-time.on {display: block;}
 .hss-inner-cont .o-rentv .ui-mainsel-freetour {top: -10px;left: 0;}

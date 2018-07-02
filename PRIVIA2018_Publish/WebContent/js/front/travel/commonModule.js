@@ -6,8 +6,7 @@
 !function(a){"function"==typeof define&&define.amd?define(["jquery"],a):a("object"==typeof module&&module.exports?require("jquery"):jQuery)}(function(a){function b(b){var c={},d=/^jQuery\d+$/;return a.each(b.attributes,function(a,b){b.specified&&!d.test(b.name)&&(c[b.name]=b.value)}),c}function c(b,c){var d=this,f=a(this);if(d.value===f.attr(h?"placeholder-x":"placeholder")&&f.hasClass(n.customClass))if(d.value="",f.removeClass(n.customClass),f.data("placeholder-password")){if(f=f.hide().nextAll('input[type="password"]:first').show().attr("id",f.removeAttr("id").data("placeholder-id")),b===!0)return f[0].value=c,c;f.focus()}else d==e()&&d.select()}function d(d){var e,f=this,g=a(this),i=f.id;if(!d||"blur"!==d.type||!g.hasClass(n.customClass))if(""===f.value){if("password"===f.type){if(!g.data("placeholder-textinput")){try{e=g.clone().prop({type:"text"})}catch(j){e=a("<input>").attr(a.extend(b(this),{type:"text"}))}e.removeAttr("name").data({"placeholder-enabled":!0,"placeholder-password":g,"placeholder-id":i}).bind("focus.placeholder",c),g.data({"placeholder-textinput":e,"placeholder-id":i}).before(e)}f.value="",g=g.removeAttr("id").hide().prevAll('input[type="text"]:first').attr("id",g.data("placeholder-id")).show()}else{var k=g.data("placeholder-password");k&&(k[0].value="",g.attr("id",g.data("placeholder-id")).show().nextAll('input[type="password"]:last').hide().removeAttr("id"))}g.addClass(n.customClass),g[0].value=g.attr(h?"placeholder-x":"placeholder")}else g.removeClass(n.customClass)}function e(){try{return document.activeElement}catch(a){}}var f,g,h=!1,i="[object OperaMini]"===Object.prototype.toString.call(window.operamini),j="placeholder"in document.createElement("input")&&!i&&!h,k="placeholder"in document.createElement("textarea")&&!i&&!h,l=a.valHooks,m=a.propHooks,n={};j&&k?(g=a.fn.placeholder=function(){return this},g.input=!0,g.textarea=!0):(g=a.fn.placeholder=function(b){var e={customClass:"placeholder"};return n=a.extend({},e,b),this.filter((j?"textarea":":input")+"["+(h?"placeholder-x":"placeholder")+"]").not("."+n.customClass).not(":radio, :checkbox, [type=hidden]").bind({"focus.placeholder":c,"blur.placeholder":d}).data("placeholder-enabled",!0).trigger("blur.placeholder")},g.input=j,g.textarea=k,f={get:function(b){var c=a(b),d=c.data("placeholder-password");return d?d[0].value:c.data("placeholder-enabled")&&c.hasClass(n.customClass)?"":b.value},set:function(b,f){var g,h,i=a(b);return""!==f&&(g=i.data("placeholder-textinput"),h=i.data("placeholder-password"),g?(c.call(g[0],!0,f)||(b.value=f),g[0].value=f):h&&(c.call(b,!0,f)||(h[0].value=f),b.value=f)),i.data("placeholder-enabled")?(""===f?(b.value=f,b!=e()&&d.call(b)):(i.hasClass(n.customClass)&&c.call(b),b.value=f),i):(b.value=f,i)}},j||(l.input=f,m.value=f),k||(l.textarea=f,m.value=f),a(function(){a(document).delegate("form","submit.placeholder",function(){var b=a("."+n.customClass,this).each(function(){c.call(this,!0,"")});setTimeout(function(){b.each(d)},10)})}),a(window).bind("beforeunload.placeholder",function(){var b=!0;try{"javascript:void(0)"===document.activeElement.toString()&&(b=!1)}catch(c){}b&&a("."+n.customClass).each(function(){this.value=""})}))});
 
 /*
- * 함수명 : $.setCookie(), $.getCookie()
- * 설명   : jQuery cookie 메서드(priviaMainUI.js 사용하는 버전을 제이쿼리에 등록)
+ * 설명   : jQuery 메서드 모음
  * 사용처 : document.ready 구문에 실행함수 탑재
  * 작성자 : 권순환
  */
@@ -16,7 +15,7 @@
 		var today = new Date();
 		today.setDate( today.getDate() + expiredays );
 		document.cookie = name + "=" + escape( value ) + "; expires=" + today.toGMTString() + "; path=/";
-	};
+	}
 	$.getCookie = function (name) {
 		var dc = document.cookie;
 		var prefix = name + "=";
@@ -32,7 +31,65 @@
 			end = dc.length;
 		}
 		return unescape(dc.substring(begin + prefix.length, end));
-	};
+	}
+	$.fn.customCheckbox = function(){
+		return this.each(function(){
+			var $chk = $(this).find('[type="checkbox"]');
+			var $label = $(this).find('label');
+			//checked 유효체크
+			if($chk.prop('checked')){
+				$label.addClass('on');
+			}
+			else{
+				$label.removeClass('on');
+			}
+			
+			//disabled
+			if($chk.prop('disabled')){
+			   $(this).addClass('disabled');
+			}
+			
+			//label click
+			$label.on('click', function(){
+				if($(this).closest('.disabled').hasClass('disabled')){return;}
+				if($(this).hasClass('on')){
+					$(this).removeClass('on');
+				}
+				else{
+					$(this).addClass('on');
+				}
+			});
+		});
+	}
+	$.fn.customRadio = function(){
+		return this.each(function(){
+			var $chk = $(this).find('[type="radio"]');
+			var $label = $(this).find('label');
+			//checked 유효체크
+			if($chk.prop('checked')){
+				$label.addClass('on');
+			}
+			else{
+				$label.removeClass('on');
+			}
+			
+			//disabled
+			if($chk.prop('disabled')){
+			   $(this).addClass('disabled');
+			}
+			
+			//label click
+			$label.on('click', function(){
+				if($(this).closest('.disabled').hasClass('disabled')){return;}
+				if($(this).hasClass('on')){
+					$(this).removeClass('on');
+				}
+				else{
+					$(this).addClass('on');
+				}
+			});
+		});
+	}
 }(window.jQuery, window, document));
 
 /*
@@ -93,7 +150,7 @@ function onHeaderPromRoll(){
  * 작성자 : 권순환
  */
 function CHOScrollEvent(){
-	var $CHO, scTop, isFix = false, scUTarget;
+	var $CHO, scTop, isFix = false, isHs = false, headerSearchH, scUTarget;
 	$CHO = $('.commonHeaderObject');
 	
 	//fixed 모드에서 스크롤시 초기화
@@ -106,9 +163,27 @@ function CHOScrollEvent(){
 		}
 
 		//검색영역
-		if($('.header-sec-fixed #header-sec .w-header-search').css('display') == 'block'){
+		if($('.header-sec-fixed #header-sec .w-header-search').css('display') == 'block' && isHs == true){
+			isHs = false;
+			//console.log('isFixed() = ', $('.w-header-search').height());
+			if(headerSearchH != $('.w-header-search').height()){
+				var h = $('.commonHeaderObject').height() + ($('.w-header-search').height() - headerSearchH);
+				$('.commonHeaderObject').height(h);
+				//console.log('commonHeaderObject = ', h);
+			}
 			$('.header-sec-fixed #header-sec .w-header-search').slideUp('fast');
 		}
+		
+		//전체메뉴
+		if($('.header-sec-fixed .w-nav-gnb-total').css('display') == 'block'){
+			$('.header-sec-fixed .w-nav-gnb-total').slideUp('fast');
+			$('.w-header-gnb .nav-gnb .b-total-nav > a.on').removeClass('on');
+		}
+		
+		//console.log(1, $('.commonHeaderObject').height(), $('.w-header-search').height());
+		/*var h = $('.commonHeaderObject').height() + ($('.commonHeaderObject').height() - $('.w-header-search').height());
+		$('.commonHeaderObject').height(h);*/
+		//console.log(2, $('.commonHeaderObject').height());
 	}
 	
 	function pos(){
@@ -121,9 +196,11 @@ function CHOScrollEvent(){
 		else{
 			scUTarget = $CHO.offset().top + $CHO.height();
 			
-			//fixed 모드
+			//fixed 모드 시작
 			if(scUTarget < scTop && isFix == false){
 				//fixed, height 설정
+				headerSearchH = $('.w-header-search').height();
+				//console.log('fixed = ', $('.w-header-search').height());
 				$('.commonHeaderObject').height($('.commonHeaderObject').height());
 				$('.commonHeaderObject .o-CHO-inner').addClass('header-sec-fixed');
 				$('.commonHeaderObject .o-CHO-inner').hide();
@@ -135,11 +212,23 @@ function CHOScrollEvent(){
 
 				//검색영역
 				$('.header-sec-fixed #header-sec .w-header-search').hide();
+				
+				//전체메뉴
+				if($('.w-nav-gnb-total').css('display') == 'block'){
+					$('.w-nav-gnb-total').slideUp('fast');
+					$('.w-header-gnb .nav-gnb .b-total-nav > a.on').removeClass('on');
+				}
+				
+				//검색팝업
+				if($('.sc-ui-search-box.on').length > 0){
+					$('.sc-ui-search-box.on').removeClass('on');
+				}
 
 				isFix = true;
+				isHs = true;
 			}
 
-			//relative 모드
+			//fixed 해제(relative 모드)
 			if(scUTarget > scTop && isFix == true){
 				//fixed, height 제거
 				$('.commonHeaderObject').height('auto');
@@ -158,7 +247,7 @@ function CHOScrollEvent(){
 				isFix = false;
 			}
 
-			//fixed 모드가 아니고 스크롤시 초기화
+			//frelative 모드 스크롤시 초기화
 			if(!isFix){
 				//리본
 				if($('#top-area-sec .top-area-sec .tasp-list').hasClass('on')){
@@ -167,7 +256,7 @@ function CHOScrollEvent(){
 				}
 			}
 
-			//fixed 모드에서 스크롤시 최기화
+			//fixed 모드에서 스크롤시 초기화
 			if(isFix){
 				isFixed();
 			}		
@@ -186,6 +275,7 @@ function CHOScrollEvent(){
  */
 function comHeaderControl(){
 	if($('.commonHeaderObject').length > 0){
+		//----------------------------- 리본
 		//리본 프로모션 닫기
 		$('.w-header-util .hu-control .b-crt.bc-close a').on('click', function(e){
 			//안쪽 부터 탐색
@@ -240,7 +330,8 @@ function comHeaderControl(){
 			}
 			e.preventDefault();
 		});
-			
+		
+		//----------------------------- 하단 프로모션
 		//하단 프로모션
 		if($('.w-mobile-promotion').length > 0){
 			$('.w-mobile-promotion .b-open').on('click', function(e){
@@ -253,6 +344,7 @@ function comHeaderControl(){
 			});
 		}
 		
+		//-------------------- 롤링
 		//공지사항 롤링
 		$('.w-header-util .hu-notice .list').slick({
 			draggable: false,
@@ -266,11 +358,12 @@ function comHeaderControl(){
 		
 		//기획전 롤링
 		onHeaderPromRoll(); 
-		
-		//헤더 퀵모드 검색영역 열기
-		$('.w-header-gnb .b-open-search button').on('click', function(){
-			$('.header-sec-fixed #header-sec .w-header-search').slideDown('fast');
-		});
+			
+		//----------------------------- gnb
+		//gnb 해외패키지 2뎁스 배경
+		if($('.w-header-gnb .nav-gnb #n-gnb-pkg .on').length > 0){
+			$('.w-header-gnb').addClass('is2dep');
+		}
 		
 		//gnb 전체메뉴 열고 닫기
 		$('.w-header-gnb .nav-gnb .b-total-nav > a').on('click', function(e){
@@ -285,16 +378,29 @@ function comHeaderControl(){
 			e.preventDefault();
 		});
 		
+		//헤더 퀵모드 검색버튼 click
+		if($('.w-header-gnb .b-open-search').length > 0){
+			$('.w-header-gnb .b-open-search button').on('click', function(){
+				if($('.header-sec-fixed #header-sec .w-header-search').css('display') == 'block'){
+				   $('.header-sec-fixed #header-sec .w-header-search').slideUp('fast');
+				}
+				else{
+				   $('.header-sec-fixed #header-sec .w-header-search').slideDown('fast');
+				}
+			});
+		}
+		
+		//----------------------------- commonHeaderObject
 		//헤더 타입에 따른 설정
-		//o-CHO-quick
+		//헤더 퀵모드
 		if($('.commonHeaderObject').hasClass('o-CHO-quick')){
 			$('.commonHeaderObject .o-CHO-inner').addClass('header-sec-fixed');
 		}
 		
-		//o-CHO-full
+		//헤더 풀버전
 		if($('.commonHeaderObject').hasClass('o-CHO-full')){
 			$('#top-area-sec .top-area-sec').addClass('on'); // 상단 리본 1단계 오픈
-		}		
+		}	
 		
 		//공통 헤더 스크롤 이벤트
 		CHOScrollEvent();		
@@ -309,35 +415,20 @@ function comHeaderControl(){
  * document ready시 실행함수모음(공통)
  */
 $(function(){	
-	//placeholder 공통(IE9 이하 부터 실행)
-	if($('.input-base').length > 0){$('.input-base').placeholder();}
-	//체크박스 공통
-	if($('.chk-base').length > 0){
-		$('.chk-base').each(function(){
-			//checked 유효체크
-			if($(this).find('[type="checkbox"]').prop('checked')){
-				$(this).find('label').addClass('on');
-			}
-			else{
-				$(this).find('label').removeClass('on');
-			}
-			//label click
-			$(this).find('label').on('click', function(){
-				if($(this).hasClass('on')){
-					$(this).removeClass('on');
-				}
-				else{
-					$(this).addClass('on');
-				}
-			});
-		});
-	}
+	//placeholder(공통 - IE9 이하 부터 실행)
+	$('.input-base').placeholder();
 	
-	/*fakeselect.initialize({
-		title : {classname : 'select-base selectbox_title'}
-	});	*/
+	//체크박스(공통)
+	$('.chk-base').customCheckbox();
 	
-	//comHeaderControl(); //commonModuleHeader.js 에서 실행
+	//라디오버튼(공통)
+	$('.radio-base').customRadio();
+	
+	//셀렉트박스(공통)
+	$('.select-base').fakeselect();
+	
+	//commonModuleHeader.js 에서 실행
+	//comHeaderControl(); 
 });
 
 

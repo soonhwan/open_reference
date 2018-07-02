@@ -53,7 +53,7 @@ $(function(){
 	comGbnInit();
 });
 
-//헤더 셋팅
+//헤더 타입 셋팅
 function settingHeaderType(headerType){
 	var _headerType = headerType ? headerType : HEADER_TYPE;
 	
@@ -72,7 +72,7 @@ function settingHeaderType(headerType){
 	comHeaderControl(); //공통 헤더 컨트롤(헤더 스크롤 이벤트, 기획전롤링) commonModule.js 
 }
 
-//검색 셋팅
+//검색 타입 셋팅
 function showSearchTap(searchCode){
 	var _searchCode = searchCode ? searchCode : QUICK_CODE;
 	switch (_searchCode) {
@@ -159,7 +159,7 @@ function comSearchEvent(){
 	//document 클릭시 옵션 팝업 닫힘
 	$(document).on('mousedown', function(e){
 		//fakeselect
-		if($(e.target).closest(".selectbox_option").length > 0){
+		if($(e.target).closest(".select-base").length > 0){
 			return;
 		}
 		else{
@@ -217,7 +217,7 @@ function comSearchAir(){
 	}
 	
 	//출발, 도착 도시 팝업
-	$('.sc-air .qsb-places .qsb-area').on('click', function(e){
+	$('.sc-air [data-qsb-area="mainsel"]').on('click', function(e){
 		//position
 		var $p = $(this).closest('.hss-inner-cont').find('.ui-mainsel-air');
 		$p.position({
@@ -374,7 +374,7 @@ function comSearchAir(){
 	}
 	
 	//인원, 좌석등급 팝업
-	$('.sc-air .qsb-capacity .qsb-area').on('click', function(e){
+	$('.sc-air [data-qsb-area="capacity"]').on('click', function(e){
 		//position
 		$(this).closest('.hss-inner-cont').find('.ui-capacity').position({
 			my: 'left-30 top-32',
@@ -470,7 +470,7 @@ function comSearchAir(){
 	
 	//+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ 캘린더
 	//캘린더 팝업
-	$('.sc-air .qsb-dates .qsb-area').on('click', function(e){
+	$('.sc-air [data-qsb-area="calendar"]').on('click', function(e){
 		//position
 		$(this).closest('.w-qsb-cont').find('.ui-date-calendar').addClass('on');
 		e.preventDefault();
@@ -859,7 +859,7 @@ function comSearchHotel(){
 	}
 		
 	//목적지 팝업
-	$('.sc-hotel .qsb-places .qsb-area').on('click', function(e){
+	$('.sc-hotel [data-qsb-area="mainsel"]').on('click', function(e){
 		var $p = $(this).closest('.w-qsb-cont').find('.ui-mainsel-hotel')
 		$p.position({
 			my: 'left top-10',
@@ -1022,7 +1022,7 @@ function comSearchHotel(){
 	}
 	
 	//객실타입, 객실수 팝업
-	$('.sc-hotel .qsb-capacity .qsb-area').on('click', function(e){
+	$('.sc-hotel [data-qsb-area="capacity"]').on('click', function(e){
 		//position
 		$(this).closest('.hss-inner-cont').find('.ui-capacity').position({
 			my: 'left-30 top-32',
@@ -1113,7 +1113,7 @@ function comSearchHotel(){
 	
 	//+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ 캘린더
 	//캘린더 팝업
-	$('.sc-hotel .qsb-dates .qsb-area').on('click', function(e){
+	$('.sc-hotel [data-qsb-area="calendar"]').on('click', function(e){
 		//position
 		/*$(this).closest('.hss-inner-cont').find('.ui-date-calendar').position({
 			my: 'left-70 top-42',
@@ -1388,22 +1388,22 @@ function comSearchFree(){
 	var $currentSelect = null; // select 저장
 	
 	//프리미엄 에어텔 보기 click 팝업
-	$('.hss-inner-cont .o-airtel .sel-cus-airtel').on('click', function(e){
+	$('.sc-free [data-qsb-area="mainsel"]').on('click', function(e){
 		var $p;
 		$p = $(this).closest('.hss-inner-cont').find('.ui-mainsel-airtel').addClass('on');
 		e.preventDefault();
 	});
 	
 	//select click 팝업
-	$('.sc-free .qsb-select .qsb-area').on('click', function(e){
+	$('.sc-free [data-qsb-sel]').on('click', function(e){
 		//position
-		var $sel = $(this).data('sel');
+		var $sel = $(this).data('qsb-sel');
 		var $p = $(this).closest('.hss-inner-cont').find('.'+$sel);
 		$p.position({
-			my: 'left-30 top-42',
+			my: 'left top-12',
 			at: 'left top',
 			collision: 'none',
-			of: $(this)
+			of: $(this).closest('.qsb-select')
 		}).addClass('on');
 		
 		//places 저장
@@ -1449,7 +1449,7 @@ function comSearchFreetour(){
 	}
 	
 	//대여, 반납 도시 팝업
-	$('.sc-freetour .qsb-places .qsb-area').on('click', function(e){
+	$('.sc-freetour [data-qsb-area="mainsel"]').on('click', function(e){
 		//position
 		var $p = $(this).closest('.w-qsb-cont').find('.ui-mainsel-freetour');
 		$p.position({
@@ -1605,7 +1605,7 @@ function comSearchFreetour(){
 	}
 	
 	//인원, 테마 팝업
-	$('.sc-freetour .qsb-capacity .qsb-area').on('click', function(e){
+	$('.sc-freetour [data-qsb-area="capacity"]').on('click', function(e){
 		//position
 		var $p = $(this).closest('.w-qsb-cont').find('.ui-capacity');
 		if($p.length <= 0){
@@ -1727,15 +1727,15 @@ function comSearchFreetour(){
 	});
 	
 	//select click 팝업
-	$('.sc-freetour .qsb-select .qsb-area').on('click', function(e){
+	$('.sc-freetour [data-qsb-sel]').on('click', function(e){
 		//position
-		var $sel = $(this).data('sel');
+		var $sel = $(this).data('qsb-sel');
 		var $p = $(this).closest('.hss-inner-cont').find('.'+$sel);
 		$p.position({
-			my: 'left-30 top-42',
+			my: 'left top-12',
 			at: 'left top',
 			collision: 'none',
-			of: $(this)
+			of: $(this).closest('.qsb-select')
 		}).addClass('on');
 		
 		//places 저장
@@ -1760,7 +1760,7 @@ function comSearchFreetour(){
 	
 	//+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ 캘린더
 	//캘린더 팝업
-	$('.sc-freetour .qsb-dates .qsb-area').on('click', function(e){
+	$('.sc-freetour [data-qsb-area="calendar"]').on('click', function(e){
 		//position
 		$(this).closest('.w-qsb-cont').find('.ui-date-calendar').addClass('on');
 		e.preventDefault();
@@ -1963,20 +1963,36 @@ function comSearchInit(){
 	comSearchFreetour();
 	
 	//캘린더 참고 (priviaMainUI.js 기반 -> var holidays, $.datepicker.regional['ko'] = {}, checkMobile())
-	$('.uis-datepicker').find(".ui-state-active").removeClass("ui-state-active"); //캘린더 today 제거
+	$('.sc-ui-search-box .uis-datepicker').find(".ui-state-active").removeClass("ui-state-active"); //캘린더 today 제거
 	
-	//헤더타입
+	//헤더 타입 셋팅
 	if (HEADER_TYPE == null || HEADER_TYPE == "") {
 		HEADER_TYPE = null;
 	}	
 	settingHeaderType(HEADER_TYPE);
 	
 	
-	
+	//검색 타입 셋팅
 	if (QUICK_CODE == null || QUICK_CODE == "") {
 		QUICK_CODE = null;
 	}	
 	showSearchTap(QUICK_CODE);
+}
+
+//GNB초기화
+function comGbnInit(){
+	if (navData) {
+
+		$("#gnb-nav > li").each(function () {
+
+			var gnbKey = $(this).attr("id");
+
+			gnbKey = gnbKey.replace(/gnb-item-/g, "");
+
+			var aTag = $(this).find("a:first");
+			aTag.attr("href", navData[gnbKey].link);
+		});
+	}
 }
 
 //GNB활성화
@@ -1996,9 +2012,11 @@ function comGbnFocus(){
 			break;
 		case GNB_CODE_PACKAGE:
 			$("#n-gnb-pkg").addClass("on");
+			$('.w-header-gnb .b-open-search').remove(); //퀵모드 검색버튼 삭제
 			break;
 		case GNB_CODE_DOMESTIC:
-			$("#n-gnb-domestic").addClass("on");
+			$("#n-gnb-domestic").addClass("on"); 
+			$('.w-header-gnb .b-open-search').remove(); //퀵모드 검색버튼 삭제
 			break;
 		case GNB_CODE_PROMOTION:
 			$("#n-gnb-promotion").addClass("on");
@@ -2007,7 +2025,3 @@ function comGbnFocus(){
 	
 }
 
-//GNB초기화
-function comGbnInit(){
-	
-}
