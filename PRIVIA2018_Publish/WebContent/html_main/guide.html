@@ -7,12 +7,12 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge"> 
 <title>PRIVIA 여행</title> 
 <link rel="shortcut icon" type="image/x-icon" href="//static.priviatravel.com/images/front/travel/favicon.ico"> 
-<link type="text/css" rel="stylesheet" href="//static.priviatravel.com/css/front/travel/base.css"> 
+<link type="text/css" rel="stylesheet" href="/css/front/travel/base.css"> 
 <link type="text/css" rel="stylesheet" href="/css/front/travel/commonModule.css" /> <!-- 프비 리뉴얼 css -->
-<script type="text/javascript" src="//static.priviatravel.com/js/front/travel/jquery-1.8.3.min.js"></script> 
-<script type="text/javascript" src="//static.priviatravel.com/js/front/travel/jquery-ui.js"></script> 
-<script type="text/javascript" src="//static.priviatravel.com/js/front/travel/jquery.mCustomScrollbar.concat.min.js"></script> 
-<script type="text/javascript" src="//static.priviatravel.com/js/front/travel/fakeselect.js"></script> 
+<script type="text/javascript" src="/js/front/travel/jquery-1.8.3.min.js"></script> 
+<script type="text/javascript" src="/js/front/travel/jquery-ui.js"></script> 
+<script type="text/javascript" src="/js/front/travel/jquery.mCustomScrollbar.concat.min.js"></script> 
+<script type="text/javascript" src="/js/front/travel/fakeselect.js"></script> 
 <script type="text/javascript" src="/js/front/travel/slick.min.js"></script> <!-- 프비 리뉴얼 js -->
 <script type="text/javascript" src="/js/front/travel/commonModule.js"></script> <!-- 프비 리뉴얼 js -->
 <style>
@@ -134,16 +134,14 @@
 			</div>
 		</div>
 		<div class="guide-box">
-			<h2 class="tit">select 1 (fakeselect.js 기반)</h2>
+			<h2 class="tit">select 1 (fakeselect.js <- fakeselect jquery 버전 추가)</h2>
 			<div class="gb-inner">
-				<span class="select-base">
-					<select class="sb-opt" style="width:80px">
-						<option value="10" chacked>10시</option>
-						<option value="11">11시</option>
-						<option value="12">12시</option>
-						<option value="13">13시</option>
-					</select>
-				</span>
+				<select class="select-base" style="width:80px">
+					<option value="10" chacked>10시</option>
+					<option value="11">11시</option>
+					<option value="12">12시</option>
+					<option value="13">13시</option>
+				</select>
 			</div>
 		</div>
 	</div>
