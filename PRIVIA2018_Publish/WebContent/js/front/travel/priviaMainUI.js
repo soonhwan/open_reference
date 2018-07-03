@@ -1396,18 +1396,18 @@ var showTab = function(tabName,contId,num){
  * document ready시 실행함수모음
  */
 $(function(){
-	formHasValueBg()
+	//formHasValueBg()
 	if(iosCheck() == false){$("html").addClass("no_ios_device");}  // ios check	
-	minMaxTopBanner();                                             // 리본배너 확장/축소
-	closeTopBanner_rb();                                              // 리본배너 닫기(1일간열지않음 쿠키처리)
-	initGNB();                                                     // GNB 및 전체보기의 이벤트 핸들링
+	//minMaxTopBanner();                                             // 리본배너 확장/축소
+	//closeTopBanner_rb();                                              // 리본배너 닫기(1일간열지않음 쿠키처리)
+	//initGNB();                                                     // GNB 및 전체보기의 이벤트 핸들링
 	//lazyLoad();                                                    // 서브 프로모션(중배너,카드형배너), 쿠폰 프로모션의 이미지가 화면(뷰포트)에 등장하기 전 200px전에 로드시작
-	transFormIE7DisplayTable();                                    // IE7용으로서, display:table을 사용한 엘리먼트를 table td로 치환하여 보정
-	inputText.placeHolder();
-	initMytravel();                                                //마이트레블 영역 init
+	//transFormIE7DisplayTable();                                    // IE7용으로서, display:table을 사용한 엘리먼트를 table td로 치환하여 보정
+	//inputText.placeHolder();
+	//initMytravel();                                                //마이트레블 영역 init
 	lowIEVersion();												   //ie 버전체크
-	ribbonTrigger();											   //리본팝업 타이틀 자세히보기
-	mainRollCtrl();                                                //메인 프로모션 배너 컨트롤러 생성
+	//ribbonTrigger();											   //리본팝업 타이틀 자세히보기
+	//mainRollCtrl();                                                //메인 프로모션 배너 컨트롤러 생성
 	//seoTitle();                                                    //seo 정적페이지 title, description삽입
 	
 	//setBanner($('#main-promotion'), true, '2000', "right");        // 메인 프로모션 롤링

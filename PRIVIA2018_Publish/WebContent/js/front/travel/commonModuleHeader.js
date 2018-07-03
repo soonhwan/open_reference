@@ -152,7 +152,7 @@ function comSearchEvent(){
 		}			
 		//하단옵션
 		$('.hss-inner-cont-bottom .opt-box.on').removeClass('on');	
-		$('.hss-inner-cont-bottom .opt-box.o-'+code).addClass('on');
+		$('.hss-inner-cont-bottom .opt-box.ob-'+code).addClass('on');
 		e.preventDefault();
 	});	
 	
@@ -609,18 +609,19 @@ function comSearchAir(){
 	});
 	
 	//왕복 도착일 미정 체크
-	$('.opt-box.o-shuttle .chk-unday label').on('click', function(){
-		if($('.opt-box.o-shuttle #unDayAir').is(':checked')){
-			$('.opt-box.o-shuttle .uis-date-chkout').show();
+	$('.opt-box.ob-shuttle .chk-unday label').on('click', function(){
+		if($('.opt-box.ob-shuttle #unDayAir').is(':checked')){
+			$('.sc-air .o-shuttle .uis-date-chkout').show();
 		}
 		else{
 			$('.sc-air .o-shuttle .uis-date-chkout').hide();
 			if($('.sc-air .o-shuttle .uis-date-chkout .txt-day').hasClass('on')){
 				$('.sc-air .o-shuttle .uis-date-chkout .txt-day').removeClass('on');
-				$('.sc-air .o-shuttle .qsb-dates .qsb-chkout').text('');
 				$('.sc-air .o-shuttle .uis-date-chkout .txt-day').text('도착일을 선택해주세요.');
 				$('.sc-air .o-shuttle .uis-date-chkout [data-day]').data('day', '');
-				$('.sc-air .o-shuttle .uis-datepicker').datepicker('refresh').find(".ui-state-active").removeClass("ui-state-active");;	
+				$('.sc-air .o-shuttle .qsb-dates .qsb-chkout').text('');
+				$('.sc-air .o-shuttle .uis-datepicker').find(".ui-state-active").removeClass("ui-state-active");	
+				$('.sc-air .o-shuttle .uis-datepicker').datepicker('setDate', new Date($('.sc-air .o-shuttle .uis-date-chkin [data-day]').data('day')));
 			}
 		}
 	});
@@ -1539,8 +1540,8 @@ function comSearchFreetour(){
 	});
 	
 	//렌터카 대여/반납 장소 동일 체크
-	$('.opt-box.o-rentv .chk-area-same label').on('click', function(){
-		if($('.opt-box.o-rentv #areaSameRent').is(':checked')){
+	$('.opt-box.ob-rentv .chk-area-same label').on('click', function(){
+		if($('.opt-box.ob-rentv #areaSameRent').is(':checked')){
 			$('.sc-freetour .o-rentv .qsb-places').removeClass('area-same');
 		}
 		else{
@@ -2005,18 +2006,18 @@ function comGbnFocus(){
 			$("#n-gnb-hotel").addClass("on");
 			break;
 		case GNB_CODE_FREE:
-			$("#n-gnb-airtel").addClass("on");
+			$("#n-gnb-free").addClass("on");
 			break;
 		case GNB_CODE_DPRS:
-			$("#n-gnb-dprs").addClass("on");
+			$("#n-gnb-freetour").addClass("on");
 			break;
 		case GNB_CODE_PACKAGE:
 			$("#n-gnb-pkg").addClass("on");
-			$('.w-header-gnb .b-open-search').remove(); //퀵모드 검색버튼 삭제
+			$('.w-header-gnb .b-open-search').addClass('hide'); //퀵모드 검색버튼 숨김
 			break;
 		case GNB_CODE_DOMESTIC:
 			$("#n-gnb-domestic").addClass("on"); 
-			$('.w-header-gnb .b-open-search').remove(); //퀵모드 검색버튼 삭제
+			$('.w-header-gnb .b-open-search').addClass('hide'); //퀵모드 검색버튼 숨김
 			break;
 		case GNB_CODE_PROMOTION:
 			$("#n-gnb-promotion").addClass("on");

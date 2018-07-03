@@ -1254,9 +1254,11 @@ if(window.addEventListener){
 			if (top+titleheight+height > docheight+scrolltop) {
 				top = top-height+options[index].option.upperposition;
 				$currentoption.addClass(options[index].option.classname.upper);
+				$titles[index].addClass(options[index].option.classname.upper);
 			} else {
 				top = top+titleheight+options[index].option.position;
 				$currentoption.removeClass(options[index].option.classname.upper);
+				$titles[index].removeClass(options[index].option.classname.upper);
 			}
 
 			if (width > titlewidth && left+width > docwidth+scrollleft) {
