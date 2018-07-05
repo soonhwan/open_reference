@@ -72,35 +72,36 @@ function fakeselect(v){
 	var sels=document.getElementsByTagName('select');
     var selLength = sels.length;
     
+
 	for(var i=0,max=sels.length; i<max; i++){
-		if(!$(sels[i]).hasClass('select-base')){
+		if(!$(sels[i]).hasClass('sb-select')){
 			if(v.ignoreclassname && (new RegExp('\\b'+v.ignoreclassname+'\\b')).test(sels[i].className)) continue;
 			if(!v.targetclassname || (new RegExp('\\b'+v.targetclassname+'\\b')).test(sels[i].className)){
-				if(sels[i].multiple && !v.usemultiple) continue;
-				if(!sels[i].ac){
-					sels[i].ac=create(sels[i]);
-					sels[i].change=function(){
-						this.ac.ckdisable();
-						if(this.ac.opt){
-							if(this.selectedIndex < 0){
-								this.ac.tg.innerHTML=(this.options.length)? this.options[0].text : '';
-							}
-							else{
-								this.ac.tg.innerHTML=(this.options.length)? this.options[this.selectedIndex].text : '';
-							}
+			if(sels[i].multiple && !v.usemultiple) continue;
+			if(!sels[i].ac){
+				sels[i].ac=create(sels[i]);
+				sels[i].change=function(){
+					this.ac.ckdisable();
+					if(this.ac.opt){
+						if(this.selectedIndex < 0){
+							this.ac.tg.innerHTML=(this.options.length)? this.options[0].text : '';
 						}
-						else this.ac.setselected();
+						else{
+							this.ac.tg.innerHTML=(this.options.length)? this.options[this.selectedIndex].text : '';
+						}
 					}
-					sels[i].sf_change=sels[i].onchange;
-					sels[i].sf_mouseover=sels[i].onmouseover;
-					sels[i].sf_mouseout=sels[i].onmouseout;
-					sels[i].sf_click=sels[i].onclick;
-					sels[i].onchange=function(){
-						this.change();
-						if(this.sf_change) this.sf_change();
-					}
-				}else sels[i].reset();
-			}
+					else this.ac.setselected();
+				}
+				sels[i].sf_change=sels[i].onchange;
+				sels[i].sf_mouseover=sels[i].onmouseover;
+				sels[i].sf_mouseout=sels[i].onmouseout;
+				sels[i].sf_click=sels[i].onclick;
+				sels[i].onchange=function(){
+					this.change();
+					if(this.sf_change) this.sf_change();
+				}
+			}else sels[i].reset();
+		}
 		}
 	}
 
@@ -899,7 +900,6 @@ if(window.addEventListener){
 				hide: {duration: 100, complete: removeme}
 			};
 
-
 		$.fn.fakeselect = function(_option, value) {
 			if (!_option || $.isPlainObject(_option)) {
 				add(this, _option);
@@ -1001,6 +1001,7 @@ if(window.addEventListener){
 					.html(currentoptions.title.innerhtml)
 					.bind('mouseover mousemove mouseout mousedown mouseup mouseenter mouseleave', selectactiontotitle)
 					.click(ontitleclick)
+					.mouseout(ontitleleave)
 					.insertBefore($selects[currentindex]);
 
 				if ($selects[currentindex].css('display') == 'none') {
@@ -1016,7 +1017,8 @@ if(window.addEventListener){
 
 				$options[currentindex] = $('<'+ currentoptions.option.tagname +' class="'+ currentoptions.option.classname.base +'" '+ widthdataname +'="'+ ($selects[currentindex].attr(widthdataname) || (currentoptions.option.autowidth ? 'auto' : 0)) +'" '+ lengthdataname +'="'+ ($selects[currentindex].attr(lengthdataname) || currentoptions.option.maxlength) +'" />')
 					.css({position: 'absolute', zIndex: currentoptions.option.zindex})
-					.html(currentoptions.option.innerhtml);
+					.html(currentoptions.option.innerhtml)
+					.mouseout(ontitleleave);
 				$optioninners[currentindex] = getdeepestchild($options[currentindex]);
 
 				if (defaultclass) {
@@ -1107,6 +1109,16 @@ if(window.addEventListener){
 			} else if (keycode == 9 || keycode == 13 || keycode == 27) {
 				closeopenedoption();
 			}
+		}
+		
+		function ontitleleave(e){
+			var index = getindex(this);
+			console.log(index);
+			if (displayed[index]) {
+				optionclose(index);
+				return false;
+			}
+			return false;
 		}
 
 		function ontitleclick(e) {
@@ -1418,10 +1430,9 @@ if(window.addEventListener){
 
 		function checkreadonly(select) {
 			var index = getindex(select);
-			//제이쿼리 10버전 부터 적용됨 프비는 8버전이라 오류가 발생
-			/*if ($titles[index]) {
-				$titles[index][(select.getAttribute('readonly'))? 'addClass' : 'removeClass'](options[index].title.classname.readonly);
-			}*/
+			if ($titles[index]) {
+				//$titles[index][(select.getAttribute('readonly'))? 'addClass' : 'removeClass'](options[index].title.classname.readonly);
+			}
 		}
 
 		function getdeepestchild($target) {

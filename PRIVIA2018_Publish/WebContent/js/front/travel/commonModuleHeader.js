@@ -1,4 +1,419 @@
-var navData = {};
+var navData = {
+	"air": {
+		"link": "http://www.priviatravel.com/main/air/",
+		"title": "항공",
+		"subNavDisplayToGNB": true,
+		"subNav": [{
+			"link": "http://air.priviatravel.com/booking/findListSpcExhibition.lts?efcCodeList=RB0224&template_divn=A&efcCityCode=LAX",
+			"title": "아시아나항공 미주 SUMMER 특가",
+			"subNavDisplayToGNB": false,
+			"subNav": null,
+			"newWindow": false
+		}, {
+			"link": "https://www.priviatravel.com/promotion/sectionEvent/2281/",
+			"title": "대한항공 특별혜택",
+			"subNavDisplayToGNB": false,
+			"subNav": null,
+			"newWindow": false
+		}, {
+			"link": "http://www.priviatravel.com/promotion/sectionEvent/2309/",
+			"title": "프리미엄 클래스 특가",
+			"subNavDisplayToGNB": false,
+			"subNav": null,
+			"newWindow": false
+		}, {
+			"link": "http://www.priviatravel.com/promotion/sectionEvent/1879/",
+			"title": "특별 할인 지역전용관",
+			"subNavDisplayToGNB": false,
+			"subNav": null,
+			"newWindow": false
+		}],
+		"newWindow": false
+	},
+	"hotel": {
+		"link": "http://www.priviatravel.com/main/hotel/",
+		"title": "호텔",
+		"subNavDisplayToGNB": true,
+		"subNav": [{
+			"link": "http://hotel.priviatravel.com/htl/bk/HtlSearchPromo.lts?phc_pmh_id=P0214HTL0821&template_divn=A",
+			"title": "해외호텔핫딜",
+			"subNavDisplayToGNB": false,
+			"subNav": null,
+			"newWindow": false
+		}, {
+			"link": "https://www.priviatravel.com/promotion/sectionEvent/2398/",
+			"title": "여름 쿠폰 1만원/ 5만원 /10만원",
+			"subNavDisplayToGNB": false,
+			"subNav": null,
+			"newWindow": false
+		}, {
+			"link": "http://hotel.priviatravel.com/htl/bk/HtlSearchPromo.lts?phc_pmh_id=P0518HTL0019144&template_divn=A",
+			"title": "일본 소도시 5% 할인 쿠폰",
+			"subNavDisplayToGNB": false,
+			"subNav": null,
+			"newWindow": false
+		}],
+		"newWindow": false
+	},
+	"free": {
+		"link": "http://www.priviatravel.com/main/free/",
+		"title": "자유여행",
+		"subNavDisplayToGNB": true,
+		"subNav": [{
+			"link": "http://www.priviatravel.com/promotion/sectionEvent/2350/",
+			"title": "조기 예약 10만원 쿠폰",
+			"subNavDisplayToGNB": false,
+			"subNav": null,
+			"newWindow": false
+		}, {
+			"link": "https://www.priviatravel.com/promotion/sectionEvent/2401/",
+			"title": "홍콩 자유여행 특별 혜택",
+			"subNavDisplayToGNB": false,
+			"subNav": null,
+			"newWindow": false
+		}, {
+			"link": "https://www.priviatravel.com/promotion/sectionEvent/2076/",
+			"title": "올 인크루시브 괌",
+			"subNavDisplayToGNB": false,
+			"subNav": null,
+			"newWindow": false
+		}, {
+			"link": "http://airtel.priviatravel.com/dprs/fr/realtime/rcdCityList.lts?par_cat_id=8875",
+			"title": "프리미엄 에어텔",
+			"subNavDisplayToGNB": false,
+			"subNav": null,
+			"newWindow": false
+		}],
+		"newWindow": false
+	},
+	"freetour": {
+		"link": "http://airtel.priviatravel.com/dprs/fr/freetour/freeTour.lts",
+		"title": "투어&액티비티",
+		"subNavDisplayToGNB": true,
+		"subNav": [{
+			"link": "https://www.priviatravel.com/promotion/sectionEvent/2343/",
+			"title": "렌터카(해외, 국내) 할인",
+			"subNavDisplayToGNB": false,
+			"subNav": null,
+			"newWindow": false
+		}, {
+			"link": "https://www.priviatravel.com/promotion/sectionEvent/2297/",
+			"title": "유럽 유레일 할인",
+			"subNavDisplayToGNB": false,
+			"subNav": null,
+			"newWindow": false
+		}, {
+			"link": "https://www.priviatravel.com/promotion/sectionEvent/2340/",
+			"title": "다낭 현지투어 할인",
+			"subNavDisplayToGNB": false,
+			"subNav": null,
+			"newWindow": false
+		}, {
+			"link": "https://www.priviatravel.com/promotion/sectionEvent/1759/",
+			"title": "해외 여행자 보험",
+			"subNavDisplayToGNB": false,
+			"subNav": null,
+			"newWindow": false
+		}, {
+			"link": "http://travel.maaltalk.com/id/privia",
+			"title": "포켓WI-FI / 해외유심",
+			"subNavDisplayToGNB": false,
+			"subNav": null,
+			"newWindow": false
+		}],
+		"newWindow": false
+	},
+	"pkg": {
+		"link": "http://package.priviatravel.com/pkgRenewal/",
+		"title": "해외패키지",
+		"subNavDisplayToGNB": false,
+		"subNav": [{
+			"link": "http://package.priviatravel.com/pkgRenewal/sectionRecommend?regncd=A",
+			"title": "동남아",
+			"subNavDisplayToGNB": false,
+			"subNav": null,
+			"newWindow": false
+		}, {
+			"link": "http://package.priviatravel.com/pkgRenewal/sectionRecommend?regncd=C",
+			"title": "홍콩/중국",
+			"subNavDisplayToGNB": false,
+			"subNav": null,
+			"newWindow": false
+		}, {
+			"link": "http://package.priviatravel.com/pkgRenewal/sectionRecommend?regncd=J",
+			"title": "일본",
+			"subNavDisplayToGNB": false,
+			"subNav": null,
+			"newWindow": false
+		}, {
+			"link": "http://package.priviatravel.com/pkgRenewal/sectionRecommend?regncd=P",
+			"title": "남태평양",
+			"subNavDisplayToGNB": false,
+			"subNav": null,
+			"newWindow": false
+		}, {
+			"link": "http://package.priviatravel.com/pkgRenewal/sectionRecommend?regncd=E",
+			"title": "유럽",
+			"subNavDisplayToGNB": false,
+			"subNav": null,
+			"newWindow": false
+		}, {
+			"link": "http://package.priviatravel.com/pkgRenewal/sectionRecommend?regncd=H",
+			"title": "미주/하와이",
+			"subNavDisplayToGNB": false,
+			"subNav": null,
+			"newWindow": false
+		}, {
+			"link": "http://package.priviatravel.com/pkgRenewal/themaTreavelJaGoods",
+			"title": "테마여행",
+			"subNavDisplayToGNB": false,
+			"subNav": null,
+			"newWindow": false
+		}],
+		"newWindow": false
+	},
+	"domestic": {
+		"link": "http://domestic.priviatravel.com/domestic/",
+		"title": "국내여행",
+		"subNavDisplayToGNB": true,
+		"subNav": [{
+			"link": "http://www.priviatravel.com/promotion/sectionEvent/2301/",
+			"title": "제주호텔 2박 시 렌터카 무료",
+			"subNavDisplayToGNB": false,
+			"subNav": null,
+			"newWindow": false
+		}, {
+			"link": "http://domestic.priviatravel.com/domestic/promotion/htmlPlan?PROMOTION_SEQ=39",
+			"title": "남해 사우스 케이프 에어텔",
+			"subNavDisplayToGNB": false,
+			"subNav": null,
+			"newWindow": false
+		}, {
+			"link": "http://domestic.priviatravel.com/domestic/searchList?goodsCd=GOODS001&agencyCd=&travelType=AIRCARTEL",
+			"title": "제주도 에어텔",
+			"subNavDisplayToGNB": false,
+			"subNav": null,
+			"newWindow": false
+		}, {
+			"link": "https://www.priviatravel.com/promotion/sectionEvent/2441/",
+			"title": "국내숙박 1/2/3만원 할인 쿠폰",
+			"subNavDisplayToGNB": false,
+			"subNav": null,
+			"newWindow": false
+		}],
+		"newWindow": false
+	},
+	"promotion": {
+		"link": "http://www.priviatravel.com/promotion/promotionList",
+		"title": "기획전",
+		"subNavDisplayToGNB": false,
+		"subNav": [{
+			"link": "http://www.priviatravel.com/promotion/promotionList?recomDivn=AIR",
+			"title": "항공",
+			"subNavDisplayToGNB": false,
+			"subNav": null,
+			"newWindow": false
+		}, {
+			"link": "http://www.priviatravel.com/promotion/promotionList?recomDivn=HOTEL",
+			"title": "호텔",
+			"subNavDisplayToGNB": false,
+			"subNav": null,
+			"newWindow": false
+		}, {
+			"link": "http://www.priviatravel.com/promotion/promotionList?recomDivn=FREE",
+			"title": "자유여행",
+			"subNavDisplayToGNB": false,
+			"subNav": null,
+			"newWindow": false
+		}, {
+			"link": "http://www.priviatravel.com/promotion/promotionList?recomDivn=TAPROMO",
+			"title": "투어&액티비티",
+			"subNavDisplayToGNB": false,
+			"subNav": null,
+			"newWindow": false
+		}, {
+			"link": "http://www.priviatravel.com/promotion/promotionList?recomDivn=PACKAGE",
+			"title": "해외패키지",
+			"subNavDisplayToGNB": false,
+			"subNav": null,
+			"newWindow": false
+		}, {
+			"link": "http://www.priviatravel.com/promotion/promotionList?recomDivn=DOMESTIC ",
+			"title": "국내여행",
+			"subNavDisplayToGNB": false,
+			"subNav": null,
+			"newWindow": false
+		}],
+		"newWindow": false
+	},
+	"payment": {
+		"link": "http://www.priviatravel.com/etc/aboutPRIVIA",
+		"title": "혜택 및 서비스",
+		"subNavDisplayToGNB": false,
+		"subNav": [{
+			"link": "http://www.priviatravel.com/etc/aboutAIR",
+			"title": "항공",
+			"subNavDisplayToGNB": false,
+			"subNav": null,
+			"newWindow": false
+		}, {
+			"link": "http://www.priviatravel.com/etc/aboutHOTEL",
+			"title": "호텔",
+			"subNavDisplayToGNB": false,
+			"subNav": null,
+			"newWindow": false
+		}, {
+			"link": "http://www.priviatravel.com/etc/aboutAIRTEL",
+			"title": "자유여행",
+			"subNavDisplayToGNB": false,
+			"subNav": null,
+			"newWindow": false
+		}, {
+			"link": "http://www.priviatravel.com/etc/aboutDPRS",
+			"title": "투어&액티비티",
+			"subNavDisplayToGNB": false,
+			"subNav": null,
+			"newWindow": false
+		}, {
+			"link": "http://www.priviatravel.com/etc/aboutPKG",
+			"title": "해외패키지",
+			"subNavDisplayToGNB": false,
+			"subNav": null,
+			"newWindow": false
+		}, {
+			"link": "http://www.priviatravel.com/etc/aboutDOMESTIC",
+			"title": "국내여행",
+			"subNavDisplayToGNB": false,
+			"subNav": null,
+			"newWindow": false
+		}, {
+			"link": "http://www.priviatravel.com/etc/aboutPurpleVoucher",
+			"title": "the Purple 혜택",
+			"subNavDisplayToGNB": false,
+			"subNav": null,
+			"newWindow": false
+		}],
+		"newWindow": false
+	},
+	"customer": {
+		"link": "http://www.priviatravel.com/customer/main/counselMain",
+		"title": "고객센터",
+		"subNavDisplayToGNB": false,
+		"subNav": [{
+			"link": "http://www.priviatravel.com/noticefaq/noticeList",
+			"title": "공지사항",
+			"subNavDisplayToGNB": false,
+			"subNav": null,
+			"newWindow": false
+		}, {
+			"link": "http://www.priviatravel.com/noticefaq/faqList",
+			"title": "FAQ",
+			"subNavDisplayToGNB": false,
+			"subNav": null,
+			"newWindow": false
+		}, {
+			"link": "http://www.priviatravel.com/customer/inquire/form",
+			"title": "1:1문의",
+			"subNavDisplayToGNB": false,
+			"subNav": null,
+			"newWindow": false
+		}, {
+			"link": "http://www.priviatravel.com/customer/counsel/main",
+			"title": "해외맞춤여행",
+			"subNavDisplayToGNB": false,
+			"subNav": null,
+			"newWindow": false
+		}, {
+			"link": "http://www.priviatravel.com/customer/crop/main",
+			"title": "법인/단체여행",
+			"subNavDisplayToGNB": false,
+			"subNav": null,
+			"newWindow": false
+		}],
+		"newWindow": false
+	},
+	"mypage": {
+		"link": "https://www.priviatravel.com/mypage/index/reserve",
+		"title": "마이페이지",
+		"subNavDisplayToGNB": false,
+		"subNav": [{
+			"link": "http://www.priviatravel.com/mypage/index/reserve",
+			"title": "예약내역",
+			"subNavDisplayToGNB": false,
+			"subNav": null,
+			"newWindow": false
+		}, {
+			"link": "http://www.priviatravel.com/mypage/index/inquiry?menu=Inquiry",
+			"title": "1:1문의 내역",
+			"subNavDisplayToGNB": false,
+			"subNav": null,
+			"newWindow": false
+		}, {
+			"link": "http://www.priviatravel.com/mypage/index/counsel?menu=Counsel",
+			"title": "해외 맞춤여행 문의 내역",
+			"subNavDisplayToGNB": false,
+			"subNav": null,
+			"newWindow": false
+		}, {
+			"link": "http://www.priviatravel.com/mypage/index/benefit?menu=Coupon",
+			"title": "PRIVIA 쿠폰",
+			"subNavDisplayToGNB": false,
+			"subNav": null,
+			"newWindow": false
+		}, {
+			"link": "http://www.priviatravel.com/mypage/index/benefit?menu=Gift",
+			"title": "PRIVIA 이용권",
+			"subNavDisplayToGNB": false,
+			"subNav": null,
+			"newWindow": false
+		}, {
+			"link": "http://www.priviatravel.com/mypage/index/benefit?menu=Voucher",
+			"title": "the Purple Voucher",
+			"subNavDisplayToGNB": false,
+			"subNav": null,
+			"newWindow": false
+		}, {
+			"link": "http://www.priviatravel.com/mypage/index/benefit?menu=Reward",
+			"title": "the Purple 리워드 쿠폰",
+			"subNavDisplayToGNB": false,
+			"subNav": null,
+			"newWindow": false
+		}, {
+			"link": "http://www.priviatravel.com/mypage/index/benefit?menu=Discount",
+			"title": "현대카드 할인 혜택",
+			"subNavDisplayToGNB": false,
+			"subNav": null,
+			"newWindow": false
+		}, {
+			"link": "http://www.priviatravel.com/mypage/index/traveler?menu=Traveler",
+			"title": "나의 여행자 관리",
+			"subNavDisplayToGNB": false,
+			"subNav": null,
+			"newWindow": false
+		}, {
+			"link": "http://www.priviatravel.com/mypage/index/member?menu=Member",
+			"title": "회원정보변경",
+			"subNavDisplayToGNB": false,
+			"subNav": null,
+			"newWindow": false
+		}],
+		"newWindow": false
+	},
+	"about": {
+		"link": "http://www.priviatravel.com/etc/aboutPriviaTab",
+		"title": "About PRIVIA 여행",
+		"subNavDisplayToGNB": false,
+		"subNav": [],
+		"newWindow": false
+	},
+	"picks": {
+		"link": "http://www.priviatravel.com/special/main?seq=8",
+		"title": "현대카드 PICKS",
+		"subNavDisplayToGNB": false,
+		"subNav": [],
+		"newWindow": false
+	}
+};
 
 
 /**********************************************************************
@@ -8,7 +423,7 @@ var navData = {};
    2. 각 페이지 별로 아래의 상수를 이용하여 설정
    3. 샘플 
         <script type="text/javascript">
-            setActiveCode(QUICK_CODE_HOTEL, GNB_CODE_AIR);
+            setActiveCode(QUICK_CODE_AIR, GNB_CODE_AIR, HEADER_TYPE_SECTION);
         </script>
 **********************************************************************/
 var QUICK_CODE_AIR = "AIR";
@@ -34,7 +449,6 @@ var HEADER_TYPE_QUICK = "HEADER_QUICK";
 
 var QUICK_CODE = null;
 var GNB_CODE = null;
-
 var HEADER_TYPE = null;
 
 // 활성화
@@ -42,7 +456,6 @@ function setActiveSearch(searchCode, gnbCode, headerType) {
 
 	if (searchCode) QUICK_CODE = searchCode;
 	if (gnbCode) GNB_CODE = gnbCode;
-	
 	if (headerType) HEADER_TYPE = headerType;
 
 	comGbnFocus();
@@ -68,8 +481,6 @@ function settingHeaderType(headerType){
 			$('.commonHeaderObject').addClass('o-CHO-full');
 			
 	}
-	
-	comHeaderControl(); //공통 헤더 컨트롤(헤더 스크롤 이벤트, 기획전롤링) commonModule.js 
 }
 
 //검색 타입 셋팅
@@ -159,7 +570,7 @@ function comSearchEvent(){
 	//document 클릭시 옵션 팝업 닫힘
 	$(document).on('mousedown', function(e){
 		//fakeselect
-		if($(e.target).closest(".select-base").length > 0){
+		if($(e.target).closest(".select-option").length > 0){
 			return;
 		}
 		else{
@@ -289,10 +700,43 @@ function comSearchAir(){
 	$('.sc-air .b-change-places button').on('click', function(e){
 		var $exit = $(this).closest('.qsb-places').find('.places-exit .qsb-input');
 		var $entry = $(this).closest('.qsb-places').find('.places-entry .qsb-input');
-		var exitHtml = $exit.html();
-		var entryHtml = $entry.html();
-		$exit.html(entryHtml);
-		$entry.html(exitHtml);
+		var exitHtml = null, entryHtml = null;
+		
+		//출발
+		if($exit.closest('.qsb-area').hasClass('on')){
+			exitHtml = $exit.html();
+		}		
+		//도착
+		if($entry.closest('.qsb-area').hasClass('on')){
+			entryHtml = $entry.html();
+		}
+		
+		//출발 체인지
+		if(exitHtml){
+			if(!$entry.closest('.qsb-area').hasClass('on')){
+				$entry.closest('.qsb-area').addClass('on');
+			}
+			$entry.html(exitHtml);
+		}
+		else{
+			if($entry.closest('.qsb-area').hasClass('on')){
+				$entry.closest('.qsb-area').removeClass('on');
+			}
+		}
+		
+		//도착 체이지
+		if(entryHtml){
+			if(!$exit.closest('.qsb-area').hasClass('on')){
+				$exit.closest('.qsb-area').addClass('on');
+			}
+			$exit.html(entryHtml);
+		}
+		else{
+			if($exit.closest('.qsb-area').hasClass('on')){
+				$exit.closest('.qsb-area').removeClass('on');
+			}
+		}
+		
 		e.preventDefault();
 	});
 	
@@ -1962,8 +2406,6 @@ function comSearchInit(){
 	comSearchHotel();
 	comSearchFree();
 	comSearchFreetour();
-	
-	//캘린더 참고 (priviaMainUI.js 기반 -> var holidays, $.datepicker.regional['ko'] = {}, checkMobile())
 	$('.sc-ui-search-box .uis-datepicker').find(".ui-state-active").removeClass("ui-state-active"); //캘린더 today 제거
 	
 	//헤더 타입 셋팅
@@ -1984,14 +2426,17 @@ function comSearchInit(){
 function comGbnInit(){
 	if (navData) {
 
-		$("#gnb-nav > li").each(function () {
+		$("#nav-gnb > li").each(function () {
 
 			var gnbKey = $(this).attr("id");
+			
+			if(gnbKey){
+				gnbKey = gnbKey.replace(/n-gnb-/g, "");
+				
+				var aTag = $(this).find("a:first");
 
-			gnbKey = gnbKey.replace(/gnb-item-/g, "");
-
-			var aTag = $(this).find("a:first");
-			aTag.attr("href", navData[gnbKey].link);
+				aTag.attr("href", navData[gnbKey].link);
+			}
 		});
 	}
 }
@@ -2013,11 +2458,9 @@ function comGbnFocus(){
 			break;
 		case GNB_CODE_PACKAGE:
 			$("#n-gnb-pkg").addClass("on");
-			$('.w-header-gnb .b-open-search').addClass('hide'); //퀵모드 검색버튼 숨김
 			break;
 		case GNB_CODE_DOMESTIC:
 			$("#n-gnb-domestic").addClass("on"); 
-			$('.w-header-gnb .b-open-search').addClass('hide'); //퀵모드 검색버튼 숨김
 			break;
 		case GNB_CODE_PROMOTION:
 			$("#n-gnb-promotion").addClass("on");
