@@ -821,7 +821,7 @@ function comSearchAir(){
 	$('.sc-air [data-qsb-area="capacity"]').on('click', function(e){
 		//position
 		$(this).closest('.hss-inner-cont').find('.ui-capacity').position({
-			my: 'left-30 top-32',
+			my: 'left-31 top-32',
 			at: 'left top',
 			collision: 'none',
 			of: $(this)
@@ -1470,7 +1470,7 @@ function comSearchHotel(){
 	$('.sc-hotel [data-qsb-area="capacity"]').on('click', function(e){
 		//position
 		$(this).closest('.hss-inner-cont').find('.ui-capacity').position({
-			my: 'left-30 top-32',
+			my: 'left-31 top-32',
 			at: 'left top',
 			collision: 'none',
 			of: $(this)
@@ -2058,7 +2058,7 @@ function comSearchFreetour(){
 		}
 		
 		$p.position({
-			my: 'left-30 top-32',
+			my: 'left-31 top-32',
 			at: 'left top',
 			collision: 'none',
 			of: $(this)
