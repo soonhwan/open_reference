@@ -748,7 +748,7 @@ function comSearchAir(){
 		var adtCnt = parseInt($('.sc-air .global-ui-capacity .uis-capacity-number .num-adt').text()); //성인
 		var chdCnt = parseInt($('.sc-air .global-ui-capacity .uis-capacity-number .num-chd').text()); //아동
 		var infCnt = parseInt($('.sc-air .global-ui-capacity .uis-capacity-number .num-inf').text()); //유아
-		console.log('setCapacity click = ', cType, cAction, adtCnt, chdCnt, infCnt);
+		//console.log('setCapacity click = ', cType, cAction, adtCnt, chdCnt, infCnt);
 		
 		//성인
 		if(cType == 'adt'){
@@ -835,7 +835,7 @@ function comSearchAir(){
 		var chd = $currenCapacity.find('[data-chd]').data('chd'); //아동
 		var inf = $currenCapacity.find('[data-inf]').data('inf'); //유아
 		var comp = $currenCapacity.find('[data-comp]').data('comp'); //좌석
-		console.log('가져오기 = ', adt, chd, inf, comp);
+		//console.log('가져오기 = ', adt, chd, inf, comp);
 		
 		//셋팅
 		if(adt > 0){$('.sc-air .uis-capacity-number .num-adt').addClass('on');} 
@@ -896,7 +896,7 @@ function comSearchAir(){
 		var infCnt = parseInt($('.sc-air .global-ui-capacity .uis-capacity-number .num-inf').text()); //유아
 		var comp = $('.sc-air .global-ui-capacity  .select-comp li.on a').text(); //좌석
 		var compOpt = $('.sc-air .global-ui-capacity  .select-comp li.on a').data('option');
-		console.log('완료 = ', adtCnt, chdCnt, infCnt, adtCnt+chdCnt+infCnt, compOpt, comp);
+		//console.log('완료 = ', adtCnt, chdCnt, infCnt, adtCnt+chdCnt+infCnt, compOpt, comp);
 		
 		//input
 		$currenCapacity.find('[data-adt]').data('adt',adtCnt);
@@ -1225,7 +1225,7 @@ function comSearchAir(){
 		else{
 			var removeIdx = $(this).closest('li[class*="air-md-"].on').index();
 			var openTotal = $('.sc-air .o-multiway .list-qsb-cont li[class*="air-md-"].on').length;
-			console.log('삭제구간 = ', removeIdx+1, '노출된 총구간 = ', openTotal);
+			//console.log('삭제구간 = ', removeIdx+1, '노출된 총구간 = ', openTotal);
 									
 			//삭제구간 부터 데이터 초기화하고 한칸씩 옮김
 			$('.sc-air .o-multiway .list-qsb-cont li[class*="air-md-"].on').each(function(){
@@ -1371,7 +1371,7 @@ function comSearchHotel(){
 		var room2dCnt = parseInt($('.sc-hotel .global-ui-capacity .uis-capacity-number .num-room2d').text()); //2인실 더블
 		var room2tCnt = parseInt($('.sc-hotel .global-ui-capacity .uis-capacity-number .num-room2t').text()); //2인실 트윈
 		var room3Cnt = parseInt($('.sc-hotel .global-ui-capacity .uis-capacity-number .num-room3').text()); //3인실
-		console.log('setCapacity click = ', cType, cAction, room1Cnt, room2dCnt, room2tCnt, room3Cnt);
+		//console.log('setCapacity click = ', cType, cAction, room1Cnt, room2dCnt, room2tCnt, room3Cnt);
 		
 		//1인실
 		if(cType == 'room1'){
@@ -1484,7 +1484,7 @@ function comSearchHotel(){
 		var room2d = $currenCapacity.find('[data-room2d]').data('room2d'); //2인실 더블
 		var room2t = $currenCapacity.find('[data-room2t]').data('room2t'); //2인실 트윈
 		var room3 = $currenCapacity.find('[data-room3]').data('room3'); //3인실
-		console.log('가져오기 = ', room1, room2d, room2t, room3);
+		//console.log('가져오기 = ', room1, room2d, room2t, room3);
 		
 		//셋팅
 		if(room1 > 0){$('.sc-hotel .uis-capacity-number .num-room1').addClass('on');} 
@@ -1518,7 +1518,7 @@ function comSearchHotel(){
 		var room2tCnt = parseInt($('.sc-hotel .global-ui-capacity .uis-capacity-number .num-room2t').text()); //2인실 트윈
 		var room3Cnt = parseInt($('.sc-hotel .global-ui-capacity .uis-capacity-number .num-room3').text()); //3인실
 		var roomArr = [];
-		console.log('완료 = ', room1Cnt, room2dCnt, room2tCnt, room3Cnt);
+		//console.log('완료 = ', room1Cnt, room2dCnt, room2tCnt, room3Cnt);
 		
 		//input
 		$currenCapacity.find('[data-room1]').data('room1',room1Cnt);
@@ -2000,7 +2000,7 @@ function comSearchFreetour(){
 		var cAction = action;
 		var adtCnt = parseInt($('.sc-freetour .global-ui-capacity .uis-capacity-number .num-adt').text()); //성인
 		var chdCnt = parseInt($('.sc-freetour .global-ui-capacity .uis-capacity-number .num-chd').text()); //아동
-		console.log('setCapacity click = ', cType, cAction, adtCnt, chdCnt);
+		//console.log('setCapacity click = ', cType, cAction, adtCnt, chdCnt);
 		
 		//성인
 		if(cType == 'adt'){
@@ -2072,7 +2072,7 @@ function comSearchFreetour(){
 			//값 가져오기
 			var adt = $currenCapacity.find('[data-adt]').data('adt'); //성인
 			var chd = $currenCapacity.find('[data-chd]').data('chd'); //아동
-			console.log('가져오기 = ', adt, chd);
+			//console.log('가져오기 = ', adt, chd);
 
 			//셋팅
 			if(adt > 0){$('.sc-freetour .uis-capacity-number .num-adt').addClass('on');} 
@@ -2087,7 +2087,7 @@ function comSearchFreetour(){
 		if($currenCapacity.find('[data-chk]').length > 0){
 			//체크값 가져오기
 			var chk = $currenCapacity.find('[data-chk]').data('chk').split('-');
-			console.log('가져오기 = ', chk);
+			//console.log('가져오기 = ', chk);
 			$p.find('.uis-capacity-chk-list li [type="checkbox"]').prop('checked', false);
 			$p.find('.uis-capacity-chk-list li label').removeClass('on');
 			
@@ -2115,7 +2115,7 @@ function comSearchFreetour(){
 	$('.sc-freetour .global-ui-capacity .b-complete a').on('click', function(e){
 		var adtCnt = parseInt($('.sc-freetour .global-ui-capacity .uis-capacity-number .num-adt').text()); //성인
 		var chdCnt = parseInt($('.sc-freetour .global-ui-capacity .uis-capacity-number .num-chd').text()); //아동
-		console.log('완료 = ', adtCnt, chdCnt);
+		//console.log('완료 = ', adtCnt, chdCnt);
 		
 		//input
 		$currenCapacity.find('[data-adt]').data('adt',adtCnt);
@@ -2145,7 +2145,7 @@ function comSearchFreetour(){
 				dataArr.push('0');
 			}
 		});
-		console.log('완료 = ', dataArr.join('-'), listArr.join(', '));
+		//console.log('완료 = ', dataArr.join('-'), listArr.join(', '));
 		
 		if(listArr.length < 1){
 			if($currenCapacity.hasClass('on')){

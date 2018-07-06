@@ -1,0 +1,3956 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="ko" xml:lang="ko">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>현대카드 PRIVIA 패키지</title>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<link rel="stylesheet" type="text/css" href="/css/front/travel/reset.css" />
+<link rel="stylesheet" type="text/css" href="/css/front/travel/layout.css" />
+<link rel="stylesheet" type="text/css" href="/css/front/travel/globalUI.css" />
+<link rel="stylesheet" type="text/css" href="/css/front/travel/cross-common.css" />
+<link rel="stylesheet" type="text/css" href="/css/front/travel/pkg.css" />
+<link rel="stylesheet" type="text/css" href="//static.priviatravel.com/css/front/travel/jquery.mCustomScrollbar.min.css" /> 
+
+<style>select{height:auto}</style>
+<script type="text/javascript" src="/js/front/config.js"></script>
+<script type="text/javascript" src="/js/front/travel/jquery-1.8.3.min.js"></script>
+<script type="text/javascript" src="/js/front/travel/jquery-ui.js"></script>
+<script type="text/javascript" src="/js/front/travel/fakeselect.js"></script>
+<script type="text/javascript" src="//static.priviatravel.com/js/front/travel/jquery.mCustomScrollbar.concat.min.js"></script>
+<script type="text/javascript" src="/js/front/travel/cufon-yui.js"></script>
+<script type="text/javascript" src="/js/front/travel/ymhb_400.font.js"></script>
+<script type="text/javascript" src="/js/front/travel/ymhr_400.font.js"></script>
+<script type="text/javascript" src="//www.priviatravel.com/share/headerManager"></script> 
+<script type="text/javascript" src="/js/front/travel/ui.js"></script> 
+<script type="text/javascript" src="/js/front/travel/init.js"></script>
+
+<!-- start : time sale countdown에 필요한 CDN 스크립트 -->
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery-countdown/2.0.1/jquery.plugin.min.js"></script>
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery-countdown/2.0.1/jquery.countdown.min.js"></script>
+<!-- end : time sale countdown에 필요한 CDN 스크립트 -->
+<script type="text/javascript">
+function getServerTime() { 
+    var time = null; 
+    /* 개발자필독 : 실제 서비스에 부착시 클라이언트의 시간조작을 피하기 위해 서버의 현재시간을 가져와야 하기 때문에 아래와 같이 ajax로 현재시간을 가져와서 startCountDown함수에서 사용한다.
+    http://keith-wood.name/countdown.html의 플러그인을 썼으며, 개발자는 해당홈페이지의 Time Zones탭내용을 참조한다.
+    $.ajax({        
+        url: '/serverTime', //서버타임을 구해와아할 요청주소(개발요소) 
+        async: false, 
+        dataType: 'text', 
+        success: function(text) {             
+            time = new Date(text);             
+        }, error: function(http, message, exc) { 
+            time = new Date(); // 에러시 클라언트로컬시간으로 설정할지는 개발에서 기획과 상의해서 선택해야 함.
+    }});
+    */    
+    time = new Date(); // 퍼블리싱용 클라언트 로컬 현재시간. 이 한줄은 실제 개발시 주석처리.  
+    return time; 
+}
+
+function startCountDown(wrapperID,month,day,hour,minute,second){
+    var setTime = {
+        month  : month,
+        day    : day,
+        hour   : hour || 0,
+        minute : minute || 0,
+        second : second || 0
+    }
+	var checkServerTime = new Date(getServerTime());
+    var austDay = new Date(getServerTime().getFullYear(), setTime.month - 1, setTime.day, setTime.hour, setTime.minute, setTime.second);
+	if(checkServerTime >= austDay){
+		periodEnd();
+	}
+    $('#'+wrapperID).countdown({
+        until: austDay,
+        format: 'DHMS',
+        padZeroes: true,
+        onExpiry: function(){
+			 periodEnd();
+		}, //카운팅이 0일때 발생되는 콜백
+        serverSync:getServerTime
+    });
+	
+	function periodEnd(){
+		$('#'+wrapperID).closest('.timeSale-item').find('.thumb').append("<img src='/images/front/travel/img_timesale_end.png' class='close-img' alt='마감'>");
+	}
+} 
+
+$(function(){
+	
+	
+	$('#dp1').datepicker();
+	
+    //time sale banner
+    startCountDown('countdown1',1,1);  // 5월 2일
+    startCountDown('countdown2',1,2,1,10,10);  // 4월 2일 1시 10분 10초
+    startCountDown('countdown3',1,2);  
+	
+	$('#timeSale-MA').slideUI({
+        interval : 0,
+        randomDisplay: false,
+        mask : {selector:'.slide-mask', width:'208px', height:'323px'}
+    });
+	
+	$('#m-copy').slideUI({
+        interval : 7000,
+		otherLinkBtn: true,
+		otherLink : '.btn-link a',
+        mask : {selector:'.slide-mask', width:'500px', height:'60px'}
+    }).show();
+	
+	$('#m-banner').mainVisual({
+		interval : 11000
+	});
+	
+	//테마 롤링배너 추가
+	setBanner( $('#roll-banner'), true, '2000', "right");
+	
+	//혜택안내 hover
+	$('.gallery-icon').on('mouseenter',function(){
+		var $this = $(this);
+		$this.closest('li').find('.hover-cont').stop().animate({bottom:'0'},300);
+	})
+	$('.hover-cont').on('mouseleave',function(){
+		var h = $(this).closest('.hover-wrap').outerHeight();
+		$(this).stop().animate({bottom:-h},300);
+	})
+	$('.thumbnail-list li').on('mouseleave',function(){
+		if($(this).find('.hover-wrap').size() >= 1){
+			var h = $(this).find('.hover-wrap').outerHeight();
+			$(this).find('.hover-cont').stop().animate({bottom:-h},300);
+		}
+	})
+	
+	//탑버튼
+	topBtnCtrl();
+})
+function menuChange(idx){
+	//메뉴 체인지 소스 들어갈 자리(개발)
+	// idx = 메뉴 넘버 ex(0 ~ 7)
+}
+	
+</script>
+</head>
+<body>
+<!-- skip nav -->
+<div id="skipnav">
+	<a href="#header" accesskey="m">상단영역 바로가기 : 엑세스키 Alt + m</a>
+	<a href="#totalSearch" accesskey="s">검색 영역 바로가기 : 엑세스키 Alt + s</a>
+	<a href="#content" accesskey="c">본문영역 바로가기 : 엑세스키 Alt + c</a>
+	<a href="#footer" accesskey="b">하단영역 바로가기 : 엑세스키 Alt + b</a>
+</div>
+
+<!-- //skip nav -->
+
+<!-- wrap -->
+<div id="wrap" class="wide-wrap">
+<!-- header -->
+<div id="header-new" class="gnb-open" >
+		<div class="header-inner">
+			<h1 class="l-logo">
+				<a href="//www.priviatravel.com">
+					<img src="//static.priviatravel.com/images/front/travel/common/h1_logo.gif" alt="현대카드 PRIVIA 여행" />
+				</a>
+			</h1>
+			<div class="header-banner">
+				<!-- script type="text/javascript" src="https://www.priviatravel.com/share/loginInfo"></script-->
+				<script src="//www.priviatravel.com/share/topBanner" type="text/javascript"></script>
+				<!-- <a href="#"><img alt="현대카드 결제 시 2천원 즉시할인" src="/images/front/travel/temp_header_banner.gif"></a> -->
+			</div>
+		
+		<div class="util">
+			<ul class="ulLoginInfo">
+			
+			<div class="l-nav-icon golink-service">
+				<a href="http://www.priviatravel.com/main/air/"  class="icon-air" target="_blank"><em>항공</em></a>
+				<a href="http://www.priviatravel.com/main/hotel/" class="icon-htl" target="_blank"><em>호텔</em></a>
+				<a href="http://www.priviatravel.com/main/free/" class="icon-free" target="_blank"><em>자유여행</em></a>
+				<a href="http://airtel.priviatravel.com/dprs/fr/freetour/freeTour.lts" class="icon-dprs" target="_blank"><em>자유여행만들기</em></a>
+				<a href="http://www.priviatravel.com/promotion/sectionEvent/832/" class="icon-tour" target="_blank"><em>투어/렌터카</em></a>
+				<a href="http://package.priviatravel.com/pkgRenewal/" class="icon-pkg"><em>해외패키지</em></a>
+			</div> 
+			
+		</div>
+
+		<div class="l-util add-search">
+			<ul class="l-util-menu clearfix">
+				
+					
+				    
+						<li class="fir"><a href="#" onclick="logInAndOut('/common/sso/login');">로그인</a></li>					
+					
+				
+			    <li><a href="http://www.priviatravel.com/mypage/main">마이페이지</a></li>
+			    <li><a href="http://www.priviatravel.com/mypage/benefit/?benefitTab=4">나의 혜택</a></li>
+			    
+			    <li><a href="/customer/main/counselMain">고객센터</a></li>
+			</ul>
+
+			<form id="frmLinkToSubmit" name="frmLinkToSubmit" method="post" action="http://www.priviatravel.com/common/util/postSubmit">
+			    <input id="inpLinkToSubmitReturnUrl" type="hidden" name="returnUrl" value="">
+			</form>
+			
+			<!-- div class="l-search">
+				<form action="/pkgRenewal/searchListCombine" method="POST">
+				<input type="text" id="searchText" name="searchText" class="text holder" value="Need Help?" style="width:160px"><input type="submit" value="" class="icon-search" title="검색하기">
+				</form>
+			</div-->
+		</div>
+	</div>
+	<!-- GNB -->
+	
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<script type="text/javaScript">
+setActiveCode(QUICK_CODE_PACKAGE, GNB_CODE_PACKAGE);
+$(document).ready(function(){
+	pkgSiteMapToggle(); // 패키지 전체보기 toggle
+	pkgSectionEventBind(); // 패키지 섹션GNB 이벤트 핸들링	
+	$("#gnb-item-pkg").addClass("on");
+	/* $("#gnb-nav li").bind( "mouseenter mouseleave", function() {
+		console.log($(this).attr("id"))
+		if($(this).attr("id") == "gnb-item-pkg"){
+			$(".l-gnb").show();
+		}else{
+			$(".l-gnb").hide();
+		}
+	}); */
+});
+function getMenu(){
+	var map = new Map();
+	map.put("command","LIST");
+	map.put("namespace","travel.pkg");
+	map.put("queryid","getMenu");
+	var json = commonNetwork.commonQueryCallJsonAjaxReturn(map);
+	
+	var data = json.data
+	//alert(JSON.stringify(data))
+	alert(data.length)
+}
+
+function goCheckTimeSale(){
+	var timeSaleUrl = "/pkgRenewal/timeSale";
+	var map = new Map();
+	map.put("command","MAP");
+	map.put("namespace","travel.pkg.renewal");
+	map.put("queryid","checkTimeSaleCount");
+	var json = commonNetwork.commonQueryCallJsonAjaxReturn(map);
+	if(Number(json.data.CNT)==0){
+		alert("현재 진행중인 타임세일 상품이 없습니다.");
+	}else{
+		window.location = timeSaleUrl;
+	}
+}
+
+function pkgSiteMapToggle() {
+	//l-total-nav-open
+	$('.l-total-nav-open').on('click', function(e) {
+		e.preventDefault();
+		$('.l-gnb').trigger('mouseleave');
+		$('.l-gnb-menu>li.on').removeClass('on');
+		if($('.btn-quickSearch').hasClass('on'))$('.btn-quickSearch').trigger('click');
+		if($('.pkg-p-search').hasClass('on'))$('.pkg-p-search').trigger('click');
+		if ($(this).hasClass('on')) {
+			$('.l-total-nav-layer').hide();
+			$('.l-total-nav-open').removeClass('on');
+			$(this).css('z-index','0');
+
+		} else {
+			$(this).addClass('on');
+			$('.l-total-nav-layer').show();
+			$(this).css('z-index','2');
+		}
+	});
+
+	//l-total-nav-close
+	$('.btn-total-nav-layer').on('click', function() {
+		$('.l-total-nav-open').trigger('click');
+	});
+}
+
+function pkgSectionEventBind(){	
+	//timer 변수
+	var pkg_menu_over,pkg_menu_out,pkg_submenu_over;
+	
+	//패키지 1뎁스 메뉴 이벤트 핸들링
+	$('.l-gnb-menu>li>a').on('mouseenter focusin',function(){
+		var _this = this;
+		if(pkg_menu_over) clearTimeout(pkg_menu_over);
+		if(pkg_menu_out) clearTimeout(pkg_menu_out);
+		pkg_menu_over = setTimeout(function(){
+			if($('.btn-quickSearch').hasClass('on')){
+				 $('.btn-quickSearch').trigger('click');
+				 $('#ui-datepicker-div').hide();
+			}
+			if($('.l-total-nav-open').hasClass('on')){
+				$('.l-total-nav-open').removeClass('on').css('z-index','0');
+				$('.l-total-nav-layer').hide();
+			} 
+			if($('.pkg-p-search').hasClass('on')){
+				$('.pkg-p-search').removeClass('on');
+				$('.l-pkg-sub-search-wrap').hide();
+			}
+			var menuCd = $(_this).parent().attr("menuCd");
+			//alert(menuCd)
+			$(".l-gnb-sub .sub-menu:eq(0)").find("li").hide();
+			$(".l-gnb-sub .sub-menu:eq(0)").find("li[parnCd="+menuCd+"]").show();
+			var menuCd2 = $(".l-gnb-sub .sub-menu:eq(0)").find("li[parnCd="+menuCd+"]").eq(0).attr("menuCd");
+			var bestPackage = $(".l-gnb-sub .best-package");
+			$(".l-gnb-sub .sub-menu:eq(1),.best-package").find("li").hide();
+			$(".l-gnb-sub .sub-menu:eq(1)").find("li[parnCd="+menuCd2+"]").show();
+			$(".l-gnb-sub ,.best-package").find("li[menuCd="+menuCd2+"]").show();
+			bestPackage.find("li[menuCd="+menuCd+"]").show();
+			var cntNullCheck = bestPackage.find("li[menuCd="+menuCd2+"]:eq(0)").attr("cntNullCheck");
+			var bestTitle = bestPackage.find("li[menuCd="+menuCd2+"]:eq(0)").attr("cityNm");
+			if(Number(cntNullCheck)>0){
+				bestTitle = bestPackage.find("li[menuCd="+menuCd2+"]:eq(0)").attr("cdNm");
+			}
+			bestTitle = !bestTitle?"":bestTitle;
+			$("#bestTitle b").html(bestTitle+" 베스트 패키지");
+			Cufon.replace('.best-package .content-title',{fontFamily:'ymhr'})
+			if($('.l-gnb-sub').is(':animated')){return false}
+			$('.l-gnb-menu li').removeClass('on');
+			$(_this).parent().addClass('on');
+			$('.l-gnb-sub').show();
+			$('.l-gnb-sub').find('.on').removeClass('on');
+		},200);
+	});
+	
+	//패키지 섹션GNB를 마우스가 벗어났을 경우 이벤트 핸들링	
+	$('.l-gnb').on('mouseleave',function(){
+		if(pkg_menu_over) clearTimeout(pkg_menu_over);
+		pkg_menu_out = setTimeout(function(){
+			$('.l-gnb-menu>li.on').removeClass('on');
+			$('.l-gnb-sub').hide();
+		},200);
+	});
+		
+	//패키지 서브메뉴(2,3뎁스)에 마우스가 진입했을 경우 타이머 처리
+	$('.l-gnb-sub').on('mouseenter',function(){
+		if(pkg_menu_over) clearTimeout(pkg_menu_over);
+		if(pkg_menu_out) clearTimeout(pkg_menu_out);
+		
+	});
+	
+	//패키지 서브메뉴(2,3뎁스) 레이어의 닫기 이벤트 핸들링
+	$('.l-gnb-sub .btn-close').on('click',function(e){
+		e.preventDefault();
+		$('.l-gnb-sub').hide();
+		$('.l-gnb-menu li.on').removeClass('on');		
+	});
+
+	//패키지2뎁스 메뉴 이벤트 핸들링
+	$('.sub-menu:eq(0) li a').on('mouseover focusin',function(){
+		var _this = this;
+		if(pkg_submenu_over) clearTimeout(pkg_submenu_over);
+		pkg_submenu_over = setTimeout(function(){
+			if($(_this).hasClass('on')){return false;}			
+			var idx = $(_this).parent().index();
+			$(_this).closest('ul').find('li').each(function(i){
+				if(i == idx){
+					$(this).find('a').addClass('on');
+					var menuCd = $(this).attr("menuCd");
+					var bestPackage = $(".l-gnb-sub .best-package");
+					//
+					$(".l-gnb-sub .sub-menu:eq(1),.best-package").find("li").hide();
+					
+					$(".l-gnb-sub .sub-menu:eq(1)").find("li[parnCd="+menuCd+"]").show();
+					bestPackage.find("li[menuCd="+menuCd+"]").show();
+					var cntNullCheck = bestPackage.find("li[menuCd="+menuCd+"]:eq(0)").attr("cntNullCheck");
+					var bestTitle = bestPackage.find("li[menuCd="+menuCd+"]:eq(0)").attr("cityNm");
+					if(Number(cntNullCheck)>0){
+						bestTitle = bestPackage.find("li[menuCd="+menuCd+"]:eq(0)").attr("cdNm");
+					}
+					bestTitle = !bestTitle?"":bestTitle;
+					$("#bestTitle b").html(bestTitle+" 베스트 패키지");
+					Cufon.replace('.best-package .content-title',{fontFamily:'ymhr'})
+				}else{
+					$(this).find('a').removeClass('on');
+				}
+			});
+		},200);		
+	});
+
+	//패키지3뎁스 메뉴 이벤트 핸들링
+	$('.sub-menu:eq(1) li a').on('mouseover focusin',function(){
+		
+		if($(this).hasClass('on')){return false;}
+		var idx = $(this).parent().index();
+		$(this).closest('ul').find('li').each(function(i){
+			if(i == idx){
+				$(this).find('a').addClass('on');
+			}else{
+				$(this).find('a').removeClass('on');
+			}
+		});
+	});
+	$('.sub-menu:eq(1)').on('mouseover',function(){
+		if(pkg_submenu_over) clearTimeout(pkg_submenu_over);
+	});
+	
+	//여행상품 검색
+	$('.pkg-p-search').on('click',function(){
+		$('.l-gnb').trigger('mouseleave');
+		if($('.l-total-nav-open').hasClass('on'))$('.l-total-nav-open').trigger('click');
+		if($(this).hasClass('on')){
+			$(this).removeClass('on');
+			$('.l-pkg-sub-search-wrap').hide();
+			$('.l-gnb').addClass('on');
+			/*
+			$('.l-pkg-sub-search-wrap').slideUp(300,function(){
+				$('.l-gnb').addClass('on');
+			});
+			*/
+		}else{
+			$(this).addClass('on');
+			$('.l-gnb').removeClass('on');
+			//$('.l-pkg-sub-search-wrap').slideDown(300);
+			$('.l-pkg-sub-search-wrap').show();
+		}
+	});
+	$('.pkg-p-search').trigger("click");    
+}
+</script>
+<div id="nav-wrap">
+	<a href="#" class="btn-total-nav">PRIVIA 여행 전체메뉴</a>
+	<div class="total-nav-layer">
+		<div class="total-nav-layer-inner">
+			<ul class="total-nav-list"></ul>
+		</div>
+	</div>
+
+	<div class="nav-pos">
+	
+		<ul id="gnb-nav">
+			<li id="gnb-item-air"><a href="#"><span>항공</span></a></li>
+			<li id="gnb-item-hotel"><a href="#"><span>호텔</span></a></li>
+			<li id="gnb-item-airtel"><a href="#"><span>자유여행</span></a></li>
+			<li id="gnb-item-dprs"><a href="#"><span>자유여행 만들기</span></a></li>
+			<li id="gnb-item-pkg"><a href="#"><span>패키지</span></a></li>
+			<li id="gnb-item-promotion"><a href="#"><span>기획전</span></a></li>
+		</ul>
+	</div>			
+</div>
+<div class="gnb-sub-wrap"></div>
+<div class="l-gnb">
+	<ul class="l-gnb-menu clearfix">
+	
+					<li class="PGR008" menuCd="PGR008" citycd="A"><a href="/pkgRenewal/sectionRecommend?regncd=A" menuNm="동남아시아">동남아시아</a></li>
+				
+					<li class="PGR009" menuCd="PGR009" citycd="C"><a href="/pkgRenewal/sectionRecommend?regncd=C" menuNm="홍콩/중국">홍콩/중국</a></li>
+				
+					<li class="PGR011" menuCd="PGR011" citycd="J"><a href="/pkgRenewal/sectionRecommend?regncd=J" menuNm="일본">일본</a></li>
+				
+					<li class="PGR010" menuCd="PGR010" citycd="P"><a href="/pkgRenewal/sectionRecommend?regncd=P" menuNm="남태평양">남태평양</a></li>
+				
+					<li class="PGR012" menuCd="PGR012" citycd="E"><a href="/pkgRenewal/sectionRecommend?regncd=E" menuNm="유럽">유럽</a></li>
+				
+					<li class="PGR013" menuCd="PGR013" citycd="H"><a href="/pkgRenewal/sectionRecommend?regncd=H" menuNm="미주/하와이">미주/하와이</a></li>
+				
+					<li class="THEMA" menuCd="THEMA" regncd="T"><a href="/pkgRenewal/themaTreavelJaGoods">테마여행</a></li>
+					<li class="PGR014" menuCd="PGR014" citycd="null" dptcity="PUS,CJJ,TAE,KWJ"><a href="/pkgRenewal/searchListSimple?dptcity=PUS,CJJ,TAE,KWJ" menuNm="지방출발">지방출발</a></li>
+				
+	</ul>
+	<div class="l-gnb-sub clearfix" style="display: none;">
+		<div class="sub-menu-wrap">
+			<div class="sub-menu">
+				<ul>
+					
+							<li parnCd="PGR008" menuCd="PGR015" depth="2" citycd="TH"><a href="searchListSimple?citycd=TH&depth=2&search_depth=2">태국</a></li>
+					
+							<li parnCd="PGR008" menuCd="PGR016" depth="2" citycd="PH"><a href="searchListSimple?citycd=PH&depth=2&search_depth=2">필리핀</a></li>
+					
+							<li parnCd="PGR008" menuCd="PGR017" depth="2" citycd="VN"><a href="searchListSimple?citycd=VN&depth=2&search_depth=2">베트남</a></li>
+					
+							<li parnCd="PGR008" menuCd="PGR018" depth="2" citycd="KH"><a href="searchListSimple?citycd=KH&depth=2&search_depth=2">캄보디아</a></li>
+					
+							<li parnCd="PGR008" menuCd="PGR019" depth="2" citycd="MY"><a href="searchListSimple?citycd=MY&depth=2&search_depth=2">말레이시아</a></li>
+					
+							<li parnCd="PGR008" menuCd="PGR020" depth="2" citycd="ID"><a href="searchListSimple?citycd=ID&depth=2&search_depth=2">인도네시아</a></li>
+					
+							<li parnCd="PGR008" menuCd="PGR021" depth="2" citycd="SG"><a href="searchListSimple?citycd=SG&depth=2&search_depth=2">싱가포르</a></li>
+					
+							<li parnCd="PGR008" menuCd="PGR022" depth="2" citycd="MM"><a href="searchListSimple?citycd=MM&depth=2&search_depth=2">미얀마/라오스</a></li>
+					
+							<li parnCd="PGR008" menuCd="PGR023" depth="2" citycd="BD,BN,BT,LK,MV"><a href="searchListSimple?citycd=BD,BN,BT,LK,MV&depth=2&search_depth=2">몰디브/기타</a></li>
+					
+							<li parnCd="PGR009" menuCd="PGR024" depth="2" citycd="HK,MO,SZX"><a href="searchListSimple?citycd=HK,MO,SZX&depth=2&search_depth=2">홍콩/마카오/심천</a></li>
+					
+							<li parnCd="PGR009" menuCd="PGR025" depth="2" citycd="TW"><a href="searchListSimple?citycd=TW&depth=2&search_depth=2">대만</a></li>
+					
+							<li parnCd="PGR009" menuCd="PGR034" depth="2" citycd="CN"><a href="searchListSimple?citycd=CN&depth=2&search_depth=2">중국</a></li>
+					
+							<li parnCd="PGR009" menuCd="PGR035" depth="2" citycd="MN"><a href="searchListSimple?citycd=MN&depth=2&search_depth=2">몽골/티벳/기타지역</a></li>
+					
+							<li parnCd="PGR011" menuCd="PGR043" depth="2" citycd="KS"><a href="searchListSimple?citycd=KS&depth=2&search_depth=2">큐슈</a></li>
+					
+							<li parnCd="PGR011" menuCd="PGR044" depth="2" citycd="OS"><a href="searchListSimple?citycd=OS&depth=2&search_depth=2">오사카</a></li>
+					
+							<li parnCd="PGR011" menuCd="PGR045" depth="2" citycd="TK"><a href="searchListSimple?citycd=TK&depth=2&search_depth=2">동경</a></li>
+					
+							<li parnCd="PGR011" menuCd="PGR046" depth="2" citycd="SP"><a href="searchListSimple?citycd=SP&depth=2&search_depth=2">북해도</a></li>
+					
+							<li parnCd="PGR011" menuCd="PGR047" depth="3" citycd="OKA"><a href="searchListSimple?citycd=OKA&depth=3&search_depth=2">오키나와</a></li>
+					
+							<li parnCd="PGR011" menuCd="PGR048" depth="3" citycd="MYJ,AXT,AOJ,GAJ,TAK,KJW,SHM,DKM,WJM"><a href="searchListSimple?citycd=MYJ,AXT,AOJ,GAJ,TAK,KJW,SHM,DKM,WJM&depth=3&search_depth=2">기타지역</a></li>
+					
+							<li parnCd="PGR010" menuCd="PGR036" depth="2" citycd="GU"><a href="searchListSimple?citycd=GU&depth=2&search_depth=2">괌</a></li>
+					
+							<li parnCd="PGR010" menuCd="PGR037" depth="2" citycd="MP"><a href="searchListSimple?citycd=MP&depth=2&search_depth=2">사이판</a></li>
+					
+							<li parnCd="PGR010" menuCd="PGR038" depth="2" citycd="PW"><a href="searchListSimple?citycd=PW&depth=2&search_depth=2">팔라우</a></li>
+					
+							<li parnCd="PGR010" menuCd="PGR039" depth="2" citycd="AU"><a href="searchListSimple?citycd=AU&depth=2&search_depth=2">호주</a></li>
+					
+							<li parnCd="PGR010" menuCd="PGR040" depth="2" citycd="NZ"><a href="searchListSimple?citycd=NZ&depth=2&search_depth=2">뉴질랜드</a></li>
+					
+							<li parnCd="PGR010" menuCd="PGR041" depth="2" citycd="FJ"><a href="searchListSimple?citycd=FJ&depth=2&search_depth=2">피지</a></li>
+					
+							<li parnCd="PGR010" menuCd="PGR042" depth="2" citycd="NC,PF,VU"><a href="searchListSimple?citycd=NC,PF,VU&depth=2&search_depth=2">뉴칼레도니아/타히티</a></li>
+					
+							<li parnCd="PGR012" menuCd="PGR049" depth="2" citycd="AL,BE,CH,DE,FR,GB,IE,IT,LU,MC,MT,NL,VA"><a href="searchListSimple?citycd=AL,BE,CH,DE,FR,GB,IE,IT,LU,MC,MT,NL,VA&depth=2&search_depth=2">서유럽</a></li>
+					
+							<li parnCd="PGR012" menuCd="PGR050" depth="2" citycd="AT,CZ,HR,HU,LI,PL,SK"><a href="searchListSimple?citycd=AT,CZ,HR,HU,LI,PL,SK&depth=2&search_depth=2">동유럽</a></li>
+					
+							<li parnCd="PGR012" menuCd="PGR051" depth="2" citycd="CY,GR,TM,TR"><a href="searchListSimple?citycd=CY,GR,TM,TR&depth=2&search_depth=2">지중해</a></li>
+					
+							<li parnCd="PGR012" menuCd="PGR052" depth="2" citycd="ES,MA,PT"><a href="searchListSimple?citycd=ES,MA,PT&depth=2&search_depth=2">스페인/포르투갈/모로코</a></li>
+					
+							<li parnCd="PGR012" menuCd="PGR053" depth="2" citycd="BY,DK,FI,IS,LT,NO,RU,SE,UA"><a href="searchListSimple?citycd=BY,DK,FI,IS,LT,NO,RU,SE,UA&depth=2&search_depth=2">북유럽/러시아</a></li>
+					
+							<li parnCd="PGR012" menuCd="PGR054" depth="2" citycd="BA,BG,LA,MD,RO,SI,YU"><a href="searchListSimple?citycd=BA,BG,LA,MD,RO,SI,YU&depth=2&search_depth=2">발칸</a></li>
+					
+							<li parnCd="PGR013" menuCd="PGR055" depth="2" citycd="HW"><a href="searchListSimple?citycd=HW&depth=2&search_depth=2">하와이</a></li>
+					
+							<li parnCd="PGR013" menuCd="PGR056" depth="2" citycd="UE"><a href="searchListSimple?citycd=UE&depth=2&search_depth=2">미국 동부</a></li>
+					
+							<li parnCd="PGR013" menuCd="PGR057" depth="2" citycd="UW"><a href="searchListSimple?citycd=UW&depth=2&search_depth=2">미국 서부</a></li>
+					
+							<li parnCd="PGR013" menuCd="PGR058" depth="2" citycd="UT"><a href="searchListSimple?citycd=UT&depth=2&search_depth=2">기타지역</a></li>
+					
+							<li parnCd="PGR013" menuCd="PGR059" depth="2" citycd="CA"><a href="searchListSimple?citycd=CA&depth=2&search_depth=2">캐나다</a></li>
+					
+							<li parnCd="PGR013" menuCd="PGR060" depth="2" citycd="AR,BR,BS,CL,CO,CR,CU,DO,EC,GT,HN,MX,PA,PE,PR,PY,SV,UY"><a href="searchListSimple?citycd=AR,BR,BS,CL,CO,CR,CU,DO,EC,GT,HN,MX,PA,PE,PR,PY,SV,UY&depth=2&search_depth=2">중남미</a></li>
+					
+							<li parnCd="PGR369" menuCd="PGR377" depth="1" citycd="S"><a href="searchListSimple?citycd=S&depth=1&search_depth=2">특수지역</a></li>
+					
+							<li parnCd="PGR014" menuCd="PGR061" depth="3" citycd="PUS"><a href="searchListSimple?dptcity=PUS">부산</a></li>
+					
+							<li parnCd="PGR014" menuCd="PGR062" depth="3" citycd="CJJ"><a href="searchListSimple?dptcity=CJJ">청주</a></li>
+					
+							<li parnCd="PGR014" menuCd="PGR063" depth="3" citycd="TAE"><a href="searchListSimple?dptcity=TAE">대구</a></li>
+					
+							<li parnCd="PGR014" menuCd="PGR064" depth="3" citycd="KWJ"><a href="searchListSimple?dptcity=KWJ">광주</a></li>
+					
+					
+						<li parnCd="THEMA" menuCd="T" depth="2"><a href="/pkgRenewal/themaTravelList?thema=TWB">아기와함께하는여행</a></li>
+					
+						<li parnCd="THEMA" menuCd="T" depth="2"><a href="/pkgRenewal/themaTravelList?thema=FHM">프리허니문</a></li>
+					
+						<li parnCd="THEMA" menuCd="T" depth="2"><a href="/pkgRenewal/themaTravelList?thema=TGF">테마골프</a></li>
+					
+						<li parnCd="THEMA" menuCd="T" depth="2"><a href="/pkgRenewal/themaTravelList?thema=HSSK">온천&스키</a></li>
+					
+						<li parnCd="THEMA" menuCd="T" depth="2"><a href="/pkgRenewal/themaTravelList?thema=SSCP">레포츠</a></li>
+					
+						<li parnCd="THEMA" menuCd="T" depth="2"><a href="/pkgRenewal/themaTravelList?thema=CLMD">클럽메드</a></li>
+					
+				</ul>
+			</div>
+			<div class="sub-menu dep2">
+				<ul>
+					
+						<li parnCd="PGR015" depth="3" menuCd="PGR065" citycd="BKK"><a href="searchListSimple?citycd=BKK&depth=3">방콕</a></li>
+					
+						<li parnCd="PGR015" depth="3" menuCd="PGR066" citycd="HKT,PHZ"><a href="searchListSimple?citycd=HKT,PHZ&depth=3">푸켓</a></li>
+					
+						<li parnCd="PGR015" depth="3" menuCd="PGR067" citycd="PYX"><a href="searchListSimple?citycd=PYX&depth=3">파타야</a></li>
+					
+						<li parnCd="PGR015" depth="3" menuCd="PGR068" citycd="CNX,CEI"><a href="searchListSimple?citycd=CNX,CEI&depth=3">치앙마이</a></li>
+					
+						<li parnCd="PGR015" depth="3" menuCd="PGR069" citycd="KBV"><a href="searchListSimple?citycd=KBV&depth=3">크라비</a></li>
+					
+						<li parnCd="PGR015" depth="3" menuCd="PGR070" citycd="USM"><a href="searchListSimple?citycd=USM&depth=3">코사무이</a></li>
+					
+						<li parnCd="PGR015" depth="3" menuCd="PGR071" citycd="HHQ"><a href="searchListSimple?citycd=HHQ&depth=3">후아힌</a></li>
+					
+						<li parnCd="PGR015" depth="3" menuCd="PGR072" citycd="KSA"><a href="searchListSimple?citycd=KSA&depth=3">코사멧</a></li>
+					
+						<li parnCd="PGR015" depth="3" menuCd="PGR073" citycd="KCB"><a href="searchListSimple?citycd=KCB&depth=3">칸차나부리</a></li>
+					
+						<li parnCd="PGR015" depth="3" menuCd="PGR074" citycd="URT,SKA,AUB,HDY,KCN"><a href="searchListSimple?citycd=URT,SKA,AUB,HDY,KCN&depth=3">기타지역</a></li>
+					
+						<li parnCd="PGR016" depth="3" menuCd="PGR075" citycd="CEB,BB6,DGT"><a href="searchListSimple?citycd=CEB,BB6,DGT&depth=3">세부</a></li>
+					
+						<li parnCd="PGR016" depth="3" menuCd="PGR076" citycd="KLO"><a href="searchListSimple?citycd=KLO&depth=3">보라카이</a></li>
+					
+						<li parnCd="PGR016" depth="3" menuCd="PGR077" citycd="MNL,BAG,SFS"><a href="searchListSimple?citycd=MNL,BAG,SFS&depth=3">마닐라</a></li>
+					
+						<li parnCd="PGR016" depth="3" menuCd="PGR078" citycd="CRK"><a href="searchListSimple?citycd=CRK&depth=3">클락</a></li>
+					
+						<li parnCd="PGR016" depth="3" menuCd="PGR079" citycd="LRW,ENI,ISE,DVO,PPS"><a href="searchListSimple?citycd=LRW,ENI,ISE,DVO,PPS&depth=3">팔라완</a></li>
+					
+						<li parnCd="PGR017" depth="3" menuCd="PGR080" citycd="HAN,HPH"><a href="searchListSimple?citycd=HAN,HPH&depth=3">하노이</a></li>
+					
+						<li parnCd="PGR017" depth="3" menuCd="PGR081" citycd="SGN,VTG,PHH"><a href="searchListSimple?citycd=SGN,VTG,PHH&depth=3">호치민</a></li>
+					
+						<li parnCd="PGR017" depth="3" menuCd="PGR082" citycd="DAD,HIA,HUI"><a href="searchListSimple?citycd=DAD,HIA,HUI&depth=3">다낭</a></li>
+					
+						<li parnCd="PGR017" depth="3" menuCd="PGR083" citycd="NHA,DLI"><a href="searchListSimple?citycd=NHA,DLI&depth=3">나트랑</a></li>
+					
+						<li parnCd="PGR018" depth="3" menuCd="PGR084" citycd="REP"><a href="searchListSimple?citycd=REP&depth=3">캄보디아(앙코르왓)</a></li>
+					
+						<li parnCd="PGR018" depth="3" menuCd="PGR087" citycd="PNH"><a href="searchListSimple?citycd=PNH&depth=3">프놈펜</a></li>
+					
+						<li parnCd="PGR019" depth="3" menuCd="PGR088" citycd="BKI"><a href="searchListSimple?citycd=BKI&depth=3">코타키나발루</a></li>
+					
+						<li parnCd="PGR019" depth="3" menuCd="PGR089" citycd="LGK"><a href="searchListSimple?citycd=LGK&depth=3">랑카위</a></li>
+					
+						<li parnCd="PGR019" depth="3" menuCd="PGR090" citycd="KUL"><a href="searchListSimple?citycd=KUL&depth=3">쿠알라룸푸르</a></li>
+					
+						<li parnCd="PGR020" depth="3" menuCd="PGR091" citycd="BTH,DPS,BIF,JKT,JOG,AMI,SUB"><a href="searchListSimple?citycd=BTH,DPS,BIF,JKT,JOG,AMI,SUB&depth=3">발리</a></li>
+					
+						<li parnCd="PGR021" depth="3" menuCd="PGR092" citycd="SIN"><a href="searchListSimple?citycd=SIN&depth=3">싱가포르</a></li>
+					
+						<li parnCd="PGR022" depth="3" menuCd="PGR095" citycd="MDL,RGN,HEH,PAA"><a href="searchListSimple?citycd=MDL,RGN,HEH,PAA&depth=3">양곤/바간/만달레이</a></li>
+					
+						<li parnCd="PGR022" depth="3" menuCd="PGR096" citycd="VTE,VVG,LPQ"><a href="searchListSimple?citycd=VTE,VVG,LPQ&depth=3">비엔티엔/루앙프라방</a></li>
+					
+						<li parnCd="PGR034" depth="3" menuCd="PGR360" citycd="SHA,HGH,NKG,SZV,WUX,XIT"><a href="searchListSimple?citycd=SHA,HGH,NKG,SZV,WUX,XIT&depth=3">상해</a></li>
+					
+						<li parnCd="PGR034" depth="3" menuCd="PGR361" citycd="BJS,TSN"><a href="searchListSimple?citycd=BJS,TSN&depth=3">북경</a></li>
+					
+						<li parnCd="PGR034" depth="3" menuCd="PGR362" citycd="KWL,DYG,WUH,CSX,NNG,SJW,THA"><a href="searchListSimple?citycd=KWL,DYG,WUH,CSX,NNG,SJW,THA&depth=3">장가계/장사/계림</a></li>
+					
+						<li parnCd="PGR034" depth="3" menuCd="PGR363" citycd="YMA"><a href="searchListSimple?citycd=YMA&depth=3">황산</a></li>
+					
+						<li parnCd="PGR034" depth="3" menuCd="PGR364" citycd="SYX"><a href="searchListSimple?citycd=SYX&depth=3">하이난(삼아/해구)</a></li>
+					
+						<li parnCd="PGR034" depth="3" menuCd="PGR365" citycd="CTU,JZG,SIA,CKG"><a href="searchListSimple?citycd=CTU,JZG,SIA,CKG&depth=3">서안/성도/구채구/중경</a></li>
+					
+						<li parnCd="PGR034" depth="3" menuCd="PGR435" citycd="LYA,CGO,TAO,YNT,TNA,WEH"><a href="searchListSimple?citycd=LYA,CGO,TAO,YNT,TNA,WEH&depth=3">청도/위해/정주</a></li>
+					
+						<li parnCd="PGR034" depth="3" menuCd="PGR366" citycd="KMG,LJG,DIG,DLU"><a href="searchListSimple?citycd=KMG,LJG,DIG,DLU&depth=3">곤명/여강</a></li>
+					
+						<li parnCd="PGR034" depth="3" menuCd="PGR367" citycd="XMN,CAN,SZX,FOC,ZUH,WUS,KHN"><a href="searchListSimple?citycd=XMN,CAN,SZX,FOC,ZUH,WUS,KHN&depth=3">하문/광주/심천</a></li>
+					
+						<li parnCd="PGR034" depth="3" menuCd="PGR368" citycd="NBAYNJ,JGS,SHE,HRB,CGQ,DDG,DLC"><a href="searchListSimple?citycd=NBAYNJ,JGS,SHE,HRB,CGQ,DDG,DLC&depth=3">백두산(연길/장춘/심양/단동)</a></li>
+					
+						<li parnCd="PGR043" depth="3" menuCd="PGR105" citycd="KMJ,BPU,OIT,FUK,UHI,KKJ,KUF,IBS,ASO,KJS,EX1,URE,SSK,CE9,BG1"><a href="searchListSimple?citycd=KMJ,BPU,OIT,FUK,UHI,KKJ,KUF,IBS,ASO,KJS,EX1,URE,SSK,CE9,BG1&depth=3">후쿠오카/벳부/아소</a></li>
+					
+						<li parnCd="PGR043" depth="3" menuCd="PGR106" citycd="NGS,UZN,HTB,SAS,TSJ,HSG"><a href="searchListSimple?citycd=NGS,UZN,HTB,SAS,TSJ,HSG&depth=3">하우스텐보스/나가사키</a></li>
+					
+						<li parnCd="PGR043" depth="3" menuCd="PGR107" citycd="KOJ,KMI,KKM"><a href="searchListSimple?citycd=KOJ,KMI,KKM&depth=3">가고시마/미야자키</a></li>
+					
+						<li parnCd="PGR044" depth="3" menuCd="PGR108" citycd="OSA"><a href="searchListSimple?citycd=OSA&depth=3">오사카/교토/나라/고베</a></li>
+					
+						<li parnCd="PGR044" depth="3" menuCd="PGR109" citycd="HIJ,QKY,QGU"><a href="searchListSimple?citycd=HIJ,QKY,QGU&depth=3">와카야마</a></li>
+					
+						<li parnCd="PGR044" depth="3" menuCd="PGR110" citycd="NGO,YAJ"><a href="searchListSimple?citycd=NGO,YAJ&depth=3">나고야</a></li>
+					
+						<li parnCd="PGR045" depth="3" menuCd="PGR111" citycd="WKY"><a href="searchListSimple?citycd=WKY&depth=3">동경/하코네/시즈오카</a></li>
+					
+						<li parnCd="PGR046" depth="3" menuCd="PGR112" citycd="SPK"><a href="searchListSimple?citycd=SPK&depth=3">삿포로/도야/오타루</a></li>
+					
+						<li parnCd="PGR046" depth="3" menuCd="PGR113" citycd="FRN,AKJ"><a href="searchListSimple?citycd=FRN,AKJ&depth=3">후라노/비에이</a></li>
+					
+						<li parnCd="PGR046" depth="3" menuCd="PGR114" citycd="HKD"><a href="searchListSimple?citycd=HKD&depth=3">하코다테</a></li>
+					
+						<li parnCd="PGR039" depth="3" menuCd="PGR097" citycd="SYD,CBR,PTE,ASP"><a href="searchListSimple?citycd=SYD,CBR,PTE,ASP&depth=3">시드니</a></li>
+					
+						<li parnCd="PGR039" depth="3" menuCd="PGR098" citycd="OOL,ADL"><a href="searchListSimple?citycd=OOL,ADL&depth=3">골드코스트</a></li>
+					
+						<li parnCd="PGR039" depth="3" menuCd="PGR099" citycd="BNE,UUG"><a href="searchListSimple?citycd=BNE,UUG&depth=3">브리즈번</a></li>
+					
+						<li parnCd="PGR039" depth="3" menuCd="PGR100" citycd="CNS,TSV,DRW,AU5,HTI,AYQ"><a href="searchListSimple?citycd=CNS,TSV,DRW,AU5,HTI,AYQ&depth=3">케언즈</a></li>
+					
+						<li parnCd="PGR039" depth="3" menuCd="PGR101" citycd="PER"><a href="searchListSimple?citycd=PER&depth=3">퍼스</a></li>
+					
+						<li parnCd="PGR039" depth="3" menuCd="PGR102" citycd="MEL,HBA"><a href="searchListSimple?citycd=MEL,HBA&depth=3">멜번</a></li>
+					
+						<li parnCd="PGR040" depth="3" menuCd="PGR103" citycd="AKL"><a href="searchListSimple?citycd=AKL&depth=3">오클랜드</a></li>
+					
+						<li parnCd="PGR040" depth="3" menuCd="PGR104" citycd="CHC"><a href="searchListSimple?citycd=CHC&depth=3">크라이스트처치</a></li>
+					
+						<li parnCd="PGR055" depth="3" menuCd="PGR115" citycd="HNL"><a href="searchListSimple?citycd=HNL&depth=3">호놀룰루(오아후섬)</a></li>
+					
+						<li parnCd="PGR055" depth="3" menuCd="PGR116" citycd="OGG"><a href="searchListSimple?citycd=OGG&depth=3">마우이</a></li>
+					
+						<li parnCd="PGR055" depth="3" menuCd="PGR371" citycd="KOA"><a href="searchListSimple?citycd=KOA&depth=3">빅아일랜드</a></li>
+					
+						<li parnCd="PGR056" depth="3" menuCd="PGR117" citycd="NYC"><a href="searchListSimple?citycd=NYC&depth=3">뉴욕</a></li>
+					
+						<li parnCd="PGR056" depth="3" menuCd="PGR118" citycd="WAS"><a href="searchListSimple?citycd=WAS&depth=3">워싱턴</a></li>
+					
+						<li parnCd="PGR056" depth="3" menuCd="PGR119" citycd="BOS,SLE,MSP,STP,HTV"><a href="searchListSimple?citycd=BOS,SLE,MSP,STP,HTV&depth=3">보스턴</a></li>
+					
+						<li parnCd="PGR056" depth="3" menuCd="PGR120" citycd="IAG"><a href="searchListSimple?citycd=IAG&depth=3">나이아가라</a></li>
+					
+						<li parnCd="PGR057" depth="3" menuCd="PGR121" citycd="LAX"><a href="searchListSimple?citycd=LAX&depth=3">로스엔젤레스</a></li>
+					
+						<li parnCd="PGR057" depth="3" menuCd="PGR122" citycd="SFO"><a href="searchListSimple?citycd=SFO&depth=3">샌프란시스코</a></li>
+					
+						<li parnCd="PGR057" depth="3" menuCd="PGR123" citycd="LAS,RNO,CSN"><a href="searchListSimple?citycd=LAS,RNO,CSN&depth=3">라스베이거스</a></li>
+					
+						<li parnCd="PGR057" depth="3" menuCd="PGR124" citycd="WAS,SEA,OLM,BIS,BIL,HLN,BOI"><a href="searchListSimple?citycd=WAS,SEA,OLM,BIS,BIL,HLN,BOI&depth=3">시애틀</a></li>
+					
+						<li parnCd="PGR058" depth="3" menuCd="PGR125" citycd="VDZ,ANC,JNU,FAI"><a href="searchListSimple?citycd=VDZ,ANC,JNU,FAI&depth=3">알래스카</a></li>
+					
+						<li parnCd="PGR058" depth="3" menuCd="PGR370" citycd="SGY,MCE,LIH,KTN,ITO,HAR,FLL,FAT,CDC"><a href="searchListSimple?citycd=SGY,MCE,LIH,KTN,ITO,HAR,FLL,FAT,CDC&depth=3">북미</a></li>
+					
+						<li parnCd="PGR059" depth="3" menuCd="PGR126" citycd="YWS,YVR,YMB,HOQ"><a href="searchListSimple?citycd=YWS,YVR,YMB,HOQ&depth=3">벤쿠버</a></li>
+					
+						<li parnCd="PGR059" depth="3" menuCd="PGR127" citycd="YYJ"><a href="searchListSimple?citycd=YYJ&depth=3">빅토리아</a></li>
+					
+						<li parnCd="PGR059" depth="3" menuCd="PGR128" citycd="YOW,YTO,YGK"><a href="searchListSimple?citycd=YOW,YTO,YGK&depth=3">토론토</a></li>
+					
+						<li parnCd="PGR059" depth="3" menuCd="PGR129" citycd="YMQ"><a href="searchListSimple?citycd=YMQ&depth=3">몬트리올</a></li>
+					
+						<li parnCd="PGR059" depth="3" menuCd="PGR130" citycd="YBA,YJA,YYC"><a href="searchListSimple?citycd=YBA,YJA,YYC&depth=3">캘거리</a></li>
+					
+						<li parnCd="PGR377" depth="3" menuCd="PGR378" citycd="ACC,KMS"><a href="searchListSimple?citycd=ACC,KMS&depth=3">가나</a></li>
+					
+						<li parnCd="PGR377" depth="3" menuCd="PGR379" citycd="ISB,KHI,LHE"><a href="searchListSimple?citycd=ISB,KHI,LHE&depth=3">파키스탄</a></li>
+					
+						<li parnCd="PGR377" depth="3" menuCd="PGR380" citycd="LOS,ABV,KAN,PHC"><a href="searchListSimple?citycd=LOS,ABV,KAN,PHC&depth=3">나이지리아</a></li>
+					
+						<li parnCd="PGR377" depth="3" menuCd="PGR381" citycd="JNB,CPT,BFN,PZB,ELS,PLZ,NTY"><a href="searchListSimple?citycd=JNB,CPT,BFN,PZB,ELS,PLZ,NTY&depth=3">남아공화국</a></li>
+					
+						<li parnCd="PGR377" depth="3" menuCd="PGR382" citycd="KTM,PKR,ROB,MXQ"><a href="searchListSimple?citycd=KTM,PKR,ROB,MXQ&depth=3">네팔</a></li>
+					
+						<li parnCd="PGR377" depth="3" menuCd="PGR383" citycd="NIM"><a href="searchListSimple?citycd=NIM&depth=3">니제르</a></li>
+					
+						<li parnCd="PGR377" depth="3" menuCd="PGR384" citycd="MSU"><a href="searchListSimple?citycd=MSU&depth=3">레소토</a></li>
+					
+						<li parnCd="PGR377" depth="3" menuCd="PGR385" citycd="KGL"><a href="searchListSimple?citycd=KGL&depth=3">르완다</a></li>
+					
+						<li parnCd="PGR377" depth="3" menuCd="PGR386" citycd="TIP"><a href="searchListSimple?citycd=TIP&depth=3">리비아</a></li>
+					
+						<li parnCd="PGR377" depth="3" menuCd="PGR387" citycd="TNR"><a href="searchListSimple?citycd=TNR&depth=3">마다가스카르</a></li>
+					
+						<li parnCd="PGR377" depth="3" menuCd="PGR389" citycd="BLZ"><a href="searchListSimple?citycd=BLZ&depth=3">말라위</a></li>
+					
+						<li parnCd="PGR377" depth="3" menuCd="PGR390" citycd="BKO"><a href="searchListSimple?citycd=BKO&depth=3">말리</a></li>
+					
+						<li parnCd="PGR377" depth="3" menuCd="PGR391" citycd="MRU"><a href="searchListSimple?citycd=MRU&depth=3">모리셔스</a></li>
+					
+						<li parnCd="PGR377" depth="3" menuCd="PGR392" citycd="NKC"><a href="searchListSimple?citycd=NKC&depth=3">모리타니</a></li>
+					
+						<li parnCd="PGR377" depth="3" menuCd="PGR393" citycd="MPM"><a href="searchListSimple?citycd=MPM&depth=3">모잠비크</a></li>
+					
+						<li parnCd="PGR377" depth="3" menuCd="PGR394" citycd="GBE,VFA"><a href="searchListSimple?citycd=GBE,VFA&depth=3">보츠와나</a></li>
+					
+						<li parnCd="PGR377" depth="3" menuCd="PGR395" citycd="RUH,TIF"><a href="searchListSimple?citycd=RUH,TIF&depth=3">사우디아라비아</a></li>
+					
+						<li parnCd="PGR377" depth="3" menuCd="PGR396" citycd="DKR"><a href="searchListSimple?citycd=DKR&depth=3">세네갈</a></li>
+					
+						<li parnCd="PGR377" depth="3" menuCd="PGR397" citycd="POV,SEZ,CT0"><a href="searchListSimple?citycd=POV,SEZ,CT0&depth=3">세이셀</a></li>
+					
+						<li parnCd="PGR377" depth="3" menuCd="PGR398" citycd="MGQ"><a href="searchListSimple?citycd=MGQ&depth=3">소말리아</a></li>
+					
+						<li parnCd="PGR377" depth="3" menuCd="PGR399" citycd="KRT,PZU"><a href="searchListSimple?citycd=KRT,PZU&depth=3">수단</a></li>
+					
+						<li parnCd="PGR377" depth="3" menuCd="PGR400" citycd="EZU,QMN"><a href="searchListSimple?citycd=EZU,QMN&depth=3">스와질랜드</a></li>
+					
+						<li parnCd="PGR377" depth="3" menuCd="PGR401" citycd="DAM,LTK,ALP"><a href="searchListSimple?citycd=DAM,LTK,ALP&depth=3">시리아</a></li>
+					
+						<li parnCd="PGR377" depth="3" menuCd="PGR402" citycd="FNA"><a href="searchListSimple?citycd=FNA&depth=3">시에라리온</a></li>
+					
+						<li parnCd="PGR377" depth="3" menuCd="PGR403" citycd="AUH,DXB"><a href="searchListSimple?citycd=AUH,DXB&depth=3">아랍에미레이트</a></li>
+					
+						<li parnCd="PGR377" depth="3" menuCd="PGR404" citycd="KBL"><a href="searchListSimple?citycd=KBL&depth=3">아프카니스탄</a></li>
+					
+						<li parnCd="PGR377" depth="3" menuCd="PGR405" citycd="CBH,ALG"><a href="searchListSimple?citycd=CBH,ALG&depth=3">알제리</a></li>
+					
+						<li parnCd="PGR377" depth="3" menuCd="PGR406" citycd="LAD"><a href="searchListSimple?citycd=LAD&depth=3">앙골라</a></li>
+					
+						<li parnCd="PGR377" depth="3" menuCd="PGR407" citycd="SAH,ADE"><a href="searchListSimple?citycd=SAH,ADE&depth=3">예멘</a></li>
+					
+						<li parnCd="PGR377" depth="3" menuCd="PGR408" citycd="MCT,SLL"><a href="searchListSimple?citycd=MCT,SLL&depth=3">오만</a></li>
+					
+						<li parnCd="PGR377" depth="3" menuCd="PGR409" citycd="AMM,AQJ,PTB"><a href="searchListSimple?citycd=AMM,AQJ,PTB&depth=3">요르단</a></li>
+					
+						<li parnCd="PGR377" depth="3" menuCd="PGR410" citycd="KPL"><a href="searchListSimple?citycd=KPL&depth=3">우간다</a></li>
+					
+						<li parnCd="PGR377" depth="3" menuCd="PGR411" citycd="TAS,BHK,SKD,UGC"><a href="searchListSimple?citycd=TAS,BHK,SKD,UGC&depth=3">우즈베키스탄</a></li>
+					
+						<li parnCd="PGR377" depth="3" menuCd="PGR412" citycd="ADD"><a href="searchListSimple?citycd=ADD&depth=3">이디오피아</a></li>
+					
+						<li parnCd="PGR377" depth="3" menuCd="PGR413" citycd="BGW,BSR"><a href="searchListSimple?citycd=BGW,BSR&depth=3">이라크</a></li>
+					
+						<li parnCd="PGR377" depth="3" menuCd="PGR428" citycd="IFN,THR,SYZ"><a href="searchListSimple?citycd=IFN,THR,SYZ&depth=3">이란</a></li>
+					
+						<li parnCd="PGR377" depth="3" menuCd="PGR415" citycd="JRS,TLV,HFA,ARW,YHL,NZR,TBB,MTZ,CX1,AS5"><a href="searchListSimple?citycd=JRS,TLV,HFA,ARW,YHL,NZR,TBB,MTZ,CX1,AS5&depth=3">이스라엘</a></li>
+					
+						<li parnCd="PGR377" depth="3" menuCd="PGR416" citycd="GJZ,LXR,MEQ,CAI,ASW,ABS"><a href="searchListSimple?citycd=GJZ,LXR,MEQ,CAI,ASW,ABS&depth=3">이집트</a></li>
+					
+						<li parnCd="PGR377" depth="3" menuCd="PGR417" citycd="DEL,MAA,BOM,VNS,BLR,AGR,AMD,JAI,CCU,HJR,IXU,COK,GOI,JDH,UDR,SXR"><a href="searchListSimple?citycd=DEL,MAA,BOM,VNS,BLR,AGR,AMD,JAI,CCU,HJR,IXU,COK,GOI,JDH,UDR,SXR&depth=3">인도</a></li>
+					
+						<li parnCd="PGR377" depth="3" menuCd="PGR418" citycd="BJL"><a href="searchListSimple?citycd=BJL&depth=3">감비아</a></li>
+					
+						<li parnCd="PGR377" depth="3" menuCd="PGR419" citycd="TUN,SFA,QSO,TOE,LLZ"><a href="searchListSimple?citycd=TUN,SFA,QSO,TOE,LLZ&depth=3">튀니지</a></li>
+					
+						<li parnCd="PGR377" depth="3" menuCd="PGR420" citycd="FIH,FBM"><a href="searchListSimple?citycd=FIH,FBM&depth=3">자이르</a></li>
+					
+						<li parnCd="PGR377" depth="3" menuCd="PGR421" citycd="LUN"><a href="searchListSimple?citycd=LUN&depth=3">잠비아</a></li>
+					
+						<li parnCd="PGR377" depth="3" menuCd="PGR422" citycd="BGF"><a href="searchListSimple?citycd=BGF&depth=3">중앙아프리카 공화국</a></li>
+					
+						<li parnCd="PGR377" depth="3" menuCd="PGR423" citycd="BUQ,HRE,UTA"><a href="searchListSimple?citycd=BUQ,HRE,UTA&depth=3">짐바브웨</a></li>
+					
+						<li parnCd="PGR377" depth="3" menuCd="PGR424" citycd="NDJ"><a href="searchListSimple?citycd=NDJ&depth=3">차드</a></li>
+					
+						<li parnCd="PGR377" depth="3" menuCd="PGR425" citycd="YAO"><a href="searchListSimple?citycd=YAO&depth=3">카메룬</a></li>
+					
+						<li parnCd="PGR377" depth="3" menuCd="PGR426" citycd="ALA"><a href="searchListSimple?citycd=ALA&depth=3">카자흐스탄</a></li>
+					
+						<li parnCd="PGR377" depth="3" menuCd="PGR427" citycd="DOH"><a href="searchListSimple?citycd=DOH&depth=3">카타르</a></li>
+					
+						<li parnCd="PGR377" depth="3" menuCd="PGR429" citycd="NBO,NUU,MSI,MBA,ASV"><a href="searchListSimple?citycd=NBO,NUU,MSI,MBA,ASV&depth=3">케냐</a></li>
+					
+						<li parnCd="PGR377" depth="3" menuCd="PGR430" citycd="BZV"><a href="searchListSimple?citycd=BZV&depth=3">콩고</a></li>
+					
+						<li parnCd="PGR377" depth="3" menuCd="PGR431" citycd="KWI"><a href="searchListSimple?citycd=KWI&depth=3">쿠웨이트</a></li>
+					
+						<li parnCd="PGR377" depth="3" menuCd="PGR432" citycd="ZNZ,GOW,SGG,ARK,JRO"><a href="searchListSimple?citycd=ZNZ,GOW,SGG,ARK,JRO&depth=3">탄자니아</a></li>
+					
+						<li parnCd="PGR377" depth="3" menuCd="PGR433" citycd="LFW"><a href="searchListSimple?citycd=LFW&depth=3">토고</a></li>
+					
+						<li parnCd="PGR377" depth="3" menuCd="PGR434" citycd="OCJ"><a href="searchListSimple?citycd=OCJ&depth=3">자메이카</a></li>
+					
+				</ul>
+			</div>
+			<div class="best-package">
+				<div class="section-title-wrap">
+					<h3 class="content-title" id="bestTitle"><b></b></h3>
+					<span class="right"><a href="#" class="btn-close"><img src="/images/front/travel/btn_nav_close.gif" alt="닫기"></a></span>
+				</div>
+				<ul class="thumbnail-list item-3 sm">
+					
+						<li parnCd="PGR008" menuCd="PGR015" >
+						<div class="p-img"><a href="/pkgRenewal/goodsFrame?agncyProdcd=29396056"><img src="http://img.modetour.co.kr/eagle/photoimg/41323/Bfile/WelcomeWorld%20BeachResortView2.jpg" /></a></div>
+						<div class="p-cont">
+							<p class="p-area">동남아시아/방콕</p>
+							<div class="p-name-wrap">
+								<p class="p-name">[꽃보다할인] 방콕(초특급)파타야(특급) 3박5일◆런치크루즈+전통안마1시간◆</p>
+							</div>
+							<p class="price-info">
+								<b>424,000원+</b>
+							</p>
+						</div>
+					</li>	
+					
+						<li parnCd="PGR008" menuCd="PGR015" >
+						<div class="p-img"><a href="/pkgRenewal/goodsFrame?agncyProdcd=OP20160610488"><img src="http://www.kaltour.com/fileupload/PhotoGal/Large/BKK479.jpg" /></a></div>
+						<div class="p-cont">
+							<p class="p-area">동남아시아/파타야</p>
+							<div class="p-name-wrap">
+								<p class="p-name">[진에어] 방콕/파타야 [로얄클리프/3일차일정선택/코끼리트래킹] 5일</p>
+							</div>
+							<p class="price-info">
+								<b>579,000원+</b>
+							</p>
+						</div>
+					</li>	
+					
+						<li parnCd="PGR008" menuCd="PGR015" >
+						<div class="p-img"><a href="/pkgRenewal/goodsFrame?agncyProdcd=ABP100160531KEB"><img src="http://www.tourall.co.kr/app/wsv/packageproduct/pk-productimage.asp?obj_img=image1&img_seq=P000394785" /></a></div>
+						<div class="p-cont">
+							<p class="p-area">동남아시아/푸껫</p>
+							<div class="p-name-wrap">
+								<p class="p-name">◈관광+휴양◈푸껫 5일_[파통] 베스트웨스턴 | 파통 신규리조트</p>
+							</div>
+							<p class="price-info">
+								<b>619,000원+</b>
+							</p>
+						</div>
+					</li>	
+					
+						<li parnCd="PGR008" menuCd="PGR016" >
+						<div class="p-img"><a href="/pkgRenewal/goodsFrame?agncyProdcd=30405521"><img src="http://img.modetour.co.kr/eagle/photoimg/21282/Bfile/33340_2.JPG" /></a></div>
+						<div class="p-cont">
+							<p class="p-area">동남아시아/보라카이</p>
+							<div class="p-name-wrap">
+								<p class="p-name">[그랜드 비스타☆그랜드 오션 스위트☆] 보라카이직항 3박5일</p>
+							</div>
+							<p class="price-info">
+								<b>579,000원+</b>
+							</p>
+						</div>
+					</li>	
+					
+						<li parnCd="PGR008" menuCd="PGR016" >
+						<div class="p-img"><a href="/pkgRenewal/goodsFrame?agncyProdcd=APP177160608Z2D"><img src="http://www.tourall.co.kr/app/wsv/packageproduct/pk-productimage.asp?obj_img=image1&img_seq=P000515135" /></a></div>
+						<div class="p-cont">
+							<p class="p-area">동남아시아/세부</p>
+							<div class="p-name-wrap">
+								<p class="p-name">세부막탄 4일_베스트웨스턴 샌드바 | 오션룸+호핑투어+블루오션마사지</p>
+							</div>
+							<p class="price-info">
+								<b>419,000원+</b>
+							</p>
+						</div>
+					</li>	
+					
+						<li parnCd="PGR008" menuCd="PGR016" >
+						<div class="p-img"><a href="/pkgRenewal/goodsFrame?agncyProdcd=OP20160530390"><img src="http://www.kaltour.com/fileupload/PhotoGal/Large/CEB841.jpg" /></a></div>
+						<div class="p-cont">
+							<p class="p-area">동남아시아/세부</p>
+							<div class="p-name-wrap">
+								<p class="p-name">[KE] 세부 [일급리조트 네이처파크][호핑투어/전신마사지] 5일</p>
+							</div>
+							<p class="price-info">
+								<b>549,000원+</b>
+							</p>
+						</div>
+					</li>	
+					
+						<li parnCd="PGR008" menuCd="PGR017" >
+						<div class="p-img"><a href="/pkgRenewal/goodsFrame?agncyProdcd=29787076"><img src="http://img.modetour.co.kr/eagle/photoimg/10430/Bfile/635327402177330710.jpg" /></a></div>
+						<div class="p-cont">
+							<p class="p-area">동남아시아/하노이</p>
+							<div class="p-name-wrap">
+								<p class="p-name">[시선집중♥옌뜨] 하노이+하롱베이+옌뜨 3박 4일</p>
+							</div>
+							<p class="price-info">
+								<b>499,000원+</b>
+							</p>
+						</div>
+					</li>	
+					
+						<li parnCd="PGR008" menuCd="PGR017" >
+						<div class="p-img"><a href="/pkgRenewal/goodsFrame?agncyProdcd=OP20160531225"><img src="http://www.kaltour.com/fileupload/PhotoGal/Large/HAN205.jpg" /></a></div>
+						<div class="p-cont">
+							<p class="p-area">동남아시아/하노이</p>
+							<div class="p-name-wrap">
+								<p class="p-name">[홈쇼핑HIT/4일] 하노이/하롱베이 [특급호텔/전신마사지/스트릿카] 오전 출발</p>
+							</div>
+							<p class="price-info">
+								<b>569,000원+</b>
+							</p>
+						</div>
+					</li>	
+					
+						<li parnCd="PGR008" menuCd="PGR017" >
+						<div class="p-img"><a href="/pkgRenewal/goodsFrame?agncyProdcd=AVB127160531KEB"><img src="http://www.tourall.co.kr/app/wsv/packageproduct/pk-productimage.asp?obj_img=image1&img_seq=P000650112" /></a></div>
+						<div class="p-cont">
+							<p class="p-area">동남아시아/다낭</p>
+							<div class="p-name-wrap">
+								<p class="p-name">다낭 3박 5일｜빈펄 프리미엄 + 리조트식 2회 + 편도픽업</p>
+							</div>
+							<p class="price-info">
+								<b>966,500원+</b>
+							</p>
+						</div>
+					</li>	
+					
+						<li parnCd="PGR008" menuCd="PGR018" >
+						<div class="p-img"><a href="/pkgRenewal/goodsFrame?agncyProdcd=30233089"><img src="http://img.modetour.co.kr/eagle/photoimg/1425/Bfile/635116574873331339.jpg" /></a></div>
+						<div class="p-cont">
+							<p class="p-area">동남아시아/씨엠립</p>
+							<div class="p-name-wrap">
+								<p class="p-name">★앙코르what 따 싸다구★4박6일◆특급호텔/과일파티/스파2시간/툭툭이포함◆</p>
+							</div>
+							<p class="price-info">
+								<b>579,000원+</b>
+							</p>
+						</div>
+					</li>	
+					
+						<li parnCd="PGR008" menuCd="PGR018" >
+						<div class="p-img"><a href="/pkgRenewal/goodsFrame?agncyProdcd=OP20160608263"><img src="http://www.kaltour.com/fileupload/PhotoGal/Large/REP482.jpg" /></a></div>
+						<div class="p-cont">
+							<p class="p-area">동남아시아/씨엠립</p>
+							<div class="p-name-wrap">
+								<p class="p-name">캄보디아/앙코르왓 [특급호텔/툭툭이포함/특식6회] 5일</p>
+							</div>
+							<p class="price-info">
+								<b>799,000원+</b>
+							</p>
+						</div>
+					</li>	
+					
+						<li parnCd="PGR008" menuCd="PGR018" >
+						<div class="p-img"><a href="/pkgRenewal/goodsFrame?agncyProdcd=ARP103160611ZEA"><img src="http://www.tourall.co.kr/app/wsv/packageproduct/pk-productimage.asp?obj_img=image1&img_seq=P000640711" /></a></div>
+						<div class="p-cont">
+							<p class="p-area">동남아시아/씨엠립</p>
+							<div class="p-name-wrap">
+								<p class="p-name">앙코르왓 5일『실속파를 위한 여행』♠준특급호텔+4대특식♠</p>
+							</div>
+							<p class="price-info">
+								<b>329,000원+</b>
+							</p>
+						</div>
+					</li>	
+					
+						<li parnCd="PGR008" menuCd="PGR019" >
+						<div class="p-img"><a href="/pkgRenewal/goodsFrame?agncyProdcd=AMP101160531LJC"><img src="http://www.tourall.co.kr/app/wsv/packageproduct/pk-productimage.asp?obj_img=image1&img_seq=P000100042" /></a></div>
+						<div class="p-cont">
+							<p class="p-area">동남아시아/코타키나바루</p>
+							<div class="p-name-wrap">
+								<p class="p-name">코타키나발루 5일_수트라하버 마젤란윙 씨뷰◆아동반값|선셋디너크루즈</p>
+							</div>
+							<p class="price-info">
+								<b>799,000원+</b>
+							</p>
+						</div>
+					</li>	
+					
+						<li parnCd="PGR008" menuCd="PGR019" >
+						<div class="p-img"><a href="/pkgRenewal/goodsFrame?agncyProdcd=28459926"><img src="http://img.modetour.co.kr/eagle/photoimg/21720/sfile/Nexus%20Front%20Facade.jpg" /></a></div>
+						<div class="p-cont">
+							<p class="p-area">동남아시아/코타키나바루</p>
+							<div class="p-name-wrap">
+								<p class="p-name">[프리모두]코타 키나발루 넥서스(특급) 5일</p>
+							</div>
+							<p class="price-info">
+								<b>807,900원+</b>
+							</p>
+						</div>
+					</li>	
+					
+						<li parnCd="PGR008" menuCd="PGR019" >
+						<div class="p-img"><a href="/pkgRenewal/goodsFrame?agncyProdcd=OP20160531499"><img src="http://www.kaltour.com/fileupload/PhotoGal/Large/BKI606.jpg" /></a></div>
+						<div class="p-cont">
+							<p class="p-area">동남아시아/코타키나바루</p>
+							<div class="p-name-wrap">
+								<p class="p-name">[진에어][2인출발] 코타키나발루 [수트라하버 퍼시픽/호핑포함] 5일</p>
+							</div>
+							<p class="price-info">
+								<b>739,000원+</b>
+							</p>
+						</div>
+					</li>	
+					
+						<li parnCd="PGR008" menuCd="PGR020" >
+						<div class="p-img"><a href="/pkgRenewal/goodsFrame?agncyProdcd=ADA103160531KEF"><img src="http://www.tourall.co.kr/app/wsv/packageproduct/pk-productimage.asp?obj_img=image1&img_seq=P000544822" /></a></div>
+						<div class="p-cont">
+							<p class="p-area">동남아시아/발리</p>
+							<div class="p-name-wrap">
+								<p class="p-name">[현대카드전용]발리 5일- 림바 리조트(with 아야나) ◈공항픽업+짐바란씨푸드◈</p>
+							</div>
+							<p class="price-info">
+								<b>1,035,000원+</b>
+							</p>
+						</div>
+					</li>	
+					
+						<li parnCd="PGR008" menuCd="PGR020" >
+						<div class="p-img"><a href="/pkgRenewal/goodsFrame?agncyProdcd=30255743"><img src="http://img.modetour.co.kr/eagle/photoimg/1313/Bfile/634638975522165273.jpg" /></a></div>
+						<div class="p-cont">
+							<p class="p-area">동남아시아/발리</p>
+							<div class="p-name-wrap">
+								<p class="p-name">[워터마크 짐바란] 발리 4박6일</p>
+							</div>
+							<p class="price-info">
+								<b>1,249,000원+</b>
+							</p>
+						</div>
+					</li>	
+					
+						<li parnCd="PGR008" menuCd="PGR020" >
+						<div class="p-img"><a href="/pkgRenewal/goodsFrame?agncyProdcd=30397318"><img src="http://img.modetour.co.kr/eagle/photoimg/21684/Bfile/bali_030.jpg" /></a></div>
+						<div class="p-cont">
+							<p class="p-area">동남아시아/발리</p>
+							<div class="p-name-wrap">
+								<p class="p-name">[슈페리어 발코니] 발리 클럽메드 5일</p>
+							</div>
+							<p class="price-info">
+								<b>1,354,200원+</b>
+							</p>
+						</div>
+					</li>	
+					
+						<li parnCd="PGR008" menuCd="PGR021" >
+						<div class="p-img"><a href="/pkgRenewal/goodsFrame?agncyProdcd=ASP101160531OZC"><img src="http://www.tourall.co.kr/app/wsv/packageproduct/pk-productimage.asp?obj_img=image1&img_seq=P000618197" /></a></div>
+						<div class="p-cont">
+							<p class="p-area">동남아시아/싱가포르</p>
+							<div class="p-name-wrap">
+								<p class="p-name">싱가포르/바탐 5일★가든스바이더베이+토다이★</p>
+							</div>
+							<p class="price-info">
+								<b>949,000원+</b>
+							</p>
+						</div>
+					</li>	
+					
+						<li parnCd="PGR008" menuCd="PGR021" >
+						<div class="p-img"><a href="/pkgRenewal/goodsFrame?agncyProdcd=28644419"><img src="http://img.modetour.co.kr/eagle/photoimg/76/sfile/3690_1.jpg" /></a></div>
+						<div class="p-cont">
+							<p class="p-area">동남아시아/싱가포르</p>
+							<div class="p-name-wrap">
+								<p class="p-name">[Free+Fun/1일자유]싱가포르 3박 5일 준특급 ◈가든야경+토다이◈</p>
+							</div>
+							<p class="price-info">
+								<b>919,000원+</b>
+							</p>
+						</div>
+					</li>	
+					
+						<li parnCd="PGR008" menuCd="PGR021" >
+						<div class="p-img"><a href="/pkgRenewal/goodsFrame?agncyProdcd=29421496"><img src="http://img.modetour.co.kr/eagle/photoimg/22790/sfile/635701308667666422.jpg" /></a></div>
+						<div class="p-cont">
+							<p class="p-area">동남아시아/싱가포르</p>
+							<div class="p-name-wrap">
+								<p class="p-name">◐369할인◑[3개국투어]싱가폴/조호/바탐섬 3박 5일 ◈토다이◈</p>
+							</div>
+							<p class="price-info">
+								<b>799,000원+</b>
+							</p>
+						</div>
+					</li>	
+					
+						<li parnCd="PGR008" menuCd="PGR022" >
+						<div class="p-img"><a href="/pkgRenewal/goodsFrame?agncyProdcd=ALP151160531LJW"><img src="http://www.tourall.co.kr/app/wsv/packageproduct/pk-productimage.asp?obj_img=image1&img_seq=P000185246" /></a></div>
+						<div class="p-cont">
+							<p class="p-area">동남아시아/방비엥</p>
+							<div class="p-name-wrap">
+								<p class="p-name">라오스 5일 비엔티엔/방비엥</p>
+							</div>
+							<p class="price-info">
+								<b>549,000원+</b>
+							</p>
+						</div>
+					</li>	
+					
+						<li parnCd="PGR008" menuCd="PGR022" >
+						<div class="p-img"><a href="/pkgRenewal/goodsFrame?agncyProdcd=29987426"><img src="http://img.modetour.co.kr/eagle/photoimg/28632/Bfile/634929129356406250.jpg" /></a></div>
+						<div class="p-cont">
+							<p class="p-area">동남아시아/비엔티엔</p>
+							<div class="p-name-wrap">
+								<p class="p-name">오전출발 [힐링♥라오스] 3박5일 (비엔티엔/방비엥</p>
+							</div>
+							<p class="price-info">
+								<b>579,000원+</b>
+							</p>
+						</div>
+					</li>	
+					
+						<li parnCd="PGR008" menuCd="PGR022" >
+						<div class="p-img"><a href="/pkgRenewal/goodsFrame?agncyProdcd=ALB101160531LJA"><img src="http://www.tourall.co.kr/app/wsv/packageproduct/pk-productimage.asp?obj_img=image1&img_seq=P000587707" /></a></div>
+						<div class="p-cont">
+							<p class="p-area">동남아시아/방비엥</p>
+							<div class="p-name-wrap">
+								<p class="p-name">라오스 3박 5일- ♣비엔티엔/방비엥 3성급 호텔♣</p>
+							</div>
+							<p class="price-info">
+								<b>478,300원+</b>
+							</p>
+						</div>
+					</li>	
+					
+						<li parnCd="PGR008" menuCd="PGR023" >
+						<div class="p-img"><a href="/pkgRenewal/goodsFrame?agncyProdcd=29803594"><img src="http://img.modetour.co.kr/eagle/photoimg/42038/Bfile/635496767898641539.jpg" /></a></div>
+						<div class="p-cont">
+							<p class="p-area">동남아시아/콜롬보</p>
+							<div class="p-name-wrap">
+								<p class="p-name">★비자무료★스리랑카 문화탐방 8일</p>
+							</div>
+							<p class="price-info">
+								<b>1,500,000원+</b>
+							</p>
+						</div>
+					</li>	
+					
+						<li parnCd="PGR008" menuCd="PGR023" >
+						<div class="p-img"><a href="/pkgRenewal/goodsFrame?agncyProdcd=AQP102160530KE2"><img src="http://www.tourall.co.kr/app/wsv/packageproduct/pk-productimage.asp?obj_img=image1&img_seq=P000616578" /></a></div>
+						<div class="p-cont">
+							<p class="p-area">동남아시아/폴론나루와</p>
+							<div class="p-name-wrap">
+								<p class="p-name">[특수지역][칸달라마 호텔/코끼리고아원]스리랑카 완전일주 8일★특별한 선물</p>
+							</div>
+							<p class="price-info">
+								<b>1,600,000원+</b>
+							</p>
+						</div>
+					</li>	
+					
+						<li parnCd="PGR008" menuCd="PGR023" >
+						<div class="p-img"><a href="/pkgRenewal/goodsFrame?agncyProdcd=OP20160530526"><img src="http://www.kaltour.com/fileupload/PhotoGal/Large/MLE1191.jpg" /></a></div>
+						<div class="p-cont">
+							<p class="p-area">동남아시아/말레</p>
+							<div class="p-name-wrap">
+								<p class="p-name">[올인클루시브] 몰디브 허니문 [차야 하쿠라후라/워터방갈로] 8일</p>
+							</div>
+							<p class="price-info">
+								<b>3,090,000원+</b>
+							</p>
+						</div>
+					</li>	
+					
+						<li parnCd="PGR009" menuCd="PGR024" >
+						<div class="p-img"><a href="/pkgRenewal/goodsFrame?agncyProdcd=30614717"><img src="http://img.modetour.co.kr/eagle/photoimg/28510/sfile/20070824111554745.jpg" /></a></div>
+						<div class="p-cont">
+							<p class="p-area">홍콩/중국/홍콩</p>
+							<div class="p-name-wrap">
+								<p class="p-name">[왕복항공권상품][보험+피크트램쿠폰포함] 홍콩/마카오 항공권 5일 [호텔불포함...</p>
+							</div>
+							<p class="price-info">
+								<b>199,000원+</b>
+							</p>
+						</div>
+					</li>	
+					
+						<li parnCd="PGR009" menuCd="PGR024" >
+						<div class="p-img"><a href="/pkgRenewal/goodsFrame?agncyProdcd=OP20160531282"><img src="http://www.kaltour.com/fileupload/PhotoGal/Large/HKG39.jpg" /></a></div>
+						<div class="p-cont">
+							<p class="p-area">홍콩/중국/마카오</p>
+							<div class="p-name-wrap">
+								<p class="p-name">[대한항공] 홍콩/마카오 [픽트램편도/얌차식 포함] 4일 KE</p>
+							</div>
+							<p class="price-info">
+								<b>819,000원+</b>
+							</p>
+						</div>
+					</li>	
+					
+						<li parnCd="PGR009" menuCd="PGR024" >
+						<div class="p-img"><a href="/pkgRenewal/goodsFrame?agncyProdcd=29627171"><img src="http://img.modetour.co.kr/eagle/photoimg/28510/Bfile/635556240321485385.jpg" /></a></div>
+						<div class="p-cont">
+							<p class="p-area">홍콩/중국/홍콩</p>
+							<div class="p-name-wrap">
+								<p class="p-name">[중국TOP10] 홍콩/마카오(일급) 2박 4일</p>
+							</div>
+							<p class="price-info">
+								<b>399,000원+</b>
+							</p>
+						</div>
+					</li>	
+					
+						<li parnCd="PGR009" menuCd="PGR025" >
+						<div class="p-img"><a href="/pkgRenewal/goodsFrame?agncyProdcd=ATP104160612TZA"><img src="http://www.tourall.co.kr/app/wsv/packageproduct/pk-productimage.asp?obj_img=image1&img_seq=P000555869" /></a></div>
+						<div class="p-cont">
+							<p class="p-area">홍콩/중국/타이페이</p>
+							<div class="p-name-wrap">
+								<p class="p-name">[영화 속 그곳] 대만/야류/지우펀 4일 ♠특식 3회 + 천등날리기</p>
+							</div>
+							<p class="price-info">
+								<b>599,000원+</b>
+							</p>
+						</div>
+					</li>	
+					
+						<li parnCd="PGR009" menuCd="PGR025" >
+						<div class="p-img"><a href="/pkgRenewal/goodsFrame?agncyProdcd=30257436"><img src="http://img.modetour.co.kr/eagle/photoimg/31608/Bfile/633538100252187500.jpg" /></a></div>
+						<div class="p-cont">
+							<p class="p-area">홍콩/중국/타이페이</p>
+							<div class="p-name-wrap">
+								<p class="p-name">♥대만최저가♥[MODE 실속]▶특가◀ 타이페이/화련/야류/온천욕(금용천) 4일</p>
+							</div>
+							<p class="price-info">
+								<b>599,000원+</b>
+							</p>
+						</div>
+					</li>	
+					
+						<li parnCd="PGR009" menuCd="PGR025" >
+						<div class="p-img"><a href="/pkgRenewal/goodsFrame?agncyProdcd=OP20160530576"><img src="http://www.kaltour.com/fileupload/PhotoGal/Large/TPE319.jpg" /></a></div>
+						<div class="p-cont">
+							<p class="p-area">홍콩/중국/타이페이</p>
+							<div class="p-name-wrap">
+								<p class="p-name">[진에어] 대만/화련/야류/지우펀 3박4일</p>
+							</div>
+							<p class="price-info">
+								<b>579,000원+</b>
+							</p>
+						</div>
+					</li>	
+					
+						<li parnCd="PGR009" menuCd="PGR034" >
+						<div class="p-img"><a href="/pkgRenewal/goodsFrame?agncyProdcd=CNP8201605317CC"><img src="http://www.tourall.co.kr/app/wsv/packageproduct/pk-productimage.asp?obj_img=image1&img_seq=P000368748" /></a></div>
+						<div class="p-cont">
+							<p class="p-area">홍콩/중국/청도</p>
+							<div class="p-name-wrap">
+								<p class="p-name">[맛있는칭다오][노쇼핑] ◈청도(칭다오) 3일| 4대특식/5성급호텔/칭다오맥주◈</p>
+							</div>
+							<p class="price-info">
+								<b>375,000원+</b>
+							</p>
+						</div>
+					</li>	
+					
+						<li parnCd="PGR009" menuCd="PGR034" >
+						<div class="p-img"><a href="/pkgRenewal/goodsFrame?agncyProdcd=OP20160531142"><img src="http://www.kaltour.com/fileupload/PhotoGal/Large/SHA1081.jpg" /></a></div>
+						<div class="p-cont">
+							<p class="p-area">홍콩/중국/상해</p>
+							<div class="p-name-wrap">
+								<p class="p-name">상해/항주/풍경고진 [동방명주/서커스/발마사지] 4일</p>
+							</div>
+							<p class="price-info">
+								<b>399,000원+</b>
+							</p>
+						</div>
+					</li>	
+					
+						<li parnCd="PGR009" menuCd="PGR034" >
+						<div class="p-img"><a href="/pkgRenewal/goodsFrame?agncyProdcd=30386021"><img src="http://img.modetour.co.kr/eagle/photoimg/10806/Bfile/634378570623906250.jpg" /></a></div>
+						<div class="p-cont">
+							<p class="p-area">홍콩/중국/북경</p>
+							<div class="p-name-wrap">
+								<p class="p-name">(천진난만) [NEW 온리모두] (온천♨+워터파크) 북경 4일</p>
+							</div>
+							<p class="price-info">
+								<b>389,000원+</b>
+							</p>
+						</div>
+					</li>	
+					
+						<li parnCd="PGR009" menuCd="PGR035" >
+						<div class="p-img"><a href="/pkgRenewal/goodsFrame?agncyProdcd=CNP870160530KE1"><img src="http://www.tourall.co.kr/app/wsv/packageproduct/pk-productimage.asp?obj_img=image1&img_seq=P000035473" /></a></div>
+						<div class="p-cont">
+							<p class="p-area">홍콩/중국/울란바토르</p>
+							<div class="p-name-wrap">
+								<p class="p-name">[몽골]울란바타르/테를지 5일 ◈게르1박+그랜드힐호텔+승마체험◈</p>
+							</div>
+							<p class="price-info">
+								<b>1,349,000원+</b>
+							</p>
+						</div>
+					</li>	
+					
+						<li parnCd="PGR009" menuCd="PGR035" >
+						<div class="p-img"><a href="/pkgRenewal/goodsFrame?agncyProdcd=30658771"><img src="http://img.modetour.co.kr/eagle/photoimg/35124/sfile/634170270782187500.jpg" /></a></div>
+						<div class="p-cont">
+							<p class="p-area">홍콩/중국/태원</p>
+							<div class="p-name-wrap">
+								<p class="p-name">[新상품]◆태원직항+산위숙박+NO쇼핑◆면산 태항산 팔천협 평요고성 5일</p>
+							</div>
+							<p class="price-info">
+								<b>929,000원+</b>
+							</p>
+						</div>
+					</li>	
+					
+						<li parnCd="PGR009" menuCd="PGR035" >
+						<div class="p-img"><a href="/pkgRenewal/goodsFrame?agncyProdcd=30459037"><img src="http://img.modetour.co.kr/eagle/photoimg/37407/sfile/634371910493593750.JPG" /></a></div>
+						<div class="p-cont">
+							<p class="p-area">홍콩/중국/태원</p>
+							<div class="p-name-wrap">
+								<p class="p-name">♣한정특가+NO쇼핑♣[태원직항]공중(空中)도시 면산 평요고성 5일</p>
+							</div>
+							<p class="price-info">
+								<b>529,000원+</b>
+							</p>
+						</div>
+					</li>	
+					
+						<li parnCd="PGR010" menuCd="PGR036" >
+						<div class="p-img"><a href="/pkgRenewal/goodsFrame?agncyProdcd=OP20160611102"><img src="http://www.kaltour.com/fileupload/PhotoGal/Large/GUM739.jpg" /></a></div>
+						<div class="p-cont">
+							<p class="p-area">남태평양/괌</p>
+							<div class="p-name-wrap">
+								<p class="p-name">[진에어 - 오전출발] 괌 [온워드 자유] 4일</p>
+							</div>
+							<p class="price-info">
+								<b>869,000원+</b>
+							</p>
+						</div>
+					</li>	
+					
+						<li parnCd="PGR010" menuCd="PGR036" >
+						<div class="p-img"><a href="/pkgRenewal/goodsFrame?agncyProdcd=29265182"><img src="http://img.modetour.co.kr/eagle/photoimg/22572/Bfile/picguam_final%20(17).jpg" /></a></div>
+						<div class="p-cont">
+							<p class="p-area">남태평양/괌</p>
+							<div class="p-name-wrap">
+								<p class="p-name">■오전출발■[베이직] 괌 PIC 슈페리어 골드 대한항공 4일</p>
+							</div>
+							<p class="price-info">
+								<b>1,099,000원+</b>
+							</p>
+						</div>
+					</li>	
+					
+						<li parnCd="PGR010" menuCd="PGR036" >
+						<div class="p-img"><a href="/pkgRenewal/goodsFrame?agncyProdcd=PGP407160612LJ0"><img src="http://www.tourall.co.kr/app/wsv/packageproduct/pk-productimage.asp?obj_img=image1&img_seq=P000032885" /></a></div>
+						<div class="p-cont">
+							<p class="p-area">남태평양/괌</p>
+							<div class="p-name-wrap">
+								<p class="p-name">괌 4일 쉐라톤 [오션뷰룸+현지식1회]</p>
+							</div>
+							<p class="price-info">
+								<b>749,000원+</b>
+							</p>
+						</div>
+					</li>	
+					
+						<li parnCd="PGR010" menuCd="PGR037" >
+						<div class="p-img"><a href="/pkgRenewal/goodsFrame?agncyProdcd=28136570"><img src="http://img.modetour.co.kr/eagle/photoimg/15799/sfile/_MG_6156.jpg" /></a></div>
+						<div class="p-cont">
+							<p class="p-area">남태평양/사이판</p>
+							<div class="p-name-wrap">
+								<p class="p-name">[깜놀까]사이판 카노아(스텐다드메인) 아시아나항공 5일</p>
+							</div>
+							<p class="price-info">
+								<b>949,000원+</b>
+							</p>
+						</div>
+					</li>	
+					
+						<li parnCd="PGR010" menuCd="PGR037" >
+						<div class="p-img"><a href="/pkgRenewal/goodsFrame?agncyProdcd=PSP413160531OZD"><img src="http://www.tourall.co.kr/app/wsv/packageproduct/pk-productimage.asp?obj_img=image1&img_seq=P000042309" /></a></div>
+						<div class="p-cont">
+							<p class="p-area">남태평양/사이판</p>
+							<div class="p-name-wrap">
+								<p class="p-name">[사이판][오후출발]월드리조트 5일◈이코노미플로어+자유일정◈</p>
+							</div>
+							<p class="price-info">
+								<b>1,129,000원+</b>
+							</p>
+						</div>
+					</li>	
+					
+						<li parnCd="PGR010" menuCd="PGR037" >
+						<div class="p-img"><a href="/pkgRenewal/goodsFrame?agncyProdcd=30959924"><img src="http://img.modetour.co.kr/eagle/photoimg/22089/sfile/635392081096200347.jpg" /></a></div>
+						<div class="p-cont">
+							<p class="p-area">남태평양/사이판</p>
+							<div class="p-name-wrap">
+								<p class="p-name">[I♥FAMILY] 사이판 PIC 골드(슈페리어) 에어텔 아시아나항공 5일</p>
+							</div>
+							<p class="price-info">
+								<b>1,139,000원+</b>
+							</p>
+						</div>
+					</li>	
+					
+						<li parnCd="PGR010" menuCd="PGR038" >
+						<div class="p-img"><a href="/pkgRenewal/goodsFrame?agncyProdcd=PPP497160612KEA"><img src="http://www.tourall.co.kr/app/wsv/packageproduct/pk-productimage.asp?obj_img=image1&img_seq=P000605770" /></a></div>
+						<div class="p-cont">
+							<p class="p-area">남태평양/팔라우(코룰)</p>
+							<div class="p-name-wrap">
+								<p class="p-name">팔라우 6일 ★ 얼리버드 ★ 블루오션뷰 호텔</p>
+							</div>
+							<p class="price-info">
+								<b>949,000원+</b>
+							</p>
+						</div>
+					</li>	
+					
+						<li parnCd="PGR010" menuCd="PGR038" >
+						<div class="p-img"><a href="/pkgRenewal/goodsFrame?agncyProdcd=28204050"><img src="http://img.modetour.co.kr/eagle/photoimg/32525/Bfile/IMG_0406.JPG" /></a></div>
+						<div class="p-cont">
+							<p class="p-area">남태평양/팔라우(코룰)</p>
+							<div class="p-name-wrap">
+								<p class="p-name">[토핑팩] 팔라우 아이라이뷰 {일급} 6일</p>
+							</div>
+							<p class="price-info">
+								<b>1,129,000원+</b>
+							</p>
+						</div>
+					</li>	
+					
+						<li parnCd="PGR010" menuCd="PGR038" >
+						<div class="p-img"><a href="/pkgRenewal/goodsFrame?agncyProdcd=OP20160612124"><img src="http://www.kaltour.com/fileupload/PhotoGal/Large/ROR660.jpg" /></a></div>
+						<div class="p-cont">
+							<p class="p-area">남태평양/팔라우(코룰)</p>
+							<div class="p-name-wrap">
+								<p class="p-name">팔라우 [초특급-팔라우퍼시픽][시내관광+특식1회] 6일</p>
+							</div>
+							<p class="price-info">
+								<b>1,919,000원+</b>
+							</p>
+						</div>
+					</li>	
+					
+						<li parnCd="PGR010" menuCd="PGR039" >
+						<div class="p-img"><a href="/pkgRenewal/goodsFrame?agncyProdcd=PAP402160612OZB"><img src="http://www.tourall.co.kr/app/wsv/packageproduct/pk-productimage.asp?obj_img=image1&img_seq=P000160552" /></a></div>
+						<div class="p-cont">
+							<p class="p-area">남태평양/시드니</p>
+							<div class="p-name-wrap">
+								<p class="p-name">시드니/을릉공+저비스베이 6일</p>
+							</div>
+							<p class="price-info">
+								<b>1,440,000원+</b>
+							</p>
+						</div>
+					</li>	
+					
+						<li parnCd="PGR010" menuCd="PGR039" >
+						<div class="p-img"><a href="/pkgRenewal/goodsFrame?agncyProdcd=OP20160615117"><img src="http://www.kaltour.com/fileupload/PhotoGal/Large/OOL599.jpg" /></a></div>
+						<div class="p-cont">
+							<p class="p-area">남태평양/시드니</p>
+							<div class="p-name-wrap">
+								<p class="p-name">호주 골드코스트 / 브리즈번 [1일자유 / 론파인코알라파크] 5일</p>
+							</div>
+							<p class="price-info">
+								<b>1,740,000원+</b>
+							</p>
+						</div>
+					</li>	
+					
+						<li parnCd="PGR010" menuCd="PGR039" >
+						<div class="p-img"><a href="/pkgRenewal/goodsFrame?agncyProdcd=29468183"><img src="http://img.modetour.co.kr/eagle/photoimg/11288/Bfile/SydneyHarbourAerial2012HL107D.jpg" /></a></div>
+						<div class="p-cont">
+							<p class="p-area">남태평양/시드니</p>
+							<div class="p-name-wrap">
+								<p class="p-name">[시드니VIVID불빛축제][베스트셀러] *최대15만원할인* 시드니 완전일주 6일</p>
+							</div>
+							<p class="price-info">
+								<b>1,690,000원+</b>
+							</p>
+						</div>
+					</li>	
+					
+						<li parnCd="PGR010" menuCd="PGR040" >
+						<div class="p-img"><a href="/pkgRenewal/goodsFrame?agncyProdcd=30663112"><img src="http://img.modetour.co.kr/eagle/photoimg/24353/Bfile/The Church of the Good Shepherd, Lake Tekapo.jpg" /></a></div>
+						<div class="p-cont">
+							<p class="p-area">남태평양/오클랜드</p>
+							<div class="p-name-wrap">
+								<p class="p-name">┃알뜰팩┃뉴질랜드 남북섬 9일</p>
+							</div>
+							<p class="price-info">
+								<b>2,590,000원+</b>
+							</p>
+						</div>
+					</li>	
+					
+						<li parnCd="PGR010" menuCd="PGR040" >
+						<div class="p-img"><a href="/pkgRenewal/goodsFrame?agncyProdcd=OP20160608114"><img src="http://www.kaltour.com/fileupload/PhotoGal/Large/ZQN330.jpg" /></a></div>
+						<div class="p-cont">
+							<p class="p-area">남태평양/퀸스타운</p>
+							<div class="p-name-wrap">
+								<p class="p-name">뉴질랜드 남북섬 완전일주 7일</p>
+							</div>
+							<p class="price-info">
+								<b>2,840,000원+</b>
+							</p>
+						</div>
+					</li>	
+					
+						<li parnCd="PGR010" menuCd="PGR040" >
+						<div class="p-img"><a href="/pkgRenewal/goodsFrame?agncyProdcd=OP20160609105"><img src="http://www.kaltour.com/fileupload/PhotoGal/Large/SYD1129.jpg" /></a></div>
+						<div class="p-cont">
+							<p class="p-area">남태평양/퀸스타운</p>
+							<div class="p-name-wrap">
+								<p class="p-name">호주 / 뉴질랜드남북섬 [타우포호수/송어낚시] 10일</p>
+							</div>
+							<p class="price-info">
+								<b>3,590,000원+</b>
+							</p>
+						</div>
+					</li>	
+					
+						<li parnCd="PGR010" menuCd="PGR041" >
+						<div class="p-img"><a href="/pkgRenewal/goodsFrame?agncyProdcd=IPP309-160616|1"><img src="http://contents.verygoodtour.com/content/340/FJ/0000/NAN/image/576838_2.jpg" /></a></div>
+						<div class="p-cont">
+							<p class="p-area">남태평양/난디</p>
+							<div class="p-name-wrap">
+								<p class="p-name">[인터컨티넨탈] 피지 +로빈슨크루소 아일랜드 5일</p>
+							</div>
+							<p class="price-info">
+								<b>2,090,000원+</b>
+							</p>
+						</div>
+					</li>	
+					
+						<li parnCd="PGR010" menuCd="PGR041" >
+						<div class="p-img"><a href="/pkgRenewal/goodsFrame?agncyProdcd=PFP409160612KE6"><img src="http://www.tourall.co.kr/app/wsv/packageproduct/pk-productimage.asp?obj_img=image1&img_seq=P000520138" /></a></div>
+						<div class="p-cont">
+							<p class="p-area">남태평양/난디</p>
+							<div class="p-name-wrap">
+								<p class="p-name">피지 자유여행 6일- 인터컨티넨탈 리조트 풀뷰</p>
+							</div>
+							<p class="price-info">
+								<b>2,100,000원+</b>
+							</p>
+						</div>
+					</li>	
+					
+						<li parnCd="PGR010" menuCd="PGR041" >
+						<div class="p-img"><a href="/pkgRenewal/goodsFrame?agncyProdcd=OP20160616242"><img src="http://www.kaltour.com/fileupload/PhotoGal/Large/NAN775.jpg" /></a></div>
+						<div class="p-cont">
+							<p class="p-area">남태평양/난디</p>
+							<div class="p-name-wrap">
+								<p class="p-name">피지 [소피텔리조트] 5일</p>
+							</div>
+							<p class="price-info">
+								<b>2,190,000원+</b>
+							</p>
+						</div>
+					</li>	
+					
+						<li parnCd="PGR010" menuCd="PGR042" >
+						<div class="p-img"><a href="/pkgRenewal/goodsFrame?agncyProdcd=PCP411160531OZ1"><img src="http://www.tourall.co.kr/app/wsv/packageproduct/pk-productimage.asp?obj_img=image1&img_seq=P000041246" /></a></div>
+						<div class="p-cont">
+							<p class="p-area">남태평양/누메아</p>
+							<div class="p-name-wrap">
+								<p class="p-name">뉴칼레도니아 4박 6일[누메아 ONLY]르메르디앙 누메아</p>
+							</div>
+							<p class="price-info">
+								<b>2,483,000원+</b>
+							</p>
+						</div>
+					</li>	
+					
+						<li parnCd="PGR010" menuCd="PGR042" >
+						<div class="p-img"><a href="/pkgRenewal/goodsFrame?agncyProdcd=27860615"><img src="http://img.modetour.co.kr/eagle/photoimg/25703/Bfile/Romantic%20dinner-1.jpg" /></a></div>
+						<div class="p-cont">
+							<p class="p-area">남태평양/타히티섬</p>
+							<div class="p-name-wrap">
+								<p class="p-name">┃타히티♥모레아섬┃힐튼 모레아 6일</p>
+							</div>
+							<p class="price-info">
+								<b>3,150,000원+</b>
+							</p>
+						</div>
+					</li>	
+					
+						<li parnCd="PGR010" menuCd="PGR042" >
+						<div class="p-img"><a href="/pkgRenewal/goodsFrame?agncyProdcd=27862543"><img src="http://img.modetour.co.kr/eagle/photoimg/2139/Bfile/61NOUMEAHARBOUR.jpg" /></a></div>
+						<div class="p-cont">
+							<p class="p-area">남태평양/일데팡</p>
+							<div class="p-name-wrap">
+								<p class="p-name">♥얼리버드-룸UP♥뉴칼레도니아♥ 누메아 [르메르디앙] 6일</p>
+							</div>
+							<p class="price-info">
+								<b>2,390,000원+</b>
+							</p>
+						</div>
+					</li>	
+					
+						<li parnCd="PGR011" menuCd="PGR043" >
+						<div class="p-img"><a href="/pkgRenewal/goodsFrame?agncyProdcd=OP20160531663"><img src="http://www.kaltour.com/fileupload/PhotoGal/Large/FUK973.jpg" /></a></div>
+						<div class="p-cont">
+							<p class="p-area">일본/유후인</p>
+							<div class="p-name-wrap">
+								<p class="p-name">[진에어] 북규슈 3일[특급호텔숙박.아소팜+힐튼]</p>
+							</div>
+							<p class="price-info">
+								<b>579,000원+</b>
+							</p>
+						</div>
+					</li>	
+					
+						<li parnCd="PGR011" menuCd="PGR043" >
+						<div class="p-img"><a href="/pkgRenewal/goodsFrame?agncyProdcd=A160509806"><img src="http://ltassc.lottetour.com/LAMS_CONTENTS/REV/2013/10/18/IMG/PREVIEW/0201201310188330900063713037627.jpg" /></a></div>
+						<div class="p-cont">
+							<p class="p-area">일본/유후인</p>
+							<div class="p-name-wrap">
+								<p class="p-name">【OZ 정통 단독】온천호텔♨2박 특급+준특급 후쿠오카/유휴인/벳부 3일</p>
+							</div>
+							<p class="price-info">
+								<b>749,000원+</b>
+							</p>
+						</div>
+					</li>	
+					
+						<li parnCd="PGR011" menuCd="PGR043" >
+						<div class="p-img"><a href="/pkgRenewal/goodsFrame?agncyProdcd=JKP500160531OZ8"><img src="http://www.tourall.co.kr/app/wsv/packageproduct/pk-productimage.asp?obj_img=image1&img_seq=P000023792" /></a></div>
+						<div class="p-cont">
+							<p class="p-area">일본/유후인</p>
+							<div class="p-name-wrap">
+								<p class="p-name">[스테디셀러] 규슈 3일가이세키특식 & 명물간식체험♬</p>
+							</div>
+							<p class="price-info">
+								<b>799,000원+</b>
+							</p>
+						</div>
+					</li>	
+					
+						<li parnCd="PGR011" menuCd="PGR044" >
+						<div class="p-img"><a href="/pkgRenewal/goodsFrame?agncyProdcd=OP20160531199"><img src="http://www.kaltour.com/fileupload/PhotoGal/Large/OSA753.jpg" /></a></div>
+						<div class="p-cont">
+							<p class="p-area">일본/교토</p>
+							<div class="p-name-wrap">
+								<p class="p-name">[대한항공]오사카/교토/나라 핵심 일주 ♨ 3일(1일자유)</p>
+							</div>
+							<p class="price-info">
+								<b>699,000원+</b>
+							</p>
+						</div>
+					</li>	
+					
+						<li parnCd="PGR011" menuCd="PGR044" >
+						<div class="p-img"><a href="/pkgRenewal/goodsFrame?agncyProdcd=JOP500160531OZR"><img src="http://www.tourall.co.kr/app/wsv/packageproduct/pk-productimage.asp?obj_img=image1&img_seq=P000164328" /></a></div>
+						<div class="p-cont">
+							<p class="p-area">일본/교토</p>
+							<div class="p-name-wrap">
+								<p class="p-name">[GOOD CHOICE]오사카/교토/나라 3일[전일관광]☆특급호텔 숙박☆</p>
+							</div>
+							<p class="price-info">
+								<b>979,000원+</b>
+							</p>
+						</div>
+					</li>	
+					
+						<li parnCd="PGR011" menuCd="PGR044" >
+						<div class="p-img"><a href="/pkgRenewal/goodsFrame?agncyProdcd=30809193"><img src="http://img.modetour.co.kr/eagle/photoimg/10648/Bfile/634583537319687500.jpg" /></a></div>
+						<div class="p-cont">
+							<p class="p-area">일본/오사카</p>
+							<div class="p-name-wrap">
+								<p class="p-name">[THE-BEST 오사카로얄패밀리일주] 오사카/사카이/나라/교토/고베 온천4일...</p>
+							</div>
+							<p class="price-info">
+								<b>1,249,000원+</b>
+							</p>
+						</div>
+					</li>	
+					
+						<li parnCd="PGR011" menuCd="PGR045" >
+						<div class="p-img"><a href="/pkgRenewal/goodsFrame?agncyProdcd=JPP404-160530OZ|1"><img src="http://contents.verygoodtour.com/content/310/JP/J41/TYO/image/576021_2.jpg" /></a></div>
+						<div class="p-cont">
+							<p class="p-area">일본/시즈오카</p>
+							<div class="p-name-wrap">
+								<p class="p-name">[언제가도 좋은 도쿄] 시즈오카 동경 요코하마 4일 (선착순 어댑터증정) OZ연합</p>
+							</div>
+							<p class="price-info">
+								<b>779,000원+</b>
+							</p>
+						</div>
+					</li>	
+					
+						<li parnCd="PGR011" menuCd="PGR045" >
+						<div class="p-img"><a href="/pkgRenewal/goodsFrame?agncyProdcd=JTP702160531KE1"><img src="http://www.tourall.co.kr/app/wsv/packageproduct/pk-productimage.asp?obj_img=image1&img_seq=P000024083" /></a></div>
+						<div class="p-cont">
+							<p class="p-area">일본/도쿄</p>
+							<div class="p-name-wrap">
+								<p class="p-name">[베스트셀러★도쿄][1일자유]도쿄 3일- 롯본기 시티뷰</p>
+							</div>
+							<p class="price-info">
+								<b>949,000원+</b>
+							</p>
+						</div>
+					</li>	
+					
+						<li parnCd="PGR011" menuCd="PGR045" >
+						<div class="p-img"><a href="/pkgRenewal/goodsFrame?agncyProdcd=30985459"><img src="http://img.modetour.co.kr/eagle/photoimg/18601/Bfile/01_062.JPG" /></a></div>
+						<div class="p-cont">
+							<p class="p-area">일본/도쿄</p>
+							<div class="p-name-wrap">
+								<p class="p-name">[힐링온천여행] 동경/가루이자와/쿠사츠 온천 4일 (전일관광/준특급/트윈룸/유...</p>
+							</div>
+							<p class="price-info">
+								<b>1,349,000원+</b>
+							</p>
+						</div>
+					</li>	
+					
+						<li parnCd="PGR011" menuCd="PGR046" >
+						<div class="p-img"><a href="/pkgRenewal/goodsFrame?agncyProdcd=JSP511160530TWS"><img src="http://www.tourall.co.kr/app/wsv/packageproduct/pk-productimage.asp?obj_img=image1&img_seq=P000013411" /></a></div>
+						<div class="p-cont">
+							<p class="p-area">일본/삿포로</p>
+							<div class="p-name-wrap">
+								<p class="p-name">[Lovely오타루]♥죠잔케이 온천숙박♥ 홋카이도 4일/1일자유</p>
+							</div>
+							<p class="price-info">
+								<b>869,000원+</b>
+							</p>
+						</div>
+					</li>	
+					
+						<li parnCd="PGR011" menuCd="PGR046" >
+						<div class="p-img"><a href="/pkgRenewal/goodsFrame?agncyProdcd=30411025"><img src="http://img.modetour.co.kr/eagle/photoimg/10609/bfile/633486928452343750.jpg" /></a></div>
+						<div class="p-cont">
+							<p class="p-area">일본/홋카이도</p>
+							<div class="p-name-wrap">
+								<p class="p-name">[The Best정통&lt;식도락온천여행&gt;]북해도 온천 4일</p>
+							</div>
+							<p class="price-info">
+								<b>1,399,000원+</b>
+							</p>
+						</div>
+					</li>	
+					
+						<li parnCd="PGR011" menuCd="PGR046" >
+						<div class="p-img"><a href="/pkgRenewal/goodsFrame?agncyProdcd=OP20160529245"><img src="http://www.kaltour.com/fileupload/PhotoGal/Large/SPK2312.jpg" /></a></div>
+						<div class="p-cont">
+							<p class="p-area">일본/삿포로</p>
+							<div class="p-name-wrap">
+								<p class="p-name">[대한항공] 북해도 핵심관광[노보리베츠/도야/오타루/삿포로] + 하코다테 4일</p>
+							</div>
+							<p class="price-info">
+								<b>1,450,000원+</b>
+							</p>
+						</div>
+					</li>	
+					
+						<li parnCd="PGR011" menuCd="PGR047" >
+						<div class="p-img"><a href="/pkgRenewal/goodsFrame?agncyProdcd=JWP500160531OZG"><img src="http://www.tourall.co.kr/app/wsv/packageproduct/pk-productimage.asp?obj_img=image1&img_seq=P000008779" /></a></div>
+						<div class="p-cont">
+							<p class="p-area">일본/오키나와</p>
+							<div class="p-name-wrap">
+								<p class="p-name">[유네스코][힐링休] 오키나와 3일★필수일정+리조트숙박★</p>
+							</div>
+							<p class="price-info">
+								<b>879,000원+</b>
+							</p>
+						</div>
+					</li>	
+					
+						<li parnCd="PGR011" menuCd="PGR047" >
+						<div class="p-img"><a href="/pkgRenewal/goodsFrame?agncyProdcd=OP20160531162"><img src="http://www.kaltour.com/fileupload/PhotoGal/Large/OKA886.jpg" /></a></div>
+						<div class="p-cont">
+							<p class="p-area">일본/오키나와</p>
+							<div class="p-name-wrap">
+								<p class="p-name">[일본속의또다른일본] 오키나와 관광 4일 (1일 자유)</p>
+							</div>
+							<p class="price-info">
+								<b>1,090,000원+</b>
+							</p>
+						</div>
+					</li>	
+					
+						<li parnCd="PGR011" menuCd="PGR047" >
+						<div class="p-img"><a href="/pkgRenewal/goodsFrame?agncyProdcd=30925695"><img src="http://img.modetour.co.kr/eagle/photoimg/48184/Bfile/014U0742.jpg" /></a></div>
+						<div class="p-cont">
+							<p class="p-area">일본/오키나와</p>
+							<div class="p-name-wrap">
+								<p class="p-name">[The Best] 오키나와 4일-온천/참치해체쇼</p>
+							</div>
+							<p class="price-info">
+								<b>1,499,000원+</b>
+							</p>
+						</div>
+					</li>	
+					
+						<li parnCd="PGR011" menuCd="PGR048" >
+						<div class="p-img"><a href="/pkgRenewal/goodsFrame?agncyProdcd=JPP4880-160612|1"><img src="http://contents.verygoodtour.com/content/310/JP/J17/TAK/image/582830_2.jpg" /></a></div>
+						<div class="p-cont">
+							<p class="p-area">일본/다카마츠</p>
+							<div class="p-name-wrap">
+								<p class="p-name">[온천호텔/선착순마감] 다카마츠 나오시마 3일_OZ</p>
+							</div>
+							<p class="price-info">
+								<b>549,000원+</b>
+							</p>
+						</div>
+					</li>	
+					
+						<li parnCd="PGR011" menuCd="PGR048" >
+						<div class="p-img"><a href="/pkgRenewal/goodsFrame?agncyProdcd=30783107"><img src="http://img.modetour.co.kr/eagle/photoimg/10571/sfile/DOGO2.jpg" /></a></div>
+						<div class="p-cont">
+							<p class="p-area">일본/마츠야마</p>
+							<div class="p-name-wrap">
+								<p class="p-name">[休行] 시코쿠 자유3일 / 마츠야마 도큐REI호텔 *세미더블/조식포함기준*</p>
+							</div>
+							<p class="price-info">
+								<b>489,000원+</b>
+							</p>
+						</div>
+					</li>	
+					
+						<li parnCd="PGR011" menuCd="PGR048" >
+						<div class="p-img"><a href="/pkgRenewal/goodsFrame?agncyProdcd=JDP500160608KEM"><img src="http://www.tourall.co.kr/app/wsv/packageproduct/pk-productimage.asp?obj_img=image1&img_seq=P000011844" /></a></div>
+						<div class="p-cont">
+							<p class="p-area">일본/아오모리</p>
+							<div class="p-name-wrap">
+								<p class="p-name">♠세상 어디에도 없는 착한 아오모리♠ 3일/1일자유</p>
+							</div>
+							<p class="price-info">
+								<b>749,000원+</b>
+							</p>
+						</div>
+					</li>	
+					
+						<li parnCd="PGR012" menuCd="PGR049" >
+						<div class="p-img"><a href="/pkgRenewal/goodsFrame?agncyProdcd=EPP369-160530EK|2"><img src="http://contents.verygoodtour.com/content/210/FR/0000/PAR/image/10741_2.jpg" /></a></div>
+						<div class="p-cont">
+							<p class="p-area">유럽/소렌토</p>
+							<div class="p-name-wrap">
+								<p class="p-name">[여유로운~밤출발]융프라우+ 영국/프랑스/스위스/이태리 4국 9일_EK</p>
+							</div>
+							<p class="price-info">
+								<b>1,790,000원+</b>
+							</p>
+						</div>
+					</li>	
+					
+						<li parnCd="PGR012" menuCd="PGR049" >
+						<div class="p-img"><a href="/pkgRenewal/goodsFrame?agncyProdcd=30180197"><img src="http://img.modetour.co.kr/eagle/photoimg/21162/sfile/33220_2.jpg" /></a></div>
+						<div class="p-cont">
+							<p class="p-area">유럽/로마</p>
+							<div class="p-name-wrap">
+								<p class="p-name">■대한항공 서유럽특가■핵심 서유럽 3국 9일 [프/스/이]</p>
+							</div>
+							<p class="price-info">
+								<b>2,790,000원+</b>
+							</p>
+						</div>
+					</li>	
+					
+						<li parnCd="PGR012" menuCd="PGR049" >
+						<div class="p-img"><a href="/pkgRenewal/goodsFrame?agncyProdcd=OP20160531439"><img src="http://www.kaltour.com/fileupload/PhotoGal/Large/PAR824.jpg" /></a></div>
+						<div class="p-cont">
+							<p class="p-area">유럽/베니스</p>
+							<div class="p-name-wrap">
+								<p class="p-name">[A380탑승] 파노라마 서유럽 5개국(프랑스/스위스/이태리/오스트리아/독일)...</p>
+							</div>
+							<p class="price-info">
+								<b>3,299,000원+</b>
+							</p>
+						</div>
+					</li>	
+					
+						<li parnCd="PGR012" menuCd="PGR050" >
+						<div class="p-img"><a href="/pkgRenewal/goodsFrame?agncyProdcd=30666388"><img src="http://img.modetour.co.kr/eagle/photoimg/23273/Bfile/635605643611515493.jpg" /></a></div>
+						<div class="p-cont">
+							<p class="p-area">유럽/비엔나</p>
+							<div class="p-name-wrap">
+								<p class="p-name">동유럽 3국 7일 [독/오/체]</p>
+							</div>
+							<p class="price-info">
+								<b>1,890,000원+</b>
+							</p>
+						</div>
+					</li>	
+					
+						<li parnCd="PGR012" menuCd="PGR050" >
+						<div class="p-img"><a href="/pkgRenewal/goodsFrame?agncyProdcd=EPP447-160531|1"><img src="http://contents.verygoodtour.com/content/210/DE/0000/D15/image/559716_2.jpg" /></a></div>
+						<div class="p-cont">
+							<p class="p-area">유럽/잘츠부르크</p>
+							<div class="p-name-wrap">
+								<p class="p-name">▷퓌센_백조의 성으로의 초대◁ [부다페스트 야간크루즈+프라하 야경] 동유럽 6...</p>
+							</div>
+							<p class="price-info">
+								<b>1,990,000원+</b>
+							</p>
+						</div>
+					</li>	
+					
+						<li parnCd="PGR012" menuCd="PGR050" >
+						<div class="p-img"><a href="/pkgRenewal/goodsFrame?agncyProdcd=OP20160609143"><img src="http://www.kaltour.com/fileupload/PhotoGal/Large/PRG850.jpg" /></a></div>
+						<div class="p-cont">
+							<p class="p-area">유럽/비엔나</p>
+							<div class="p-name-wrap">
+								<p class="p-name">동유럽 4개국 9일[4성급호텔/5대특식/2대야경/백조의성/카를로비바리]</p>
+							</div>
+							<p class="price-info">
+								<b>2,990,000원+</b>
+							</p>
+						</div>
+					</li>	
+					
+						<li parnCd="PGR012" menuCd="PGR051" >
+						<div class="p-img"><a href="/pkgRenewal/goodsFrame?agncyProdcd=29043444"><img src="http://img.modetour.co.kr/eagle/photoimg/11514/Bfile/635699851038455827.jpg" /></a></div>
+						<div class="p-cont">
+							<p class="p-area">유럽/아테네</p>
+							<div class="p-name-wrap">
+								<p class="p-name">■ POWER SALE ■『 MODE DREAM 』터키 프리미엄 퍼펙트 9일《...</p>
+							</div>
+							<p class="price-info">
+								<b>1,490,000원+</b>
+							</p>
+						</div>
+					</li>	
+					
+						<li parnCd="PGR012" menuCd="PGR051" >
+						<div class="p-img"><a href="/pkgRenewal/goodsFrame?agncyProdcd=EPP200-160531OZ|4"><img src="http://contents.verygoodtour.com/content/210/TR/0000/NAV/image/566056_2.jpg" /></a></div>
+						<div class="p-cont">
+							<p class="p-area">유럽/아이바릭</p>
+							<div class="p-name-wrap">
+								<p class="p-name">[ALL특급호텔] [밸리댄스+돌마바흐체+예레바탄사라이] 터키 일주 9일_OZ</p>
+							</div>
+							<p class="price-info">
+								<b>1,340,000원+</b>
+							</p>
+						</div>
+					</li>	
+					
+						<li parnCd="PGR012" menuCd="PGR051" >
+						<div class="p-img"><a href="/pkgRenewal/goodsFrame?agncyProdcd=A160502387"><img src="http://ltassc.lottetour.com/LAMS_CONTENTS/REV/2010/08/09/IMG/PREVIEW/0201201008095484700035251033810.jpg" /></a></div>
+						<div class="p-cont">
+							<p class="p-area">유럽/메테오라</p>
+							<div class="p-name-wrap">
+								<p class="p-name">『지중해의 보석』터키/그리스 9일-KE[메테오라,항공이동1회]</p>
+							</div>
+							<p class="price-info">
+								<b>1,990,000원+</b>
+							</p>
+						</div>
+					</li>	
+					
+						<li parnCd="PGR012" menuCd="PGR052" >
+						<div class="p-img"><a href="/pkgRenewal/goodsFrame?agncyProdcd=EMA315160531AY"><img src="http://www.tourall.co.kr/app/wsv/packageproduct/pk-productimage.asp?obj_img=image1&img_seq=P000018717" /></a></div>
+						<div class="p-cont">
+							<p class="p-area">유럽/톨레도</p>
+							<div class="p-name-wrap">
+								<p class="p-name">바르셀로나/그라나다/세비야/마드리드 9일♡10만마일리지</p>
+							</div>
+							<p class="price-info">
+								<b>1,755,800원+</b>
+							</p>
+						</div>
+					</li>	
+					
+						<li parnCd="PGR012" menuCd="PGR052" >
+						<div class="p-img"><a href="/pkgRenewal/goodsFrame?agncyProdcd=OP20160528708"><img src="http://www.kaltour.com/fileupload/PhotoGal/Large/BCN336.jpg" /></a></div>
+						<div class="p-cont">
+							<p class="p-area">유럽/발렌시아</p>
+							<div class="p-name-wrap">
+								<p class="p-name">정열의 나라 스페인 핵심일주 8일 [3박4성UP/론다협곡/9대입장지]-LH</p>
+							</div>
+							<p class="price-info">
+								<b>2,190,000원+</b>
+							</p>
+						</div>
+					</li>	
+					
+						<li parnCd="PGR012" menuCd="PGR052" >
+						<div class="p-img"><a href="/pkgRenewal/goodsFrame?agncyProdcd=29045735"><img src="http://img.modetour.co.kr/eagle/photoimg/11432/Bfile/7.jpg" /></a></div>
+						<div class="p-cont">
+							<p class="p-area">유럽/마드리드</p>
+							<div class="p-name-wrap">
+								<p class="p-name">■ 출발확정┃베스트셀러 ■『 PREMIER 名品 MODE 단독 』스페인 퍼펙트...</p>
+							</div>
+							<p class="price-info">
+								<b>3,890,000원+</b>
+							</p>
+						</div>
+					</li>	
+					
+						<li parnCd="PGR012" menuCd="PGR053" >
+						<div class="p-img"><a href="/pkgRenewal/goodsFrame?agncyProdcd=OP20160608096"><img src="http://www.kaltour.com/fileupload/PhotoGal/Large/LED558.jpg" /></a></div>
+						<div class="p-cont">
+							<p class="p-area">유럽/모스크바</p>
+							<div class="p-name-wrap">
+								<p class="p-name">러시아 일주 6일 (모스크바/상트페테르부르크) [짜리찌노궁전/지하철역사관람]</p>
+							</div>
+							<p class="price-info">
+								<b>2,090,000원+</b>
+							</p>
+						</div>
+					</li>	
+					
+						<li parnCd="PGR012" menuCd="PGR053" >
+						<div class="p-img"><a href="/pkgRenewal/goodsFrame?agncyProdcd=ENA305160531AY"><img src="http://www.tourall.co.kr/app/wsv/packageproduct/pk-productimage.asp?obj_img=image1&img_seq=P000672976" /></a></div>
+						<div class="p-cont">
+							<p class="p-area">유럽/스톡홀름</p>
+							<div class="p-name-wrap">
+								<p class="p-name">아이슬란드(레이캬비크) 6일♡ 골든서클투어 & 블루라군투어 ♡</p>
+							</div>
+							<p class="price-info">
+								<b>2,105,200원+</b>
+							</p>
+						</div>
+					</li>	
+					
+						<li parnCd="PGR012" menuCd="PGR053" >
+						<div class="p-img"><a href="/pkgRenewal/goodsFrame?agncyProdcd=EPP0112-160531|1"><img src="http://contents.verygoodtour.com/content/210/SE/0000/STO/image/565112_2.jpg" /></a></div>
+						<div class="p-cont">
+							<p class="p-area">유럽/모스크바</p>
+							<div class="p-name-wrap">
+								<p class="p-name">【내가 있는 곳이 낙원】북유럽(덴/노/스/핀) 4국 완전일주9일 [SU]</p>
+							</div>
+							<p class="price-info">
+								<b>2,620,000원+</b>
+							</p>
+						</div>
+					</li>	
+					
+						<li parnCd="PGR012" menuCd="PGR054" >
+						<div class="p-img"><a href="/pkgRenewal/goodsFrame?agncyProdcd=OP20160609106"><img src="http://www.kaltour.com/fileupload/PhotoGal/Large/PRG736.jpg" /></a></div>
+						<div class="p-cont">
+							<p class="p-area">유럽/자다르</p>
+							<div class="p-name-wrap">
+								<p class="p-name">[동유럽 두브로브니크를 만나다]크로아티아일주/슬로베니아+동유럽(체코/오스트리아...</p>
+							</div>
+							<p class="price-info">
+								<b>2,090,000원+</b>
+							</p>
+						</div>
+					</li>	
+					
+						<li parnCd="PGR012" menuCd="PGR054" >
+						<div class="p-img"><a href="/pkgRenewal/goodsFrame?agncyProdcd=EPP422-160609LH|1"><img src="http://contents.verygoodtour.com/content/210/HR/0000/DBV/image/311767_2.jpg" /></a></div>
+						<div class="p-cont">
+							<p class="p-area">유럽/부카레스트</p>
+							<div class="p-name-wrap">
+								<p class="p-name">[여유로운 두브로브니크에서의 하루] 발칸의 꽃_두브로브니크/스플리트+라스토케+...</p>
+							</div>
+							<p class="price-info">
+								<b>2,190,000원+</b>
+							</p>
+						</div>
+					</li>	
+					
+						<li parnCd="PGR012" menuCd="PGR054" >
+						<div class="p-img"><a href="/pkgRenewal/goodsFrame?agncyProdcd=A160601964"><img src="http://ltassc.lottetour.com/LAMS_CONTENTS/REV/2011/06/15/IMG/PREVIEW/0201201106151435600094760031054.jpg" /></a></div>
+						<div class="p-cont">
+							<p class="p-area">유럽/자그레브</p>
+							<div class="p-name-wrap">
+								<p class="p-name">◈확정임박◈『두브로브닉&블레드성』크로아티아/슬로베니아 완전일주 9일</p>
+							</div>
+							<p class="price-info">
+								<b>3,090,000원+</b>
+							</p>
+						</div>
+					</li>	
+					
+						<li parnCd="PGR013" menuCd="PGR055" >
+						<div class="p-img"><a href="/pkgRenewal/goodsFrame?agncyProdcd=28697605"><img src="http://img.modetour.co.kr/eagle/photoimg/1245/Bfile/635845887913617857.jpg" /></a></div>
+						<div class="p-cont">
+							<p class="p-area">미주/하와이/호놀룰루</p>
+							<div class="p-name-wrap">
+								<p class="p-name">[BASIC]일급 와이키키리조트(스탠다드) 하와이 6일</p>
+							</div>
+							<p class="price-info">
+								<b>1,750,000원+</b>
+							</p>
+						</div>
+					</li>	
+					
+						<li parnCd="PGR013" menuCd="PGR055" >
+						<div class="p-img"><a href="/pkgRenewal/goodsFrame?agncyProdcd=OP20160608712"><img src="http://www.kaltour.com/fileupload/PhotoGal/Large/HNL2060.jpg" /></a></div>
+						<div class="p-cont">
+							<p class="p-area">미주/하와이/호놀룰루</p>
+							<div class="p-name-wrap">
+								<p class="p-name">♥진에어초특가♥[패키지] 힐튼하와이언빌리지 하와이 6일</p>
+							</div>
+							<p class="price-info">
+								<b>1,589,000원+</b>
+							</p>
+						</div>
+					</li>	
+					
+						<li parnCd="PGR013" menuCd="PGR055" >
+						<div class="p-img"><a href="/pkgRenewal/goodsFrame?agncyProdcd=HHP216160613OZA"><img src="http://www.tourall.co.kr/app/wsv/packageproduct/pk-productimage.asp?obj_img=image1&img_seq=P000201582" /></a></div>
+						<div class="p-cont">
+							<p class="p-area">미주/하와이/호놀룰루</p>
+							<div class="p-name-wrap">
+								<p class="p-name">하와이 일급호텔 아쿠아 알로하 서프 7일(깔끔한호텔♥)</p>
+							</div>
+							<p class="price-info">
+								<b>1,740,000원+</b>
+							</p>
+						</div>
+					</li>	
+					
+						<li parnCd="PGR013" menuCd="PGR056" >
+						<div class="p-img"><a href="/pkgRenewal/goodsFrame?agncyProdcd=HEP220160612OZ"><img src="http://www.tourall.co.kr/app/wsv/packageproduct/pk-productimage.asp?obj_img=image1&img_seq=P000131084" /></a></div>
+						<div class="p-cont">
+							<p class="p-area">미주/하와이/워싱턴</p>
+							<div class="p-name-wrap">
+								<p class="p-name">[어울림][미국&캐나다] 동부 완전일주 10일◆우드버리아울렛◆</p>
+							</div>
+							<p class="price-info">
+								<b>2,740,000원+</b>
+							</p>
+						</div>
+					</li>	
+					
+						<li parnCd="PGR013" menuCd="PGR056" >
+						<div class="p-img"><a href="/pkgRenewal/goodsFrame?agncyProdcd=OP20160608080"><img src="http://www.kaltour.com/fileupload/PhotoGal/Large/NYC845.jpg" /></a></div>
+						<div class="p-cont">
+							<p class="p-area">미주/하와이/워싱턴</p>
+							<div class="p-name-wrap">
+								<p class="p-name">[2인출발보장]미동부 [뉴욕/나이아가라/천섬] 8일</p>
+							</div>
+							<p class="price-info">
+								<b>2,350,000원+</b>
+							</p>
+						</div>
+					</li>	
+					
+						<li parnCd="PGR013" menuCd="PGR056" >
+						<div class="p-img"><a href="/pkgRenewal/goodsFrame?agncyProdcd=29469506"><img src="http://img.modetour.co.kr/eagle/photoimg/10094/Bfile/635865726274282709.jpg" /></a></div>
+						<div class="p-cont">
+							<p class="p-area">미주/하와이/뉴욕</p>
+							<div class="p-name-wrap">
+								<p class="p-name">『일품』모두단독 미동부 캐나다 9일</p>
+							</div>
+							<p class="price-info">
+								<b>2,590,000원+</b>
+							</p>
+						</div>
+					</li>	
+					
+						<li parnCd="PGR013" menuCd="PGR057" >
+						<div class="p-img"><a href="/pkgRenewal/goodsFrame?agncyProdcd=29861630"><img src="http://img.modetour.co.kr/eagle/photoimg/33712/Bfile/라스베이거스 웰컴 싸인12.JPG" /></a></div>
+						<div class="p-cont">
+							<p class="p-area">미주/하와이/로스엔젤레스</p>
+							<div class="p-name-wrap">
+								<p class="p-name">[BESTSELLER] MODE단독 미서부8일(요세미티/3대캐년/라스 특급2연박</p>
+							</div>
+							<p class="price-info">
+								<b>1,890,000원+</b>
+							</p>
+						</div>
+					</li>	
+					
+						<li parnCd="PGR013" menuCd="PGR057" >
+						<div class="p-img"><a href="/pkgRenewal/goodsFrame?agncyProdcd=OP20160613352"><img src="http://www.kaltour.com/fileupload/PhotoGal/Large/LAX481.jpg" /></a></div>
+						<div class="p-cont">
+							<p class="p-area">미주/하와이/샌프란시스코</p>
+							<div class="p-name-wrap">
+								<p class="p-name">[2인출발/왕복A380탑승]★조기예약특가★ 미서부 일주 [그랜드캐년/LA 왕복...</p>
+							</div>
+							<p class="price-info">
+								<b>1,990,000원+</b>
+							</p>
+						</div>
+					</li>	
+					
+						<li parnCd="PGR013" menuCd="PGR057" >
+						<div class="p-img"><a href="/pkgRenewal/goodsFrame?agncyProdcd=HWP213160611KE8"><img src="http://www.tourall.co.kr/app/wsv/packageproduct/pk-productimage.asp?obj_img=image1&img_seq=P000456671" /></a></div>
+						<div class="p-cont">
+							<p class="p-area">미주/하와이/샌프란시스코</p>
+							<div class="p-name-wrap">
+								<p class="p-name">[유네스코][단독] 미서부 일주 8일(3대캐년+호스슈밴드)</p>
+							</div>
+							<p class="price-info">
+								<b>2,190,000원+</b>
+							</p>
+						</div>
+					</li>	
+					
+						<li parnCd="PGR013" menuCd="PGR058" >
+						<div class="p-img"><a href="/pkgRenewal/goodsFrame?agncyProdcd=A160608366"><img src="http://ltassc.lottetour.com/LAMS_CONTENTS/REV/2016/01/06/IMG/PREVIEW/0201201601063115600011560030489.jpg" /></a></div>
+						<div class="p-cont">
+							<p class="p-area">미주/하와이/토론토</p>
+							<div class="p-name-wrap">
+								<p class="p-name">『몽모렌시 폭포와 뉴욕 현대미술관 포함』미동부/캐나다 10일 [KE]</p>
+							</div>
+							<p class="price-info">
+								<b>2,690,000원+</b>
+							</p>
+						</div>
+					</li>	
+					
+						<li parnCd="PGR013" menuCd="PGR058" >
+						<div class="p-img"><a href="/pkgRenewal/goodsFrame?agncyProdcd=HWB230160610DL"><img src="http://www.tourall.co.kr/app/wsv/packageproduct/pk-productimage.asp?obj_img=image1&img_seq=P000017193" /></a></div>
+						<div class="p-cont">
+							<p class="p-area">미주/하와이/시애틀</p>
+							<div class="p-name-wrap">
+								<p class="p-name">[투어팩]시애틀,알래스카 환상의 오로라 7일</p>
+							</div>
+							<p class="price-info">
+								<b>3,099,000원+</b>
+							</p>
+						</div>
+					</li>	
+					
+						<li parnCd="PGR013" menuCd="PGR058" >
+						<div class="p-img"><a href="/pkgRenewal/goodsFrame?agncyProdcd=OP20160731392"><img src="http://www.kaltour.com/fileupload/PhotoGal/Large/ANC373.jpg" /></a></div>
+						<div class="p-cont">
+							<p class="p-area">미주/하와이/타키트나</p>
+							<div class="p-name-wrap">
+								<p class="p-name">[KE 알래스카전세기] ▒위디어 코스▒ 알래스카 빙하파노라마 6일</p>
+							</div>
+							<p class="price-info">
+								<b>5,290,000원+</b>
+							</p>
+						</div>
+					</li>	
+					
+						<li parnCd="PGR013" menuCd="PGR059" >
+						<div class="p-img"><a href="/pkgRenewal/goodsFrame?agncyProdcd=OP20160615642"><img src="http://www.kaltour.com/fileupload/PhotoGal/Large/YQB199.jpg" /></a></div>
+						<div class="p-cont">
+							<p class="p-area">미주/하와이/토론토</p>
+							<div class="p-name-wrap">
+								<p class="p-name">[KAL ONLY] 캐나다 동부 8일 [퀘벡/나이아가라]</p>
+							</div>
+							<p class="price-info">
+								<b>2,450,000원+</b>
+							</p>
+						</div>
+					</li>	
+					
+						<li parnCd="PGR013" menuCd="PGR059" >
+						<div class="p-img"><a href="/pkgRenewal/goodsFrame?agncyProdcd=29050123"><img src="http://img.modetour.co.kr/eagle/photoimg/22871/Bfile/02Button15.jpg" /></a></div>
+						<div class="p-cont">
+							<p class="p-area">미주/하와이/밴쿠버</p>
+							<div class="p-name-wrap">
+								<p class="p-name">■ 100%인솔자 ■ 모두단독 ■ 캐나다 완전일주 8일[로키 3대국립공원/나이...</p>
+							</div>
+							<p class="price-info">
+								<b>2,990,000원+</b>
+							</p>
+						</div>
+					</li>	
+					
+						<li parnCd="PGR013" menuCd="PGR059" >
+						<div class="p-img"><a href="/pkgRenewal/goodsFrame?agncyProdcd=OP20160804305"><img src="http://www.kaltour.com/fileupload/PhotoGal/Large/YBA513.jpg" /></a></div>
+						<div class="p-cont">
+							<p class="p-area">미주/하와이/캘거리</p>
+							<div class="p-name-wrap">
+								<p class="p-name">[KE 캘거리전세기] ▒품격▒ [재스퍼 특급1박] 캐나다 로키 7일</p>
+							</div>
+							<p class="price-info">
+								<b>4,590,000원+</b>
+							</p>
+						</div>
+					</li>	
+					
+						<li parnCd="PGR013" menuCd="PGR060" >
+						<div class="p-img"><a href="/pkgRenewal/goodsFrame?agncyProdcd=SSW200160620UA6"><img src="http://www.tourall.co.kr/app/wsv/packageproduct/pk-productimage.asp?obj_img=image1&img_seq=P000660124" /></a></div>
+						<div class="p-cont">
+							<p class="p-area">미주/하와이/휴스턴</p>
+							<div class="p-name-wrap">
+								<p class="p-name">[UA항공] 크리스탈 그랜드 푼타 4박 6일-크리스탈 그랜드 푼타</p>
+							</div>
+							<p class="price-info">
+								<b>2,280,000원+</b>
+							</p>
+						</div>
+					</li>	
+					
+						<li parnCd="PGR013" menuCd="PGR060" >
+						<div class="p-img"><a href="/pkgRenewal/goodsFrame?agncyProdcd=SSW214160620OZ9"><img src="http://www.tourall.co.kr/app/wsv/packageproduct/pk-productimage.asp?obj_img=image1&img_seq=P000664802" /></a></div>
+						<div class="p-cont">
+							<p class="p-area">미주/하와이/뉴욕</p>
+							<div class="p-name-wrap">
+								<p class="p-name">[All-in칸쿤] 뉴욕(2)+칸쿤(4) 9일- 코트야드+ 파라디수스 오션뷰 ...</p>
+							</div>
+							<p class="price-info">
+								<b>3,290,000원+</b>
+							</p>
+						</div>
+					</li>	
+					
+						<li parnCd="PGR013" menuCd="PGR060" >
+						<div class="p-img"><a href="/pkgRenewal/goodsFrame?agncyProdcd=SSP220160620LA"><img src="http://www.tourall.co.kr/app/wsv/packageproduct/pk-productimage.asp?obj_img=image1&img_seq=P000020248" /></a></div>
+						<div class="p-cont">
+							<p class="p-area">미주/하와이/로스엔젤레스</p>
+							<div class="p-name-wrap">
+								<p class="p-name">[단독][잉카의 신비] 페루 세계문화유산 탐방 6일 /NO 옵션</p>
+							</div>
+							<p class="price-info">
+								<b>4,001,600원+</b>
+							</p>
+						</div>
+					</li>	
+					
+						<li parnCd="PGR014" menuCd="PGR061" >
+						<div class="p-img"><a href="/pkgRenewal/goodsFrame?agncyProdcd=OP20160531504"><img src="http://www.kaltour.com/fileupload/PhotoGal/Large/CEB672.jpg" /></a></div>
+						<div class="p-cont">
+							<p class="p-area">필리핀/세부</p>
+							<div class="p-name-wrap">
+								<p class="p-name">【부산】[진에어][지니팩]세부 이슬라 리조트 5일</p>
+							</div>
+							<p class="price-info">
+								<b>439,000원+</b>
+							</p>
+						</div>
+					</li>	
+					
+						<li parnCd="PGR014" menuCd="PGR061" >
+						<div class="p-img"><a href="/pkgRenewal/goodsFrame?agncyProdcd=OP20160531445"><img src="http://www.kaltour.com/fileupload/PhotoGal/Large/DAD466.jpg" /></a></div>
+						<div class="p-cont">
+							<p class="p-area">베트남/후에</p>
+							<div class="p-name-wrap">
+								<p class="p-name">【부산】[진에어] 베트남 다낭/호이안/후에 [일급,투본강투어] 5일</p>
+							</div>
+							<p class="price-info">
+								<b>459,000원+</b>
+							</p>
+						</div>
+					</li>	
+					
+						<li parnCd="PGR014" menuCd="PGR061" >
+						<div class="p-img"><a href="/pkgRenewal/goodsFrame?agncyProdcd=29361087"><img src="http://img.modetour.co.kr/eagle/photoimg/1361/sfile/20071128183825421.jpg" /></a></div>
+						<div class="p-cont">
+							<p class="p-area">중국/청도</p>
+							<div class="p-name-wrap">
+								<p class="p-name">[유럽풍 도시 칭다오 3일] 특급호텔1박+해천만1박+온천욕</p>
+							</div>
+							<p class="price-info">
+								<b>479,000원+</b>
+							</p>
+						</div>
+					</li>	
+					
+						<li parnCd="PGR014" menuCd="PGR062" >
+						<div class="p-img"><a href="/pkgRenewal/goodsFrame?agncyProdcd=A160508963"><img src="http://ltassc.lottetour.com/LAMS_CONTENTS/REV/2013/12/02/IMG/PREVIEW/0201201312021022100090625038359.jpg" /></a></div>
+						<div class="p-cont">
+							<p class="p-area">중국/북경</p>
+							<div class="p-name-wrap">
+								<p class="p-name">[청주출발]북경/만리장성 5일 ▶MARRIOTT HOTEL + 춘휘원온천리조트</p>
+							</div>
+							<p class="price-info">
+								<b>649,000원+</b>
+							</p>
+						</div>
+					</li>	
+					
+						<li parnCd="PGR014" menuCd="PGR062" >
+						<div class="p-img"><a href="/pkgRenewal/goodsFrame?agncyProdcd=CCP807160530KE1"><img src="http://www.tourall.co.kr/app/wsv/packageproduct/pk-productimage.asp?obj_img=image1&img_seq=P000062644" /></a></div>
+						<div class="p-cont">
+							<p class="p-area">중국/상해</p>
+							<div class="p-name-wrap">
+								<p class="p-name">항주/소주/상해/주가각 5일◈송성가무쇼+서커스+발마사지</p>
+							</div>
+							<p class="price-info">
+								<b>669,000원+</b>
+							</p>
+						</div>
+					</li>	
+					
+						<li parnCd="PGR014" menuCd="PGR062" >
+						<div class="p-img"><a href="/pkgRenewal/goodsFrame?agncyProdcd=OP20160530408"><img src="http://www.kaltour.com/fileupload/PhotoGal/Large/HGH187.jpg" /></a></div>
+						<div class="p-cont">
+							<p class="p-area">중국/황산</p>
+							<div class="p-name-wrap">
+								<p class="p-name">[청주출발]항주/황산/삼청산 5일</p>
+							</div>
+							<p class="price-info">
+								<b>799,000원+</b>
+							</p>
+						</div>
+					</li>	
+					
+						<li parnCd="PGR014" menuCd="PGR063" >
+						<div class="p-img"><a href="/pkgRenewal/goodsFrame?agncyProdcd=CCPJ14160531MUA"><img src="http://www.tourall.co.kr/app/wsv/packageproduct/pk-productimage.asp?obj_img=image1&img_seq=P000027733" /></a></div>
+						<div class="p-cont">
+							<p class="p-area">중국/상해</p>
+							<div class="p-name-wrap">
+								<p class="p-name">상해/항주/주가각 4일[서커스+동방명주+발마사지]</p>
+							</div>
+							<p class="price-info">
+								<b>449,000원+</b>
+							</p>
+						</div>
+					</li>	
+					
+						<li parnCd="PGR014" menuCd="PGR063" >
+						<div class="p-img"><a href="/pkgRenewal/goodsFrame?agncyProdcd=29423850"><img src="http://img.modetour.co.kr/eagle/photoimg/10804/sfile/871_3.jpg" /></a></div>
+						<div class="p-cont">
+							<p class="p-area">중국/북경</p>
+							<div class="p-name-wrap">
+								<p class="p-name">[I♥BEIJING] 북경 만리장성(거용관) 4일</p>
+							</div>
+							<p class="price-info">
+								<b>599,000원+</b>
+							</p>
+						</div>
+					</li>	
+					
+						<li parnCd="PGR014" menuCd="PGR063" >
+						<div class="p-img"><a href="/pkgRenewal/goodsFrame?agncyProdcd=CBPJ18160530CAB"><img src="http://www.tourall.co.kr/app/wsv/packageproduct/pk-productimage.asp?obj_img=image1&img_seq=P000064535" /></a></div>
+						<div class="p-cont">
+							<p class="p-area">중국/태항산</p>
+							<div class="p-name-wrap">
+								<p class="p-name">태항산 3박 4일◈준5성+운봉화랑/대협곡/특식/발마사지(북경경유)</p>
+							</div>
+							<p class="price-info">
+								<b>849,000원+</b>
+							</p>
+						</div>
+					</li>	
+					
+						<li parnCd="PGR014" menuCd="PGR064" >
+						<div class="p-img"><a href="/pkgRenewal/goodsFrame?agncyProdcd=29953177"><img src="http://img.modetour.co.kr/eagle/photoimg/10806/bfile/1.jpg" /></a></div>
+						<div class="p-cont">
+							<p class="p-area">중국/북경</p>
+							<div class="p-name-wrap">
+								<p class="p-name">■美친특가■북경 만리장성 4일</p>
+							</div>
+							<p class="price-info">
+								<b>499,000원+</b>
+							</p>
+						</div>
+					</li>	
+					
+						<li parnCd="PGR014" menuCd="PGR064" >
+						<div class="p-img"><a href="/pkgRenewal/goodsFrame?agncyProdcd=CCPF01160531MUB"><img src="http://www.tourall.co.kr/app/wsv/packageproduct/pk-productimage.asp?obj_img=image1&img_seq=P000647128" /></a></div>
+						<div class="p-cont">
+							<p class="p-area">중국/소주</p>
+							<div class="p-name-wrap">
+								<p class="p-name">상해/주가각/항주 4일[준5성3박+송성가무쇼포함+노팁/단체비자포함]</p>
+							</div>
+							<p class="price-info">
+								<b>649,000원+</b>
+							</p>
+						</div>
+					</li>	
+					
+						<li parnCd="PGR014" menuCd="PGR064" >
+						<div class="p-img"><a href="/pkgRenewal/goodsFrame?agncyProdcd=29953280"><img src="http://img.modetour.co.kr/eagle/photoimg/10890/Bfile/DSC_3677.jpg" /></a></div>
+						<div class="p-cont">
+							<p class="p-area">중국/장가계</p>
+							<div class="p-name-wrap">
+								<p class="p-name">▣무안직항▣ [베스트셀러-품격] ☆마사지한번더☆ 장가계/원가계 6일</p>
+							</div>
+							<p class="price-info">
+								<b>1,149,000원+</b>
+							</p>
+						</div>
+					</li>	
+					
+						<li parnCd="THEMA" menuCd="T" >
+						<div class="p-img"><a href="/pkgRenewal/goodsFrame?agncyProdcd=ABP141160401KEA"><img src="http://www.tourall.co.kr/app/wsv/packageproduct/pk-productimage.asp?obj_img=image1&img_seq=P000258589" /></a></div>
+						<div class="p-cont">
+							<p class="p-area">태국/푸껫</p>
+							<div class="p-name-wrap">
+								<p class="p-name">[플라잉베베]푸켓 5일[VIP샌딩]웨스트 샌즈♥워터파크+노팁노쇼핑+22시체크아웃</p>
+							</div>
+							<p class="price-info">
+								<b>1,159,000원+</b>
+							</p>
+						</div>
+					</li>	
+					
+						<li parnCd="THEMA" menuCd="T" >
+						<div class="p-img"><a href="/pkgRenewal/goodsFrame?agncyProdcd=OP20160531495"><img src="http://www.kaltour.com/fileupload/PhotoGal/Large/BKK859.jpg" /></a></div>
+						<div class="p-cont">
+							<p class="p-area">태국/방콕</p>
+							<div class="p-name-wrap">
+								<p class="p-name">[골프상품][대한항공] 방콕 [4인출발/몬티엔리버사이드/54홀] 5일</p>
+							</div>
+							<p class="price-info">
+								<b>1,599,000원+</b>
+							</p>
+						</div>
+					</li>	
+					
+						<li parnCd="THEMA" menuCd="T" >
+						<div class="p-img"><a href="/pkgRenewal/goodsFrame?agncyProdcd=AXW103160530KEL"><img src="http://www.tourall.co.kr/app/wsv/packageproduct/pk-productimage.asp?obj_img=image1&img_seq=P000616495" /></a></div>
+						<div class="p-cont">
+							<p class="p-area">몰디브/말레</p>
+							<div class="p-name-wrap">
+								<p class="p-name">[조/석식]몰디브 식스센스라무 8일- 라군워터빌라</p>
+							</div>
+							<p class="price-info">
+								<b>3,910,000원+</b>
+							</p>
+						</div>
+					</li>	
+					
+				</ul>
+			</div>
+		</div>
+	</div>
+	<span class="l-total-nav-open">전체보기<i></i></span>
+	<div class="l-total-nav-layer">
+		<table class="l-total-nav-list">
+		<caption>패키지 전체보기</caption>
+		<colroup>
+			<col width="158">
+			<col width="158">
+			<col width="158">
+			<col width="158">
+			<col width="158">
+			<col width="158">
+		</colroup>
+		<tbody>
+		<tr>
+			
+							<td>
+								<h3 class="ymhb"><a href="/pkgRenewal/sectionRecommend?regncd=A">동남아시아</a></h3>
+								<ul>
+									
+										<li parnCd="PGR002" menuCd="PGR008"><a href="/pkgRenewal/searchListSimple?citycd=TH&depth=2">태국</a></li>
+									
+										<li parnCd="PGR002" menuCd="PGR008"><a href="/pkgRenewal/searchListSimple?citycd=PH&depth=2">필리핀</a></li>
+									
+										<li parnCd="PGR002" menuCd="PGR008"><a href="/pkgRenewal/searchListSimple?citycd=VN&depth=2">베트남</a></li>
+									
+										<li parnCd="PGR002" menuCd="PGR008"><a href="/pkgRenewal/searchListSimple?citycd=KH&depth=2">캄보디아</a></li>
+									
+										<li parnCd="PGR002" menuCd="PGR008"><a href="/pkgRenewal/searchListSimple?citycd=MY&depth=2">말레이시아</a></li>
+									
+										<li parnCd="PGR002" menuCd="PGR008"><a href="/pkgRenewal/searchListSimple?citycd=ID&depth=2">인도네시아</a></li>
+									
+										<li parnCd="PGR002" menuCd="PGR008"><a href="/pkgRenewal/searchListSimple?citycd=SG&depth=2">싱가포르</a></li>
+									
+										<li parnCd="PGR002" menuCd="PGR008"><a href="/pkgRenewal/searchListSimple?citycd=MM&depth=2">미얀마/라오스</a></li>
+									
+										<li parnCd="PGR002" menuCd="PGR008"><a href="/pkgRenewal/searchListSimple?citycd=BD,BN,BT,LK,MV&depth=2">몰디브/기타</a></li>
+									
+								</ul>
+							</td>
+						
+							<td>
+								<h3 class="ymhb"><a href="/pkgRenewal/sectionRecommend?regncd=C">홍콩/중국</a></h3>
+								<ul>
+									
+										<li parnCd="PGR002" menuCd="PGR009"><a href="/pkgRenewal/searchListSimple?citycd=HK,MO,SZX&depth=2">홍콩/마카오/심천</a></li>
+									
+										<li parnCd="PGR002" menuCd="PGR009"><a href="/pkgRenewal/searchListSimple?citycd=TW&depth=2">대만</a></li>
+									
+										<li parnCd="PGR002" menuCd="PGR009"><a href="/pkgRenewal/searchListSimple?citycd=CN&depth=2">중국</a></li>
+									
+										<li parnCd="PGR002" menuCd="PGR009"><a href="/pkgRenewal/searchListSimple?citycd=MN&depth=2">몽골/티벳/기타지역</a></li>
+									
+								</ul>
+							</td>
+						
+							<td>
+								<h3 class="ymhb"><a href="/pkgRenewal/sectionRecommend?regncd=J">일본</a></h3>
+								<ul>
+									
+										<li parnCd="PGR002" menuCd="PGR011"><a href="/pkgRenewal/searchListSimple?citycd=KS&depth=2">큐슈</a></li>
+									
+										<li parnCd="PGR002" menuCd="PGR011"><a href="/pkgRenewal/searchListSimple?citycd=OS&depth=2">오사카</a></li>
+									
+										<li parnCd="PGR002" menuCd="PGR011"><a href="/pkgRenewal/searchListSimple?citycd=TK&depth=2">동경</a></li>
+									
+										<li parnCd="PGR002" menuCd="PGR011"><a href="/pkgRenewal/searchListSimple?citycd=SP&depth=2">북해도</a></li>
+									
+										<li parnCd="PGR002" menuCd="PGR011"><a href="/pkgRenewal/searchListSimple?citycd=OKA&depth=2">오키나와</a></li>
+									
+										<li parnCd="PGR002" menuCd="PGR011"><a href="/pkgRenewal/searchListSimple?citycd=MYJ,AXT,AOJ,GAJ,TAK,KJW,SHM,DKM,WJM&depth=2">기타지역</a></li>
+									
+								</ul>
+							</td>
+						
+							<td>
+								<h3 class="ymhb"><a href="/pkgRenewal/sectionRecommend?regncd=P">남태평양</a></h3>
+								<ul>
+									
+										<li parnCd="PGR002" menuCd="PGR010"><a href="/pkgRenewal/searchListSimple?citycd=GU&depth=2">괌</a></li>
+									
+										<li parnCd="PGR002" menuCd="PGR010"><a href="/pkgRenewal/searchListSimple?citycd=MP&depth=2">사이판</a></li>
+									
+										<li parnCd="PGR002" menuCd="PGR010"><a href="/pkgRenewal/searchListSimple?citycd=PW&depth=2">팔라우</a></li>
+									
+										<li parnCd="PGR002" menuCd="PGR010"><a href="/pkgRenewal/searchListSimple?citycd=AU&depth=2">호주</a></li>
+									
+										<li parnCd="PGR002" menuCd="PGR010"><a href="/pkgRenewal/searchListSimple?citycd=NZ&depth=2">뉴질랜드</a></li>
+									
+										<li parnCd="PGR002" menuCd="PGR010"><a href="/pkgRenewal/searchListSimple?citycd=FJ&depth=2">피지</a></li>
+									
+										<li parnCd="PGR002" menuCd="PGR010"><a href="/pkgRenewal/searchListSimple?citycd=NC,PF,VU&depth=2">뉴칼레도니아/타히티</a></li>
+									
+								</ul>
+							</td>
+						
+							<td>
+								<h3 class="ymhb"><a href="/pkgRenewal/sectionRecommend?regncd=E">유럽</a></h3>
+								<ul>
+									
+										<li parnCd="PGR002" menuCd="PGR012"><a href="/pkgRenewal/searchListSimple?citycd=AL,BE,CH,DE,FR,GB,IE,IT,LU,MC,MT,NL,VA&depth=2">서유럽</a></li>
+									
+										<li parnCd="PGR002" menuCd="PGR012"><a href="/pkgRenewal/searchListSimple?citycd=AT,CZ,HR,HU,LI,PL,SK&depth=2">동유럽</a></li>
+									
+										<li parnCd="PGR002" menuCd="PGR012"><a href="/pkgRenewal/searchListSimple?citycd=CY,GR,TM,TR&depth=2">지중해</a></li>
+									
+										<li parnCd="PGR002" menuCd="PGR012"><a href="/pkgRenewal/searchListSimple?citycd=ES,MA,PT&depth=2">스페인/포르투갈/모로코</a></li>
+									
+										<li parnCd="PGR002" menuCd="PGR012"><a href="/pkgRenewal/searchListSimple?citycd=BY,DK,FI,IS,LT,NO,RU,SE,UA&depth=2">북유럽/러시아</a></li>
+									
+										<li parnCd="PGR002" menuCd="PGR012"><a href="/pkgRenewal/searchListSimple?citycd=BA,BG,LA,MD,RO,SI,YU&depth=2">발칸</a></li>
+									
+								</ul>
+							</td>
+						
+							<td>
+								<h3 class="ymhb"><a href="/pkgRenewal/sectionRecommend?regncd=H">미주/하와이</a></h3>
+								<ul>
+									
+										<li parnCd="PGR002" menuCd="PGR013"><a href="/pkgRenewal/searchListSimple?citycd=HW&depth=2">하와이</a></li>
+									
+										<li parnCd="PGR002" menuCd="PGR013"><a href="/pkgRenewal/searchListSimple?citycd=UE&depth=2">미국 동부</a></li>
+									
+										<li parnCd="PGR002" menuCd="PGR013"><a href="/pkgRenewal/searchListSimple?citycd=UW&depth=2">미국 서부</a></li>
+									
+										<li parnCd="PGR002" menuCd="PGR013"><a href="/pkgRenewal/searchListSimple?citycd=UT&depth=2">기타지역</a></li>
+									
+										<li parnCd="PGR002" menuCd="PGR013"><a href="/pkgRenewal/searchListSimple?citycd=CA&depth=2">캐나다</a></li>
+									
+										<li parnCd="PGR002" menuCd="PGR013"><a href="/pkgRenewal/searchListSimple?citycd=AR,BR,BS,CL,CO,CR,CU,DO,EC,GT,HN,MX,PA,PE,PR,PY,SV,UY&depth=2">중남미</a></li>
+									
+								</ul>
+							</td>
+						
+		</tr>
+		<tr>
+			<td>
+				<h3 class="ymhb">허니문</h3>
+				<ul>
+					
+						<li><a href="/pkgRenewal/searchListSimple?citycd=A&depth=1&prodAtt=HONEYMOON">동남아시아</a></li>
+					
+						<li><a href="/pkgRenewal/searchListSimple?citycd=C&depth=1&prodAtt=HONEYMOON">홍콩/중국</a></li>
+					
+						<li><a href="/pkgRenewal/searchListSimple?citycd=J&depth=1&prodAtt=HONEYMOON">일본</a></li>
+					
+						<li><a href="/pkgRenewal/searchListSimple?citycd=P&depth=1&prodAtt=HONEYMOON">남태평양</a></li>
+					
+						<li><a href="/pkgRenewal/searchListSimple?citycd=E&depth=1&prodAtt=HONEYMOON">유럽</a></li>
+					
+						<li><a href="/pkgRenewal/searchListSimple?citycd=H&depth=1&prodAtt=HONEYMOON">미주/하와이</a></li>
+					
+						<li><a href="/pkgRenewal/searchListSimple?citycd=S&depth=1&prodAtt=HONEYMOON">특수지역</a></li>
+					
+				</ul>
+			</td>
+			<td>
+				<h3 class="ymhb">프리미엄 패키지</h3>
+				<ul>
+					
+						<li><a href="/pkgRenewal/searchListSimple?citycd=A&depth=1&prodAtt=PREMIUM">동남아시아</a></li>
+					
+						<li><a href="/pkgRenewal/searchListSimple?citycd=C&depth=1&prodAtt=PREMIUM">홍콩/중국</a></li>
+					
+						<li><a href="/pkgRenewal/searchListSimple?citycd=J&depth=1&prodAtt=PREMIUM">일본</a></li>
+					
+						<li><a href="/pkgRenewal/searchListSimple?citycd=P&depth=1&prodAtt=PREMIUM">남태평양</a></li>
+					
+						<li><a href="/pkgRenewal/searchListSimple?citycd=E&depth=1&prodAtt=PREMIUM">유럽</a></li>
+					
+						<li><a href="/pkgRenewal/searchListSimple?citycd=H&depth=1&prodAtt=PREMIUM">미주/하와이</a></li>
+					
+						<li><a href="/pkgRenewal/searchListSimple?citycd=S&depth=1&prodAtt=PREMIUM">특수지역</a></li>
+					
+				</ul>
+			</td>
+			<td>
+				<h3 class="ymhb">골프</h3>
+				<ul>
+					
+						<li><a href="/pkgRenewal/searchListSimple?citycd=A&depth=1&prodAtt=GOLF">동남아시아</a></li>
+					
+						<li><a href="/pkgRenewal/searchListSimple?citycd=C&depth=1&prodAtt=GOLF">홍콩/중국</a></li>
+					
+						<li><a href="/pkgRenewal/searchListSimple?citycd=J&depth=1&prodAtt=GOLF">일본</a></li>
+					
+						<li><a href="/pkgRenewal/searchListSimple?citycd=P&depth=1&prodAtt=GOLF">남태평양</a></li>
+					
+						<li><a href="/pkgRenewal/searchListSimple?citycd=E&depth=1&prodAtt=GOLF">유럽</a></li>
+					
+						<li><a href="/pkgRenewal/searchListSimple?citycd=H&depth=1&prodAtt=GOLF">미주/하와이</a></li>
+					
+						<li><a href="/pkgRenewal/searchListSimple?citycd=S&depth=1&prodAtt=GOLF">특수지역</a></li>
+					
+				</ul>
+			</td>
+			<td>
+				<h3 class="ymhb">크루즈</h3>
+				<ul>
+					
+						<li><a href="/pkgRenewal/searchListSimple?citycd=A&depth=1&prodAtt=CRUISE">동남아시아</a></li>
+					
+						<li><a href="/pkgRenewal/searchListSimple?citycd=C&depth=1&prodAtt=CRUISE">홍콩/중국</a></li>
+					
+						<li><a href="/pkgRenewal/searchListSimple?citycd=J&depth=1&prodAtt=CRUISE">일본</a></li>
+					
+						<li><a href="/pkgRenewal/searchListSimple?citycd=P&depth=1&prodAtt=CRUISE">남태평양</a></li>
+					
+						<li><a href="/pkgRenewal/searchListSimple?citycd=E&depth=1&prodAtt=CRUISE">유럽</a></li>
+					
+						<li><a href="/pkgRenewal/searchListSimple?citycd=H&depth=1&prodAtt=CRUISE">미주/하와이</a></li>
+					
+						<li><a href="/pkgRenewal/searchListSimple?citycd=S&depth=1&prodAtt=CRUISE">특수지역</a></li>
+					
+				</ul>
+			</td>
+			<td colspan="2">
+				<h3 class="ymhb"><a href="/pkgRenewal/themaTreavelJaGoods">PRIVIA 테마여행</a></h3>
+				<ul>
+					
+						<li><a href="/pkgRenewal/themaTravelList?thema=TWB">아기와함께하는여행</a></li>
+					
+						<li><a href="/pkgRenewal/themaTravelList?thema=FHM">프리허니문</a></li>
+					
+						<li><a href="/pkgRenewal/themaTravelList?thema=TGF">테마골프</a></li>
+					
+						<li><a href="/pkgRenewal/themaTravelList?thema=HSSK">온천&스키</a></li>
+					
+						<li><a href="/pkgRenewal/themaTravelList?thema=SSCP">레포츠</a></li>
+					
+						<li><a href="/pkgRenewal/themaTravelList?thema=CLMD">클럽메드</a></li>
+					
+				</ul>
+			</td>
+		</tr>
+		<tr>
+			<td>
+				<h3 class="ymhb">지방출발</h3>
+				<ul>
+					<li><a href="searchListSimple?dptcity=PUS">부산</a></li>
+					<li><a href="searchListSimple?dptcity=CJJ">청주</a></li>
+					<li><a href="searchListSimple?dptcity=TAE">대구</a></li>
+					<li><a href="searchListSimple?dptcity=KWJ">광주</a></li>
+				</ul>
+			</td>
+			
+						<td>
+							<h3 class="ymhb" regncd="S" menuCd="PGR369"><a href="/pkgRenewal/searchListSimple?citycd=S&depth=1" menuNm="특수지역">특수지역</a></h3>
+							<ul>
+								
+											<li parnCd="PGR369" menuCd="PGR377" style="display: none;"><a href="/pkgRenewal/searchListSimple?citycd=S&depth=2">특수지역</a></li>
+										
+							</ul>
+						</td>
+					
+			<td>
+				<h3 class="ymhb">제휴사 추천상품</h3>
+				<ul>
+					<li><a href="/pkgRenewal/agncyMain?agncyCode=HANA">하나투어</a></li>
+					<li><a href="/pkgRenewal/agncyMain?agncyCode=MODE">모두투어</a></li>
+					<li><a href="/pkgRenewal/agncyMain?agncyCode=HANJIN">한진관광</a></li>
+					<li><a href="/pkgRenewal/agncyMain?agncyCode=LOTTE">롯데관광</a></li>
+					<li><a href="/pkgRenewal/agncyMain?agncyCode=VGOOD">참좋은여행</a></li>
+				</ul>
+			</td>
+			<td colspan="3">
+				<ul class="l-total-nav-sub-list">
+					<li><a href="/pkgRenewal/promotion" class="ymhb">프로모션</a></li>
+					<li><a href="/pkgRenewal/htmlPlan?PROMOTION_SEQ=9" class="ymhb">긴급 모객 상품</a></li>
+					<li><a href="/pkgRenewal/homeShowppingMain" class="ymhb">홈쇼핑 추천 상품</a></li>
+					<li><a href="#none" onclick="goCheckTimeSale();" class="ymhb">타임세일</a></li>
+					<li><a href="/pkgRenewal/wishList" class="ymhb">위시리스트</a></li>
+					<li><a href="http://www.priviatravel.com/mypage/main" class="ymhb">마이페이지</a></li>
+				</ul>
+			</td>
+		</tr>
+		</tbody>
+		</table>
+
+		<button class="btn-total-nav-layer"><img src="/images/front/travel/btn_total_nav_close.gif" alt="닫기"></button>
+	</div>
+	
+</div>
+	<!-- //GNB -->
+</div>
+
+
+<!-- main manner -->
+<div class="m-banner-wrap">
+	<div id="m-banner">
+		<ul class="visualList">
+			<li style="background:url(/images/front/travel/deco_mainvisual1.png) no-repeat center 0"></li>
+			<li style="background:url(/images/front/travel/deco_mainvisual2.png) no-repeat center 0"></li>
+			<li style="background:url(/images/front/travel/deco_mainvisual3.png) no-repeat center 0"></li>
+		</ul>
+	</div>	
+
+	<div id="m-copy">
+		<div class="slide-mask">
+			<div class="slide-item m-copy-item">
+				<a href="http://www.priviatravel.com/main/air/">
+					<strong class="ymhb">패키지 속 자유. 로마의 하늘</strong>
+					<span class="ymhr">PRIVIA패키지에서는 로마패키지가 990,000원부터~</span>
+				</a>   
+			</div>
+			<div class="slide-item m-copy-item">
+				<a href="http://www.priviatravel.com/main/hotel/">
+					<strong class="ymhb">패키지 속 자유. 로마의 하늘</strong>
+					<span class="ymhr">PRIVIA패키지에서는 로마패키지가 990,000원부터~</span>
+				</a>
+			</div>
+			<div class="slide-item m-copy-item">
+				<a href="http://www.priviatravel.com/main/free/">
+					<strong class="ymhb">패키지 속 자유. 로마의 하늘</strong>
+					<span class="ymhr">PRIVIA패키지에서는 로마패키지가 990,000원부터~</span>
+				</a>
+			</div>
+		</div>
+		<button class="prev" title="이전"><img src="/images/front/travel/btn_mainvisual_prev.png" alt="이전"></button>
+		<span class="btn-link">
+			<em class="bg"></em>
+			<a href="#">프로모션 바로가기</a>
+		</span>
+		<button class="next" title="다음"><img src="/images/front/travel/btn_mainvisual_next.png" alt="다음"></button>
+	</div>
+
+</div>
+<!-- //main manner -->
+
+<!-- main search -->
+<div class="l-main-search clearfix">
+	<ul id="ms-tab" class="pms-tab item-3">			
+		<li><a href="javascript:showTab('ms-tab','ms-tab-cont','1');" class="on">지역 검색</a></li>
+		<li><a href="javascript:showTab('ms-tab','ms-tab-cont','2');">상품코드 검색</a></li>
+		<li><a href="javascript:showTab('ms-tab','ms-tab-cont','3');">테마 검색</a></li>
+	</ul>
+	
+	<div id="ms-tab-cont1" class="ms-tab-cont">
+		<select name="" id="" style="width:125px" class="selectbox-lg fl selectbox-option-width:150px" title="지역선택">
+			<option>지역선택</option>
+			<option>코타키나발루</option>
+		</select>
+		<select name="" id="" style="width:125px" class="selectbox-lg fl selectbox-option-width:150px" title="국가선택">
+			<option>국가선택</option>
+			<option>내용</option>
+			<option>내용</option>
+		</select>
+		<select name="" id="" style="width:125px" class="selectbox-lg fl selectbox-option-width:150px" title="도시선택">
+			<option>도시선택</option>
+			<option>내용</option>
+			<option>내용</option>
+		</select>
+		<input type="text" id="dp1" class="text_cal holder datepicker cal-lg fl" style="width:138px;" value="출발일" readonly="readonly" title="출발일">
+		<select name="" id="" style="width:175px;" class="selectbox-lg fl selectbox-option-width:200px" title="제휴사선택">
+			<option>제휴사전체</option>
+		</select>
+		<input type="image" src="/images/front/travel/btn_search_lg.gif" title="검색" name="" class="fr">
+		<!-- 20170315 -->
+		<div class="able-dt">
+		    <input type="checkbox" id="able-departure" /> <label for="able-departure"><strong>출발 가능한 상품 보기</strong></label>     
+            <span class="help-text able-dt-help">
+                <a href="#" class="clr-type3">TIP</a>
+                <span class="tip-box right">
+                    <span class="tip" style="width:430px;">
+                        <span><em class="bold">출발 가능 상품이란?</em><br/ >최소 출발 인원 이상 예약이 되어 있는 상품으로 예약과 동시에 출발이 가능합니다.<br />단, 출발인원 및 항공,호텔 실시간 상황에 따라 예약 상태가 변경 될 수 있으니<br />상담 시 확인해 주세요.</span>
+                        <span class="bot left-bot"></span>
+                    </span>
+                </span>                
+            </span>
+        </div>
+		<!-- //20170315 -->
+	</div>
+	
+	<div id="ms-tab-cont2" class="ms-tab-cont" style="display:none">
+		<p class="g-code-msg fl">
+			<strong>상품코드 검색이란?</strong><br />제휴사에서 제공하는 상품코드를 입력하여 검색하는 방법입니다.
+		</p>
+		<!-- #17931 수정 -->
+		<div class="pkg-i-input fl clearfix">
+			<i></i>			
+			<input type="text" class="text holder fl input-lg" style="width:194px;"  value="상품코드" title="상품명 및 상품코드">
+			<select name="" id="" style="width:162px;" class="selectbox-lg fl selectbox-option-width:187px" title="제휴사선택">
+                <option>제휴사전체</option>
+            </select>			
+		</div>
+		<!-- //#17931 수정 -->
+		<input type="image" src="/images/front/travel/btn_search_lg.gif" title="검색" name="" class="fr">
+	</div>   
+	 
+	<div id="ms-tab-cont3" class="ms-tab-cont" style="display:none">
+		<select name="" id="" style="width:248px;" class="selectbox-lg fl selectbox-option-width:273px" title="테마선택">
+			<option>테마선택</option>
+			<option>아이와 함께 가족여행</option>
+			<option>내용</option>
+			<option>내용</option>
+		</select>
+		<select name="" id="" style="width:532px;" class="selectbox-lg fl selectbox-option-width:557px" title="상세테마선택">
+			<option>상세테마선택</option>
+			<option>아이와 함께 가족여행</option>
+			<option>내용</option>
+			<option>내용</option>
+		</select>
+		<input type="image" src="/images/front/travel/btn_search_lg.gif" title="검색" name="" class="fr">
+	</div>    
+</div>
+<!-- //main search -->
+
+<!-- pkg-benefit-icon -->
+<div class="pkg-benefit-icon">
+	<ul>
+		<li class="i1">현대카드<br />3 ~ 7% 즉시 할인</li>
+		<li class="i2">현대카드<br />5% M포인트 사용</li>
+		<li class="i3">현대카드<br />3개월 무이자할부<br />또는 M포인트 적립</li>
+		<li class="i4">추가특전</li>
+	</ul>
+	<a href="http://package.priviatravel.com/pkgRenewal/htmlPlan?PROMOTION_SEQ=54" class="pbi-view">자세히 보기</a>	
+</div>
+<!-- //pkg-benefit-icon -->
+
+<!-- content -->
+<div id="content" class="wide-content">
+	<h3 class="content-title"><b>베스트 패키지</b><span class="title-subcopy">PRIVIA에서 최근 판매가 많은 인기상품</span></h3>
+
+	<ul class="thumbnail-list item-3">
+		<li>
+			<div class="p-top-cont">
+				<p class="p-area ellipsis">동남아/푸켓동남아/푸켓동남아/푸켓</p>
+				<p class="p-badge"><b>특가</b></p>
+			</div>
+			<div class="p-img"><a href="#"><img src="http://www.tourall.co.kr/app/wsv/packageproduct/pk-productimage.asp?obj_img=image1&img_seq=P000185246" /></a></div>
+			<!-- 수정 -->
+			<div class="p-cont hover-wrap">
+				<p class="p-name line-2"><a href="#">내용 내용 내용 내용 내용 내용 내용 내용 내용 내용 내용 내용 내용 내용 내용...</a></p>
+				<p class="p-key-text"><a href="#" class="clr-type4"><strong>PRIVIA Exclusive!</strong></a></p>
+				<p class="price-info">
+					<b>636,800원+</b>
+				</p>
+				<ul class="gallery-icon">
+					<li class="air"><img src="/images/front/travel/img_gallerybenefit1.gif" alt="항공"><p><em>아시아나</em></p></li>
+					<li><img src="/images/front/travel/img_gallerybenefit2_1.gif" alt="숙박(3성급)"></li>
+					<!--
+					<li><img src="/images/front/travel/img_gallerybenefit2_2.gif" alt="숙박(4성급)"></li>
+					<li><img src="/images/front/travel/img_gallerybenefit2_3.gif" alt="숙박(5성급)"></li>
+					-->
+					<li><img src="/images/front/travel/img_gallerybenefit3_1.gif" alt="동반자할인"></li>
+					<!--
+					<li><img src="/images/front/travel/img_gallerybenefit3_2.gif" alt="아동반값"></li>
+					<li><img src="/images/front/travel/img_gallerybenefit3_3.gif" alt="단독특가"></li>
+					-->
+					<li><img src="/images/front/travel/img_gallerybenefit4_1.gif" alt="상품권증정"></li>
+					<!--
+					<li><img src="/images/front/travel/img_gallerybenefit4_2.gif" alt="노팁노옵션"></li>
+					<li><img src="/images/front/travel/img_gallerybenefit4_3.gif" alt="선물증정"></li>
+					-->
+				</ul>
+				<div class="hover-cont">
+					<div class="hover-bg"></div>
+					<p class="text">영국항공 비지니스 클래스/최상의 호텔로 엄격히 선정된 5 STAR 호텔/우수가이드와 함께하는 관광일정/보헤미아의 가장 아름다운 중세도시, 체스키크롬노프 가이드 투어 포함/유럽에서 가장 아름다운 궁전으로 손꼽히는 쉔브룬 궁전/한국인 가이드 공항미팅, 샌딩 서비스…</p>
+				</div>
+			</div>
+			<!-- //수정 -->
+		</li>
+		<li>
+			<div class="p-top-cont">
+				<p class="p-area ellipsis">동남아/푸켓동남아/푸켓동남아/푸켓</p>
+				<p class="p-badge"><b>MD</b>추천</p>
+			</div>
+			<div class="p-img"><a href="#"><img src="http://www.tourall.co.kr/app/wsv/packageproduct/pk-productimage.asp?obj_img=image1&img_seq=P000185246" /></a></div>
+			<div class="p-cont hover-wrap">
+				<p class="p-name line-2"><a href="#">내용 내용 내용 내용 내용 내용 내용 내용 내용 내용 내용 내용 내용 내용 내용...</a></p>
+				<p class="p-key-text"><a href="#" class="clr-type4"><strong>가나다라마가나다라마가나다라마가나다라마</strong></a></p>
+				<p class="price-info">
+					<b>636,800원+</b>
+				</p>
+				<ul class="gallery-icon">
+					<li class="air"><img src="/images/front/travel/img_gallerybenefit1.gif" alt="항공"><p><em>아시아나항공사</em></p></li>
+					<li><img src="/images/front/travel/img_gallerybenefit2_1.gif" alt="숙박(3성급)"></li>
+					<li><img src="/images/front/travel/img_gallerybenefit2_2.gif" alt="숙박(4성급)"></li>
+					<li><img src="/images/front/travel/img_gallerybenefit2_3.gif" alt="숙박(5성급)"></li>
+					<li><img src="/images/front/travel/img_gallerybenefit3_2.gif" alt="아동반값"></li>
+				</ul>
+				<div class="hover-cont">
+					<div class="hover-bg"></div>
+					<p class="text">영국항공 비지니스 클래스/최상의 호텔로 엄격히 선정된 5 STAR 호텔/우수가이드와 함께하는 관광일정/보헤미아의 가장 아름다운 중세도시, 체스키크롬노프 가이드 투어 포함/유럽에서 가장 아름다운 궁전으로 손꼽히는 쉔브룬 궁전/한국인 가이드 공항미팅, 샌딩 서비스…</p>
+				</div>
+			</div>
+		</li>
+		<li>
+			<div class="p-top-cont">
+				<p class="p-area ellipsis">동남아/푸켓동남아/푸켓동남아/푸켓</p>
+				<p class="p-badge"><b>특전</b></p>
+			</div>
+			<div class="p-img"><a href="#"><img src="http://www.tourall.co.kr/app/wsv/packageproduct/pk-productimage.asp?obj_img=image1&img_seq=P000185246" /></a></div>
+			<div class="p-cont hover-wrap">
+				<p class="p-name line-2"><a href="#">내용 내용 내용 내용 내용 내용 내용 내용 내용 내용 내용 내용 내용 내용 내용...</a></p>
+				<p class="p-key-text"><a href="#" class="clr-type4"><strong>총 40바이트</strong></a></p>
+				<p class="price-info">
+					<b>636,800원+</b>
+				</p>
+				<ul class="gallery-icon">
+					<li class="air"><img src="/images/front/travel/img_gallerybenefit1.gif" alt="항공"><p><em>아시아나항공사..</em></p></li>
+					<li><img src="/images/front/travel/img_gallerybenefit3_3.gif" alt="단독특가"></li>
+					<li><img src="/images/front/travel/img_gallerybenefit4_2.gif" alt="노팁노옵션"></li>
+					<li><img src="/images/front/travel/img_gallerybenefit4_3.gif" alt="선물증정"></li>
+				</ul>
+				<div class="hover-cont">
+					<div class="hover-bg"></div>
+					<p class="text">영국항공 비지니스 클래스/최상의 호텔로 엄격히 선정된 5 STAR 호텔/우수가이드와 함께하는 관광일정/보헤미아의 가장 아름다운 중세도시, 체스키크롬노프 가이드 투어 포함/유럽에서 가장 아름다운 궁전으로 손꼽히는 쉔브룬 궁전/한국인 가이드 공항미팅, 샌딩 서비스…</p>
+				</div>
+			</div>
+		</li>
+	</ul>    		
+		
+	<!-- #29579 수정 (순서변경) -->
+	<div class="section-wrap clearfix">
+		<div class="main-emergency">
+			<div class="section-title-wrap">
+				<h3 class="content-title"><b>긴급 모객 상품</b></h3>
+				<span class="right"><a href="#" class="btn-more-arrow">상품 더 보기</a></span>
+			</div>
+			
+			<!-- #26116 수정 -->
+			<table class="list-new" summary="이 표는 긴급 모객 상품의 표로써 출발일,출발지,상품명,항공사,예상총요금으로 구성되어 있습니다.">
+			<caption>긴급 모객 상품</caption>
+			<!-- 160819 수정 -->
+			<colgroup>
+                <col width="13%" />
+			    <col width="7%" />
+			    <col width="*" />
+			    <col width="17%" />
+			    <col width="15%" />
+			</colgroup>
+			<thead>			
+			<tr>
+			    <th scope="col">출발일</th>
+			    <th scope="col">출발지</th>
+			    <th scope="col">상품명</th>
+			    <th scope="col">항공사</th>
+			    <th scope="col">예상 총 요금</th>
+			</tr>
+			<!-- //#26116 수정 -->
+			<!-- //160819 수정 -->
+			</thead>
+			<tbody>
+			<!-- 160819 수정 (이하 tr에 내용 동일) -->
+			<tr>
+			    <td>2016/11/24</td>
+			    <td class="ellipsis">북경</td>
+			    <td class="al ellipsis"><a href="#">[특전제공] 장가계 5일[특전제공] 장가계 5일[특전제공] 장가계 5일</a></td>
+			    <td class="al ellipsis"><img src="http://air.priviatravel.com/images/PRIVIA/carrier_logo/30/PNG/OZ.png" alt="아시아나 항공" width="24"> 아시아나 항공</td>
+			    <td class="ar"><b>11,456,000+</b></td>
+			</tr>
+			<!-- //160819 수정 -->
+			<tr>
+			    <td>2016/11/24</td>
+			    <td class="ellipsis">북경</td>
+			    <td class="al ellipsis"><a href="#">일급 아쿠아알로하서프 자유여행 6일...</a></td>
+			    <td class="al ellipsis"><img src="http://air.priviatravel.com/images/PRIVIA/carrier_logo/30/PNG/KE.png" alt="대한 항공" width="24"> 대한 항공</td>
+			    <td class="ar"><b>11,456,000+</b></td>
+			</tr>
+			<tr>
+			    <td>2016/11/24</td>
+			    <td class="ellipsis">북경</td>
+			    <td class="al ellipsis"><a href="#">일급 아쿠아알로하서프 자유여행 6일...</a></td>
+			    <td class="al ellipsis"><img src="http://air.priviatravel.com/images/PRIVIA/carrier_logo/30/PNG/KE.png" alt="대한 항공" width="24"> 대한 항공</td>
+			    <td class="ar"><b>11,456,000+</b></td>
+			</tr>
+			<tr>
+			    <td>2016/11/24</td>
+			    <td class="ellipsis">북경</td>
+			    <td class="al ellipsis"><a href="#">일급 아쿠아알로하서프 자유여행 6일...</a></td>
+			    <td class="al ellipsis"><img src="http://air.priviatravel.com/images/PRIVIA/carrier_logo/30/PNG/KE.png" alt="대한 항공" width="24"> 대한 항공</td>
+			    <td class="ar"><b>11,456,000+</b></td>
+			</tr>
+			<tr>
+			    <td>2016/11/24</td>
+			    <td class="ellipsis">북경</td>
+			    <td class="al ellipsis"><a href="#">[특전제공] 장가계 5일</a></td>
+			    <td class="al ellipsis"><img src="http://air.priviatravel.com/images/PRIVIA/carrier_logo/30/PNG/OZ.png" alt="아시아나 항공" width="24"> 아시아나 항공</td>
+			    <td class="ar"><b>11,456,000+</b></td>
+			</tr>
+			<tr>
+			    <td>2016/11/24</td>
+			    <td class="ellipsis">북경</td>
+			    <td class="al ellipsis"><a href="#">일급 아쿠아알로하서프 자유여행 6일...</a></td>
+			    <td class="al ellipsis"><img src="http://air.priviatravel.com/images/PRIVIA/carrier_logo/30/PNG/KE.png" alt="대한 항공" width="24"> 대한 항공</td>
+			    <td class="ar"><b>11,456,000+</b></td>
+			</tr>
+			<tr>
+			    <td>2016/11/24</td>
+			    <td class="ellipsis">북경</td>
+			    <td class="al ellipsis"><a href="#">일급 아쿠아알로하서프 자유여행 6일...</a></td>
+			    <td class="al ellipsis"><img src="http://air.priviatravel.com/images/PRIVIA/carrier_logo/30/PNG/KE.png" alt="대한 항공" width="24"> 대한 항공</td>
+			    <td class="ar"><b>11,456,000+</b></td>
+			</tr>
+			<tr>
+			    <td>2016/11/24</td>
+			    <td class="ellipsis">북경</td>
+			    <td class="al ellipsis"><a href="#">일급 아쿠아알로하서프 자유여행 6일...</a></td>
+			    <td class="al ellipsis"><img src="http://air.priviatravel.com/images/PRIVIA/carrier_logo/30/PNG/KE.png" alt="대한 항공" width="24"> 대한 항공</td>
+			    <td class="ar"><b>11,456,000+</b></td>
+			</tr>
+			<tr>
+			    <td>2016/11/24</td>
+			    <td class="ellipsis">북경</td>
+			    <td class="al ellipsis"><a href="#">[특전제공] 장가계 5일</a></td>
+			    <td class="al ellipsis"><img src="http://air.priviatravel.com/images/PRIVIA/carrier_logo/30/PNG/OZ.png" alt="아시아나 항공" width="24"> 아시아나 항공</td>
+			    <td class="ar"><b>11,456,000+</b></td>
+			</tr>
+			<tr>
+			    <td>2016/11/24</td>
+			    <td class="ellipsis">북경</td>
+			    <td class="al ellipsis"><a href="#">일급 아쿠아알로하서프 자유여행 6일...</a></td>
+			    <td class="al ellipsis"><img src="http://air.priviatravel.com/images/PRIVIA/carrier_logo/30/PNG/KE.png" alt="대한 항공" width="24"> 대한 항공</td>
+			    <td class="ar"><b>11,456,000+</b></td>
+			</tr>
+			</tbody>
+			</table>
+		</div>
+		<div class="main-time-sale">
+			<!-- 14302 -->
+			<!-- 타임세일이 없을 시 오픈
+			<h3 class="content-title"><b>PRIVIA 패키지만의 혜택</b></h3>
+			<div><a href="http://package.priviatravel.com/pkgRenewal/promotion"><img src="/images/front/travel/img_timesaleempty.gif" alt="PRIVIA 패키지만의 혜택"></a></div>
+			-->
+			<!-- //14302 -->
+			<div class="section-title-wrap">
+				<h3 class="content-title clr-type3"><b>타임세일</b></h3>
+				<span class="right"><a href="#" class="btn-more-arrow">더 보기</a></span>
+			</div>
+			
+			<div class="time-sale-wrap">
+				<div id="timeSale-MA" class="timeSale-type1">
+                    <button class="prev btn-ctrl-timeSale btn-prev-ts" title="이전">이전</button>
+                    <button class="next btn-ctrl-timeSale btn-next-ts" title="다음">다음</button>
+                    <div class="slide-mask">
+                        <div class="slide-item timeSale-item">
+                           	<a href="#" class="title">
+								<strong>필리핀 보라카이</strong>
+							</a>
+                            <a href="#" class="thumb"><img src="http://www.tourall.co.kr/app/wsv/packageproduct/pk-productimage.asp?obj_img=image1&img_seq=P000185246" alt="[푸켓1]특급 웨스트 샌즈 리조트 푸켓 5일 조식포함"></a>
+							<div class="p-info">
+								<p class="fs-11">잔여인원 : <b>20명</b></p>
+								<p class="time-prev-price"><span>1,000,000원</span></p>
+								<p class="time-price"><span class="digit-mg">89,000,000</span><span class="won">원</span></p>
+								
+								<!-- #15831 MD 추천일 시 -->
+								<div class="time-badge sp-type">
+									<span class="ymhb sp">MD</span><br/>
+									<span class="ymhb">추천</span>
+								</div>
+								
+								<!-- #15831 특가일 시 
+								<div class="time-badge sp-type">
+									<span class="ymhb sp">PRIVIA</span><br/>
+									<span class="ymhb">특가</span>
+								</div>
+								-->
+								
+								<!-- 가격일 시
+								<div class="time-badge">
+									<span class="ymhb">999,000</span><span class="ymhb won">원</span><br/>
+									<span class="ymhb won">할인</span>
+								</div>
+								-->
+								
+								<!-- 퍼센트일 시
+								<div class="time-badge per-type">
+									<span class="ymhb">30</span><span class="ymhb per">%</span>
+								</div>
+								-->
+								<p class="cntTxt"><b>타임세일 남은시간</b></p>
+								<div id="countdown1" class="ui-countdown"></div>
+							</div>
+                        </div>
+                       <div class="slide-item timeSale-item">
+                           	<a href="#" class="title">
+								<strong>필리핀 보라카이 5박6일 초특가 할인</strong>
+							</a>
+                            <a href="#" class="thumb"><img src="http://www.tourall.co.kr/app/wsv/packageproduct/pk-productimage.asp?obj_img=image1&img_seq=P000185246" alt="[푸켓1]특급 웨스트 샌즈 리조트 푸켓 5일 조식포함"></a>
+							<div class="p-info">
+								<p class="fs-11">잔여예약 : <b>15건</b></p>
+								<p class="time-prev-price"><span>1,000,000원</span></p>
+								<p class="time-price"><span class="digit-mg">89,000,000</span><span class="won">원</span></p>
+								<!-- 특가 일 시 
+								<div class="time-badge sp-type">
+									<span class="ymhb sp">PRIVIA</span><br/>
+									<span class="ymhb">특가</span>
+								</div>
+								-->
+								
+								<!-- 가격 일 시 
+								<div class="time-badge">
+									<span class="ymhb">999,000</span><span class="ymhb won">원</span><br/>
+									<span class="ymhb won">할인</span>
+								</div>
+								-->
+								
+								<div class="time-badge per-type">
+									<span class="ymhb">30</span><span class="ymhb per">%</span>
+								</div>
+								
+								<p class="cntTxt"><b>타임세일 남은시간</b></p>
+								<div id="countdown2" class="ui-countdown"></div>
+							</div>
+                        </div>
+                        <div class="slide-item timeSale-item">
+                           	<a href="#" class="title">
+								<strong>필리핀 보라카이 5박6일 초특가 할인</strong>
+							</a>
+                            <a href="#" class="thumb"><img src="http://www.tourall.co.kr/app/wsv/packageproduct/pk-productimage.asp?obj_img=image1&img_seq=P000185246" alt="[푸켓1]특급 웨스트 샌즈 리조트 푸켓 5일 조식포함"></a>
+							<div class="p-info">
+								<p class="fs-11">잔여예약 : <b>15건</b></p>
+								<p class="time-prev-price"><span>1,000,000원</span></p>
+								<p class="time-price"><span class="digit-mg">89,000,000</span><span class="won">원</span></p>
+								<!-- 특가 일 시 
+								<div class="time-badge sp-type">
+									<span class="ymhb sp">PRIVIA</span><br/>
+									<span class="ymhb">특가</span>
+								</div>
+								-->
+								
+								<div class="time-badge">
+									<span class="ymhb">999,000</span><span class="ymhb won">원</span><br/>
+									<span class="ymhb won">할인</span>
+								</div>
+								
+								<!-- 퍼센트일 시
+								<div class="time-badge per-type">
+									<span class="ymhb">30</span><span class="ymhb per">%</span>
+								</div>
+								-->
+								<p class="cntTxt"><b>타임세일 남은시간</b></p>
+								<div id="countdown3" class="ui-countdown"></div>
+							</div>
+                        </div>
+                    </div>
+                </div>
+			</div>
+		</div>
+	</div>
+	<!-- //#29579 수정 (순서변경) -->
+	
+	<!-- #29579 수정 -->
+	<div class="section-title-wrap">
+		<h3 class="content-title"><b>자유여행 추천상품</b></h3>
+		<span class="right"><a href="#" class="btn-more-arrow">더 보기</a></span>
+	</div>	
+        <ul id="pkg-airtel" class="tab-new2 item-6" style="margin-bottom:18px;">
+            <li><a href="javascript:showTab('pkg-airtel','tabCont','1');" class="on">동남아시아</a></li>
+            <li><a href="javascript:showTab('pkg-airtel','tabCont','2');">홍콩/중국</a></li>
+            <li><a href="javascript:showTab('pkg-airtel','tabCont','3');">일본</a></li>
+            <li><a href="javascript:showTab('pkg-airtel','tabCont','4');">남태평양</a></li>
+            <li><a href="javascript:showTab('pkg-airtel','tabCont','5');">유럽</a></li>
+            <li><a href="javascript:showTab('pkg-airtel','tabCont','6');">미주/하와이</a></li>
+        </ul>
+        <div id="tabCont1">
+            <div id="paSlider1" class="pkgAirtelSlider">
+                <div class="pkgAirtel-banner">
+                    <ul class="scrollMask">
+                        <li>
+                            <a href="#">
+                            <span class="p-img">
+                                <img src="//static.priviatravel.com//UPLOAD/2017/01/16/37195/c0dfa612-e0e6-4cc8-ad73-fe41d6a90870">
+                            </span>
+                            <span class="p-cont">
+                                <em class="p-info lh15">[GOLD CARD포함] 수트라하버 마젤란(리조트형)-3박5일</em>
+                                <em class="price-info"><b>52,754원+</b></em>
+                            </span>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#">
+                            <span class="p-img">
+                                <img src="//static.priviatravel.com//UPLOAD/2017/01/16/37195/c0dfa612-e0e6-4cc8-ad73-fe41d6a90870">
+                            </span>
+                            <span class="p-cont">
+                                <em class="p-info lh15">[GOLD CARD포함] 수트라하버 마젤란(리조트형)-3박5일</em>
+                                <em class="price-info"><b>52,754원+</b></em>
+                            </span>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#">
+                            <span class="p-img">
+                                <img src="//static.priviatravel.com//UPLOAD/2017/01/16/37195/c0dfa612-e0e6-4cc8-ad73-fe41d6a90870">
+                            </span>
+                            <span class="p-cont">
+                                <em class="p-info lh15">[GOLD CARD포함] 수트라하버 마젤란(리조트형)-3박5일</em>
+                                <em class="price-info"><b>52,754원+</b></em>
+                            </span>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#">
+                            <span class="p-img">
+                                <img src="//static.priviatravel.com//UPLOAD/2017/01/16/37195/c0dfa612-e0e6-4cc8-ad73-fe41d6a90870">
+                            </span>
+                            <span class="p-cont">
+                                <em class="p-info lh15">[GOLD CARD포함] 수트라하버 마젤란(리조트형)-3박5일</em>
+                                <em class="price-info"><b>52,754원+</b></em>
+                            </span>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#">
+                            <span class="p-img">
+                                <img src="//static.priviatravel.com//UPLOAD/2017/01/16/37195/c0dfa612-e0e6-4cc8-ad73-fe41d6a90870">
+                            </span>
+                            <span class="p-cont">
+                                <em class="p-info lh15">[GOLD CARD포함] 수트라하버 마젤란(리조트형)-3박5일</em>
+                                <em class="price-info"><b>52,754원+</b></em>
+                            </span>
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+                <!--<span class="prev"></span>
+                <span class="next"></span>-->
+            </div>       
+        </div>
+        <div id="tabCont2" style="display:none">
+            <div id="paSlider2" class="pkgAirtelSlider">
+                <div class="pkgAirtel-banner">
+                    <ul class="scrollMask">
+                        <li>
+                            <a href="#">
+                            <span class="p-img">
+                                <img src="//static.priviatravel.com//UPLOAD/2017/01/16/37195/c0dfa612-e0e6-4cc8-ad73-fe41d6a90870">
+                            </span>
+                            <span class="p-cont">
+                                <em class="p-info lh15">[인기온천료칸호텔250선] 아오모리 카이센카쿠 자유 3일</em>
+                                <em class="price-info"><b>52,754원+</b></em>
+                            </span>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#">
+                            <span class="p-img">
+                                <img src="//static.priviatravel.com//UPLOAD/2017/01/16/37195/c0dfa612-e0e6-4cc8-ad73-fe41d6a90870">
+                            </span>
+                            <span class="p-cont">
+                                <em class="p-info lh15">[인기온천료칸호텔250선] 아오모리 카이센카쿠 자유 3일</em>
+                                <em class="price-info"><b>52,754원+</b></em>
+                            </span>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#">
+                            <span class="p-img">
+                                <img src="//static.priviatravel.com//UPLOAD/2017/01/16/37195/c0dfa612-e0e6-4cc8-ad73-fe41d6a90870">
+                            </span>
+                            <span class="p-cont">
+                                <em class="p-info lh15">[인기온천료칸호텔250선] 아오모리 카이센카쿠 자유 3일</em>
+                                <em class="price-info"><b>52,754원+</b></em>
+                            </span>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#">
+                            <span class="p-img">
+                                <img src="//static.priviatravel.com//UPLOAD/2017/01/16/37195/c0dfa612-e0e6-4cc8-ad73-fe41d6a90870">
+                            </span>
+                            <span class="p-cont">
+                                <em class="p-info lh15">[인기온천료칸호텔250선] 아오모리 카이센카쿠 자유 3일</em>
+                                <em class="price-info"><b>52,754원+</b></em>
+                            </span>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#">
+                            <span class="p-img">
+                                <img src="//static.priviatravel.com//UPLOAD/2017/01/16/37195/c0dfa612-e0e6-4cc8-ad73-fe41d6a90870">
+                            </span>
+                            <span class="p-cont">
+                                <em class="p-info lh15">[인기온천료칸호텔250선] 아오모리 카이센카쿠 자유 3일</em>
+                                <em class="price-info"><b>52,754원+</b></em>
+                            </span>
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+                <!--<span class="prev"></span>
+                <span class="next"></span>-->
+            </div>
+        </div>
+        <div id="tabCont3" style="display:none">
+            <div id="paSlider3" class="pkgAirtelSlider">
+                <div class="pkgAirtel-banner">
+                    <ul class="scrollMask">
+                        <li>
+                            <a href="#">
+                            <span class="p-img">
+                                <img src="//static.priviatravel.com//UPLOAD/2017/01/16/37195/c0dfa612-e0e6-4cc8-ad73-fe41d6a90870">
+                            </span>
+                            <span class="p-cont">
+                                <em class="p-info lh15">[인기온천료칸호텔250선] 아오모리 카이센카쿠 자유 3일</em>
+                                <em class="price-info"><b>52,754원+</b></em>
+                            </span>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#">
+                            <span class="p-img">
+                                <img src="//static.priviatravel.com//UPLOAD/2017/01/16/37195/c0dfa612-e0e6-4cc8-ad73-fe41d6a90870">
+                            </span>
+                            <span class="p-cont">
+                                <em class="p-info lh15">[인기온천료칸호텔250선] 아오모리 카이센카쿠 자유 3일</em>
+                                <em class="price-info"><b>52,754원+</b></em>
+                            </span>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#">
+                            <span class="p-img">
+                                <img src="//static.priviatravel.com//UPLOAD/2017/01/16/37195/c0dfa612-e0e6-4cc8-ad73-fe41d6a90870">
+                            </span>
+                            <span class="p-cont">
+                                <em class="p-info lh15">[인기온천료칸호텔250선] 아오모리 카이센카쿠 자유 3일</em>
+                                <em class="price-info"><b>52,754원+</b></em>
+                            </span>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#">
+                            <span class="p-img">
+                                <img src="//static.priviatravel.com//UPLOAD/2017/01/16/37195/c0dfa612-e0e6-4cc8-ad73-fe41d6a90870">
+                            </span>
+                            <span class="p-cont">
+                                <em class="p-info lh15">[인기온천료칸호텔250선] 아오모리 카이센카쿠 자유 3일</em>
+                                <em class="price-info"><b>52,754원+</b></em>
+                            </span>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#">
+                            <span class="p-img">
+                                <img src="//static.priviatravel.com//UPLOAD/2017/01/16/37195/c0dfa612-e0e6-4cc8-ad73-fe41d6a90870">
+                            </span>
+                            <span class="p-cont">
+                                <em class="p-info lh15">[인기온천료칸호텔250선] 아오모리 카이센카쿠 자유 3일</em>
+                                <em class="price-info"><b>52,754원+</b></em>
+                            </span>
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+                <!--<span class="prev"></span>
+                <span class="next"></span>-->
+            </div>
+        </div>
+        <div id="tabCont4" style="display:none">
+            <div id="paSlider4" class="pkgAirtelSlider">
+                <div class="pkgAirtel-banner">
+                    <ul class="scrollMask">
+                        <li>
+                            <a href="#">
+                            <span class="p-img">
+                                <img src="//static.priviatravel.com//UPLOAD/2017/01/16/37195/c0dfa612-e0e6-4cc8-ad73-fe41d6a90870">
+                            </span>
+                            <span class="p-cont">
+                                <em class="p-info lh15">[인기온천료칸호텔250선] 아오모리 카이센카쿠 자유 3일</em>
+                                <em class="price-info"><b>52,754원+</b></em>
+                            </span>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#">
+                            <span class="p-img">
+                                <img src="//static.priviatravel.com//UPLOAD/2017/01/16/37195/c0dfa612-e0e6-4cc8-ad73-fe41d6a90870">
+                            </span>
+                            <span class="p-cont">
+                                <em class="p-info lh15">[인기온천료칸호텔250선] 아오모리 카이센카쿠 자유 3일</em>
+                                <em class="price-info"><b>52,754원+</b></em>
+                            </span>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#">
+                            <span class="p-img">
+                                <img src="//static.priviatravel.com//UPLOAD/2017/01/16/37195/c0dfa612-e0e6-4cc8-ad73-fe41d6a90870">
+                            </span>
+                            <span class="p-cont">
+                                <em class="p-info lh15">[인기온천료칸호텔250선] 아오모리 카이센카쿠 자유 3일</em>
+                                <em class="price-info"><b>52,754원+</b></em>
+                            </span>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#">
+                            <span class="p-img">
+                                <img src="//static.priviatravel.com//UPLOAD/2017/01/16/37195/c0dfa612-e0e6-4cc8-ad73-fe41d6a90870">
+                            </span>
+                            <span class="p-cont">
+                                <em class="p-info lh15">[인기온천료칸호텔250선] 아오모리 카이센카쿠 자유 3일</em>
+                                <em class="price-info"><b>52,754원+</b></em>
+                            </span>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#">
+                            <span class="p-img">
+                                <img src="//static.priviatravel.com//UPLOAD/2017/01/16/37195/c0dfa612-e0e6-4cc8-ad73-fe41d6a90870">
+                            </span>
+                            <span class="p-cont">
+                                <em class="p-info lh15">[인기온천료칸호텔250선] 아오모리 카이센카쿠 자유 3일</em>
+                                <em class="price-info"><b>52,754원+</b></em>
+                            </span>
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+                <!--<span class="prev"></span>
+                <span class="next"></span>-->
+            </div>
+        </div>
+        <div id="tabCont5" style="display:none">
+            <div id="paSlider5" class="pkgAirtelSlider">
+                <div class="pkgAirtel-banner">
+                    <ul class="scrollMask">
+                        <li>
+                            <a href="#">
+                            <span class="p-img">
+                                <img src="//static.priviatravel.com//UPLOAD/2017/01/16/37195/c0dfa612-e0e6-4cc8-ad73-fe41d6a90870">
+                            </span>
+                            <span class="p-cont">
+                                <em class="p-info lh15">[인기온천료칸호텔250선] 아오모리 카이센카쿠 자유 3일</em>
+                                <em class="price-info"><b>52,754원+</b></em>
+                            </span>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#">
+                            <span class="p-img">
+                                <img src="//static.priviatravel.com//UPLOAD/2017/01/16/37195/c0dfa612-e0e6-4cc8-ad73-fe41d6a90870">
+                            </span>
+                            <span class="p-cont">
+                                <em class="p-info lh15">[인기온천료칸호텔250선] 아오모리 카이센카쿠 자유 3일</em>
+                                <em class="price-info"><b>52,754원+</b></em>
+                            </span>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#">
+                            <span class="p-img">
+                                <img src="//static.priviatravel.com//UPLOAD/2017/01/16/37195/c0dfa612-e0e6-4cc8-ad73-fe41d6a90870">
+                            </span>
+                            <span class="p-cont">
+                                <em class="p-info lh15">[인기온천료칸호텔250선] 아오모리 카이센카쿠 자유 3일</em>
+                                <em class="price-info"><b>52,754원+</b></em>
+                            </span>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#">
+                            <span class="p-img">
+                                <img src="//static.priviatravel.com//UPLOAD/2017/01/16/37195/c0dfa612-e0e6-4cc8-ad73-fe41d6a90870">
+                            </span>
+                            <span class="p-cont">
+                                <em class="p-info lh15">[인기온천료칸호텔250선] 아오모리 카이센카쿠 자유 3일</em>
+                                <em class="price-info"><b>52,754원+</b></em>
+                            </span>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#">
+                            <span class="p-img">
+                                <img src="//static.priviatravel.com//UPLOAD/2017/01/16/37195/c0dfa612-e0e6-4cc8-ad73-fe41d6a90870">
+                            </span>
+                            <span class="p-cont">
+                                <em class="p-info lh15">[인기온천료칸호텔250선] 아오모리 카이센카쿠 자유 3일</em>
+                                <em class="price-info"><b>52,754원+</b></em>
+                            </span>
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+                <!--<span class="prev"></span>
+                <span class="next"></span>-->
+            </div>
+        </div>
+        <div id="tabCont6" style="display:none">
+            <div id="paSlider6" class="pkgAirtelSlider">
+                <div class="pkgAirtel-banner">
+                    <ul class="scrollMask">
+                        <li>
+                            <a href="#">
+                            <span class="p-img">
+                                <img src="//static.priviatravel.com//UPLOAD/2017/01/16/37195/c0dfa612-e0e6-4cc8-ad73-fe41d6a90870">
+                            </span>
+                            <span class="p-cont">
+                                <em class="p-info lh15">[인기온천료칸호텔250선] 아오모리 카이센카쿠 자유 3일</em>
+                                <em class="price-info"><b>52,754원+</b></em>
+                            </span>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#">
+                            <span class="p-img">
+                                <img src="//static.priviatravel.com//UPLOAD/2017/01/16/37195/c0dfa612-e0e6-4cc8-ad73-fe41d6a90870">
+                            </span>
+                            <span class="p-cont">
+                                <em class="p-info lh15">[인기온천료칸호텔250선] 아오모리 카이센카쿠 자유 3일</em>
+                                <em class="price-info"><b>52,754원+</b></em>
+                            </span>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#">
+                            <span class="p-img">
+                                <img src="//static.priviatravel.com//UPLOAD/2017/01/16/37195/c0dfa612-e0e6-4cc8-ad73-fe41d6a90870">
+                            </span>
+                            <span class="p-cont">
+                                <em class="p-info lh15">[인기온천료칸호텔250선] 아오모리 카이센카쿠 자유 3일</em>
+                                <em class="price-info"><b>52,754원+</b></em>
+                            </span>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#">
+                            <span class="p-img">
+                                <img src="//static.priviatravel.com//UPLOAD/2017/01/16/37195/c0dfa612-e0e6-4cc8-ad73-fe41d6a90870">
+                            </span>
+                            <span class="p-cont">
+                                <em class="p-info lh15">[인기온천료칸호텔250선] 아오모리 카이센카쿠 자유 3일</em>
+                                <em class="price-info"><b>52,754원+</b></em>
+                            </span>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#">
+                            <span class="p-img">
+                                <img src="//static.priviatravel.com//UPLOAD/2017/01/16/37195/c0dfa612-e0e6-4cc8-ad73-fe41d6a90870">
+                            </span>
+                            <span class="p-cont">
+                                <em class="p-info lh15">[인기온천료칸호텔250선] 아오모리 카이센카쿠 자유 3일</em>
+                                <em class="price-info"><b>52,754원+</b></em>
+                            </span>
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+                <!--<span class="prev"></span>
+                <span class="next"></span>-->
+            </div>
+        </div>
+	<!-- //#29579 수정 -->	
+	
+	<div class="section-title-wrap" style="margin-top:30px;">
+		<h3 class="content-title"><b>홈쇼핑 추천상품</b></h3>
+	</div>
+
+	<ul class="thumbnail-list item-3 left-type">
+		<li>
+			<a href="#"><img src="/images/front/travel/img_banner_homeshopping.gif" alt="홈쇼핑 방영 추천상품(저렴한 가격 & 추가특전) TV홈쇼핑에서 판매 되었던 상품으로, 알찬 구성과 합리적인 가격의 상품들을 한자리에 모았습니다." /></a>
+		</li>
+		<li>
+			<div class="p-img"><a href="#"><img src="http://www.kaltour.com/fileupload/PhotoGal/Large/HAN236.jpg" class="imgCrop" /></a></div>
+			<div class="p-cont">
+				<p class="p-logo"><img src="/images/front/travel/img_logomode_lg.gif" alt="모두두투어"/></p>
+				<p class="p-name"><a href="#">[홈쇼핑 따라잡기] 상해 3연박/준5성급 호텔 제공...</a></p>
+				<p class="price-info">
+					<b>636,800원+</b>
+				</p>
+			</div>
+		</li>
+		<li>
+			<div class="p-img"><a href="#"><img src="http://www.tourall.co.kr/app/wsv/packageproduct/pk-productimage.asp?obj_img=image1&img_seq=P000185246" class="imgCrop" /></a></div>
+			<div class="p-cont">
+				<p class="p-logo"><img src="/images/front/travel/img_logohana_lg.gif" alt="하나투어"/></p>
+				<p class="p-name"><a href="#">[홈쇼핑 따라잡기] 상해 3연박/준5성급 호텔 제공...</a></p>
+				<p class="price-info">
+					<b>636,800원+</b>
+				</p>
+			</div>
+		</li>
+		<li>
+			<div class="p-img"><a href="#"><img src="http://www.tourall.co.kr/app/wsv/packageproduct/pk-productimage.asp?obj_img=image1&img_seq=P000185246" class="imgCrop" /></a></div>
+			<div class="p-cont">
+				<p class="p-logo"><img src="/images/front/travel/img_logohanjin_lg.gif" alt="한진관광" /></p>
+				<p class="p-name"><a href="#">[홈쇼핑 따라잡기] 상해 3연박/준5성급 호텔 제공...</a></p>
+				<p class="price-info">
+					<b>636,800원+</b>
+				</p>
+			</div>
+		</li>
+		<li>
+			<div class="p-img"><a href="#"><img src="http://www.tourall.co.kr/app/wsv/packageproduct/pk-productimage.asp?obj_img=image1&img_seq=P000185246" class="imgCrop" /></a></div>
+			<div class="p-cont">
+				<p class="p-logo"><img src="/images/front/travel/img_logolotte_lg.gif" alt="롯데관광"/></p>
+				<p class="p-name"><a href="#">[홈쇼핑 따라잡기] 상해 3연박/준5성급 호텔 제공...</a></p>
+				<p class="price-info">
+					<b>636,800원+</b>
+				</p>
+			</div>
+		</li>
+		<li>
+			<div class="p-img"><a href="#"><img src="http://www.tourall.co.kr/app/wsv/packageproduct/pk-productimage.asp?obj_img=image1&img_seq=P000185246" class="imgCrop" /></a></div>
+			<div class="p-cont">
+				<p class="p-logo"><img src="/images/front/travel/img_logovgood_lg.gif" alt="참좋은여행"/></p>
+				<p class="p-name"><a href="#">[홈쇼핑 따라잡기] 상해 3연박/준5성급 호텔 제공...</a></p>
+				<p class="price-info">
+					<b>636,800원+</b>
+				</p>
+			</div>
+		</li>
+	</ul>
+	
+	<h3 class="content-title"><b>제휴사 추천상품</b></h3>
+
+	<ul class="thumbnail-list item-5">
+		<li>
+			<div class="p-top-logo modoo">
+				<a href="#" class="clearfix">
+					<span class="p-logo fl"><img src="/images/front/travel/img_logomode_lg.gif" alt="모두투어" /></span>
+					<span href="#" class="btn-more-arrow">&nbsp;</span>
+				</a>
+			</div>
+			<div class="p-img"><a href="#"><img src="http://www.tourall.co.kr/app/wsv/packageproduct/pk-productimage.asp?obj_img=image1&img_seq=P000185246" /></a></div>
+			<div class="p-cont">
+				<p class="p-name"><a href="#">코타 키나발루 수트라하버 퍼시픽코타 키나발루 수트라하버 퍼시픽</a></p>
+				<p class="price-info">636,800원 +</p>
+			</div>
+		</li>
+		<li>
+			<div class="p-top-logo hana">
+				<a href="#" class="clearfix">
+					<span class="p-logo fl"><img src="/images/front/travel/img_logohana_lg.gif" alt="하나투어" /></span>
+					<span href="#" class="btn-more-arrow">&nbsp;</span>
+				</a>
+			</div>
+			<div class="p-img"><a href="#"><img src="http://www.tourall.co.kr/app/wsv/packageproduct/pk-productimage.asp?obj_img=image1&img_seq=P000185246" /></a></div>
+			<div class="p-cont">
+				<p class="p-name"><a href="#">코타 키나발루 수트라하버 퍼시픽코타 키나발루 수트라하버 퍼시픽</a></p>
+				<p class="price-info">636,800원 +</p>
+			</div>
+		</li>
+		<li>
+			<div class="p-top-logo hanjin">
+				<a href="#" class="clearfix">
+					<span class="p-logo fl"><img src="/images/front/travel/img_logohanjin_lg.gif" alt="한진관광" /></span>
+					<span href="#" class="btn-more-arrow">&nbsp;</span>
+				</a>
+			</div>
+			<div class="p-img"><a href="#"><img src="http://www.tourall.co.kr/app/wsv/packageproduct/pk-productimage.asp?obj_img=image1&img_seq=P000185246" /></a></div>
+			<div class="p-cont">
+				<p class="p-name"><a href="#">코타 키나발루 수트라하버 퍼시픽코타 키나발루 수트라하버 퍼시픽</a></p>
+				<p class="price-info">636,800원 +</p>
+			</div>
+		</li>
+		<li>
+			<div class="p-top-logo lotte">
+				<a href="#" class="clearfix">
+					<span class="p-logo fl"><img src="/images/front/travel/img_logolotte_lg.gif" alt="롯데관광" /></span>
+					<span href="#" class="btn-more-arrow">&nbsp;</span>
+				</a>
+			</div>
+			<div class="p-img"><a href="#"><img src="http://www.tourall.co.kr/app/wsv/packageproduct/pk-productimage.asp?obj_img=image1&img_seq=P000185246" /></a></div>
+			<div class="p-cont">
+				<p class="p-name"><a href="#">코타 키나발루 수트라하버 퍼시픽코타 키나발루 수트라하버 퍼시픽</a></p>
+				<p class="price-info">636,800원 +</p>
+			</div>
+		</li>
+		<li>
+			<div class="p-top-logo verygood">
+				<a href="#" class="clearfix">
+					<span class="p-logo fl"><img src="/images/front/travel/img_logovgood_lg.gif" alt="참좋은여행" /></span>
+					<span href="#" class="btn-more-arrow">&nbsp;</span>
+				</a>
+			</div>
+			<div class="p-img"><a href="#"><img src="http://www.tourall.co.kr/app/wsv/packageproduct/pk-productimage.asp?obj_img=image1&img_seq=P000185246" /></a></div>
+			<div class="p-cont">
+				<p class="p-name"><a href="#">코타 키나발루 수트라하버 퍼시픽코타 키나발루 수트라하버 퍼시픽</a></p>
+				<p class="price-info">636,800원 +</p>
+			</div>
+		</li>
+	</ul>
+
+	<div class="section-title-wrap">
+		<h3 class="content-title"><b>주목할 이달의 테마</b></h3>
+		<!-- <span class="right"><a href="#" class="btn-more-arrow">상품 더 보기</a></span> -->
+	</div>
+
+	<ul class="main-theme">
+		<li class="item1"><a href="#"><img src="/images/front/travel/temp_themebanner1.jpg" alt="오키나와 자유여행. 일본 관광청과 함께 하는 프로모션"></a></li>
+		<li class="item2">
+			<div id="roll-banner" class="roll-banner-theme">
+				<div class="roll_img">
+					<ul style="width:100000px;">
+						<li id="banner1">
+							<a href="#"><img src="/images/front/travel/temp_themebanner2.jpg" alt="홍콩 마카오 대만 자유여행 추가 할인 프로모션. 최고 7%할인 + 추가 2% 할인"></a>
+						</li>
+						<li id="banner2">
+							<a href="#"><img src="/images/front/travel/temp_themebanner2.jpg" alt="홍콩 마카오 대만 자유여행 추가 할인 프로모션. 최고 7%할인 + 추가 2% 할인"></a>
+						</li>
+						<li id="banner3">
+							<a href="#"><img src="/images/front/travel/temp_themebanner2.jpg" alt="홍콩 마카오 대만 자유여행 추가 할인 프로모션. 최고 7%할인 + 추가 2% 할인"></a>
+						</li>
+						<li id="banner4">
+							<a href="#"><img src="/images/front/travel/temp_themebanner2.jpg" alt="홍콩 마카오 대만 자유여행 추가 할인 프로모션. 최고 7%할인 + 추가 2% 할인"></a>
+						</li>
+						<li id="banner5">
+							<a href="#"><img src="/images/front/travel/temp_themebanner2.jpg" alt="홍콩 마카오 대만 자유여행 추가 할인 프로모션. 최고 7%할인 + 추가 2% 할인"></a>
+						</li>
+					</ul>
+				</div>
+			</div>
+		</li>
+		<li class="item3">
+			<a href="#">
+				<img src="/images/front/travel/submain_S_01.png" alt="괌 자유여행. 최고 7%할인 + 무료 룸 업그레이드">
+				<span class="info-bg"></span>
+				<span class="info-area">
+					<strong class="ellipsis">괌 자유여행자유여행자유여행자유여행자유여행자유여행자유여행자유여행자유여행자유여행자유여행자유여행</strong>
+					<i class="ellipsis">최고 7%할인 + 무료 룸 업그레이드</i>
+				</span>
+			</a>
+		</li>
+		<li class="item4">
+			<a href="#">
+				<img src="/images/front/travel/submain_S_310.png" alt="2월 프로모션 모음전. 최고 7%할인 + 지역별 특전 제공">
+				<span class="info-bg"></span>
+				<span class="info-area">
+					<strong class="ellipsis">2월 프로모션 모음전</strong>
+					<i class="ellipsis">최고 7%할인 + 지역별 특전 제공</i>
+				</span>
+			</a>
+		</li>
+		<li class="item5">
+			<a href="#">
+				<img src="/images/front/travel/submain_S.png" alt="해외에서 출발하는 모든 항공권 문의. 전 세계 해외 현지 출발 항공권, 실시간 문의 서비스">
+				<span class="info-bg"></span>
+				<span class="info-area">
+					<strong class="ellipsis">해외에서 출발하는 모든 항공권 문의</strong>
+					<i class="ellipsis">전 세계 해외 현지 출발 항공권, 실시간 문의 서비스</i>
+				</span>
+			</a>
+		</li>
+		<li class="item6">
+			<a href="#">
+				<img src="/images/front/travel/sub_S.png" alt="비즈니스 클래스 전용 센터. BUSINESS CLASS Private center">
+				<span class="info-bg"></span>
+				<span class="info-area">
+					<strong class="ellipsis">비즈니스 클래스 전용 센터</strong>
+					<i class="ellipsis">BUSINESS CLASS Private center</i>
+				</span>
+			</a>
+		</li>
+		<li class="item7">
+			<a href="#"><img src="/images/front/travel/temp_themebanner7.jpg" alt="the Purple Travel/Flight Voucher. 캐세이패시픽항공과 함께하는 동반자 무료 왕복 항공권 프로모션"></a>
+		</li>
+	</ul>
+	<!-- 20160219 수정 -->
+	<div class="pkg-counsel-wrap clearfix">
+		<div class="pkg-counsel">
+			<h3 class="content-title"><b>해외패키지 상담안내</b></h3>
+			<div class="clearfix">
+				<div class="fl">
+					<p class="ymhb">1588-0360</p>
+					<p class="lh15">토/일요일 및 공휴일은<br />1:1 문의하기를 이용해주세요.<br />업무가 시작되면 바로 처리해 드리겠습니다.</p>
+				</div>
+				<ul class="cs-code">
+					<li><img src="/images/front/travel/img_counselnum1.gif" alt="모두투어 2 > 2 > 1"></li>
+					<li><img src="/images/front/travel/img_counselnum2.gif" alt="하나투어 2 > 2 > 1"></li>
+					<li><img src="/images/front/travel/img_counselnum3.gif" alt="한진관광 2 > 2 > 3"></li>
+					<li><img src="/images/front/travel/img_counselnum4.gif" alt="롯데관광 2 > 2 > 4"></li>
+					<li><img src="/images/front/travel/img_counselnum5.gif" alt="참좋은여행 2 > 2 > 5"></li>
+				</ul>
+			</div>
+		</div>
+		<div class="pkg-notice">
+			<div class="section-title-wrap">
+				<h3 class="content-title"><b>공지사항</b></h3>
+				<span class="right"><a href="http://www.priviatravel.com/noticefaq/noticeList" class="btn-more-arrow">더 보기</a></span>
+			</div>
+			<ul class="text-list-md">
+				<li><a href="#">Internet Explorer 64bit 오류개선</a></li>
+				<li><a href="#">이니시스 결제모듈 안내</a></li>
+				<li><a href="#">멀티브라우저 서비스 지원</a></li>
+				<li><a href="#">PRIVIA이용권 유상매매 금지 및 사용 안내</a></li>
+				<li><a href="#">Internet Explorer 브라우저 다운그레이드 안내</a></li>
+			</ul>
+		</div>
+	</div>
+
+	<div class="pkg-counsel-wrap clearfix">
+		<div class="pkg-faq">
+			<div class="section-title-wrap">
+				<h3 class="content-title"><b>FAQ</b></h3>
+				<span class="right"><a href="http://www.priviatravel.com/noticefaq/faqList" class="btn-more-arrow">더 보기</a></span>
+			</div>
+			<ul class="text-list-md">
+				<li><a href="#"><span class="faq-cate">예약/결제</span>해외 여행 상품 취소 수수료 규정은 어떻게 되나요?</a></li>
+				<li><a href="#"><span class="faq-cate">변경/취소</span>면세점에 가야 하는데 항공권 미리 받을 수 없을까요?</a></li>
+				<li><a href="#"><span class="faq-cate">여권/비자</span>면세점에서 구입한도와 입국 시 면세한도는 얼마인가요? </a></li>
+				<li><a href="#"><span class="faq-cate">현지행사</span>공항 면세점 이용시간은 어떻게 되나요?</a></li>
+				<li><a href="#"><span class="faq-cate">기타</span>여행시 여권을 잃어버리면 어떻게 해야 하나요 ?</a></li>
+			</ul>
+		</div>
+		<div class="pkg-question">
+			<h3 class="content-title"><b>1:1문의</b></h3>
+			<p class="question-message">여행에 대해서 궁금하신 사항이 있으신가요?<br /> 전문상담원이 신속하고 정확하게 답변해 드립니다.</p><!-- #20134 수정 -->
+			<a href="#" class="btn-sf btn-sf-md">1:1문의하기</a>
+		</div>
+	</div>
+	<!-- //20160219 수정 -->
+</div>
+<!-- //content -->
+<!-- footer -->
+<div id="btn-top"><a href="#"><img src="/images/front/travel/btn_top.gif" alt="Top 바로가기"></a></div>
+<div id="footer-new" class="wide-footer">	
+	<p class=""><strong>고객센터 대표번호 1588-0360 (해외 82-2-6911-8300)</strong></p>
+	<p class="fnb-new">
+		<a href="https://www.priviatravel.com/etc/aboutPriviaTab">About PRIVIA 여행</a> /
+		<a href="https://www.priviatravel.com/etc/siteMap">사이트맵</a> /
+		<a href="https://www.priviatravel.com/etc/conditionPrivia">이용약관</a> /
+		<a href="https://www.priviatravel.com/etc/conditionOutKorea">국외여행약관</a> /
+		<a href="https://www.priviatravel.com/etc/conditionInKorea">국내여행약관</a> /
+		<a href="https://www.priviatravel.com/etc/personalInfoCtrlNew"><strong>개인정보취급방침</strong></a> /
+		<a href="http://www.priviatravel.com/etc/jobConsignNewInfo">업무위탁현황</a>		
+	</p>
+	<div>
+		<address>서울특별시 중구 세종대로9길 41 퍼시픽타워(구. 올리브타워) 17층 / (주)타이드스퀘어 대표이사 윤민 / 사업자등록번호 124-86-86370 <a href="http://www.ftc.go.kr/info/bizinfo/communicationView.jsp?apv_perm_no=2011318016330200101&area1=&area2=&currpage=1&searchKey=04&searchVal=1248686370&stdate=&enddate=" target="_blank">사업자정보확인</a> / 관광사업자번호 제 2011-000002호 / <br />통신판매업신고번호 제 2011-서울영등포-0104호
+        </address>
+		<p class="copyright-new">COPYRIGHT (c) TIDESQUARE CO. LTD. ALL RIGHTS RESERVED. Sponsored by HYUNDAI CARD</p>
+	
+		<p class="partnership-new">현대카드는 현대카드 PRIVIA 여행사이트의 스폰서로서 ㈜타이드스퀘어와 파트너십을 맺고 있습니다. <br />현대카드 PRIVIA 여행사이트는 ㈜타이드스퀘어가 운영하는 여행사이트이며, 여행서비스 전반에 대한 의무와 책임은 ㈜타이드스퀘어에 있습니다.</p>
+	</div>
+</div> 
+<!-- //footer -->
+
+</div>
+<!-- //wrap -->
+</body>
+</html>

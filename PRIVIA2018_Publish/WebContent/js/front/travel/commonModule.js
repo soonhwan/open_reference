@@ -672,7 +672,6 @@ $(function(){
 		});
 		//slick opt
 		function mainSlickMotion(opt){
-			console.log(slickMotionEnd);
 			if(slickMotionEnd == false){
 				slickMotionEnd = true;
 				slickOpt = opt;

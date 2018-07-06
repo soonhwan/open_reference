@@ -704,9 +704,11 @@ function fakeselect(v){
 	
     if(ischrome){
 		for(var i=0; i<selLength; i++){
-			if(sels[i].previousSibling.textContent != ' '){
-				//console.log(sels[i])
-				sels[i].insertAdjacentHTML('beforeBegin', ' ');
+			if(!$(sels[i]).hasClass('sb-select')){
+				if(sels[i].previousSibling.textContent != ' '){
+					//console.log(sels[i])
+					sels[i].insertAdjacentHTML('beforeBegin', ' ');
+				}
 			}
 		}
 	}
@@ -758,6 +760,8 @@ if(window.addEventListener){
 		// SELECT
 		// $().fakeselect() 실행시 별도로 필요한 옵션 객체를 지정할 수 있고, 지정되지 않았을 경우 기본 옵션을 따름.
 		'select': {
+			//wrap
+			wraphtml: '<span class="select-base"></span>',
 
 			// 타이틀
 			title: {
@@ -990,18 +994,20 @@ if(window.addEventListener){
 				if (ismobile && !currentoptions.useinmobile) {
 					continue;
 				}
-
+				
+				//$(_$selects[i]).wrap(currentoptions.wraphtml);
+				
 				$selects[currentindex] = $(_$selects[i]).attr(indexdataname, currentindex)
 					.css({position: 'absolute', left: '-999em'})
 					.change(onselectchange)
 					.focus(onselectfocus)
 					.blur(onselectblur);
-
+				
 				$titles[currentindex] = $('<'+ currentoptions.title.tagname +' class="'+ currentoptions.title.classname.base + '" '+ indexdataname +'="'+ currentindex +'" />')
 					.html(currentoptions.title.innerhtml)
 					.bind('mouseover mousemove mouseout mousedown mouseup mouseenter mouseleave', selectactiontotitle)
 					.click(ontitleclick)
-					.mouseout(ontitleleave)
+					//.mouseout(ontitleleave)
 					.insertBefore($selects[currentindex]);
 
 				if ($selects[currentindex].css('display') == 'none') {
@@ -1031,6 +1037,9 @@ if(window.addEventListener){
 				settitletext(currentindex, true);
 				checkdisabled($selects[currentindex][0]);
 				checkreadonly($selects[currentindex][0]);
+				
+				//$titles[currentindex].wrap(currentoptions.wraphtml);
+				//$titles[currentindex].parent().append($selects[currentindex])
 			}
 
 		}

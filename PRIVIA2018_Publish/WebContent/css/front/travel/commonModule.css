@@ -323,6 +323,7 @@ box-shadow: 0 3px 3px 0px rgba(0,0,0,0.1);
 .w-header-util .nav-util li a {display: inline-block;color: #fff;font-size:12px;padding: 1px 20px;transition: color 0.3s;}
 .w-header-util .nav-util li a:hover {color: #e93a84;}
 .w-header-util .nav-util .on a {color: #e93a84;}
+.w-header-util .nav-util .on a:hover {color: #96003b;}
 
 /* ------------- 프로모션 롤링 */
 .w-header-search .hs-prom-roll {position: absolute;top: -50px;right: 0;text-align: right;z-index: 0;}
@@ -333,7 +334,7 @@ box-shadow: 0 3px 3px 0px rgba(0,0,0,0.1);
 
 /* ------------- GNB */
 .w-header-gnb {padding: 56px 0 26px 0;position: relative;z-index: 2;}
-.w-header-gnb * {transition: all 0.3s;}
+.w-header-gnb *, .w-header-gnb *:before, .w-header-gnb *:after {transition: all 0.3s;}
 .w-header-gnb .ly-inner {z-index: 1;}
 .w-header-gnb .ly-inner:after {content: '';display: block;clear:both;}
 .w-header-gnb:before {content: '';display: block;width: 100%;height: 1px;background-color: #fff;opacity: 0.1;position: absolute;bottom: 0;left: 0;}
@@ -344,10 +345,12 @@ box-shadow: 0 3px 3px 0px rgba(0,0,0,0.1);
 .w-header-gnb .nav-gnb:after {content: '';display: block;clear:both;}
 .w-header-gnb .nav-gnb > li {float: left;}
 .w-header-gnb .nav-gnb > li > a {display: inline-block;padding: 0 20px;}
-.w-header-gnb .nav-gnb > li > a:hover .txt {color: #e93a84;}
+.w-header-gnb .nav-gnb > li > a:hover .txt {/*font-weight: 500 !important;*/}
+.w-header-gnb .nav-gnb > li > a:hover .txt:before {opacity: 1;}
 .w-header-gnb .nav-gnb > li .txt {font-size:18px;color: #fff;position: relative;}
+.w-header-gnb .nav-gnb > li .txt:before {content: '';display: block;width: 100%;height: 4px;background-color: #fff;position: absolute;bottom: -26px;left: 0;opacity: 0;}
 .w-header-gnb .nav-gnb .on .txt {font-weight: 500 !important;}
-.w-header-gnb .nav-gnb .on .txt:before {content: '';display: block;width: 100%;height: 4px;background-color: #fff;position: absolute;bottom: -26px;left: 0;}
+.w-header-gnb .nav-gnb .on .txt:before {opacity: 1;}
 .w-header-gnb .nav-gnb .b-total-nav {width: 50px;}
 .w-header-gnb .nav-gnb .b-total-nav > a {padding: 0;width: 26px;height: 26px;position: absolute;right: 0;top: 0;overflow: hidden;background: url(/images/front/travel/contents/icon-common-sec.png) 0px -162px no-repeat;transition: background-position 0s;}
 .w-header-gnb .nav-gnb .b-total-nav > a.on {background-position: -30px -165px;}
@@ -381,6 +384,7 @@ box-shadow: 7px 7px 13px 0px rgba(0,0,0,0.3);
 .header-sec-fixed .w-header-gnb:before {opacity: 0;}
 .header-sec-fixed .w-header-gnb .h-logo a {background: url(/images/front/travel/contents/logo-privia-mgt.png) 0 0 no-repeat;}
 .header-sec-fixed .w-header-gnb .nav-gnb > li .txt {color: #000;}
+.header-sec-fixed .w-header-gnb .nav-gnb > li .txt:before {background-color: #e93a84;}
 .header-sec-fixed .w-header-gnb .nav-gnb .on .txt:before {background-color: #e93a84;}
 .header-sec-fixed .w-header-gnb .nav-gnb .b-total-nav > a {background-position: 0px -325px;}
 .header-sec-fixed .w-header-gnb .nav-gnb .b-total-nav > a.on {background-position: -30px -328px;}
@@ -670,7 +674,7 @@ border-left:0;
 .hs-search-cont .ui-date-calendar {width: 770px;}
 .hs-search-cont .ui-capacity {width: 393px;}
 .hs-search-cont .ui-select-list {min-width: 270px;}
-.hs-search-cont .ui-recently-search {width: 605px;}
+.hs-search-cont .ui-recently-search {width: 600px;}
 .hs-search-cont .ui-search-auto .uis-mainsel-table, 
 .hs-search-cont .ui-search-auto .uis-list {display: none;}
 .hs-search-cont .ui-search-auto .uis-list-auto {display: block;}
