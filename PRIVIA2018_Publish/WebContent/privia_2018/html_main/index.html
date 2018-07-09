@@ -35,7 +35,7 @@
 <script type="text/javascript" src="/js/front/travel/tileUpdateTransitionHost.js"></script> -->
 <script type="text/javascript" src="/js/utils.js"></script>
 <script type="text/javascript" src="https://auth.priviatravel.com/check"></script>
-<script type="text/javascript" src="/js/front/travel/commonModuleHeader.js"></script> <!-- 프비 리뉴얼 js -->
+<script type="text/javascript" src="/js/front/travel/commonModuleHeader.js"></script> <!-- 프비 리뉴얼 js(가이드버전) -->
 <script type="text/javascript" src="/js/front/travel/slick.min.js"></script> <!-- 프비 리뉴얼 js -->
 <script type="text/javascript" src="/js/front/travel/commonModule.js"></script> <!-- 프비 리뉴얼 js -->
 
@@ -53,7 +53,7 @@
 
 <div id="wrap">
 	<!-- 통합헤더 -->
-	<!-- 헤더 타입 클래스 o-CHO-full(기본), o-CHO-section(섹션), o-CHO-quick(퀵버전), header-sec-fixed(헤더 fixed) -->
+	<!-- .commonHeaderObject : 헤더 타입 클래스 o-CHO-full(기본), o-CHO-section(섹션), o-CHO-quick(퀵버전), header-sec-fixed(헤더 fixed) -->
 	<div class="commonHeaderObject">
 		<div class="o-CHO-inner">
 			<!-- #top-area-sec -->
@@ -171,9 +171,9 @@
 			<!-- //#top-area-sec -->
 
 			<!-- #header-sec -->
-			<!-- 검색섹션 타입 클래스(o-search- : all(기본), air, hotel, free, freetour) -->
+			<!-- #header-sec : 검색섹션 타입 클래스(o-search- : all(기본), air, hotel, free, freetour) -->
 			<div id="header-sec">
-				<!-- 배경타입 클래스(o-bg- : air, hotel, free, freetour) -->
+				<!-- .header-sec : 배경타입 클래스(o-bg- : air, hotel, free, freetour) -->
 				<div class="header-sec">
 					<!-- 기획전 배경 롤링 -->
 					<div class="hs-prom-roll-bg">
@@ -246,9 +246,9 @@
 								</li>
 							</ul>
 						</div>
-						
 						<!-- gnb 3뎁스 -->
 						<div class="w-nav-gsub-ly">
+							<!-- 해외패키지 -->
 							<div class="ng-box n-gsub-pkg">
 								<div class="ly-inner">
 									<ul class="list-root">
@@ -534,6 +534,7 @@
 									<a href="#" class="b-ng-box-close"><span class="a11y">닫기</span></a>
 								</div>
 							</div>
+							<!-- //해외패키지 -->
 						</div>
 						<!-- //gnb 3뎁스 -->
 					</div>
@@ -587,6 +588,17 @@
 							<!-- //검색 메뉴 -->
 
 							<!-- 검색 섹션 -->
+							<!--
+								1. 1차 카테고리 : sc-air(항공), sc-hotel(호텔), sc-free(자유여행), sc-freetour(투액) 4가지로 구분
+								   2차 카테고리 : 세부적으로 구분(왕복, 편도, 다구간, 해외, 국내, 렌터카....)
+								   하단옵션 : 도착일 미정 체크박스, 최근검색 같이 존재함(하단에 위치한 이유는 하단 간격 조정 때문임)
+								2. 검색 box(도시, 날짜, 인원, 셀렉트 등등) 클래스는 스타일만 구분
+								3. 각각 box(도시, 날짜, 인원, 셀렉트 등등)를 클릭할때 팝업이 노출되는 원리
+								   data-qsb-area="mainsel" : [주요도시] 팝업 노출(주로 공통으로 사용됨)
+								   data-qsb-area="calendar" : [캘린더] 팝업 노출(각자 존재함)
+								   data-qsb-area="capacity" : [인원,좌석,객실 등등] 팝업 노출(공통인 경우 global-ui-capacity 클래스 추가 or 각자 존재)
+								   data-qsb-sel="className" : [셀렉트 리스트 스타일] 팝업(각자 존재함)
+							-->
 							<div class="hs-search-cont">
 								<!-- 항공 -->
 								<div class="hss-inner-cont sc-air" id="SC-AIR">
@@ -598,14 +610,20 @@
 													<div class="places-exit">
 														<a href="#" class="qsb-area" data-qsb-area="mainsel">
 															<span class="qsb-label">출발도시</span>
-															<span class="qsb-input"><span class="city"></span> (<em class="qsb-c"></em>)</span>
+															<span class="qsb-input">
+																<span class="city"></span>
+																<span class="code">(<em class="qsb-c"></em>)</span>
+															</span>
 														</a>
-														<span class="btn-base b-change-places"><button type="button"><span class="a11y">출발도시, 도착도시 변경</span></button></span>
 													</div>
 													<div class="places-entry">
+														<span class="btn-base b-change-places"><button type="button"><span class="a11y">출발도시, 도착도시 변경</span></button></span>
 														<a href="#" class="qsb-area" data-qsb-area="mainsel">
 															<span class="qsb-label">도착도시</span>
-															<span class="qsb-input"><span class="city"></span> (<em class="qsb-c"></em>)</span>
+															<span class="qsb-input">
+																<span class="city"></span>
+																<span class="code">(<em class="qsb-c"></em>)</span>
+															</span>
 														</a>
 													</div>
 												</div>
@@ -660,14 +678,20 @@
 													<div class="places-exit">
 														<a href="#" class="qsb-area" data-qsb-area="mainsel">
 															<span class="qsb-label">출발도시</span>
-															<span class="qsb-input"><span class="city"></span> (<em class="qsb-c"></em>)</span>
+															<span class="qsb-input">
+																<span class="city"></span>
+																<span class="code">(<em class="qsb-c"></em>)</span>
+															</span>
 														</a>
-														<span class="btn-base b-change-places"><button type="button"><span class="a11y">출발도시, 도착도시 변경</span></button></span>
 													</div>
 													<div class="places-entry">
+														<span class="btn-base b-change-places"><button type="button"><span class="a11y">출발도시, 도착도시 변경</span></button></span>
 														<a href="#" class="qsb-area" data-qsb-area="mainsel">
 															<span class="qsb-label">도착도시</span>
-															<span class="qsb-input"><span class="city"></span> (<em class="qsb-c"></em>)</span>
+															<span class="qsb-input">
+																<span class="city"></span>
+																<span class="code">(<em class="qsb-c"></em>)</span>
+															</span>
 														</a>
 													</div>
 												</div>
@@ -707,7 +731,6 @@
 											</div>
 											<!-- //캘린더 편도 -->
 										</div>
-
 									</div>
 									<!-- //편도 -->
 
@@ -727,14 +750,20 @@
 															<div class="places-exit">
 																<a href="#" class="qsb-area" data-qsb-area="mainsel">
 																	<span class="qsb-label">출발도시</span>
-																	<span class="qsb-input"><span class="city"></span> (<em class="qsb-c"></em>)</span>
+																	<span class="qsb-input">
+																		<span class="city"></span>
+																		<span class="code">(<em class="qsb-c"></em>)</span>
+																	</span>
 																</a>
-																<span class="btn-base b-change-places"><button type="button"><span class="a11y">출발도시, 도착도시 변경</span></button></span>
 															</div>
 															<div class="places-entry">
+																<span class="btn-base b-change-places"><button type="button"><span class="a11y">출발도시, 도착도시 변경</span></button></span>
 																<a href="#" class="qsb-area" data-qsb-area="mainsel">
 																	<span class="qsb-label">도착도시</span>
-																	<span class="qsb-input"><span class="city"></span> (<em class="qsb-c"></em>)</span>
+																	<span class="qsb-input">
+																		<span class="city"></span>
+																		<span class="code">(<em class="qsb-c"></em>)</span>
+																	</span>
 																</a>
 															</div>
 														</div>
@@ -776,14 +805,20 @@
 															<div class="places-exit">
 																<a href="#" class="qsb-area" data-qsb-area="mainsel">
 																	<span class="qsb-label">출발도시</span>
-																	<span class="qsb-input"><span class="city"></span> (<em class="qsb-c"></em>)</span>
+																	<span class="qsb-input">
+																		<span class="city"></span>
+																		<span class="code">(<em class="qsb-c"></em>)</span>
+																	</span>
 																</a>
-																<span class="btn-base b-change-places"><button type="button"><span class="a11y">출발도시, 도착도시 변경</span></button></span>
 															</div>
 															<div class="places-entry">
+																<span class="btn-base b-change-places"><button type="button"><span class="a11y">출발도시, 도착도시 변경</span></button></span>
 																<a href="#" class="qsb-area" data-qsb-area="mainsel">
 																	<span class="qsb-label">도착도시</span>
-																	<span class="qsb-input"><span class="city"></span> (<em class="qsb-c"></em>)</span>
+																	<span class="qsb-input">
+																		<span class="city"></span>
+																		<span class="code">(<em class="qsb-c"></em>)</span>
+																	</span>
 																</a>
 															</div>
 														</div>
@@ -829,14 +864,20 @@
 															<div class="places-exit">
 																<a href="#" class="qsb-area" data-qsb-area="mainsel">
 																	<span class="qsb-label">출발도시</span>
-																	<span class="qsb-input"><span class="city"></span> (<em class="qsb-c"></em>)</span>
+																	<span class="qsb-input">
+																		<span class="city"></span>
+																		<span class="code">(<em class="qsb-c"></em>)</span>
+																	</span>
 																</a>
-																<span class="btn-base b-change-places"><button type="button"><span class="a11y">출발도시, 도착도시 변경</span></button></span>
 															</div>
 															<div class="places-entry">
+																<span class="btn-base b-change-places"><button type="button"><span class="a11y">출발도시, 도착도시 변경</span></button></span>
 																<a href="#" class="qsb-area" data-qsb-area="mainsel">
 																	<span class="qsb-label">도착도시</span>
-																	<span class="qsb-input"><span class="city"></span> (<em class="qsb-c"></em>)</span>
+																	<span class="qsb-input">
+																		<span class="city"></span>
+																		<span class="code">(<em class="qsb-c"></em>)</span>
+																	</span>
 																</a>
 															</div>
 														</div>
@@ -882,14 +923,20 @@
 															<div class="places-exit">
 																<a href="#" class="qsb-area" data-qsb-area="mainsel">
 																	<span class="qsb-label">출발도시</span>
-																	<span class="qsb-input"><span class="city"></span> (<em class="qsb-c"></em>)</span>
+																	<span class="qsb-input">
+																		<span class="city"></span>
+																		<span class="code">(<em class="qsb-c"></em>)</span>
+																	</span>
 																</a>
-																<span class="btn-base b-change-places"><button type="button"><span class="a11y">출발도시, 도착도시 변경</span></button></span>
 															</div>
 															<div class="places-entry">
+																<span class="btn-base b-change-places"><button type="button"><span class="a11y">출발도시, 도착도시 변경</span></button></span>
 																<a href="#" class="qsb-area" data-qsb-area="mainsel">
 																	<span class="qsb-label">도착도시</span>
-																	<span class="qsb-input"><span class="city"></span> (<em class="qsb-c"></em>)</span>
+																	<span class="qsb-input">
+																		<span class="city"></span>
+																		<span class="code">(<em class="qsb-c"></em>)</span>
+																	</span>
 																</a>
 															</div>
 														</div>
@@ -969,102 +1016,102 @@
 												<tr>
 													<td rowspan="3">
 														<ul class="list">
-															<li><a href="#">인천/김포</a></li>
-															<li><a href="#">인천</a></li>
-															<li><a href="#">김포</a></li>
-															<li><a href="#">부산</a></li>
-															<li><a href="#">대구</a></li>
-															<li><a href="#">제주</a></li>
-															<li><a href="#">광주</a></li>
-															<li><a href="#">울산</a></li>
-															<li><a href="#">포항</a></li>
-															<li><a href="#">전주</a></li>
-															<li><a href="#">여수</a></li>
-															<li><a href="#">양양</a></li>
-															<li><a href="#">군산</a></li>
-															<li><a href="#">원주</a></li>
-															<li><a href="#">청주</a></li>
-															<li><a href="#">무안</a></li>
+															<li><a href="#" data-city="인천/김포" data-code="INC">인천/김포</a></li>
+															<li><a href="#" data-city="인천" data-code="INC">인천</a></li>
+															<li><a href="#" data-city="김포" data-code="INC">김포</a></li>
+															<li><a href="#" data-city="부산" data-code="INC">부산</a></li>
+															<li><a href="#" data-city="대구" data-code="INC">대구</a></li>
+															<li><a href="#" data-city="제주" data-code="INC">제주</a></li>
+															<li><a href="#" data-city="광주" data-code="INC">광주</a></li>
+															<li><a href="#" data-city="울산" data-code="INC">울산</a></li>
+															<li><a href="#" data-city="포항" data-code="INC">포항</a></li>
+															<li><a href="#" data-city="전주" data-code="INC">전주</a></li>
+															<li><a href="#" data-city="여수" data-code="INC">여수</a></li>
+															<li><a href="#" data-city="양양" data-code="INC">양양</a></li>
+															<li><a href="#" data-city="군산" data-code="INC">군산</a></li>
+															<li><a href="#" data-city="원주" data-code="INC">원주</a></li>
+															<li><a href="#" data-city="청주" data-code="INC">청주</a></li>
+															<li><a href="#" data-city="무안" data-code="INC">무안</a></li>
 														</ul>
 													</td>
 													<td>
 														<ul class="list">
-															<li><a href="#">도쿄(나리타)</a></li>
-															<li><a href="#">도쿄(하네다)</a></li>
-															<li><a href="#">오사카</a></li>
-															<li><a href="#">나고야</a></li>
-															<li><a href="#">후쿠오카</a></li>
-															<li><a href="#">오키나와</a></li>
-															<li><a href="#">삿포로</a></li>
-															<li><a href="#">히로시마</a></li>
-															<li><a href="#">가고시마</a></li>
-															<li><a href="#">미야자키</a></li>
-															<li><a href="#">도야마</a></li>
-															<li><a href="#">시즈오카</a></li>
+															<li><a href="#" data-city="도쿄(나리타)" data-code="INC">도쿄(나리타)</a></li>
+															<li><a href="#" data-city="도쿄(하네다)" data-code="INC">도쿄(하네다)</a></li>
+															<li><a href="#" data-city="오사카" data-code="INC">오사카</a></li>
+															<li><a href="#" data-city="나고야" data-code="INC">나고야</a></li>
+															<li><a href="#" data-city="후쿠오카" data-code="INC">후쿠오카</a></li>
+															<li><a href="#" data-city="오키나와" data-code="INC">오키나와</a></li>
+															<li><a href="#" data-city="삿포로" data-code="INC">삿포로</a></li>
+															<li><a href="#" data-city="히로시마" data-code="INC">히로시마</a></li>
+															<li><a href="#" data-city="가고시마" data-code="INC">가고시마</a></li>
+															<li><a href="#" data-city="미야자키" data-code="INC">미야자키</a></li>
+															<li><a href="#" data-city="도야마" data-code="INC">도야마</a></li>
+															<li><a href="#" data-city="시즈오카" data-code="INC">시즈오카</a></li>
 														</ul>
 													</td>
 													<td>
 														<ul class="list">
-															<li><a href="#">홍콩</a></li>
-															<li><a href="#">타이베이(타오위안)</a></li>
-															<li><a href="#">상해(푸동)</a></li>
-															<li><a href="#">상해(홍차오)</a></li>
-															<li><a href="#">북경</a></li>
-															<li><a href="#">청도</a></li>
-															<li><a href="#">심양</a></li>
-															<li><a href="#">천진</a></li>
-															<li><a href="#">광저우</a></li>
-															<li><a href="#">대련</a></li>
-															<li><a href="#">항주</a></li>
+															<li><a href="#" data-city="홍콩" data-code="INC">홍콩</a></li>
+															<li><a href="#" data-city="타이베이(타오위안)" data-code="INC">타이베이(타오위안)</a></li>
+															<li><a href="#" data-city="상해(푸동)" data-code="INC">상해(푸동)</a></li>
+															<li><a href="#" data-city="상해(홍차오)" data-code="INC">상해(홍차오)</a></li>
+															<li><a href="#" data-city="북경" data-code="INC">북경</a></li>
+															<li><a href="#" data-city="청도" data-code="INC">청도</a></li>
+															<li><a href="#" data-city="심양" data-code="INC">심양</a></li>
+															<li><a href="#" data-city="천진" data-code="INC">천진</a></li>
+															<li><a href="#" data-city="광저우" data-code="INC">광저우</a></li>
+															<li><a href="#" data-city="대련" data-code="INC">대련</a></li>
+															<li><a href="#" data-city="항주" data-code="INC">항주</a></li>
 														</ul>
 													</td>
 													<td>
 														<ul class="list">
-															<li><a href="#">방콕</a></li>
-															<li><a href="#">마닐라</a></li>
-															<li><a href="#">싱가포르</a></li>
-															<li><a href="#">마카오</a></li>
-															<li><a href="#">호치민</a></li>
-															<li><a href="#">푸켓</a></li>
-															<li><a href="#">세부</a></li>
-															<li><a href="#">발리</a></li>
-															<li><a href="#">하노이</a></li>
-															<li><a href="#">다낭</a></li>
-															<li><a href="#">쿠알라룸푸르</a></li>
-															<li><a href="#">코타키나발루</a></li>
+															<li><a href="#" data-city="방콕" data-code="INC">방콕</a></li>
+															<li><a href="#" data-city="마닐라" data-code="INC">마닐라</a></li>
+															<li><a href="#" data-city="싱가포르" data-code="INC">싱가포르</a></li>
+															<li><a href="#" data-city="마카오" data-code="INC">마카오</a></li>
+															<li><a href="#" data-city="호치민" data-code="INC">호치민</a></li>
+															<li><a href="#" data-city="푸켓" data-code="INC">푸켓</a></li>
+															<li><a href="#" data-city="세부" data-code="INC">세부</a></li>
+															<li><a href="#" data-city="발리" data-code="INC">발리</a></li>
+															<li><a href="#" data-city="하노이" data-code="INC">하노이</a></li>
+															<li><a href="#" data-city="다낭" data-code="INC">다낭</a></li>
+															<li><a href="#" data-city="쿠알라룸푸르" data-code="INC">쿠알라룸푸르</a></li>
+															<li><a href="#" data-city="코타키나발루" data-code="INC">코타키나발루</a></li>
 														</ul>
 													</td>
 													<td>
 														<ul class="list">
-															<li><a href="#">호놀룰루(하와이)</a></li>
-															<li><a href="#">로스앤젤레스</a></li>
-															<li><a href="#">뉴욕(전체)</a></li>
-															<li><a href="#">뉴욕(JFK)</a></li>
-															<li><a href="#">뉴욕(라과디아)</a></li>
-															<li><a href="#">뉴욕(뉴왁)</a></li>
-															<li><a href="#">샌프란시스코</a></li>
-															<li><a href="#">시애틀</a></li>
-															<li><a href="#">시카고</a></li>
-															<li><a href="#">워싱톤</a></li>
-															<li><a href="#">달라스</a></li>
-															<li><a href="#">애틀란타</a></li>
-															<li><a href="#">보스톤</a></li>
+															<li><a href="#" data-city="호놀룰루(하와이)" data-code="INC">호놀룰루(하와이)</a></li>
+															<li><a href="#" data-city="로스앤젤레스" data-code="INC">로스앤젤레스</a></li>
+															<li><a href="#" data-city="뉴욕(전체)" data-code="INC">뉴욕(전체)</a></li>
+															<li><a href="#" data-city="뉴욕(JFK)" data-code="INC">뉴욕(JFK)</a></li>
+															<li><a href="#" data-city="뉴욕(라과디아)" data-code="INC">뉴욕(라과디아)</a></li>
+															<li><a href="#" data-city="뉴욕(뉴왁)" data-code="INC">뉴욕(뉴왁)</a></li>
+															<li><a href="#" data-city="샌프란시스코" data-code="INC">샌프란시스코</a></li>
+															<li><a href="#" data-city="시애틀" data-code="INC">시애틀</a></li>
+															<li><a href="#" data-city="시카고" data-code="INC">시카고</a></li>
+															<li><a href="#" data-city="워싱톤" data-code="INC">워싱톤</a></li>
+															<li><a href="#" data-city="달라스" data-code="INC">달라스</a></li>
+															<li><a href="#" data-city="애틀란타" data-code="INC">애틀란타</a></li>
+															<li><a href="#" data-city="보스톤" data-code="INC">보스톤</a></li>
 														</ul>
 													</td>
 													<td>
 														<ul class="list">
-															<li><a href="#">런던</a></li>
-															<li><a href="#">파리</a></li>
-															<li><a href="#">로마</a></li>
-															<li><a href="#">프랑크푸르트</a></li>
-															<li><a href="#">이스탄불</a></li>
-															<li><a href="#">밀라노</a></li>
-															<li><a href="#">마드리드</a></li>
-															<li><a href="#">바르셀로나</a></li>
-															<li><a href="#">프라하</a></li>
-															<li><a href="#">취리히</a></li>
-															<li><a href="#">암스테르담</a></li>
-															<li><a href="#">베니스</a></li>
+															<li><a href="#" data-city="런던" data-code="INC">런던</a></li>
+															<li><a href="#" data-city="파리" data-code="INC">파리</a></li>
+															<li><a href="#" data-city="로마" data-code="INC">로마</a></li>
+															<li><a href="#" data-city="프랑크푸르트" data-code="INC">프랑크푸르트</a></li>
+															<li><a href="#" data-city="이스탄불" data-code="INC">이스탄불</a></li>
+															<li><a href="#" data-city="밀라노" data-code="INC">밀라노</a></li>
+															<li><a href="#" data-city="마드리드" data-code="INC">마드리드</a></li>
+															<li><a href="#" data-city="바르셀로나" data-code="INC">바르셀로나</a></li>
+															<li><a href="#" data-city="프라하" data-code="INC">프라하</a></li>
+															<li><a href="#" data-city="취리히" data-code="INC">취리히</a></li>
+															<li><a href="#" data-city="암스테르담" data-code="INC">암스테르담</a></li>
+															<li><a href="#" data-city="베니스" data-code="INC">베니스</a></li>
 														</ul>
 													</td>
 												</tr>
@@ -1078,51 +1125,51 @@
 												<tr>
 													<td>
 														<ul class="list">
-															<li><a href="#">시드니</a></li>
-															<li><a href="#">브리즈번</a></li>
-															<li><a href="#">멜버른</a></li>
-															<li><a href="#">오클랜드</a></li>
-															<li><a href="#">괌</a></li>
-															<li><a href="#">사이판</a></li>
+															<li><a href="#" data-city="시드니" data-code="INC">시드니</a></li>
+															<li><a href="#" data-city="브리즈번" data-code="INC">브리즈번</a></li>
+															<li><a href="#" data-city="멜버른" data-code="INC">멜버른</a></li>
+															<li><a href="#" data-city="오클랜드" data-code="INC">오클랜드</a></li>
+															<li><a href="#" data-city="괌" data-code="INC">괌</a></li>
+															<li><a href="#" data-city="사이판" data-code="INC">사이판</a></li>
 														</ul>
 													</td>
 													<td>
 														<ul class="list">
-															<li><a href="#">상파울로</a></li>
-															<li><a href="#">멕시코시티</a></li>
-															<li><a href="#">칸쿤</a></li>
-															<li><a href="#">리마</a></li>
-															<li><a href="#">하바나</a></li>
+															<li><a href="#" data-city="상파울로" data-code="INC">상파울로</a></li>
+															<li><a href="#" data-city="멕시코시티" data-code="INC">멕시코시티</a></li>
+															<li><a href="#" data-city="칸쿤" data-code="INC">칸쿤</a></li>
+															<li><a href="#" data-city="리마" data-code="INC">리마</a></li>
+															<li><a href="#" data-city="하바나" data-code="INC">하바나</a></li>
 														</ul>
 													</td>
 													<td>
 														<ul class="list">
-															<li><a href="#">몰디브</a></li>
-															<li><a href="#">카트만두</a></li>
-															<li><a href="#">델리</a></li>
-															<li><a href="#">뭄바이</a></li>
-															<li><a href="#">콜롬보</a></li>
-															<li><a href="#">양곤</a></li>
-															<li><a href="#">다카</a></li>
+															<li><a href="#" data-city="몰디브" data-code="INC">몰디브</a></li>
+															<li><a href="#" data-city="카트만두" data-code="INC">카트만두</a></li>
+															<li><a href="#" data-city="델리" data-code="INC">델리</a></li>
+															<li><a href="#" data-city="뭄바이" data-code="INC">뭄바이</a></li>
+															<li><a href="#" data-city="콜롬보" data-code="INC">콜롬보</a></li>
+															<li><a href="#" data-city="양곤" data-code="INC">양곤</a></li>
+															<li><a href="#" data-city="다카" data-code="INC">다카</a></li>
 														</ul>
 													</td>
 													<td>
 														<ul class="list">
-															<li><a href="#">밴쿠버</a></li>
-															<li><a href="#">토론토</a></li>
-															<li><a href="#">몬트리올</a></li>
-															<li><a href="#">캘거리</a></li>
-															<li><a href="#">오타와</a></li>
+															<li><a href="#" data-city="밴쿠버" data-code="INC">밴쿠버</a></li>
+															<li><a href="#" data-city="토론토" data-code="INC">토론토</a></li>
+															<li><a href="#" data-city="몬트리올" data-code="INC">몬트리올</a></li>
+															<li><a href="#" data-city="캘거리" data-code="INC">캘거리</a></li>
+															<li><a href="#" data-city="오타와" data-code="INC">오타와</a></li>
 														</ul>
 													</td>
 													<td>
 														<ul class="list">
-															<li><a href="#">두바이</a></li>
-															<li><a href="#">카이로</a></li>
-															<li><a href="#">아부다비</a></li>
-															<li><a href="#">나이로비</a></li>
-															<li><a href="#">요하네스버그</a></li>
-															<li><a href="#">케이프타운</a></li>
+															<li><a href="#" data-city="두바이" data-code="INC">두바이</a></li>
+															<li><a href="#" data-city="카이로" data-code="INC">카이로</a></li>
+															<li><a href="#" data-city="아부다비" data-code="INC">아부다비</a></li>
+															<li><a href="#" data-city="나이로비" data-code="INC">나이로비</a></li>
+															<li><a href="#" data-city="요하네스버그" data-code="INC">요하네스버그</a></li>
+															<li><a href="#" data-city="케이프타운" data-code="INC">케이프타운</a></li>
 														</ul>
 													</td>
 												</tr>
@@ -1132,13 +1179,13 @@
 											<ul class="list o-customscrollbar">
 												<li class="no-list">검색 결과가 없습니다.</li>
 												<li>
-													<a href="#">
+													<a href="#" data-city="서울" data-code="INC">
 														<span class="name">서울</span>
 														<span class="name-det">대한민국, 모든 공항 (SEL)</span>
 													</a>
 													<ul class="list-sub">
 														<li>
-															<a href="#">
+															<a href="#" data-city="프랑스 파리" data-code="CDG">
 																<span class="name c-txt-point1">샤를드골</span>
 																<span class="name-det">프랑스 파리, 샤를드골 공항 (CDG)</span>
 															</a>
@@ -1146,13 +1193,13 @@
 													</ul>
 												</li>
 												<li>
-													<a href="#">
+													<a href="#" data-city="인천" data-code="ICN">
 														<span class="name c-txt-point1">인천</span>
 														<span class="name-det">대한민국, 인천 국제 공항 (ICN)</span>
 													</a>
 													<ul class="list-sub">
 														<li>
-															<a href="#">
+															<a href="#" data-city="프랑스 파리" data-code="CDG">
 																<span class="name c-txt-point1">샤를드골</span>
 																<span class="name-det">프랑스 파리, 샤를드골 공항 (CDG)</span>
 															</a>
@@ -1160,7 +1207,7 @@
 													</ul>
 												</li>
 												<li>
-													<a href="#">
+													<a href="#" data-city="김포" data-code="GMP">
 														<span class="name">김포</span>
 														<span class="name-det">대한민국, 김포국제 공항 (GMP)</span>
 													</a>
@@ -1172,7 +1219,7 @@
 									</div>
 									<!-- //항공 주요도시 리스트 -->
 
-									<!-- 인원,좌석 -->
+									<!-- 인원,좌석(공통인 경우 global-ui-capacity 클래스 추가) -->
 									<div class="sc-ui-search-box ui-capacity global-ui-capacity">
 										<div class="uis-capacity">
 											<ul class="uis-capacity-number">
@@ -1215,8 +1262,8 @@
 											</ul>
 											<ul class="uis-capacity-select select-comp">
 												<li class="on"><a href="#" data-option="Y">일반석</a></li>
-												<li><a href="#" data-option="P">프리미엄 이코노미</a></li>
-												<li><a href="#" data-option="C">비지니스석</a></li>
+												<li><a href="#" data-option="P">프리미엄 이코노미석</a></li>
+												<li><a href="#" data-option="C">비즈니스석</a></li>
 												<li><a href="#" data-option="F">일등석</a></li>
 											</ul>
 											<div class="uis-set-btn">
@@ -1294,81 +1341,81 @@
 														<tr>
 															<td>
 																<ul class="list">
-																	<li><a href="#">다낭</a></li> 
-																   <li><a href="#">싱가포르</a></li> 
-																   <li><a href="#">방콕</a></li> 
-																   <li><a href="#">세부</a></li> 
-																   <li><a href="#">코타키나발루</a></li> 
-																   <li><a href="#">발리</a></li> 
-																   <li><a href="#">푸켓</a></li> 
-																   <li><a href="#">마닐라</a></li> 
-																   <li><a href="#">파타야</a></li> 
-																   <li><a href="#">보라카이</a></li> 
-																   <li><a href="#">나트랑</a></li> 
-																   <li><a href="#">호이안</a></li> 
-																   <li><a href="#">호치민</a></li> 
-																   <li><a href="#">하노이</a></li> 
-																   <li><a href="#">쿠알라룸푸르</a></li> 
+																	<li><a href="#" data-city="다낭">다낭</a></li> 
+																	<li><a href="#" data-city="싱가포르">싱가포르</a></li> 
+																	<li><a href="#" data-city="방콕">방콕</a></li> 
+																	<li><a href="#" data-city="세부">세부</a></li> 
+																	<li><a href="#" data-city="코타키나발루">코타키나발루</a></li> 
+																	<li><a href="#" data-city="발리">발리</a></li> 
+																	<li><a href="#" data-city="푸켓">푸켓</a></li> 
+																	<li><a href="#" data-city="마닐라">마닐라</a></li> 
+																	<li><a href="#" data-city="파타야">파타야</a></li> 
+																	<li><a href="#" data-city="보라카이">보라카이</a></li> 
+																	<li><a href="#" data-city="나트랑">나트랑</a></li> 
+																	<li><a href="#" data-city="호이안">호이안</a></li> 
+																	<li><a href="#" data-city="호치민">호치민</a></li> 
+																	<li><a href="#" data-city="하노이">하노이</a></li> 
+																	<li><a href="#" data-city="쿠알라룸푸르">쿠알라룸푸르</a></li> 
 																</ul>
 															</td>
 															<td>
 
 																<ul class="list">
-																	<li><a href="#">홍콩</a></li> 
-																	<li><a href="#">타이페이</a></li> 
-																	<li><a href="#">마카오</a></li> 
-																	<li><a href="#">상해</a></li> 
-																	<li><a href="#">북경</a></li> 
-																	<li><a href="#">청도</a></li> 
-																	<li><a href="#">광저우</a></li> 
+																	<li><a href="#" data-city="홍콩">홍콩</a></li> 
+																	<li><a href="#" data-city="타이페이">타이페이</a></li> 
+																	<li><a href="#" data-city="마카오">마카오</a></li> 
+																	<li><a href="#" data-city="상해">상해</a></li> 
+																	<li><a href="#" data-city="북경">북경</a></li> 
+																	<li><a href="#" data-city="청도">청도</a></li> 
+																	<li><a href="#" data-city="광저우">광저우</a></li> 
 																</ul>
 															</td>
 															<td>
 																<ul class="list">
-																	<li><a href="#">오키나와</a></li> 
-																	<li><a href="#">오사카</a></li> 
-																	<li><a href="#">도쿄</a></li> 
-																	<li><a href="#">후쿠오카</a></li> 
-																	<li><a href="#">삿포로</a></li> 
-																	<li><a href="#">교토</a></li> 
-																	<li><a href="#">유후인</a></li> 
-																	<li><a href="#">나고야</a></li> 
-																	<li><a href="#">노보리베츠</a></li> 
+																	<li><a href="#" data-city="오키나와">오키나와</a></li> 
+																	<li><a href="#" data-city="오사카">오사카</a></li> 
+																	<li><a href="#" data-city="도쿄">도쿄</a></li> 
+																	<li><a href="#" data-city="후쿠오카">후쿠오카</a></li> 
+																	<li><a href="#" data-city="삿포로">삿포로</a></li> 
+																	<li><a href="#" data-city="교토">교토</a></li> 
+																	<li><a href="#" data-city="유후인">유후인</a></li> 
+																	<li><a href="#" data-city="나고야">나고야</a></li> 
+																	<li><a href="#" data-city="노보리베츠">노보리베츠</a></li> 
 																</ul>
 															</td>
 															<td>
 																<ul class="list">
-																	<li><a href="#">괌</a></li> 
-																	<li><a href="#">사이판</a></li> 
-																	<li><a href="#">시드니</a></li> 
-																	<li><a href="#">멜버른</a></li> 
+																	<li><a href="#" data-city="괌">괌</a></li> 
+																	<li><a href="#" data-city="사이판">사이판</a></li> 
+																	<li><a href="#" data-city="시드니">시드니</a></li> 
+																	<li><a href="#" data-city="멜버른">멜버른</a></li> 
 																</ul>
 															</td>
 															<td>
 																<ul class="list">
-																	<li><a href="#">파리</a></li> 
-																	<li><a href="#">로마</a></li> 
-																	<li><a href="#">런던</a></li> 
-																	<li><a href="#">프라하</a></li> 
-																	<li><a href="#">피렌체</a></li> 
-																	<li><a href="#">바로셀로나</a></li> 
-																	<li><a href="#">밀라노</a></li> 
-																	<li><a href="#">베니스</a></li> 
-																	<li><a href="#">부다페스트</a></li> 
-																	<li><a href="#">비엔나</a></li> 
+																	<li><a href="#" data-city="파리">파리</a></li> 
+																	<li><a href="#" data-city="로마">로마</a></li> 
+																	<li><a href="#" data-city="런던">런던</a></li> 
+																	<li><a href="#" data-city="프라하">프라하</a></li> 
+																	<li><a href="#" data-city="피렌체">피렌체</a></li> 
+																	<li><a href="#" data-city="바로셀로나">바로셀로나</a></li> 
+																	<li><a href="#" data-city="밀라노">밀라노</a></li> 
+																	<li><a href="#" data-city="베니스">베니스</a></li> 
+																	<li><a href="#" data-city="부다페스트">부다페스트</a></li> 
+																	<li><a href="#" data-city="비엔나">비엔나</a></li> 
 																</ul>
 															</td>
 															<td>
 																<ul class="list">
-																	<li><a href="#">호놀룰루</a></li> 
-																	<li><a href="#">마우이</a></li> 
-																	<li><a href="#">라스베가스</a></li> 
-																	<li><a href="#">뉴욕</a></li> 
-																	<li><a href="#">샌프란시스코</a></li> 
-																	<li><a href="#">시카고</a></li> 
-																	<li><a href="#">로스엔젤레스</a></li> 
-																	<li><a href="#">벤쿠버</a></li> 
-																	<li><a href="#">토론토</a></li> 
+																	<li><a href="#" data-city="호놀룰루">호놀룰루</a></li> 
+																	<li><a href="#" data-city="마우이">마우이</a></li> 
+																	<li><a href="#" data-city="라스베가스">라스베가스</a></li> 
+																	<li><a href="#" data-city="뉴욕">뉴욕</a></li> 
+																	<li><a href="#" data-city="샌프란시스코">샌프란시스코</a></li> 
+																	<li><a href="#" data-city="시카고">시카고</a></li> 
+																	<li><a href="#" data-city="로스엔젤레스">로스엔젤레스</a></li> 
+																	<li><a href="#" data-city="벤쿠버">벤쿠버</a></li> 
+																	<li><a href="#" data-city="토론토">토론토</a></li> 
 																</ul>
 															</td>
 														</tr>
@@ -1378,32 +1425,32 @@
 													<ul class="list o-customscrollbar">
 														<li class="no-list">검색 결과가 없습니다.</li>
 														<li>
-															<a href="#">
+															<a href="#" data-city="파리, 프랑스(PARIS, FRANCE)">
 																<span class="label-base lbr-st1"><span>CITY</span></span>
 																<span class="name-det">파리, 프랑스(PARIS, FRANCE)</span>
 															</a>
 															
 														</li>
 														<li>
-															<a href="#">
+															<a href="#" data-city="프랑스 샤를드골 공항(CDG), 프랑스">
 																<span class="label-base lbr-st1"><span>CITY</span></span>
 																<span class="name-det">프랑스 샤를드골 공항(CDG), 프랑스</span>
 															</a>
 														</li>
 														<li>
-															<a href="#">
+															<a href="#" data-city="파리 오를리 공항, 프랑스">
 																<span class="label-base lbr-st1"><span>CITY</span></span>
 																<span class="name-det">파리 오를리 공항, 프랑스</span>
 															</a>
 														</li>
 														<li>
-															<a href="#">
+															<a href="#" data-city="파리(TN), 미국">
 																<span class="label-base lbr-st1"><span>CITY</span></span>
 																<span class="name-det">파리(TN), 미국</span>
 															</a>
 														</li>
 														<li>
-															<a href="#">
+															<a href="#" data-city="하얏트 리젠시 파리 에투알">
 																<span class="label-base lbr-st1"><span>HOTEL</span></span>
 																<span class="name-det">하얏트 리젠시 파리 에투알</span>
 															</a>
@@ -1478,22 +1525,22 @@
 												</div>
 												<div class="uis-list">
 													<ul class="list o-customscrollbar">
-														<li><a href="#">제주도 전체</a></li>
-														<li><a href="#">서울특별시 전체</a></li>
-														<li><a href="#">부산광역시 전체</a></li>
-														<li><a href="#">인천광역시 전체</a></li>
-														<li><a href="#">광주광역시 전체</a></li>
-														<li><a href="#">광주광역시 전체</a></li>
-														<li><a href="#">대구광역시 전체</a></li>
-														<li><a href="#">대전광역시 전체</a></li>
-														<li><a href="#">울산광역시 전체</a></li>
-														<li><a href="#">강원도 전체</a></li>
-														<li><a href="#">경기도 전체</a></li>
-														<li><a href="#">경상남도 전체</a></li>
-														<li><a href="#">경상북도 전체</a></li>
-														<li><a href="#">전라남도 전체</a></li>
-														<li><a href="#">전라북도 전체</a></li>
-														<li><a href="#">충청남도 전체</a></li>
+														<li><a href="#" data-city="제주도 전체">제주도 전체</a></li>
+														<li><a href="#" data-city="서울특별시 전체">서울특별시 전체</a></li>
+														<li><a href="#" data-city="부산광역시 전체">부산광역시 전체</a></li>
+														<li><a href="#" data-city="인천광역시 전체">인천광역시 전체</a></li>
+														<li><a href="#" data-city="광주광역시 전체">광주광역시 전체</a></li>
+														<li><a href="#" data-city="광주광역시 전체">광주광역시 전체</a></li>
+														<li><a href="#" data-city="대구광역시 전체">대구광역시 전체</a></li>
+														<li><a href="#" data-city="대전광역시 전체">대전광역시 전체</a></li>
+														<li><a href="#" data-city="울산광역시 전체">울산광역시 전체</a></li>
+														<li><a href="#" data-city="강원도 전체">강원도 전체</a></li>
+														<li><a href="#" data-city="경기도 전체">경기도 전체</a></li>
+														<li><a href="#" data-city="경상남도 전체">경상남도 전체</a></li>
+														<li><a href="#" data-city="경상북도 전체">경상북도 전체</a></li>
+														<li><a href="#" data-city="전라남도 전체">전라남도 전체</a></li>
+														<li><a href="#" data-city="전라북도 전체">전라북도 전체</a></li>
+														<li><a href="#" data-city="충청남도 전체">충청남도 전체</a></li>
 														<li><a href="#">충청북도 전체</a></li>
 													</ul>
 												</div>
@@ -1501,39 +1548,39 @@
 													<ul class="list o-customscrollbar">
 														<li class="no-list">검색 결과가 없습니다.</li>
 														<li>
-															<a href="#">
+															<a href="#" data-city="제주도 전체">
 																<span class="label-base lbr-st1"><span>CITY</span></span>
 																<span class="name-det">제주도 전체</span>
 															</a>
 															
 														</li>
 														<li>
-															<a href="#">
+															<a href="#" data-city="서귀포시, 제주도">
 																<span class="label-base lbr-st1"><span>CITY</span></span>
 																<span class="name-det">서귀포시, 제주도</span>
 															</a>
 														</li>
 														<li>
-															<a href="#">
+															<a href="#" data-city="데이즈 호텔 서귀포">
 																<span class="label-base lbr-st1"><span>HOTEL</span></span>
 																<span class="name-det">데이즈 호텔 서귀포</span>
 															</a>
 														</li>
 														<li>
-															<a href="#">
+															<a href="#" data-city="밸류호텔, 서귀포 JS">
 																<span class="label-base lbr-st1"><span>HOTEL</span></span>
 																<span class="name-det">밸류호텔, 서귀포 JS</span>
 															</a>
 														</li>
 														<li>
-															<a href="#">
+															<a href="#" data-city="제주도 전체">
 																<span class="label-base lbr-st1"><span>CITY</span></span>
 																<span class="name-det">제주도 전체</span>
 															</a>
 															
 														</li>
 														<li>
-															<a href="#">
+															<a href="#" data-city="서귀포시, 제주도">
 																<span class="label-base lbr-st1"><span>CITY</span></span>
 																<span class="name-det">서귀포시, 제주도</span>
 															</a>
@@ -1565,7 +1612,7 @@
 									</div>
 									<!-- //국내 -->
 
-									<!-- 객실타입, 객실수 -->
+									<!-- 객실타입, 객실수(공통인 경우 global-ui-capacity 클래스 추가) -->
 									<div class="sc-ui-search-box ui-capacity global-ui-capacity">
 										<div class="uis-capacity">
 											<ul class="uis-capacity-number">
@@ -1849,96 +1896,96 @@
 														<tr>
 															<td>
 																<ul class="list">
-																	<li><a href="#">하와이(호놀룰루)</a></li> 
- 																    <li><a href="#">하와이(마우이)</a></li> 
-																    <li><a href="#">하와이(코나)</a></li> 
-																    <li><a href="#">하와이(힐로)</a></li> 
-																    <li><a href="#">하와이(카우아이)</a></li> 
-																    <li><a href="#">로스엔젤레스</a></li> 
-																    <li><a href="#">샌프란시스코</a></li> 
-																    <li><a href="#">라스베가스</a></li> 
-																    <li><a href="#">뉴욕(JFK)</a></li> 
-																    <li><a href="#">시애틀</a></li> 
-																    <li><a href="#">애틀란타</a></li> 
-																    <li><a href="#">댈러스</a></li> 
-																    <li><a href="#">벤쿠버</a></li> 
-																    <li><a href="#">캘거리</a></li> 
-																    <li><a href="#">토론토</a></li> 
+																	<li><a href="#" data-city="하와이(호놀룰루)">하와이(호놀룰루)</a></li> 
+ 																    <li><a href="#" data-city="하와이(마우이)">하와이(마우이)</a></li> 
+																    <li><a href="#" data-city="하와이(코나)">하와이(코나)</a></li> 
+																    <li><a href="#" data-city="하와이(힐로)">하와이(힐로)</a></li> 
+																    <li><a href="#" data-city="하와이(카우아이)">하와이(카우아이)</a></li> 
+																    <li><a href="#" data-city="로스엔젤레스">로스엔젤레스</a></li> 
+																    <li><a href="#" data-city="샌프란시스코">샌프란시스코</a></li> 
+																    <li><a href="#" data-city="라스베가스">라스베가스</a></li> 
+																    <li><a href="#" data-city="뉴욕(JFK)">뉴욕(JFK)</a></li> 
+																    <li><a href="#" data-city="시애틀">시애틀</a></li> 
+																    <li><a href="#" data-city="애틀란타">애틀란타</a></li> 
+																    <li><a href="#" data-city="댈러스">댈러스</a></li> 
+																    <li><a href="#" data-city="벤쿠버">벤쿠버</a></li> 
+																    <li><a href="#" data-city="캘거리">캘거리</a></li> 
+																    <li><a href="#" data-city="토론토">토론토</a></li> 
 																</ul>
 															</td>
 															<td>
 
 																<ul class="list">
-																	<li><a href="#">괌</a></li> 
-																	<li><a href="#">사이판</a></li> 
-																	<li><a href="#">멜버른</a></li> 
-																	<li><a href="#">시드니</a></li> 
-																	<li><a href="#">브리즈번</a></li> 
-																	<li><a href="#">오클랜드</a></li> 
-																	<li><a href="#">크라이스트처치</a></li> 
-																	<li><a href="#">골드 코스트</a></li> 
-																	<li><a href="#">케언즈</a></li> 
-																	<li><a href="#">퍼스</a></li> 
+																	<li><a href="#" data-city="괌">괌</a></li> 
+																	<li><a href="#" data-city="사이판">사이판</a></li> 
+																	<li><a href="#" data-city="멜버른">멜버른</a></li> 
+																	<li><a href="#" data-city="시드니">시드니</a></li> 
+																	<li><a href="#" data-city="브리즈번">브리즈번</a></li> 
+																	<li><a href="#" data-city="오클랜드">오클랜드</a></li> 
+																	<li><a href="#" data-city="크라이스트처치">크라이스트처치</a></li> 
+																	<li><a href="#" data-city="골드 코스트">골드 코스트</a></li> 
+																	<li><a href="#" data-city="케언즈">케언즈</a></li> 
+																	<li><a href="#" data-city="퍼스">퍼스</a></li> 
 																</ul>
 															</td>
 															<td>
 																<ul class="list">
-																	<li><a href="#">세비야</a></li> 
-																	<li><a href="#">마요르카</a></li> 
-																	<li><a href="#">말라가</a></li> 
-																	<li><a href="#">그라나다</a></li> 
-																	<li><a href="#">마드리드</a></li> 
-																	<li><a href="#">프라하</a></li> 
-																	<li><a href="#">로마</a></li> 
-																	<li><a href="#">나폴리</a></li> 
-																	<li><a href="#">밀라노</a></li> 
-																	<li><a href="#">런던</a></li> 
-																	<li><a href="#">파리</a></li> 
-																	<li><a href="#">니스</a></li> 
-																	<li><a href="#">프랑크푸르트</a></li> 
-																	<li><a href="#">자그레브</a></li> 
-																	<li><a href="#">두브로브니크</a></li> 
-																	<li><a href="#">취리히</a></li> 
-																	<li><a href="#">산토리니</a></li> 
-																	<li><a href="#">뮌헨</a></li> 
-																	<li><a href="#">레이캬비크</a></li> 
-																	<li><a href="#">암스테르담</a></li> 
+																	<li><a href="#" data-city="세비야">세비야</a></li> 
+																	<li><a href="#" data-city="마요르카">마요르카</a></li> 
+																	<li><a href="#" data-city="말라가">말라가</a></li> 
+																	<li><a href="#" data-city="그라나다">그라나다</a></li> 
+																	<li><a href="#" data-city="마드리드">마드리드</a></li> 
+																	<li><a href="#" data-city="프라하">프라하</a></li> 
+																	<li><a href="#" data-city="로마">로마</a></li> 
+																	<li><a href="#" data-city="나폴리">나폴리</a></li> 
+																	<li><a href="#" data-city="밀라노">밀라노</a></li> 
+																	<li><a href="#" data-city="런던">런던</a></li> 
+																	<li><a href="#" data-city="파리">파리</a></li> 
+																	<li><a href="#" data-city="니스">니스</a></li> 
+																	<li><a href="#" data-city="프랑크푸르트">프랑크푸르트</a></li> 
+																	<li><a href="#" data-city="자그레브">자그레브</a></li> 
+																	<li><a href="#" data-city="두브로브니크">두브로브니크</a></li> 
+																	<li><a href="#" data-city="취리히">취리히</a></li> 
+																	<li><a href="#" data-city="산토리니">산토리니</a></li> 
+																	<li><a href="#" data-city="뮌헨">뮌헨</a></li> 
+																	<li><a href="#" data-city="레이캬비크">레이캬비크</a></li> 
+																	<li><a href="#" data-city="암스테르담">암스테르담</a></li> 
 																</ul>
 															</td>
 															<td>
 																<ul class="list">
-																	<li><a href="#">오키나와</a></li> 
-																	<li><a href="#">후쿠오카</a></li> 
-																	<li><a href="#">삿포로(훗카이도)</a></li> 
-																	<li><a href="#">치토세(훗카이도)</a></li> 
-																	<li><a href="#">오사카</a></li> 
-																	<li><a href="#">나고야</a></li> 
-																	<li><a href="#">도쿄</a></li> 
-																	<li><a href="#">사가</a></li> 
-																	<li><a href="#">가고시마</a></li> 
-																	<li><a href="#">나가사키</a></li> 
+																	<li><a href="#" data-city="오키나와">오키나와</a></li> 
+																	<li><a href="#" data-city="후쿠오카">후쿠오카</a></li> 
+																	<li><a href="#" data-city="삿포로(훗카이도">삿포로(훗카이도)</a></li> 
+																	<li><a href="#" data-city="치토세(훗카이도)">치토세(훗카이도)</a></li> 
+																	<li><a href="#" data-city="오사카">오사카</a></li> 
+																	<li><a href="#" data-city="나고야">나고야</a></li> 
+																	<li><a href="#" data-city="도쿄">도쿄</a></li> 
+																	<li><a href="#" data-city="사가">사가</a></li> 
+																	<li><a href="#" data-city="가고시마">가고시마</a></li> 
+																	<li><a href="#" data-city="나가사키">나가사키</a></li> 
 																</ul>
 															</td>
 															<td>
 																<ul class="list">
-																	<li><a href="#">제주도</a></li> 
-																	<li><a href="#">서울</a></li> 
-																	<li><a href="#">부산</a></li> 
-																	<li><a href="#">인천</a></li> 
+																	<li><a href="#" data-city="제주도">제주도</a></li> 
+																	<li><a href="#" data-city="서울">서울</a></li> 
+																	<li><a href="#" data-city="부산">부산</a></li> 
+																	<li><a href="#" data-city="인천">인천</a></li> 
 																</ul>
 															</td>
 															<td>
 																<ul class="list">
-																	<li><a href="#">방콕</a></li> 
-																	<li><a href="#">푸켓</a></li> 
-																	<li><a href="#">두바이</a></li> 
-																	<li><a href="#">아부다비</a></li> 
-																	<li><a href="#">쿠알라룸푸르</a></li> 
-																	<li><a href="#">치앙마이</a></li> 
-																	<li><a href="#">파타야</a></li> 
-																	<li><a href="#">발리</a></li> 
-																	<li><a href="#">코타 키나발루</a></li> 
-																	<li><a href="#">랑카위</a></li> 
+																	<li><a href="#" data-city="방콕">방콕</a></li> 
+																	<li><a href="#" data-city="푸켓">푸켓</a></li> 
+																	<li><a href="#" data-city="두바이">두바이</a></li> 
+																	<li><a href="#" data-city="아부다비">아부다비</a></li> 
+																	<li><a href="#" data-city="쿠알라룸푸르">쿠알라룸푸르</a></li> 
+																	<li><a href="#" data-city="치앙마이">치앙마이</a></li> 
+																	<li><a href="#" data-city="파타야">파타야</a></li> 
+																	<li><a href="#" data-city="발리">발리</a></li> 
+																	<li><a href="#" data-city="코타 키나발루">코타 키나발루</a></li> 
+																	<li><a href="#" data-city="랑카위">랑카위</a></li> 
 																</ul>
 															</td>
 														</tr>
@@ -1948,34 +1995,40 @@
 													<ul class="list o-customscrollbar">
 														<li class="no-list">검색 결과가 없습니다.</li>
 														<li>
-															<a href="#"><span class="name">일본-가미스 (이바라키) (Kamisu (Ibaraki))</span></a>
+															<a href="#" data-city="일본-가미스 (이바라키) (Kamisu (Ibaraki))">
+																<span class="name">일본-가미스 (이바라키) (Kamisu (Ibaraki))</span>
+															</a>
 														</li>
 														<li>
-															<a href="#"><span class="name">일본-가미이소 군(훗카이도) (Kamiiso-gun (Hokkaido))</span></a>
+															<a href="#" data-city="일본-가미이소 군(훗카이도) (Kamiiso-gun (Hokkaido))">
+																<span class="name">일본-가미이소 군(훗카이도) (Kamiiso-gun (Hokkaido))</span>
+															</a>
 														</li>
 														<li>
-															<a href="#"><span class="name">미국 - 기타지역 - 호놀룰루 (Honolulu, HI)</span></a>
+															<a href="#" data-city="미국 - 기타지역 - 호놀룰루 (Honolulu, HI)">
+																<span class="name">미국 - 기타지역 - 호놀룰루 (Honolulu, HI)</span>
+															</a>
 														</li>
 														<li>
 															<span class="sel-city-name">미국 - 기타지역 - 호놀룰루 (Honolulu, HI)</span>
 															<ul class="list-sub">
 																<li>
-																	<a href="#">
+																	<a href="#" data-city="와이키키 - 일리카이 (Waikiki - llikai)">
 																		<span class="name">와이키키 - 일리카이 (Waikiki - llikai)</span>
 																	</a>
 																</li>
 																<li>
-																	<a href="#">
+																	<a href="#" data-city="파시픽 비치 호텔 (Pacific Beach Hotel)">
 																		<span class="name">파시픽 비치 호텔 (Pacific Beach Hotel)</span>
 																	</a>
 																</li>
 																<li>
-																	<a href="#">
+																	<a href="#" data-city="호놀룰루 - 하울 코아 호텔 (Honolulu - Hale Koa Hotel)">
 																		<span class="name">호놀룰루 - 하울 코아 호텔 (Honolulu - Hale Koa Hotel)</span>
 																	</a>
 																</li>
 																<li>
-																	<a href="#">
+																	<a href="#" data-city="파시픽 비치 호텔 (Pacific Beach Hotel)">
 																		<span class="name">파시픽 비치 호텔 (Pacific Beach Hotel)</span>
 																	</a>
 																</li>
@@ -1994,90 +2047,82 @@
 														<span class="txt-label">대여일</span>
 														<span class="txt-day" data-day="">대여일을 선택해주세요.</span>
 														<span class="set-time">
-															<span class="select-base">
-																<select class="sb-select timeh">
-																	<option value="0">00시</option>
-																	<option value="1">01시</option>
-																	<option value="2">02시</option>
-																	<option value="3">03시</option>
-																	<option value="4">04시</option>
-																	<option value="5">05시</option>
-																	<option value="6">06시</option>
-																	<option value="7">07시</option>
-																	<option value="8">08시</option>
-																	<option value="9">09시</option>
-																	<option value="10" selected>10시</option>
-																	<option value="11">11시</option>
-																	<option value="12">12시</option>
-																	<option value="13">13시</option>
-																	<option value="14">14시</option>
-																	<option value="15">15시</option>
-																	<option value="16">16시</option>
-																	<option value="17">17시</option>
-																	<option value="18">18시</option>
-																	<option value="19">19시</option>
-																	<option value="20">20시</option>
-																	<option value="21">21시</option>
-																	<option value="22">22시</option>
-																	<option value="23">23시</option>
-																</select>
-															</span>
-															<span class="select-base">
-																<select class="sb-select timem">
-																	<option value="00" selected>00분</option>
-																	<option value="10">10분</option>
-																	<option value="20">20분</option>
-																	<option value="30">30분</option>
-																	<option value="40">40분</option>
-																	<option value="50">50분</option>
-																	<option value="60">60분</option>
-																</select>
-															</span>
+															<select class="select-base timeh">
+																<option value="0">00시</option>
+																<option value="1">01시</option>
+																<option value="2">02시</option>
+																<option value="3">03시</option>
+																<option value="4">04시</option>
+																<option value="5">05시</option>
+																<option value="6">06시</option>
+																<option value="7">07시</option>
+																<option value="8">08시</option>
+																<option value="9">09시</option>
+																<option value="10" selected>10시</option>
+																<option value="11">11시</option>
+																<option value="12">12시</option>
+																<option value="13">13시</option>
+																<option value="14">14시</option>
+																<option value="15">15시</option>
+																<option value="16">16시</option>
+																<option value="17">17시</option>
+																<option value="18">18시</option>
+																<option value="19">19시</option>
+																<option value="20">20시</option>
+																<option value="21">21시</option>
+																<option value="22">22시</option>
+																<option value="23">23시</option>
+															</select>
+															<select class="select-base timem">
+																<option value="00" selected>00분</option>
+																<option value="10">10분</option>
+																<option value="20">20분</option>
+																<option value="30">30분</option>
+																<option value="40">40분</option>
+																<option value="50">50분</option>
+																<option value="60">60분</option>
+															</select>
 														</span>
 													</span>
 													<span class="uis-date-chkout">
 														<span class="txt-label">반납일</span>
 														<span class="txt-day" data-day="">반납일을 선택해주세요.</span>
 														<span class="set-time">
-															<span class="select-base">
-																<select class="sb-select timeh">
-																	<option value="0">00시</option>
-																	<option value="1">01시</option>
-																	<option value="2">02시</option>
-																	<option value="3">03시</option>
-																	<option value="4">04시</option>
-																	<option value="5">05시</option>
-																	<option value="6">06시</option>
-																	<option value="7">07시</option>
-																	<option value="8">08시</option>
-																	<option value="9">09시</option>
-																	<option value="10" selected>10시</option>
-																	<option value="11">11시</option>
-																	<option value="12">12시</option>
-																	<option value="13">13시</option>
-																	<option value="14">14시</option>
-																	<option value="15">15시</option>
-																	<option value="16">16시</option>
-																	<option value="17">17시</option>
-																	<option value="18">18시</option>
-																	<option value="19">19시</option>
-																	<option value="20">20시</option>
-																	<option value="21">21시</option>
-																	<option value="22">22시</option>
-																	<option value="23">23시</option>
-																</select>
-															</span>
-															<span class="select-base">
-																<select class="sb-select timem">
-																	<option value="00" selected>00분</option>
-																	<option value="10">10분</option>
-																	<option value="20">20분</option>
-																	<option value="30">30분</option>
-																	<option value="40">40분</option>
-																	<option value="50">50분</option>
-																	<option value="60">60분</option>
-																</select>
-															</span>
+															<select class="select-base timeh">
+																<option value="0">00시</option>
+																<option value="1">01시</option>
+																<option value="2">02시</option>
+																<option value="3">03시</option>
+																<option value="4">04시</option>
+																<option value="5">05시</option>
+																<option value="6">06시</option>
+																<option value="7">07시</option>
+																<option value="8">08시</option>
+																<option value="9">09시</option>
+																<option value="10" selected>10시</option>
+																<option value="11">11시</option>
+																<option value="12">12시</option>
+																<option value="13">13시</option>
+																<option value="14">14시</option>
+																<option value="15">15시</option>
+																<option value="16">16시</option>
+																<option value="17">17시</option>
+																<option value="18">18시</option>
+																<option value="19">19시</option>
+																<option value="20">20시</option>
+																<option value="21">21시</option>
+																<option value="22">22시</option>
+																<option value="23">23시</option>
+															</select>
+															<select class="select-base timem">
+																<option value="00" selected>00분</option>
+																<option value="10">10분</option>
+																<option value="20">20분</option>
+																<option value="30">30분</option>
+																<option value="40">40분</option>
+																<option value="50">50분</option>
+																<option value="60">60분</option>
+															</select>
 														</span>
 													</span>
 												</div>
@@ -2580,11 +2625,11 @@
 												</div>
 												<div class="uis-list">
 													<ul class="list o-customscrollbar">
-														<li><a href="#">공항 (Cannes - Mandelieu Airport)</a></li>
-														<li><a href="#">공항 (Croisette Heliport)</a></li>
-														<li><a href="#">공항 (Cannes Festival Palace Heliport)</a></li>
-														<li><a href="#">숙박시설</a></li>
-														<li><a href="#">공항 (Cannes - Mandelieu Airport)</a></li>
+														<li><a href="#" data-city="공항">공항 (Cannes - Mandelieu Airport)</a></li>
+														<li><a href="#" data-city="공항">공항 (Croisette Heliport)</a></li>
+														<li><a href="#" data-city="공항">공항 (Cannes Festival Palace Heliport)</a></li>
+														<li><a href="#" data-city="숙박시설">숙박시설</a></li>
+														<li><a href="#" data-city="공항">공항 (Cannes - Mandelieu Airport)</a></li>
 													</ul>
 												</div>
 												<a href="#" class="b-scb-close"><span class="a11y">닫기</span></a>
@@ -2626,7 +2671,7 @@
 									</div>
 									<!-- //공항픽업 -->
 									
-									<!-- 인원 -->
+									<!-- 인원(공통인 경우 global-ui-capacity 클래스 추가) -->
 									<div class="sc-ui-search-box ui-capacity global-ui-capacity">
 										<div class="uis-capacity">
 											<ul class="uis-capacity-number">

@@ -1,3 +1,11 @@
+/**********************************************************************
+  navData 관련
+   
+   1. 기본 AS IS와 동일구조
+   2. TO BE에서 2dep는 해외패키지만 존재함
+   3. 해외패키지 페이지에서는 3dep가 존재함(AS IS와는 다르게 구성)
+   
+**********************************************************************/
 var navData = {
 	"air": {
 		"link": "http://www.priviatravel.com/main/air/",
@@ -417,13 +425,17 @@ var navData = {
 
 
 /**********************************************************************
-  GNB와 Quick서치 관련
+  GNB와 Quick서치 관련(AS IS와 비슷)
    
    1. 퀵서치와 메뉴의 활성화 상태를 지정한다.
    2. 각 페이지 별로 아래의 상수를 이용하여 설정
-   3. 샘플 
+   3. 샘플 (섹션메인, 퀵버전 추가)
         <script type="text/javascript">
-            setActiveCode(QUICK_CODE_AIR, GNB_CODE_AIR, HEADER_TYPE_SECTION);
+            setActiveSearch(null, null, null); // 풀버전
+			setActiveSearch(QUICK_CODE_AIR, GNB_CODE_AIR, HEADER_TYPE_SECTION); //섹션메인 버전(항공메인)
+			setActiveSearch(QUICK_CODE_HOTEL, GNB_CODE_HOTEL, HEADER_TYPE_SECTION); //섹션메인 버전(호텔메인)
+			setActiveSearch(QUICK_CODE_AIR, GNB_CODE_AIR, HEADER_TYPE_QUICK); // 퀵버전(항공 검색결과)
+			setActiveSearch(null, GNB_CODE_PACKAGE, HEADER_TYPE_QUICK); // 퀵버전(해외패키지)
         </script>
 **********************************************************************/
 var QUICK_CODE_AIR = "AIR";
@@ -439,8 +451,8 @@ var GNB_CODE_PACKAGE = "PACKAGE";
 var GNB_CODE_DOMESTIC = "DOMESTIC";
 var GNB_CODE_PROMOTION = "PROMOTION";
 
-var HEADER_TYPE_SECTION = "HEADER_SECTION";
-var HEADER_TYPE_QUICK = "HEADER_QUICK";
+var HEADER_TYPE_SECTION = "HEADER_SECTION"; //섹션메인인 경우 (항공, 호텔, 자유, 투액)
+var HEADER_TYPE_QUICK = "HEADER_QUICK"; //퀵모드인 경우(각섹션별 검색결과, 마이페이지, 로그인...)
 
 
 
@@ -603,6 +615,9 @@ function comSearchEvent(){
 		$('.hss-recently-search .ui-recently-search').removeClass('on');
 		e.preventDefault();
 	});
+	
+	//캘린더 today 제거
+	$('.sc-ui-search-box .uis-datepicker').find(".ui-state-active").removeClass("ui-state-active"); 
 }
 
 //검색 - 항공 관련
@@ -659,8 +674,8 @@ function comSearchAir(){
 	
 	//주요도시 리스트, 자동완성 리스트 click
 	$('.ui-mainsel-air .list a').on('click', function(e){
-		var city = $(this).text(); //도시 이름(임시)
-		var code = 'INC' //도시 코드(임시)
+		var city = $(this).data('city'); //도시 이름(임시)
+		var code = $(this).data('code'); //도시 코드(임시)
 		
 		//도시 input
 		$(this).closest('.ui-mainsel-air').find('.uis-input .ipu-search').val(city);
@@ -857,7 +872,7 @@ function comSearchAir(){
 		if(comp == 'P'){
 			$('.sc-air .select-comp li').eq(1).addClass('on');
 		}
-		//비지니스석
+		//비즈니스석
 		if(comp == 'C'){
 			$('.sc-air .select-comp li').eq(2).addClass('on');
 		}
@@ -1334,7 +1349,7 @@ function comSearchHotel(){
 	
 	//주요도시 리스트, 자동완성 리스트 click
 	$('.ui-mainsel-hotel .list a').on('click', function(e){
-		var city = $(this).text(); //도시 이름(임시)
+		var city = $(this).data('city'); //도시 이름(임시)
 		
 		//도시 input
 		$(this).closest('.ui-mainsel-hotel').find('.uis-input .ipu-search').val(city);
@@ -1935,7 +1950,7 @@ function comSearchFreetour(){
 	
 	//주요도시 리스트, 자동완성 리스트 click
 	$('.ui-mainsel-freetour .list a').on('click', function(e){
-		var city = $(this).text(); //도시 이름(임시)
+		var city = $(this).data('city'); //도시 이름(임시)
 		
 		//도시 input
 		$(this).closest('.ui-mainsel-freetour').find('.uis-input .ipu-search').val(city);
@@ -1959,18 +1974,6 @@ function comSearchFreetour(){
 			//add auto
 			$(this).closest('.ui-mainsel-freetour').addClass('ui-search-auto');
 		}
-	});
-	
-	//도시 검색 결과(자동완성) click
-	$('.ui-mainsel-freetour .uis-list-auto .list a').on('click', function(e){
-		var city = '자동'; //도시 이름(임시)
-		
-		//도시 input
-		$(this).closest('.ui-mainsel-freetour').find('.uis-input .ipu-search').val(city);
-		
-		//도시 셋팅
-		setFreetourCity(city);
-		e.preventDefault();
 	});
 	
 	//도시 검색하기 focus
@@ -2401,12 +2404,11 @@ function comSearchFreetour(){
 //검색, 헤더 초기화
 function comSearchInit(){
 	//검색 관련
-	comSearchEvent();
 	comSearchAir();
 	comSearchHotel();
 	comSearchFree();
 	comSearchFreetour();
-	$('.sc-ui-search-box .uis-datepicker').find(".ui-state-active").removeClass("ui-state-active"); //캘린더 today 제거
+	comSearchEvent();
 	
 	//헤더 타입 셋팅
 	if (HEADER_TYPE == null || HEADER_TYPE == "") {

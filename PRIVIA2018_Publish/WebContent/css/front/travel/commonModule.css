@@ -212,27 +212,27 @@
 
 /* ------------- selectbox */
 /* select-title */
-.select-base {font-family: sans-serif !important;} /* NotoSansKR 경우 inline-block 공백이 불규칙함 */
-.select-title.sb-select {text-align: left; vertical-align: middle; padding: 10px 15px 9px 15px; border: 1px solid #bdc0c6; display: inline-block;border-radius: 3px;position: relative;cursor: pointer;}
-.select-title.sb-select:after {content: '';display: block;width: 12px;height: 7px;overflow: hidden;background: url(/images/front/travel/contents/icon-common-sec.png) -66px -360px no-repeat;position: absolute;top: 16px;right: 15px;}
-.select-title.sb-select strong {width: 100%; font-weight: normal; font-size:14px;color: #000; word-break: break-all; line-height: 1.2em; padding: 1px 0 2px; display: block; overflow: hidden;}
-.select-title.sb-select.focus {color: #000; border-color: #bdc0c6;}
-.select-title.sb-select.active {border-radius: 3px 3px 0px 0px;}
-.select-title.sb-select.active.upper {border-radius: 0px 0px 3px 3px;}
-.select-title.sb-select.disabled {color: #999; text-shadow: 1px 1px 0 #fff; border-color: #bbb; background-color: #eee;}
+.w-select-base {font-family: sans-serif !important;} /* NotoSansKR 경우 inline-block 공백이 불규칙함 */
+.select-title.select-base {text-align: left; vertical-align: middle; padding: 10px 15px 9px 15px; border: 1px solid #bdc0c6; display: inline-block;border-radius: 3px;position: relative;cursor: pointer;background-color: #fff;}
+.select-title.select-base:after {content: '';display: block;width: 12px;height: 7px;overflow: hidden;background: url(/images/front/travel/contents/icon-common-sec.png) -66px -360px no-repeat;position: absolute;top: 16px;right: 15px;}
+.select-title.select-base strong {width: 100%; font-weight: normal; font-size:14px;color: #000; word-break: break-all; line-height: 1.2em; padding: 1px 0 2px; display: block; overflow: hidden;}
+.select-title.select-base.focus {color: #000; border-color: #bdc0c6;}
+.select-title.select-base.active {border-radius: 3px 3px 0px 0px;}
+.select-title.select-base.active.upper {border-radius: 0px 0px 3px 3px;}
+.select-title.select-base.disabled {color: #999; text-shadow: 1px 1px 0 #fff; border-color: #bbb; background-color: #eee;}
 /* select-option */
-.select-option.sb-select {border: 1px solid #bdc0c6;border-top: 1px solid #e2e2e2; background: #fff; overflow: auto;border-radius: 0px 0px 3px 3px;}
-.select-option.sb-select.upper {border-top: 1px solid #bdc0c6;border-bottom: 1px solid #e2e2e2; border-radius: 3px 3px 0px 0px;}
-.select-option.sb-select ul {margin: 0; padding: 0;}
-.select-option.sb-select li {list-style: none;}
-.select-option.sb-select span,
-.select-option.sb-select strong {padding: 10px 15px 9px 15px;font-size:14px;color: #000;  white-space: nowrap; text-overflow: ellipsis; line-height: 1.4; text-decoration: none;display: block; overflow: hidden; cursor: default;font-family: "NotoSansKR";font-weight: 300;}
-.select-option.sb-select strong {font-weight: bold; color: #000; border-top: 1px solid #f5f5f5; border-bottom: 1px solid #ccc;}
-.select-option.sb-select li li span {padding-left: 10px;}
-.select-option.sb-select span:hover,
-.select-option.sb-select span.selected {color: #000; background: #eee;}
-.select-option.sb-select .disabled span,
-.select-option.sb-select .disabled strong {color: #bbb; text-decoration: line-through; background: none;}
+.select-option.select-base {border: 1px solid #bdc0c6;border-top: 1px solid #e2e2e2; background: #fff; overflow: auto;border-radius: 0px 0px 3px 3px;}
+.select-option.select-base.upper {border-top: 1px solid #bdc0c6;border-bottom: 1px solid #e2e2e2; border-radius: 3px 3px 0px 0px;}
+.select-option.select-base ul {margin: 0; padding: 0;}
+.select-option.select-base li {list-style: none;}
+.select-option.select-base span,
+.select-option.select-base strong {padding: 10px 15px 9px 15px;font-size:14px;color: #000;  white-space: nowrap; text-overflow: ellipsis; line-height: 1.4; text-decoration: none;display: block; overflow: hidden; cursor: default;font-family: "NotoSansKR";font-weight: 300;background-color: #fff;}
+.select-option.select-base strong {font-weight: bold; color: #000; border-top: 1px solid #f5f5f5; border-bottom: 1px solid #ccc;}
+.select-option.select-base li li span {padding-left: 10px;}
+.select-option.select-base span:hover,
+.select-option.select-base span.selected {color: #000; background: #eee;}
+.select-option.select-base .disabled span,
+.select-option.select-base .disabled strong {color: #bbb; text-decoration: line-through; background: none;}
 
 /* ------------- slick dots 스타일(기본 white) */
 .c-slick-dots .cs-dots-crt {display: inline-block;vertical-align: middle;margin-right: 2px;}
@@ -500,11 +500,23 @@ box-shadow: 0 10px 20px 0px rgba(0,0,0,0.1);
 .sc-search-box .qsb-cont .qsb-area {display: block;z-index: 0;}
 .sc-search-box .qsb-cont .qsb-label {display: block;font-size: 18px;color: #999;font-weight: 500 !important;margin-top: 10px;}
 .sc-search-box .qsb-cont .qsb-input {display: none;text-overflow:ellipsis;white-space:nowrap;overflow:hidden;}
-.sc-air .sc-search-box .qsb-c {color: #288ecc;}
-.sc-hotel .sc-search-box .qsb-c {color: #00a57e;}
 .sc-search-box .qsb-cont .qsb-area.on .qsb-label {font-size: 12px;color: #666;font-weight: 300 !important;margin-top: 0;}
 .sc-search-box .qsb-cont .qsb-area.on .qsb-input {display: block;font-size:18px;color: #000;font-weight: 500 !important;margin-top: 5px;}
 .sc-search-box .qsb-cont .qsb-area.on .qsb-input * , .sc-search-box .qsb-capacity .qsb-input * {font-size:18px;font-weight: 500 !important;}
+/* 검색 박스 - 항공,호텔 컬러 */
+.sc-air .sc-search-box .qsb-c {color: #288ecc;}
+.sc-hotel .sc-search-box .qsb-c {color: #00a57e;}
+/* 검색 박스 - 항공 도시체인지 버튼 */
+.sc-search-box .qsb-cont .b-change-places {position: absolute;left: 0;top: -22px;}
+.sc-search-box .qsb-cont .b-change-places button {display: block;width: 40px;height: 90px;position: relative;}
+.sc-search-box .qsb-cont .b-change-places button:before {content: '';display: block;width: 16px;height: 14px;position: absolute;top: 50%;margin-top: -7px;left: 50%;margin-left: -8px;background: url(/images/front/travel/contents/icon-common-sec.png) -41px -198px no-repeat;}
+/* 검색 박스 - 항공 도시박스 간격조정 */
+.sc-air .sc-search-box .qsb-places .places-exit {width: 45%;}
+.sc-air .sc-search-box .qsb-places .places-entry {width: 55%;position: relative;padding-left: 40px;}
+/* 검색 박스 - 항공 도시 말줄임 */
+.sc-air .sc-search-box .city {display: inline-block;vertical-align: top;text-overflow:ellipsis;white-space:nowrap;overflow:hidden;max-width: 128px;}
+.sc-air .sc-search-box.o-multiway .city {max-width: 208px;}
+.sc-air .sc-search-box .code {display: inline-block;vertical-align: top;}
 /* 검색 박스 - places */ 
 .sc-search-box .qsb-places:after {content: '';display: block;clear:both;}
 .sc-search-box .qsb-places .places-exit {float: left;width: 50%;}
@@ -574,7 +586,7 @@ box-shadow: 3px 7px 22px 0px rgba(0,0,0,0.3);
 .uis-mainsel-table td {vertical-align: top;border-bottom:1px solid #ececec;border-right:1px solid #ececec;padding: 15px 0 15px 20px;}
 .uis-mainsel-table td .list a {display: block;font-size:14px;color: #000;padding: 3px 0;transition: color 0.3s;}
 .uis-mainsel-table td .list a:hover {color: #e93a84;}
-/* 검색 UI 팝업 - 검색리스트(기본 리스트 스타일) */
+/* 검색 UI 팝업 - 검색리스트(기본 리스트 스타일 - 호텔국내, 실시간리스트, 셀렉트리스트) */
 .uis-list.uis-list-auto {display: none;}
 .uis-list .list {overflow-y: auto;max-height:170px;}
 .uis-list .list li {border-top: 1px solid #ededed;}
@@ -718,20 +730,14 @@ border-left:0;
 .hs-search-cont .ui-search-auto .uis-list-auto {display: block;}
 .hs-search-cont .ui-search-auto {min-width: 470px;width: auto;}
 /* 검색 박스 lyout -  왕복 */
-.hss-inner-cont .o-shuttle .places-exit {position: relative;}
-.hss-inner-cont .o-shuttle .b-change-places {position: absolute;right: 0;top: -22px;}
-.hss-inner-cont .o-shuttle .b-change-places button {display: block;width: 50px;height: 90px;position: relative;}
-.hss-inner-cont .o-shuttle .b-change-places button:before {content: '';display: block;width: 16px;height: 14px;position: absolute;top: 50%;margin-top: -7px;left: 50%;margin-left: -8px;background: url(/images/front/travel/contents/icon-common-sec.png) -41px -198px no-repeat;}
+.hss-inner-cont .o-shuttle .b-change-places button:before {background-position: -41px -198px;}
 .hss-inner-cont .o-shuttle .qsb-places {width: 41%;}
 .hss-inner-cont .o-shuttle .qsb-dates {width: 28%;}
 .hss-inner-cont .o-shuttle .qsb-capacity {width: 23%;}
 .hss-inner-cont .o-shuttle .qsb-btn-search {width: 8%;}
 .hss-inner-cont .o-shuttle .ui-date-calendar {top: -10px;left: 430px;}
 /* 검색 박스 lyout - 편도 */
-.hss-inner-cont .o-oneway .places-exit {position: relative;}
-.hss-inner-cont .o-oneway .b-change-places {position: absolute;right: 0;top: -22px;}
-.hss-inner-cont .o-oneway .b-change-places button {display: block;width: 50px;height: 90px;position: relative;}
-.hss-inner-cont .o-oneway .b-change-places button:before {content: '';display: block;width: 16px;height: 14px;position: absolute;top: 50%;margin-top: -7px;left: 50%;margin-left: -8px;background: url(/images/front/travel/contents/icon-common-sec.png) -41px -214px no-repeat;}
+.hss-inner-cont .o-oneway .b-change-places button:before {background-position: -41px -214px;}
 .hss-inner-cont .o-oneway .qsb-places {width: 41%;}
 .hss-inner-cont .o-oneway .qsb-dates {width: 28%;}
 .hss-inner-cont .o-oneway .qsb-capacity {width: 23%;}
@@ -740,11 +746,8 @@ border-left:0;
 .hss-inner-cont .o-oneway .ui-capacity .uis-capacity-select {display: none;}
 /* 검색 박스 lyout - 다구간 */
 .hss-inner-cont .o-multiway .qsb-number {width: 8%;}
-.hss-inner-cont .o-multiway .places-exit {position: relative;}
-.hss-inner-cont .o-multiway .b-change-places {position: absolute;right: 0;top: -22px;}
-.hss-inner-cont .o-multiway .b-change-places button {display: block;width: 50px;height: 90px;position: relative;}
-.hss-inner-cont .o-multiway .b-change-places button:before {content: '';display: block;width: 16px;height: 14px;position: absolute;top: 50%;margin-top: -7px;left: 50%;margin-left: -8px;background: url(/images/front/travel/contents/icon-common-sec.png) -41px -214px no-repeat;}
-.hss-inner-cont .o-multiway .qsb-places {width: 56%;}
+.hss-inner-cont .o-multiway .b-change-places button:before {background-position: -41px -214px;}
+.hss-inner-cont .o-multiway .qsb-places {width: 56%;border-left: 0;}
 .hss-inner-cont .o-multiway .qsb-dates {width: 36%;}
 .hss-inner-cont .o-multiway .qsb-dates .qsb-area {padding-right: 0px;margin-right: 60px;}
 .hss-inner-cont .o-multiway .qsb-cont-indep .qsb-capacity {width: 24%;float: left;}

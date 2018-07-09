@@ -641,7 +641,7 @@ $(function(){
 	$('.radio-base').customRadio();
 	
 	//셀렉트박스(공통)
-	$('.select-base select').fakeselect();
+	$('.select-base').fakeselect();
 	
 	//공통 헤더 컨트롤(상단리본, 공지사항, 스크롤 헤더반응형, 검색UI)
 	comHeaderControl(); 
