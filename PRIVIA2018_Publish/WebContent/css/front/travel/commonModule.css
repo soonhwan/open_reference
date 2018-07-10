@@ -503,6 +503,9 @@ box-shadow: 0 10px 20px 0px rgba(0,0,0,0.1);
 .sc-search-box .qsb-cont .qsb-area.on .qsb-label {font-size: 12px;color: #666;font-weight: 300 !important;margin-top: 0;}
 .sc-search-box .qsb-cont .qsb-area.on .qsb-input {display: block;font-size:18px;color: #000;font-weight: 500 !important;margin-top: 5px;}
 .sc-search-box .qsb-cont .qsb-area.on .qsb-input * , .sc-search-box .qsb-capacity .qsb-input * {font-size:18px;font-weight: 500 !important;}
+.sc-search-box .w-opt-box {margin-top: 20px;display: inline-block;}
+.sc-search-box .w-opt-box .chk-st1 {margin-right: 20px;}
+.hss-inner-cont.isRecently .w-opt-box {margin-bottom: -45px;} /* 최근검색이 있으면 */
 /* 검색 박스 - 항공,호텔 컬러 */
 .sc-air .sc-search-box .qsb-c {color: #288ecc;}
 .sc-hotel .sc-search-box .qsb-c {color: #00a57e;}
@@ -694,16 +697,11 @@ border-left:0;
 .uis-opt-bottom .uisob-left {float: left;}
 .uis-opt-bottom .chk-base {padding: 9px 0;}
 .uis-opt-bottom .b-cancel {margin-right: 8px;}
-/* 검색 UI 팝업 - 하단옵션, 최근검색 */
-.hss-inner-cont-bottom {margin-top: 20px;}
-.hss-inner-cont-bottom:after {content: '';display: block;clear:both;}
-.hss-inner-cont-bottom .opt-box {float: left;display: none;}
-.hss-inner-cont-bottom .opt-box.on {display: block;}
-.hss-inner-cont-bottom .opt-box .chk-st1 {margin-right: 20px;}
-.hss-inner-cont-bottom .hss-recently-search {float: right;text-align: right;margin-right: 30px;position: relative;display: none;}
+/* 검색 UI 팝업 - 최근검색 */
+.hss-recently-search {margin-top: 20px;text-align: right;margin-right: 30px;position: relative;display: none;}
 .hss-recently-search.on {display: block;}
 .hss-recently-search * {display: inline-block;vertical-align: middle;}
-.hss-recently-search .qrs-area {padding-right: 40px;position: relative;}
+.hss-recently-search .qrs-area {width:550px;padding-right: 40px;position: relative;}
 .hss-recently-search .qrs-area:before {content: '';display: block;width: 17px;height: 9px;background: url(/images/front/travel/contents/icon-common-sec.png) 0 -360px no-repeat;position: absolute;top: 8px;right: 0;}
 .hss-recently-search .qrs-area .inf-total {font-size:16px;color: #fff;font-weight: 500 !important;}
 .hss-recently-search .qrs-area .inf-sum {font-size:14px;color: #fff;}

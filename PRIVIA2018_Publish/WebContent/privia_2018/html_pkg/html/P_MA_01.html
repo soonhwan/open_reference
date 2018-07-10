@@ -1135,19 +1135,16 @@ function menuChange(idx){
                                                         <li><a href="#" data-city="인천/김포" data-code="INC">인천/김포</a></li>
                                                         <li><a href="#" data-city="인천" data-code="INC">인천</a></li>
                                                         <li><a href="#" data-city="김포" data-code="INC">김포</a></li>
-                                                        <li><a href="#" data-city="부산" data-code="INC">부산</a></li>
-                                                        <li><a href="#" data-city="대구" data-code="INC">대구</a></li>
                                                         <li><a href="#" data-city="제주" data-code="INC">제주</a></li>
+                                                        <li><a href="#" data-city="부산" data-code="INC">부산</a></li>
                                                         <li><a href="#" data-city="광주" data-code="INC">광주</a></li>
-                                                        <li><a href="#" data-city="울산" data-code="INC">울산</a></li>
-                                                        <li><a href="#" data-city="포항" data-code="INC">포항</a></li>
-                                                        <li><a href="#" data-city="전주" data-code="INC">전주</a></li>
-                                                        <li><a href="#" data-city="여수" data-code="INC">여수</a></li>
-                                                        <li><a href="#" data-city="양양" data-code="INC">양양</a></li>
-                                                        <li><a href="#" data-city="군산" data-code="INC">군산</a></li>
-                                                        <li><a href="#" data-city="원주" data-code="INC">원주</a></li>
-                                                        <li><a href="#" data-city="청주" data-code="INC">청주</a></li>
+                                                        <li><a href="#" data-city="대구" data-code="INC">대구</a></li>
                                                         <li><a href="#" data-city="무안" data-code="INC">무안</a></li>
+                                                        <li><a href="#" data-city="여수" data-code="INC">여수</a></li>
+                                                        <li><a href="#" data-city="울산" data-code="INC">울산</a></li>
+                                                        <li><a href="#" data-city="원주" data-code="INC">원주</a></li>
+                                                        <li><a href="#" data-city="전주" data-code="INC">진주</a></li>
+                                                        <li><a href="#" data-city="청주" data-code="INC">청주</a></li>
                                                     </ul>
                                                 </td>
                                                 <td>
@@ -1636,7 +1633,6 @@ function menuChange(idx){
                                                     <li><a href="#" data-city="서울특별시 전체">서울특별시 전체</a></li>
                                                     <li><a href="#" data-city="부산광역시 전체">부산광역시 전체</a></li>
                                                     <li><a href="#" data-city="인천광역시 전체">인천광역시 전체</a></li>
-                                                    <li><a href="#" data-city="광주광역시 전체">광주광역시 전체</a></li>
                                                     <li><a href="#" data-city="광주광역시 전체">광주광역시 전체</a></li>
                                                     <li><a href="#" data-city="대구광역시 전체">대구광역시 전체</a></li>
                                                     <li><a href="#" data-city="대전광역시 전체">대전광역시 전체</a></li>
@@ -2246,7 +2242,24 @@ function menuChange(idx){
                                             <a href="#" class="b-scb-close"><span class="a11y">닫기</span></a>
                                         </div>
                                         <!-- //캘린더 렌터카 -->
-                                    </div>										
+                                    </div>	
+                                    <div class="w-opt-box">
+                                        <span class="chk-base chk-st1 chk-area-same">
+                                            <input type="checkbox" id="areaSameRent" class="a11y" checked>
+                                            <label for="areaSameRent" class="on">대여/반납 장소 동일</label> 
+                                        </span>	
+                                        <span class="chk-base chk-st1 chk-driver-age">
+                                            <input type="checkbox" id="driverAge" class="a11y" checked>
+                                            <label for="driverAge" class="on">운전자 연령 25~70세</label> 
+                                            <span class="help-tooltip">
+                                                <span class="over">?</span>
+                                                <span class="cont" style="width:350px">
+                                                    차량을 대여할 당시 운전자 연령이 <strong>만 25세 미만인 경우 추가요금이 발생할 수 있습니다.</strong><br />
+                                                    자세한 사항은 이용약관을 확인하여주시기 바랍니다.
+                                                </span>
+                                            </span>
+                                        </span>
+                                    </div>									
                                 </div>
                                 <!-- //렌터카 -->
 
@@ -2826,83 +2839,59 @@ function menuChange(idx){
                             </div>
                             <!-- //투어&액티비티 -->
 
-                            <!-- 하단옵션, 최근검색(하단 간격 때문에 위치함) -->
-                            <div class="hss-inner-cont-bottom">
-                                <!-- 투액 렌터카 - 장소, 연령 -->
-                                <div class="opt-box ob-rentv">
-                                    <span class="chk-base chk-st1 chk-area-same">
-                                        <input type="checkbox" id="areaSameRent" class="a11y" checked>
-                                        <label for="areaSameRent" class="on">대여/반납 장소 동일</label> 
-                                    </span>	
-                                    <span class="chk-base chk-st1 chk-driver-age">
-                                        <input type="checkbox" id="driverAge" class="a11y" checked>
-                                        <label for="driverAge" class="on">운전자 연령 25~70세</label> 
-                                        <span class="help-tooltip">
-                                            <span class="over">?</span>
-                                            <span class="cont" style="width:350px">
-                                                차량을 대여할 당시 운전자 연령이 <strong>만 25세 미만인 경우 추가요금이 발생할 수 있습니다.</strong><br />
-                                                자세한 사항은 이용약관을 확인하여주시기 바랍니다.
-                                            </span>
-                                        </span>
-                                    </span>												
+                            <!-- 최근검색 -->
+                            <div class="hss-recently-search">
+                                <a href="#" class="qrs-area">
+                                    <span class="inf-total">최근검색 (3)</span>
+                                    <span class="inf-sum">
+                                        <span class="tit">항공</span>
+                                        <span class="cont">인천/김포 → 도쿄(나리타) I 06/29 도쿄(나리타) → 인천/김포 I 06/30 성인1, 아동0, 유아0 I 일반석</span>
+                                    </span>
+                                </a>
+                                <div class="sc-ui-search-box ui-recently-search">
+                                    <div class="urs-tit">최근검색 <em>(3)</em></div>
+                                    <ul class="list o-customscrollbar">
+                                        <li>
+                                            <a href="#">
+                                                <span class="tit">항공</span>
+                                                <span class="cont">인천/김포 → 도쿄(나리타) I 06/29 도쿄(나리타) → 인천/김포 I 06/30 성인1, 아동0, 유아0 I 일반석</span>
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a href="#">
+                                                <span class="tit">호텔</span>
+                                                <span class="cont">홍콩 2018/06/22(1박) <br />백실1 I 2인실(더블요청)</span>
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a href="#">
+                                                <span class="tit">투어&nbsp;액티비티<br />교통패스</span>
+                                                <span class="cont">유럽 > 셀렉트패스 4개국 그리스 > 세르비아 > 이탈리아 > 스위스 성인 1명, 아동 0명 유스 0명, 경로 0명</span>
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a href="#">
+                                                <span class="tit">항공</span>
+                                                <span class="cont">인천/김포 → 도쿄(나리타) I 06/29 도쿄(나리타) → 인천/김포 I 06/30 성인1, 아동0, 유아0 I 일반석</span>
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a href="#">
+                                                <span class="tit">호텔</span>
+                                                <span class="cont">홍콩 2018/06/22(1박) <br />백실1 I 2인실(더블요청)</span>
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a href="#">
+                                                <span class="tit">투어&nbsp;액티비티<br />교통패스</span>
+                                                <span class="cont">유럽 > 셀렉트패스 4개국 그리스 > 세르비아 > 이탈리아 > 스위스 성인 1명, 아동 0명 유스 0명, 경로 0명</span>
+                                            </a>
+                                        </li>
+                                    </ul>
+                                    <a href="#" class="b-scb-close"><span class="a11y">닫기</span></a>
                                 </div>
-                                <!-- //투액 렌터카 - 장소, 연령 -->
-
-                                <!-- 최근검색 -->
-                                <div class="hss-recently-search">
-                                    <a href="#" class="qrs-area">
-                                        <span class="inf-total">최근검색 (3)</span>
-                                        <span class="inf-sum">
-                                            <span class="tit">항공</span>
-                                            <span class="cont">인천/김포 → 도쿄(나리타) I 06/29 도쿄(나리타) → 인천/김포 I 06/30 성인1, 아동0, 유아0 I 일반석</span>
-                                        </span>
-                                    </a>
-                                    <div class="sc-ui-search-box ui-recently-search">
-                                        <div class="urs-tit">최근검색 <em>(3)</em></div>
-                                        <ul class="list o-customscrollbar">
-                                            <li>
-                                                <a href="#">
-                                                    <span class="tit">항공</span>
-                                                    <span class="cont">인천/김포 → 도쿄(나리타) I 06/29 도쿄(나리타) → 인천/김포 I 06/30 성인1, 아동0, 유아0 I 일반석</span>
-                                                </a>
-                                            </li>
-                                            <li>
-                                                <a href="#">
-                                                    <span class="tit">호텔</span>
-                                                    <span class="cont">홍콩 2018/06/22(1박) <br />백실1 I 2인실(더블요청)</span>
-                                                </a>
-                                            </li>
-                                            <li>
-                                                <a href="#">
-                                                    <span class="tit">투어&nbsp;액티비티<br />교통패스</span>
-                                                    <span class="cont">유럽 > 셀렉트패스 4개국 그리스 > 세르비아 > 이탈리아 > 스위스 성인 1명, 아동 0명 유스 0명, 경로 0명</span>
-                                                </a>
-                                            </li>
-                                            <li>
-                                                <a href="#">
-                                                    <span class="tit">항공</span>
-                                                    <span class="cont">인천/김포 → 도쿄(나리타) I 06/29 도쿄(나리타) → 인천/김포 I 06/30 성인1, 아동0, 유아0 I 일반석</span>
-                                                </a>
-                                            </li>
-                                            <li>
-                                                <a href="#">
-                                                    <span class="tit">호텔</span>
-                                                    <span class="cont">홍콩 2018/06/22(1박) <br />백실1 I 2인실(더블요청)</span>
-                                                </a>
-                                            </li>
-                                            <li>
-                                                <a href="#">
-                                                    <span class="tit">투어&nbsp;액티비티<br />교통패스</span>
-                                                    <span class="cont">유럽 > 셀렉트패스 4개국 그리스 > 세르비아 > 이탈리아 > 스위스 성인 1명, 아동 0명 유스 0명, 경로 0명</span>
-                                                </a>
-                                            </li>
-                                        </ul>
-                                        <a href="#" class="b-scb-close"><span class="a11y">닫기</span></a>
-                                    </div>
-                                </div>
-                                <!-- //최근검색 -->
                             </div>
-                            <!-- //하단옵션, 최근검색 -->
+                            <!-- //최근검색 -->
                         </div>
                         <!-- //검색 섹션 -->
 

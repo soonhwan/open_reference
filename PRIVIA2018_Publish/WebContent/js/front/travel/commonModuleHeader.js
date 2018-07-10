@@ -600,9 +600,6 @@ function comSearchEvent(){
 			$('.hs-search-cont .o-'+code).closest('.hss-inner-cont').find('.sc-search-box.on').removeClass('on');	
 			$('.hs-search-cont .o-'+code).addClass('on');
 		}			
-		//하단옵션
-		$('.hss-inner-cont-bottom .opt-box.on').removeClass('on');	
-		$('.hss-inner-cont-bottom .opt-box.ob-'+code).addClass('on');
 		e.preventDefault();
 	});	
 	
@@ -625,8 +622,9 @@ function comSearchEvent(){
 
 //검색 - 최근검색 관련
 function comSearchRecently(){
-	//최근검색이 있으면 실행
+	//최근검색이 있으면 노출
 	$('.hss-recently-search').addClass('on');
+	$('.hss-inner-cont').addClass('isRecently');
 	
 	//최근검색 열기 click
 	$('.hss-recently-search .qrs-area').on('click', function(e){
@@ -1892,8 +1890,8 @@ function comSearchFreetour(){
 	});
 	
 	//렌터카 대여/반납 장소 동일 체크
-	$('.opt-box.ob-rentv .chk-area-same label').on('click', function(){
-		if($('.opt-box.ob-rentv #areaSameRent').is(':checked')){
+	$('.sc-freetour .o-rentv .chk-area-same label').on('click', function(){
+		if($('.sc-freetour .o-rentv #areaSameRent').is(':checked')){
 			$('.sc-freetour .o-rentv .qsb-places').removeClass('area-same');
 		}
 		else{
