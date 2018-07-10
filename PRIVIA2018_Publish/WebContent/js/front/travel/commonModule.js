@@ -103,6 +103,89 @@
 }(window.jQuery, window, document));
 
 /*
+ * 함수명 : documentMousedownTrg
+ * 설명   : document mousedown 트리거
+ * 사용처 : 주로 통합 헤더 검색 팝업을 닫을때 사용
+ * 작성자 : 권순환
+ */
+function documentMousedownTrg($delay){
+	var delay = $delay || 100;
+	setTimeout(function(){$(document).mousedown();}, delay);
+} 
+
+/*
+ * 함수명 : onSelectTxtDay
+ * 설명   : 선택된 날짜 형식 ex)08월 07일 (화)
+ * 사용처 : jQuery UI datepicker : onSelect 내부
+ * 작성자 : 권순환
+ */
+function onSelectTxtDay($this, dateText, inst){
+	//console.log($this, dateText)
+	var selectedDate = $.datepicker.parseDate('yy/mm/dd', dateText);
+	var month = (selectedDate.getMonth()+1) < 10 ? '0' + (selectedDate.getMonth()+1)  : selectedDate.getMonth()+1;
+	var day = selectedDate.getDate() < 10 ? '0' + selectedDate.getDate()  : selectedDate.getDate();
+	var dayName = selectedDate.getUTCDay() < 6 ? $this.datepicker('option', 'dayNamesMin')[selectedDate.getUTCDay()+1] : $this.datepicker('option', 'dayNamesMin')[0];
+	
+	return month + '월 ' + day + '일 (' + dayName + ')';
+}
+
+/*
+ * 함수명 : beforeShowDayVer2
+ * 설명   : 출발, 도착지 스타일 구현
+ * 사용처 : jQuery UI datepicker : beforeShowDay 내부
+ * 작성자 : 권순환
+ */
+function beforeShowDayVer2(date, $date1, $date2){
+	var result;
+	var holiday = holidays[$.datepicker.formatDate("mmdd",date )];
+	if(!holiday){
+		holiday = holidays[$.datepicker.formatDate("yymmdd",date )];
+	}
+	var thisYear = $.datepicker.formatDate("yy", date);
+	if (holiday) {
+		if(thisYear == holiday.year || holiday.year == "") {
+			result =  [true, "date-holiday", holiday.title];
+		}
+	}
+
+	var date1 = $date1;
+	var date2 = $date2;
+	if(date1){
+		if(date.getTime() == date1.getTime()){
+			if(date2){
+				result = [true, "dp-highlight dp-first"];
+			}
+			else{
+				result = [true, "dp-highlight"];
+			}
+		}
+		else if(date2){
+			if(date.getTime() == date2.getTime()){
+				result = [true, "dp-highlight dp-end"];
+			}
+			else if(date > date1 && date < date2){
+				result = [true, "dp-highlight pd-between"];
+			 }
+		}
+	}
+
+	if(!result) {
+		switch (date.getDay()) {
+			case 0:
+				result = [true, "date-sunday"];
+				break;
+			case 6:
+				result = [true, "date-saturday"];
+				break;
+			default:
+				result = [true, ""];
+				break;
+		}
+	}		
+	return result;
+}
+
+/*
  * 함수명 : utilSlickCrt
  * 설명   : slick autoplay 컨트롤해주는 함수
  * 사용처 : slick event 'init' 내부
@@ -431,6 +514,7 @@ function beforeSettingNav(){
 		}
 		totalNav += '</li>';
 		
+		//2dep TO be에서 해외패키지만 사용
 		/*for(i=0;i<code.length;i++){			
 			if(key == code[i]){
 				if(navData[key].subNav.length > 0 && navData[key].subNavDisplayToGNB == true){
@@ -451,10 +535,24 @@ function beforeSettingNav(){
 	
 	//최대높이
 	var mh = 0;
-	$('.w-nav-gnb-total .nav-gnb-total .list').each(function(){
-		mh = (mh < $(this).outerHeight()) ? $(this).outerHeight() : mh
+	var titH = $('.w-nav-gnb-total .nav-gnb-total .tit a').outerHeight()+15;
+	$('.w-nav-gnb-total .nav-gnb-total > li ').each(function(index){
+		var list = $(this).find('.list');
+		mh = (mh < list.outerHeight()) ? list.outerHeight() : mh
+		
+		/*console.log((index+1) % 6 + ' = ', mh);
+		if((index+1) % 6 == 0){
+			console.log('index = ', index, mh);
+			//console.log('index = ', index, mh);
+			//list.parent('li').height(mh+titH);
+			$(this).prevAll().css('border','5px solid red');
+		}
+		else{
+			//console.log('else index = ', index, mh);
+			//list.parent('li').height(mh+titH);
+		}*/
 	});
-	$('.w-nav-gnb-total .nav-gnb-total > li').height(mh+$('.w-nav-gnb-total .nav-gnb-total .tit a').outerHeight()+20);
+	$('.w-nav-gnb-total .nav-gnb-total > li').height(mh+titH);
 }
 
 /*

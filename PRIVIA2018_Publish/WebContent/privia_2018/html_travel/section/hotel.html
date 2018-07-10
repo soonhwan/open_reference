@@ -655,11 +655,32 @@
 													</span>
 													<span class="uis-date-chkout">
 														<span class="txt-day" data-day="">도착일을 선택해주세요.</span>
+														<span class="uis-select">
+															<select class="select-base sel-unday">
+																<option value="" selected="">도착일 미정</option>
+																<option value="5D">5일</option>
+																<option value="7D">7일</option>
+																<option value="14D">14일</option>
+																<option value="20D">20일</option>
+																<option value="1M">1개월</option>
+																<option value="3M">3개월</option>
+																<option value="6M">6개월</option>
+																<option value="1Y">1년</option>
+															</select>
+														</span>
 													</span>
 												</div>
 												<div class="uis-calendar">
 													<div class="uis-datepicker"></div>
 												</div> 
+												<div class="uis-opt-bottom">
+													<div class="uisob-left">
+														<span class="chk-base chk-st2 chk-unday">
+															<input type="checkbox" id="unDayAir" class="a11y">
+															<label for="unDayAir">도착일 미정</label> 
+														</span>
+													</div>
+												</div>
 												<a href="#" class="b-scb-close"><span class="a11y">닫기</span></a>
 											</div>
 											<!-- //캘린더 왕복 -->
@@ -1180,28 +1201,12 @@
 														<span class="name">서울</span>
 														<span class="name-det">대한민국, 모든 공항 (SEL)</span>
 													</a>
-													<ul class="list-sub">
-														<li>
-															<a href="#" data-city="프랑스 파리" data-code="CDG">
-																<span class="name c-txt-point1">샤를드골</span>
-																<span class="name-det">프랑스 파리, 샤를드골 공항 (CDG)</span>
-															</a>
-														</li>
-													</ul>
 												</li>
 												<li>
 													<a href="#" data-city="인천" data-code="ICN">
-														<span class="name c-txt-point1">인천</span>
+														<span class="name">인천</span>
 														<span class="name-det">대한민국, 인천 국제 공항 (ICN)</span>
 													</a>
-													<ul class="list-sub">
-														<li>
-															<a href="#" data-city="프랑스 파리" data-code="CDG">
-																<span class="name c-txt-point1">샤를드골</span>
-																<span class="name-det">프랑스 파리, 샤를드골 공항 (CDG)</span>
-															</a>
-														</li>
-													</ul>
 												</li>
 												<li>
 													<a href="#" data-city="김포" data-code="GMP">
@@ -1209,8 +1214,13 @@
 														<span class="name-det">대한민국, 김포국제 공항 (GMP)</span>
 													</a>
 												</li>
+												<li>
+													<a href="#" data-city="서울" data-code="INC">
+														<span class="name">서울</span>
+														<span class="name-det">대한민국, 모든 공항 (SEL)</span>
+													</a>
+												</li>
 											</ul>
-											<div class="tip-exp"><span class="c-txt-point1">대한민국에서 출발하는 80%가 이 공항을 선택했습니다.</span></div>
 										</div>
 										<a href="#" class="b-scb-close"><span class="a11y">닫기</span></a>
 									</div>
@@ -1259,13 +1269,15 @@
 											</ul>
 											<ul class="uis-capacity-select select-comp">
 												<li class="on"><a href="#" data-option="Y">일반석</a></li>
-												<li><a href="#" data-option="P">프리미엄 이코노미</a></li>
-												<li><a href="#" data-option="C">비지니스석</a></li>
+												<li><a href="#" data-option="P">프리미엄 이코노미석</a></li>
+												<li><a href="#" data-option="C">비즈니스석</a></li>
 												<li><a href="#" data-option="F">일등석</a></li>
 											</ul>
-											<div class="uis-set-btn">
-												<span class="btn-base bb-st2 b-cancel"><a href="#">취소</a></span>
-												<span class="btn-base bb-st3 b-complete"><a href="#">완료</a></span>
+											<div class="uis-opt-bottom">
+												<div class="uisob-right">
+													<span class="btn-base bb-st2 b-cancel"><a href="#">취소</a></span>
+													<span class="btn-base bb-st3 b-complete"><a href="#">완료</a></span>
+												</div>
 											</div>
 										</div> 
 									</div>
@@ -1662,9 +1674,11 @@
 													</div>
 												</li>
 											</ul>
-											<div class="uis-set-btn">
-												<span class="btn-base bb-st2 b-cancel"><a href="#">취소</a></span>
-												<span class="btn-base bb-st3 b-complete"><a href="#">완료</a></span>
+											<div class="uis-opt-bottom">
+												<div class="uisob-right">
+													<span class="btn-base bb-st2 b-cancel"><a href="#">취소</a></span>
+													<span class="btn-base bb-st3 b-complete"><a href="#">완료</a></span>
+												</div>
 											</div>
 										</div> 
 									</div>
@@ -2043,7 +2057,7 @@
 													<span class="uis-date-chkin">
 														<span class="txt-label">대여일</span>
 														<span class="txt-day" data-day="">대여일을 선택해주세요.</span>
-														<span class="set-time">
+														<span class="uis-select">
 															<select class="select-base timeh">
 																<option value="0">00시</option>
 																<option value="1">01시</option>
@@ -2084,7 +2098,7 @@
 													<span class="uis-date-chkout">
 														<span class="txt-label">반납일</span>
 														<span class="txt-day" data-day="">반납일을 선택해주세요.</span>
-														<span class="set-time">
+														<span class="uis-select">
 															<select class="select-base timeh">
 																<option value="0">00시</option>
 																<option value="1">01시</option>
@@ -2126,8 +2140,10 @@
 												<div class="uis-calendar">
 													<div class="uis-datepicker"></div>
 												</div> 
-												<div class="uis-set-btn">
-													<span class="btn-base bb-st3 b-complete"><a href="#">완료</a></span>
+												<div class="uis-opt-bottom">
+													<div class="uisob-right">
+														<span class="btn-base bb-st3 b-complete"><a href="#">완료</a></span>
+													</div>
 												</div>
 												<a href="#" class="b-scb-close"><span class="a11y">닫기</span></a>
 											</div>
@@ -2426,9 +2442,11 @@
 															</span>
 														</li>
 													</ul>
-													<div class="uis-set-btn">
-														<span class="btn-base bb-st2 b-cancel"><a href="#">취소</a></span>
-														<span class="btn-base bb-st3 b-complete"><a href="#">완료</a></span>
+													<div class="uis-opt-bottom">
+														<div class="uisob-right">
+															<span class="btn-base bb-st2 b-cancel"><a href="#">취소</a></span>
+															<span class="btn-base bb-st3 b-complete"><a href="#">완료</a></span>
+														</div>
 													</div>
 												</div> 
 											</div>
@@ -2698,9 +2716,11 @@
 												</li>
 											</ul>
 											<div class="uis-txt1">입장권별 연령 기준이 다를 수 있습니다.</div>
-											<div class="uis-set-btn">
-												<span class="btn-base bb-st2 b-cancel"><a href="#">취소</a></span>
-												<span class="btn-base bb-st3 b-complete"><a href="#">완료</a></span>
+											<div class="uis-opt-bottom">
+												<div class="uisob-right">
+													<span class="btn-base bb-st2 b-cancel"><a href="#">취소</a></span>
+													<span class="btn-base bb-st3 b-complete"><a href="#">완료</a></span>
+												</div>
 											</div>
 										</div> 
 									</div>
@@ -2708,17 +2728,8 @@
 								</div>
 								<!-- //투어&액티비티 -->
 								
-								<!-- 하단옵션, 최근검색 -->
+								<!-- 하단옵션, 최근검색(하단 간격 때문에 위치함) -->
 								<div class="hss-inner-cont-bottom">
-									<!-- 항공 왕복 - 도착일 미정 -->
-									<div class="opt-box ob-shuttle">
-										<span class="chk-base chk-st1 chk-unday">
-											<input type="checkbox" id="unDayAir" class="a11y">
-											<label for="unDayAir">도착일 미정</label> 
-										</span>												
-									</div>
-									<!-- //항공 왕복 - 도착일 미정 -->
-									
 									<!-- 투액 렌터카 - 장소, 연령 -->
 									<div class="opt-box ob-rentv">
 										<span class="chk-base chk-st1 chk-area-same">
