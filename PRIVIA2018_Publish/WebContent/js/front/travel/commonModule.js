@@ -109,7 +109,7 @@
  * 작성자 : 권순환
  */
 function docuMoudownTrigger($delay){
-	var delay = $delay || 100;
+	var delay = $delay || 0;
 	setTimeout(function(){$(document).mousedown();}, delay);
 } 
 
@@ -356,6 +356,11 @@ function CHOScrollEvent(){
 			});
 			//퀵버전 검색버튼
 			$('.w-header-gnb .b-open-search button.on').removeClass('on');
+			
+			//검색팝업
+			if($('.sc-ui-search-panel.on').length > 0){
+				$('.sc-ui-search-panel.on').removeClass('on');
+			}
 		}
 		
 		//전체메뉴
@@ -409,8 +414,8 @@ function CHOScrollEvent(){
 				}
 				
 				//검색팝업
-				if($('.sc-ui-search-box.on').length > 0){
-					$('.sc-ui-search-box.on').removeClass('on');
+				if($('.sc-ui-search-panel.on').length > 0){
+					$('.sc-ui-search-panel.on').removeClass('on');
 				}
 							
 				isFix = true;

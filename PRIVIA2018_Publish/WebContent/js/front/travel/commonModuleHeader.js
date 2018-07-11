@@ -537,9 +537,9 @@ function comSearchEvtBind(section){
 	}
 	
 	//팝업 닫기 버튼
-	if($section.find('.sc-ui-search-box .b-scb-close').length > 0){
-		$section.find('.sc-ui-search-box .b-scb-close').on('click', function(e){
-			$(this).closest('.sc-ui-search-box.on').removeClass('on');
+	if($section.find('.sc-ui-search-panel .b-scb-close').length > 0){
+		$section.find('.sc-ui-search-panel .b-scb-close').on('click', function(e){
+			$(this).closest('.sc-ui-search-panel.on').removeClass('on');
 			e.preventDefault();
 		});
 	}
@@ -553,8 +553,8 @@ function comSearchEvtBind(section){
 	}
 	
 	//캘린더 today 제거
-	if($section.find('.sc-ui-search-box .uis-datepicker').length > 0){
-		$section.find('.sc-ui-search-box .uis-datepicker').find(".ui-state-active").removeClass("ui-state-active"); 
+	if($section.find('.sc-ui-search-panel .uis-datepicker').length > 0){
+		$section.find('.sc-ui-search-panel .uis-datepicker').find(".ui-state-active").removeClass("ui-state-active"); 
 	}
 }
 
@@ -609,8 +609,8 @@ function comSearchEvent(){
 		}
 		else{
 			//검색팝업
-			if($(e.target).closest(".sc-ui-search-box.on").length <= 0){
-				$('.w-header-search .sc-ui-search-box.on').removeClass('on');
+			if($(e.target).closest(".sc-ui-search-panel.on").length <= 0){
+				$('.w-header-search .sc-ui-search-panel.on').removeClass('on');
 			}
 		}
 	});	
@@ -626,17 +626,11 @@ function comSearchRecently(){
 	$('.hss-inner-cont').addClass('isRecently');
 	
 	//최근검색 열기 click
-	$('.hss-recently-search .qrs-area').on('click', function(e){
-		$('.hss-recently-search .ui-recently-search').addClass('on');
+	$('.hss-recently-search [data-panel="recently"]').on('click', function(e){
+		$(this).closest('.hss-recently-search').find('.ui-recently-search').addClass('on');
 		e.preventDefault();
 	});
-	
-	//최근검색 닫기 click
-	$('.hss-recently-search .ui-recently-search .urs-tit a').on('click', function(e){
-		$('.hss-recently-search .ui-recently-search').removeClass('on');
-		e.preventDefault();
-	});	
-	
+		
 	//event 바인딩
 	comSearchEvtBind($('.hss-recently-search'));
 }
@@ -665,7 +659,7 @@ function comSearchAir(){
 	}
 	
 	//출발, 도착 도시 팝업
-	$('.sc-air [data-qsb-area="mainsel"]').on('click', function(e){
+	$('.sc-air [data-panel="mainsel"]').on('click', function(e){
 		//position
 		var $p = $(this).closest('.hss-inner-cont').find('.ui-mainsel-air');
 		$p.position({
@@ -855,7 +849,7 @@ function comSearchAir(){
 	}
 	
 	//인원, 좌석등급 팝업
-	$('.sc-air [data-qsb-area="capacity"]').on('click', function(e){
+	$('.sc-air [data-panel="capacity"]').on('click', function(e){
 		//position
 		var $p = $(this).closest('.hss-inner-cont').find('.ui-capacity');
 		$p.position({
@@ -952,7 +946,7 @@ function comSearchAir(){
 	
 	//+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ 캘린더
 	//캘린더 팝업
-	$('.sc-air [data-qsb-area="calendar"]').on('click', function(e){
+	$('.sc-air [data-panel="calendar"]').on('click', function(e){
 		//position
 		var $p = $(this).closest('.w-qsb-cont').find('.ui-date-calendar');
 		$p.addClass('on');
@@ -1307,7 +1301,7 @@ function comSearchHotel(){
 	}
 		
 	//목적지 팝업
-	$('.sc-hotel [data-qsb-area="mainsel"]').on('click', function(e){
+	$('.sc-hotel [data-panel="mainsel"]').on('click', function(e){
 		var $p = $(this).closest('.w-qsb-cont').find('.ui-mainsel-hotel')
 		$p.position({
 			my: 'left top-10',
@@ -1470,7 +1464,7 @@ function comSearchHotel(){
 	}
 	
 	//객실타입, 객실수 팝업
-	$('.sc-hotel [data-qsb-area="capacity"]').on('click', function(e){
+	$('.sc-hotel [data-panel="capacity"]').on('click', function(e){
 		//position
 		var $p = $(this).closest('.hss-inner-cont').find('.ui-capacity');
 		$p.position({
@@ -1562,7 +1556,7 @@ function comSearchHotel(){
 	
 	//+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ 캘린더
 	//캘린더 팝업
-	$('.sc-hotel [data-qsb-area="calendar"]').on('click', function(e){
+	$('.sc-hotel [data-panel="calendar"]').on('click', function(e){
 		//position
 		var $p = $(this).closest('.w-qsb-cont').find('.ui-date-calendar');
 		$p.addClass('on');
@@ -1747,16 +1741,16 @@ function comSearchFree(){
 	var $currentSelect = null; // select 저장
 	
 	//프리미엄 에어텔 보기 click 팝업
-	$('.sc-free [data-qsb-area="mainsel"]').on('click', function(e){
+	$('.sc-free [data-panel="mainsel"]').on('click', function(e){
 		var $p;
 		$p = $(this).closest('.hss-inner-cont').find('.ui-mainsel-airtel').addClass('on');
 		e.preventDefault();
 	});
 	
 	//select click 팝업
-	$('.sc-free [data-qsb-sel]').on('click', function(e){
+	$('.sc-free [data-panel-sel]').on('click', function(e){
 		//position
-		var $sel = $(this).data('qsb-sel');
+		var $sel = $(this).data('panel-sel');
 		var $p = $(this).closest('.hss-inner-cont').find('.'+$sel);
 		$p.position({
 			my: 'left top-12',
@@ -1811,7 +1805,7 @@ function comSearchFreetour(){
 	}
 	
 	//대여, 반납 도시 팝업
-	$('.sc-freetour [data-qsb-area="mainsel"]').on('click', function(e){
+	$('.sc-freetour [data-panel="mainsel"]').on('click', function(e){
 		//position
 		var $p = $(this).closest('.w-qsb-cont').find('.ui-mainsel-freetour');
 		$p.position({
@@ -1955,7 +1949,7 @@ function comSearchFreetour(){
 	}
 	
 	//인원, 테마 팝업
-	$('.sc-freetour [data-qsb-area="capacity"]').on('click', function(e){
+	$('.sc-freetour [data-panel="capacity"]').on('click', function(e){
 		//position
 		var $p = $(this).closest('.w-qsb-cont').find('.ui-capacity'); //테마
 		
@@ -2079,9 +2073,9 @@ function comSearchFreetour(){
 	});
 	
 	//select click 팝업
-	$('.sc-freetour [data-qsb-sel]').on('click', function(e){
+	$('.sc-freetour [data-panel-sel]').on('click', function(e){
 		//position
-		var $sel = $(this).data('qsb-sel');
+		var $sel = $(this).data('panel-sel');
 		var $p = $(this).closest('.hss-inner-cont').find('.'+$sel);
 		$p.position({
 			my: 'left top-12',
@@ -2112,7 +2106,7 @@ function comSearchFreetour(){
 	
 	//+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ 캘린더
 	//캘린더 팝업
-	$('.sc-freetour [data-qsb-area="calendar"]').on('click', function(e){
+	$('.sc-freetour [data-panel="calendar"]').on('click', function(e){
 		//position
 		var $p = $(this).closest('.w-qsb-cont').find('.ui-date-calendar');
 		$p.addClass('on');
