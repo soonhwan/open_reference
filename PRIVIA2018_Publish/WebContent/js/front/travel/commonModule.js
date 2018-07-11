@@ -115,7 +115,7 @@ function docuMoudownTrigger($delay){
 
 /*
  * 함수명 : onSelectTxtDay
- * 설명   : 선택된 날짜 형식 ex)08월 07일 (화)
+ * 설명   : 통합검색 - 선택된 날짜 형식 ex)08월 07일 (화)
  * 사용처 : jQuery UI datepicker : onSelect 내부
  * 작성자 : 권순환
  */
@@ -130,7 +130,7 @@ function onSelectTxtDay($this, dateText, inst){
 
 /*
  * 함수명 : beforeShowDayVer2
- * 설명   : 출발, 도착지 스타일 구현
+ * 설명   : 통합검색 - 출발, 도착지 스타일 구현 - 주의!(onSelect 인터렉션과 맞아야함)
  * 사용처 : jQuery UI datepicker : beforeShowDay 내부
  * 작성자 : 권순환
  */

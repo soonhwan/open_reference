@@ -1021,8 +1021,6 @@ function comSearchAir(){
 						$(".sc-air .o-shuttle .uis-date-chkin .txt-day").html(txtDay+' 출발');
 						//search input
 						$(".sc-air .o-shuttle .qsb-dates .qsb-chkin").html(txtDay);
-
-						docuMoudownTrigger();
 					} 
 					else {
 						//출발이후 선택시(도착)
@@ -1034,9 +1032,9 @@ function comSearchAir(){
 						//search input
 						$(".sc-air .o-shuttle .qsb-dates .qsb-chkout").addClass('on');
 						$(".sc-air .o-shuttle .qsb-dates .qsb-chkout").html(txtDay);
-
-						docuMoudownTrigger();
 					}
+					
+					docuMoudownTrigger();
 				}
 			}
 		}
