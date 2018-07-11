@@ -74,7 +74,7 @@ function fakeselect(v){
     
 
 	for(var i=0,max=sels.length; i<max; i++){
-		if(!$(sels[i]).hasClass('sb-select')){
+		if(!$(sels[i]).hasClass('select-base')){
 			if(v.ignoreclassname && (new RegExp('\\b'+v.ignoreclassname+'\\b')).test(sels[i].className)) continue;
 			if(!v.targetclassname || (new RegExp('\\b'+v.targetclassname+'\\b')).test(sels[i].className)){
 			if(sels[i].multiple && !v.usemultiple) continue;
@@ -704,7 +704,7 @@ function fakeselect(v){
 	
     if(ischrome){
 		for(var i=0; i<selLength; i++){
-			if(!$(sels[i]).hasClass('sb-select')){
+			if(!$(sels[i]).hasClass('select-base')){
 				if(sels[i].previousSibling.textContent != ' '){
 					//console.log(sels[i])
 					sels[i].insertAdjacentHTML('beforeBegin', ' ');
@@ -760,9 +760,9 @@ if(window.addEventListener){
 		// SELECT
 		// $().fakeselect() 실행시 별도로 필요한 옵션 객체를 지정할 수 있고, 지정되지 않았을 경우 기본 옵션을 따름.
 		'select': {
-			//wrap
-			wraphtml: '<span class="select-base"></span>',
-
+			//wrap()
+			wraphtml: '<span class="w-select-base"></span>',
+			
 			// 타이틀
 			title: {
 
@@ -898,6 +898,7 @@ if(window.addEventListener){
 			lengthdataname = 'data-option-length',
 
 			functions,
+			selboxclosetimer = null,
 
 			anioption = {
 				show: {duration: 175},
@@ -995,8 +996,6 @@ if(window.addEventListener){
 					continue;
 				}
 				
-				//$(_$selects[i]).wrap(currentoptions.wraphtml);
-				
 				$selects[currentindex] = $(_$selects[i]).attr(indexdataname, currentindex)
 					.css({position: 'absolute', left: '-999em'})
 					.change(onselectchange)
@@ -1007,7 +1006,8 @@ if(window.addEventListener){
 					.html(currentoptions.title.innerhtml)
 					.bind('mouseover mousemove mouseout mousedown mouseup mouseenter mouseleave', selectactiontotitle)
 					.click(ontitleclick)
-					//.mouseout(ontitleleave)
+					.mouseleave(onselboxleave)
+					.mouseenter(onselboxenter)
 					.insertBefore($selects[currentindex]);
 
 				if ($selects[currentindex].css('display') == 'none') {
@@ -1024,7 +1024,8 @@ if(window.addEventListener){
 				$options[currentindex] = $('<'+ currentoptions.option.tagname +' class="'+ currentoptions.option.classname.base +'" '+ widthdataname +'="'+ ($selects[currentindex].attr(widthdataname) || (currentoptions.option.autowidth ? 'auto' : 0)) +'" '+ lengthdataname +'="'+ ($selects[currentindex].attr(lengthdataname) || currentoptions.option.maxlength) +'" />')
 					.css({position: 'absolute', zIndex: currentoptions.option.zindex})
 					.html(currentoptions.option.innerhtml)
-					.mouseout(ontitleleave);
+					.mouseleave(onselboxleave)
+					.mouseenter(onselboxenter);
 				$optioninners[currentindex] = getdeepestchild($options[currentindex]);
 
 				if (defaultclass) {
@@ -1038,10 +1039,18 @@ if(window.addEventListener){
 				checkdisabled($selects[currentindex][0]);
 				checkreadonly($selects[currentindex][0]);
 				
-				//$titles[currentindex].wrap(currentoptions.wraphtml);
-				//$titles[currentindex].parent().append($selects[currentindex])
+				//NotoSansKR 폰트를 사용해서 사용하게됨
+				if(currentoptions.wraphtml != ''){
+					//1. w-select-base 클래스로 wrap() -> font-family: Noto가 아닌것 적용
+					$titles[currentindex].wrap(currentoptions.wraphtml);
+					$titles[currentindex].parent().append($selects[currentindex]);
+					//2. inline 공백조정
+					if($selects[currentindex].prev().text() != ' '){
+						$selects[currentindex].before(' ');
+					}
+				}
+				
 			}
-
 		}
 
 		function onselectchange(fromreset) {
@@ -1120,14 +1129,25 @@ if(window.addEventListener){
 			}
 		}
 		
-		function ontitleleave(e){
+		function onselboxleave(e){
+			selboxclosetimer = setTimeout(function(){
+				closeopenedoption();
+			}, 100);
+		}
+		
+		function onselboxenter(e){			
 			var index = getindex(this);
-			console.log(index);
-			if (displayed[index]) {
-				optionclose(index);
-				return false;
+			//console.log(index, displayedindex);
+			if(index > -1){
+				if(index != displayedindex){
+					closeopenedoption();
+				}
 			}
-			return false;
+			
+			if(selboxclosetimer != null){
+				clearTimeout(selboxclosetimer);
+				selboxclosetimer = null;
+			}
 		}
 
 		function ontitleclick(e) {

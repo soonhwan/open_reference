@@ -103,12 +103,12 @@
 }(window.jQuery, window, document));
 
 /*
- * 함수명 : documentMousedownTrg
+ * 함수명 : docuMoudownTrigger
  * 설명   : document mousedown 트리거
  * 사용처 : 주로 통합 헤더 검색 팝업을 닫을때 사용
  * 작성자 : 권순환
  */
-function documentMousedownTrg($delay){
+function docuMoudownTrigger($delay){
 	var delay = $delay || 100;
 	setTimeout(function(){$(document).mousedown();}, delay);
 } 
@@ -125,7 +125,6 @@ function onSelectTxtDay($this, dateText, inst){
 	var month = (selectedDate.getMonth()+1) < 10 ? '0' + (selectedDate.getMonth()+1)  : selectedDate.getMonth()+1;
 	var day = selectedDate.getDate() < 10 ? '0' + selectedDate.getDate()  : selectedDate.getDate();
 	var dayName = selectedDate.getUTCDay() < 6 ? $this.datepicker('option', 'dayNamesMin')[selectedDate.getUTCDay()+1] : $this.datepicker('option', 'dayNamesMin')[0];
-	
 	return month + '월 ' + day + '일 (' + dayName + ')';
 }
 
@@ -564,8 +563,9 @@ function beforeSettingNav(){
 function comGNBInit(){
 	beforeSettingNav();
 	
-	//gnb 해외패키지 2뎁스 배경
+	//gnb 해외패키지인 경우 설정
 	if($('.w-header-gnb .nav-gnb #n-gnb-pkg.on').length > 0){
+		//2뎁스 배경
 		$('.w-header-gnb').addClass('bg-gsub');
 		
 		//3뎁스 - gnb메뉴 오버
@@ -611,6 +611,15 @@ function comGNBInit(){
 			}, 200);
 		});
 		
+		//3뎁스 - 박스 영역 유지
+		$('.w-nav-gsub-ly .ng-box, #nav-gnb .list-gsub').on('mouseenter focusin', function(){
+			if(pkgMenuOut != null){
+				clearTimeout(pkgMenuOut);
+				pkgMenuOut = null;
+			}
+		});
+		
+		//3뎁스 - 박스 닫기 버튼
 		$('.w-nav-gsub-ly .ng-box .b-ng-box-close').on('click', function(e){
 			if(pkgMenuOut != null){
 				clearTimeout(pkgMenuOut);
@@ -620,17 +629,7 @@ function comGNBInit(){
 			$('.w-nav-gsub-ly').removeClass('on');	
 			$('#n-gnb-pkg .list-gsub .is3dep').removeClass('is3dep');
 			e.preventDefault();
-		});
-		
-		
-		
-		//3뎁스 - 박스 영역 유지
-		$('.w-nav-gsub-ly .ng-box, #nav-gnb .list-gsub').on('mouseenter focusin', function(){
-			if(pkgMenuOut != null){
-				clearTimeout(pkgMenuOut);
-				pkgMenuOut = null;
-			}
-		});
+		});		
 	}
 
 	//gnb 전체메뉴 열고 닫기
@@ -669,7 +668,6 @@ function comGNBInit(){
 		}
 	}
 }
-
 
 /*
  * 함수명 : comCHOTypeInit
@@ -929,8 +927,8 @@ $(function(){
 	}
 	
 	//타이틀 오버시 풀
-	if($('.srpc-list-sub .tit-over').length > 0){
-		$('.srpc-list-sub .tit-over').each(function(){
+	if($('.list-item-st1 .tit-over').length > 0){
+		$('.list-item-st1 .tit-over').each(function(){
 			$(this).closest('li > a').hover(function(){
 				if($('.tit-over span', this).height() > 30){
 					$('.tit-over', this).next().addClass('srpc-hide');

@@ -531,12 +531,12 @@ function showSearchTap(searchCode){
 function comSearchEvtBind(section){
 	var $section = section;
 		
-	//검색(도시) 리스트, 최근검색 스크롤
+	//검색(도시) 리스트, 최근검색 커스텀스크롤
 	if($section.find('.o-customscrollbar').length > 0){
 		$section.find('.o-customscrollbar').mCustomScrollbar({theme:"minimal-dark"});
 	}
 	
-	//팝업 닫기 클릭시 옵션 팝업 닫힘
+	//팝업 닫기 버튼
 	if($section.find('.sc-ui-search-box .b-scb-close').length > 0){
 		$section.find('.sc-ui-search-box .b-scb-close').on('click', function(e){
 			$(this).closest('.sc-ui-search-box.on').removeClass('on');
@@ -544,7 +544,7 @@ function comSearchEvtBind(section){
 		});
 	}
 	
-	//인원,좌석,객실 취소 click
+	//인원,좌석,객실 취소 버튼
 	if($section.find('.ui-capacity .b-cancel a').length > 0){
 		$section.find('.ui-capacity .b-cancel a').on('click', function(e){
 			$(document).mousedown();
@@ -558,7 +558,7 @@ function comSearchEvtBind(section){
 	}
 }
 
-//검색 공통(tab, 최근검색 셋팅)
+//검색 공통(메뉴tab, 최근검색 셋팅)
 function comSearchEvent(){
 	//검색 메인 tab click
 	$('.hs-search-menu .hss-menu [data-tabmain]').on('click', function(e){
@@ -567,20 +567,17 @@ function comSearchEvent(){
 			$('.hs-search-menu .hss-menu.on').removeClass('on');
 			$(this).closest('.hss-menu').addClass('on');
 			
-			//섹션 영역 클래스			
+			//섹션 체인지	
 			$('.hs-search-cont .hss-inner-cont.on').removeClass('on');
 			$('.hs-search-cont .hss-inner-cont.sc-'+code).addClass('on');
 			
-			//배경 클래스
+			//배경색상 체인지(존재하면 삭제)
 			$('#header-sec .header-sec').removeClass(function (index, css) {
 				return (css.match (/\bo-bg-\S+/g) || []).join(' ');
 			});	
 			$('#header-sec .header-sec').addClass('o-bg-'+code);
 			
-			//하단옵션 제거
-			$('.hss-inner-cont-bottom .opt-box.on').removeClass('on');	
-			
-			//서브메뉴 활성화
+			//서브메뉴 활성화(아무것도 선택이 없으면 처음메뉴 클릭)
 			if($(this).closest('.hss-menu').find('.hss-sub .on').length <= 0){
 				$(this).closest('.hss-menu').find('.hss-sub li:first-child [data-tabsub]').trigger('click');
 			}
@@ -597,6 +594,7 @@ function comSearchEvent(){
 		if(!$(this).closest('li').hasClass('on')){
 			$(this).closest('.hss-sub').find('.on').removeClass('on');
 			$(this).closest('li').addClass('on');
+			//서브 체인지	
 			$('.hs-search-cont .o-'+code).closest('.hss-inner-cont').find('.sc-search-box.on').removeClass('on');	
 			$('.hs-search-cont .o-'+code).addClass('on');
 		}			
@@ -605,11 +603,12 @@ function comSearchEvent(){
 	
 	//document 클릭시 옵션 팝업 닫힘
 	$(document).on('mousedown', function(e){
-		//fakeselect
+		//fakeselect option
 		if($(e.target).closest(".select-option").length > 0){
 			return;
 		}
 		else{
+			//검색팝업
 			if($(e.target).closest(".sc-ui-search-box.on").length <= 0){
 				$('.w-header-search .sc-ui-search-box.on').removeClass('on');
 			}
@@ -662,7 +661,7 @@ function comSearchAir(){
 		$currentCity.find('.city').text(city);
 		$currentCity.find('.qsb-c').text(code);
 		
-		documentMousedownTrg();
+		docuMoudownTrigger();
 	}
 	
 	//출발, 도착 도시 팝업
@@ -947,7 +946,7 @@ function comSearchAir(){
 		$currenCapacity.find('.total-num').text(adtCnt+chdCnt+infCnt);
 		$currenCapacity.find('.type-seat').text(', '+comp);
 		
-		documentMousedownTrg();
+		docuMoudownTrigger();
 		e.preventDefault();
 	});
 	
@@ -988,7 +987,7 @@ function comSearchAir(){
 				$(".sc-air .o-shuttle .qsb-dates .qsb-area").addClass('on');
 				$(".sc-air .o-shuttle .qsb-dates .qsb-chkin").html(txtDay);	
 
-				documentMousedownTrg();
+				docuMoudownTrigger();
 			}
 			else{
 				//출발, 도착 모두 선택인 경우, 아무것도 선택이 없는 경우(출발)
@@ -1028,7 +1027,7 @@ function comSearchAir(){
 						//search input
 						$(".sc-air .o-shuttle .qsb-dates .qsb-chkin").html(txtDay);
 
-						documentMousedownTrg();
+						docuMoudownTrigger();
 					} 
 					else {
 						//출발이후 선택시(도착)
@@ -1041,7 +1040,7 @@ function comSearchAir(){
 						$(".sc-air .o-shuttle .qsb-dates .qsb-chkout").addClass('on');
 						$(".sc-air .o-shuttle .qsb-dates .qsb-chkout").html(txtDay);
 
-						documentMousedownTrg();
+						docuMoudownTrigger();
 					}
 				}
 			}
@@ -1088,7 +1087,7 @@ function comSearchAir(){
 			$('.sc-air .o-shuttle .qsb-dates .qsb-chkout').text(undayText.text()+' 이내');
 		}
 		
-		documentMousedownTrg();
+		docuMoudownTrigger();
 	});
 	
 	//캘린더 datepicker - 편도
@@ -1109,7 +1108,7 @@ function comSearchAir(){
 			$(".sc-air .o-oneway .qsb-dates .qsb-area").addClass('on');
 			$(".sc-air .o-oneway .qsb-dates .qsb-chkin").html(txtDay);	
 			
-			documentMousedownTrg();
+			docuMoudownTrigger();
 		}
 	});
 	
@@ -1131,7 +1130,7 @@ function comSearchAir(){
 			$(".sc-air .o-multiway .air-md-1 .qsb-dates .qsb-area").addClass('on');
 			$(".sc-air .o-multiway .air-md-1 .qsb-dates .qsb-chkin").html(txtDay);	
 			
-			documentMousedownTrg();
+			docuMoudownTrigger();
 		}
 	});
 	
@@ -1153,7 +1152,7 @@ function comSearchAir(){
 			$(".sc-air .o-multiway .air-md-2 .qsb-dates .qsb-area").addClass('on');
 			$(".sc-air .o-multiway .air-md-2 .qsb-dates .qsb-chkin").html(txtDay);	
 			
-			documentMousedownTrg();
+			docuMoudownTrigger();
 		}
 	});
 	
@@ -1175,7 +1174,7 @@ function comSearchAir(){
 			$(".sc-air .o-multiway .air-md-3 .qsb-dates .qsb-area").addClass('on');
 			$(".sc-air .o-multiway .air-md-3 .qsb-dates .qsb-chkin").html(txtDay);	
 			
-			documentMousedownTrg();
+			docuMoudownTrigger();
 		}
 	});
 	
@@ -1197,7 +1196,7 @@ function comSearchAir(){
 			$(".sc-air .o-multiway .air-md-4 .qsb-dates .qsb-area").addClass('on');
 			$(".sc-air .o-multiway .air-md-4 .qsb-dates .qsb-chkin").html(txtDay);	
 			
-			documentMousedownTrg();
+			docuMoudownTrigger();
 		}
 	});
 	
@@ -1304,7 +1303,7 @@ function comSearchHotel(){
 
 		//도시 텍스트 적용
 		$currentCity.find('.city').text(city);
-		documentMousedownTrg();
+		docuMoudownTrigger();
 	}
 		
 	//목적지 팝업
@@ -1557,7 +1556,7 @@ function comSearchHotel(){
 			
 		$currenCapacity.find('.qsb-input').html('');
 		$currenCapacity.find('.qsb-input').html(txt);
-		documentMousedownTrg();
+		docuMoudownTrigger();
 		e.preventDefault();
 	});
 	
@@ -1649,7 +1648,7 @@ function comSearchHotel(){
 				$('.sc-hotel .o-inth .qsb-result-days').show();
 				$('.sc-hotel .o-inth .qsb-result-days .num').text(duration);
 				
-				documentMousedownTrg();
+				docuMoudownTrigger();
 			}
 		}
 	});
@@ -1733,7 +1732,7 @@ function comSearchHotel(){
 				$('.sc-hotel .o-domh .qsb-result-days').show();
 				$('.sc-hotel .o-domh .qsb-result-days .num').text(duration);
 				
-				documentMousedownTrg();
+				docuMoudownTrigger();
 			}
 		}
 	});
@@ -1782,7 +1781,7 @@ function comSearchFree(){
 		}
 		$currentSelect.find('.qsb-input').text(v);
 		
-		documentMousedownTrg();
+		docuMoudownTrigger();
 		e.preventDefault();
 	});
 	
@@ -1808,7 +1807,7 @@ function comSearchFreetour(){
 		//도시 텍스트 적용
 		$currentCity.find('.city').text(city);
 		
-		documentMousedownTrg();
+		docuMoudownTrigger();
 	}
 	
 	//대여, 반납 도시 팝업
@@ -2033,7 +2032,7 @@ function comSearchFreetour(){
 		$currenCapacity.find('.total-adt-num').text(adtCnt);
 		$currenCapacity.find('.total-chd-num').text(chdCnt);
 		
-		documentMousedownTrg();
+		docuMoudownTrigger();
 		e.preventDefault();
 	});
 	
@@ -2075,7 +2074,7 @@ function comSearchFreetour(){
 		}
 		
 		
-		documentMousedownTrg();
+		docuMoudownTrigger();
 		e.preventDefault();
 	});
 	
@@ -2107,7 +2106,7 @@ function comSearchFreetour(){
 		}
 		$currentSelect.find('.qsb-input').text(v);
 		
-		documentMousedownTrg();
+		docuMoudownTrigger();
 		e.preventDefault();
 	});
 	
@@ -2226,7 +2225,7 @@ function comSearchFreetour(){
 	
 	//캘린더 렌터카 완료 click
 	$('.sc-freetour .o-rentv .ui-date-calendar .b-complete a').on('click', function(e){
-		documentMousedownTrg();
+		docuMoudownTrigger();
 		e.preventDefault();
 	});
 	
@@ -2248,7 +2247,7 @@ function comSearchFreetour(){
 			$(".sc-freetour .o-airpicup .qsb-dates .qsb-area").addClass('on');
 			$(".sc-freetour .o-airpicup .qsb-dates .qsb-chkin").html(txtDay);	
 			
-			documentMousedownTrg();
+			docuMoudownTrigger();
 		}
 	});
 	

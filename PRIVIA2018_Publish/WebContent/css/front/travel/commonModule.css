@@ -1036,71 +1036,50 @@ box-shadow: 0px 5px 20px 0px rgba(0,0,0,0.2);
 .s-rec-promotion-cont .srpc-prom .srpc-right {float: right;width: 770px;margin-left: 40px;border-radius: 6px;overflow: hidden;}
 .s-rec-promotion-cont .srpc-prom .srpc-right .slick-dots li {width: 25%;}
 .s-rec-promotion-cont .srpc-prom .srpc-right .bb-next {position: absolute;top:187px;right: -30px;}
-.s-rec-promotion-cont .srpc-list-sub {margin-top: 80px;}
-.srpc-list-sub:after {content: '';display: block;clear:both;}
-.srpc-list-sub li {float: left;width: 278px;margin-left: 29px;}
-.srpc-list-sub li:first-child {margin-left: 0;}
-.srpc-list-sub li > a {display: block;position: relative;}
-.srpc-list-sub .vis {display: block;overflow: hidden;border-radius: 6px;z-index: 1;}
-.srpc-list-sub .info-box {display: block;z-index: 0;padding: 35px 19px 28px 19px;border:1px solid #e2e6eb;border-radius: 6px;margin-top: -10px;}
-.srpc-list-sub .tit {display:block;min-height:28px;position:relative;z-index: 1;}
-.srpc-list-sub .tit span {display: inline-block;width:100%;color:#000;font-size:18px;line-height:28px;text-overflow:ellipsis;white-space:nowrap;overflow:hidden;transition:all 0.3s;}
-.srpc-list-sub .tit.tit-over span {width:100%;height: 28px;position:absolute;top:0;left:0;}
-.srpc-list-sub li > a:hover .tit span {color: #e93a84;}
-.srpc-list-sub li > a:hover .tit-over span {height: auto;max-height:62px;padding-bottom: 10px;white-space: inherit;}
-.srpc-list-sub .tit-ori {display: block;color: #000;font-size:14px;line-height: 24px;margin-top: 12px;}
-.srpc-list-sub .date {display: block;color: #000;font-size:14px;line-height: 24px;margin-top: 10px;}
-.srpc-list-sub .logo-airline {display: block;margin-bottom:15px;padding-left: 8px;}
-.srpc-list-sub .rec-mark {display: block;position: absolute;top: 10px;right: 10px;text-align: right;}
-.srpc-list-sub .mark {display: block;margin-bottom:15px;}
-.srpc-list-sub .lbr-st1 {margin-right: 6px;}
-.srpc-list-sub .price {display: block;color: #ec0d61;font-size:14px;line-height: 20px;margin-top: 10px;}
-.srpc-list-sub .price em {color: #ec0d61;font-size:20px;font-weight: 500 !important;margin-left: 3px;}
-.srpc-list-sub .info {display: block;margin-top: 12px;height: 44px;}
-.srpc-list-sub .info span {vertical-align: middle;}
-.srpc-list-sub .info .txt {display: inline-block;width: 180px;height: 44px;overflow: hidden;margin-left: 10px;color: #000;font-size:14px;line-height: 22px;}
-.srpc-list-sub .srpc-hide {opacity: 0;transition: opacity 0.3s;}
-
-/* Special 프로모션, Best Deal 프로모션 */
-/*.sspc-list-sub:after {content: '';display: block;clear:both;}
-.sspc-list-sub li {float: left;width: 278px;margin-left: 29px;}
-.sspc-list-sub li:first-child {margin-left: 0;}
-.sspc-list-sub li > a {display: block;position: relative;}
-.sspc-list-sub .vis {display: block;overflow: hidden;border-radius: 6px;}
-.sspc-list-sub .logo-airline {display: block;margin-top: 30px;padding-left: 8px;}
-.sspc-list-sub .rec-mark {display: block;position: absolute;top: 10px;right: 10px;text-align: right;}
-.sspc-list-sub .mark {display: block;margin-top: 30px;}
-.sspc-list-sub .lbr-st1 {margin-right: 6px;}
-.sspc-list-sub .tit {display:block;margin-top:15px;min-height:28px;position:relative;z-index: 1;}
-.sspc-list-sub .tit span {display: inline-block;width:100%;color:#000;font-size:18px;line-height:28px;text-overflow:ellipsis;white-space:nowrap;overflow:hidden;transition:all 0.3s;}
-.sspc-list-sub .tit.tit-over span {width:100%;height: 28px;position:absolute;top:0;left:0;}
-.sspc-list-sub li > a:hover .tit span {color: #e93a84;background-color: #fff;}
-.sspc-list-sub li > a:hover .tit-over span {height: auto;max-height:62px;padding-bottom: 10px;white-space: inherit;}
-.sspc-list-sub .tit-ori {display: block;color: #000;font-size:14px;line-height: 24px;margin-top: 12px;}
-.sspc-list-sub .date {display: block;color: #000;font-size:14px;line-height: 24px;margin-top: 12px;}
-.sspc-list-sub .price {display: block;color: #ec0d61;font-size:14px;line-height: 20px;margin-top: 10px;}
-.sspc-list-sub .price em {color: #ec0d61;font-size:20px;font-weight: 500 !important;margin-left: 3px;}
-.sspc-list-sub .info {display: block;margin-top: 12px;height: 44px;}
-.sspc-list-sub .info span {vertical-align: middle;}
-.sspc-list-sub .info .txt {display: inline-block;width: 220px;height: 44px;overflow: hidden;margin-left: 10px;color: #000;font-size:14px;line-height: 22px;}*/
+.s-rec-promotion-cont .list-item-st1 {margin-top: 80px;}
+/* list-item-st1 */
+.list-item-st1:after {content: '';display: block;clear:both;}
+.list-item-st1 li {float: left;width: 278px;margin-left: 29px;}
+.list-item-st1 li:first-child {margin-left: 0;}
+.list-item-st1 li > a {display: block;position: relative;}
+.list-item-st1 .vis {display: block;overflow: hidden;border-radius: 6px;z-index: 1;}
+.list-item-st1 .info-box {display: block;z-index: 0;padding: 35px 19px 28px 19px;border:1px solid #e2e6eb;border-radius: 6px;margin-top: -10px;}
+.list-item-st1 .tit {display:block;min-height:28px;position:relative;z-index: 1;}
+.list-item-st1 .tit span {display: inline-block;width:100%;color:#000;font-size:18px;line-height:28px;text-overflow:ellipsis;white-space:nowrap;overflow:hidden;transition:all 0.3s;}
+.list-item-st1 .tit.tit-over span {width:100%;height: 28px;position:absolute;top:0;left:0;}
+.list-item-st1 li > a:hover .tit span {color: #e93a84;}
+.list-item-st1 li > a:hover .tit-over span {height: auto;max-height:62px;padding-bottom: 10px;white-space: inherit;}
+.list-item-st1 .tit-ori {display: block;color: #000;font-size:14px;line-height: 24px;margin-top: 12px;}
+.list-item-st1 .date {display: block;color: #000;font-size:14px;line-height: 24px;margin-top: 10px;}
+.list-item-st1 .logo-airline {display: block;margin-bottom:15px;padding-left: 8px;}
+.list-item-st1 .rec-mark {display: block;position: absolute;top: 10px;right: 10px;text-align: right;}
+.list-item-st1 .mark {display: block;margin-bottom:15px;}
+.list-item-st1 .lbr-st1 {margin-right: 6px;}
+.list-item-st1 .price {display: block;color: #ec0d61;font-size:14px;line-height: 20px;margin-top: 10px;}
+.list-item-st1 .price em {color: #ec0d61;font-size:20px;font-weight: 500 !important;margin-left: 3px;}
+.list-item-st1 .info {display: block;margin-top: 12px;height: 44px;}
+.list-item-st1 .info span {vertical-align: middle;}
+.list-item-st1 .info .txt {display: inline-block;width: 180px;height: 44px;overflow: hidden;margin-left: 10px;color: #000;font-size:14px;line-height: 22px;}
+.list-item-st1 .srpc-hide {opacity: 0;transition: opacity 0.3s;}
 
 /* 인기지역 프로모션 */
-.srac-list-sub:after {content: '';display: block;clear:both;}
-.srac-list-sub li {float: left;margin-left: 30px;margin-bottom: 30px;overflow: hidden;}
-.srac-list-sub li:first-child {margin-left: 0px;margin-bottom: 0px;}
-.srac-list-sub li a {display: table;width: 380px;height: 210px;border-radius: 6px;overflow: hidden;position: relative;-webkit-background-size:cover;background-size:cover;}
-.srac-list-sub li a:before {content: '';display: block;width: 100%;height: 100%;background-color: #000;opacity: 0.5;position: absolute;top: 0;left: 0;z-index: 0;}
-.srac-list-sub li:first-child a {height: 450px;}
-.srac-list-sub li a:hover .over {top: 0;}
-.srac-list-sub .inner {display: table-cell;vertical-align: middle;text-align: center;position: relative;z-index: 1;}
-.srac-list-sub .inner .label-base {display: block;}
-.srac-list-sub .inner .tit {display: block;margin-top: 15px;font-size:26px;line-height: 36px;color: #fff;}
-.srac-list-sub .inner .tit-ori {display: block;margin-top: 15px;font-size:14px;line-height: 24px;color: #fff;}
-.srac-list-sub .over {position: absolute;display: table;width: 100%;height: 100%;text-align: center;top: 100%;left: 0;z-index: 2;transition: top 0.5s;}
-.srac-list-sub .over-inner {display: table-cell;vertical-align: middle;}
-.srac-list-sub .over-inner .tit {display: block;font-size:18px;color: #fff;}
-.srac-list-sub .over-inner .price {display: block;font-size:24px;color: #fff;}
-.srac-list-sub .over-inner .price em {font-size:34px;color: #fff;font-weight: 500 !important;}
+/* list-item-st2 */
+.list-item-st2:after {content: '';display: block;clear:both;}
+.list-item-st2 li {float: left;margin-left: 30px;margin-bottom: 30px;overflow: hidden;}
+.list-item-st2 li:first-child {margin-left: 0px;margin-bottom: 0px;}
+.list-item-st2 li a {display: table;width: 380px;height: 210px;border-radius: 6px;overflow: hidden;position: relative;-webkit-background-size:cover;background-size:cover;}
+.list-item-st2 li a:before {content: '';display: block;width: 100%;height: 100%;background-color: #000;opacity: 0.5;position: absolute;top: 0;left: 0;z-index: 0;}
+.list-item-st2 li:first-child a {height: 450px;}
+.list-item-st2 li a:hover .over {top: 0;}
+.list-item-st2 .inner {display: table-cell;vertical-align: middle;text-align: center;position: relative;z-index: 1;}
+.list-item-st2 .inner .label-base {display: block;}
+.list-item-st2 .inner .tit {display: block;margin-top: 15px;font-size:26px;line-height: 36px;color: #fff;}
+.list-item-st2 .inner .tit-ori {display: block;margin-top: 15px;font-size:14px;line-height: 24px;color: #fff;}
+.list-item-st2 .over {position: absolute;display: table;width: 100%;height: 100%;text-align: center;top: 100%;left: 0;z-index: 2;transition: top 0.5s;}
+.list-item-st2 .over-inner {display: table-cell;vertical-align: middle;}
+.list-item-st2 .over-inner .tit {display: block;font-size:18px;color: #fff;}
+.list-item-st2 .over-inner .price {display: block;font-size:24px;color: #fff;}
+.list-item-st2 .over-inner .price em {font-size:34px;color: #fff;font-weight: 500 !important;}
 .s-rec-area-cont.rac-hotel .over-inner {background-color: #00b290;}
 .s-rec-area-cont.rac-hotel .lbr-st2 span {background-color: #00b290;}
 .s-rec-area-cont.rac-air .over-inner {background-color: #288ecc;}
@@ -1115,6 +1094,6 @@ box-shadow: 0px 5px 20px 0px rgba(0,0,0,0.2);
 .s-information-cont .sic-aside-services > a:hover {color: #e93a84;}
 
 /*--------------------------------------------------------------------------------------------------------------
- *  as is - css 보완(추후 삭제됨)
+ *  as is css 보완(추후 삭제됨)
  *--------------------------------------------------------------------------------------------------------------*/
 .l-main-search {z-index: 0;}
