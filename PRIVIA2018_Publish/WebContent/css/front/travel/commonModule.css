@@ -329,8 +329,6 @@ box-shadow: 0 3px 3px 0px rgba(0,0,0,0.1);
 .w-header-search .hs-prom-roll {position: absolute;top: -50px;right: 0;text-align: right;z-index: 0;}
 .w-header-search .hs-prom-roll .c-slick-dots {display: inline-block;vertical-align: bottom;margin-left: 15px;}
 .w-header-search .hs-prom-roll .list {display: inline-block;width: 180px;height: 80px;overflow: hidden;vertical-align: bottom;}
-.header-sec .hs-prom-roll-bg {position: absolute;width: 100%;height: 100%;overflow: hidden;top: 0;left: 0;z-index: 0;pointer-events:none;}
-.header-sec .hs-prom-roll-bg .list {width: 900px;position: absolute;right: 0;top: 80px;}
 
 /* ------------- GNB */
 .w-header-gnb {padding: 56px 0 26px 0;position: relative;z-index: 2;}
@@ -503,7 +501,7 @@ box-shadow: 0 10px 20px 0px rgba(0,0,0,0.1);
 .sc-search-box .qsb-cont .qsb-area.on .qsb-label {font-size: 12px;color: #666;font-weight: 300 !important;margin-top: 0;}
 .sc-search-box .qsb-cont .qsb-area.on .qsb-input {display: block;font-size:18px;color: #000;font-weight: 500 !important;margin-top: 5px;}
 .sc-search-box .qsb-cont .qsb-area.on .qsb-input * , .sc-search-box .qsb-capacity .qsb-input * {font-size:18px;font-weight: 500 !important;}
-.sc-search-box .w-opt-box {margin-top: 20px;display: inline-block;}
+.sc-search-box .w-opt-box {margin-top: 20px;display: inline-block;position: relative;z-index: 1;}
 .sc-search-box .w-opt-box .chk-st1 {margin-right: 20px;}
 .hss-inner-cont.isRecently .w-opt-box {margin-bottom: -45px;} /* 최근검색이 있으면 */
 /* 검색 박스 - 항공,호텔 컬러 */
@@ -701,12 +699,12 @@ border-left:0;
 .hss-recently-search {margin-top: 20px;text-align: right;margin-right: 30px;position: relative;display: none;}
 .hss-recently-search.on {display: block;}
 .hss-recently-search * {display: inline-block;vertical-align: middle;}
-.hss-recently-search .qrs-area {width:550px;padding-right: 40px;position: relative;}
+.hss-recently-search .qrs-area {padding-right: 40px;position: relative;}
 .hss-recently-search .qrs-area:before {content: '';display: block;width: 17px;height: 9px;background: url(/images/front/travel/contents/icon-common-sec.png) 0 -360px no-repeat;position: absolute;top: 8px;right: 0;}
 .hss-recently-search .qrs-area .inf-total {font-size:16px;color: #fff;font-weight: 500 !important;}
 .hss-recently-search .qrs-area .inf-sum {font-size:14px;color: #fff;}
 .hss-recently-search .qrs-area .inf-sum .tit {font-size:14px;color: #fff;padding-left: 15px;vertical-align: middle;}
-.hss-recently-search .qrs-area .inf-sum .cont {font-size:14px;color: #fff;padding-left: 15px;vertical-align: middle;max-width:380px;text-overflow:ellipsis;white-space:nowrap;overflow:hidden;}
+.hss-recently-search .qrs-area .inf-sum .cont {font-size:14px;color: #fff;padding-left: 15px;vertical-align: middle;max-width:380px;text-overflow:ellipsis;white-space:nowrap;overflow:hidden;max-width:380px;height: 22px;}
 .hss-recently-search .ui-recently-search {text-align: left;}
 .hss-recently-search .ui-recently-search .urs-tit {display: block;padding: 30px 20px;width: 100%;font-size:16px;font-weight: 500 !important;color: #000;border-bottom: 1px solid #ededed;}
 .hss-recently-search .ui-recently-search .urs-tit em {font-size:16px;font-weight: 500 !important;color: #f42a86;display: inline-block;vertical-align: top;}
@@ -719,6 +717,8 @@ border-left:0;
 .hss-recently-search .ui-recently-search .list li .cont {display: table-cell;width: auto;font-size:16px;color: #000;transition: color 0.3s;}
 .hss-recently-search .ui-recently-search .b-scb-close {top: 38px;}
 .hss-recently-search .ui-recently-search {top: -30px;right: -30px;}
+.sc-free .hss-recently-search .qrs-area .inf-sum .cont {max-width: 360px;}
+.sc-freetour .hss-recently-search .qrs-area .inf-sum .cont {max-width: 320px;}
 /* ------- 검색 박스 lyout -  팝업 사이즈 */
 .hs-search-cont .ui-mainsel-air {width: 1200px;}
 .hs-search-cont .ui-mainsel-hotel {width: 1200px;}
