@@ -568,7 +568,7 @@ function beforeSettingNav(){
 function comGNBInit(){
 	beforeSettingNav();
 	
-	//gnb 해외패키지인 경우 설정
+	//gnb 해외패키지 2dep, 3dep 설정
 	if($('.w-header-gnb .nav-gnb #n-gnb-pkg.on').length > 0){
 		//2뎁스 배경
 		$('.w-header-gnb').addClass('bg-gsub');
