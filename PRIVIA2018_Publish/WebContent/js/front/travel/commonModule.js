@@ -102,6 +102,11 @@
 	}
 }(window.jQuery, window, document));
 
+/*
+ * 설명   : pvFrontScript 메서드 모음
+ * 사용처 : document.ready 구문에 실행함수 탑재
+ * 작성자 : 권순환
+ */
 var pvFrontScript = {
 	init: function(){
 		//placeholder(공통 - IE9 이하 부터 실행)
@@ -129,24 +134,114 @@ var pvFrontScript = {
 		var delay = $delay || 0;
 		setTimeout(function(){$(document).mousedown();}, delay);
 	},
-	panelPosition: function($p, $target){
-		/* 설명   : 통합 헤더 검색 팝업 노출시
+	panelPosition: function($p, $target, type){
+		/* 설명   : 통합 헤더 검색 팝업 노출시 위치 설정(팝업 사이즈, 위치 수정을 프론트에서 관리하기 위해)
 	   	   사용처 : 통합 헤더 검색 팝업 호출시 */
 		
+		var panel = $p,
+			target = $target || null,
+			_type = type || null;
+		
+		//항공 주요도시
+		if(_type == 'air-mainsel'){
+			panel.position({
+				my: 'left top-10',
+				at: 'left top',
+				collision: 'none',
+				of: target.closest('.qsb-cont-box')
+			});		
+		}
+		//항공 도시검색
+		if(_type == 'air-mainsel-auto'){
+			panel.position({
+				my: 'left-30 top-40',
+				at: 'left top',
+				collision: 'none',
+				of: target
+			});		
+		}
+		//항공 인원,좌석
+		if(_type == 'air-capacity'){
+			panel.position({
+				my: 'left-55 top-32',
+				at: 'left top',
+				collision: 'none',
+				of: target
+			});		
+		}
+		//호텔 주요도시
+		if(_type == 'hotel-mainsel'){
+			panel.position({
+				my: 'left top-10',
+				at: 'left top',
+				collision: 'none',
+				of: target.closest('.qsb-cont-box')
+			});	
+		}
+		//호텔 객실
+		if(_type == 'hotel-capacity'){
+			panel.position({
+				my: 'left-31 top-32',
+				at: 'left top',
+				collision: 'none',
+				of: target
+			});	
+		}
+		//셀렉트 리스트
+		if(_type == 'panel-sel'){
+			panel.position({
+				my: 'left top-12',
+				at: 'left top',
+				collision: 'none',
+				of: target.closest('.qsb-select')
+			})
+		}
+		//자유여행 주요도시
+		if(_type == 'freetour-mainsel'){
+			panel.position({
+				my: 'left top-10',
+				at: 'left top',
+				collision: 'none',
+				of: target.closest('.qsb-cont-box')
+			})
+		}
+		//투액 대여도시 검색
+		if(_type == 'freetour-mainsel-auto'){
+			panel.position({
+				my: 'left-30 top-40',
+				at: 'left top',
+				collision: 'none',
+				of: target
+			})
+		}
+		//투액 인원, 테마
+		if(_type == 'freetour-capacity'){
+			panel.position({
+				my: 'left-31 top-32',
+				at: 'left top',
+				collision: 'none',
+				of: target
+			})
+		}
+
+		if(!panel.hasClass('on') || target == null){
+			panel.addClass('on');
+		}
 	},
 	onSelectTxtDay: function($this, dateText, inst){
 		/* 설명   : 통합검색 - 선택된 날짜 형식 ex)08월 07일 (화)
 	   	   사용처 : jQuery UI datepicker : onSelect 내부 */
 		
 		//console.log($this, dateText)
-		var selectedDate = $.datepicker.parseDate('yy/mm/dd', dateText);
-		var month = (selectedDate.getMonth()+1) < 10 ? '0' + (selectedDate.getMonth()+1)  : selectedDate.getMonth()+1;
-		var day = selectedDate.getDate() < 10 ? '0' + selectedDate.getDate()  : selectedDate.getDate();
-		var dayName = selectedDate.getUTCDay() < 6 ? $this.datepicker('option', 'dayNamesMin')[selectedDate.getUTCDay()+1] : $this.datepicker('option', 'dayNamesMin')[0];
-		return month + '월 ' + day + '일 (' + dayName + ')';
+		var selectedDate = $.datepicker.parseDate('yy/mm/dd', dateText),
+			month = (selectedDate.getMonth()+1) < 10 ? '0' + (selectedDate.getMonth()+1)  : selectedDate.getMonth()+1,
+			day = selectedDate.getDate() < 10 ? '0' + selectedDate.getDate()  : selectedDate.getDate(),
+			dayName = selectedDate.getUTCDay() < 6 ? $this.datepicker('option', 'dayNamesMin')[selectedDate.getUTCDay()+1] : $this.datepicker('option', 'dayNamesMin')[0],
+			txt = month + '월 ' + day + '일 (' + dayName + ')';
+		return txt;
 	},
-	beforeShowDayVer2: function(date, $date1, $date2){
-		/* 설명   : 통합검색 - 출발, 도착지 스타일 구현 - 주의!(onSelect 인터렉션과 맞아야함)
+	beforeShowDayMark: function(date, $date1, $date2){
+		/* 설명   : 통합검색 - 출발, 도착지 스타일 구현 - 주의!(onSelect 인터렉션이 동일해야함)
 		   사용처 : jQuery UI datepicker : beforeShowDay 내부 */
 		
 		var result;
@@ -541,7 +636,7 @@ var pvFrontScript = {
 	},
 	comGNBInit: function(){
 		/* 설명   : GNB, 전체메뉴 셋팅
-		   사용처 : comHeaderControl(); */
+		   사용처 : pvFrontScript.comHeaderControl(); */
 		
 		pvFrontScript.beforeSettingNav();
 
@@ -670,7 +765,7 @@ var pvFrontScript = {
 	},
 	comHeaderControl: function(){
 		/* 설명   : 공통 헤더 컨트롤(상단리본, 공지사항, 스크롤 헤더반응형, 검색UI)
-		   사용처 : document.ready 구문에 실행함수 탑재 */
+		   사용처 : pvFrontScript.init() 에서 실행 */
 		
 		if($('.commonHeaderObject').length > 0){
 			//---------------- 헤더 리본
