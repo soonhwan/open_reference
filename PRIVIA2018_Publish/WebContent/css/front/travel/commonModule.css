@@ -674,7 +674,7 @@ border-left:0;
 .uis-capacity-number .tit {float: left;font-size:16px;color: #000;padding-top: 7px;}
 .uis-capacity-number .tit em {font-weight: 500 !important;}
 .uis-custom-number {float: right;}
-.uis-txt1 {font-size:16px;color: #000;padding: 0 0 30px 30px;}
+.uis-txt1 {font-size:14px;color: #000;letter-spacing: -1px; padding: 0 0 30px 30px;}
 .uis-custom-number {border: 1px solid #cacdd4;border-radius: 3px;overflow: hidden;}
 .uis-custom-number:after {content: '';display: block;clear:both;}
 .uis-custom-number .ucn-num {float: left;display: inline-block;width: 54px;height: 38px;line-height: 38px;text-align: center;border-left: 1px solid #cacdd4;border-right: 1px solid #cacdd4;font-size:16px;color: #999;font-weight: 500 !important;background-color: #f9f9f9;}
@@ -724,17 +724,15 @@ border-left:0;
 .hss-recently-search .ui-recently-search .list li .cont {display: table-cell;width: auto;font-size:16px;color: #000;transition: color 0.3s;}
 .hss-recently-search .ui-recently-search .b-scb-close {top: 38px;}
 .hss-recently-search .ui-recently-search {top: -30px;right: -30px;}
-.sc-free .hss-recently-search .qrs-area .inf-sum .cont {max-width: 360px;}
-.sc-freetour .hss-recently-search .qrs-area .inf-sum .cont {max-width: 320px;}
 /* ------- 검색 박스 lyout -  팝업 사이즈 */
 .hs-search-cont .ui-mainsel-air {width: 1200px;}
 .hs-search-cont .ui-mainsel-hotel {width: 1200px;}
 .hs-search-cont .ui-mainsel-airtel {width: 292px;}
 .hs-search-cont .ui-mainsel-freetour {width: 1200px;}
+.hs-search-cont .ui-recently-search {width: 557px;}
 .hs-search-cont .ui-date-calendar {width: 770px;}
 .hs-search-cont .ui-capacity {min-width: 396px;}
 .hs-search-cont .ui-select-list {min-width: 270px;}
-.hs-search-cont .ui-recently-search {width: 600px;}
 .hs-search-cont .ui-search-auto .uis-mainsel-table, 
 .hs-search-cont .ui-search-auto .uis-list {display: none;}
 .hs-search-cont .ui-search-auto .uis-list-auto {display: block;}
@@ -758,7 +756,7 @@ border-left:0;
 .hss-inner-cont .o-oneway .qsb-capacity {width: 23%;}
 .hss-inner-cont .o-oneway .qsb-btn-search {width: 8%;}
 .hss-inner-cont .o-oneway .ui-date-calendar {top: -10px;left: 430px;}
-.hss-inner-cont .o-oneway .ui-capacity .uis-capacity-select {display: none;}
+/*.hss-inner-cont .o-oneway .ui-capacity .uis-capacity-select {display: none;} ?? */
 /* 검색 박스 lyout - 다구간 */
 .hss-inner-cont .o-multiway .qsb-number {width: 8%;}
 .hss-inner-cont .o-multiway .b-change-places button:before {background-position: -41px -214px;}
@@ -804,6 +802,7 @@ border-left:0;
 .hss-inner-cont .o-airtel .qsb-btn-search {width: 10.7%;}
 .hss-inner-cont .o-airtel .sel-cus-airtel .qsb-label {color: #000;}
 .hss-inner-cont .o-airtel .ui-mainsel-airtel {top: -10px;left: 0;overflow: visible;-webkit-box-shadow: none;-moz-box-shadow: none;box-shadow: none;}
+.hss-inner-cont .o-airtel .ui-mainsel-airtel .uis-input {border-radius: 6px;}
 .hss-inner-cont .o-airtel .ui-mainsel-airtel .uis-mainsel-table {width: 1200px;border-radius: 0 6px 6px 6px;overflow: hidden;
 -webkit-box-shadow: 3px 7px 22px 0px rgba(0,0,0,0.3);
 -moz-box-shadow: 3px 7px 22px 0px rgba(0,0,0,0.3);
@@ -839,7 +838,7 @@ box-shadow: 3px 7px 22px 0px rgba(0,0,0,0.3);
 .hss-inner-cont .o-actualtour .qsb-select {width: 28%;}
 .hss-inner-cont .o-actualtour .qsb-capacity {width: 36%;}
 .hss-inner-cont .o-actualtour .qsb-btn-search {width: 8%;}
-.hss-inner-cont .o-actualtour .ui-capacity {top: -10px;left: 0;width: 400px;}
+.hss-inner-cont .o-actualtour .ui-capacity-theme {top: -10px;left: 0;width: 400px;}
 /*.hss-inner-cont .o-actualtour .ui-mainsel-freetour {top: -10px;left: 0;}*/
 .hss-inner-cont .o-actualtour .ui-select-list {min-width: 338px;}
 /* 검색 박스 lyout - 교통패스 */
@@ -848,7 +847,7 @@ box-shadow: 3px 7px 22px 0px rgba(0,0,0,0.3);
 .hss-inner-cont .o-transpass .qsb-btn-search {width: 8%;}
 .hss-inner-cont .o-transpass .ui-select-list {min-width: 279px;}
 .hss-inner-cont .o-transpass .scbi-2 {display: block;}
-.hss-inner-cont .o-transpass .select-nation {width: 550px;}
+.hss-inner-cont .o-transpass .select-nation {top: -10px;left: 0;width: 550px;}
 /* 검색 박스 lyout - 공항픽업 */
 .hss-inner-cont .o-airpicup .qsb-select {width: 17%;}
 .hss-inner-cont .o-airpicup .qsb-places {width: 25%;}
@@ -893,7 +892,8 @@ box-shadow: 0px 5px 20px 0px rgba(0,0,0,0.2);
 .w-footer-sec .nav-fnb li:first-child a {padding-left:0;}
 .w-footer-sec .nav-fnb li:after {content: '';display: block;width: 1px;height: 12px;background-color: #333;position: absolute;top: 6px;left: 0;}
 .w-footer-sec .nav-fnb li:first-child:after {display: none;}
-.w-footer-sec .nav-fnb li a strong {color: #fff;font-weight: bold;}
+.w-footer-sec .nav-fnb li a strong {color: #fff;font-weight: bold;transition: color 0.3s;}
+.w-footer-sec .nav-fnb li a:hover strong {color: #e93a84;}
 .w-footer-sec .fts-info {margin-top: 20px;}
 .w-footer-sec .fts-info * {color: #ddd;font-size:12px;}
 .w-footer-sec .fts-info:after {content: '';display: block;clear:both;}
@@ -912,8 +912,8 @@ box-shadow: 0px 5px 20px 0px rgba(0,0,0,0.2);
  *--------------------------------------------------------------------------------------------------------------*/
 /* 섹션 타이틀 */
 .c-tit-sec {margin-bottom: 40px;}
-.c-tit-sec span {display: inline-block;font-size:24px;color: #000;font-weight: 400 !important;padding-right: 20px;position: relative;transition: color 0.3s;}
-.c-tit-sec span:after {content: '';display: block;width: 11px;height: 21px;position: absolute;right: 0;top: 9px;background: url(/images/front/travel/contents/icon-common-sec.png) -14px 0 no-repeat;}
+.c-tit-sec a, .c-tit-sec span {display: inline-block;font-size:24px;color: #000;font-weight: 400 !important;padding-right: 20px;position: relative;transition: color 0.3s;}
+.c-tit-sec a:after {content: '';display: block;width: 11px;height: 21px;position: absolute;right: 0;top: 9px;background: url(/images/front/travel/contents/icon-common-sec.png) -14px 0 no-repeat;}
 .c-tit-sec a:hover span{color: #e93a84;}
 
 /* 탭메뉴 */
@@ -1024,6 +1024,7 @@ box-shadow: 0px 5px 20px 0px rgba(0,0,0,0.2);
 .s-information-cont .sic-board .list .date {font-size: 16px;color: #818181;position: absolute;right: 0;top: 10px;}
 .s-information-cont .sic-right {float: right;width: 285px}
 .s-information-cont .sic-aside .tit {display: block;font-size:18px;color: #000;line-height: 28px;height: 56px;font-weight: 300;margin-bottom: 30px;transition: color 0.3s;}
+.s-information-cont .sic-aside > a {display: block;width: 100%;height: 100%;}
 .s-information-cont .sic-aside > a:hover .tit {color: #e93a84;}
 .s-information-cont .sic-aside .tit em {font-weight: inherit;}
 .s-information-cont .sic-aside .vis {display: block;border-radius: 6px;overflow: hidden;position: absolute;bottom: 0;}

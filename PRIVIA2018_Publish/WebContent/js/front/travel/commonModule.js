@@ -222,7 +222,7 @@ var pvFrontScript = window.pvFrontScript || (function(){
 					at: 'left top',
 					collision: 'none',
 					of: $of.closest('.qsb-select')
-				})
+				});
 			}
 			//자유여행 주요도시
 			if($area == 'freetour-mainsel'){
@@ -231,7 +231,7 @@ var pvFrontScript = window.pvFrontScript || (function(){
 					at: 'left top',
 					collision: 'none',
 					of: $of.closest('.qsb-cont-box')
-				})
+				});
 			}
 			//투액 대여도시 검색
 			if($area == 'freetour-mainsel-auto'){
@@ -240,12 +240,17 @@ var pvFrontScript = window.pvFrontScript || (function(){
 					at: 'left top',
 					collision: 'none',
 					of: $of
-				})
+				});
 			}
-			//투액 인원, 테마
+			//투액 인원, 테마, 여행도시(유럽)
 			if($area == 'freetour-capacity'){
 				if($of.closest('.o-transpass').hasClass('on')){
-					_my = 'left-55 top-32';
+					if($this.data('panel-name') == 'select-nation'){
+						_my = 'left-65 top-32';
+					}
+					else{
+						_my = 'left-55 top-32';
+					}
 				}
 				else{
 					_my = 'left-31 top-32';
@@ -255,7 +260,7 @@ var pvFrontScript = window.pvFrontScript || (function(){
 					at: 'left top',
 					collision: 'none',
 					of: $of
-				})
+				});
 			}
 
 			if(!$panel.hasClass('on') || $area == null){
