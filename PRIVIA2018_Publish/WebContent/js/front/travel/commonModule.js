@@ -246,7 +246,7 @@ var pvFrontScript = window.pvFrontScript || (function(){
 			if($area == 'freetour-capacity'){
 				if($of.closest('.o-transpass').hasClass('on')){
 					if($this.data('panel-name') == 'select-nation'){
-						_my = 'left-65 top-32';
+						_my = 'left-31 top-42';
 					}
 					else{
 						_my = 'left-55 top-32';
