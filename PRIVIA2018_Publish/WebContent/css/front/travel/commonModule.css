@@ -219,7 +219,7 @@
 .select-title.select-base.focus {color: #000; border-color: #bdc0c6;}
 .select-title.select-base.active {border-radius: 3px 3px 0px 0px;}
 .select-title.select-base.active.upper {border-radius: 0px 0px 3px 3px;}
-.select-title.select-base.disabled {color: #999; text-shadow: 1px 1px 0 #fff; border-color: #bbb; background-color: #eee;}
+.select-title.select-base.disabled {color: #999; text-shadow: 1px 1px 0 #fff; border-color: #bbb; background-color: #eee;cursor:inherit;opacity: 0.4;}
 /* select-option */
 .select-option.select-base {border: 1px solid #bdc0c6;border-top: 1px solid #e2e2e2; background: #fff; overflow: auto;border-radius: 0px 0px 3px 3px;}
 .select-option.select-base.upper {border-top: 1px solid #bdc0c6;border-bottom: 1px solid #e2e2e2; border-radius: 3px 3px 0px 0px;}
@@ -252,7 +252,7 @@
 .help-tooltip .over {display: inline-block;vertical-align: middle;width: 18px;height: 18px;text-align: center;line-height: 16px;font-size: 13px;color: #fff;border:1px solid #fff;border-radius: 18px;cursor: pointer;}
 .help-tooltip .over:hover + .cont {opacity: 1;visibility: visible;}
 /*.help-tooltip .over + .cont {opacity: 1;visibility: visible;}*/
-.help-tooltip .cont {display: inline-block;vertical-align: middle;position: absolute;background-color: #fff;font-size:14px;color: #000;line-height: 24px;padding: 18px;word-wrap: break-word;border-radius: 6px;top: 7px;left: 40px;opacity: 0;visibility: hidden;transition: opacity 0.3s, visibility 0.3s;
+.help-tooltip .cont {display: inline-block;vertical-align: middle;position: absolute;background-color: #fff;font-size:14px;color: #000;line-height: 24px;padding: 18px;word-wrap: break-word;border-radius: 6px;top: 7px;left: 40px;z-index: 1;opacity: 0;visibility: hidden;transition: opacity 0.3s, visibility 0.3s;
 -webkit-box-shadow: 0 3px 3px 0px rgba(0,0,0,0.1);
 -moz-box-shadow: 0 3px 3px 0px rgba(0,0,0,0.1);
 box-shadow: 0 3px 3px 0px rgba(0,0,0,0.1);
@@ -491,12 +491,14 @@ box-shadow: 0 10px 20px 0px rgba(0,0,0,0.1);
 .sc-search-box .qsb-cont-box:after {content: '';display: block;clear:both;}
 .sc-search-box .qsb-cont-box .qsb-cont {float: left;border-left: 1px solid #ddd;}
 .sc-search-box .qsb-cont-box .qsb-cont:first-child {border-left: 0;}
+.sc-search-box .qsb-cont-box .qsb-cont-box-inner {display: none;}
+.sc-search-box .qsb-cont-box .qsb-cont ~ .qsb-cont-box-inner .qsb-cont {border-left: 1px solid #ddd;}
 .sc-search-box .qsb-cont-indep {border-radius: 0;}
 .sc-search-box .qsb-cont-indep:after {content: '';display: block;clear:both;}
 .sc-search-box .qsb-cont-indep .qsb-cont {overflow: hidden;border-radius: 6px;}
 .sc-search-box .qsb-cont {background-color: #fff;padding: 22px 30px;height: 90px;}
 .sc-search-box .qsb-cont .qsb-area {display: block;z-index: 0;}
-.sc-search-box .qsb-cont .qsb-label {display: block;font-size: 18px;color: #999;font-weight: 500 !important;margin-top: 10px;}
+.sc-search-box .qsb-cont .qsb-label {display: block;font-size: 18px;color: #999;font-weight: 500 !important;margin-top: 10px;transition: all 0.3s;}
 .sc-search-box .qsb-cont .qsb-input {display: none;text-overflow:ellipsis;white-space:nowrap;overflow:hidden;}
 .sc-search-box .qsb-cont .qsb-area.on .qsb-label {font-size: 12px;color: #666;font-weight: 300 !important;margin-top: 0;}
 .sc-search-box .qsb-cont .qsb-area.on .qsb-input {display: block;font-size:18px;color: #000;font-weight: 500 !important;margin-top: 5px;}
@@ -515,8 +517,8 @@ box-shadow: 0 10px 20px 0px rgba(0,0,0,0.1);
 .sc-air .sc-search-box .qsb-places .places-exit {width: 45%;}
 .sc-air .sc-search-box .qsb-places .places-entry {width: 55%;position: relative;padding-left: 40px;}
 /* 검색 박스 - 항공 도시 말줄임 */
-.sc-air .sc-search-box .city {display: inline-block;vertical-align: top;text-overflow:ellipsis;white-space:nowrap;overflow:hidden;max-width: 128px;}
-.sc-air .sc-search-box.o-multiway .city {max-width: 208px;}
+.sc-air .sc-search-box .city {display: inline-block;vertical-align: top;text-overflow:ellipsis;white-space:nowrap;overflow:hidden;max-width: 140px;}
+.sc-air .sc-search-box.o-multiway .city {max-width: 222px;}
 .sc-air .sc-search-box .code {display: inline-block;vertical-align: top;}
 /* 검색 박스 - places */ 
 .sc-search-box .qsb-places:after {content: '';display: block;clear:both;}
@@ -566,7 +568,7 @@ box-shadow: 3px 7px 22px 0px rgba(0,0,0,0.3);
 .sc-ui-search-panel.on {opacity:1;visibility: visible;}
 .sc-ui-search-panel .b-scb-close {display: block;width: 17px;height: 9px;background: url(/images/front/travel/contents/icon-common-sec.png) -22px -360px no-repeat;position: absolute;top: 50px;right: 30px;}
 /* 검색 UI 팝업 - 상단 input */
-.uis-input {padding: 40px 28px;border-bottom: 1px solid #ededed;} 
+.uis-input {padding: 40px 28px;border-bottom: 1px solid #ededed;background-color: #fff;} 
 .uis-input .sel-cus-tit {font-size:18px;font-weight: 500 !important;color: #e93a84;} 
 .uis-input .ipu-search {border:0;width: 100%;font-size:18px;font-weight: 500 !important;} 
 .uis-input .opt-txt {font-size:18px;font-weight: 500 !important;color: #999;} 
@@ -588,6 +590,7 @@ box-shadow: 3px 7px 22px 0px rgba(0,0,0,0.3);
 .uis-mainsel-table td .list a {display: block;font-size:14px;color: #000;padding: 3px 0;transition: color 0.3s;}
 .uis-mainsel-table td .list a:hover {color: #e93a84;}
 /* 검색 UI 팝업 - 검색리스트(기본 리스트 스타일 - 호텔국내, 실시간리스트, 셀렉트리스트) */
+.uis-list {background-color: #fff;}
 .uis-list.uis-list-auto {display: none;}
 .uis-list .list {overflow-y: auto;max-height:170px;}
 .uis-list .list li {border-top: 1px solid #ededed;}
@@ -665,13 +668,13 @@ border-right:13px solid #f30774;
 border-left:0;
 }
 /* 검색 UI 팝업 - 인원,좌석,객실,체크리스트 */
-.uis-capacity .uis-capacity-number {margin: 30px 0;}
-.uis-capacity .uis-capacity-number li {margin: 15px 0;padding: 0 30px;}
-.uis-capacity .uis-capacity-number li:after {content: '';display: block;clear:both;}
-.uis-capacity .uis-capacity-number .tit {float: left;font-size:16px;color: #000;padding-top: 7px;}
-.uis-capacity .uis-capacity-number .tit em {font-weight: 500 !important;}
-.uis-capacity .uis-custom-number {float: right;}
-.uis-capacity .uis-txt1 {font-size:16px;color: #000;padding: 0 0 30px 30px;}
+.uis-capacity-number {margin: 30px 0;background-color: #fff;}
+.uis-capacity-number li {margin: 15px 0;padding: 0 30px;}
+.uis-capacity-number li:after {content: '';display: block;clear:both;}
+.uis-capacity-number .tit {float: left;font-size:16px;color: #000;padding-top: 7px;}
+.uis-capacity-number .tit em {font-weight: 500 !important;}
+.uis-custom-number {float: right;}
+.uis-txt1 {font-size:16px;color: #000;padding: 0 0 30px 30px;}
 .uis-custom-number {border: 1px solid #cacdd4;border-radius: 3px;overflow: hidden;}
 .uis-custom-number:after {content: '';display: block;clear:both;}
 .uis-custom-number .ucn-num {float: left;display: inline-block;width: 54px;height: 38px;line-height: 38px;text-align: center;border-left: 1px solid #cacdd4;border-right: 1px solid #cacdd4;font-size:16px;color: #999;font-weight: 500 !important;background-color: #f9f9f9;}
@@ -689,6 +692,10 @@ border-left:0;
 .uis-capacity-chk-list {padding: 30px 30px 0 30px;}
 .uis-capacity-chk-list:after {content: '';display: block;clear:both;}
 .uis-capacity-chk-list li {float: left;margin: 0 30px 30px 0;}
+.uis-set-selectbox {padding: 20px;}
+.uis-set-selectbox:after {content: '';display: block;clear:both;}
+.uis-set-selectbox li {margin: 10px;float: left;width: 46%;}
+.uis-set-selectbox select {width: 235px;}
 .uis-opt-bottom {border-top: 1px solid #ededed;padding: 15px 30px;text-align: right;}
 .uis-opt-bottom:after {content: '';display: block;clear:both;}
 .uis-opt-bottom .uisob-right {float: right;}
@@ -725,7 +732,7 @@ border-left:0;
 .hs-search-cont .ui-mainsel-airtel {width: 292px;}
 .hs-search-cont .ui-mainsel-freetour {width: 1200px;}
 .hs-search-cont .ui-date-calendar {width: 770px;}
-.hs-search-cont .ui-capacity {width: 396px;}
+.hs-search-cont .ui-capacity {min-width: 396px;}
 .hs-search-cont .ui-select-list {min-width: 270px;}
 .hs-search-cont .ui-recently-search {width: 600px;}
 .hs-search-cont .ui-search-auto .uis-mainsel-table, 
@@ -793,8 +800,8 @@ border-left:0;
 .hss-inner-cont .o-airtel .qsb-cont-box {float: left;width: 24%;}
 .hss-inner-cont .o-airtel .qsb-cont-box .qsb-select {width: 100%;}
 .hss-inner-cont .o-airtel .qsb-cont-box + .qsb-cont-box {float: right;width: 75%;}
-.hss-inner-cont .o-airtel .qsb-cont-box + .qsb-cont-box .qsb-select {width: 29.66666666666667%;}
-.hss-inner-cont .o-airtel .qsb-btn-search {width: 11%;}
+.hss-inner-cont .o-airtel .qsb-cont-box + .qsb-cont-box .qsb-select {width: 29.76666666666667%;}
+.hss-inner-cont .o-airtel .qsb-btn-search {width: 10.7%;}
 .hss-inner-cont .o-airtel .sel-cus-airtel .qsb-label {color: #000;}
 .hss-inner-cont .o-airtel .ui-mainsel-airtel {top: -10px;left: 0;overflow: visible;-webkit-box-shadow: none;-moz-box-shadow: none;box-shadow: none;}
 .hss-inner-cont .o-airtel .ui-mainsel-airtel .uis-mainsel-table {width: 1200px;border-radius: 0 6px 6px 6px;overflow: hidden;
@@ -836,10 +843,12 @@ box-shadow: 3px 7px 22px 0px rgba(0,0,0,0.3);
 /*.hss-inner-cont .o-actualtour .ui-mainsel-freetour {top: -10px;left: 0;}*/
 .hss-inner-cont .o-actualtour .ui-select-list {min-width: 338px;}
 /* 검색 박스 lyout - 교통패스 */
-.hss-inner-cont .o-transpass .qsb-select {width: 23%;}
+.hss-inner-cont .o-transpass .qsb-select {width: 23%;border-left: 1px solid #ddd;}
 .hss-inner-cont .o-transpass .qsb-capacity {width: 23%;}
 .hss-inner-cont .o-transpass .qsb-btn-search {width: 8%;}
 .hss-inner-cont .o-transpass .ui-select-list {min-width: 279px;}
+.hss-inner-cont .o-transpass .scbi-2 {display: block;}
+.hss-inner-cont .o-transpass .select-nation {width: 550px;}
 /* 검색 박스 lyout - 공항픽업 */
 .hss-inner-cont .o-airpicup .qsb-select {width: 17%;}
 .hss-inner-cont .o-airpicup .qsb-places {width: 25%;}
@@ -851,7 +860,7 @@ box-shadow: 3px 7px 22px 0px rgba(0,0,0,0.3);
 .hss-inner-cont .o-airpicup .qsb-btn-search {width: 8%;}
 .hss-inner-cont .o-airpicup .ui-capacity {top: -10px;left: 0;}
 .hss-inner-cont .o-airpicup .ui-date-calendar {top: -10px;right: 0;}
-.hss-inner-cont .o-airpicup .ui-mainsel-freetour {top: -10px;left: 408px !important;width: 520px;}
+.hss-inner-cont .o-airpicup .ui-mainsel-freetour {top: -10px;left: 408px !important;width: 500px;}
 .hss-inner-cont .o-airpicup .ui-mainsel-freetour .uis-list .list {max-height:236px;}
 
 /*--------------------------------------------------------------------------------------------------------------
