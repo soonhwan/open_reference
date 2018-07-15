@@ -492,6 +492,7 @@ box-shadow: 0 10px 20px 0px rgba(0,0,0,0.1);
 .sc-search-box .qsb-cont-box .qsb-cont {float: left;border-left: 1px solid #ddd;}
 .sc-search-box .qsb-cont-box .qsb-cont:first-child {border-left: 0;}
 .sc-search-box .qsb-cont-box .qsb-cont-box-inner {display: none;}
+.sc-search-box .qsb-cont-box .qsb-cont-box-inner.on {display: block;}
 .sc-search-box .qsb-cont-box .qsb-cont ~ .qsb-cont-box-inner .qsb-cont {border-left: 1px solid #ddd;}
 .sc-search-box .qsb-cont-indep {border-radius: 0;}
 .sc-search-box .qsb-cont-indep:after {content: '';display: block;clear:both;}
@@ -738,129 +739,129 @@ border-left:0;
 .hs-search-cont .ui-search-auto .uis-list-auto {display: block;}
 .hs-search-cont .ui-search-auto {min-width: 470px;width: auto;}
 /* 검색 박스 lyout -  왕복 */
-.hss-inner-cont .o-shuttle .b-change-places button:before {background-position: -41px -198px;}
-.hss-inner-cont .o-shuttle .qsb-places {width: 41%;}
-.hss-inner-cont .o-shuttle .qsb-dates {width: 28%;}
-.hss-inner-cont .o-shuttle .qsb-capacity {width: 23%;}
-.hss-inner-cont .o-shuttle .qsb-btn-search {width: 8%;}
-.hss-inner-cont .o-shuttle .ui-date-calendar {top: -10px;left: 430px;}
-.hss-inner-cont .o-shuttle .ui-date-calendar .uis-date-chkout .txt-day.disabled {opacity: 0;visibility: visible;}
-.hss-inner-cont .o-shuttle .ui-date-calendar .uis-date-chkin {position: relative;}
-.hss-inner-cont .o-shuttle .ui-date-calendar .uis-select {position: absolute;top: -6px;left: 26px;display: none;}
-.hss-inner-cont .o-shuttle .ui-date-calendar .uis-select.on {display: block;}
-.hss-inner-cont .o-shuttle .ui-date-calendar .uis-select select {width: 160px;}
+.sc-air .o-shuttle .b-change-places button:before {background-position: -41px -198px;}
+.sc-air .o-shuttle .qsb-places {width: 41%;}
+.sc-air .o-shuttle .qsb-dates {width: 28%;}
+.sc-air .o-shuttle .qsb-capacity {width: 23%;}
+.sc-air .o-shuttle .qsb-btn-search {width: 8%;}
+.sc-air .o-shuttle .ui-date-calendar {top: -10px;left: 430px;}
+.sc-air .o-shuttle .ui-date-calendar .uis-date-chkout .txt-day.disabled {opacity: 0;visibility: visible;}
+.sc-air .o-shuttle .ui-date-calendar .uis-date-chkin {position: relative;}
+.sc-air .o-shuttle .ui-date-calendar .uis-select {position: absolute;top: -6px;left: 26px;display: none;}
+.sc-air .o-shuttle .ui-date-calendar .uis-select.on {display: block;}
+.sc-air .o-shuttle .ui-date-calendar .uis-select select {width: 160px;}
 /* 검색 박스 lyout - 편도 */
-.hss-inner-cont .o-oneway .b-change-places button:before {background-position: -41px -214px;}
-.hss-inner-cont .o-oneway .qsb-places {width: 41%;}
-.hss-inner-cont .o-oneway .qsb-dates {width: 28%;}
-.hss-inner-cont .o-oneway .qsb-capacity {width: 23%;}
-.hss-inner-cont .o-oneway .qsb-btn-search {width: 8%;}
-.hss-inner-cont .o-oneway .ui-date-calendar {top: -10px;left: 430px;}
-/*.hss-inner-cont .o-oneway .ui-capacity .uis-capacity-select {display: none;} ?? */
+.sc-air .o-oneway .b-change-places button:before {background-position: -41px -214px;}
+.sc-air .o-oneway .qsb-places {width: 41%;}
+.sc-air .o-oneway .qsb-dates {width: 28%;}
+.sc-air .o-oneway .qsb-capacity {width: 23%;}
+.sc-air .o-oneway .qsb-btn-search {width: 8%;}
+.sc-air .o-oneway .ui-date-calendar {top: -10px;left: 430px;}
 /* 검색 박스 lyout - 다구간 */
-.hss-inner-cont .o-multiway .qsb-number {width: 8%;}
-.hss-inner-cont .o-multiway .b-change-places button:before {background-position: -41px -214px;}
-.hss-inner-cont .o-multiway .qsb-places {width: 56%;border-left: 0;}
-.hss-inner-cont .o-multiway .qsb-dates {width: 36%;}
-.hss-inner-cont .o-multiway .qsb-dates .qsb-area {padding-right: 0px;margin-right: 60px;}
-.hss-inner-cont .o-multiway .qsb-cont-indep {text-align: right;}
-.hss-inner-cont .o-multiway .qsb-cont-indep .qsb-capacity {width: 26%;display: inline-block;text-align: left;margin-right: 9px;}
-.hss-inner-cont .o-multiway .qsb-cont-indep .qsb-btn-search {width: 9%;display: inline-block;}
-.hss-inner-cont .o-multiway .list-qsb-cont li {display: none;margin-bottom: 12px;}
-.hss-inner-cont .o-multiway .list-qsb-cont li.on {display: block;}
-.hss-inner-cont .o-multiway .air-md-1 .ui-date-calendar {top: -10px;left: 430px;}
-.hss-inner-cont .o-multiway .air-md-2 .ui-date-calendar {top: 92px;left: 430px;}
-.hss-inner-cont .o-multiway .air-md-3 .ui-date-calendar {top: 194px;left: 430px;}
-.hss-inner-cont .o-multiway .air-md-4 .ui-date-calendar {top: 296px;left: 430px;}
-/*.hss-inner-cont .o-multiway .air-md-5 .ui-date-calendar {top: 398px;left: 430px;}
-.hss-inner-cont .o-multiway .air-md-6 .ui-date-calendar {top: 500px;left: 430px;}*/
+.sc-air .o-multiway .qsb-number {width: 8%;}
+.sc-air .o-multiway .b-change-places button:before {background-position: -41px -214px;}
+.sc-air .o-multiway .qsb-places {width: 56%;border-left: 0;}
+.sc-air .o-multiway .qsb-dates {width: 36%;}
+.sc-air .o-multiway .qsb-dates .qsb-area {padding-right: 0px;margin-right: 60px;}
+.sc-air .o-multiway .qsb-cont-indep {text-align: right;}
+.sc-air .o-multiway .qsb-cont-indep .qsb-capacity {width: 26%;display: inline-block;text-align: left;margin-right: 9px;}
+.sc-air .o-multiway .qsb-cont-indep .qsb-btn-search {width: 9%;display: inline-block;}
+.sc-air .o-multiway .list-qsb-cont li {display: none;margin-bottom: 12px;}
+.sc-air .o-multiway .list-qsb-cont li.on {display: block;}
+.sc-air .o-multiway .air-md-1 .ui-date-calendar {top: -10px;left: 430px;}
+.sc-air .o-multiway .air-md-2 .ui-date-calendar {top: 92px;left: 430px;}
+.sc-air .o-multiway .air-md-3 .ui-date-calendar {top: 194px;left: 430px;}
+.sc-air .o-multiway .air-md-4 .ui-date-calendar {top: 296px;left: 430px;}
+/*.sc-air .o-multiway .air-md-5 .ui-date-calendar {top: 398px;left: 430px;}
+.sc-air .o-multiway .air-md-6 .ui-date-calendar {top: 500px;left: 430px;}*/
 /* 검색 박스 lyout - 해외호텔 */
-.hss-inner-cont .o-inth .qsb-places {width: 30%;border-left: 0;}
-.hss-inner-cont .o-inth .qsb-places .places-exit {width: 100%;}
-.hss-inner-cont .o-inth .qsb-dates {width: 33%;}
-.hss-inner-cont .o-inth .qsb-capacity {width: 29%;}
-.hss-inner-cont .o-inth .qsb-btn-search {width: 8%;}
-.hss-inner-cont .o-inth .ui-date-calendar {top: -10px;left: 360px;}
-.hss-inner-cont .ui-mainsel-hotel {top: -10px;left: 0;}
-.hss-inner-cont .ui-mainsel-hotel.ui-search-auto {min-width: 520px;}
-.hss-inner-cont .ui-mainsel-hotel .uis-list.uis-list-auto .list {max-height:290px;}
+.sc-hotel .o-inth .qsb-places {width: 30%;border-left: 0;}
+.sc-hotel .o-inth .qsb-places .places-exit {width: 100%;}
+.sc-hotel .o-inth .qsb-dates {width: 33%;}
+.sc-hotel .o-inth .qsb-capacity {width: 29%;}
+.sc-hotel .o-inth .qsb-btn-search {width: 8%;}
+.sc-hotel .o-inth .ui-date-calendar {top: -10px;left: 360px;}
+.sc-hotel .ui-mainsel-hotel {top: -10px;left: 0;}
+.sc-hotel .ui-mainsel-hotel.ui-search-auto {min-width: 520px;}
+.sc-hotel .ui-mainsel-hotel .uis-list.uis-list-auto .list {max-height:290px;}
 /* 검색 박스 lyout - 국내호텔 */
-.hss-inner-cont .o-domh .qsb-places {width: 30%;border-left: 0;}
-.hss-inner-cont .o-domh .qsb-places .places-exit {width: 100%;}
-.hss-inner-cont .o-domh .qsb-dates {width: 33%;}
-.hss-inner-cont .o-domh .qsb-capacity {width: 29%;}
-.hss-inner-cont .o-domh .qsb-btn-search {width: 8%;}
-.hss-inner-cont .o-domh .ui-date-calendar {top: -10px;left: 360px;}
-.hss-inner-cont .o-domh .ui-mainsel-hotel {top: -10px;left: 0;width: 520px;}
-.hss-inner-cont .o-domh .ui-mainsel-hotel .uis-list .list {max-height:290px;}
+.sc-hotel .o-domh .qsb-places {width: 30%;border-left: 0;}
+.sc-hotel .o-domh .qsb-places .places-exit {width: 100%;}
+.sc-hotel .o-domh .qsb-dates {width: 33%;}
+.sc-hotel .o-domh .qsb-capacity {width: 29%;}
+.sc-hotel .o-domh .qsb-btn-search {width: 8%;}
+.sc-hotel .o-domh .ui-date-calendar {top: -10px;left: 360px;}
+.sc-hotel .o-domh .ui-mainsel-hotel {top: -10px;left: 0;width: 520px;}
+.sc-hotel .o-domh .ui-mainsel-hotel .uis-list .list {max-height:290px;}
 /* 검색 박스 lyout - 자유여행 */
-.hss-inner-cont .o-airtel .w-qsb-cont:after {content: '';display: block;clear:both;}
-.hss-inner-cont .o-airtel .qsb-cont-box {float: left;width: 24%;}
-.hss-inner-cont .o-airtel .qsb-cont-box .qsb-select {width: 100%;}
-.hss-inner-cont .o-airtel .qsb-cont-box + .qsb-cont-box {float: right;width: 75%;}
-.hss-inner-cont .o-airtel .qsb-cont-box + .qsb-cont-box .qsb-select {width: 29.76666666666667%;}
-.hss-inner-cont .o-airtel .qsb-btn-search {width: 10.7%;}
-.hss-inner-cont .o-airtel .sel-cus-airtel .qsb-label {color: #000;}
-.hss-inner-cont .o-airtel .ui-mainsel-airtel {top: -10px;left: 0;overflow: visible;-webkit-box-shadow: none;-moz-box-shadow: none;box-shadow: none;}
-.hss-inner-cont .o-airtel .ui-mainsel-airtel .uis-input {border-radius: 6px;}
-.hss-inner-cont .o-airtel .ui-mainsel-airtel .uis-mainsel-table {width: 1200px;border-radius: 0 6px 6px 6px;overflow: hidden;
+.sc-free .o-airtel .w-qsb-cont:after {content: '';display: block;clear:both;}
+.sc-free .o-airtel .qsb-cont-box {float: left;width: 24%;}
+.sc-free .o-airtel .qsb-cont-box .qsb-select {width: 100%;}
+.sc-free .o-airtel .qsb-cont-box + .qsb-cont-box {float: right;width: 75%;}
+.sc-free .o-airtel .qsb-cont-box + .qsb-cont-box .qsb-select {width: 29.76666666666667%;}
+.sc-free .o-airtel .qsb-btn-search {width: 10.7%;}
+.sc-free .o-airtel .sel-cus-airtel .qsb-label {color: #000;}
+.sc-free .o-airtel .ui-mainsel-airtel {top: -10px;left: 0;overflow: visible;-webkit-box-shadow: none;-moz-box-shadow: none;box-shadow: none;}
+.sc-free .o-airtel .ui-mainsel-airtel .uis-input {border-radius: 6px;}
+.sc-free .o-airtel .ui-mainsel-airtel .uis-mainsel-table {width: 1200px;border-radius: 0 6px 6px 6px;overflow: hidden;
 -webkit-box-shadow: 3px 7px 22px 0px rgba(0,0,0,0.3);
 -moz-box-shadow: 3px 7px 22px 0px rgba(0,0,0,0.3);
 box-shadow: 3px 7px 22px 0px rgba(0,0,0,0.3);
 }
 /* 검색 박스 lyout - 렌터카 */
-.hss-inner-cont .o-rentv .qsb-places {width: 52%;border-left: 0;}
-.hss-inner-cont .o-rentv .qsb-places .places-exit {position: relative;padding-right: 20px;}
-.hss-inner-cont .o-rentv .qsb-places .places-entry {padding-left: 20px;}
-.hss-inner-cont .o-rentv .qsb-places .places-exit:before {content: '';display: block;width: 16px;height: 14px;position: absolute;top: 50%;margin-top: -3px;right: 0;background: url(/images/front/travel/contents/icon-common-sec.png) -41px -198px no-repeat;}
-.hss-inner-cont .o-rentv .qsb-places.area-same .places-exit {width: 100%;padding-right: 0;}
-.hss-inner-cont .o-rentv .qsb-places.area-same .places-exit:before {display: none;}
-.hss-inner-cont .o-rentv .qsb-places.area-same .places-entry {display: none;}
-.hss-inner-cont .o-rentv .qsb-dates {width: 40%;}
-.hss-inner-cont .o-rentv .qsb-btn-search {width: 8%;}
-.hss-inner-cont .o-rentv .ui-date-calendar {top: -10px;left: 430px;}
-.hss-inner-cont .o-rentv .ui-date-calendar .uis-date-chkin {position: relative;}
-.hss-inner-cont .o-rentv .ui-date-calendar .txt-day {width: 300px;}
-.hss-inner-cont .o-rentv .ui-date-calendar .uis-select {position: absolute;top: 13px;left: 120px;display: none;}
-.hss-inner-cont .o-rentv .ui-date-calendar .uis-select select {width: 80px;}
-.hss-inner-cont .o-rentv .ui-date-calendar .uis-date-chkout .uis-select {left: 150px;}
-.hss-inner-cont .o-rentv .ui-date-calendar .uis-select.on {display: block;}
-.hss-inner-cont .o-rentv .ui-mainsel-freetour {top: -10px;left: 0;}
-.hss-inner-cont .o-rentv .ui-mainsel-freetour.ui-search-auto {min-width: 520px;}
-.hss-inner-cont .o-rentv .ui-mainsel-freetour .uis-list .list {max-height:290px;}
+.sc-freetour .o-rentv .qsb-places {width: 52%;border-left: 0;}
+.sc-freetour .o-rentv .qsb-places .places-exit {position: relative;padding-right: 20px;}
+.sc-freetour .o-rentv .qsb-places .places-entry {padding-left: 20px;}
+.sc-freetour .o-rentv .qsb-places .places-exit:before {content: '';display: block;width: 16px;height: 14px;position: absolute;top: 50%;margin-top: -3px;right: 0;background: url(/images/front/travel/contents/icon-common-sec.png) -41px -198px no-repeat;}
+.sc-freetour .o-rentv .qsb-places.area-same .places-exit {width: 100%;padding-right: 0;}
+.sc-freetour .o-rentv .qsb-places.area-same .places-exit:before {display: none;}
+.sc-freetour .o-rentv .qsb-places.area-same .places-entry {display: none;}
+.sc-freetour .o-rentv .qsb-dates {width: 40%;}
+.sc-freetour .o-rentv .qsb-btn-search {width: 8%;}
+.sc-freetour .o-rentv .ui-date-calendar {top: -10px;left: 430px;}
+.sc-freetour .o-rentv .ui-date-calendar .uis-date-chkin {position: relative;}
+.sc-freetour .o-rentv .ui-date-calendar .txt-day {width: 300px;}
+.sc-freetour .o-rentv .ui-date-calendar .uis-select {position: absolute;top: 13px;left: 120px;display: none;}
+.sc-freetour .o-rentv .ui-date-calendar .uis-select select {width: 80px;}
+.sc-freetour .o-rentv .ui-date-calendar .uis-date-chkout .uis-select {left: 150px;}
+.sc-freetour .o-rentv .ui-date-calendar .uis-select.on {display: block;}
+.sc-freetour .o-rentv .ui-mainsel-freetour {top: -10px;left: 0;}
+.sc-freetour .o-rentv .ui-mainsel-freetour.ui-search-auto {min-width: 520px;}
+.sc-freetour .o-rentv .ui-mainsel-freetour .uis-list .list {max-height:290px;}
 /* 검색 박스 lyout - 해외 입장권 */
-.hss-inner-cont .o-intticket .qsb-select {width: 28%;}
-.hss-inner-cont .o-intticket .qsb-capacity {width: 36%;}
-.hss-inner-cont .o-intticket .qsb-btn-search {width: 8%;}
-/*.hss-inner-cont .o-intticket .ui-mainsel-freetour {top: -10px;left: 0;}*/
-.hss-inner-cont .o-intticket .ui-select-list {min-width: 338px;}
+.sc-freetour .o-intticket .qsb-select {width: 28%;}
+.sc-freetour .o-intticket .qsb-capacity {width: 36%;}
+.sc-freetour .o-intticket .qsb-btn-search {width: 8%;}
+/*.sc-freetour .o-intticket .ui-mainsel-freetour {top: -10px;left: 0;}*/
+.sc-freetour .o-intticket .ui-select-list {min-width: 338px;}
 /* 검색 박스 lyout - 현지투어 */
-.hss-inner-cont .o-actualtour .qsb-select {width: 28%;}
-.hss-inner-cont .o-actualtour .qsb-capacity {width: 36%;}
-.hss-inner-cont .o-actualtour .qsb-btn-search {width: 8%;}
-.hss-inner-cont .o-actualtour .ui-capacity-theme {top: -10px;left: 0;width: 400px;}
-/*.hss-inner-cont .o-actualtour .ui-mainsel-freetour {top: -10px;left: 0;}*/
-.hss-inner-cont .o-actualtour .ui-select-list {min-width: 338px;}
+.sc-freetour .o-actualtour .qsb-select {width: 28%;}
+.sc-freetour .o-actualtour .qsb-capacity {width: 36%;}
+.sc-freetour .o-actualtour .qsb-btn-search {width: 8%;}
+.sc-freetour .o-actualtour .ui-capacity-theme {top: -10px;left: 0;width: 400px;}
+/*.sc-freetour .o-actualtour .ui-mainsel-freetour {top: -10px;left: 0;}*/
+.sc-freetour .o-actualtour .ui-select-list {min-width: 338px;}
 /* 검색 박스 lyout - 교통패스 */
-.hss-inner-cont .o-transpass .qsb-select {width: 23%;border-left: 1px solid #ddd;}
-.hss-inner-cont .o-transpass .qsb-capacity {width: 23%;}
-.hss-inner-cont .o-transpass .qsb-btn-search {width: 8%;}
-.hss-inner-cont .o-transpass .ui-select-list {min-width: 279px;}
-.hss-inner-cont .o-transpass .scbi-2 {display: block;}
-.hss-inner-cont .o-transpass .select-nation {top: -10px;left: 0;width: 550px;}
+.sc-freetour .o-transpass .qsb-select {width: 23%;border-left: 1px solid #ddd;}
+.sc-freetour .o-transpass .qsb-capacity {width: 23%;}
+.sc-freetour .o-transpass .qsb-btn-search {width: 8%;}
+.sc-freetour .o-transpass .ui-select-list {min-width: 279px;}
+.sc-freetour .o-transpass .select-nation {top: -10px;left: 0;width: 550px;}
+.sc-freetour .global-ui-capacity .uis-capacity-number .yth, 
+.sc-freetour .global-ui-capacity .uis-capacity-number .old {display: none;}
 /* 검색 박스 lyout - 공항픽업 */
-.hss-inner-cont .o-airpicup .qsb-select {width: 17%;}
-.hss-inner-cont .o-airpicup .qsb-places {width: 25%;}
-.hss-inner-cont .o-airpicup .qsb-places .places-exit {position: relative;padding-right: 20px;}
-.hss-inner-cont .o-airpicup .qsb-places .places-entry {padding-left: 20px;}
-.hss-inner-cont .o-airpicup .qsb-places .places-exit:before {content: '';display: block;width: 16px;height: 14px;position: absolute;top: 50%;margin-top: -3px;right: 0;background: url(/images/front/travel/contents/icon-common-sec.png) -41px -213px no-repeat;}
-.hss-inner-cont .o-airpicup .qsb-dates {width: 16%;}
-.hss-inner-cont .o-airpicup .qsb-capacity {width: 15%;}
-.hss-inner-cont .o-airpicup .qsb-btn-search {width: 8%;}
-.hss-inner-cont .o-airpicup .ui-capacity {top: -10px;left: 0;}
-.hss-inner-cont .o-airpicup .ui-date-calendar {top: -10px;right: 0;}
-.hss-inner-cont .o-airpicup .ui-mainsel-freetour {top: -10px;left: 408px !important;width: 500px;}
-.hss-inner-cont .o-airpicup .ui-mainsel-freetour .uis-list .list {max-height:236px;}
+.sc-freetour .o-airpicup .qsb-select {width: 17%;}
+.sc-freetour .o-airpicup .qsb-places {width: 25%;}
+.sc-freetour .o-airpicup .qsb-places .places-exit {position: relative;padding-right: 20px;}
+.sc-freetour .o-airpicup .qsb-places .places-entry {padding-left: 20px;}
+.sc-freetour .o-airpicup .qsb-places .places-exit:before {content: '';display: block;width: 16px;height: 14px;position: absolute;top: 50%;margin-top: -3px;right: 0;background: url(/images/front/travel/contents/icon-common-sec.png) -41px -213px no-repeat;}
+.sc-freetour .o-airpicup .qsb-dates {width: 16%;}
+.sc-freetour .o-airpicup .qsb-capacity {width: 15%;}
+.sc-freetour .o-airpicup .qsb-btn-search {width: 8%;}
+.sc-freetour .o-airpicup .ui-capacity {top: -10px;left: 0;}
+.sc-freetour .o-airpicup .ui-date-calendar {top: -10px;right: 0;}
+.sc-freetour .o-airpicup .ui-mainsel-freetour {top: -10px;left: 408px !important;width: 500px;}
+.sc-freetour .o-airpicup .ui-mainsel-freetour .uis-list .list {max-height:236px;}
 
 /*--------------------------------------------------------------------------------------------------------------
  *  common - footer

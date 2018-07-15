@@ -775,10 +775,6 @@ function comSearchAir(){
 					return false;
 				}
 			}
-			
-			if(chdCnt < 1){$('.sc-air .global-ui-capacity .uis-capacity-number .num-chd').removeClass('on');} 
-			else{$('.sc-air .global-ui-capacity .uis-capacity-number .num-chd').addClass('on');}
-			
 			$('.sc-air .global-ui-capacity .uis-capacity-number .num-chd').text(chdCnt);
 		}
 		
@@ -798,10 +794,6 @@ function comSearchAir(){
 					return false;
 				}
 			}
-			
-			if(infCnt < 1){$('.sc-air .global-ui-capacity .uis-capacity-number .num-inf').removeClass('on');} 
-			else{$('.sc-air .global-ui-capacity .uis-capacity-number .num-inf').addClass('on');}
-			
 			$('.sc-air .global-ui-capacity .uis-capacity-number .num-inf').text(infCnt);
 		}
 	}
@@ -866,16 +858,7 @@ function comSearchAir(){
 		setCapacity(type, action);
 		e.preventDefault();
 	});
-	
-	//좌석등급 select click
-	$('.sc-air .global-ui-capacity .select-comp li a').on('click', function(e){
-		if(!$(this).closest('li').hasClass('on')){
-			$('.sc-air .global-ui-capacity .select-comp li.on').removeClass('on');
-			$(this).closest('li').addClass('on');
-		}
-		e.preventDefault();
-	});
-	
+		
 	//인원, 좌석등급 완료 click
 	$('.sc-air .global-ui-capacity .b-complete a').on('click', function(e){
 		var adtCnt = parseInt($('.sc-air .global-ui-capacity .uis-capacity-number .num-adt').text()); //성인
@@ -1343,11 +1326,7 @@ function comSearchHotel(){
 					room1Cnt = 3;
 					return false;
 				}
-			}
-			
-			if(room1Cnt < 1){$('.sc-hotel .global-ui-capacity .uis-capacity-number .num-room1').removeClass('on');} 
-			else{$('.sc-hotel .global-ui-capacity .uis-capacity-number .num-room1').addClass('on');}
-		
+			}	
 			$('.sc-hotel .global-ui-capacity .uis-capacity-number .num-room1').text(room1Cnt);
 		}
 		
@@ -1367,10 +1346,6 @@ function comSearchHotel(){
 					return false;
 				}
 			}
-			
-			if(room2dCnt < 1){$('.sc-hotel .global-ui-capacity .uis-capacity-number .num-room2d').removeClass('on');} 
-			else{$('.sc-hotel .global-ui-capacity .uis-capacity-number .num-room2d').addClass('on');}
-		
 			$('.sc-hotel .global-ui-capacity .uis-capacity-number .num-room2d').text(room2dCnt);
 		}
 		
@@ -1390,10 +1365,6 @@ function comSearchHotel(){
 					return false;
 				}
 			}
-			
-			if(room2tCnt < 1){$('.sc-hotel .global-ui-capacity .uis-capacity-number .num-room2t').removeClass('on');} 
-			else{$('.sc-hotel .global-ui-capacity .uis-capacity-number .num-room2t').addClass('on');}
-		
 			$('.sc-hotel .global-ui-capacity .uis-capacity-number .num-room2t').text(room2tCnt);
 		}
 		
@@ -1413,10 +1384,6 @@ function comSearchHotel(){
 					return false;
 				}
 			}
-			
-			if(room3Cnt < 1){$('.sc-hotel .global-ui-capacity .uis-capacity-number .num-room3').removeClass('on');} 
-			else{$('.sc-hotel .global-ui-capacity .uis-capacity-number .num-room3').addClass('on');}
-		
 			$('.sc-hotel .global-ui-capacity .uis-capacity-number .num-room3').text(room3Cnt);
 		}
 	}
@@ -1791,8 +1758,8 @@ function comSearchFreetour(){
 			$p.find('.ipu-search').val('');
 		}
 		
-		//공항픽업
-		if($currentCity.closest('.o-airpicup').hasClass('o-airpicup')){
+		//공항픽업인 경우
+		if($currentCity.closest('.o-airpicup').length > 0){
 			if($currentCity.closest('.places-exit').hasClass('places-exit')){
 				$p.find('.opt-txt').text('픽업장소를 선택하세요.');
 			}
@@ -1817,13 +1784,7 @@ function comSearchFreetour(){
 	
 	//도시 검색하기(자동완성) keydown
 	$('.ui-mainsel-freetour .uis-input .ipu-search').on('keydown', function(){
-		if(!$(this).closest('.ui-mainsel-freetour').hasClass('ui-search-auto') && $(this).val('')){
-			//position
-			pvFrontScript.panelPosition({
-				target: $currentCity,
-				area: 'freetour-mainsel-auto'
-			});
-			
+		if(!$(this).closest('.ui-mainsel-freetour').hasClass('ui-search-auto') && $(this).val('')){			
 			//add auto
 			$(this).closest('.ui-mainsel-freetour').addClass('ui-search-auto');
 		}
@@ -1855,8 +1816,10 @@ function comSearchFreetour(){
 		var cType = type;
 		var cAction = action;
 		var adtCnt = parseInt($('.sc-freetour .global-ui-capacity .uis-capacity-number .num-adt').text()); //성인
+		var ythCnt = parseInt($('.sc-freetour .global-ui-capacity .uis-capacity-number .num-yth').text()); //유스
 		var chdCnt = parseInt($('.sc-freetour .global-ui-capacity .uis-capacity-number .num-chd').text()); //아동
-		//console.log('setCapacity click = ', cType, cAction, adtCnt, chdCnt);
+		var oldCnt = parseInt($('.sc-freetour .global-ui-capacity .uis-capacity-number .num-old').text()); //경로
+		//console.log('setCapacity click = ', cType, cAction, adtCnt, ythCnt, chdCnt, oldCnt);
 		
 		//성인
 		if(cType == 'adt'){
@@ -1874,11 +1837,26 @@ function comSearchFreetour(){
 					return false;
 				}
 			}
-			
-			if(adtCnt < 1){$('.sc-freetour .global-ui-capacity .uis-capacity-number .num-adt').removeClass('on');} 
-			else{$('.sc-freetour .global-ui-capacity .uis-capacity-number .num-adt').addClass('on');}
-			
 			$('.sc-freetour .global-ui-capacity .uis-capacity-number .num-adt').text(adtCnt);
+		}
+		
+		//유스
+		if(cType == 'yth'){
+			if(cAction == 'minus'){
+				ythCnt--;
+				if(ythCnt < 0){
+					ythCnt = 0;
+					return false;
+				}
+			}
+			else if(cAction == 'plus'){
+				ythCnt++;
+				if(ythCnt > 9){
+					ythCnt = 9;
+					return false;
+				}
+			}
+			$('.sc-freetour .global-ui-capacity .uis-capacity-number .num-yth').text(ythCnt);
 		}
 		
 		//아동
@@ -1897,15 +1875,30 @@ function comSearchFreetour(){
 					return false;
 				}
 			}
-			
-			if(chdCnt < 1){$('.sc-freetour .global-ui-capacity .uis-capacity-number .num-chd').removeClass('on');} 
-			else{$('.sc-freetour .global-ui-capacity .uis-capacity-number .num-chd').addClass('on');}
-			
 			$('.sc-freetour .global-ui-capacity .uis-capacity-number .num-chd').text(chdCnt);
+		}
+		
+		//경로
+		if(cType == 'old'){
+			if(cAction == 'minus'){
+				oldCnt--;
+				if(oldCnt < 0){
+					oldCnt = 0;
+					return false;
+				}
+			}
+			else if(cAction == 'plus'){
+				oldCnt++;
+				if(oldCnt > 9){
+					oldCnt = 9;
+					return false;
+				}
+			}
+			$('.sc-freetour .global-ui-capacity .uis-capacity-number .num-old').text(oldCnt);
 		}
 	}
 	
-	//인원, 테마 팝업
+	//인원, 테마, 교통패스 팝업
 	$('.sc-freetour [data-panel="capacity"]').on('click', function(e){
 		var panelName = $(this).data('panel-name');
 				
@@ -1932,6 +1925,28 @@ function comSearchFreetour(){
 			else{$('.sc-freetour .uis-capacity-number .num-chd').removeClass('on');}
 			$('.sc-freetour .uis-capacity-number .num-adt').text(adt);
 			$('.sc-freetour .uis-capacity-number .num-chd').text(chd);
+			
+			if($(this).closest('.scbi-2').hasClass('on')){
+				//값 가져오기
+				var yth = $currenCapacity.find('[data-yth]').data('yth'); //유스
+				var old = $currenCapacity.find('[data-old]').data('old'); //경로
+				//console.log('가져오기 = ', adt, yth, chd, old);
+				
+				$('.sc-freetour .uis-capacity-number .yth').show();
+				$('.sc-freetour .uis-capacity-number .old').show();
+				
+				//셋팅
+				if(yth > 0){$('.sc-freetour .uis-capacity-number .num-yth').addClass('on');} 
+				else{$('.sc-freetour .uis-capacity-number .num-yth').removeClass('on');}
+				if(old > 0){$('.sc-freetour .uis-capacity-number .num-old').addClass('on');} 
+				else{$('.sc-freetour .uis-capacity-number .num-old').removeClass('on');}
+				$('.sc-freetour .uis-capacity-number .num-yth').text(yth);
+				$('.sc-freetour .uis-capacity-number .num-old').text(old);
+			}
+			else{
+				$('.sc-freetour .uis-capacity-number .yth').hide();
+				$('.sc-freetour .uis-capacity-number .old').hide();
+			}
 		}
 		
 		
@@ -1955,7 +1970,9 @@ function comSearchFreetour(){
 		
 		//교통패스 - 여행도시 selectbox
 		if(panelName == 'select-nation'){
-			console.log('교통패스 - 여행도시 selectbox');
+			//값 가져오기
+			
+			//셋팅
 		}
 		
 		e.preventDefault();
@@ -1972,16 +1989,22 @@ function comSearchFreetour(){
 	//인원 완료 click
 	$('.sc-freetour .global-ui-capacity .b-complete a').on('click', function(e){
 		var adtCnt = parseInt($('.sc-freetour .global-ui-capacity .uis-capacity-number .num-adt').text()); //성인
+		var ythCnt = parseInt($('.sc-freetour .global-ui-capacity .uis-capacity-number .num-yth').text()); //유스
 		var chdCnt = parseInt($('.sc-freetour .global-ui-capacity .uis-capacity-number .num-chd').text()); //아동
-		//console.log('완료 = ', adtCnt, chdCnt);
+		var oldCnt = parseInt($('.sc-freetour .global-ui-capacity .uis-capacity-number .num-old').text()); //경로
+		//console.log('완료 = ', adtCnt, ythCnt, chdCnt, oldCnt);
 		
 		//data input
 		$currenCapacity.find('[data-adt]').data('adt',adtCnt);
+		$currenCapacity.find('[data-yth]').data('yth',ythCnt);
 		$currenCapacity.find('[data-chd]').data('chd',chdCnt);
+		$currenCapacity.find('[data-old]').data('old',oldCnt);
 		
 		//sbox input
 		$currenCapacity.find('.total-adt-num').text(adtCnt);
+		$currenCapacity.find('.total-yth-num').text(ythCnt);
 		$currenCapacity.find('.total-chd-num').text(chdCnt);
+		$currenCapacity.find('.total-old-num').text(oldCnt);
 		
 		pvFrontScript.docuMoudownTrigger();
 		e.preventDefault();
@@ -2045,6 +2068,7 @@ function comSearchFreetour(){
 		
 	//select list click
 	$('.sc-freetour .ui-select-list .uis-list .list li a').on('click', function(e){
+		var o = $(this).data('option');
 		var v = $(this).text();
 		
 		//select list input
@@ -2053,27 +2077,55 @@ function comSearchFreetour(){
 		}
 		$currentSelect.find('.qsb-input').text(v);
 		
+		//교통패스 - 여행지역 유럽 선택시
+		if($(this).closest('.o-sel-transpass1').length > 0){
+			$('.sc-freetour .o-transpass .qsb-cont-box-inner.on').removeClass('on');
+			
+			if(o == 'E1'){
+				$('.sc-freetour .o-transpass .scbi-2').addClass('on');
+			}
+			else{
+				$('.sc-freetour .o-transpass .scbi-1').addClass('on');
+			}
+		}
+		
+		//교통패스 - 패스타입 선택
+		if($(this).closest('.o-sel-transpass4').length > 0){
+			if(o == 'Type0'){
+				$('.sc-freetour .o-transpass .select-nation .uis-set-selectbox li').eq(0).find('.select-base').fakeselect('enable');
+				$('.sc-freetour .o-transpass .select-nation .uis-set-selectbox li').eq(1).find('.select-base').fakeselect('enable');
+				$('.sc-freetour .o-transpass .select-nation .uis-set-selectbox li').eq(2).find('.select-base').fakeselect('enable');
+				$('.sc-freetour .o-transpass .select-nation .uis-set-selectbox li').eq(3).find('.select-base').fakeselect('enable');
+			}
+			else if(o == 'Type1'){
+				$('.sc-freetour .o-transpass .select-nation .uis-set-selectbox li').eq(0).find('.select-base').fakeselect('enable');
+				$('.sc-freetour .o-transpass .select-nation .uis-set-selectbox li').eq(1).find('.select-base').fakeselect('disable');
+				$('.sc-freetour .o-transpass .select-nation .uis-set-selectbox li').eq(2).find('.select-base').fakeselect('disable');
+				$('.sc-freetour .o-transpass .select-nation .uis-set-selectbox li').eq(3).find('.select-base').fakeselect('disable');
+			}
+			else if(o == 'Type2'){
+				$('.sc-freetour .o-transpass .select-nation .uis-set-selectbox li').eq(0).find('.select-base').fakeselect('enable');
+				$('.sc-freetour .o-transpass .select-nation .uis-set-selectbox li').eq(1).find('.select-base').fakeselect('enable');
+				$('.sc-freetour .o-transpass .select-nation .uis-set-selectbox li').eq(2).find('.select-base').fakeselect('disable');
+				$('.sc-freetour .o-transpass .select-nation .uis-set-selectbox li').eq(3).find('.select-base').fakeselect('disable');
+			}
+			else if(o == 'Type3'){
+				$('.sc-freetour .o-transpass .select-nation .uis-set-selectbox li').eq(0).find('.select-base').fakeselect('enable');
+				$('.sc-freetour .o-transpass .select-nation .uis-set-selectbox li').eq(1).find('.select-base').fakeselect('enable');
+				$('.sc-freetour .o-transpass .select-nation .uis-set-selectbox li').eq(2).find('.select-base').fakeselect('enable');
+				$('.sc-freetour .o-transpass .select-nation .uis-set-selectbox li').eq(3).find('.select-base').fakeselect('disable');
+			}
+			else if(o == 'Type4'){
+				$('.sc-freetour .o-transpass .select-nation .uis-set-selectbox li').eq(0).find('.select-base').fakeselect('enable');
+				$('.sc-freetour .o-transpass .select-nation .uis-set-selectbox li').eq(1).find('.select-base').fakeselect('enable');
+				$('.sc-freetour .o-transpass .select-nation .uis-set-selectbox li').eq(2).find('.select-base').fakeselect('enable');
+				$('.sc-freetour .o-transpass .select-nation .uis-set-selectbox li').eq(3).find('.select-base').fakeselect('enable');
+			}
+		}
+		
 		pvFrontScript.docuMoudownTrigger();
 		e.preventDefault();
-	});
-	
-	//교통패스 - 여행지역 유럽 선택시
-	$('.sc-freetour .o-sel-transpass1 .uis-list .list li a').on('click', function(e){
-		var v = $(this).text();
-		
-		if(v == '유럽'){
-			$('.sc-freetour .o-transpass .scbi-1').hide();
-			$('.sc-freetour .o-transpass .scbi-2').show();
-		}
-		else{
-			$('.sc-freetour .o-transpass .scbi-1').show();
-			$('.sc-freetour .o-transpass .scbi-2').hide();
-		}
-		
-		e.preventDefault();
-	});
-	
-	
+	});	
 	
 	//+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ 캘린더
 	//캘린더 팝업

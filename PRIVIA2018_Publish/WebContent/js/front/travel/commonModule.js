@@ -197,6 +197,7 @@ var pvFrontScript = window.pvFrontScript || (function(){
 					of: $of
 				});		
 			}
+			
 			//호텔 주요도시
 			if($area == 'hotel-mainsel'){
 				$panel.position({
@@ -215,15 +216,7 @@ var pvFrontScript = window.pvFrontScript || (function(){
 					of: $of
 				});	
 			}
-			//셀렉트 리스트
-			if($area == 'panel-sel'){
-				$panel.position({
-					my: 'left top-10',
-					at: 'left top',
-					collision: 'none',
-					of: $of.closest('.qsb-select')
-				});
-			}
+			
 			//자유여행 주요도시
 			if($area == 'freetour-mainsel'){
 				$panel.position({
@@ -233,6 +226,7 @@ var pvFrontScript = window.pvFrontScript || (function(){
 					of: $of.closest('.qsb-cont-box')
 				});
 			}
+			
 			//투액 대여도시 검색
 			if($area == 'freetour-mainsel-auto'){
 				$panel.position({
@@ -255,6 +249,7 @@ var pvFrontScript = window.pvFrontScript || (function(){
 				else{
 					_my = 'left-31 top-32';
 				}
+				
 				$panel.position({
 					my: _my,
 					at: 'left top',
@@ -262,7 +257,18 @@ var pvFrontScript = window.pvFrontScript || (function(){
 					of: $of
 				});
 			}
-
+			
+			//셀렉트 리스트
+			if($area == 'panel-sel'){
+				$panel.position({
+					my: 'left top-10',
+					at: 'left top',
+					collision: 'none',
+					of: $of.closest('.qsb-select')
+				});
+			}
+			
+			//캘린더
 			if(!$panel.hasClass('on') || $area == null){
 				$panel.addClass('on');
 			}
@@ -334,50 +340,85 @@ var pvFrontScript = window.pvFrontScript || (function(){
 			}		
 			return result;
 		},
-		comSearchEvtBind: function(section){
+		comSearchEvtBind: function($section){
 			/* 설명   : 통합검색 - 섹션별 필요한 이벤트 제공
 			   사용처 : 통합헤더 섹션별 UI Evvent 필요시 호출 */
 			
-			var $section = section;
+			var section = $section;
 		
 			//검색(도시) 리스트, 최근검색 커스텀스크롤
-			if($section.find('.o-customscrollbar').length > 0){
-				$section.find('.o-customscrollbar').mCustomScrollbar({theme:"minimal-dark"});
+			if(section.find('.o-customscrollbar').length > 0){
+				section.find('.o-customscrollbar').mCustomScrollbar({theme:"minimal-dark"});
 			}
 
 			//팝업 닫기 버튼
-			if($section.find('.sc-ui-search-panel .b-scb-close').length > 0){
-				$section.find('.sc-ui-search-panel .b-scb-close').on('click', function(e){
+			if(section.find('.sc-ui-search-panel .b-scb-close').length > 0){
+				section.find('.sc-ui-search-panel .b-scb-close').on('click', function(e){
 					$(this).closest('.sc-ui-search-panel.on').removeClass('on');
 					e.preventDefault();
 				});
 			}
 
 			//인원,좌석,객실 취소 버튼
-			if($section.find('.ui-capacity .b-cancel a').length > 0){
-				$section.find('.ui-capacity .b-cancel a').on('click', function(e){
+			if(section.find('.ui-capacity .b-cancel a').length > 0){
+				section.find('.ui-capacity .b-cancel a').on('click', function(e){
 					pvFrontScript.docuMoudownTrigger();
 					e.preventDefault();
 				});
 			}
 
 			//캘린더 today 제거
-			if($section.find('.sc-ui-search-panel .uis-datepicker').length > 0){
-				$section.find('.sc-ui-search-panel .uis-datepicker').find(".ui-state-active").removeClass("ui-state-active"); 
+			if(section.find('.sc-ui-search-panel .uis-datepicker').length > 0){
+				section.find('.sc-ui-search-panel .uis-datepicker').find(".ui-state-active").removeClass("ui-state-active"); 
+			}
+			
+			//capacity uis-capacity-number click(클래스 on 추가, 삭제 기능)
+			if(section.find('.sc-ui-search-panel .uis-capacity-number').length > 0){
+				//minus
+				section.find('.sc-ui-search-panel .uis-capacity-number .uis-custom-number .b-minus button').on('click', function(e){
+					var c = parseInt($(this).closest('.uis-custom-number').find('.ucn-num').text());
+					if(c < 1){
+						if($(this).closest('.uis-custom-number').find('.ucn-num').hasClass('on')){
+							$(this).closest('.uis-custom-number').find('.ucn-num.on').removeClass('on');
+						}
+					}
+					e.preventDefault();
+				});
+				//plus
+				section.find('.sc-ui-search-panel .uis-capacity-number .uis-custom-number .b-plus button').on('click', function(e){
+					var c = parseInt($(this).closest('.uis-custom-number').find('.ucn-num').text());
+					if(c > 0){
+						if(!$(this).closest('.uis-custom-number').find('.ucn-num').hasClass('on')){
+							$(this).closest('.uis-custom-number').find('.ucn-num').addClass('on');
+						}
+					}
+					e.preventDefault();
+				});
+			}
+			
+			//capacity uis-capacity-select click(클래스 on 추가, 삭제 기능)
+			if(section.find('.sc-ui-search-panel .uis-capacity-select').length > 0){
+				section.find('.sc-ui-search-panel .uis-capacity-select li a').on('click', function(e){
+					if(!$(this).closest('li').hasClass('on')){
+						section.find('.sc-ui-search-panel .uis-capacity-select li.on').removeClass('on');
+						$(this).closest('li').addClass('on');
+					}
+					e.preventDefault();
+				});
 			}
 		},
-		comSearchRecently: function(section){
+		comSearchRecently: function($section){
 			/* 설명   : 통합검색 - 최근검색에 필요한 이벤트 제공
 			   사용처 : 통합헤더 섹션별 최근검색 Evvent 필요시 호출 */
 			
-			var $section = section;
+			var section = $section;
 	
 			//최근검색이 있으면 노출
-			$section.find('.hss-recently-search').addClass('on');
-			$section.addClass('isRecently');
+			section.find('.hss-recently-search').addClass('on');
+			section.addClass('isRecently');
 
 			//최근검색 열기 click
-			$section.find('.hss-recently-search [data-panel="recently"]').on('click', function(e){
+			section.find('.hss-recently-search [data-panel="recently"]').on('click', function(e){
 				//position
 				pvFrontScript.panelPosition({
 					target: $(this)
