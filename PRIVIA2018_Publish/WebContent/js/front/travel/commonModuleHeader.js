@@ -2019,8 +2019,17 @@ function comSearchFreetour(){
 		//교통패스 - 여행도시 selectbox
 		if(panelName == 'select-nation'){
 			//값 가져오기
+			var n1 = $currenCapacity.find('[data-n1]').data('n1');
+			var n2 = $currenCapacity.find('[data-n2]').data('n2');
+			var n3 = $currenCapacity.find('[data-n3]').data('n3');
+			var n4 = $currenCapacity.find('[data-n4]').data('n4');
+			//console.log('가져오기 = ', n1, n2, n3, n4);
 			
-			//셋팅
+			$('.sc-freetour .o-transpass .select-nation .uis-set-selectbox li').eq(0).find('option[value='+ n1 +']').prop('selected', true);
+			$('.sc-freetour .o-transpass .select-nation .uis-set-selectbox li').eq(1).find('option[value='+ n2 +']').prop('selected', true);
+			$('.sc-freetour .o-transpass .select-nation .uis-set-selectbox li').eq(2).find('option[value='+ n3 +']').prop('selected', true);
+			$('.sc-freetour .o-transpass .select-nation .uis-set-selectbox li').eq(3).find('option[value='+ n4 +']').prop('selected', true);
+			$('.sc-freetour .o-transpass .select-nation .uis-set-selectbox li select').fakeselect();
 		}
 		
 		e.preventDefault();
@@ -2140,34 +2149,44 @@ function comSearchFreetour(){
 		//교통패스 - 패스타입 선택
 		if($(this).closest('.o-sel-transpass4').length > 0){
 			if(o == 'Type0'){
-				$('.sc-freetour .o-transpass .select-nation .uis-set-selectbox li').eq(0).find('.select-base').fakeselect('enable');
-				$('.sc-freetour .o-transpass .select-nation .uis-set-selectbox li').eq(1).find('.select-base').fakeselect('enable');
-				$('.sc-freetour .o-transpass .select-nation .uis-set-selectbox li').eq(2).find('.select-base').fakeselect('enable');
-				$('.sc-freetour .o-transpass .select-nation .uis-set-selectbox li').eq(3).find('.select-base').fakeselect('enable');
+				$('.sc-freetour .o-transpass .select-nation .uis-set-selectbox li').eq(0).find('select').fakeselect('enable');
+				$('.sc-freetour .o-transpass .select-nation .uis-set-selectbox li').eq(1).find('select').fakeselect('enable');
+				$('.sc-freetour .o-transpass .select-nation .uis-set-selectbox li').eq(2).find('select').fakeselect('enable');
+				$('.sc-freetour .o-transpass .select-nation .uis-set-selectbox li').eq(3).find('select').fakeselect('enable');
 			}
 			else if(o == 'Type1'){
-				$('.sc-freetour .o-transpass .select-nation .uis-set-selectbox li').eq(0).find('.select-base').fakeselect('enable');
-				$('.sc-freetour .o-transpass .select-nation .uis-set-selectbox li').eq(1).find('.select-base').fakeselect('disable');
-				$('.sc-freetour .o-transpass .select-nation .uis-set-selectbox li').eq(2).find('.select-base').fakeselect('disable');
-				$('.sc-freetour .o-transpass .select-nation .uis-set-selectbox li').eq(3).find('.select-base').fakeselect('disable');
+				$('.sc-freetour .o-transpass .select-nation .uis-set-selectbox li').eq(0).find('select').fakeselect('enable');
+				$('.sc-freetour .o-transpass .select-nation .uis-set-selectbox li').eq(1).find('select').fakeselect('disable');
+				$('.sc-freetour .o-transpass .select-nation .uis-set-selectbox li').eq(2).find('select').fakeselect('disable');
+				$('.sc-freetour .o-transpass .select-nation .uis-set-selectbox li').eq(3).find('select').fakeselect('disable');
 			}
 			else if(o == 'Type2'){
-				$('.sc-freetour .o-transpass .select-nation .uis-set-selectbox li').eq(0).find('.select-base').fakeselect('enable');
-				$('.sc-freetour .o-transpass .select-nation .uis-set-selectbox li').eq(1).find('.select-base').fakeselect('enable');
-				$('.sc-freetour .o-transpass .select-nation .uis-set-selectbox li').eq(2).find('.select-base').fakeselect('disable');
-				$('.sc-freetour .o-transpass .select-nation .uis-set-selectbox li').eq(3).find('.select-base').fakeselect('disable');
+				$('.sc-freetour .o-transpass .select-nation .uis-set-selectbox li').eq(0).find('select').fakeselect('enable');
+				$('.sc-freetour .o-transpass .select-nation .uis-set-selectbox li').eq(1).find('select').fakeselect('enable');
+				$('.sc-freetour .o-transpass .select-nation .uis-set-selectbox li').eq(2).find('select').fakeselect('disable');
+				$('.sc-freetour .o-transpass .select-nation .uis-set-selectbox li').eq(3).find('select').fakeselect('disable');
 			}
 			else if(o == 'Type3'){
-				$('.sc-freetour .o-transpass .select-nation .uis-set-selectbox li').eq(0).find('.select-base').fakeselect('enable');
-				$('.sc-freetour .o-transpass .select-nation .uis-set-selectbox li').eq(1).find('.select-base').fakeselect('enable');
-				$('.sc-freetour .o-transpass .select-nation .uis-set-selectbox li').eq(2).find('.select-base').fakeselect('enable');
-				$('.sc-freetour .o-transpass .select-nation .uis-set-selectbox li').eq(3).find('.select-base').fakeselect('disable');
+				$('.sc-freetour .o-transpass .select-nation .uis-set-selectbox li').eq(0).find('select').fakeselect('enable');
+				$('.sc-freetour .o-transpass .select-nation .uis-set-selectbox li').eq(1).find('select').fakeselect('enable');
+				$('.sc-freetour .o-transpass .select-nation .uis-set-selectbox li').eq(2).find('select').fakeselect('enable');
+				$('.sc-freetour .o-transpass .select-nation .uis-set-selectbox li').eq(3).find('select').fakeselect('disable');
 			}
 			else if(o == 'Type4'){
-				$('.sc-freetour .o-transpass .select-nation .uis-set-selectbox li').eq(0).find('.select-base').fakeselect('enable');
-				$('.sc-freetour .o-transpass .select-nation .uis-set-selectbox li').eq(1).find('.select-base').fakeselect('enable');
-				$('.sc-freetour .o-transpass .select-nation .uis-set-selectbox li').eq(2).find('.select-base').fakeselect('enable');
-				$('.sc-freetour .o-transpass .select-nation .uis-set-selectbox li').eq(3).find('.select-base').fakeselect('enable');
+				$('.sc-freetour .o-transpass .select-nation .uis-set-selectbox li').eq(0).find('select').fakeselect('enable');
+				$('.sc-freetour .o-transpass .select-nation .uis-set-selectbox li').eq(1).find('select').fakeselect('enable');
+				$('.sc-freetour .o-transpass .select-nation .uis-set-selectbox li').eq(2).find('select').fakeselect('enable');
+				$('.sc-freetour .o-transpass .select-nation .uis-set-selectbox li').eq(3).find('select').fakeselect('enable');
+			}
+			
+			//초기화
+			if($('.sc-freetour .o-transpass [data-panel-name="select-nation"]').hasClass('on')){
+				$('.sc-freetour .o-transpass [data-panel-name="select-nation"]').removeClass('on')
+				$('.sc-freetour .o-transpass [data-panel-name="select-nation"] .qsb-input').text('');
+				$('.sc-freetour .o-transpass [data-panel-name="select-nation"] .qsb-input').data('n1','');
+				$('.sc-freetour .o-transpass [data-panel-name="select-nation"] .qsb-input').data('n2','');
+				$('.sc-freetour .o-transpass [data-panel-name="select-nation"] .qsb-input').data('n3','');
+				$('.sc-freetour .o-transpass [data-panel-name="select-nation"] .qsb-input').data('n4','');
 			}
 		}
 		
