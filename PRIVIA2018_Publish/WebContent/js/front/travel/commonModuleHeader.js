@@ -527,18 +527,6 @@ function showSearchTap(searchCode){
 
 
 
-
-//검색 공통(각섹션별 이벤트 바인딩) <- 프론트로 이관
-function comSearchEvtBind(section){
-	
-}
-
-//검색 - 최근검색 관련(각섹션별 최근검색 셋팅) <- 프론트로 이관
-function comSearchRecently(section){
-	
-}
-//..검색 - 최근검색 관련
-
 //검색 공통(tab 메뉴)
 function comSearchEvent(){
 	//검색 메인 tab click
@@ -621,7 +609,7 @@ function comSearchAir(){
 	
 	//출발, 도착 도시 팝업
 	$('.sc-air [data-panel="mainsel"]').on('click', function(e){
-		var $p = $(this).closest('.hss-inner-cont').find('.'+$(this).data('panel-name'));
+		var panelName = $(this).data('panel-name');
 		
 		//places 저장
 		$currentCity = $(this);
@@ -633,17 +621,17 @@ function comSearchAir(){
 		});
 		
 		//기존 검색리스트 삭제
-		if($p.hasClass('ui-search-auto')){
-		   $p.removeClass('ui-search-auto');
+		if($('.'+panelName).hasClass('ui-search-auto')){
+		   $('.'+panelName).removeClass('ui-search-auto');
 		}
 		
 		//도시가 있으면 팝업 인풋에 내용 표시
 		if($currentCity.hasClass('on')){
 			var city = $currentCity.find('.city').text();
-			$p.find('.ipu-search').val(city);
+			$('.'+panelName).find('.ipu-search').val(city);
 		}
 		else{
-			$p.find('.ipu-search').val('');
+			$('.'+panelName).find('.ipu-search').val('');
 		}
 		e.preventDefault();
 	});
@@ -845,8 +833,12 @@ function comSearchAir(){
 			$('.sc-air .select-comp li').eq(3).addClass('on');
 		}		
 		
-		//국내선인 경우 좌석 숨김
-		//$('.sc-air .ui-capacity .select-comp').hide();
+		//국내선인 경우 셋팅(성인, 아동 나이텍스트 변경, 좌석 숨김)
+		/*
+		$('.sc-air .ui-capacity .select-comp').hide();
+		$('.sc-air .global-ui-capacity .exp-int').hide();
+		$('.sc-air .global-ui-capacity .exp-dom').show();
+		*/
 		
 		e.preventDefault();
 	});
@@ -928,6 +920,7 @@ function comSearchAir(){
 					//data input
 					$(".sc-air .o-shuttle .uis-date-chkin [data-day]").data('day',dateText);
 					$(".sc-air .o-shuttle .uis-date-chkout [data-day]").data('day','');
+					$(".sc-air .o-shuttle .uis-date-chkout").addClass('on'); //도착 노출
 					//panel input
 					$(".sc-air .o-shuttle .uis-date-chkin .txt-day").addClass('on');
 					$(".sc-air .o-shuttle .uis-date-chkin .txt-day").html(txtDay+' 출발');
@@ -984,6 +977,9 @@ function comSearchAir(){
 			//panel input
 			$('.sc-air .o-shuttle .uis-date-chkout .txt-day').removeClass('disabled');
 			$(".sc-air .o-shuttle .uis-date-chkout .uis-select").removeClass('on'); //unday
+			if(!$('.sc-air .o-shuttle .uis-date-chkin .txt-day').hasClass('on')){
+				$(".sc-air .o-shuttle .uis-date-chkout").removeClass('on'); //도착 숨김
+			}
 			//sbox input
 			$('.sc-air .o-shuttle .qsb-dates .qsb-chkout.on').addClass('on');
 			$('.sc-air .o-shuttle .qsb-dates .qsb-chkout').text('');
@@ -992,6 +988,7 @@ function comSearchAir(){
 			//panel input
 			$('.sc-air .o-shuttle .uis-date-chkout .txt-day').addClass('disabled');
 			$(".sc-air .o-shuttle .uis-date-chkout .uis-select").addClass('on'); //unday
+			$(".sc-air .o-shuttle .uis-date-chkout").addClass('on'); //도착 노출
 			//sbox input
 			$('.sc-air .o-shuttle .qsb-dates .qsb-chkout').addClass('on');
 			$('.sc-air .o-shuttle .qsb-dates .qsb-chkout').text($('.sc-air .o-shuttle .sel-unday option:selected').text());
@@ -1007,7 +1004,7 @@ function comSearchAir(){
 		}
 	});
 	
-	//캘린더 렌터카 시간 change
+	//왕복 도착일 미정 change
 	$('.sc-air .o-shuttle .ui-date-calendar select').on('change', function(){
 		var undayText = $(this).closest('.uis-select').find('.sel-unday option:selected');
 		//console.log(undayText);	
@@ -1243,7 +1240,7 @@ function comSearchHotel(){
 		
 	//목적지 팝업
 	$('.sc-hotel [data-panel="mainsel"]').on('click', function(e){
-		var $p = $(this).closest('.w-qsb-cont').find('.'+$(this).data('panel-name'));
+		var panelName = $(this).data('panel-name');
 
 		//places 저장
 		$currentCity = $(this);
@@ -1255,17 +1252,17 @@ function comSearchHotel(){
 		});
 		
 		//기존 검색리스트 삭제
-		if($p.hasClass('ui-search-auto')){
-		   $p.removeClass('ui-search-auto');
+		if($('.'+panelName).hasClass('ui-search-auto')){
+		   $('.'+panelName).removeClass('ui-search-auto');
 		}
 		
 		//목적지가 있으면 팝업 인풋에 내용 표시
 		if($currentCity.hasClass('on')){
 			var city = $currentCity.find('.city').text();
-			$p.find('.ipu-search').val(city);
+			$('.'+panelName).find('.ipu-search').val(city);
 		}
 		else{
-			$p.find('.ipu-search').val('');
+			$('.'+panelName).find('.ipu-search').val('');
 		}
 		e.preventDefault();
 	});
@@ -1508,6 +1505,7 @@ function comSearchHotel(){
 				//data input
 				$(".sc-hotel .o-inth .uis-date-chkin [data-day]").data('day',dateText);
 				$(".sc-hotel .o-inth .uis-date-chkout [data-day]").data('day','');
+				$(".sc-hotel .o-inth .uis-date-chkout").addClass('on'); //체크아웃 노출
 				//panel input
 				$(".sc-hotel .o-inth .uis-date-chkin .txt-day").addClass('on');
 				$(".sc-hotel .o-inth .uis-date-chkin .txt-day").html(txtDay+' 체크인');
@@ -1592,6 +1590,7 @@ function comSearchHotel(){
 				//data input
 				$(".sc-hotel .o-domh .uis-date-chkin [data-day]").data('day',dateText);
 				$(".sc-hotel .o-domh .uis-date-chkout [data-day]").data('day','');
+				$(".sc-hotel .o-domh .uis-date-chkout").addClass('on'); //체크아웃 노출
 				//panel input
 				$(".sc-hotel .o-domh .uis-date-chkin .txt-day").addClass('on');
 				$(".sc-hotel .o-domh .uis-date-chkin .txt-day").html(txtDay+' 체크인');
@@ -1731,9 +1730,9 @@ function comSearchFreetour(){
 		pvFrontScript.docuMoudownTrigger();
 	}
 	
-	//대여, 반납 도시 팝업
+	//렌터카, 공항픽업 도시 팝업
 	$('.sc-freetour [data-panel="mainsel"]').on('click', function(e){
-		var $p = $(this).closest('.w-qsb-cont').find('.'+$(this).data('panel-name'));
+		var panelName = $(this).data('panel-name');
 		
 		//places 저장
 		$currentCity = $(this);
@@ -1744,47 +1743,96 @@ function comSearchFreetour(){
 			area: 'freetour-mainsel'
 		});
 		
-		//기존 검색리스트 삭제
-		if($p.hasClass('ui-search-auto')){
-		   $p.removeClass('ui-search-auto');
-		}
-		
-		//도시가 있으면 팝업 인풋에 내용 표시
-		if($currentCity.hasClass('on')){
-			var city = $currentCity.find('.city').text();
-			$p.find('.ipu-search').val(city);
-		}
-		else{
-			$p.find('.ipu-search').val('');
+		//렌터카인 경우
+		if($currentCity.closest('.o-rentv').length > 0){
+			//기존 검색리스트 삭제
+			if($('.o-rentv .'+panelName).hasClass('ui-search-auto')){
+			   $('.o-rentv .'+panelName).removeClass('ui-search-auto');
+			}
+			
+			//도시가 있으면 팝업 인풋에 내용 표시
+			if($currentCity.hasClass('on')){
+				var city = $currentCity.find('.city').text();
+				$('.o-rentv .'+panelName).find('.ipu-search').val(city);
+			}
+			else{
+				$('.o-rentv .'+panelName).find('.ipu-search').val('');
+			}
+		  	
+			$('.o-rentv .'+panelName).find('.uis-input .ipu-search').show();
+			$('.o-rentv .'+panelName).find('.uis-input .opt-txt').hide();
 		}
 		
 		//공항픽업인 경우
 		if($currentCity.closest('.o-airpicup').length > 0){
 			if($currentCity.closest('.places-exit').hasClass('places-exit')){
-				$p.find('.opt-txt').text('픽업장소를 선택하세요.');
+				$('.o-airpicup .'+panelName).find('.opt-txt').text('픽업장소를 선택하세요.');
 			}
 			else if($currentCity.closest('.places-entry').hasClass('places-entry')){
-				$p.find('.opt-txt').text('하차장소를 선택하세요.');	
+				$('.o-airpicup .'+panelName).find('.opt-txt').text('하차장소를 선택하세요.');	
 			}
 		}
+		
 		e.preventDefault();
 	});
-	
-	//주요도시 리스트, 자동완성 리스트 click
+		
+	//주요도시 리스트 click
 	$('.ui-mainsel-freetour .list a').on('click', function(e){
-		var city = $(this).data('city'); //도시 이름(임시)
+		//렌터카 선택된 도시 리스트 클릭시 return
+		if($(this).hasClass('sel-city')){ return false; }
 		
-		//도시 input
-		$(this).closest('.ui-mainsel-freetour').find('.uis-input .ipu-search').val(city);
+		//렌터카 주요도시를 클릭하는 경우 대여장소 리스트 노출됨
+		if($(this).closest('.uis-mainsel-table').length > 0){
+			if(!$(this).closest('.ui-mainsel-freetour').hasClass('ui-search-auto')){			
+				//position
+				pvFrontScript.panelPosition({
+					target: $currentCity,
+					area: 'freetour-mainsel-auto'
+				});
+
+				//add auto
+				$(this).closest('.ui-mainsel-freetour').addClass('ui-search-auto');
+				
+				//input 변경
+				$(this).closest('.ui-mainsel-freetour').find('.uis-input .ipu-search').hide();
+				$(this).closest('.ui-mainsel-freetour').find('.uis-input .opt-txt').show();
+				
+				//렌터카 auto로 검색된 리스트들 중에 클래스 sel-city 추가 시키고 대여장소 리스트 노출시킨다
+				setTimeout( function () {
+					$(this).find('.o-customscrollbar').mCustomScrollbar('scrollTo', '.sel-city');
+				}, 100);
+			}
+		}
+		else if($(this).closest('.uis-list-auto.is-rent').length > 0 && $(this).closest('.list-sub').length <= 0){
+			//렌터카 auto로 검색된 리스트들 중에 클래스 sel-city 추가 시키고 대여장소 리스트 노출시킨다
+			$(this).addClass('sel-city');
+			$(this).next('.list-sub').show();
+			setTimeout( function () {
+				$(this).find('.o-customscrollbar').mCustomScrollbar('scrollTo', '.sel-city');
+			}, 100);
+		}
+		else{
+			var city = $(this).data('city'); //도시 이름(임시)
+
+			//도시 input
+			$(this).closest('.ui-mainsel-freetour').find('.uis-input .ipu-search').val(city);
+
+			//도시 셋팅
+			setFreetourCity(city);
+		}
 		
-		//도시 셋팅
-		setFreetourCity(city);
 		e.preventDefault();
 	});
 	
 	//도시 검색하기(자동완성) keydown
 	$('.ui-mainsel-freetour .uis-input .ipu-search').on('keydown', function(){
 		if(!$(this).closest('.ui-mainsel-freetour').hasClass('ui-search-auto') && $(this).val('')){			
+			//position
+			pvFrontScript.panelPosition({
+				target: $currentCity,
+				area: 'freetour-mainsel-auto'
+			});
+			
 			//add auto
 			$(this).closest('.ui-mainsel-freetour').addClass('ui-search-auto');
 		}
@@ -2127,6 +2175,58 @@ function comSearchFreetour(){
 		e.preventDefault();
 	});	
 	
+	//패스타입 국가 완료 click
+	$('.sc-freetour .o-transpass .select-nation .b-complete').on('click', function(e){
+		var n1 = $('.sc-freetour .o-transpass .select-nation .uis-set-selectbox li').eq(0).find('option:selected');
+		var n2 = $('.sc-freetour .o-transpass .select-nation .uis-set-selectbox li').eq(1).find('option:selected');
+		var n3 = $('.sc-freetour .o-transpass .select-nation .uis-set-selectbox li').eq(2).find('option:selected');
+		var n4 = $('.sc-freetour .o-transpass .select-nation .uis-set-selectbox li').eq(3).find('option:selected');
+		var nArr = [];
+		//console.log('완료 option = ', n1.val(), n2.val(), n3.val(), n4.val());
+		//console.log('완료 txt = ', n1.text(), n2.text(), n3.text(), n4.text());
+		
+		//data input
+		$currenCapacity.find('[data-n1]').data('n1',n1.val());
+		$currenCapacity.find('[data-n2]').data('n2',n2.val());
+		$currenCapacity.find('[data-n3]').data('n3',n3.val());
+		$currenCapacity.find('[data-n4]').data('n4',n4.val());
+		
+		//sbox input	
+		var txt = '';
+		if(n1.val() != '' && !n1.closest('select').is(':disabled')){
+			nArr.push(n1.text());
+		}
+		
+		if(n2.val() != '' && !n2.closest('select').is(':disabled')){
+			nArr.push(n2.text());
+		}
+		
+		if(n3.val() != '' && !n3.closest('select').is(':disabled')){
+			nArr.push(n3.text());
+		}
+		
+		if(n4.val() != '' && !n4.closest('select').is(':disabled')){
+			nArr.push(n4.text());
+		}
+		
+		for(var i in nArr){
+			if(i > 0){
+				txt += ', ';
+			}
+			txt += nArr[i];
+		}
+		
+		if(!$currenCapacity.hasClass('on') && nArr.length > 0){
+			$currenCapacity.addClass('on');
+		}
+			
+		$currenCapacity.find('.qsb-input').html('');
+		$currenCapacity.find('.qsb-input').html(txt);
+		
+		pvFrontScript.docuMoudownTrigger();	
+		e.preventDefault();
+	});
+	
 	//+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ 캘린더
 	//캘린더 팝업
 	$('.sc-freetour [data-panel="calendar"]').on('click', function(e){
@@ -2159,6 +2259,7 @@ function comSearchFreetour(){
 				//data input
 				$(".sc-freetour .o-rentv .uis-date-chkin [data-day]").data('day',dateText);
 				$(".sc-freetour .o-rentv .uis-date-chkout [data-day]").data('day','');
+				$(".sc-freetour .o-rentv .uis-date-chkout").addClass('on'); //반납 노출
 				//panel input
 				$(".sc-freetour .o-rentv .uis-date-chkin .txt-day").addClass('on');
 				$(".sc-freetour .o-rentv .uis-date-chkin .txt-day").html(txtDay);
