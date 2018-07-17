@@ -173,7 +173,7 @@ var pvFrontScript = window.pvFrontScript || (function(){
 			if($area == 'air-mainsel-auto'){
 				if($this.closest('.places-entry').length > 0){
 					$panel.position({
-						my: 'left+10 top-32',
+						my: 'left+7 top-32',
 						at: 'left top',
 						collision: 'none',
 						of: $this.closest('.places-entry')
@@ -297,11 +297,11 @@ var pvFrontScript = window.pvFrontScript || (function(){
 				txt = month + '월 ' + day + '일 (' + dayName + ')';
 			return txt;
 		},
-		beforeShowDayMark: function(date, $date1, $date2){
-			/* 설명   : 통합검색 - 출발, 도착지 스타일 구현 - 주의!(onSelect 인터렉션이 비슷해야함)
-			   사용처 : jQuery UI datepicker : beforeShowDay 내부 */
-
-			//휴무일(기존 datepicker 환경)
+		jqdHolidayMark: function(date){
+			/* 설명   : jQuery Ui datepicker 주말, 휴일 표시
+			   사용처 : 필요시 호출 ex) var result = pvFrontScript.jqdHolidayMark(date); */
+			
+			//휴무일
 			var result;
 			var holiday = holidays[$.datepicker.formatDate("mmdd",date )];
 			if(!holiday){
@@ -314,6 +314,29 @@ var pvFrontScript = window.pvFrontScript || (function(){
 				}
 			}
 
+			//주말
+			if(!result) {
+				switch (date.getDay()) {
+					case 0:
+						result = [true, "date-sunday"];
+						break;
+					case 6:
+						result = [true, "date-saturday"];
+						break;
+					default:
+						result = [true, ""];
+						break;
+				}
+			}	
+			
+			return result;
+		},
+		beforeShowDayMark: function(date, $date1, $date2){
+			/* 설명   : 통합검색 - 출발, 도착지 스타일 구현 - 주의!(onSelect 인터렉션이 비슷해야함)
+			   사용처 : jQuery UI datepicker : beforeShowDay 내부 */
+			
+			var result = pvFrontScript.jqdHolidayMark(date);
+			
 			//날짜 마크
 			var date1 = $date1;
 			var date2 = $date2;
@@ -335,21 +358,44 @@ var pvFrontScript = window.pvFrontScript || (function(){
 					 }
 				}
 			}
+			return result;
+		},
+		beforeShowDayMarkMD: function(date, $date1, $date2, $date3, $date4){
+			/* 설명   : 통합검색 - 다구간 스타일 구현
+			   사용처 : jQuery UI datepicker : beforeShowDay 내부 */
 
-			//주말(기존 datepicker 환경)
-			if(!result) {
-				switch (date.getDay()) {
-					case 0:
-						result = [true, "date-sunday"];
-						break;
-					case 6:
-						result = [true, "date-saturday"];
-						break;
-					default:
-						result = [true, ""];
-						break;
+			var result = pvFrontScript.jqdHolidayMark(date);
+
+			//날짜 마크
+			/*var date1 = $date1,
+				date2 = $date2,
+				date3 = $date3,	
+				date4 = $date4;*/
+			
+			/*var date1 = $.datepicker.parseDate('yy/mm/dd', '2018/07/18');
+			var date2 = $.datepicker.parseDate('yy/mm/dd', '2018/07/20');
+			var date3 = $.datepicker.parseDate('yy/mm/dd', '2018/07/24');
+			var date4 = $.datepicker.parseDate('yy/mm/dd', '2018/07/30');
+			
+			if(date1){
+				if(date.getTime() == date1.getTime()){
+					if(date2){
+						result = [true, "dp-highlight dp-first"];
+					}
+					else{
+						result = [true, "dp-highlight"];
+					}
 				}
-			}		
+				else if(date2){
+					if(date.getTime() == date2.getTime()){
+						result = [true, "dp-highlight dp-end"];
+					}
+					else if(date > date1 && date < date2){
+						result = [true, "dp-highlight pd-between"];
+					 }
+				}
+			}*/
+			
 			return result;
 		},
 		comSearchEvtBind: function($section){
@@ -801,7 +847,9 @@ var pvFrontScript = window.pvFrontScript || (function(){
 			pvFrontScript.beforeSettingNav();
 
 			//gnb 해외패키지 2dep, 3dep 설정
-			/*if($('.w-header-gnb .nav-gnb #n-gnb-pkg.on').length > 0){
+			if($('.w-header-gnb .nav-gnb #n-gnb-pkg.on').length > 0){
+				$('.commonHeaderObject .o-CHO-inner').addClass('no-shadow');
+				/*
 				//2뎁스 배경
 				//$('.w-header-gnb').addClass('bg-gsub');
 
@@ -866,8 +914,8 @@ var pvFrontScript = window.pvFrontScript || (function(){
 					$('.w-nav-gsub-ly').removeClass('on');	
 					$('#n-gnb-pkg .list-gsub .is3dep').removeClass('is3dep');
 					e.preventDefault();
-				});		
-			}*/
+				});	*/	
+			}
 
 			//gnb 전체메뉴 열고 닫기
 			$('.w-header-gnb .nav-gnb .b-total-nav > a').on('click', function(e){

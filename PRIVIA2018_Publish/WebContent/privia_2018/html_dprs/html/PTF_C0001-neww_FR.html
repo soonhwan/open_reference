@@ -3993,8 +3993,8 @@ function wfnShowRenderingOfReturnCity(){
 
 <!-- wrap -->
 <div id="wrap" class="wide-wrap">
-	<!-- 통합헤더 -->
-	<!-- .commonHeaderObject : 헤더 타입 클래스 o-CHO-full(기본), o-CHO-section(섹션), o-CHO-quick(퀵버전), header-sec-fixed(헤더 fixed) -->
+	<!-- 통합헤더 설명(https://redmine.tidesquare.com/issues/31266#note-5) -->
+	<!-- .commonHeaderObject : 헤더 타입 클래스 change(o-CHO- : full(기본), section(섹션), quick(퀵버전), header-sec-fixed(헤더 fixed) -->
 	<div class="commonHeaderObject">
 		<div class="o-CHO-inner">
 			<!-- #top-area-sec(상단리본) -->
@@ -4123,9 +4123,9 @@ function wfnShowRenderingOfReturnCity(){
 			</div>
 			<!-- //#top-area-sec(상단리본) -->
 			
-			<!-- #header-sec : 검색섹션 타입 클래스(o-search- : all(기본), air, hotel, free, freetour) -->
+			<!-- #header-sec : 검색섹션 타입 클래스 change(o-search- : all(기본), air, hotel, free, freetour) -->
 			<div id="header-sec">
-				<!-- .header-sec : 배경타입 클래스(o-bg- : air, hotel, free, freetour) -->
+				<!-- .header-sec : 배경타입 클래스 change(o-bg- : air, hotel, free, freetour) -->
 				<div class="header-sec">
 					<div class="w-header-util">
 						<div class="ly-inner">
@@ -4228,38 +4228,7 @@ function wfnShowRenderingOfReturnCity(){
 							</div> 
 							<!-- //검색 메뉴 -->
 
-							<!-- 검색 섹션(https://redmine.tidesquare.com/issues/31266) -->
-							<!--
-								1. 1차 카테고리 : sc-air(항공), sc-hotel(호텔), sc-free(자유여행), sc-freetour(투액) 4가지로 구분
-								   2차 카테고리 : 세부적으로 구분(왕복, 편도, 다구간, 해외, 국내, 렌터카....)
-								
-								2. 검색 box(도시, 날짜, 인원, 셀렉트 등등) 클래스는 스타일만 구분
-								
-							   	3. 각각 box(도시, 날짜, 인원, 셀렉트 등등)를 클릭할때 팝업이 노출되는 원리
-								   data-panel="mainsel" : [주요도시] 팝업 노출(주로 공통으로 사용됨)
-								   data-panel="calendar" : [캘린더] 팝업 노출(각자 존재함)
-								   data-panel="capacity" : [인원,좌석,객실,테마,국가선택 등등] 팝업 노출(인원을 공통으로 사용하는 경우 global-ui-capacity 클래스 추가)
-								   data-panel="select" : [셀렉트 리스트 스타일] 팝업(각자 존재함)
-								
-								4. 공통 검색에서 프론트 스크립트를 이용하는 함수들(commonModule.js)
-									pvFrontScript.docuMoudownTrigger -> document 클릭시 팝업 사라짐
-									pvFrontScript.panelPosition -> 팝업 position 설정
-									pvFrontScript.onSelectTxtDay -> 캘린더 날짜 클릭시 날짜 형식
-									pvFrontScript.beforeShowDayMark ->  캘린더 날짜 2개 클릭시 마크
-									pvFrontScript.comSearchEvtBind -> 공통 검색에서 UI event 적용
-									pvFrontScript.comSearchRecently -> 공통 검색에서 최근검색 event 적용
-									
-								5. 실제 100% 개편 페이지에 필요한 프론트 필수 css, js
-									1) /css/front/travel/commonModule.css (개편 관련 css 추후에 AS IS 버전과 통합될 예정)
-									3) /js/front/travel/commonModule.js (개편 프론트 관련 스크립트 추후에 AS IS 버전 통합될 예정)
-									4) /js/front/travel/slick.min.js (주요 슬라이드 구현)
-									5) /css/front/travel/jquery.mCustomScrollbar.min.css (스크롤 구현)
-									6) /js/front/travel/jquery.mCustomScrollbar.concat.min.js (스크롤 구현)
-									7) /js/front/travel/fakeselect.js (selectbox 커스텀)
-									
-									AS IS 컨텐츠가 존재하는 페이지들은 기존(css, js)가 필요함
-									나머지들은 필요여부를 따져봐야함
-							-->
+							<!-- 검색 섹션 -->
 							<div class="hs-search-cont">
 								<!-- 항공 -->
 								<div class="hss-inner-cont sc-air" id="SC-AIR">
