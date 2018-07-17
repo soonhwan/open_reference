@@ -531,17 +531,19 @@ var pvFrontScript = window.pvFrontScript || (function(){
 			});	
 
 			//기획전 롤링
-			$('.hs-prom-roll .list').on('init', function(event, slick){
-				pvFrontScript.utilSlickCrt($('.w-header-search .hs-prom-roll .b-slick-crt'), slick); //autoplay control
-			}).slick({
-				draggable: false,
-				arrows:false,
-				pauseOnHover: true,
-				dots: true,
-				appendDots: $('.w-header-search .hs-prom-roll .c-slick-dots'),
-				autoplay: true,
-				autoplaySpeed: 5000
-			});	
+			if(!$('.hs-prom-roll').hasClass('hide')){
+				$('.hs-prom-roll .list').on('init', function(event, slick){
+					pvFrontScript.utilSlickCrt($('.w-header-search .hs-prom-roll .b-slick-crt'), slick); //autoplay control
+				}).slick({
+					draggable: false,
+					arrows:false,
+					pauseOnHover: true,
+					dots: true,
+					appendDots: $('.w-header-search .hs-prom-roll .c-slick-dots'),
+					autoplay: true,
+					autoplaySpeed: 5000
+				});	
+			}
 		},
 		comTopAreaInit: function(){
 			/* 설명   : 헤더 리본
@@ -800,7 +802,7 @@ var pvFrontScript = window.pvFrontScript || (function(){
 				}
 				totalNav += '</li>';
 
-				//2dep TO be에서 해외패키지만 사용
+				//2dep 개편에는 없음
 				/*for(i=0;i<code.length;i++){			
 					if(key == code[i]){
 						if(navData[key].subNav.length > 0 && navData[key].subNavDisplayToGNB == true){
@@ -849,72 +851,6 @@ var pvFrontScript = window.pvFrontScript || (function(){
 			//gnb 해외패키지 2dep, 3dep 설정
 			if($('.w-header-gnb .nav-gnb #n-gnb-pkg.on').length > 0){
 				$('.commonHeaderObject .o-CHO-inner').addClass('no-shadow');
-				/*
-				//2뎁스 배경
-				//$('.w-header-gnb').addClass('bg-gsub');
-
-				//3뎁스 - gnb메뉴 오버
-				$('#nav-gnb .list-gsub li a').on('mouseenter focusin', function(){
-					var num = parseInt($(this).data('num'));
-
-					if(!isNaN(num)){
-						if(!$('.w-nav-gsub-ly').hasClass('on')){
-							$('.w-nav-gsub-ly, .ng-box.n-gsub-pkg').addClass('on');
-						}
-						$('#n-gnb-pkg .list-gsub .is3dep').removeClass('is3dep');
-						$(this).parent().addClass('is3dep');
-						$('.ng-box.n-gsub-pkg .list-root .mdep.on').removeClass('on');
-						$('.ng-box.n-gsub-pkg .list-root .mdep').eq(num).addClass('on');
-						$('.ng-box.n-gsub-pkg .list-root .mdep').eq(num).find('.m1dep-list').eq(0).addClass('on');
-					}
-					else{
-						$('.w-nav-gsub-ly .on').removeClass('on');
-						$('.w-nav-gsub-ly').removeClass('on');	
-						$('#n-gnb-pkg .list-gsub .is3dep').removeClass('is3dep');
-					}
-				});
-
-				//3뎁스 - 1뎁스 오버
-				$('.ng-box.n-gsub-pkg .m1dep-list > a').on('mouseenter focusin', function(){
-					$(this).closest('.m1dep-box').find('.m1dep-list.on').removeClass('on');
-					$(this).closest('.m1dep-list').addClass('on');
-				});
-
-				//3뎁스 - 2뎁스 오버
-				$('.ng-box.n-gsub-pkg .m2dep-list > a').on('mouseenter focusin', function(){
-					$('.ng-box.n-gsub-pkg .m2dep-list.on').removeClass('on');
-					$(this).closest('.m2dep-list').addClass('on');
-				});
-
-				//3뎁스 - 박스 영역을 벗어나면 닫음
-				var pkgMenuOut = null;
-				$('.w-nav-gsub-ly .ng-box, #nav-gnb .list-gsub').on('mouseleave', function(){
-					pkgMenuOut = setTimeout(function(){
-						$('.w-nav-gsub-ly .on').removeClass('on');
-						$('.w-nav-gsub-ly').removeClass('on');	
-						$('#n-gnb-pkg .list-gsub .is3dep').removeClass('is3dep');
-					}, 200);
-				});
-
-				//3뎁스 - 박스 영역 유지
-				$('.w-nav-gsub-ly .ng-box, #nav-gnb .list-gsub').on('mouseenter focusin', function(){
-					if(pkgMenuOut != null){
-						clearTimeout(pkgMenuOut);
-						pkgMenuOut = null;
-					}
-				});
-
-				//3뎁스 - 박스 닫기 버튼
-				$('.w-nav-gsub-ly .ng-box .b-ng-box-close').on('click', function(e){
-					if(pkgMenuOut != null){
-						clearTimeout(pkgMenuOut);
-						pkgMenuOut = null;
-					}
-					$('.w-nav-gsub-ly .on').removeClass('on');
-					$('.w-nav-gsub-ly').removeClass('on');	
-					$('#n-gnb-pkg .list-gsub .is3dep').removeClass('is3dep');
-					e.preventDefault();
-				});	*/	
 			}
 
 			//gnb 전체메뉴 열고 닫기
@@ -935,9 +871,11 @@ var pvFrontScript = window.pvFrontScript || (function(){
 
 			//헤더 퀵모드 검색버튼 click
 			if($('.w-header-gnb .b-open-search').length > 0){
-				//해외패키지, 국내여행 퀵모드 검색버튼 숨김
+				//퀵모드 검색버튼 숨김, 기획전 롤링 숨김(해외패키지, 국내여행)
 				if($('.w-header-gnb .nav-gnb #n-gnb-pkg.on, .w-header-gnb .nav-gnb #n-gnb-domestic.on').length > 0){
 					$('.w-header-gnb .b-open-search').addClass('hide'); 
+					$('.w-header-search .hs-prom-roll').addClass('hide');
+					$('.w-header-search .hs-prom-roll .list').slick('unslick');
 				}
 				else{
 					$('.w-header-gnb .b-open-search button').on('click', function(){
@@ -992,11 +930,7 @@ var pvFrontScript = window.pvFrontScript || (function(){
 				pvFrontScript.comCHOTypeInit();
 
 				//---------------- commonHeaderObject scroll event
-				pvFrontScript.CHOScrollEvent();		
-
-				/*setTimeout(function(){
-					$('html, body').stop().animate({scrollTop:$('#header-sec').offset().top}, 800);
-				}, 800);*/
+				pvFrontScript.CHOScrollEvent();
 			}//..if
 		},
 		comContents: function(){

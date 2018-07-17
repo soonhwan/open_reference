@@ -502,12 +502,12 @@ function showSearchTap(searchCode){
 		case QUICK_CODE_AIR:
 			$('#header-sec').addClass('o-search-air');
 			$('.hs-search-menu .hss-menu [data-tabmain="air"]').trigger('click');
-			$('.hs-search-menu .hss-menu [data-tabsub="shuttle"]').trigger('click');
+			//$('.hs-search-menu .hss-menu [data-tabsub="shuttle"]').trigger('click');
 			break;
 		case QUICK_CODE_HOTEL:
 			$('#header-sec').addClass('o-search-hotel');
 			$('.hs-search-menu .hss-menu [data-tabmain="hotel"]').trigger('click');
-			$('.hs-search-menu .hss-menu [data-tabsub="inth"]').trigger('click');
+			//$('.hs-search-menu .hss-menu [data-tabsub="inth"]').trigger('click');
 			break;
 		case QUICK_CODE_FREE:	
 			$('#header-sec').addClass('o-search-free');
@@ -516,12 +516,12 @@ function showSearchTap(searchCode){
 		case QUICK_CODE_DPRS_ITEM:
 			$('#header-sec').addClass('o-search-freetour');
 			$('.hs-search-menu .hss-menu [data-tabmain="freetour"]').trigger('click');
-			$('.hs-search-menu .hss-menu [data-tabsub="rentv"]').trigger('click');
+			//$('.hs-search-menu .hss-menu [data-tabsub="rentv"]').trigger('click');
 			break;
 		default :
 			$('#header-sec').addClass('o-search-all');
 			$('.hs-search-menu .hss-menu [data-tabmain="air"]').trigger('click');
-			$('.hs-search-menu .hss-menu [data-tabsub="shuttle"]').trigger('click');
+			//$('.hs-search-menu .hss-menu [data-tabsub="shuttle"]').trigger('click');
 	}
 }
 

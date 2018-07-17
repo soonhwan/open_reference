@@ -147,7 +147,7 @@ function menuChange(idx){
 <!-- wrap -->
 <div id="wrap" class="wide-wrap">
 
-    <!-- 통합헤더 설명(https://redmine.tidesquare.com/issues/31266#note-5) -->
+    <!-- 통합헤더 설명 참고(https://redmine.tidesquare.com/issues/31266#note-5) -->
 	<!-- .commonHeaderObject : 헤더 타입 클래스 change(o-CHO- : full(기본), section(섹션), quick(퀵버전), header-sec-fixed(헤더 fixed) -->
 	<div class="commonHeaderObject">
 		<div class="o-CHO-inner">
@@ -1060,9 +1060,11 @@ function menuChange(idx){
 													</div>
 												</li>
 											</ul>
-											<div class="uis-txt1">
-												성인: 출발일 탑승일 기준<br />
-												아동/유아: <span class="c-point1">출/도착일 탑승일 기준</span>
+											<div class="uis-txt-area">
+												<div class="uis-txt1">
+													성인: 출발일 탑승일 기준<br />
+													아동/유아: <span class="c-point1">출/도착일 탑승일 기준</span>
+												</div>
 											</div>
 											<ul class="uis-capacity-select select-comp">
 												<li class="on"><a href="#" data-option="Y">일반석</a></li>
@@ -2750,7 +2752,10 @@ function menuChange(idx){
 													</div>
 												</li>
 											</ul>
-											<div class="uis-txt1">나이는 출발일 기준이며 입장권별 연령 기준이 다를 수 있습니다.</div>
+											<div class="uis-txt-area">
+												<div class="uis-txt1">나이는 출발일 기준이며 입장권별 연령 기준이 다를 수 있습니다.</div>
+											</div>
+											
 											<div class="uis-opt-bottom">
 												<div class="uisob-right">
 													<span class="btn-base bb-st2 b-cancel"><a href="#">취소</a></span>
@@ -2867,7 +2872,6 @@ function menuChange(idx){
                 $('.l-total-nav-layer').hide();
                 $('.l-total-nav-open').removeClass('on');
                 $(this).css('z-index','0');
-
             } else {
                 $(this).addClass('on');
                 $('.l-total-nav-layer').show();
@@ -2887,46 +2891,51 @@ function menuChange(idx){
 
         //패키지 1뎁스 메뉴 이벤트 핸들링
         $('.l-gnb-menu>li>a').on('mouseenter focusin',function(){
-            var _this = this;
-            if(pkg_menu_over) clearTimeout(pkg_menu_over);
-            if(pkg_menu_out) clearTimeout(pkg_menu_out);
-            pkg_menu_over = setTimeout(function(){
-                if($('.btn-quickSearch').hasClass('on')){
-                     $('.btn-quickSearch').trigger('click');
-                     $('#ui-datepicker-div').hide();
-                }
-                if($('.l-total-nav-open').hasClass('on')){
-                    $('.l-total-nav-open').removeClass('on').css('z-index','0');
-                    $('.l-total-nav-layer').hide();
-                } 
-                if($('.pkg-p-search').hasClass('on')){
-                    $('.pkg-p-search').removeClass('on');
-                    $('.l-pkg-sub-search-wrap').hide();
-                }
-                var menuCd = $(_this).parent().attr("menuCd");
-                //alert(menuCd)
-                $(".l-gnb-sub .sub-menu:eq(0)").find("li").hide();
-                $(".l-gnb-sub .sub-menu:eq(0)").find("li[parnCd="+menuCd+"]").show();
-                var menuCd2 = $(".l-gnb-sub .sub-menu:eq(0)").find("li[parnCd="+menuCd+"]").eq(0).attr("menuCd");
-                var bestPackage = $(".l-gnb-sub .best-package");
-                $(".l-gnb-sub .sub-menu:eq(1),.best-package").find("li").hide();
-                $(".l-gnb-sub .sub-menu:eq(1)").find("li[parnCd="+menuCd2+"]").show();
-                $(".l-gnb-sub ,.best-package").find("li[menuCd="+menuCd2+"]").show();
-                bestPackage.find("li[menuCd="+menuCd+"]").show();
-                var cntNullCheck = bestPackage.find("li[menuCd="+menuCd2+"]:eq(0)").attr("cntNullCheck");
-                var bestTitle = bestPackage.find("li[menuCd="+menuCd2+"]:eq(0)").attr("cityNm");
-                if(Number(cntNullCheck)>0){
-                    bestTitle = bestPackage.find("li[menuCd="+menuCd2+"]:eq(0)").attr("cdNm");
-                }
-                bestTitle = !bestTitle?"":bestTitle;
-                $("#bestTitle b").html(bestTitle+" 베스트 패키지");
-                Cufon.replace('.best-package .content-title',{fontFamily:'ymhr'})
-                if($('.l-gnb-sub').is(':animated')){return false}
-                $('.l-gnb-menu li').removeClass('on');
-                $(_this).parent().addClass('on');
-                $('.l-gnb-sub').show();
-                $('.l-gnb-sub').find('.on').removeClass('on');
-            },200);
+
+            if ($(this).parent().attr("menuCd") == 'URGENCY' || $(this).parent().attr("menuCd") == 'DEPARTURE') {
+                $('.l-gnb').trigger('mouseleave');
+            } else {
+                var _this = this;
+                if(pkg_menu_over) clearTimeout(pkg_menu_over);
+                if(pkg_menu_out) clearTimeout(pkg_menu_out);
+                pkg_menu_over = setTimeout(function(){
+                    if($('.btn-quickSearch').hasClass('on')){
+                         $('.btn-quickSearch').trigger('click');
+                         $('#ui-datepicker-div').hide();
+                    }
+                    if($('.l-total-nav-open').hasClass('on')){
+                        $('.l-total-nav-open').removeClass('on').css('z-index','0');
+                        $('.l-total-nav-layer').hide();
+                    } 
+                    if($('.pkg-p-search').hasClass('on')){
+                        $('.pkg-p-search').removeClass('on');
+                        $('.l-pkg-sub-search-wrap').hide();
+                    }
+                    var menuCd = $(_this).parent().attr("menuCd");
+                    //alert(menuCd)
+                    $(".l-gnb-sub .sub-menu:eq(0)").find("li").hide();
+                    $(".l-gnb-sub .sub-menu:eq(0)").find("li[parnCd="+menuCd+"]").show();
+                    var menuCd2 = $(".l-gnb-sub .sub-menu:eq(0)").find("li[parnCd="+menuCd+"]").eq(0).attr("menuCd");
+                    var bestPackage = $(".l-gnb-sub .best-package");
+                    $(".l-gnb-sub .sub-menu:eq(1),.best-package").find("li").hide();
+                    $(".l-gnb-sub .sub-menu:eq(1)").find("li[parnCd="+menuCd2+"]").show();
+                    $(".l-gnb-sub ,.best-package").find("li[menuCd="+menuCd2+"]").show();
+                    bestPackage.find("li[menuCd="+menuCd+"]").show();
+                    var cntNullCheck = bestPackage.find("li[menuCd="+menuCd2+"]:eq(0)").attr("cntNullCheck");
+                    var bestTitle = bestPackage.find("li[menuCd="+menuCd2+"]:eq(0)").attr("cityNm");
+                    if(Number(cntNullCheck)>0){
+                        bestTitle = bestPackage.find("li[menuCd="+menuCd2+"]:eq(0)").attr("cdNm");
+                    }
+                    bestTitle = !bestTitle?"":bestTitle;
+                    $("#bestTitle b").html(bestTitle+" 베스트 패키지");
+                    Cufon.replace('.best-package .content-title',{fontFamily:'ymhr'})
+                    if($('.l-gnb-sub').is(':animated')){return false}
+                    $('.l-gnb-menu li').removeClass('on');
+                    $(_this).parent().addClass('on');
+                    $('.l-gnb-sub').show();
+                    $('.l-gnb-sub').find('.on').removeClass('on');
+                },200);			
+            }
         });
 
         //패키지 섹션GNB를 마우스가 벗어났을 경우 이벤트 핸들링	
@@ -3021,10 +3030,11 @@ function menuChange(idx){
                 $('.l-pkg-sub-search-wrap').show();
             }
         });
-        $('.pkg-p-search').trigger("click");    
+        $('.pkg-p-search').trigger("click");
     }
     </script>
     
+    <!-- gnb 2, 3뎁스(해외패키지) -->
     <div class="w-nav-gsub-ly">
         <div class="gnb-sub-wrap"></div>
         <div class="l-gnb">
@@ -3035,8 +3045,10 @@ function menuChange(idx){
                 <li class="PGR010" menuCd="PGR010" citycd="P"><a href="/pkgRenewal/sectionRecommend?regncd=P" menuNm="남태평양">남태평양</a></li>
                 <li class="PGR012" menuCd="PGR012" citycd="E"><a href="/pkgRenewal/sectionRecommend?regncd=E" menuNm="유럽">유럽</a></li>
                 <li class="PGR013" menuCd="PGR013" citycd="H"><a href="/pkgRenewal/sectionRecommend?regncd=H" menuNm="미주/하와이">미주/하와이</a></li>
-                <li class="THEMA" menuCd="THEMA" regncd="T"><a href="/pkgRenewal/themaTreavelJaGoods">테마여행</a></li>
-                <li class="PGR014" menuCd="PGR014" citycd="null" dptcity="PUS,CJJ,TAE,KWJ"><a href="/pkgRenewal/searchListSimple?dptcity=PUS,CJJ,TAE,KWJ" menuNm="지방출발">지방출발</a></li>
+                <li class="DEPARTURE" menucd="DEPARTURE"><a href="/pkgRenewal/departureList">출발가능</a></li>
+                <li class="URGENCY" menucd="URGENCY"><a href="/pkgRenewal/urgencyTourist">긴급모객</a></li>
+                <!--<li class="THEMA" menuCd="THEMA" regncd="T"><a href="/pkgRenewal/themaTreavelJaGoods">테마여행</a></li>
+                <li class="PGR014" menuCd="PGR014" citycd="null" dptcity="PUS,CJJ,TAE,KWJ"><a href="/pkgRenewal/searchListSimple?dptcity=PUS,CJJ,TAE,KWJ" menuNm="지방출발">지방출발</a></li>-->
             </ul>
             <div class="l-gnb-sub clearfix" style="display: none;">
                 <div class="sub-menu-wrap">
@@ -3412,7 +3424,7 @@ function menuChange(idx){
                             <h3 class="content-title" id="bestTitle"><b></b></h3>
                             <span class="right"><a href="#" class="btn-close"><img src="/images/front/travel/btn_nav_close.gif" alt="닫기"></a></span>
                         </div>
-                        <ul class="thumbnail-list item-3 sm">
+                        <ul class="thumbnail-list item-4 sm">
 
                                 <li parnCd="PGR008" menuCd="PGR015" >
                                 <div class="p-img"><a href="/pkgRenewal/goodsFrame?agncyProdcd=29396056"><img src="http://img.modetour.co.kr/eagle/photoimg/41323/Bfile/WelcomeWorld%20BeachResortView2.jpg" /></a></div>
@@ -5378,308 +5390,7 @@ function menuChange(idx){
 
         </div>
     </div>
-    
-    <!-- gnb 2, 3뎁스(해외패키지) -->
-	<div class="w-nav-gsub-ly" style="display: none">
-		<!-- 해외패키지 -->
-		<div class="ng-box n-gsub-pkg">
-			<div class="ly-inner">
-				<ul class="list-gsub">
-					<li><a href="#" data-num="0">동남아시아</a></li>
-					<li><a href="#" data-num="1">홍콩/중국</a></li>
-					<li><a href="#" data-num="2">일본</a></li>
-					<li><a href="#" data-num="3">남태평양</a></li>
-					<li><a href="#" data-num="4">유럽</a></li>
-					<li><a href="#" data-num="5">미주/하와이</a></li>
-					<li><a href="#">출발가능</a></li>
-					<li class="on"><a href="#">긴급모객</a></li>
-				</ul>
-				<ul class="list-root">
-					<li class="mdep"><!-- mdep 반복 -->
-						<ul class="m1dep-box">
-							<li class="m1dep-list"><!-- m1dep-list 반복 -->
-								<a href="#">태국</a>
-								<ul class="m2dep-box">
-									<li class="m2dep-list"><a href="#">방콕</a></li>
-									<li class="m2dep-list"><a href="#">푸켓</a></li>
-								</ul>
-								<div class="m2dep-best">
-									<span class="b-tit">베스트 패키지</span>
-									<ul class="list">
-										<li>
-											<a href="#">
-												<span class="vis"><img src="/images/front/travel/vis-size/vis-203x130.jpg" alt="&nbsp;"></span>
-												<span class="info-box">
-													<span class="tit">동남아시아/치앙마이</span>
-													<span class="exp"><span>치앙마이/치앙라이/고산족 5일(5부족마을 탐방 + 룽아룬온천욕)</span></span>
-													<span class="price"><em>747,000원+</em></span>
-												</span>
-											</a>
-										</li>
-										<li>
-											<a href="#">
-												<span class="vis"><img src="/images/front/travel/vis-size/vis-203x130.jpg" alt="&nbsp;"></span>
-												<span class="info-box">
-													<span class="tit">동남아시아/치앙마이</span>
-													<span class="exp"><span>치앙마이/치앙라이/고산족 5일(5부족마을 탐방 + 룽아룬온천욕)</span></span>
-													<span class="price"><em>747,000원+</em></span>
-												</span>
-											</a>
-										</li>
-										<li>
-											<a href="#">
-												<span class="vis"><img src="/images/front/travel/vis-size/vis-203x130.jpg" alt="&nbsp;"></span>
-												<span class="info-box">
-													<span class="tit">동남아시아/치앙마이</span>
-													<span class="exp"><span>치앙마이/치앙라이/고산족 5일(5부족마을 탐방 + 룽아룬온천욕)</span></span>
-													<span class="price"><em>747,000원+</em></span>
-												</span>
-											</a>
-										</li>
-										<li>
-											<a href="#">
-												<span class="vis"><img src="/images/front/travel/vis-size/vis-203x130.jpg" alt="&nbsp;"></span>
-												<span class="info-box">
-													<span class="tit">동남아시아/치앙마이</span>
-													<span class="exp"><span>치앙마이/치앙라이/고산족 5일(5부족마을 탐방 + 룽아룬온천욕)</span></span>
-													<span class="price"><em>747,000원+</em></span>
-												</span>
-											</a>
-										</li>
-									</ul>
-								</div>
-							</li>
-							<li class="m1dep-list"><!-- m1dep-list 반복 -->
-								<a href="#">태국2</a>
-								<ul class="m2dep-box">
-									<li class="m2dep-list"><a href="#">방콕</a></li>
-									<li class="m2dep-list"><a href="#">푸켓</a></li>
-									<li class="m2dep-list"><a href="#">푸켓2</a></li>
-								</ul>
-								<div class="m2dep-best">
-									<span class="b-tit">베스트 패키지</span>
-									<ul class="list">
-										<li>
-											<a href="#">
-												<span class="vis"><img src="/images/front/travel/vis-size/vis-203x130.jpg" alt="&nbsp;"></span>
-												<span class="info-box">
-													<span class="tit">동남아시아/치앙마이</span>
-													<span class="exp"><span>치앙마이/치앙라이/고산족 5일(5부족마을 탐방 + 룽아룬온천욕)</span></span>
-													<span class="price"><em>747,000원+</em></span>
-												</span>
-											</a>
-										</li>
-									</ul>
-								</div>
-							</li>
-							<li class="m1dep-list"><!-- m1dep-list 반복 -->
-								<a href="#">태국3</a>
-								<div class="m2dep-best">
-									<span class="b-tit">베스트 패키지</span>
-									<ul class="list">
-										<li>
-											<a href="#">
-												<span class="vis"><img src="/images/front/travel/vis-size/vis-203x130.jpg" alt="&nbsp;"></span>
-												<span class="info-box">
-													<span class="tit">동남아시아/치앙마이</span>
-													<span class="exp"><span>치앙마이/치앙라이/고산족 5일(5부족마을 탐방 + 룽아룬온천욕)</span></span>
-													<span class="price"><em>747,000원+</em></span>
-												</span>
-											</a>
-										</li>
-									</ul>
-								</div>
-							</li>
-						</ul>
-					</li>
-					<li class="mdep"><!-- mdep 반복 -->
-						<ul class="m1dep-box">
-							<li class="m1dep-list"><!-- m1dep-list 반복 -->
-								<a href="#">필리핀</a>
-								<ul class="m2dep-box">
-									<li class="m2dep-list"><a href="#">세부</a></li>
-									<li class="m2dep-list"><a href="#">마닐라</a></li>
-								</ul>
-								<div class="m2dep-best">
-									<span class="b-tit">베스트 패키지</span>
-									<ul class="list">
-										<li>
-											<a href="#">
-												<span class="vis"><img src="/images/front/travel/vis-size/vis-203x130.jpg" alt="&nbsp;"></span>
-												<span class="info-box">
-													<span class="tit">세부/세부</span>
-													<span class="exp"><span>치앙마이/치앙라이/고산족 5일(5부족마을 탐방 + 룽아룬온천욕)</span></span>
-													<span class="price"><em>747,000원+</em></span>
-												</span>
-											</a>
-										</li>
-										<li>
-											<a href="#">
-												<span class="vis"><img src="/images/front/travel/vis-size/vis-203x130.jpg" alt="&nbsp;"></span>
-												<span class="info-box">
-													<span class="tit">동남아시아/치앙마이</span>
-													<span class="exp"><span>치앙마이/치앙라이/고산족 5일(5부족마을 탐방 + 룽아룬온천욕)</span></span>
-													<span class="price"><em>747,000원+</em></span>
-												</span>
-											</a>
-										</li>
-										<li>
-											<a href="#">
-												<span class="vis"><img src="/images/front/travel/vis-size/vis-203x130.jpg" alt="&nbsp;"></span>
-												<span class="info-box">
-													<span class="tit">동남아시아/치앙마이</span>
-													<span class="exp"><span>치앙마이/치앙라이/고산족 5일(5부족마을 탐방 + 룽아룬온천욕)</span></span>
-													<span class="price"><em>747,000원+</em></span>
-												</span>
-											</a>
-										</li>
-										<li>
-											<a href="#">
-												<span class="vis"><img src="/images/front/travel/vis-size/vis-203x130.jpg" alt="&nbsp;"></span>
-												<span class="info-box">
-													<span class="tit">동남아시아/치앙마이</span>
-													<span class="exp"><span>치앙마이/치앙라이/고산족 5일(5부족마을 탐방 + 룽아룬온천욕)</span></span>
-													<span class="price"><em>747,000원+</em></span>
-												</span>
-											</a>
-										</li>
-									</ul>
-								</div>
-							</li>
-							<li class="m1dep-list"><!-- m1dep-list 반복 -->
-								<a href="#">필리핀2</a>
-								<ul class="m2dep-box">
-									<li class="m2dep-list"><a href="#">마닐라</a></li>
-									<li class="m2dep-list"><a href="#">마닐라</a></li>
-									<li class="m2dep-list"><a href="#">마닐라2</a></li>
-								</ul>
-								<div class="m2dep-best">
-									<span class="b-tit">베스트 패키지</span>
-									<ul class="list">
-										<li>
-											<a href="#">
-												<span class="vis"><img src="/images/front/travel/vis-size/vis-203x130.jpg" alt="&nbsp;"></span>
-												<span class="info-box">
-													<span class="tit">마닐라/마닐라</span>
-													<span class="exp"><span>치앙마이/치앙라이/고산족 5일(5부족마을 탐방 + 룽아룬온천욕)</span></span>
-													<span class="price"><em>747,000원+</em></span>
-												</span>
-											</a>
-										</li>
-									</ul>
-								</div>
-							</li>
-							<li class="m1dep-list"><!-- m1dep-list 반복 -->
-								<a href="#">필리핀3</a>
-							</li>
-						</ul>
-					</li>
-					<li class="mdep"><!-- mdep 반복 -->
-						<ul class="m1dep-box">
-							<li class="m1dep-list">
-								<a href="#">국가3</a>
-								<ul class="m2dep-box">
-									<li class="m2dep-list"><a href="#">세부</a></li>
-									<li class="m2dep-list"><a href="#">마닐라</a></li>
-								</ul>
-								<div class="m2dep-best">
-									<span class="b-tit">베스트 패키지</span>
-
-								</div>
-							</li>
-							<li class="m1dep-list">
-								<a href="#">국가3</a>
-								<ul class="m2dep-box">
-									<li class="m2dep-list"><a href="#">마닐라</a></li>
-									<li class="m2dep-list"><a href="#">마닐라</a></li>
-									<li class="m2dep-list"><a href="#">마닐라2</a></li>
-								</ul>
-								<div class="m2dep-best">
-									<span class="b-tit">베스트 패키지</span>
-
-								</div>
-							</li>
-							<li class="m1dep-list">
-								<a href="#">국가3</a>
-							</li>
-						</ul>
-					</li>
-					<li class="mdep"><!-- mdep 반복 -->
-						<ul class="m1dep-box">
-							<li class="m1dep-list"><!-- m1dep-list 반복 -->
-								<a href="#">국가4</a>
-								<ul class="m2dep-box">
-									<li class="m2dep-list"><a href="#">세부</a></li>
-									<li class="m2dep-list"><a href="#">마닐라</a></li>
-								</ul>
-								<div class="m2dep-best">
-									<span class="b-tit">베스트 패키지</span>
-
-								</div>
-							</li>
-							<li class="m1dep-list"><!-- m1dep-list 반복 -->
-								<a href="#">국가4</a>
-								<ul class="m2dep-box">
-									<li class="m2dep-list"><a href="#">마닐라</a></li>
-									<li class="m2dep-list"><a href="#">마닐라</a></li>
-									<li class="m2dep-list"><a href="#">마닐라2</a></li>
-								</ul>
-								<div class="m2dep-best">
-									<span class="b-tit">베스트 패키지</span>
-
-								</div>
-							</li>
-						</ul>
-					</li>
-					<li class="mdep"><!-- mdep 반복 -->
-						<ul class="m1dep-box">
-							<li class="m1dep-list"><!-- m1dep-list 반복 -->
-								<a href="#">국가5</a>
-								<ul class="m2dep-box">
-									<li class="m2dep-list"><a href="#">세부</a></li>
-									<li class="m2dep-list"><a href="#">마닐라</a></li>
-								</ul>
-								<div class="m2dep-best">
-									<span class="b-tit">베스트 패키지</span>
-
-								</div>
-							</li>
-							<li class="m1dep-list"><!-- m1dep-list 반복 -->
-								<a href="#">국가5</a>
-								<ul class="m2dep-box">
-									<li class="m2dep-list"><a href="#">마닐라</a></li>
-									<li class="m2dep-list"><a href="#">마닐라</a></li>
-									<li class="m2dep-list"><a href="#">마닐라2</a></li>
-								</ul>
-								<div class="m2dep-best">
-									<span class="b-tit">베스트 패키지</span>
-
-								</div>
-							</li>
-						</ul>
-					</li>
-					<li class="mdep"><!-- mdep 반복 -->
-						<ul class="m1dep-box">
-							<li class="m1dep-list"><!-- m1dep-list 반복 -->
-								<a href="#">국가6</a>
-								<ul class="m2dep-box">
-									<li class="m2dep-list"><a href="#">세부</a></li>
-									<li class="m2dep-list"><a href="#">마닐라</a></li>
-								</ul>
-								<div class="m2dep-best">
-									<span class="b-tit">베스트 패키지</span>
-
-								</div>
-							</li>
-						</ul>
-					</li>
-				</ul> 
-				<a href="#" class="b-ng-box-close"><span class="a11y">닫기</span></a>
-			</div>
-		</div>
-		<!-- //해외패키지 -->
-	</div>
-	<!-- //gnb 2, 3뎁스(해외패키지) -->
+    <!-- //gnb 2, 3뎁스(해외패키지) -->
 	
 	<!-- #mobile-promotion-sec(항공 - 항공 노출, 호텔 - 호텔 노출, 나머지 - 항공 노출) -->
 	<div id="mobile-promotion-sec">

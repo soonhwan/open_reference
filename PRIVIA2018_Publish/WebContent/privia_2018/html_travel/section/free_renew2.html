@@ -47,7 +47,7 @@
 <!-- wrap -->
 <div id="wrap">
 
-	<!-- 통합헤더 설명(https://redmine.tidesquare.com/issues/31266#note-5) -->
+	<!-- 통합헤더 설명 참고(https://redmine.tidesquare.com/issues/31266#note-5) -->
 	<!-- .commonHeaderObject : 헤더 타입 클래스 change(o-CHO- : full(기본), section(섹션), quick(퀵버전), header-sec-fixed(헤더 fixed) -->
 	<div class="commonHeaderObject">
 		<div class="o-CHO-inner">
@@ -960,9 +960,11 @@
 													</div>
 												</li>
 											</ul>
-											<div class="uis-txt1">
-												성인: 출발일 탑승일 기준<br />
-												아동/유아: <span class="c-point1">출/도착일 탑승일 기준</span>
+											<div class="uis-txt-area">
+												<div class="uis-txt1">
+													성인: 출발일 탑승일 기준<br />
+													아동/유아: <span class="c-point1">출/도착일 탑승일 기준</span>
+												</div>
 											</div>
 											<ul class="uis-capacity-select select-comp">
 												<li class="on"><a href="#" data-option="Y">일반석</a></li>
@@ -2650,7 +2652,10 @@
 													</div>
 												</li>
 											</ul>
-											<div class="uis-txt1">나이는 출발일 기준이며 입장권별 연령 기준이 다를 수 있습니다.</div>
+											<div class="uis-txt-area">
+												<div class="uis-txt1">나이는 출발일 기준이며 입장권별 연령 기준이 다를 수 있습니다.</div>
+											</div>
+											
 											<div class="uis-opt-bottom">
 												<div class="uisob-right">
 													<span class="btn-base bb-st2 b-cancel"><a href="#">취소</a></span>
@@ -2836,35 +2841,7 @@
 	<div id="content">
 		<!-- 자유여행 섹션메인 -->
 		<div class="section_main free_travel">
-			<div id="quick-search-submain">
-				<!-- 퀵검색 시작 -->
-				<div class="quick-section" recently="false">
-					<!-- 섹션 선택 -->
-					<div class="quick-section-menu">
-						<!-- 4개일 시 .item-4, 5개일 시 .item-5, 6개일 시 .item-6 -->
-						<ul class="quick-section-icon item-4">
-							<li><a href="#" class="q-ico-air" title="항공검색">항공검색</a></li>
-							<li><a href="#" class="q-ico-htl" title="호텔검색">호텔검색</a></li>
-							<li><a href="#" class="q-ico-free on" title="자유여행검색">자유여행검색</a></li>
-							<li><a href="#" class="q-ico-dprs" title="단품검색">단품검색</a></li>
-						</ul>
-					</div>
-					<!-- //섹션 선택 -->
-					<div class="quick-section-cont-wrap">
-						<!-- 항공 -->
-						<div id="QS-AIR" class="quick-section-cont"></div>
-						<!-- 호텔 -->
-						<div id="QS-HOTEL" class="quick-section-cont"></div>
-						<!-- 자유여행 -->
-						<div id="QS-FREE" class="quick-section-cont"></div>
-						<!-- 단품 -->
-						<div id="QS-DPRS_ITEM" class="quick-section-cont"></div>
-						<!-- 패키지 -->
-	<!-- 					<div id="QS-PACKAGE" class="quick-section-cont"></div> -->
-					</div>
-				</div>
-				<!-- //퀵검색 -->
-			</div>
+			
 			<div id="itemRollingBanner1" class="item_rolling item_630x310">
 				<h3 class="blind">메인 프로모션</h3>
 				<div class="roll_img">
