@@ -531,58 +531,144 @@ function showSearchTap(searchCode){
 function comSearchEvent(){
 	//검색 메인 tab click
 	$('.hs-search-menu .hss-menu [data-tabmain]').on('click', function(e){
-		if(!$(this).closest('.hss-menu').hasClass('on')){
-			var code = $(this).data('tabmain');
-			$('.hs-search-menu .hss-menu.on').removeClass('on');
-			$(this).closest('.hss-menu').addClass('on');
+        if(!$(this).closest('.hss-menu').hasClass('on')){
+            var code = $(this).data('tabmain');
+            var target = $(this);
+            var callback = function() {
+	            $('.hs-search-menu .hss-menu.on').removeClass('on');
+	            target.closest('.hss-menu').addClass('on');
+	            
+	            //섹션 체인지    
+	            $('.hs-search-cont .hss-inner-cont.on').removeClass('on');
+	            $('.hs-search-cont .hss-inner-cont.sc-'+code).addClass('on');
+	            
+	            //배경색상 체인지(존재하면 삭제)
+	            $('#header-sec .header-sec').removeClass(function (index, css) {
+	                return (css.match (/\bo-bg-\S+/g) || []).join(' ');
+	            }); 
+	            $('#header-sec .header-sec').addClass('o-bg-'+code);
+	            
+	            //서브메뉴 활성화(아무것도 선택이 없으면 처음메뉴 클릭)
+	            if(target.closest('.hss-menu').find('.hss-sub .on').length <= 0){
+	                target.closest('.hss-menu').find('.hss-sub li:first-child [data-tabsub]').trigger('click');
+	            }
+	            else if(target.closest('.hss-menu').find('.hss-sub .on').length > 0){
+	                target.closest('.hss-menu').find('.hss-sub .on [data-tabsub]').trigger('click');
+	            }
+            }
+            
+            var quickUrl = null;
+            var quickContainer = null;            
+            switch(code){
+                
+                case "air" : 
+                    //quickUrl = "//dwww.priviatravel.com/quick/air.ajax";
+                    quickContainer = $("#SC-AIR");
+                    break;
+                case "hotel" :
+                    //quickUrl = "//dwww.priviatravel.com/quick/htl.ajax";
+                    quickContainer = $("#SC-HOTEL");
+                    break;
+                case "free" : 
+                    //quickUrl = "//dairtel.priviatravel.com/airtelQuickSearch2.lts";
+                    quickContainer = $("#SC-FREE");
+                    break;
+                case "freetour" : 
+                    //quickUrl = "//dairtel.priviatravel.com/dprsItemQuickSearch.lts";
+                    quickContainer = $("#SC-FREETOUR");
+                    break;
+            }
 			
-			//섹션 체인지	
-			$('.hs-search-cont .hss-inner-cont.on').removeClass('on');
-			$('.hs-search-cont .hss-inner-cont.sc-'+code).addClass('on');
-			
-			//배경색상 체인지(존재하면 삭제)
-			$('#header-sec .header-sec').removeClass(function (index, css) {
-				return (css.match (/\bo-bg-\S+/g) || []).join(' ');
-			});	
-			$('#header-sec .header-sec').addClass('o-bg-'+code);
-			
-			//서브메뉴 활성화(아무것도 선택이 없으면 처음메뉴 클릭)
-			if($(this).closest('.hss-menu').find('.hss-sub .on').length <= 0){
-				$(this).closest('.hss-menu').find('.hss-sub li:first-child [data-tabsub]').trigger('click');
+			if(quickContainer){
+				switch(code){
+					case "air" : 
+						if(comSearchAir) comSearchAir();
+						break;
+					case "hotel" :
+						if(comSearchHotel) comSearchHotel();
+						break;
+					case "free" : 
+						if(comSearchFree) comSearchFree();
+						break;
+					case "freetour" : 
+						if(comSearchFreetour) comSearchFreetour();
+						break;
+				}
+
+				callback();
+				_applyQuickCallback();
 			}
-			else if($(this).closest('.hss-menu').find('.hss-sub .on').length > 0){
-				$(this).closest('.hss-menu').find('.hss-sub .on [data-tabsub]').trigger('click');
-			}
-		}		
-		e.preventDefault();
-	});	
-	
-	//검색 서브 tab click
-	$('.hs-search-menu .hss-menu [data-tabsub]').on('click', function(e){
-		var code = $(this).data('tabsub');
-		if(!$(this).closest('li').hasClass('on')){
-			$(this).closest('.hss-sub').find('.on').removeClass('on');
-			$(this).closest('li').addClass('on');
-			//서브 체인지	
-			$('.hs-search-cont .o-'+code).closest('.hss-inner-cont').find('.sc-search-box.on').removeClass('on');	
-			$('.hs-search-cont .o-'+code).addClass('on');
-		}			
-		e.preventDefault();
-	});	
-	
-	//document 클릭시 옵션 팝업 닫힘
-	$(document).on('mousedown', function(e){
-		//fakeselect option
-		if($(e.target).closest(".select-option").length > 0){
-			return;
-		}
-		else{
-			//검색팝업
-			if($(e.target).closest(".sc-ui-search-panel.on").length <= 0){
-				$('.w-header-search .sc-ui-search-panel.on').removeClass('on');
-			}
-		}
-	});	
+            
+			/*
+            if( $.trim(quickContainer.html()).length == 0 ){
+                
+                $.ajax({
+                    type:'post'
+                    , url:quickUrl
+                    , dataType:"html"
+                    , success:function(data){
+                        quickContainer.html(data);
+                        
+                        switch(code){
+                            case "air" : 
+                                if(comSearchAir) comSearchAir();
+                                break;
+                            case "hotel" :
+                                if(comSearchHotel) comSearchHotel();
+                                break;
+                            case "free" : 
+                                if(comSearchFree) comSearchFree();
+                                break;
+                            case "freetour" : 
+                                if(comSearchFreetour) comSearchFreetour();
+                                break;
+                        }
+                        
+                        callback();
+                        _applyQuickCallback();
+                    }
+                    , error: function(request,status,error) {
+                        if(window.console) console.log( "[headerManager : Error] : 퀵서치 " + code + "\ncode:"+request.status+"\n"+"message:"+request.responseText+"\n"+"error:"+error );
+                    }
+                    , beforeSend: function(xhr) {
+                        xhr.withCredentials = true;
+                    }
+                });
+            } else {
+                callback();
+                _applyQuickCallback();
+            }
+			*/
+        }       
+        e.preventDefault();
+    }); 
+    
+    //검색 서브 tab click
+    $('.hs-search-menu .hss-menu [data-tabsub]').on('click', function(e){
+        var code = $(this).data('tabsub');
+        if(!$(this).closest('li').hasClass('on')){
+            $(this).closest('.hss-sub').find('.on').removeClass('on');
+            $(this).closest('li').addClass('on');
+            //서브 체인지    
+            $('.hs-search-cont .o-'+code).closest('.hss-inner-cont').find('.sc-search-box.on').removeClass('on');   
+            $('.hs-search-cont .o-'+code).addClass('on');
+        }           
+        e.preventDefault();
+    }); 
+    
+    //document 클릭시 옵션 팝업 닫힘
+    $(document).on('mousedown', function(e){
+        //fakeselect option
+        if($(e.target).closest(".select-option").length > 0){
+            return;
+        }
+        else{
+            //검색팝업
+            if($(e.target).closest(".sc-ui-search-panel.on").length <= 0){
+                $('.w-header-search .sc-ui-search-panel.on').removeClass('on');
+            }
+        }
+    }); 
 }
 
 //검색 - 항공 관련
@@ -881,6 +967,34 @@ function comSearchAir(){
 		pvFrontScript.panelPosition({
 			target: $(this)
 		});
+		
+		/*var disabledDays = ["2018-07-20","2018-07-23"];
+		function disableAllTheseDays(date) {
+			var m = date.getMonth(), d = date.getDate(), y = date.getFullYear();
+			for (i = 0; i < disabledDays.length; i++) {
+				if($.inArray(y + '-' +(m+1) + '-' + d,disabledDays) != -1) {
+					return [true, "dp-highlight"];
+				}
+			}
+			return [true];
+		}*/
+		
+		//왕복
+		if($(this).closest('.o-shuttle').length > 0){
+			//$('.sc-air .o-shuttle .uis-datepicker').datepicker('option', 'beforeShowDay', disableAllTheseDays).find('.ui-datepicker-today .ui-state-active').removeClass("ui-state-active");
+			
+			/*$('.sc-air .o-shuttle .uis-datepicker').datepicker('option', 'beforeShowDay', function(date) {
+				var date1 = $.datepicker.parseDate('yy/mm/dd', '2018/07/20');
+				var date2 = $.datepicker.parseDate('yy/mm/dd', '2018/07/24');
+				return pvFrontScript.beforeShowDayMark(date, date1, date2);
+			}).find('.ui-datepicker-today .ui-state-active').removeClass("ui-state-active");*/
+		}
+		
+		//편도
+		if($(this).closest('.o-oneway').length > 0){
+			//$('.sc-air .o-oneway .uis-datepicker').datepicker('setDate', new Date($(this).find('.qsb-chkin [data-day]').data('day')));
+		}
+		//console.log(11, $(this).find('[data-day]').data('day'));
 		e.preventDefault();
 	});
 	
@@ -889,16 +1003,16 @@ function comSearchAir(){
 		minDate: '0',
 		maxDate: '+362',
 		dayNamesMin: ['일', '월', '화', '수', '목', '금', '토'],
-		dateFormat: 'yy/mm/dd',
+		dateFormat: 'yy-mm-dd',
 		beforeShowDay: function(date) {
-			var date1 = $.datepicker.parseDate('yy/mm/dd', $(this).closest('.ui-date-calendar').find('.uis-date-chkin [data-day]').data('day'));
-			var date2 = $.datepicker.parseDate('yy/mm/dd', $(this).closest('.ui-date-calendar').find('.uis-date-chkout [data-day]').data('day'));
+			var date1 = $.datepicker.parseDate('yy-mm-dd', $(this).closest('.ui-date-calendar').find('.uis-date-chkin [data-day]').data('day'));
+			var date2 = $.datepicker.parseDate('yy-mm-dd', $(this).closest('.ui-date-calendar').find('.uis-date-chkout [data-day]').data('day'));
 			return pvFrontScript.beforeShowDayMark(date, date1, date2);
 		},
 		onSelect: function(dateText, inst) {
-			var date1 = $.datepicker.parseDate('yy/mm/dd', $(this).closest('.ui-date-calendar').find('.uis-date-chkin [data-day]').data('day'));
-			var date2 = $.datepicker.parseDate('yy/mm/dd', $(this).closest('.ui-date-calendar').find('.uis-date-chkout [data-day]').data('day'));
-			var selectedDate = $.datepicker.parseDate('yy/mm/dd', dateText);
+			var date1 = $.datepicker.parseDate('yy-mm-dd', $(this).closest('.ui-date-calendar').find('.uis-date-chkin [data-day]').data('day'));
+			var date2 = $.datepicker.parseDate('yy-mm-dd', $(this).closest('.ui-date-calendar').find('.uis-date-chkout [data-day]').data('day'));
+			var selectedDate = $.datepicker.parseDate('yy-mm-dd', dateText);
 			var txtDay = pvFrontScript.onSelectTxtDay($(this), dateText);
 			
 			//도착일 미정인경우
@@ -1040,6 +1154,12 @@ function comSearchAir(){
 			pvFrontScript.docuMoudownTrigger();
 		}
 	});
+	
+	/*var dateArr = [];
+	$('.sc-air .o-multiway .ui-date-calendar').each(function(){
+		dateArr.push($(this).find('.uis-date-chkin [data-day]').data('day'));
+	});
+	console.log(dateArr);*/
 	
 	//캘린더 datepicker - 다구간1
 	$('.sc-air .o-multiway .air-md-1 .uis-datepicker').datepicker({
@@ -2402,10 +2522,13 @@ function comSearchFreetour(){
 function comSearchInit(){
 	//검색 관련
 	comSearchEvent();
+	
+	/*
 	comSearchAir();
 	comSearchHotel();
 	comSearchFree();
 	comSearchFreetour();
+	*/
 	
 	//헤더 타입 셋팅
 	if (HEADER_TYPE == null || HEADER_TYPE == "") {
@@ -2468,3 +2591,35 @@ function comGbnFocus(){
 	
 }
 
+var _showCallback = null;
+function _setQuickCallback(fn){
+
+    try{
+    
+        if( typeof(fn) === 'function' ){
+            _showCallback = fn;
+        } else {
+            _showCallback = null;
+        }
+        
+    } catch(e) {
+        if(window.console) console.log("파라미터가 function형태가 아닙니다."); 
+    }
+}
+
+//퀵검색 로드 콜백
+function _applyQuickCallback(){
+
+    if( _showCallback ) _showCallback();
+    
+    _showCallback = null;
+}
+
+
+//재검색
+function showQuick(quickCode, fn){
+
+    _setQuickCallback(fn);
+        
+    showSearchTap(quickCode);
+}

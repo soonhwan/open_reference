@@ -38,7 +38,7 @@
 			var $chk = $this.find('[type="checkbox"]');
 			var $label = $this.find('label');
 			
-			if(!$chk){return;}
+			if(!$chk || $this.hasClass('chk-initialized')){return;}
 			
 			//checked 유효체크
 			if($chk.prop('checked')){
@@ -63,22 +63,25 @@
 					$label.addClass('on');
 				}
 			});
+			
+			//initialized
+			$this.addClass('chk-initialized');
 		});
 	}
 	$.fn.customRadio = function(){
 		return this.each(function(){
 			var $this = $(this);
-			var $chk = $this.find('[type="radio"]');
+			var $radio = $this.find('[type="radio"]');
 			var $label = $this.find('label');
-			var $name = $chk.attr('name');
+			var $name = $radio.attr('name');
 			
-			if(!$chk){return;}
+			if(!$radio || $this.hasClass('radio-initialized')){return;}
 			
 			//name 저장
 			$label.name = $name;
 			
 			//checked 유효체크
-			if($chk.prop('checked')){
+			if($radio.prop('checked')){
 				$label.addClass('on');
 			}
 			else{
@@ -86,7 +89,7 @@
 			}
 			
 			//disabled
-			if($chk.prop('disabled')){
+			if($radio.prop('disabled')){
 			   $this.addClass('disabled');
 			}
 			
@@ -98,6 +101,9 @@
 					$label.addClass('on');	
 				}
 			});
+			
+			//initialized
+			$this.addClass('radio-initialized');
 		});
 	}
 }(window.jQuery, window, document));
@@ -110,23 +116,32 @@
 var pvFrontScript = window.pvFrontScript || (function(){
 	return {
 		init: function(){
-			//placeholder(공통 - IE9 이하 부터 실행)
-			$('.input-base').placeholder();
-
-			//체크박스(공통)
-			$('.chk-base').customCheckbox();
-
-			//라디오버튼(공통)
-			$('.radio-base').customRadio();
-
-			//셀렉트박스(공통)
-			$('.select-base').fakeselect();
-
+			//공통 UI
+			pvFrontScript.baseUI($(document));
+			
 			//공통 헤더 컨트롤(상단리본, 공지사항, 스크롤 헤더반응형, 검색UI)
 			pvFrontScript.comHeaderControl(); 
 
 			//컨텐츠 스크립트 모음
 			pvFrontScript.comContents();
+		},
+		baseUI: function($this){
+			/* 설명   : 전역 공통으로 사용하는 UI 
+			   사용처 : 기본 전역으로 1번 실행하고 나중에 다른곳에서 재실행 할때 방지되어 있는 구조 */
+			
+			var _ = $this;
+			
+			//placeholder(공통 - IE9 이하 부터 실행)
+			_.find('.input-base').placeholder();
+
+			//체크박스(공통)
+			_.find('.chk-base').customCheckbox();
+
+			//라디오버튼(공통)
+			_.find('.radio-base').customRadio();
+
+			//셀렉트박스(공통)
+			_.find('.select-base').fakeselect();
 		},
 		docuMoudownTrigger: function($delay){ 
 			/* 설명   : document mousedown 트리거
@@ -290,7 +305,7 @@ var pvFrontScript = window.pvFrontScript || (function(){
 			   사용처 : jQuery UI datepicker : onSelect 내부 */
 
 			//console.log($this, dateText)
-			var selectedDate = $.datepicker.parseDate('yy/mm/dd', dateText),
+			var selectedDate = $.datepicker.parseDate('yy-mm-dd', dateText),
 				month = (selectedDate.getMonth()+1) < 10 ? '0' + (selectedDate.getMonth()+1)  : selectedDate.getMonth()+1,
 				day = selectedDate.getDate() < 10 ? '0' + selectedDate.getDate()  : selectedDate.getDate(),
 				dayName = selectedDate.getUTCDay() < 6 ? $this.datepicker('option', 'dayNamesMin')[selectedDate.getUTCDay()+1] : $this.datepicker('option', 'dayNamesMin')[0],
@@ -340,6 +355,9 @@ var pvFrontScript = window.pvFrontScript || (function(){
 			//날짜 마크
 			var date1 = $date1;
 			var date2 = $date2;
+			
+			//var arr = [date1, date2]
+			
 			if(date1){
 				if(date.getTime() == date1.getTime()){
 					if(date2){
@@ -360,7 +378,7 @@ var pvFrontScript = window.pvFrontScript || (function(){
 			}
 			return result;
 		},
-		beforeShowDayMarkMD: function(date, $date1, $date2, $date3, $date4){
+		beforeShowDayMarkMD: function(date, $date){
 			/* 설명   : 통합검색 - 다구간 스타일 구현
 			   사용처 : jQuery UI datepicker : beforeShowDay 내부 */
 
@@ -403,6 +421,9 @@ var pvFrontScript = window.pvFrontScript || (function(){
 			   사용처 : 통합헤더 섹션별 UI Evvent 필요시 호출 */
 			
 			var section = $section;
+			
+			//공통 UI
+			pvFrontScript.baseUI(section);
 		
 			//검색(도시) 리스트, 최근검색 커스텀스크롤
 			if(section.find('.o-customscrollbar').length > 0){
@@ -427,7 +448,7 @@ var pvFrontScript = window.pvFrontScript || (function(){
 
 			//캘린더 today 제거
 			if(section.find('.sc-ui-search-panel .uis-datepicker').length > 0){
-				section.find('.sc-ui-search-panel .uis-datepicker').find(".ui-state-active").removeClass("ui-state-active"); 
+				section.find('.sc-ui-search-panel .uis-datepicker .ui-datepicker-today .ui-state-active').removeClass("ui-state-active"); 
 			}
 			
 			//capacity uis-capacity-number click(클래스 on 추가, 삭제 기능)
@@ -467,9 +488,9 @@ var pvFrontScript = window.pvFrontScript || (function(){
 			
 			//select list click(클래스 on 추가, 삭제 기능)
 			if(section.find('.sc-ui-search-panel.ui-select-list').length > 0){
-				section.find('.sc-ui-search-panel.ui-select-list .uis-list li a').on('click', function(e){
+				section.find('.sc-ui-search-panel.ui-select-list .uis-list .list li a').on('click', function(e){
 					if(!$(this).closest('li').hasClass('on')){
-						section.find('.sc-ui-search-panel.ui-select-list .uis-list li.on').removeClass('on');
+						section.find('.sc-ui-search-panel.ui-select-list .uis-list .list li.on').removeClass('on');
 						$(this).closest('li').addClass('on');
 					}
 					e.preventDefault();
