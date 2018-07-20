@@ -148,7 +148,8 @@ var pvFrontScript = window.pvFrontScript || (function(){
 			   사용처 : 주로 통합 헤더 검색 팝업을 닫을때 사용 */
 
 			var delay = $delay || 0;
-			setTimeout(function(){$(document).mousedown();}, delay);
+			//setTimeout(function(){$(document).mousedown();}, delay);
+			$(document).mousedown();
 		},
 		panelPosition: function(options){
 			/* 설명   : 통합 헤더 검색 팝업 노출시 위치 설정(팝업 사이즈, 위치 수정을 프론트에서 관리하기 위해)
@@ -204,6 +205,19 @@ var pvFrontScript = window.pvFrontScript || (function(){
 				}
 					
 			}
+			//항공 캘린더
+			if($area == 'air-calendar'){
+				//항공 다구간
+				if($this.closest('.o-multiway').length > 0){
+					$panel.position({
+						my: 'left-338 top-10',
+						at: 'left top',
+						collision: 'none',
+						of: $this.closest('.qsb-cont')
+					});
+				}
+			}
+			
 			//항공 인원,좌석
 			if($area == 'air-capacity'){
 				if($this.closest('.o-multiway').hasClass('on')){
@@ -294,21 +308,19 @@ var pvFrontScript = window.pvFrontScript || (function(){
 					of: $this.closest('.qsb-cont')
 				});
 			}
-			
-			//캘린더
+					
 			if(!$panel.hasClass('on') || $area == null){
 				$panel.addClass('on');
 			}
 		},
 		onSelectTxtDay: function($this, dateText, inst){
-			/* 설명   : 통합검색 - 선택된 날짜 형식 ex)08월 07일 (화)
+			/* 설명   : 통합검색 - 선택된 날짜 형식 ex)08월 07일 (화) dayNamesMin 옵션이 있어야함!
 			   사용처 : jQuery UI datepicker : onSelect 내부 */
 
-			//console.log($this, dateText)
-			var selectedDate = $.datepicker.parseDate('yy-mm-dd', dateText),
-				month = (selectedDate.getMonth()+1) < 10 ? '0' + (selectedDate.getMonth()+1)  : selectedDate.getMonth()+1,
-				day = selectedDate.getDate() < 10 ? '0' + selectedDate.getDate()  : selectedDate.getDate(),
-				dayName = selectedDate.getUTCDay() < 6 ? $this.datepicker('option', 'dayNamesMin')[selectedDate.getUTCDay()+1] : $this.datepicker('option', 'dayNamesMin')[0],
+			var sDate = $.datepicker.parseDate($this.datepicker('option', 'dateFormat'), dateText),
+				month = (sDate.getMonth()+1) < 10 ? '0' + (sDate.getMonth()+1)  : sDate.getMonth()+1,
+				day = sDate.getDate() < 10 ? '0' + sDate.getDate()  : sDate.getDate(),
+				dayName = sDate.getUTCDay() < 6 ? $this.datepicker('option', 'dayNamesMin')[sDate.getUTCDay()+1] : $this.datepicker('option', 'dayNamesMin')[0],
 				txt = month + '월 ' + day + '일 (' + dayName + ')';
 			return txt;
 		},
@@ -347,7 +359,7 @@ var pvFrontScript = window.pvFrontScript || (function(){
 			return result;
 		},
 		beforeShowDayMark: function(date, $date1, $date2){
-			/* 설명   : 통합검색 - 출발, 도착지 스타일 구현 - 주의!(onSelect 인터렉션이 비슷해야함)
+			/* 설명   : 통합검색 - 출발, 도착지 스타일 구현 - 주의!
 			   사용처 : jQuery UI datepicker : beforeShowDay 내부 */
 			
 			var result = pvFrontScript.jqdHolidayMark(date);
@@ -356,8 +368,6 @@ var pvFrontScript = window.pvFrontScript || (function(){
 			var date1 = $date1;
 			var date2 = $date2;
 			
-			//var arr = [date1, date2]
-			
 			if(date1){
 				if(date.getTime() == date1.getTime()){
 					if(date2){
@@ -371,11 +381,12 @@ var pvFrontScript = window.pvFrontScript || (function(){
 					if(date.getTime() == date2.getTime()){
 						result = [true, "dp-highlight dp-end"];
 					}
-					else if(date > date1 && date < date2){
+					else if(date.getTime() > date1.getTime() && date.getTime() < date2.getTime()){
 						result = [true, "dp-highlight pd-between"];
 					 }
 				}
 			}
+						
 			return result;
 		},
 		beforeShowDayMarkMD: function(date, $date){
@@ -383,38 +394,19 @@ var pvFrontScript = window.pvFrontScript || (function(){
 			   사용처 : jQuery UI datepicker : beforeShowDay 내부 */
 
 			var result = pvFrontScript.jqdHolidayMark(date);
+			console.log(date);
+			for(var i in $date){
+				var dateArr = $.datepicker.parseDate('yy/mm/dd', $date[i]);
 
-			//날짜 마크
-			/*var date1 = $date1,
-				date2 = $date2,
-				date3 = $date3,	
-				date4 = $date4;*/
-			
-			/*var date1 = $.datepicker.parseDate('yy/mm/dd', '2018/07/18');
-			var date2 = $.datepicker.parseDate('yy/mm/dd', '2018/07/20');
-			var date3 = $.datepicker.parseDate('yy/mm/dd', '2018/07/24');
-			var date4 = $.datepicker.parseDate('yy/mm/dd', '2018/07/30');
-			
-			if(date1){
-				if(date.getTime() == date1.getTime()){
-					if(date2){
-						result = [true, "dp-highlight dp-first"];
-					}
-					else{
-						result = [true, "dp-highlight"];
+				if(dateArr){
+					if(date.getTime() == dateArr.getTime()){
+						var n = parseInt(i)+1;
+						result = [true, 'dp-highlight-md'+n];
 					}
 				}
-				else if(date2){
-					if(date.getTime() == date2.getTime()){
-						result = [true, "dp-highlight dp-end"];
-					}
-					else if(date > date1 && date < date2){
-						result = [true, "dp-highlight pd-between"];
-					 }
-				}
-			}*/
-			
-			return result;
+			}
+
+			return result;	
 		},
 		comSearchEvtBind: function($section){
 			/* 설명   : 통합검색 - 섹션별 필요한 이벤트 제공

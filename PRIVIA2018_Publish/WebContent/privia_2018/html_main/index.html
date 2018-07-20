@@ -483,20 +483,6 @@
 															</a>
 														</div>
 													</div>
-
-													<!-- 캘린더 다구간1 -->
-													<div class="sc-ui-search-panel ui-date-calendar">
-														<div class="uis-input">
-															<span class="uis-date-chkin">
-																<span class="txt-day" data-day="">출발일을 선택해주세요.</span>
-															</span>
-														</div>
-														<div class="uis-calendar">
-															<div class="uis-datepicker"></div>
-														</div> 
-														<a href="#" class="b-scb-close"><span class="a11y">닫기</span></a>
-													</div>
-													<!-- //캘린더 다구간1 -->
 												</div>
 											</li>
 											<li class="air-md-2 on">
@@ -542,20 +528,6 @@
 															<button type="button" class="b-remove-multiway"><span class="a11y">다구간 삭제</span></button>
 														</div>
 													</div>
-
-													<!-- 캘린더 다구간2 -->
-													<div class="sc-ui-search-panel ui-date-calendar">
-														<div class="uis-input">
-															<span class="uis-date-chkin">
-																<span class="txt-day" data-day="">출발일을 선택해주세요.</span>
-															</span>
-														</div>
-														<div class="uis-calendar">
-															<div class="uis-datepicker"></div>
-														</div> 
-														<a href="#" class="b-scb-close"><span class="a11y">닫기</span></a>
-													</div>
-													<!-- //캘린더 다구간2 -->
 												</div>
 											</li>
 											<li class="air-md-3">
@@ -601,20 +573,6 @@
 															<button type="button" class="b-remove-multiway"><span class="a11y">다구간 삭제</span></button>
 														</div>
 													</div>
-
-													<!-- 캘린더 다구간3 -->
-													<div class="sc-ui-search-panel ui-date-calendar">
-														<div class="uis-input">
-															<span class="uis-date-chkin">
-																<span class="txt-day" data-day="">출발일을 선택해주세요.</span>
-															</span>
-														</div>
-														<div class="uis-calendar">
-															<div class="uis-datepicker"></div>
-														</div> 
-														<a href="#" class="b-scb-close"><span class="a11y">닫기</span></a>
-													</div>
-													<!-- //캘린더 다구간3 -->
 												</div>
 											</li>	
 											<li class="air-md-4">
@@ -655,25 +613,11 @@
 																</span>
 															</a>
 														</div>
-														<div class="qsb-btn-add on">
+														<div class="qsb-btn-add">
 															<button type="button" class="b-add-multiway"><span class="a11y">다구간 추가</span></button>
 															<button type="button" class="b-remove-multiway"><span class="a11y">다구간 삭제</span></button>
 														</div>
 													</div>
-
-													<!-- 캘린더 다구간4 -->
-													<div class="sc-ui-search-panel ui-date-calendar">
-														<div class="uis-input">
-															<span class="uis-date-chkin">
-																<span class="txt-day" data-day="">출발일을 선택해주세요.</span>
-															</span>
-														</div>
-														<div class="uis-calendar">
-															<div class="uis-datepicker"></div>
-														</div> 
-														<a href="#" class="b-scb-close"><span class="a11y">닫기</span></a>
-													</div>
-													<!-- //캘린더 다구간4 -->
 												</div>
 											</li>							
 										</ol>
@@ -693,6 +637,21 @@
 												</div>
 											</div>
 										</div>
+										
+										<!-- 캘린더 다구간 -->
+										<div class="sc-ui-search-panel ui-date-calendar">
+											<div class="uis-input">
+												<span class="uis-date-chkin">
+													<!-- data-day='["2018/07/20"]' 작은따옴표('') 형식 -->
+													<span class="txt-day" data-day='[]'>출발일을 선택해주세요.</span>
+												</span>
+											</div>
+											<div class="uis-calendar">
+												<div class="uis-datepicker"></div>
+											</div> 
+											<a href="#" class="b-scb-close"><span class="a11y">닫기</span></a>
+										</div>
+										<!-- //캘린더 다구간 -->
 									</div>
 									<!-- //다구간 -->
 
@@ -2164,7 +2123,9 @@
 												<div class="qsb-cont qsb-capacity">
 													<a href="#" class="qsb-area on" data-panel="capacity" data-panel-name="ui-capacity-theme">
 														<span class="qsb-label">여행테마</span>
-														<span class="qsb-input" data-chk="1-1-1-1-1-1">
+														<!--  data-chk='[1,1,1,1,1,1]' 작은따옴표('') 형식 -->
+														<span class="qsb-input" data-chk='[1,1,1,1,1,1]'>
+														<!--<span class="qsb-input" data-chk="1-1-1-1-1-1">-->
 															<span class="txt-list">콤보할인, 즐길거리, 관광, 음식, 가이드/차량, 골프</span>
 														</span>
 													</a>
