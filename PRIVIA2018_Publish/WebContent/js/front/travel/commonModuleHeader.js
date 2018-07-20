@@ -1185,6 +1185,9 @@ function comSearchAir(){
 			checkMdDate(_mdDateIdx, selectedDate);
 			
 			pvFrontScript.docuMoudownTrigger();
+		},
+		onChangeMonthYear: function(year, month, inst) {
+			addTextToMD();
 		}
 	});
 		
@@ -1261,7 +1264,7 @@ function comSearchAir(){
 		}
 	});
 	
-	//다구간 - 다중날짜 셋
+	//다구간 - 다중날짜 셋팅
 	function initMDDate(resetDp){
 		//console.log('s initMDDate = ', _mdDateArr);
 		
@@ -1271,6 +1274,8 @@ function comSearchAir(){
 				_mdDateArr.push("");
 			});	
 		}
+		
+		//input 
 		$mdDataDateArr.data('day', _mdDateArr);		
 		
 		//console.log('e initMDDate = ', _mdDateArr, $mdDataDateArr.data('day'));
@@ -1292,9 +1297,48 @@ function comSearchAir(){
 		}
 		
 		//캘린더 마크 리셋
+		var tempParseDateArr = [];
+		for(var i in _mdDateArr){
+			//날짜만 모아서 넘김
+			if(_mdDateArr[i] != ""){
+				tempParseDateArr.push($.datepicker.parseDate('yy/mm/dd', _mdDateArr[i]));
+			}
+		}
+		//console.log('tempParseDateArr = ', tempParseDateArr);
+		
+		//datepicker - beforeShowDay
 		$('.sc-air .o-multiway .uis-datepicker').datepicker('option', 'beforeShowDay', function(date) {
-			return pvFrontScript.beforeShowDayMarkMD(date, _mdDateArr);
-		});			
+			var result = pvFrontScript.jqdHolidayMark(date);
+			for(var i in tempParseDateArr){
+				var dmDate = tempParseDateArr[i];
+				if(date.getTime() == dmDate.getTime()){
+					result = [true, 'dp-highlight-md isMD', $.datepicker.formatDate('yy/mm/dd', dmDate)];
+				}
+				/*else if(date.getTime() > tempParseDateArr[0] && date.getTime() < tempParseDateArr[tempParseDateArr.length-1]){
+					result = [true, "dp-highlight-md pd-between"];
+				}*/
+			}
+
+			return result;	
+		});	
+		
+		addTextToMD();
+	}
+	
+	//다구간 - 텍스트 삽입
+	function addTextToMD() {
+		setTimeout(function(){
+			//console.log('addTextToMD = ', _mdDateArr);
+			for(var i in _mdDateArr){
+				if($('.sc-air .o-multiway .uis-datepicker .isMD[title="'+_mdDateArr[i]+'"] .txt').length > 0){
+					var t = $('.sc-air .o-multiway .uis-datepicker .isMD[title="'+_mdDateArr[i]+'"] .txt').text() + ','+(i*1+1);
+					$('.sc-air .o-multiway .uis-datepicker .isMD[title="'+_mdDateArr[i]+'"] .txt').text(t);
+				}
+				else{
+					$('.sc-air .o-multiway .uis-datepicker .isMD[title="'+_mdDateArr[i]+'"] a').append('<em class="txt">여정'+(i*1+1)+'</em>');
+				}
+			}
+		},1);
 	}
 	
 	//다구간 - 다중날짜 유효 체크
@@ -1354,7 +1398,7 @@ function comSearchAir(){
 			if(_mdDateArr[i] == ""){
 				setTimeout(function(){
 					$('.sc-air .o-multiway li').eq(i).find('.qsb-area[data-panel="calendar"]').trigger('click');
-				}, 500);
+				}, 100);
 				return false;
 			}
 		}

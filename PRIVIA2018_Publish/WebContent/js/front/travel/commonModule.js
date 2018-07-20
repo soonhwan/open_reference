@@ -172,8 +172,11 @@ var pvFrontScript = window.pvFrontScript || (function(){
 			if($this.closest('.w-qsb-cont').find('.'+$this.data('panel-name')).length > 0){
 				 $panel = $this.closest('.w-qsb-cont').find('.'+$this.data('panel-name'));
 			}
+			else if($this.closest('.sc-search-box').find('.'+$this.data('panel-name')).length > 0){
+				$panel = $this.closest('.sc-search-box').find('.'+$this.data('panel-name'));
+			}
 			else{
-				$panel = $this.closest('.hss-inner-cont').find('.'+$this.data('panel-name'));										   
+				$panel = $this.closest('.hss-inner-cont').find('.'+$this.data('panel-name'));
 			}
 
 			//항공 주요도시
@@ -393,20 +396,23 @@ var pvFrontScript = window.pvFrontScript || (function(){
 			/* 설명   : 통합검색 - 다구간 스타일 구현
 			   사용처 : jQuery UI datepicker : beforeShowDay 내부 */
 
-			var result = pvFrontScript.jqdHolidayMark(date);
-			console.log(date);
+			/*var result = pvFrontScript.jqdHolidayMark(date);
+			
 			for(var i in $date){
-				var dateArr = $.datepicker.parseDate('yy/mm/dd', $date[i]);
-
-				if(dateArr){
-					if(date.getTime() == dateArr.getTime()){
+				var dmDate = $date[i];
+				if(dmDate){
+					if(date.getTime() == dmDate.getTime()){
 						var n = parseInt(i)+1;
-						result = [true, 'dp-highlight-md'+n];
+						result = [true, 'dp-highlight-md'];
 					}
 				}
+				else{
+					
+				}
+				//console.log(dmDate);
 			}
 
-			return result;	
+			return result;	*/
 		},
 		comSearchEvtBind: function($section){
 			/* 설명   : 통합검색 - 섹션별 필요한 이벤트 제공

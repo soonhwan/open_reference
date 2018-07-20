@@ -67,3 +67,91 @@ input[type="text"], input[type="password"], textarea {-webkit-appearance: none; 
 /* dummy 썸네일 이미지 최소요구 css */
 img[dummy-src]{width:0;height:0;}
 .dummy-canvas{position:absolute;left:-9999px}
+
+/*--------------------------------------------------------------------------------------------------------------
+ *  fonts
+ *--------------------------------------------------------------------------------------------------------------*/
+@font-face {
+    font-family: 'YouandiModernTR'; 
+    font-style: normal; 
+    font-weight: normal; 
+    src: url(/fonts/Youandi_Modern_TextRegular.eot); 
+    src: url(/fonts/Youandi_Modern_TextRegular.eot?#iefix) format('embedded-opentype'),
+         url(/fonts/Youandi_Modern_TextRegular.woff) format('woff')
+}
+@font-face {
+    font-family: 'YouandiModernTB'; 
+    font-style: normal; 
+    font-weight: normal; 
+    src: url(/fonts/Youandi_Modern_TextBold.eot); 
+    src: url(/fonts/Youandi_Modern_TextBold.eot?#iefix) format('embedded-opentype'),
+         url(/fonts/Youandi_Modern_TextBold.woff) format('woff')
+}
+@font-face {
+    font-family:'YouandiModernHEB'; 
+    font-style: normal; 
+    font-weight: normal; 
+    src: url(/fonts/Youandi_Modern_HeadExtraBold.eot); 
+    src: url(/fonts/Youandi_Modern_HeadExtraBold.eot?#iefix) format('embedded-opentype'),
+         url(/fonts/Youandi_Modern_HeadExtraBold.woff) format('woff')
+}
+@font-face {
+    font-family:'NotoSansKR';
+    font-style:normal;
+    font-weight:100;
+    src: url('/fonts/NotoSansKR-Thin.eot');
+    src: local(☺),
+         url('/fonts/NotoSansKR-Thin.woff2') format('woff2'),
+         url('/fonts/NotoSansKR-Thin.woff') format('woff'),
+         url('/fonts/NotoSansKR-Thin.otf') format('opentype');
+}
+@font-face {
+    font-family:'NotoSansKR';
+    font-style:normal;
+    font-weight:300;
+	src: url('/fonts/NotoSansKR-Light.eot');
+    src: local(☺),
+         url('/fonts/NotoSansKR-Light.woff2') format('woff2'),
+         url('/fonts/NotoSansKR-Light.woff') format('woff'),
+         url('/fonts/NotoSansKR-Light.otf') format('opentype');
+}
+@font-face {
+    font-family:'NotoSansKR';
+    font-style:normal;
+    font-weight:400;
+	src: url('/fonts/NotoSansKR-Regular.eot');
+    src: local(☺),
+         url('/fonts/NotoSansKR-Regular.woff2') format('woff2'),
+         url('/fonts/NotoSansKR-Regular.woff') format('woff'),
+         url('/fonts/NotoSansKR-Regular.otf') format('opentype');
+}
+@font-face {
+    font-family:'NotoSansKR';
+    font-style:normal;
+    font-weight:500;
+	src: url('/fonts/NotoSansKR-Medium.eot');
+    src: local(☺),
+         url('/fonts/NotoSansKR-Medium.woff2') format('woff2'),
+         url('/fonts/NotoSansKR-Medium.woff') format('woff'),
+         url('/fonts/NotoSansKR-Medium.otf') format('opentype');
+}
+@font-face {
+    font-family:'NotoSansKR';
+    font-style:normal;
+    font-weight:700;
+	src: url('/fonts/NotoSansKR-Bold.eot');
+    src: local(☺),
+         url('/fonts/NotoSansKR-Bold.woff2') format('woff2'),
+         url('/fonts/NotoSansKR-Bold.woff') format('woff'),
+         url('/fonts/NotoSansKR-Bold.otf') format('opentype');
+}
+@font-face {
+    font-family:'NotoSansKR';
+    font-style:normal;
+    font-weight:900;
+	src: url('/fonts/NotoSansKR-Black.eot');
+    src: local(☺),
+         url('/fonts/NotoSansKR-Black.woff2') format('woff2'),
+         url('/fonts/NotoSansKR-Black.woff') format('woff'),
+         url('/fonts/NotoSansKR-Black.otf') format('opentype');
+}
