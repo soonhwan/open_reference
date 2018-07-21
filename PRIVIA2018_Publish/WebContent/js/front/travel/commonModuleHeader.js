@@ -1309,14 +1309,18 @@ function comSearchAir(){
 		//datepicker - beforeShowDay
 		$('.sc-air .o-multiway .uis-datepicker').datepicker('option', 'beforeShowDay', function(date) {
 			var result = pvFrontScript.jqdHolidayMark(date);
-			for(var i in tempParseDateArr){
-				var dmDate = tempParseDateArr[i];
-				if(date.getTime() == dmDate.getTime()){
-					result = [true, 'dp-highlight-md isMD', $.datepicker.formatDate('yy/mm/dd', dmDate)];
-				}
-				/*else if(date.getTime() > tempParseDateArr[0] && date.getTime() < tempParseDateArr[tempParseDateArr.length-1]){
+			
+			if(tempParseDateArr.length > 0){
+				if(date.getTime() > tempParseDateArr[0].getTime() && date.getTime() < tempParseDateArr[tempParseDateArr.length-1].getTime()){
 					result = [true, "dp-highlight-md pd-between"];
-				}*/
+				}
+			
+				for(var i in tempParseDateArr){
+					var dmDate = tempParseDateArr[i];				
+					if(date.getTime() == dmDate.getTime()){
+						result = [true, 'dp-highlight-md isMD', $.datepicker.formatDate('yy/mm/dd', dmDate)];
+					}
+				}
 			}
 
 			return result;	
