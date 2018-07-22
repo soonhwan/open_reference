@@ -1339,7 +1339,7 @@ function comSearchAir(){
 					$('.sc-air .o-multiway .uis-datepicker .isMD[title="'+_mdDateArr[i]+'"] .txt').text(t);
 				}
 				else{
-					$('.sc-air .o-multiway .uis-datepicker .isMD[title="'+_mdDateArr[i]+'"] a').append('<em class="txt">여정'+(i*1+1)+'</em>');
+					$('.sc-air .o-multiway .uis-datepicker .isMD[title="'+_mdDateArr[i]+'"]').append('<em class="txt">여정'+(i*1+1)+'</em>');
 				}
 			}
 		},1);
