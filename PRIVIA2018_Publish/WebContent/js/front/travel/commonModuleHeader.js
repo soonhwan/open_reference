@@ -692,6 +692,7 @@ function comSearchAir(){
 	var _mdDateIdx; //다구간 index
 	var $mdDataDateArr = $('.sc-air .o-multiway .uis-date-chkin [data-day]'); //다중날짜 data array
 	var _mdDateArr = $mdDataDateArr.data('day'); //다중날짜 처리 array
+	var timeAddTextToMD = null; //텍스트 삽입 중복 방지
 	
 	//+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ 도시
 	//도시셋팅
@@ -1193,7 +1194,7 @@ function comSearchAir(){
 			addTextToMD($(this));
 		}
 	});
-		
+	
 	//다구간 - 구간 추가 click
 	$('.sc-air .o-multiway .b-add-multiway').on('click', function(){
 		_MDCnt++;
@@ -1324,7 +1325,11 @@ function comSearchAir(){
 	
 	//다구간 - 텍스트 삽입
 	function addTextToMD($this) {
-		setTimeout(function(){
+		if(timeAddTextToMD){
+		   clearTimeout(timeAddTextToMD);
+			timeAddTextToMD = null;
+		}		
+		timeAddTextToMD = setTimeout(function(){
 			//console.log('addTextToMD = ', _mdDateArr);
 			for(var i in _mdDateArr){
 				if(_mdDateArr[i] != ""){
@@ -1334,7 +1339,6 @@ function comSearchAir(){
 					}
 					else{
 						$this.find('.isMD[title="'+_mdDateArr[i]+'"]').append('<em class="txt">여정'+(i*1+1)+'</em>');
-						console.log(_mdDateArr[i], '여정'+(i*1+1));
 					}
 				}
 			}

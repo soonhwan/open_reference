@@ -639,53 +639,51 @@ var pvFrontScript = window.pvFrontScript || (function(){
 
 			//fixed 모드에서 스크롤시 초기화
 			function isFixed(){
-				//리본영역
-				if($('.header-sec-fixed #top-area-sec .top-area-sec').css('display') == 'block' && isTopArea == false){
-					isTopArea = true;
-					$('.header-sec-fixed #top-area-sec .top-area-sec .tasp-list').removeClass('on');
-					$('.header-sec-fixed #top-area-sec .top-area-sec .tasp-detail').slideUp('fast'); 
-					$('.header-sec-fixed #top-area-sec .top-area-sec').slideUp('fast', function(){
-						isTopArea = false;
-					});
-					//리본버튼
-					$('.header-sec-fixed .w-header-util .hu-control .b-crt.bc-open.hide').removeClass('hide');
-					$('.header-sec-fixed .w-header-util .hu-control .b-crt.bc-close').addClass('hide');
-				}
-
-				//검색영역
-				if($('.header-sec-fixed #header-sec .w-header-search').css('display') == 'block' && isHs == false){
-					isHs = true;
-					//console.log('isFixed() = ', $('.w-header-search').height());
-					if(headerSearchH != $('.w-header-search').height()){
-						var h = $('.commonHeaderObject').height() + ($('.w-header-search').height() - headerSearchH);
-						$('.commonHeaderObject').height(h);
-						//console.log('commonHeaderObject = ', h);
+				if($('.sc-ui-search-panel.on').length <= 0){
+					//리본영역
+					if($('.header-sec-fixed #top-area-sec .top-area-sec').css('display') == 'block' && isTopArea == false){
+						isTopArea = true;
+						$('.header-sec-fixed #top-area-sec .top-area-sec .tasp-list').removeClass('on');
+						$('.header-sec-fixed #top-area-sec .top-area-sec .tasp-detail').slideUp('fast'); 
+						$('.header-sec-fixed #top-area-sec .top-area-sec').slideUp('fast', function(){
+							isTopArea = false;
+						});
+						//리본버튼
+						$('.header-sec-fixed .w-header-util .hu-control .b-crt.bc-open.hide').removeClass('hide');
+						$('.header-sec-fixed .w-header-util .hu-control .b-crt.bc-close').addClass('hide');
 					}
 
-					$('.header-sec-fixed #header-sec .w-header-search').slideUp('fast', function(){
-						isHs = false;
-					});
-					//퀵버전 검색버튼
-					$('.w-header-gnb .b-open-search button.on').removeClass('on');
+					//검색영역
+					if($('.header-sec-fixed #header-sec .w-header-search').css('display') == 'block' && isHs == false){
+						isHs = true;
+						//console.log('isFixed() = ', $('.w-header-search').height());
+						if(headerSearchH != $('.w-header-search').height()){
+							var h = $('.commonHeaderObject').height() + ($('.w-header-search').height() - headerSearchH);
+							$('.commonHeaderObject').height(h);
+							//console.log('commonHeaderObject = ', h);
+						}
 
-					//검색팝업
-					if($('.sc-ui-search-panel.on').length > 0){
-						$('.sc-ui-search-panel.on').removeClass('on');
+						$('.header-sec-fixed #header-sec .w-header-search').slideUp('fast', function(){
+							isHs = false;
+						});
+						
+						//퀵버전 검색버튼
+						$('.w-header-gnb .b-open-search button.on').removeClass('on');
+
+						//검색팝업
+						if($('.sc-ui-search-panel.on').length > 0){
+							$('.sc-ui-search-panel.on').removeClass('on');
+						}
 					}
-				}
 
-				//전체메뉴
-				if($('.header-sec-fixed .w-nav-gnb-total').height() > 0 && $('.w-header-gnb .nav-gnb .b-total-nav > a.on').length > 0){
-					$('.w-header-gnb .nav-gnb .b-total-nav > a.on').removeClass('on');
-					$('.header-sec-fixed .w-nav-gnb-total').height(0);
+					//전체메뉴
+					if($('.header-sec-fixed .w-nav-gnb-total').height() > 0 && $('.w-header-gnb .nav-gnb .b-total-nav > a.on').length > 0){
+						$('.w-header-gnb .nav-gnb .b-total-nav > a.on').removeClass('on');
+						$('.header-sec-fixed .w-nav-gnb-total').height(0);
+					}
+					
 				}
-
-				//해외패키지 3뎁스
-				if($('.w-nav-gsub-ly').hasClass('on')){
-					$('.w-nav-gsub-ly .on').removeClass('on');
-					$('.w-nav-gsub-ly').removeClass('on');	
-					$('#n-gnb-pkg .list-gsub .is3dep').removeClass('is3dep');
-				}
+				
 			}
 
 			function pos(){
@@ -754,6 +752,11 @@ var pvFrontScript = window.pvFrontScript || (function(){
 
 						//검색
 						$('#header-sec .w-header-search').show();
+						
+						//퀵버전 검색버튼
+						if($('.w-header-gnb .b-open-search button.on').length > 0){
+							$('.w-header-gnb .b-open-search button.on').removeClass('on');
+						}
 
 						isFix = false;
 						isHs = false;
