@@ -362,7 +362,7 @@ var pvFrontScript = window.pvFrontScript || (function(){
 			return result;
 		},
 		beforeShowDayMark: function(date, $date1, $date2){
-			/* 설명   : 통합검색 - 출발, 도착지 스타일 구현 - 주의!
+			/* 설명   : 통합검색 - 출발, 도착지 스타일 구현
 			   사용처 : jQuery UI datepicker : beforeShowDay 내부 */
 			
 			var result = pvFrontScript.jqdHolidayMark(date);
@@ -392,27 +392,26 @@ var pvFrontScript = window.pvFrontScript || (function(){
 						
 			return result;
 		},
-		beforeShowDayMarkMD: function(date, $date){
+		beforeShowDayMarkMD: function(date, $dateArr){
 			/* 설명   : 통합검색 - 다구간 스타일 구현
 			   사용처 : jQuery UI datepicker : beforeShowDay 내부 */
 
-			/*var result = pvFrontScript.jqdHolidayMark(date);
+			var result = pvFrontScript.jqdHolidayMark(date);
 			
-			for(var i in $date){
-				var dmDate = $date[i];
-				if(dmDate){
+			if($dateArr.length > 0){
+				if(date.getTime() > $dateArr[0].getTime() && date.getTime() < $dateArr[$dateArr.length-1].getTime()){
+					result = [true, "dp-highlight-md pd-between"];
+				}
+			
+				for(var i in $dateArr){
+					var dmDate = $dateArr[i];				
 					if(date.getTime() == dmDate.getTime()){
-						var n = parseInt(i)+1;
-						result = [true, 'dp-highlight-md'];
+						result = [true, 'dp-highlight-md isMD', $.datepicker.formatDate('yy/mm/dd', dmDate)];
 					}
 				}
-				else{
-					
-				}
-				//console.log(dmDate);
 			}
 
-			return result;	*/
+			return result;	
 		},
 		comSearchEvtBind: function($section){
 			/* 설명   : 통합검색 - 섹션별 필요한 이벤트 제공

@@ -566,19 +566,19 @@ function comSearchEvent(){
                 
                 case "air" : 
                     //quickUrl = "//dwww.priviatravel.com/quick/air.ajax";
-                    quickContainer = $("#SC-AIR");
+                    quickContainer = $('#SC-AIR');
                     break;
                 case "hotel" :
                     //quickUrl = "//dwww.priviatravel.com/quick/htl.ajax";
-                    quickContainer = $("#SC-HOTEL");
+                    quickContainer = $('#SC-HOTEL');
                     break;
                 case "free" : 
                     //quickUrl = "//dairtel.priviatravel.com/airtelQuickSearch2.lts";
-                    quickContainer = $("#SC-FREE");
+                    quickContainer = $('#SC-FREE');
                     break;
                 case "freetour" : 
                     //quickUrl = "//dairtel.priviatravel.com/dprsItemQuickSearch.lts";
-                    quickContainer = $("#SC-FREETOUR");
+                    quickContainer = $('#SC-FREETOUR');
                     break;
             }
 			
@@ -670,12 +670,12 @@ function comSearchEvent(){
     //document 클릭시 옵션 팝업 닫힘
     $(document).on('mousedown', function(e){
         //fakeselect option
-        if($(e.target).closest(".select-option").length > 0){
+        if($(e.target).closest('.select-option').length > 0){
             return;
         }
         else{
             //검색팝업
-            if($(e.target).closest(".sc-ui-search-panel.on").length <= 0){
+            if($(e.target).closest('.sc-ui-search-panel.on').length <= 0){
                 $('.w-header-search .sc-ui-search-panel.on').removeClass('on');
             }
         }
@@ -690,8 +690,8 @@ function comSearchAir(){
 	var _MDCnt = $('.sc-air .o-multiway li[class*="air-md-"].on').length; // 다구간 on
 	var _MDMax = $('.sc-air .o-multiway li[class*="air-md-"]').length; //다구간 최대
 	var _mdDateIdx; //다구간 index
-	var $mdDataDateArr = $('.sc-air .o-multiway .uis-date-chkin [data-day]'); //다중날짜 data
-	var _mdDateArr = $mdDataDateArr.data('day'); //다중날짜 array
+	var $mdDataDateArr = $('.sc-air .o-multiway .uis-date-chkin [data-day]'); //다중날짜 data array
+	var _mdDateArr = $mdDataDateArr.data('day'); //다중날짜 처리 array
 	
 	//+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ 도시
 	//도시셋팅
@@ -834,7 +834,7 @@ function comSearchAir(){
 				adtCnt--;
 				if(adtCnt < 1){
 					adtCnt = 1;
-					alert("성인은 최소 1명 이상 탑승해야 합니다.");
+					alert('성인은 최소 1명 이상 탑승해야 합니다.');
 					return false;
 				}
 			}
@@ -984,7 +984,7 @@ function comSearchAir(){
 			area: 'air-calendar'
 		});
 		
-		//다구간인 경우 캘린더 팝업 1개이므로 열었을때 날짜셋팅해준다
+		//다구간인 경우 캘린더 팝업 1개 존재, 오픈시 날짜셋팅해준다
 		if($(this).closest('.o-multiway').length > 0){
 			_mdDateIdx = $(this).closest('li[class*="air-md-"].on').index();
 			
@@ -995,6 +995,8 @@ function comSearchAir(){
 				var txtDay = pvFrontScript.onSelectTxtDay($('.sc-air .o-multiway .uis-datepicker'), _mdDateArr[_mdDateIdx]);
 				$('.sc-air .o-multiway .ui-date-calendar .uis-date-chkin .txt-day').addClass('on');
 				$('.sc-air .o-multiway .ui-date-calendar .uis-date-chkin .txt-day').html(txtDay+' 출발');
+				$('.sc-air .o-multiway .uis-datepicker').datepicker('setDate', new Date(_mdDateArr[_mdDateIdx]));
+				addTextToMD($('.sc-air .o-multiway .uis-datepicker'));
 			}
 			else{
 				$('.sc-air .o-multiway .ui-date-calendar .uis-date-chkin .txt-day').removeClass('on');
@@ -1013,26 +1015,26 @@ function comSearchAir(){
 		dayNamesMin: ['일', '월', '화', '수', '목', '금', '토'],
 		dateFormat: 'yy/mm/dd',
 		beforeShowDay: function(date) {
-			var date1 = $.datepicker.parseDate($(this).datepicker('option', 'dateFormat'), $(this).closest('.ui-date-calendar').find('.uis-date-chkin [data-day]').data('day'));
-			var date2 = $.datepicker.parseDate($(this).datepicker('option', 'dateFormat'), $(this).closest('.ui-date-calendar').find('.uis-date-chkout [data-day]').data('day'));
+			var date1 = $.datepicker.parseDate($(this).datepicker('option', 'dateFormat'), $('.sc-air .o-shuttle .uis-date-chkin [data-day]').data('day'));
+			var date2 = $.datepicker.parseDate($(this).datepicker('option', 'dateFormat'), $('.sc-air .o-shuttle .uis-date-chkout [data-day]').data('day'));
 			return pvFrontScript.beforeShowDayMark(date, date1, date2);
 		},
 		onSelect: function(dateText, inst) {
-			var date1 = $.datepicker.parseDate($(this).datepicker('option', 'dateFormat'), $(this).closest('.ui-date-calendar').find('.uis-date-chkin [data-day]').data('day'));
-			var date2 = $.datepicker.parseDate($(this).datepicker('option', 'dateFormat'), $(this).closest('.ui-date-calendar').find('.uis-date-chkout [data-day]').data('day'));
+			var date1 = $.datepicker.parseDate($(this).datepicker('option', 'dateFormat'), $('.sc-air .o-shuttle .uis-date-chkin [data-day]').data('day'));
+			var date2 = $.datepicker.parseDate($(this).datepicker('option', 'dateFormat'), $('.sc-air .o-shuttle .uis-date-chkout [data-day]').data('day'));
 			var selectedDate = $.datepicker.parseDate($(this).datepicker('option', 'dateFormat'), dateText);
 			var txtDay = pvFrontScript.onSelectTxtDay($(this), dateText);
 			
 			//도착일 미정인경우
 			if($('#unDayAir').is(':checked')){
 				//input
-				$(".sc-air .o-shuttle .uis-date-chkin [data-day]").data('day',dateText);
+				$('.sc-air .o-shuttle .uis-date-chkin [data-day]').data('day',dateText);
 				//panel input
-				$(".sc-air .o-shuttle .uis-date-chkin .txt-day").addClass('on');
-				$(".sc-air .o-shuttle .uis-date-chkin .txt-day").html(txtDay+' 출발');
+				$('.sc-air .o-shuttle .uis-date-chkin .txt-day').addClass('on');
+				$('.sc-air .o-shuttle .uis-date-chkin .txt-day').html(txtDay+' 출발');
 				//sbox input
-				$(".sc-air .o-shuttle .qsb-dates .qsb-area").addClass('on');
-				$(".sc-air .o-shuttle .qsb-dates .qsb-chkin").html(txtDay);	
+				$('.sc-air .o-shuttle .qsb-dates .qsb-area').addClass('on');
+				$('.sc-air .o-shuttle .qsb-dates .qsb-chkin').html(txtDay);	
 
 				pvFrontScript.docuMoudownTrigger();
 			}
@@ -1040,51 +1042,51 @@ function comSearchAir(){
 				//출발, 도착 모두 선택인 경우, 아무것도 선택이 없는 경우(출발)
 				if (!date1 || date2) {
 					//data input
-					$(".sc-air .o-shuttle .uis-date-chkin [data-day]").data('day',dateText);
-					$(".sc-air .o-shuttle .uis-date-chkout [data-day]").data('day','');
-					$(".sc-air .o-shuttle .uis-date-chkout").addClass('on'); //도착 노출
+					$('.sc-air .o-shuttle .uis-date-chkin [data-day]').data('day',dateText);
+					$('.sc-air .o-shuttle .uis-date-chkout [data-day]').data('day','');
+					$('.sc-air .o-shuttle .uis-date-chkout').addClass('on'); //도착 노출
 					//panel input
-					$(".sc-air .o-shuttle .uis-date-chkin .txt-day").addClass('on');
-					$(".sc-air .o-shuttle .uis-date-chkin .txt-day").html(txtDay+' 출발');
-					$(".sc-air .o-shuttle .uis-date-chkout .txt-day").removeClass('on');
-					$(".sc-air .o-shuttle .uis-date-chkout .txt-day").html('도착일을 선택해주세요.');				
+					$('.sc-air .o-shuttle .uis-date-chkin .txt-day').addClass('on');
+					$('.sc-air .o-shuttle .uis-date-chkin .txt-day').html(txtDay+' 출발');
+					$('.sc-air .o-shuttle .uis-date-chkout .txt-day').removeClass('on');
+					$('.sc-air .o-shuttle .uis-date-chkout .txt-day').html('도착일을 선택해주세요.');				
 					//sbox input
-					$(".sc-air .o-shuttle .qsb-dates .qsb-area").addClass('on');
-					$(".sc-air .o-shuttle .qsb-dates .qsb-chkin").html(txtDay);	
-					$(".sc-air .o-shuttle .qsb-dates .qsb-chkout").removeClass('on');
-					$(".sc-air .o-shuttle .qsb-dates .qsb-chkout").html('');
+					$('.sc-air .o-shuttle .qsb-dates .qsb-area').addClass('on');
+					$('.sc-air .o-shuttle .qsb-dates .qsb-chkin').html(txtDay);	
+					$('.sc-air .o-shuttle .qsb-dates .qsb-chkout').removeClass('on');
+					$('.sc-air .o-shuttle .qsb-dates .qsb-chkout').html('');
 				} 
 				else {
 					//출발 보다 이전 날짜 선택
 					if( selectedDate.getTime() < date1.getTime() ) {
 						//출발 -> 도착 이동
 						//data input 
-						$(".sc-air .o-shuttle .uis-date-chkout [data-day]").data('day',$(".sc-air .o-shuttle .uis-date-chkin [data-day]").data('day'));
+						$('.sc-air .o-shuttle .uis-date-chkout [data-day]').data('day',$('.sc-air .o-shuttle .uis-date-chkin [data-day]').data('day'));
 						//panel input
-						$(".sc-air .o-shuttle .uis-date-chkout .txt-day").addClass('on');
-						$(".sc-air .o-shuttle .uis-date-chkout .txt-day").html($(".sc-air .o-shuttle .qsb-dates .qsb-chkin").html()+' 도착');
+						$('.sc-air .o-shuttle .uis-date-chkout .txt-day').addClass('on');
+						$('.sc-air .o-shuttle .uis-date-chkout .txt-day').html($('.sc-air .o-shuttle .qsb-dates .qsb-chkin').html()+' 도착');
 						//sbox input
-						$(".sc-air .o-shuttle .qsb-dates .qsb-chkout").addClass('on');
-						$(".sc-air .o-shuttle .qsb-dates .qsb-chkout").html($(".sc-air .o-shuttle .qsb-dates .qsb-chkin").html());	
+						$('.sc-air .o-shuttle .qsb-dates .qsb-chkout').addClass('on');
+						$('.sc-air .o-shuttle .qsb-dates .qsb-chkout').html($('.sc-air .o-shuttle .qsb-dates .qsb-chkin').html());	
 
 						//출발 셋팅
 						//data input 
-						$(".sc-air .o-shuttle .uis-date-chkin [data-day]").data('day',dateText);
+						$('.sc-air .o-shuttle .uis-date-chkin [data-day]').data('day',dateText);
 						//panel input
-						$(".sc-air .o-shuttle .uis-date-chkin .txt-day").html(txtDay+' 출발');
+						$('.sc-air .o-shuttle .uis-date-chkin .txt-day').html(txtDay+' 출발');
 						//sbox input
-						$(".sc-air .o-shuttle .qsb-dates .qsb-chkin").html(txtDay);
+						$('.sc-air .o-shuttle .qsb-dates .qsb-chkin').html(txtDay);
 					} 
 					else {
 						//출발이후 선택시(도착)
 						//data input 				
-						$(".sc-air .o-shuttle .uis-date-chkout [data-day]").data('day',dateText);
+						$('.sc-air .o-shuttle .uis-date-chkout [data-day]').data('day',dateText);
 						//panel input
-						$(".sc-air .o-shuttle .uis-date-chkout .txt-day").addClass('on');
-						$(".sc-air .o-shuttle .uis-date-chkout .txt-day").html(txtDay+' 도착');
+						$('.sc-air .o-shuttle .uis-date-chkout .txt-day').addClass('on');
+						$('.sc-air .o-shuttle .uis-date-chkout .txt-day').html(txtDay+' 도착');
 						//sbox input
-						$(".sc-air .o-shuttle .qsb-dates .qsb-chkout").addClass('on');
-						$(".sc-air .o-shuttle .qsb-dates .qsb-chkout").html(txtDay);
+						$('.sc-air .o-shuttle .qsb-dates .qsb-chkout').addClass('on');
+						$('.sc-air .o-shuttle .qsb-dates .qsb-chkout').html(txtDay);
 					}
 					
 					pvFrontScript.docuMoudownTrigger();
@@ -1098,9 +1100,9 @@ function comSearchAir(){
 		if($('.sc-air .o-shuttle #unDayAir').is(':checked')){
 			//panel input
 			$('.sc-air .o-shuttle .uis-date-chkout .txt-day').removeClass('disabled');
-			$(".sc-air .o-shuttle .uis-date-chkout .uis-select").removeClass('on'); //unday
+			$('.sc-air .o-shuttle .uis-date-chkout .uis-select').removeClass('on'); //unday
 			if(!$('.sc-air .o-shuttle .uis-date-chkin .txt-day').hasClass('on')){
-				$(".sc-air .o-shuttle .uis-date-chkout").removeClass('on'); //도착 숨김
+				$('.sc-air .o-shuttle .uis-date-chkout').removeClass('on'); //도착 숨김
 			}
 			//sbox input
 			$('.sc-air .o-shuttle .qsb-dates .qsb-chkout.on').addClass('on');
@@ -1109,8 +1111,8 @@ function comSearchAir(){
 		else{
 			//panel input
 			$('.sc-air .o-shuttle .uis-date-chkout .txt-day').addClass('disabled');
-			$(".sc-air .o-shuttle .uis-date-chkout .uis-select").addClass('on'); //unday
-			$(".sc-air .o-shuttle .uis-date-chkout").addClass('on'); //도착 노출
+			$('.sc-air .o-shuttle .uis-date-chkout .uis-select').addClass('on'); //unday
+			$('.sc-air .o-shuttle .uis-date-chkout').addClass('on'); //도착 노출
 			//sbox input
 			$('.sc-air .o-shuttle .qsb-dates .qsb-chkout').addClass('on');
 			$('.sc-air .o-shuttle .qsb-dates .qsb-chkout').text($('.sc-air .o-shuttle .sel-unday option:selected').text());
@@ -1120,7 +1122,7 @@ function comSearchAir(){
 				$('.sc-air .o-shuttle .uis-date-chkout .txt-day').removeClass('on');
 				$('.sc-air .o-shuttle .uis-date-chkout .txt-day').text('도착일을 선택해주세요.');
 				$('.sc-air .o-shuttle .uis-date-chkout [data-day]').data('day', '');
-				$('.sc-air .o-shuttle .uis-datepicker').find(".ui-state-active").removeClass("ui-state-active");	
+				$('.sc-air .o-shuttle .uis-datepicker').find('.ui-state-active').removeClass('ui-state-active');	
 				$('.sc-air .o-shuttle .uis-datepicker').datepicker('setDate', new Date($('.sc-air .o-shuttle .uis-date-chkin [data-day]').data('day')));
 			}
 		}
@@ -1132,7 +1134,7 @@ function comSearchAir(){
 		//console.log(undayText);	
 		
 		if(undayText.val() == ''){
-			$(".sc-air .o-shuttle .qsb-dates .qsb-chkout").text(undayText.text());
+			$('.sc-air .o-shuttle .qsb-dates .qsb-chkout').text(undayText.text());
 		}
 		else{
 			$('.sc-air .o-shuttle .qsb-dates .qsb-chkout').text(undayText.text()+' 이내');
@@ -1148,20 +1150,20 @@ function comSearchAir(){
 		dayNamesMin: ['일', '월', '화', '수', '목', '금', '토'],
 		dateFormat: 'yy/mm/dd',
 		beforeShowDay: function(date) {
-			var date1 = $.datepicker.parseDate($(this).datepicker('option', 'dateFormat'), $(this).closest('.ui-date-calendar').find('.uis-date-chkin [data-day]').data('day'));
+			var date1 = $.datepicker.parseDate($(this).datepicker('option', 'dateFormat'), $('.sc-air .o-oneway .uis-date-chkin [data-day]').data('day'));
 			return pvFrontScript.beforeShowDayMark(date, date1);
 		},
 		onSelect: function(dateText, inst) {
 			var txtDay = pvFrontScript.onSelectTxtDay($(this), dateText);
 			
-			//data input
-			$(".sc-air .o-oneway .uis-date-chkin [data-day]").data('day',dateText);
+			//input
+			$('.sc-air .o-oneway .uis-date-chkin [data-day]').data('day',dateText);
 			//panel input
-			$(".sc-air .o-oneway .uis-date-chkin .txt-day").addClass('on');
-			$(".sc-air .o-oneway .uis-date-chkin .txt-day").html(txtDay+' 출발');
+			$('.sc-air .o-oneway .uis-date-chkin .txt-day').addClass('on');
+			$('.sc-air .o-oneway .uis-date-chkin .txt-day').html(txtDay+' 출발');
 			//sbox input
-			$(".sc-air .o-oneway .qsb-dates .qsb-area").addClass('on');
-			$(".sc-air .o-oneway .qsb-dates .qsb-chkin").html(txtDay);	
+			$('.sc-air .o-oneway .qsb-dates .qsb-area').addClass('on');
+			$('.sc-air .o-oneway .qsb-dates .qsb-chkin').html(txtDay);	
 			
 			pvFrontScript.docuMoudownTrigger();
 		}
@@ -1178,16 +1180,17 @@ function comSearchAir(){
 			var txtDay = pvFrontScript.onSelectTxtDay($(this), dateText);
 			
 			//panel input
-			$(this).closest('.ui-date-calendar').find('.uis-date-chkin .txt-day').addClass('on');
-			$(this).closest('.ui-date-calendar').find('.uis-date-chkin .txt-day').html(txtDay+' 출발');
+			$('.sc-air .o-multiway .uis-date-chkin .txt-day').addClass('on');
+			$('.sc-air .o-multiway .uis-date-chkin .txt-day').html(txtDay+' 출발');
 			
-			//다중날짜 유효 체크
+			//다중날짜 체크
 			checkMdDate(_mdDateIdx, selectedDate);
 			
 			pvFrontScript.docuMoudownTrigger();
 		},
 		onChangeMonthYear: function(year, month, inst) {
-			addTextToMD();
+			//텍스트 삽입
+			addTextToMD($(this));
 		}
 	});
 		
@@ -1196,12 +1199,15 @@ function comSearchAir(){
 		_MDCnt++;
 		if(_MDCnt > _MDMax){
 			_MDCnt = _MDMax;
-			alert("여정은 총 " + _MDCnt + "개 까지만 가능합니다.\n" + _MDCnt + "개 이상의 여정이 있으시다면 1;1문의로 요청해 주시기 바랍니다.");
+			alert('여정은 총 ' + _MDCnt + '개 까지만 가능합니다.\n' + _MDCnt + '개 이상의 여정이 있으시다면 1;1문의로 요청해 주시기 바랍니다.');
 			return false;
 		}
 		else{
 			$(this).parent('.qsb-btn-add').addClass('on');
 			$('.sc-air .o-multiway .air-md-'+_MDCnt).addClass('on');
+			if(_MDCnt == _MDMax){
+				$('.sc-air .o-multiway .air-md-'+_MDMax).find('.qsb-btn-add').addClass('on');
+			}
 			_mdDateArr.push(""); //다중날짜 추가
 		}
 	});
@@ -1211,7 +1217,7 @@ function comSearchAir(){
 		_MDCnt--;
 		if(_MDCnt < _MDMinCnt){
 			_MDCnt = _MDMinCnt;
-			alert("출발 및 귀국 여정은 삭제하실 수 없습니다.");
+			alert('출발 및 귀국 여정은 삭제하실 수 없습니다.');
 			return false;
 		}
 		else{
@@ -1265,10 +1271,10 @@ function comSearchAir(){
 	});
 	
 	//다구간 - 다중날짜 셋팅
-	function initMDDate(resetDp){
+	function initMDDate(){
 		//console.log('s initMDDate = ', _mdDateArr);
 		
-		//date array 리셋
+		//date array 리셋(날짜가 없는경우 "" 처리)
 		if(!_mdDateArr.length > 0){
 			$('.sc-air .o-multiway li[class*="air-md-"].on').each(function(){
 				_mdDateArr.push("");
@@ -1280,7 +1286,7 @@ function comSearchAir(){
 		
 		//console.log('e initMDDate = ', _mdDateArr, $mdDataDateArr.data('day'));
 		
-		//여정 날짜 표시 리셋
+		//qsb 여행 날짜 표시 리셋
 		for(var i in _mdDateArr){
 			if(_mdDateArr[i] != ""){
 				//sbox input
@@ -1306,49 +1312,40 @@ function comSearchAir(){
 		}
 		//console.log('tempParseDateArr = ', tempParseDateArr);
 		
+		//캘린더 마크 표시
 		//datepicker - beforeShowDay
 		$('.sc-air .o-multiway .uis-datepicker').datepicker('option', 'beforeShowDay', function(date) {
-			var result = pvFrontScript.jqdHolidayMark(date);
-			
-			if(tempParseDateArr.length > 0){
-				if(date.getTime() > tempParseDateArr[0].getTime() && date.getTime() < tempParseDateArr[tempParseDateArr.length-1].getTime()){
-					result = [true, "dp-highlight-md pd-between"];
-				}
-			
-				for(var i in tempParseDateArr){
-					var dmDate = tempParseDateArr[i];				
-					if(date.getTime() == dmDate.getTime()){
-						result = [true, 'dp-highlight-md isMD', $.datepicker.formatDate('yy/mm/dd', dmDate)];
-					}
-				}
-			}
-
-			return result;	
+			return pvFrontScript.beforeShowDayMarkMD(date, tempParseDateArr);
 		});	
 		
-		addTextToMD();
+		//텍스트 삽입
+		addTextToMD($('.sc-air .o-multiway .uis-datepicker'));
 	}
 	
 	//다구간 - 텍스트 삽입
-	function addTextToMD() {
+	function addTextToMD($this) {
 		setTimeout(function(){
 			//console.log('addTextToMD = ', _mdDateArr);
 			for(var i in _mdDateArr){
-				if($('.sc-air .o-multiway .uis-datepicker .isMD[title="'+_mdDateArr[i]+'"] .txt').length > 0){
-					var t = $('.sc-air .o-multiway .uis-datepicker .isMD[title="'+_mdDateArr[i]+'"] .txt').text() + ','+(i*1+1);
-					$('.sc-air .o-multiway .uis-datepicker .isMD[title="'+_mdDateArr[i]+'"] .txt').text(t);
-				}
-				else{
-					$('.sc-air .o-multiway .uis-datepicker .isMD[title="'+_mdDateArr[i]+'"]').append('<em class="txt">여정'+(i*1+1)+'</em>');
+				if(_mdDateArr[i] != ""){
+					if($this.find('.isMD[title="'+_mdDateArr[i]+'"] .txt').length > 0){
+						var t = $this.find('.isMD[title="'+_mdDateArr[i]+'"] .txt').text() + ','+(i*1+1);
+						$this.find('.isMD[title="'+_mdDateArr[i]+'"] .txt').text(t);
+					}
+					else{
+						$this.find('.isMD[title="'+_mdDateArr[i]+'"]').append('<em class="txt">여정'+(i*1+1)+'</em>');
+						console.log(_mdDateArr[i], '여정'+(i*1+1));
+					}
 				}
 			}
 		},1);
 	}
 	
-	//다구간 - 다중날짜 유효 체크
+	//다구간 - 다중날짜 체크
 	function checkMdDate(num, date){
-		var mdDateArrGetTime = [];
-		var newDate = date.getTime();
+		var mdDateArrGetTime = [],
+			newDate = date.getTime(),
+			isDelete = false;
 		
 		//getTime 셋팅
 		for(var i in _mdDateArr){
@@ -1363,8 +1360,7 @@ function comSearchAir(){
 		//console.log('s _mdDateArr = ', _mdDateArr);
 		//console.log('s mdDateArrGetTime = ', mdDateArrGetTime);
 		
-		//날짜 유효 체크
-		var isDelete = false;
+		//날짜 체크
 		for(var i=0; i<mdDateArrGetTime.length; i++){
 			if(!isDelete){
 				if(i < num){
@@ -1703,19 +1699,19 @@ function comSearchHotel(){
 			//체크인, 체크아웃 모두 선택인 경우, 아무것도 선택이 없는 경우(체크인)
 			if (!date1 || date2) {
 				//data input
-				$(".sc-hotel .o-inth .uis-date-chkin [data-day]").data('day',dateText);
-				$(".sc-hotel .o-inth .uis-date-chkout [data-day]").data('day','');
-				$(".sc-hotel .o-inth .uis-date-chkout").addClass('on'); //체크아웃 노출
+				$('.sc-hotel .o-inth .uis-date-chkin [data-day]').data('day',dateText);
+				$('.sc-hotel .o-inth .uis-date-chkout [data-day]').data('day','');
+				$('.sc-hotel .o-inth .uis-date-chkout').addClass('on'); //체크아웃 노출
 				//panel input
-				$(".sc-hotel .o-inth .uis-date-chkin .txt-day").addClass('on');
-				$(".sc-hotel .o-inth .uis-date-chkin .txt-day").html(txtDay+' 체크인');
-				$(".sc-hotel .o-inth .uis-date-chkout .txt-day").removeClass('on');
-				$(".sc-hotel .o-inth .uis-date-chkout .txt-day").html('체크아웃 날짜를 선택해주세요.');				
+				$('.sc-hotel .o-inth .uis-date-chkin .txt-day').addClass('on');
+				$('.sc-hotel .o-inth .uis-date-chkin .txt-day').html(txtDay+' 체크인');
+				$('.sc-hotel .o-inth .uis-date-chkout .txt-day').removeClass('on');
+				$('.sc-hotel .o-inth .uis-date-chkout .txt-day').html('체크아웃 날짜를 선택해주세요.');				
 				//sbox input
-				$(".sc-hotel .o-inth .qsb-dates .qsb-area").addClass('on');
-				$(".sc-hotel .o-inth .qsb-dates .qsb-chkin").html(txtDay);	
-				$(".sc-hotel .o-inth .qsb-dates .qsb-chkout").removeClass('on');
-				$(".sc-hotel .o-inth .qsb-dates .qsb-chkout").html('');
+				$('.sc-hotel .o-inth .qsb-dates .qsb-area').addClass('on');
+				$('.sc-hotel .o-inth .qsb-dates .qsb-chkin').html(txtDay);	
+				$('.sc-hotel .o-inth .qsb-dates .qsb-chkout').removeClass('on');
+				$('.sc-hotel .o-inth .qsb-dates .qsb-chkout').html('');
 				
 				$('.sc-hotel .o-inth .qsb-result-days').removeClass('on');
 			} 
@@ -1724,39 +1720,39 @@ function comSearchHotel(){
 				if( selectedDate.getTime() < date1.getTime() ) {
 					//체크인 -> 체크아웃 이동
 					//data input
-					$(".sc-hotel .o-inth .uis-date-chkout [data-day]").data('day',$(".sc-hotel .o-inth .uis-date-chkin [data-day]").data('day'));
+					$('.sc-hotel .o-inth .uis-date-chkout [data-day]').data('day',$('.sc-hotel .o-inth .uis-date-chkin [data-day]').data('day'));
 					//panel input
-					$(".sc-hotel .o-inth .uis-date-chkout .txt-day").addClass('on');
-					$(".sc-hotel .o-inth .uis-date-chkout .txt-day").html($(".sc-hotel .o-inth .qsb-dates .qsb-chkin").html()+' 체크아웃');
+					$('.sc-hotel .o-inth .uis-date-chkout .txt-day').addClass('on');
+					$('.sc-hotel .o-inth .uis-date-chkout .txt-day').html($('.sc-hotel .o-inth .qsb-dates .qsb-chkin').html()+' 체크아웃');
 					//sbox input
-					$(".sc-hotel .o-inth .qsb-dates .qsb-chkout").addClass('on');
-					$(".sc-hotel .o-inth .qsb-dates .qsb-chkout").html($(".sc-hotel .o-inth .qsb-dates .qsb-chkin").html());	
+					$('.sc-hotel .o-inth .qsb-dates .qsb-chkout').addClass('on');
+					$('.sc-hotel .o-inth .qsb-dates .qsb-chkout').html($('.sc-hotel .o-inth .qsb-dates .qsb-chkin').html());	
 					
 					//체크인 셋팅
 					//data input
-					$(".sc-hotel .o-inth .uis-date-chkin [data-day]").data('day',dateText);
+					$('.sc-hotel .o-inth .uis-date-chkin [data-day]').data('day',dateText);
 					//panel input
-					$(".sc-hotel .o-inth .uis-date-chkin .txt-day").html(txtDay+' 체크인');
+					$('.sc-hotel .o-inth .uis-date-chkin .txt-day').html(txtDay+' 체크인');
 					//sbox input
-					$(".sc-hotel .o-inth .qsb-dates .qsb-chkin").html(txtDay);
+					$('.sc-hotel .o-inth .qsb-dates .qsb-chkin').html(txtDay);
 				} 
 				else {
-					if($(".sc-hotel .o-inth .uis-date-chkin [data-day]").data('day') == dateText){return} //같은날짜는 return
+					if($('.sc-hotel .o-inth .uis-date-chkin [data-day]').data('day') == dateText){return} //같은날짜는 return
 					
 					//체크인이후 선택시(체크아웃)
 					//data input		
-					$(".sc-hotel .o-inth .uis-date-chkout [data-day]").data('day',dateText);
+					$('.sc-hotel .o-inth .uis-date-chkout [data-day]').data('day',dateText);
 					//panel input
-					$(".sc-hotel .o-inth .uis-date-chkout .txt-day").addClass('on');
-					$(".sc-hotel .o-inth .uis-date-chkout .txt-day").html(txtDay+' 체크아웃');
+					$('.sc-hotel .o-inth .uis-date-chkout .txt-day').addClass('on');
+					$('.sc-hotel .o-inth .uis-date-chkout .txt-day').html(txtDay+' 체크아웃');
 					//sbox input
-					$(".sc-hotel .o-inth .qsb-dates .qsb-chkout").addClass('on');
-					$(".sc-hotel .o-inth .qsb-dates .qsb-chkout").html(txtDay);
+					$('.sc-hotel .o-inth .qsb-dates .qsb-chkout').addClass('on');
+					$('.sc-hotel .o-inth .qsb-dates .qsb-chkout').html(txtDay);
 				}
 				
 				//박수 계산
-				var chkIn = $(".sc-hotel .o-inth .uis-date-chkin [data-day]").data('day').split('/');
-				var chkOut = $(".sc-hotel .o-inth .uis-date-chkout [data-day]").data('day').split('/');
+				var chkIn = $('.sc-hotel .o-inth .uis-date-chkin [data-day]').data('day').split('/');
+				var chkOut = $('.sc-hotel .o-inth .uis-date-chkout [data-day]').data('day').split('/');
 				var chkInDate = new Date(chkIn[0], chkIn[1], chkIn[2]);
 				var chkOutDate = new Date(chkOut[0], chkOut[1], chkOut[2]);
 				var duration = (chkOutDate-chkInDate)/1000/60/60/24;
@@ -1790,19 +1786,19 @@ function comSearchHotel(){
 			//체크인, 체크아웃 모두 선택인 경우, 아무것도 선택이 없는 경우(체크인)
 			if (!date1 || date2) {
 				//data input
-				$(".sc-hotel .o-domh .uis-date-chkin [data-day]").data('day',dateText);
-				$(".sc-hotel .o-domh .uis-date-chkout [data-day]").data('day','');
-				$(".sc-hotel .o-domh .uis-date-chkout").addClass('on'); //체크아웃 노출
+				$('.sc-hotel .o-domh .uis-date-chkin [data-day]').data('day',dateText);
+				$('.sc-hotel .o-domh .uis-date-chkout [data-day]').data('day','');
+				$('.sc-hotel .o-domh .uis-date-chkout').addClass('on'); //체크아웃 노출
 				//panel input
-				$(".sc-hotel .o-domh .uis-date-chkin .txt-day").addClass('on');
-				$(".sc-hotel .o-domh .uis-date-chkin .txt-day").html(txtDay+' 체크인');
-				$(".sc-hotel .o-domh .uis-date-chkout .txt-day").removeClass('on');
-				$(".sc-hotel .o-domh .uis-date-chkout .txt-day").html('체크아웃 날짜를 선택해주세요.');				
+				$('.sc-hotel .o-domh .uis-date-chkin .txt-day').addClass('on');
+				$('.sc-hotel .o-domh .uis-date-chkin .txt-day').html(txtDay+' 체크인');
+				$('.sc-hotel .o-domh .uis-date-chkout .txt-day').removeClass('on');
+				$('.sc-hotel .o-domh .uis-date-chkout .txt-day').html('체크아웃 날짜를 선택해주세요.');				
 				//sbox input
-				$(".sc-hotel .o-domh .qsb-dates .qsb-area").addClass('on');
-				$(".sc-hotel .o-domh .qsb-dates .qsb-chkin").html(txtDay);	
-				$(".sc-hotel .o-domh .qsb-dates .qsb-chkout").removeClass('on');
-				$(".sc-hotel .o-domh .qsb-dates .qsb-chkout").html('');
+				$('.sc-hotel .o-domh .qsb-dates .qsb-area').addClass('on');
+				$('.sc-hotel .o-domh .qsb-dates .qsb-chkin').html(txtDay);	
+				$('.sc-hotel .o-domh .qsb-dates .qsb-chkout').removeClass('on');
+				$('.sc-hotel .o-domh .qsb-dates .qsb-chkout').html('');
 				
 				$('.sc-hotel .o-domh .qsb-result-days').removeClass('on');
 			} 
@@ -1811,39 +1807,39 @@ function comSearchHotel(){
 				if( selectedDate.getTime() < date1.getTime() ) {
 					//체크인 -> 체크아웃 이동
 					//data input
-					$(".sc-hotel .o-domh .uis-date-chkout [data-day]").data('day',$(".sc-hotel .o-domh .uis-date-chkin [data-day]").data('day'));
+					$('.sc-hotel .o-domh .uis-date-chkout [data-day]').data('day',$('.sc-hotel .o-domh .uis-date-chkin [data-day]').data('day'));
 					//panel input
-					$(".sc-hotel .o-domh .uis-date-chkout .txt-day").addClass('on');
-					$(".sc-hotel .o-domh .uis-date-chkout .txt-day").html($(".sc-hotel .o-domh .qsb-dates .qsb-chkin").html()+' 체크아웃');
+					$('.sc-hotel .o-domh .uis-date-chkout .txt-day').addClass('on');
+					$('.sc-hotel .o-domh .uis-date-chkout .txt-day').html($('.sc-hotel .o-domh .qsb-dates .qsb-chkin').html()+' 체크아웃');
 					//sbox input
-					$(".sc-hotel .o-domh .qsb-dates .qsb-chkout").addClass('on');
-					$(".sc-hotel .o-domh .qsb-dates .qsb-chkout").html($(".sc-hotel .o-domh .qsb-dates .qsb-chkin").html());	
+					$('.sc-hotel .o-domh .qsb-dates .qsb-chkout').addClass('on');
+					$('.sc-hotel .o-domh .qsb-dates .qsb-chkout').html($('.sc-hotel .o-domh .qsb-dates .qsb-chkin').html());	
 					
 					//체크인 셋팅
 					//data input
-					$(".sc-hotel .o-domh .uis-date-chkin [data-day]").data('day',dateText);
+					$('.sc-hotel .o-domh .uis-date-chkin [data-day]').data('day',dateText);
 					//panel input
-					$(".sc-hotel .o-domh .uis-date-chkin .txt-day").html(txtDay+' 체크인');
+					$('.sc-hotel .o-domh .uis-date-chkin .txt-day').html(txtDay+' 체크인');
 					//sbox input
-					$(".sc-hotel .o-domh .qsb-dates .qsb-chkin").html(txtDay);
+					$('.sc-hotel .o-domh .qsb-dates .qsb-chkin').html(txtDay);
 				} 
 				else {
-					if($(".sc-hotel .o-domh .uis-date-chkin [data-day]").data('day') == dateText){return} //같은날짜는 return
+					if($('.sc-hotel .o-domh .uis-date-chkin [data-day]').data('day') == dateText){return} //같은날짜는 return
 					
 					//체크인이후 선택시(체크아웃)
 					//data input			
-					$(".sc-hotel .o-domh .uis-date-chkout [data-day]").data('day',dateText);
+					$('.sc-hotel .o-domh .uis-date-chkout [data-day]').data('day',dateText);
 					//panel input
-					$(".sc-hotel .o-domh .uis-date-chkout .txt-day").addClass('on');
-					$(".sc-hotel .o-domh .uis-date-chkout .txt-day").html(txtDay+' 체크아웃');
+					$('.sc-hotel .o-domh .uis-date-chkout .txt-day').addClass('on');
+					$('.sc-hotel .o-domh .uis-date-chkout .txt-day').html(txtDay+' 체크아웃');
 					//sbox input
-					$(".sc-hotel .o-domh .qsb-dates .qsb-chkout").addClass('on');
-					$(".sc-hotel .o-domh .qsb-dates .qsb-chkout").html(txtDay);
+					$('.sc-hotel .o-domh .qsb-dates .qsb-chkout').addClass('on');
+					$('.sc-hotel .o-domh .qsb-dates .qsb-chkout').html(txtDay);
 				}
 				
 				//몇일인지 계산
-				var chkIn = $(".sc-hotel .o-domh .uis-date-chkin [data-day]").data('day').split('/');
-				var chkOut = $(".sc-hotel .o-domh .uis-date-chkout [data-day]").data('day').split('/');
+				var chkIn = $('.sc-hotel .o-domh .uis-date-chkin [data-day]').data('day').split('/');
+				var chkOut = $('.sc-hotel .o-domh .uis-date-chkout [data-day]').data('day').split('/');
 				var chkInDate = new Date(chkIn[0], chkIn[1], chkIn[2]);
 				var chkOutDate = new Date(chkOut[0], chkOut[1], chkOut[2]);
 				var duration = (chkOutDate-chkInDate)/1000/60/60/24;
@@ -2481,53 +2477,53 @@ function comSearchFreetour(){
 			//대여, 반납 모두 선택인 경우, 아무것도 선택이 없는 경우(대여)
 			if (!date1 || date2) {
 				//data input
-				$(".sc-freetour .o-rentv .uis-date-chkin [data-day]").data('day',dateText);
-				$(".sc-freetour .o-rentv .uis-date-chkout [data-day]").data('day','');
-				$(".sc-freetour .o-rentv .uis-date-chkout").addClass('on'); //반납 노출
+				$('.sc-freetour .o-rentv .uis-date-chkin [data-day]').data('day',dateText);
+				$('.sc-freetour .o-rentv .uis-date-chkout [data-day]').data('day','');
+				$('.sc-freetour .o-rentv .uis-date-chkout').addClass('on'); //반납 노출
 				//panel input
-				$(".sc-freetour .o-rentv .uis-date-chkin .txt-day").addClass('on');
-				$(".sc-freetour .o-rentv .uis-date-chkin .txt-day").html(txtDay);
-				$(".sc-freetour .o-rentv .uis-date-chkout .txt-day").removeClass('on');
-				$(".sc-freetour .o-rentv .uis-date-chkout .txt-day").html('반납일을 선택해주세요.');				
-				$(".sc-freetour .o-rentv .uis-date-chkin .uis-select").addClass('on'); //time
-				$(".sc-freetour .o-rentv .uis-date-chkout .uis-select").removeClass('on'); //time
+				$('.sc-freetour .o-rentv .uis-date-chkin .txt-day').addClass('on');
+				$('.sc-freetour .o-rentv .uis-date-chkin .txt-day').html(txtDay);
+				$('.sc-freetour .o-rentv .uis-date-chkout .txt-day').removeClass('on');
+				$('.sc-freetour .o-rentv .uis-date-chkout .txt-day').html('반납일을 선택해주세요.');				
+				$('.sc-freetour .o-rentv .uis-date-chkin .uis-select').addClass('on'); //time
+				$('.sc-freetour .o-rentv .uis-date-chkout .uis-select').removeClass('on'); //time
 				//sbox input
-				$(".sc-freetour .o-rentv .qsb-dates .qsb-area").addClass('on');
-				$(".sc-freetour .o-rentv .qsb-dates .qsb-chkin .day").html(txtDay);	
-				$(".sc-freetour .o-rentv .qsb-dates .qsb-chkin .time").html(
+				$('.sc-freetour .o-rentv .qsb-dates .qsb-area').addClass('on');
+				$('.sc-freetour .o-rentv .qsb-dates .qsb-chkin .day').html(txtDay);	
+				$('.sc-freetour .o-rentv .qsb-dates .qsb-chkin .time').html(
 					$('.sc-freetour .o-rentv .uis-date-chkin .timeh option:selected').val()+':'+
 					$('.sc-freetour .o-rentv .uis-date-chkin .timem option:selected').val()
 				); //time
-				$(".sc-freetour .o-rentv .qsb-dates .qsb-chkout").removeClass('on');
-				$(".sc-freetour .o-rentv .qsb-dates .qsb-chkout .day").html('');
-				$(".sc-freetour .o-rentv .qsb-dates .qsb-chkout .time").html(''); //time
+				$('.sc-freetour .o-rentv .qsb-dates .qsb-chkout').removeClass('on');
+				$('.sc-freetour .o-rentv .qsb-dates .qsb-chkout .day').html('');
+				$('.sc-freetour .o-rentv .qsb-dates .qsb-chkout .time').html(''); //time
 			} 
 			else {
 				//대여 보다 이전 날짜 선택
 				if( selectedDate.getTime() < date1.getTime() ) {
 					//대여 -> 반납 이동
 					//data input
-					$(".sc-freetour .o-rentv .uis-date-chkout [data-day]").data('day',$(".sc-freetour .o-rentv .uis-date-chkin [data-day]").data('day'));
+					$('.sc-freetour .o-rentv .uis-date-chkout [data-day]').data('day',$('.sc-freetour .o-rentv .uis-date-chkin [data-day]').data('day'));
 					//panel input
-					$(".sc-freetour .o-rentv .uis-date-chkout .txt-day").addClass('on');
-					$(".sc-freetour .o-rentv .uis-date-chkout .txt-day").html($(".sc-freetour .o-rentv .uis-date-chkin .txt-day").html());
-					$(".sc-freetour .o-rentv .uis-date-chkout .uis-select").addClass('on'); //time
+					$('.sc-freetour .o-rentv .uis-date-chkout .txt-day').addClass('on');
+					$('.sc-freetour .o-rentv .uis-date-chkout .txt-day').html($('.sc-freetour .o-rentv .uis-date-chkin .txt-day').html());
+					$('.sc-freetour .o-rentv .uis-date-chkout .uis-select').addClass('on'); //time
 					//sbox input
-					$(".sc-freetour .o-rentv .qsb-dates .qsb-chkout").addClass('on');
-					$(".sc-freetour .o-rentv .qsb-dates .qsb-chkout .day").html($(".sc-freetour .o-rentv .qsb-dates .qsb-chkin .day").html());	
-					$(".sc-freetour .o-rentv .qsb-dates .qsb-chkout .time").html(
+					$('.sc-freetour .o-rentv .qsb-dates .qsb-chkout').addClass('on');
+					$('.sc-freetour .o-rentv .qsb-dates .qsb-chkout .day').html($('.sc-freetour .o-rentv .qsb-dates .qsb-chkin .day').html());	
+					$('.sc-freetour .o-rentv .qsb-dates .qsb-chkout .time').html(
 						$('.sc-freetour .o-rentv .uis-date-chkout .timeh option:selected').val()+':'+
 						$('.sc-freetour .o-rentv .uis-date-chkout .timem option:selected').val()
 					); //time
 
 					//대여 셋팅
 					//data input
-					$(".sc-freetour .o-rentv .uis-date-chkin [data-day]").data('day',dateText);
+					$('.sc-freetour .o-rentv .uis-date-chkin [data-day]').data('day',dateText);
 					//panel input
-					$(".sc-freetour .o-rentv .uis-date-chkin .txt-day").html(txtDay);
+					$('.sc-freetour .o-rentv .uis-date-chkin .txt-day').html(txtDay);
 					//sbox input
-					$(".sc-freetour .o-rentv .qsb-dates .qsb-chkin .day").html(txtDay);
-					$(".sc-freetour .o-rentv .qsb-dates .qsb-chkin .time").html(
+					$('.sc-freetour .o-rentv .qsb-dates .qsb-chkin .day').html(txtDay);
+					$('.sc-freetour .o-rentv .qsb-dates .qsb-chkin .time').html(
 						$('.sc-freetour .o-rentv .uis-date-chkin .timeh option:selected').val()+':'+
 						$('.sc-freetour .o-rentv .uis-date-chkin .timem option:selected').val()
 					); //time
@@ -2535,15 +2531,15 @@ function comSearchFreetour(){
 				else {
 					//대여이후 선택시(반납)
 					//data input		
-					$(".sc-freetour .o-rentv .uis-date-chkout [data-day]").data('day',dateText);
+					$('.sc-freetour .o-rentv .uis-date-chkout [data-day]').data('day',dateText);
 					//panel input
-					$(".sc-freetour .o-rentv .uis-date-chkout .txt-day").addClass('on');
-					$(".sc-freetour .o-rentv .uis-date-chkout .txt-day").html(txtDay);
-					$(".sc-freetour .o-rentv .uis-date-chkout .uis-select").addClass('on'); //time 
+					$('.sc-freetour .o-rentv .uis-date-chkout .txt-day').addClass('on');
+					$('.sc-freetour .o-rentv .uis-date-chkout .txt-day').html(txtDay);
+					$('.sc-freetour .o-rentv .uis-date-chkout .uis-select').addClass('on'); //time 
 					//sbox input
-					$(".sc-freetour .o-rentv .qsb-dates .qsb-chkout").addClass('on');
-					$(".sc-freetour .o-rentv .qsb-dates .qsb-chkout .day").html(txtDay);
-					$(".sc-freetour .o-rentv .qsb-dates .qsb-chkout .time").html(
+					$('.sc-freetour .o-rentv .qsb-dates .qsb-chkout').addClass('on');
+					$('.sc-freetour .o-rentv .qsb-dates .qsb-chkout .day').html(txtDay);
+					$('.sc-freetour .o-rentv .qsb-dates .qsb-chkout .time').html(
 						$('.sc-freetour .o-rentv .uis-date-chkout .timeh option:selected').val()+':'+
 						$('.sc-freetour .o-rentv .uis-date-chkout .timem option:selected').val()
 					); //time
@@ -2559,10 +2555,10 @@ function comSearchFreetour(){
 		var timeText = $(this).closest('.uis-select').find('.timeh option:selected').val()+':'+$(this).closest('.uis-select').find('.timem option:selected').val();
 		//console.log(chkin, chkout, timeText);	
 		if(chkin){
-			$(".sc-freetour .o-rentv .qsb-dates .qsb-chkin .time").html(timeText);	
+			$('.sc-freetour .o-rentv .qsb-dates .qsb-chkin .time').html(timeText);	
 		}		
 		if(chkout){
-			$(".sc-freetour .o-rentv .qsb-dates .qsb-chkout .time").html(timeText);	
+			$('.sc-freetour .o-rentv .qsb-dates .qsb-chkout .time').html(timeText);	
 		}
 	});
 	
@@ -2586,13 +2582,13 @@ function comSearchFreetour(){
 			var txtDay = pvFrontScript.onSelectTxtDay($(this), dateText);
 			
 			//data input
-			$(".sc-freetour .o-airpicup .uis-date-chkin [data-day]").data('day',dateText);
+			$('.sc-freetour .o-airpicup .uis-date-chkin [data-day]').data('day',dateText);
 			//panel input
-			$(".sc-freetour .o-airpicup .uis-date-chkin .txt-day").addClass('on');
-			$(".sc-freetour .o-airpicup .uis-date-chkin .txt-day").html(txtDay);
+			$('.sc-freetour .o-airpicup .uis-date-chkin .txt-day').addClass('on');
+			$('.sc-freetour .o-airpicup .uis-date-chkin .txt-day').html(txtDay);
 			//sbox input
-			$(".sc-freetour .o-airpicup .qsb-dates .qsb-area").addClass('on');
-			$(".sc-freetour .o-airpicup .qsb-dates .qsb-chkin").html(txtDay);	
+			$('.sc-freetour .o-airpicup .qsb-dates .qsb-area').addClass('on');
+			$('.sc-freetour .o-airpicup .qsb-dates .qsb-chkin').html(txtDay);	
 			
 			pvFrontScript.docuMoudownTrigger();
 		}
