@@ -63,6 +63,8 @@
 .set-cont-dc-card .cont .list > li .card-img .c-img.c43 > span {background-position: 0 -1071px;}
 .set-cont-dc-card .cont .list > li .card-img .c-img.c44 > span {background-position: 0 -1190px;}
 
+.set-cont-dc-card .cont .list > li .card-img .c-img.green > span {background: url(/images/front/travel/customer/icon-dc-card-green.png) 0 0 no-repeat;}
+
 .set-cont-dc-card .dc-card-guide dl{/*overflow:hidden;*/border-bottom:1px solid #e2e2e2;margin-top:19px;}
 .set-cont-dc-card .dc-card-guide dl:first-child{margin-top:0;}
 .set-cont-dc-card .dc-card-guide dl:after{content:'';display:block;clear:both;}
@@ -575,7 +577,15 @@ html.no_ios_device .check-msg-tooltip a:focus + .tip-box {display:block}
 .loginr_wrap .login_sns_btns li.kakao a:hover span{background:url(/images/front/travel/member/login_sns4.png) 13px 15px no-repeat;}
 .loginr_wrap span.check_msg{margin-top:20px;}
 /* #27349 end */
-
+/* #31410 */
+.loginr_wrap .login_sns_btns.end-twitter li.facebook,
+.loginr_wrap .login_sns_btns.end-twitter li.twitter{margin-bottom:0;}
+.loginr_wrap .login_sns_btns.end-twitter li.facebook{margin-right:0;}
+.loginr_wrap .login_sns_btns.end-twitter li.kakao{margin-right:4px;}
+.loginr_wrap .login_sns_btns.end-twitter li a{width:113px;}
+.loginr_wrap .login_sns_btns.end-twitter li.naver span{padding-left:50px;}
+.loginr_wrap .login_sns_btns.end-twitter li.facebook span{padding-left:42px;}
+/* #31410 end */
 /* 27285 */
 .wrap__concierge {width: 100%;padding: 40px 0 20px 0;background: #b18a77 url(/images/front/travel/customer/bg-concierge.jpg) 0 0 no-repeat;}
 .wrap__concierge .ymhr {color: #222;text-align: center;}

@@ -3,16 +3,15 @@
 	.ie9 input[type="checkbox"]{margin:0;vertical-align:middle;margin-top:-2px}
  
 /* 패키지 메인 검색*/
-.l-main-search{position:relative;margin:-40px auto 0;border:1px solid #e2e2e2;width:948px;background-color:white;overflow:visible;}
+.l-main-search{position:relative;margin:-40px auto 0;border:1px solid #e2e2e2;height:138px;width:948px;background-color:white;overflow:visible;}
 .pms-tab:after{content:'';display:block;clear:both}
 .pms-tab.item-3 li{float:left;width:315px;border-left:1px solid #e2e2e2}
 .pms-tab.item-3 li:first-child{border-left:0 none;width:316px}
 .pms-tab li a{border-bottom:1px solid #e2e2e2;font-size:14px;font-family:'맑은 고딕';background-color:#ededed;color:#333;text-align:center;display:inline-block;width:100%;padding-top:9px;height:29px;font-weight:bold}
 .pms-tab li a.ms-tab-last{background:url('/images/front/travel/deco_bul_arrow_4x8.gif') #fff no-repeat 80% 50%;}
 .pms-tab.item-3 li a.on{background-color:white;color:#e81e75;border-bottom:0 none}
-.ms-tab-cont{padding:30px 30px;width:890px;overflow:hidden;}
-#ms-tab-cont2, #ms-tab-cont3{padding:62px 30px;overflow:visible;}
-.ms-tab-cont:after{display:block;content:'';clear:both;}
+#ms-tab-cont2, #ms-tab-cont4{overflow:visible;}
+.ms-tab-cont{padding:30px 29px;width:890px;}
 .ms-tab-cont .selectbox-lg{margin-right:10px;padding-right:45px !important}
 .ms-tab-cont .selectbox-lg strong{font-size:14px}
 .ms-tab-cont .input-lg{font-size:14px;height:24px;line-height:24px}
@@ -26,135 +25,14 @@
 .ms-tab-cont .able-dt *{vertical-align:top}
 .pkg-search-list .able-dt2{padding-top:7px}
 .pkg-search-list .able-dt2 *{vertical-align: top}
-.pkg-main .ms-tab-cont .help-text{position:absolute;top:12px;left:285px;}
-.pkg-main .help-text.ms-tab-cont3{position:absolute;top:12px;left:920px;}
-.pkg-main .help-text .tip-box{right:-423px;bottom:32px;}
-.pkg-main .help-text .tip-box .tip{padding:18px !important;}
-.pkg-main .help-text .tip-box .tip span{display:block;}
-	/* 검색개선 - 메인 */
-.ms-tab-cont .nmb{margin-bottom:0 !important;}
-.ms-tab-cont .topArea{padding:0 20px;}
-.ms-tab-cont .topArea:after{display:block;content:'';clear:both;}
-.ms-tab-cont .topArea li{float:left;width:300px;}
-.ms-tab-cont .topArea li:last-child{width:250px;}
-.ms-tab-cont .topArea li span{display:block;margin-bottom:8px;}
-.ms-tab-cont .topArea li span a{display:inline-block;width:60%;font-size:14px;}
-.ms-tab-cont .topArea li span a:hover{font-weight:bold;color:#e42073;}
-.ms-tab-cont .topArea li span a i{display:inline-block;width:20px;height:16px;margin-right:20px;padding-top:4px;color:#fff;font-size:11px;background:#333;font-weight:bold;text-align:center;}
-.ms-tab-cont .topArea li span a i.top{background:#e42073;}
-.ms-tab-cont .pkg_autocomplete{top:40px;width:498px;max-height:215px;}
-.ms-tab-cont .pkg_autocomplete ul li{border-top:0;position:relative;padding-left:35px;}
-.ms-tab-cont .pkg_autocomplete ul li.no-result{text-align:center;}
-.ms-tab-cont .pkg_autocomplete ul li.no-result:after{display:none;}
-.ms-tab-cont .pkg_autocomplete ul li:after{display:block;content:'';position:absolute;top:12px;;left:15px;;width:13px;height:18px;background:url(/images/front/travel/common/icon_point_gray.png)no-repeat 0 0;}
-	/* 검색 팝업 - 메인 */
-.layer_pop .content{border:1px solid #636363;padding:30px 15px;}
-.layer_pop .content h3 .sub-title{display:inline-block;font-size:12px;position:relative;margin-left:15px;padding-left:25px;color:#999;}
-.layer_pop .content h3 .sub-title:after{display:block;content:'';position:absolute;top:-3px;left:0;width:18px;height:18px;background:url(/images/front/travel/common/icon_caution_gray.png)no-repeat 0 0;}
-.layer_pop .content .chkAgency{overflow:hidden;}
-.design-checkbox input[type="checkbox"]{overflow:hidden;visibility:hidden;position:absolute;z-index:0}
-.design-checkbox label{display:inline-block;padding-left:26px;padding-top:8px;background:url(/images/front/travel/sprite_form_collection.png) no-repeat 0 -161px;line-height:1.5;cursor:pointer;font-size:15px;font-weight:bold;}
-.design-checkbox input:checked + label{background-position:0 -301px}
-.design-checkbox span{margin-right:25px;}
-.layer_pop .departChk{padding:12px 30px 0 0;}
-.layer_pop .departChk label{font-size:12px;font-weight:bold;color:#e42073;line-height:18px;padding-left:2px;}
-.layer_pop .departChk .help-text{position:absolute;top:120px;left:890px;}
-.layer_pop .content .btn-apply{position:relative;text-align:center;margin-top:30px;}
-.layer_pop .content .pkg-option-btn.btn-sf-md{width:118px;height:22px;text-align:center;font-size:14px;font-weight:bold;line-height:22px;}
-.layer_pop .content .btn-apply .date-reset{position:absolute;top:14px;right:15px;cursor:pointer;line-height:17px;}
-.layer_pop .content .btn-apply .date-reset:after{display:block;content:'';position:absolute;top:0;right:80px;width:13px;min-height:15px;background:url(/images/front/travel/common/icon_reset.png) no-repeat 0 0;}
-#pkgMainLPU .datepicker-st3 .ui-datepicker-calendar tbody tr .reserv-able a,
-#pkgMainLPU .datepicker-st3 .ui-datepicker-calendar tbody tr .depart-able a,
-#pkgMainLPU .datepicker-st3 .ui-datepicker-calendar tbody tr .reserv-standby a,
-#pkgMainLPU .datepicker-st3 .ui-datepicker-calendar tbody tr .reserv-end a,
-#pkgMainLPU .datepicker-st3 .ui-datepicker-calendar tbody tr .low-price a{background:transparent;}
-#pkgMainLPU .datepicker-st3 .ui-datepicker-calendar tbody tr td a:hover{width:52px;height:60px;background:#e2e2e2;}
-#pkgMainLPU .ui-datepicker-days-cell-over:before,
-#pkgMainLPU .ui-state-active,
-#pkgMainLPU  .ui-widget-content .ui-state-active, 
-#pkgMainLPU  .ui-widget-header .ui-state-active,
-#pkgMainLPU .ui-state-active{color:#333;}
-
-
-	/* datepicker-st3 */
-.datepicker-st3{position:relative;}
-.datepicker-st3 .ui-datepicker{overflow:hidden;padding:0;border:0;width:920px !important;position:relative;}
-.datepicker-st3 .ui-datepicker:before{content:'';display:block;background-color:#f8f8f8;width:920px;height:88px;border-bottom:1px solid #e2e2e2;position:absolute;top:0;left:0;z-index:0;}
-.datepicker-st3 .ui-datepicker:after{display:block;content:'';position:absolute;top:0;left:459px;width:1px;height:90px;background:#e2e2e2;}
-.datepicker-st3 .ui-datepicker-group{width:430px;padding:20px 15px;}
-.datepicker-st3 .ui-datepicker-inline{border:1px solid #e2e2e2;height:479px;}
-.ui-datepicker-multi .ui-datepicker-group-last{border-left:1px solid #e2e2e2;}
-.datepicker-st3 .ui-datepicker-group.ui-datepicker-group-first{border-right:none;}
-.datepicker-st3 .ui-datepicker-header{background-color:#f8f8f8;position:relative;z-index:10;margin-bottom:25px;}
-.datepicker-st3 .ui-datepicker-header .ui-datepicker-title span{color:#333;font-size:22px;font-family:"맑은고딕", "Malgun Gothic";font-weight:bold;}
-.datepicker-st3 .ui-datepicker-header .ui-datepicker-prev{top:8px;left:20px;}
-.datepicker-st3 .ui-datepicker-header .ui-datepicker-prev span, .datepicker-st3 .ui-datepicker-header .ui-datepicker-next span{height:10px;}
-.datepicker-st3 .ui-datepicker-header .ui-datepicker-next{top:8px;right:20px;}
-.datepicker-st3 .ui-datepicker-calendar{width:100%;table-layout:fixed;position:relative;z-index:10;}
-.datepicker-st3 .ui-datepicker-calendar thead tr th{padding-bottom:12px;border-bottom:0;text-align:center;}
-.datepicker-st3 .ui-datepicker-calendar thead tr th span{display:inline-block;color:#333;font-weight:bold;width:50px !important;height:9px;text-indent:0;background:none}
-.datepicker-st3 .ui-datepicker-calendar thead tr th span.Sunday{color:#ff3333;}
-.datepicker-st3 .ui-datepicker-calendar thead tr th span.Saturday{color:#5f6fe0;}
-.datepicker-st3 .ui-datepicker-calendar tbody tr td a, .datepicker-st3 .ui-datepicker-calendar tbody tr td span{width:52px;height:60px;line-height:40px;margin:0 auto;font-weight:bold;text-align:left;padding-left:10px;}
-.datepicker-st3 .ui-datepicker-calendar tbody tr:first-child td a, .datepicker-st3 .ui-datepicker-calendar tbody tr:first-child td span{margin-top:10px;}
-.datepicker-st3 .ui-datepicker-calendar tbody tr td{position:relative;}
-.datepicker-st3 .ui-datepicker-calendar td.active a{background:#e42073 !important;color:#fff;}
-.datepicker-st3 .ui-datepicker-calendar tbody tr .reserv-able a,
-.datepicker-st3 .ui-datepicker-calendar tbody tr .low-price a{background:#fdebf2;}
-.datepicker-st3 .ui-datepicker-calendar tbody tr .depart-able a{background:#c2d8ff;}
-.datepicker-st3 .ui-datepicker-calendar tbody tr .reserv-standby a{background:#ebf4fd;}
-.datepicker-st3 .ui-datepicker-calendar tbody tr .reserv-end a{background:#f5f5f5;}
-.datepicker-st3 .ui-datepicker-calendar tbody tr td.reserv-able:before,
-.datepicker-st3 .ui-datepicker-calendar tbody tr td.depart-able:before,
-.datepicker-st3 .ui-datepicker-calendar tbody tr td.reserv-standby:before,
-.datepicker-st3 .ui-datepicker-calendar tbody tr td.reserv-end:before,
-.datepicker-st3 .ui-datepicker-calendar tbody tr td.low-price:before{position:absolute;left:8px;bottom:7px;content:attr(title)'만원';color:#333;font-size:12px;z-index:1;}
-.datepicker-st3 .ui-datepicker-calendar tbody tr td.ui-datepicker-today a {border:0;}
-.datepicker-st3 .ui-datepicker-calendar tbody tr td.ui-datepicker-current-day:before,
-.datepicker-st3 .ui-datepicker-calendar tbody tr td.active:before{color:#fff;}
-.datepicker-st3 .ui-datepicker-calendar tbody tr td.low-price:before{color:#1f68ee;}
-
-
+.help-text.able-dt-help a{text-indent:0 !important;background:none;text-decoration:underline;margin-left:5px;margin-top:0;}
+.help-text.able-dt-help a:hover{text-decoration:underline;}
+.help-text.able-dt-help .tip-box{right:-423px;bottom:28px;}
+.help-text .tip-box .tip > span.left-bot{background:url(/images/front/travel/sprite_tooltip.png) no-repeat 0 -30px;left:35px;}
 
 /* 서브 검색 */
 .l-pkg-sub-search-wrap{width:100%;position:absolute;top:49px;left:0px;border-top:1px solid #e2e2e2;border-bottom:1px solid #000;padding:20px 0;background-color:white;display:none}
 .l-pkg-sub-search-wrap .l-pkg-sub-search{width:948px;height:138px;margin:0 auto;border:1px solid #e2e2e2;overflow:hidden}
-	/* #28906 검색결과 */
-.section-title-wrap .content-title a{display:inline-block;border-bottom:1px solid #333;}
-.pkg-search-top{border-top:1px solid #636363;padding:20px 0 15px;}
-.pkg-search-top .btn-flat-gray{padding:5px 15px;}
-.pkg-search-table input[type="checkbox"],
-.pkg-search-table2 input[type="checkbox"]{vertical-align:middle}
-.pkg-search-table label,
-.pkg-search-table2 label{vertical-align:text-top;margin-right:5px;}
-.pkg-search-table tbody tr td, .pkg-search-table2 tbody tr td{padding:16px 20px;}
-.pkg-search-table tbody tr td .btn-sf-sm, .pkg-search-table2 tbody tr td .btn-sf-sm{padding:4px 20px 3px;margin-right:5px;}
-.pkg-search-table .reserve-option{display:inline-block;border:1px solid #d7d7d7;padding:8px 45px;}
-.pkg-search-table .reserve-option.on{background:#666;color:#fff;}
-.pkg-search-table{border:1px solid #636363;border-bottom:none;}
-.pkg-search-table2{margin-top:0 !important;border-left:1px solid #333;border-right:1px solid #333;border-top:none;}
-.pkg-search-table2 .price-range{display:inline-block;vertical-align:top;padding-top:5px;}
-.pkg-search-table2 .search-group-cont.slider-price-wrap{display:inline-block;width:270px;padding:10px 11px;border:none;}
-.pkg-search-table2 .search-group-cont .slider_price{margin-bottom:0;}
-.pkg-search-option{border-left:1px solid #636363;border-right:1px solid #636363;border-bottom:1px solid #e2e2e2;overflow:hidden;}
-.pkg-search-option a{display:block; width:100%;padding:11px 0;text-align:center;font-weight:bold;}
-.pkg-search-option a span{background:url(/images/front/travel/icon_arrowB.gif) no-repeat 0 0;display:inline-block;width:11px;height:6px;vertical-align:top;margin-top:3px;}
-.pkg-search-option a.on span{background-position:0 -6px;}
-.pkg-option-btn{text-align:center;border:1px solid #636363;border-top:none;margin-bottom:30px;padding:20px 0;}
-.pkg-option-btn a{font-size:14px;padding:13px 45px;}
-
-.pkg-search-list .best-seller{margin-bottom:30px;padding:30px 0;border:1px solid #d5d5d5;background:#f5f5f5;}
-.pkg-search-list .best-seller li{position:relative;float:left;width:295px;border-right:1px solid #d5d5d5;padding-left:20px;}
-.pkg-search-list .best-seller li:last-child{border:none;}
-.pkg-search-list .best-seller span{display:block;}
-.pkg-search-list .best-seller .best-seller-info{width:120px;padding-left:10px;}
-.pkg-search-list .best-seller .best-seller-info .price{position:absolute;top:77px;right:20px;font-weight:bold;}
-.pkg-search-list .best-seller .best-seller-info .title{margin-top:8px;line-height:16px;}
-.result-list .search-banner{margin:20px 0;}
-.result-list .search-banner + li{border-top:1px solid #d7d7d7;}
-
-
-
 /* 패키지 메인 */
 .m-banner{width:100%;text-align:center;}
 .main-emergency{float:left;width:700px;}
@@ -290,10 +168,11 @@
 .group-checkbox2 li{margin-top:10px;}
 .group-checkbox2 li:first-child{margin-top:0;}
 	.ie7 .sch-group .inset > p{display:inline}
-.search-group-cont.slider-price-wrap{background:url(/images/front/travel/deco_slide_price.gif) repeat-x 11px 20px;padding-top:28px;background-position:11px 0px;}
+.search-group-cont.slider-price-wrap{background:url(/images/front/travel/deco_slide_price.gif) repeat-x 11px 20px;padding-top:28px;}
 .search-group-cont .slider_price{position:relative; height:5px; background:url(/images/front/travel/sprite_slider.png) repeat-x 0 0;margin-bottom:20px;}
 .search-group-cont .slider_price .ui-slider-handle{position:absolute; top:-7px; width:8px; height:18px; margin-left:-4px; background:url(/images/front/travel/sprite_slider.png) 0 -40px no-repeat}
 .search-group-cont .slider_price .ui-slider-range{position:absolute; height:5px; background:url(/images/front/travel/sprite_slider.png) 0-20px repeat-x}
+
 .view-price{table-layout:fixed;width:100%;border-top:1px solid #636363;border-collapse:separate;margin-bottom:30px}
 	.ie7 .view-price{border-collapse:collapse}
 .view-price tbody th {padding:19px 0 15px;border-bottom:1px solid #636363;text-align:center;line-height:1.5;font-weight:bold;background-color:#636363;color:white}
@@ -303,7 +182,6 @@
 .view-price tbody td .price.lotte{padding-top:15px}
 
 .pkg-search-list{width:770px;float:right}
-.pkg-search-list.pkg-search-list-new{width:100%;float:none;}
 
 .pkg-search-list .result-list{margin-top:10px;}
 .pkg-search-list .result-list .inset{position:relative}
@@ -933,10 +811,10 @@
 /* 24942 - 출발가능 상품 */
 .departable-pkg .datepicker{position:static !important;}
 
-
 /* 29579 자유여행 상품 배너 */
 .pkgAirtelSlider{position:relative;}
 .pkgAirtelSlider .pkgAirtel-banner{overflow:hidden;width:950px;}
+.pkgAirtelSlider .pkgAirtel-banner .scrollMask{position:relative;overflow:hidden;width:9999px;left: -240px;}
 .pkgAirtelSlider .pkgAirtel-banner li{position:relative;float:left;width:230px;margin-right:10px;}
 .pkgAirtelSlider .pkgAirtel-banner li:last-child{margin-right:0;}
 .pkgAirtelSlider .pkgAirtel-banner li a{display:block;}
@@ -949,7 +827,21 @@
 .pkgAirtelSlider .prev{position:absolute;left:-30px;top:100px;display:block;width:30px;height:90px;background:url(/images/front/travel/common/btn_prev.png) 0 0 no-repeat;cursor:pointer;}
 .pkgAirtelSlider .next{position:absolute;right:-30px;top:100px;display:block;width:30px;height:90px;background:url(/images/front/travel/common/btn_next.png) 0 0 no-repeat;cursor:pointer;}
 
-
+/* #28623 지역 메인 출발확정 추천상품 */
+.pkgAirtelSlider .ps-banner li{width:304px;margin-right:19px;}
+.pkgAirtelSlider .pkgAirtel-banner.ps-banner .scrollMask{left:-323px;}
+.pkgAirtel-banner.ps-banner .p-img,
+.pkgAirtel-banner.ps-banner .p-img a{height:200px;}
+.pkgAirtel-banner.ps-banner .p-cont{height:100%;}
+.pkgAirtel-banner.ps-banner .p-cont .p-name{min-height:100%;margin-bottom:10px;}
+.pkgAirtel-banner.ps-banner .p-cont .month-area{margin-top:10px;min-height:40px;}
+.pkgAirtel-banner.ps-banner .p-cont .p-month{margin-bottom:10px;}
+.pkgAirtel-banner.ps-banner .p-cont .p-month:after{display:block;content:'';clear:both;}
+.pkgAirtel-banner.ps-banner .p-cont .p-month .month{float:left;font-weight:bold;margin-right:15px;}
+.pkgAirtel-banner.ps-banner .p-cont .p-month .date{float:left;}
+.pkgAirtel-banner.ps-banner .p-cont .p-month .date a{float:left;display:inline-block;padding:0 10px;text-decoration:underline;border-right:1px solid #d6d6d6;}
+.pkgAirtel-banner.ps-banner .p-cont .p-month .date a:last-child{border-right:none;}
+.pkgAirtel-banner.ps-banner .p-cont .price-info{font-weight:bold;font-size:15px;}
 
 /******************************************************************************************
 ***************************** 국내여행

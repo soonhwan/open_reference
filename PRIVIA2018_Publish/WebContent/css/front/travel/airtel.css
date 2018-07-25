@@ -844,3 +844,8 @@ transform:scale(2)}
 .ta-triple-banner:after{content:"";display:block;clear:both}
 .ta-triple-banner li{float:left;margin-left:10px}
 .ta-triple-banner li:first-child{margin-left:0}
+
+/* #30848 */
+.product-view-new{position:relative;}
+.product-view-new .p-detail .stail-info{position:absolute;right:0;bottom:90px;padding-left:90px;width:270px;line-height:1.5;}
+.product-view-new .p-detail .stail-info span{position:absolute;left:0;top:0;padding-left:10px;background:url(/images/front/travel/deco_bul_square_3x3_666.gif) 0 7px no-repeat;padding-bottom:10px;line-height:1.5;font-weight:bold;text-align:left;vertical-align:top;}

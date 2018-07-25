@@ -4050,3 +4050,15 @@ div.calculator table.view2 {table-layout:auto;margin-top:10px;border-bottom:0;}
 .member-cert-end {padding:40px 0; text-align:center; background:#fff;border:1px solid #e2e2e2}  /* white.css 적용 대상자 */
 .member-cert-end .tit {margin-bottom:20px; font-size:18px; letter-spacing:-0.5px;}
 .member-cert-end .txt {margin-bottom:20px; font-size:12px; color:#333; line-height:1.6;}
+
+/* #30797 */
+.aff_coupon_list{position:relative;left:-5px;width:960px;}
+.aff_coupon_list:after{content:"";display:block;clear:both;}
+.aff_coupon_list li{float:left;width:310px;margin:0 5px 10px;}
+.aff_coupon_list li dt{position:relative;width:310px;height:150px;overflow:hidden;}
+.aff_coupon_list li dt span.bg_left{position: absolute;left:-1px;top:50%;margin-top:-20px;display:block;width:16px;height:40px;background:url(/images/front/travel/customer/circle_left_bg.png) 0 0 no-repeat;}
+.aff_coupon_list li dt span.bg_right{position:absolute;right:-1px;top:50%;margin-top:-20px;display:block;width:16px;height:40px;background:url(/images/front/travel/customer/circle_right_bg.png) 0 0 no-repeat;}
+.aff_coupon_list li dd{padding:20px;border-bottom:1px solid #e2e2e2;border-left:1px solid #e2e2e2;border-right:1px solid #e2e2e2;}
+.aff_coupon_list li dd p.title{font-size:14px;font-weight:bold;color:#333333;text-overflow:ellipsis;white-space:nowrap;overflow:hidden;}
+.aff_coupon_list li dd p.date{margin-top:10px;font-size:12px;color:#acacac;}
+

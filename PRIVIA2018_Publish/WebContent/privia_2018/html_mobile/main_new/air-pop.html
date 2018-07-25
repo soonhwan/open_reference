@@ -24,10 +24,7 @@
 <script type="text/javascript" src="/js/front/mtravel/main_datepicker_dev.js"></script> <!-- 캘린더 테스트 버전 -->
 <script type="text/javascript" src="/js/front/mtravel/swipe.js"></script>
 <script type="text/javascript" src="/js/front/mtravel/swiper.min.js"></script> <!-- 프비 리뉴얼 js(슬라이드 관련) -->
-<script type="text/javascript">
-var AIR_HTL_FLAG = "ETC";
-</script>
-<script type="text/javascript" src="/js/front/mtravel/commonUI.js"></script>
+<script type="text/javascript" src="/js/front/mtravel/commonUI-dev.js"></script>
 <script type="text/javascript" src="/js/front/mtravel/commonModuleM.js"></script> <!-- 프비 리뉴얼 js -->
 <script type="text/javascript" src="/js/utils.js"></script>
 </head>
@@ -52,46 +49,68 @@ var AIR_HTL_FLAG = "ETC";
     <!-- content-sec -->
     <div class="content-sec">
         <section class="w-content-sec">
-            <div class="o-search-sec">
-                <div class="w-qst-cont">
-                    <ul class="qst-cont-tab">
+            <div class="w-search-sec-pop">
+                <!-- 검색 탭 -->
+                <div class="sc-search-tab">
+                    <ul class="list-tab">
                         <li class="on">
-                            <a href="#" class="qst-area" data-tab="mainsel">
-                                <span class="qst-input">출/도착 도시</span>
+                            <a href="#" class="slt-area" data-tab="mainsel">
+                                <span class="slt-input">출/도착 도시</span>
                             </a>
                         </li>
                         <li>
-                            <a href="#" class="qst-area" data-tab="calendar">
-                                <span class="qst-input">출발일 - 도착일</span>
+                            <a href="#" class="slt-area" data-tab="calendar">
+                                <span class="slt-input">출발일 - 도착일</span>
                             </a>
                         </li>
                         <li>
-                            <a href="#" class="qst-area" data-tab="capacity">
-                                <span class="qst-input">성인1,일반석</span>
+                            <a href="#" class="slt-area" data-tab="capacity">
+                                <span class="slt-input">성인1,일반석</span>
                             </a>
                         </li>
                     </ul>
                 </div>
-                
-                <div class="swiper-container sc-search-tab">
-                    <div class="swiper-wrapper">
-                        <div class="swiper-slide sc-ui-search-tab">
-                            <div class="uis-mainsel">
-                                mainselmainselmainselmainsel
+                <!-- //검색 탭 -->
+            
+                <!-- 검색 box 영역 -->
+                <div class="sc-search-area">
+                    <div class="list-ssa">
+                        <div class="ssa-ui-box uis-mainsel on">
+                            <div class="uis-input">
+                                <input type="keyword" placeholder="어디서 출발 하시나요?" class="input-base inp-search">
+                                <span class="btn-base b-clear"><button type="button"><span class="a11y">검색어 지우기</span></button></span>
+                            </div>
+                            <div class="w-uis-list">
+                                <div class="uis-list">
+                                    <p class="tit">최근 검색지</p>
+                                    <ul class="list">
+                                        <li>
+                                            <a href="#">
+                                                <span class="name">서울</span>
+                                                <span class="name-det">대한민국, 인천국제공항</span>
+                                                <span class="code">ICN</span>
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a href="#">
+                                                <span class="name">서울</span>
+                                                <span class="name-det">대한민국, 인천국제공항</span>
+                                                <span class="code">ICN</span>
+                                            </a>
+                                        </li>
+                                    </ul>
+                                </div>                                   
                             </div>
                         </div>
-                        <div class="swiper-slide sc-ui-search-tab">
-                            <div class="uis-calendar">
-                                calendarcalendarcalendar
-                            </div>
+                        <div class="ssa-ui-box uis-calendar">
+                            calendarcalendarcalendarcalendarcalendar
                         </div>
-                        <div class="swiper-slide sc-ui-search-tab">
-                            <div class="uis-capacity">
-                                capacitycapacitycapacity
-                            </div>
+                        <div class="ssa-ui-box uis-capacity">
+                            capacitycapacitycapacitycapacitycapacitycapacity
                         </div>
                     </div>
                 </div>
+                <!-- //검색 box 영역 -->
             </div>
         </section>
     </div>
@@ -99,16 +118,7 @@ var AIR_HTL_FLAG = "ETC";
     
     <script type="text/javascript">
     $(document).one('pageshow',function(e,data){      
-        /*var scSearchTab = new Swiper('.sc-search-tab', {
-            slidesPerView: 1,
-            centeredSlides: true,
-            effect: 'fade',
-			on: {
-				slideChange: function(){
-                   
-				}
-			}
-        });*/
+        
     });
     </script>
 </div>

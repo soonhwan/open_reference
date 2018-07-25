@@ -696,15 +696,15 @@ fieldset.basicForm legend + .comment li:first-child {margin-top:0}
 
 .subIndex .my-benefit{padding-left:0 !important;padding-right:0 !important}
 .subIndex .my-benefit ul{overflow:hidden}
-.subIndex .my-benefit ul li{float:left;width:20%;text-align:center} /* 그린수정요 33% */
-/*.subIndex .my-benefit ul li + li + li +li{margin-top:20px} 그린수정요 */
+.subIndex .my-benefit ul li{float:left;width:33%;text-align:center}
+.subIndex .my-benefit ul li + li + li +li{margin-top:20px}
 .subIndex .my-benefit ul li a{display:block;text-align:center;margin:0 auto;padding-top:40px;font-size:11px;color:#1e1e1e;font-family:'YMR';background: url(/images/front/mtravel/cont/icon-mypage-benefit.png) 50% 0 no-repeat;-webkit-background-size: 50px;background-size: 50px;}
 .subIndex .my-benefit ul li.mb1 a{background-position: 50% 4px;}
 .subIndex .my-benefit ul li.mb2 a{background-position: 50% -95px;}
 .subIndex .my-benefit ul li.mb3 a{background-position: 50% -195px;}
 .subIndex .my-benefit ul li.mb4 a{background-position: 50% -300px;}
 .subIndex .my-benefit ul li.mb5 a{background-position: 50% -394px;}
-/*.subIndex .my-benefit ul li.mb6 a{background-position: 50% -300px;} 그린수정요 */
+.subIndex .my-benefit ul li.mb6 a{background-position: 50% -300px;} /* 수정요 */
 
 .subIndex .notiList li a{display:block;line-height:1.6;font-size:14px;color:#767676;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
 #maypgeIndex .myInfo{position:relative;padding:15px 19px 14px;background-color:#424242;color:#fff;font-size:11px}
@@ -1479,7 +1479,7 @@ flex: 1;				  /* NEW, Spec - Opera 12.1, Firefox 20+ */
 .list-privia-service li.lps3 span:after {background-position: 50% -93px;}
 .list-privia-service li.lps4 span:after {background-position: 50% -141px;}
 .list-privia-service li.lps5 span:after {background-position: 50% -191px;}
-/*.list-privia-service li.lps6 span:after {background-position: 50% -141px;}  그린수정요 */
+.list-privia-service li.lps6 span:after {background-position: 50% -141px;} /* 수정요 */
 .list-privia-service:after{content:'';display:inline-block;clear:both}
 
 .set-guide-call .sg-call {border-bottom: 1px dotted #d5d5d5;padding: 0 14px 13px 14px;}
@@ -1835,23 +1835,27 @@ flex: 1;				  /* NEW, Spec - Opera 12.1, Firefox 20+ */
 .tab__slider_list li a.on {color: #ed174f;border-bottom: 1px solid #ed174f;}
 
 /* #24414 검색 탭메뉴 */
-.wrap-tsp {position: relative;background: url(/images/front/mtravel/cont/vis-main-pkg.jpg) 50% 50% no-repeat;-webkit-background-size: cover;background-size:cover;width: 100%;height: 90%;z-index: 3;transition: height margin-bottom 0.5s;line-height: 1.35;}
+.wrap-tsp {position: relative;background: url(/images/front/mtravel/cont/vis-main-pkg.jpg) 50% 50% no-repeat;-webkit-background-size: cover;background-size:cover;width: 100%;height: 90%;z-index: 3;transition: height 0.5s, margin-bottom 0.5s;line-height: 1.35;}
 .wrap-tsp h3.tit {position: absolute;top:15.02732240437158%;width:100%;text-align: center;transition: margin-top 0.5s;}
 .wrap-tsp h3.tit img {width: 69.21875%;max-width:340px;}
-.tab-search-pkg {overflow: hidden;position: absolute;bottom: 0;width: 100%;height:45px;}
+.tab-search-pkg {overflow: hidden;position: absolute;bottom: 0;width: 100%;height:50px;}
 .tab-search-pkg:after{content:'';display:block;clear:both;}
 .tab-search-pkg li {float: left;width: 33.33333333%;position: relative;z-index: 5;}
-.tab-search-pkg li a {display: block;text-align: center;padding: 14px 0px;font-size:13px;color: #fff;z-index: 10;position: relative;}
-.tab-search-pkg li a.on {font-weight: bold;color: #fff95a;}
-.tab-search-pkg li:after{content:'';position: absolute;width: 100%;height: 100%;background-color: #000;opacity: 0.4;top:0;left:0;z-index: 0;transition: opacity 0.5s;}
+.tab-search-pkg li:before {content: '';display: block;width: 1px;height: 100%;background-color: #d5d5d5;position: absolute;top: 0;left: 0;display: none;z-index: 12;}
+.tab-search-pkg li:first-child:before {display: none !important;}
+.tab-search-pkg li a {display: block;text-align: center;padding: 16px 0px;font-size:14px;color: #fff;z-index: 10;position: relative;transition: background-color 0.3s;}
+.tab-search-pkg li a.on {font-size: 17px;padding: 14px 0px;font-weight: bold;color: #e92175;background-color: #fff !important;}
+.tab-search-pkg li:after{content:'';position: absolute;width: 100%;height: 100%;background-color: #000;opacity: 0.4;top:0;left:0;z-index: 0;transition: opacity 0.3s;}
 .wrap-tsp.tsp-on {background: none;}
-.wrap-tsp.tsp-on .tab-search-pkg {position: fixed;bottom: auto;top:0;z-index: 12;background: url(/images/front/mtravel/cont/vis-main-pkg.jpg) 50% 90% no-repeat;-webkit-background-size: cover;background-size:cover;}
+.wrap-tsp.tsp-on .tab-search-pkg {position: fixed;bottom: auto;top:47px;z-index: 12;background: url(/images/front/mtravel/cont/vis-main-pkg.jpg) 50% 90% no-repeat;-webkit-background-size: cover;background-size:cover;}
+.wrap-tsp.tsp-on .tab-search-pkg li:before {display: block;} 
+.wrap-tsp.tsp-on .tab-search-pkg li a {background-color: #bbb;}
 .wrap-tsp.tsp-ond {z-index: 0;}
 .wrap-tsp.tsp-onf {height: 45px;background: none;}
 .wrap-tsp.tsp-onf h3.tit {margin-top:-100%;}
 .section-tsp {display: none;}
 .section-tsp.tsp1 {display: block;}
-.wrap-tsp .btn-eme-inv {position: absolute;width: 116px;left: 0;top: 5%;z-index: 2;transition: top 0.5s;}
+.wrap-tsp .btn-eme-inv {position: absolute;width: 107px;left: 0;top: 20px;z-index: 5;transition: top 0.5s;}
 .wrap-tsp.tsp-onf .btn-eme-inv {top:-100%;}
 .wrap-tsp .btn-swiper-next {position: absolute;width: 26%;text-align: center;left: 50%;margin-left: -13%;top: 15.02732240437158%;z-index: 2;transition: top 0.5s;}
 .wrap-tsp .btn-swiper-next a {display: inline-block;margin-top: 160%;}
@@ -1960,7 +1964,7 @@ box-sizing: border-box;
 .s-state-pkg .rightArea > a {display: inline-block;font-size:0;line-height: 0;text-indent:-9999px;overflow:hidden;width:26px;height: 32px;background: url(/images/front/mtravel/main/sprite_icon_collection.png) no-repeat;background-size:60px;vertical-align: middle;}
 .s-state-pkg .rightArea .align {background-position: 4px -975px;}
 .s-state-pkg .rightArea .btnMap {background-position: 6px -1024px;}
-.s-state-pkg.fix {position: fixed;left: 0;top: 44px;z-index: 10;}
+.s-state-pkg.fix {position: fixed;left: 0;top: 97px;z-index: 10;}
 
 /* 26459 */
 .bnn--temp1 {position: relative;}
@@ -2012,7 +2016,7 @@ box-sizing: border-box;
 /* 30824 */
 .toggleList .telbox li{margin-left:40px;background:#e4e4e4;padding:15px 10px;margin-bottom:5px;letter-spacing:-1px;border-bottom:0;font-size:12px;color:#424242;}
 
-/* 31323 -배포시주석풀기
+/* 31323 */
 .concierge-hotel-area{padding-bottom:0 !important;}
 .concierge-hotel-area .reserveInfo{background:#f0f0f0;padding:15px 7px;}
 .concierge-hotel-area .reserveInfo .content .subTit{padding-bottom:13px;}
@@ -2034,7 +2038,7 @@ box-sizing: border-box;
 .concierge-section .item .input.on{border-color:#333}
 .concierge-section .item .input.on:after{background-position:0 -6px}
 .concierge-section .item .input .placeholder{position:absolute;top:14px;left:43px;line-height:1.2}
-.concierge-section .item .input .sub-txt{display:inline-block;padding-left:5px;font-size:11px;color:#999;font-weight:normal} */
+.concierge-section .item .input .sub-txt{display:inline-block;padding-left:5px;font-size:11px;color:#999;font-weight:normal}
 
 /* #30863 */
 .air_rv_b{position:relative;padding:15px 20px;border-bottom:1px dotted #d5d5d5;}

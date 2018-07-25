@@ -54,7 +54,7 @@ html {background:#fff;} /* white.css 적용 대상자 */
 #header-new{height:180px;z-index:102;position:relative;background:url(/images/front/travel/deco_line_header.gif) repeat-x 0 130px}
 #header-new h1{position:absolute; top:54px;left:50%; margin-left:-98px}
 .header-inner{width:950px;position:relative;margin:0 auto;z-index:2} 
-.header-inner .header-banner{padding-top:10px;width:240px}
+.header-inner .header-banner{padding-top:10px;width:240px;min-height: 110px;}
 /* .header-inner .header-banner a{display:block;width:240px;height:110px} */
 .header-inner .header-banner .roll-banner{width:240px;height:110px;overflow:hidden;position:relative;min-height:110px;margin-top:0px}
 .header-inner .header-banner .roll-banner li{float:left;width:240px;height:110px}

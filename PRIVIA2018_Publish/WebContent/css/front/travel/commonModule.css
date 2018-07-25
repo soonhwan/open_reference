@@ -4,14 +4,14 @@
  *  common - reset, lyout
  *--------------------------------------------------------------------------------------------------------------*/
 /* reset */
-* {color: #000;}
+* {/*color: #000;*/}
 #top-area-sec, #top-area-sec, #top-area-sec,
 #top-area-sec *, #top-area-sec *:after, #top-area-sec *:before,
 #header-sec *, #header-sec *:after, #header-sec *:before, 
 #mobile-promotion-sec *, #mobile-promotion-sec *:after, #mobile-promotion-sec *:before, 
 #content-sec *, #content-sec *:after, #content-sec *:before,
 .w-nav-gsub-ly *, .w-nav-gsub-ly *:after, .w-nav-gsub-ly *:before,
-#footer-sec *, #footer-sec *:after, #footer-sec *:before {font-family: "NotoSansKR", "Malgun Gothic", sans-serif;font-weight: 300;-moz-box-sizing:border-box;-webkit-box-sizing:border-box;box-sizing: border-box;}
+#footer-sec *, #footer-sec *:after, #footer-sec *:before {font-family: "NotoSansKR", "Malgun Gothic", sans-serif;font-weight: 300;-moz-box-sizing:border-box;-webkit-box-sizing:border-box;box-sizing:border-box;}
 
 /* lyout */ 
 #top-area-sec, #header-sec, #content-sec, #footer-sec {min-width: 1200px;width: 100%;margin:0 auto;position: relative;}
@@ -50,6 +50,7 @@
 .btn-base * {transition: all 0.3s;vertical-align: middle;}
 .btn-base a, .btn-base button, .btn-base input {display: block;text-align: center;width: 100%;}
 .btn-base button, .btn-base input {background-color: transparent;border:0;padding:0;cursor:pointer;outline: none;}
+
 /* btn - radius 버튼1 */
 .bbr-st1 a, .bbr-st1 button, .bbr-st1 input {font-size:12px;color: #000;min-width: 50px;padding: 2px 14px 4px 14px;background-color: #fff;border-radius: 12px;}
 .bbr-st1 a:hover, .bbr-st1 button:hover, .bbr-st1 input:hover {color: #e93a84;}
@@ -62,7 +63,7 @@
 /* btn - radius 버튼3 */
 .bbr-st3 a, .bbr-st3 button, .bbr-st3 input {font-size:14px;color: #000;min-width: 50px;padding: 2px 14px 4px 14px;background-color: #e0e0e0;border-radius: 12px;}
 .bbr-st3 a:hover, .bbr-st3 button:hover, .bbr-st3 input:hover {color: #e93a84;}
-/* btn - radius 버튼2 */
+
 /* btn - 일반버튼1 */
 .bb-st1 a, .bb-st1 button, .bb-st1 input {font-size:14px;color: #000;min-width: 50px;padding: 8px 22px 10px 22px;background-color: #fff;border-radius: 2px;}
 .bb-st1 a:hover, .bb-st1 button:hover, .bb-st1 input:hover {color: #e93a84;}
@@ -338,7 +339,7 @@ box-shadow: 0 10px 20px 0px rgba(0,0,0,0.1);
 .hs-search-menu:after {content: '';display: block;clear:both;}
 /* ------- 검색 메뉴 */
 .hs-search-menu .hss-menu {float: left;margin-right: 30px;display: inline-block;}
-.hs-search-menu .hss-menu:after {content: '';display: block;clear:both;}
+.hs-search-menu:after {content: '';display: block;clear:both;}
 .hs-search-menu .hss-menu.on {display: inline-block !important;}
 .hs-search-menu .hss-main {float: left;}
 .hs-search-menu .hss-main a {font-size:24px;color: #fff;opacity: 0.4;}
@@ -389,7 +390,7 @@ box-shadow: 0 10px 20px 0px rgba(0,0,0,0.1);
 .sc-search-box .qsb-cont .qsb-label {display: block;font-size: 18px;color: #999;font-weight: 500 !important;margin-top: 10px;transition: all 0.3s;}
 .sc-search-box .qsb-cont .qsb-input {display: none;text-overflow:ellipsis;white-space:nowrap;overflow:hidden;}
 .sc-search-box .qsb-cont .qsb-area.on .qsb-label {font-size: 12px;color: #666;font-weight: 300 !important;margin-top: 0;}
-.sc-search-box .qsb-cont .qsb-area.on .qsb-input {display: block;font-size:18px;color: #000;font-weight: 500 !important;margin-top: 5px;}
+.sc-search-box .qsb-cont .qsb-area.on .qsb-input {display: block;font-size:18px;color: #000;font-weight: 500 !important;margin-top: 3px;}
 .sc-search-box .qsb-cont .qsb-area.on .qsb-input * , .sc-search-box .qsb-capacity .qsb-input * {font-size:18px;font-weight: 500 !important;}
 .sc-search-box .w-opt-box {margin-top: 20px;display: inline-block;position: relative;z-index: 1;}
 .sc-search-box .w-opt-box .chk-st1 {margin-right: 20px;}
@@ -403,7 +404,7 @@ box-shadow: 0 10px 20px 0px rgba(0,0,0,0.1);
 .sc-search-box .qsb-cont .b-change-places button:before {content: '';display: block;width: 16px;height: 14px;position: absolute;top: 50%;margin-top: -7px;left: 50%;margin-left: -8px;background: url(/images/front/travel/contents/icon-common-sec.png) -41px -198px no-repeat;}
 /* 검색 박스 - 항공 도시박스 간격조정 */
 .sc-air .sc-search-box .qsb-places .places-exit {width: 45%;}
-.sc-air .sc-search-box .qsb-places .places-entry {width: 55%;position: relative;padding-left: 30px;}
+.sc-air .sc-search-box .qsb-places .places-entry {width: 55%;position: relative;padding-left: 44px;}
 /* 검색 박스 - 항공 도시 말줄임 */
 .sc-air .sc-search-box .city {display: inline-block;vertical-align: top;text-overflow:ellipsis;white-space:nowrap;overflow:hidden;max-width: 138px;}
 .sc-air .sc-search-box.o-multiway .city {max-width: 222px;}
@@ -415,7 +416,7 @@ box-shadow: 0 10px 20px 0px rgba(0,0,0,0.1);
 /* 검색 박스 - dates */
 .sc-search-box .qsb-dates .qsb-chkin, 
 .sc-search-box .qsb-dates .qsb-chkout, 
-.sc-search-box .qsb-dates .qsb-result-days {font-size:18px;color: #000;font-weight: 500 !important;} 
+.sc-search-box .qsb-dates .qsb-result-days {color: #000;} 
 .sc-search-box .qsb-result-days {margin-left: 10px;display: none;}
 .sc-search-box .qsb-result-days.on {display: inline-block;}
 .sc-search-box .qsb-result-days .num {color: inherit;} 
@@ -462,7 +463,7 @@ box-shadow: 3px 7px 22px 0px rgba(0,0,0,0.3);
 .uis-input .ipu-search {border:0;width: 100%;font-size:18px;font-weight: 500 !important;} 
 .uis-input .opt-txt {font-size:18px;font-weight: 500 !important;color: #999;} 
 .uis-input .uis-date-chkin {display: inline-block;}
-.uis-input .uis-date-chkin .txt-day, .uis-input .uis-date-chkout .txt-day {display: inline-block;min-width: 226px;font-size:18px;color: #999;} 
+.uis-input .uis-date-chkin .txt-day, .uis-input .uis-date-chkout .txt-day {display: inline-block;margin-right: 20px;/*min-width: 226px;*/font-size:18px;color: #999;} 
 .uis-input .uis-date-chkout .txt-day {min-width: auto;}
 .uis-input .uis-date-chkin .txt-day.on, .uis-input .uis-date-chkout .txt-day.on {color: #000;font-weight: 500 !important;} 
 .uis-input .uis-date-chkout {position: relative;padding-left: 28px;display: none;} 
@@ -502,7 +503,7 @@ box-shadow: 3px 7px 22px 0px rgba(0,0,0,0.3);
 /* 검색 UI 팝업 - select list */
 .ui-select-list .uis-list .list {max-height:230px;}
 /* 검색 UI 팝업 - datepicker */
-.uis-datepicker .ui-datepicker {margin:0;padding:25px 20px 30px 20px;border:0;}
+.uis-datepicker .ui-datepicker {margin:0;padding:25px 30px 30px 30px;border:0;}
 .uis-datepicker .ui-datepicker * {margin:0;padding:0;border:0;background:none;text-align:center;color:#000;font-weight: 500 !important;}
 .uis-datepicker .ui-datepicker-multi {width: 100% !important;}
 .uis-datepicker .ui-datepicker-multi:after {content: '';display: block;clear:both;}
@@ -631,7 +632,7 @@ border-left:0;
 .hs-search-cont .ui-mainsel-hotel {width: 1200px;}
 .hs-search-cont .ui-mainsel-airtel {width: 292px;}
 .hs-search-cont .ui-mainsel-freetour {width: 1200px;}
-.hs-search-cont .ui-recently-search {max-width: 557px;}
+.hs-search-cont .ui-recently-search {max-width: 557px;min-width: 200px}
 .hs-search-cont .ui-date-calendar {width: 770px;}
 .hs-search-cont .ui-capacity {min-width: 396px;}
 .hs-search-cont .ui-select-list {min-width: 270px;}
@@ -722,7 +723,7 @@ box-shadow: 3px 7px 22px 0px rgba(0,0,0,0.3);
 .sc-freetour .o-rentv .qsb-btn-search {width: 8%;}
 .sc-freetour .o-rentv .ui-date-calendar {top: -10px;left: 430px;}
 .sc-freetour .o-rentv .ui-date-calendar .uis-date-chkin {position: relative;}
-.sc-freetour .o-rentv .ui-date-calendar .txt-day {width: 300px;}
+.sc-freetour .o-rentv .ui-date-calendar .txt-day {width: 282px;}
 .sc-freetour .o-rentv .ui-date-calendar .uis-select {position: absolute;top: 13px;left: 120px;display: none;}
 .sc-freetour .o-rentv .ui-date-calendar .uis-select select {width: 80px;}
 .sc-freetour .o-rentv .ui-date-calendar .uis-date-chkout .uis-select {left: 150px;}

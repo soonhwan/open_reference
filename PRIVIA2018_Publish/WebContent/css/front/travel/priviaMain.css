@@ -807,6 +807,9 @@ input.text-cal[disabled="disabled"],
 .use-benefit.ub2 .ub-txt.add {background: url(/images/front/travel/main/icon-main-etc.png) 50% -400px no-repeat;}
 .use-benefit.ub2 .ub-tit {margin: 11px 15px 20px 15px;}	
 .use-benefit:after {content:"";display:block;clear:both;}
+.hot-deal.hd2 .hd-list li.hd-4 a {background: url(/images/front/travel/main/icon-main-greenvoucher.png) 50% 0 no-repeat;}
+.hot-deal.hd2.four .hd-list{margin-left:15px;}
+.hot-deal.hd2.four .hd-list li{padding:0 5px;}
 
 /* 서브프로모션(카드배너) -----------------------------------------*/
 #sub-promotion-card ul{width:960px;}

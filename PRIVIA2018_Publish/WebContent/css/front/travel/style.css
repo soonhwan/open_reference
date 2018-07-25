@@ -2433,13 +2433,22 @@ background-image:url(/images/front/travel/common/ico_form.png);background-positi
 .airline_partner_info > ul > li .exp-sub li {color: #999;background-image: url(/images/front/travel/common/bul_3x3_999.gif);}
 .airline_partner_info > ul > li .btn-sf {position: absolute;right:20px;bottom:19px;}
 .airline_partner_info.ap_naver > ul > li {border: 1px solid #57b04b;}
-
 .airline_partner_info-st2 {margin-bottom: 18px;}
 .airline_partner_info-st2 > ul {overflow: hidden;}
 .airline_partner_info-st2 > ul > li {float: left;width: 468px;box-sizing: border-box;padding: 20px 20px 20px 75px;border:1px solid #636363;position: relative;background: #f5f5f5 url(/images/front/travel/search/icon-ask-sky.png) 18px 50% no-repeat;}
 .airline_partner_info-st2 > ul > li + li {float: right;background-image: url(/images/front/travel/search/icon-ask-card.png);}
-.airline_partner_info-st2 > ul > li .tit {font-size:12px;color: #333;font-weight: bold;}
+.airline_partner_info-st2 > ul > li .tit {font-size:12px;color: #333;font-weight: bold;display: block;}
 .airline_partner_info-st2 > ul > li .btn-sf {position: absolute;right:20px;bottom:19px;}
+.airline_partner_info-st3 {margin-bottom: 18px;}
+.airline_partner_info-st3 > ul {overflow: hidden;}
+.airline_partner_info-st3 > ul > li {float: left;margin-left: 10px;border:1px solid #636363;position: relative;background: #f5f5f5 url(/images/front/travel/search/icon-ask-sky.png) 18px 50% no-repeat;}
+.airline_partner_info-st3 > ul > li:first-child {margin-left: 0;}
+.airline_partner_info-st3 > ul > li + li {background-image: url(/images/front/travel/search/icon-ask-card.png);}
+.airline_partner_info-st3 > ul > li + li + li {background-image: url(/images/front/travel/search/icon-ask-skyhldc.png);}
+.airline_partner_info-st3 > ul > li > a {display: block;box-sizing: border-box;width: 308px;padding: 20px 20px 20px 75px;position: relative;}
+.airline_partner_info-st3 > ul > li > a:before {content: '>';font-size:15px;color: #828282;font-weight: bold;position: absolute;right: 20px;top: 25px;}
+.airline_partner_info-st3 > ul > li .tit {font-size:12px;color: #333;font-weight: bold;display: block;}
+.airline_partner_info-st3 > ul > li .btn-sf {position: absolute;right:20px;bottom:19px;}
 
 /* 항공 요금표기개선 - 네이버랜딩페이지 */
 .airline_naver .result_head .header_select > li > span.tit {cursor: default;}
