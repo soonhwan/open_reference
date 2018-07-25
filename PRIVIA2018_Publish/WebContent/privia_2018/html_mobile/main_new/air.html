@@ -204,16 +204,17 @@ var AIR_HTL_FLAG = "ETC";
     $(document).one('pageshow',function(e,data){      
         var recPromSwiper = new Swiper('.s-rec-promotion .list-item-st1', {
             slidesPerView: 'auto',
-            centeredSlides: true,
+            //centeredSlides: true,
+            freeMode: true,
 			on: {
 				slideChange: function(){
                     //console.log(recPromSwiper.realIndex)
-                    if(recPromSwiper.realIndex == 0){
+                   /* if(recPromSwiper.realIndex == 0){
                         $('.s-rec-promotion .list-item-st1').css('margin-left', '20px');
                     }
 					else{
                         $('.s-rec-promotion .list-item-st1').css('margin-left', '14%');
-                    }
+                    }*/
 				}
 			}
         });
