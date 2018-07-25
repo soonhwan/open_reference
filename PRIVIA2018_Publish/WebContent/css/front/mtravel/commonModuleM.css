@@ -1,0 +1,370 @@
+@charset "utf-8";
+
+/*--------------------------------------------------------------------------------------------------------------
+ *  fonts
+ *--------------------------------------------------------------------------------------------------------------*/
+@font-face {
+    font-family: 'YouandiModernTR'; 
+    font-style: normal; 
+    font-weight: normal; 
+    src: url(/fonts/Youandi_Modern_TextRegular.eot); 
+    src: url(/fonts/Youandi_Modern_TextRegular.eot?#iefix) format('embedded-opentype'),
+         url(/fonts/Youandi_Modern_TextRegular.woff) format('woff')
+}
+@font-face {
+    font-family: 'YouandiModernTB'; 
+    font-style: normal; 
+    font-weight: normal; 
+    src: url(/fonts/Youandi_Modern_TextBold.eot); 
+    src: url(/fonts/Youandi_Modern_TextBold.eot?#iefix) format('embedded-opentype'),
+         url(/fonts/Youandi_Modern_TextBold.woff) format('woff')
+}
+@font-face {
+    font-family:'YouandiModernHEB'; 
+    font-style: normal; 
+    font-weight: normal; 
+    src: url(/fonts/Youandi_Modern_HeadExtraBold.eot); 
+    src: url(/fonts/Youandi_Modern_HeadExtraBold.eot?#iefix) format('embedded-opentype'),
+         url(/fonts/Youandi_Modern_HeadExtraBold.woff) format('woff')
+}
+@font-face {
+    font-family:'NotoSansKR';
+    font-style:normal;
+    font-weight:100;
+    src: url('/fonts/NotoSansKR-Thin.eot');
+    src: local(☺),
+         url('/fonts/NotoSansKR-Thin.woff2') format('woff2'),
+         url('/fonts/NotoSansKR-Thin.woff') format('woff'),
+         url('/fonts/NotoSansKR-Thin.otf') format('opentype');
+}
+@font-face {
+    font-family:'NotoSansKR';
+    font-style:normal;
+    font-weight:300;
+	src: url('/fonts/NotoSansKR-Light.eot');
+    src: local(☺),
+         url('/fonts/NotoSansKR-Light.woff2') format('woff2'),
+         url('/fonts/NotoSansKR-Light.woff') format('woff'),
+         url('/fonts/NotoSansKR-Light.otf') format('opentype');
+}
+@font-face {
+    font-family:'NotoSansKR';
+    font-style:normal;
+    font-weight:400;
+	src: url('/fonts/NotoSansKR-Regular.eot');
+    src: local(☺),
+         url('/fonts/NotoSansKR-Regular.woff2') format('woff2'),
+         url('/fonts/NotoSansKR-Regular.woff') format('woff'),
+         url('/fonts/NotoSansKR-Regular.otf') format('opentype');
+}
+@font-face {
+    font-family:'NotoSansKR';
+    font-style:normal;
+    font-weight:500;
+	src: url('/fonts/NotoSansKR-Medium.eot');
+    src: local(☺),
+         url('/fonts/NotoSansKR-Medium.woff2') format('woff2'),
+         url('/fonts/NotoSansKR-Medium.woff') format('woff'),
+         url('/fonts/NotoSansKR-Medium.otf') format('opentype');
+}
+@font-face {
+    font-family:'NotoSansKR';
+    font-style:normal;
+    font-weight:700;
+	src: url('/fonts/NotoSansKR-Bold.eot');
+    src: local(☺),
+         url('/fonts/NotoSansKR-Bold.woff2') format('woff2'),
+         url('/fonts/NotoSansKR-Bold.woff') format('woff'),
+         url('/fonts/NotoSansKR-Bold.otf') format('opentype');
+}
+@font-face {
+    font-family:'NotoSansKR';
+    font-style:normal;
+    font-weight:900;
+	src: url('/fonts/NotoSansKR-Black.eot');
+    src: local(☺),
+         url('/fonts/NotoSansKR-Black.woff2') format('woff2'),
+         url('/fonts/NotoSansKR-Black.woff') format('woff'),
+         url('/fonts/NotoSansKR-Black.otf') format('opentype');
+}
+
+/*--------------------------------------------------------------------------------------------------------------
+ *  common - reset, lyout
+ *--------------------------------------------------------------------------------------------------------------*/
+/* reset */
+* {color: #000;}
+.header-sec *, .header-sec *:after, .header-sec *:before, 
+.search-sec *, .search-sec *:after, .search-sec *:before,
+.content-sec *, .content-sec *:after, .content-sec *:before,
+.footer-sec *, .footer-sec *:after, .footer-sec *:before {font-family: "NotoSansKR", "Malgun Gothic", sans-serif;font-weight: 300;-moz-box-sizing:border-box;-webkit-box-sizing:border-box;box-sizing: border-box;}
+
+/*--------------------------------------------------------------------------------------------------------------
+ *  common
+ *  css naming : s- for Section, b- for Button, ly- for Layout, u- for UI, c- for Components, o- for Object
+ *--------------------------------------------------------------------------------------------------------------*/
+
+/* 접근성 */
+.a11y {overflow:hidden;position:absolute;clip:rect(0 0 0 0);/*IE6,7*/clip:rect(0,0,0,0);width:1px !important;height:1px !important;margin:-1px !important;border:0 !important;padding:0 !important;}
+.a11y.focusable:focus {overflow:visible;position:static;clip:auto;width:auto;height:auto;margin:0;}
+
+/* ------------- 서식 */
+/* 컬러 */
+.c-point1{color:#e93a84 !important;}
+.c-point1-400{color:#e93a84 !important;font-weight:400 !important}
+.c-point2{color:#1f7ab1 !important}
+.c-point3{color:#ffe400 !important}
+/* 텍스트 */
+.c-txt-point1 {margin-left: -9px;padding-left: 9px;position: relative;}
+.c-txt-point1:before {content: '';display: block;width: 4px;height: 4px;background-color: #e93a84;position: absolute;top: 4px;left: 0;border-radius: 4px;}
+
+/*--------------------------------------------------------------------------------------------------------------
+ *  common - UI
+ *--------------------------------------------------------------------------------------------------------------*
+/* ------------- btn base */
+.btn-base {display: inline-block;vertical-align: middle;}
+.btn-base * {transition: all 0.3s;vertical-align: middle;}
+.btn-base a, .btn-base button, .btn-base input {display: block;text-align: center;}
+.btn-base button, .btn-base input {background-color: transparent;border:0;padding:0;cursor:pointer;outline: none;}
+
+/* btn - radius 버튼1 */
+.bbr-st1 a, .bbr-st1 button, .bbr-st1 input {font-size:12px;color: #000;min-width: 50px;padding: 2px 14px 4px 14px;background-color: #fff;border-radius: 12px;}
+.bbr-st1 a:hover, .bbr-st1 button:hover, .bbr-st1 input:hover {color: #e93a84;}
+/* btn - radius 버튼2 */
+.bbr-st2 {position: relative;overflow: hidden;border-radius: 14px;}
+.bbr-st2 a, .bbr-st2 button, .bbr-st2 input {font-size:13px;color: #fff;min-width: 50px;padding: 2px 14px 4px 14px;position: relative;z-index: 1;}
+.bbr-st2 a:hover, .bbr-st2 button:hover, .bbr-st2 input:hover {color: #000;}
+.bbr-st2:before {content: '';display: block;width: 100%;height: 100%;background-color: #fff;position: absolute;top: 0;left: 0;opacity: 0.4;z-index: 0;transition: opacity 0.3s;}
+.bbr-st2:hover:before {opacity: 1;}
+/* btn - radius 버튼3 */
+.bbr-st3 a, .bbr-st3 button, .bbr-st3 input {font-size:14px;color: #000;min-width: 50px;padding: 2px 14px 4px 14px;background-color: #e0e0e0;border-radius: 12px;}
+.bbr-st3 a:hover, .bbr-st3 button:hover, .bbr-st3 input:hover {color: #e93a84;}
+/* btn - radius 버튼2 */
+
+/* btn - 일반버튼1 */
+.bb-st1 a, .bb-st1 button, .bb-st1 input {font-size:13px;color: #fff;min-width: 60px;padding: 6px 14px 7px 14px;background-color: #434343;border-radius: 3px;}
+/* btn - 일반버튼2 */
+.bb-st2 a, .bb-st2 button, .bb-st2 input {font-size:13px;color: #fff;min-width: 60px;padding: 6px 14px 7px 14px;background-color: #000;border-radius: 3px;}
+
+/* ------------- input */
+.input-base::-webkit-input-placeholder {color:#999;font-weight: 300;}
+.input-base::-moz-placeholder {color:#999;font-weight: 300;} 
+.input-base:-ms-input-placeholder {color:#999;font-weight: 300;} 
+.input-base:-moz-placeholder {color:#999;font-weight: 300;}
+.input-base::placeholder {color:#999;font-weight: 300;}
+.input-base.placeholder {color:#999;font-weight: 300;}
+.input-base {vertical-align:middle;outline:none;-webkit-appearance:none;-webkit-border-radius:0px;}
+
+/* ------------- label */
+.label-base {display: inline-block;vertical-align: middle;position: relative;}
+.label-base span {display: inline-block;vertical-align: middle;}
+/* label - radius 라벨1 */ 
+.lbr-st1 span {font-size:12px;color: #000;border:1px solid #666;text-align: center;min-width: 42px;padding: 0 10px;border-radius:12px;}
+/* label - radius 라벨2 */ 
+.lbr-st2 span {font-size:12px;color: #fff;text-align: center;min-width: 44px;padding: 1px 12px;border-radius:12px;background-color: #f42a86;}
+/* label - radius 라벨3 */ 
+.lbr-st3 span {font-size:12px;color: #f42a86;text-align: center;min-width: 38px;padding: 9px 7px;border-radius:2px;border:1px solid #ec0d61;}
+
+/* ------------- checkbox */
+.chk-base {transition: opacity 0.3s;display: inline-block;}
+.chk-base.disabled {opacity: 0.4;pointer-events: none;}
+.chk-base label {display: inline-block;vertical-align: middle;position: relative;}
+/* checkbox1 */ 
+.chk-st1 label {height: 20px;padding-left: 30px;font-size:14px;color: #fff;}
+.chk-st1 label:before {content: '';display: block;width: 20px;height: 20px;background: url(/images/front/travel/contents/icon-common-sec.png) 0px -235px no-repeat;position: absolute;top: 0;left: 0;}
+.chk-st1 input[type="checkbox"]:checked ~ label:before {background-position: -25px -235px;}
+.chk-st1 label.on:before {background-position: -25px -235px;}
+/* checkbox2 */ 
+.chk-st2 label {height: 20px;padding-left: 30px;font-size:14px;color: #000;}
+.chk-st2 label:before {content: '';display: block;width: 20px;height: 20px;background: url(/images/front/travel/contents/icon-common-sec.png) 0px -260px no-repeat;position: absolute;top: 0;left: 0;}
+.chk-st2 input[type="checkbox"]:checked ~ label:before {background-position: -25px -260px;}
+.chk-st2 label.on:before {background-position: -25px -260px;}
+
+/* ------------- radio */
+.radio-base {transition: opacity 0.3s;display: inline-block;}
+.radio-base.disabled {opacity: 0.4;pointer-events: none;}
+.radio-base label {display: inline-block;vertical-align: middle;position: relative;}
+/* radio1 */ 
+.radio-st1 label {height: 20px;padding-left: 30px;font-size:14px;color: #fff;}
+.radio-st1 label:before {content: '';display: block;width: 20px;height: 20px;background: url(/images/front/travel/contents/icon-common-sec.png) 0px -235px no-repeat;position: absolute;top: 0;left: 0;}
+.radio-st1 input[type="radio"]:checked ~ label:before {background-position: -25px -235px;}
+.radio-st1 label.on:before {background-position: -25px -235px;}
+
+/* ------------- selectbox */
+/* select-title */
+.w-select-base {font-family: sans-serif !important;} /* NotoSansKR 경우 inline-block 공백이 불규칙함 */
+.select-title.select-base {text-align: left; vertical-align: middle; padding: 10px 15px 9px 15px; border: 1px solid #bdc0c6; display: inline-block;border-radius: 3px;position: relative;cursor: pointer;background-color: #fff;}
+.select-title.select-base:after {content: '';display: block;width: 12px;height: 7px;overflow: hidden;background: url(/images/front/travel/contents/icon-common-sec.png) -66px -360px no-repeat;position: absolute;top: 16px;right: 15px;}
+.select-title.select-base strong {width: 100%; font-weight: normal; font-size:14px;color: #000; word-break: break-all; line-height: 1.2em; padding: 1px 0 2px; display: block; overflow: hidden;}
+.select-title.select-base.focus {color: #000; border-color: #bdc0c6;}
+.select-title.select-base.active {border-radius: 3px 3px 0px 0px;}
+.select-title.select-base.active.upper {border-radius: 0px 0px 3px 3px;}
+.select-title.select-base.disabled {color: #999; text-shadow: 1px 1px 0 #fff; border-color: #bbb; background-color: #eee;cursor:inherit;opacity: 0.4;}
+/* select-option */
+.select-option.select-base {border: 1px solid #bdc0c6;border-top: 1px solid #e2e2e2; background: #fff; overflow: auto;border-radius: 0px 0px 3px 3px;z-index: 10002!important;}
+.select-option.select-base.upper {border-top: 1px solid #bdc0c6;border-bottom: 1px solid #e2e2e2; border-radius: 3px 3px 0px 0px;}
+.select-option.select-base ul {margin: 0; padding: 0;}
+.select-option.select-base li {list-style: none;}
+.select-option.select-base span,
+.select-option.select-base strong {padding: 10px 15px 9px 15px;font-size:14px;color: #000;  white-space: nowrap; text-overflow: ellipsis; line-height: 1.4; text-decoration: none;display: block; overflow: hidden; cursor: default;font-family: "NotoSansKR";font-weight: 300;background-color: #fff;}
+.select-option.select-base strong {font-weight: bold; color: #000; border-top: 1px solid #f5f5f5; border-bottom: 1px solid #ccc;}
+.select-option.select-base li li span {padding-left: 10px;}
+.select-option.select-base span:hover,
+.select-option.select-base span.selected {color: #000; background: #eee;}
+.select-option.select-base .disabled span,
+.select-option.select-base .disabled strong {color: #bbb; text-decoration: line-through; background: none;}
+
+/* ------------- UI */
+/* 툴팁 */
+.help-tooltip {display: inline-block;vertical-align: middle;position: relative;margin: 0 2px;}
+.help-tooltip .over {display: inline-block;vertical-align: middle;width: 18px;height: 18px;text-align: center;line-height: 16px;font-size: 13px;color: #fff;border:1px solid #fff;border-radius: 18px;cursor: pointer;}
+.help-tooltip .over:hover + .cont {opacity: 1;visibility: visible;}
+/*.help-tooltip .over + .cont {opacity: 1;visibility: visible;}*/
+.help-tooltip .cont {display: inline-block;vertical-align: middle;position: absolute;background-color: #fff;font-size:14px;color: #000;line-height: 24px;padding: 18px;word-wrap: break-word;border-radius: 6px;top: 7px;left: 40px;z-index: 1;opacity: 0;visibility: hidden;transition: opacity 0.3s, visibility 0.3s;
+-webkit-box-shadow: 0 3px 3px 0px rgba(0,0,0,0.1);
+-moz-box-shadow: 0 3px 3px 0px rgba(0,0,0,0.1);
+box-shadow: 0 3px 3px 0px rgba(0,0,0,0.1);
+}
+.help-tooltip .cont strong {font-weight: 500 !important;}
+.help-tooltip .cont:after {content: '';display: block;width: 0;height: 0;border-left: 30px solid transparent;border-right: 0px solid transparent;border-top: 30px solid #fff;position: absolute;left: -14px;top: 0;}
+
+/*--------------------------------------------------------------------------------------------------------------
+ *  common - header
+ *--------------------------------------------------------------------------------------------------------------*/
+.header-sec {position: relative;height: 50px;}
+.w-header-sec {height: 50px;}
+.w-header-sec .logo {padding: 18px 0 0 20px;}
+.w-header-sec .logo a {display: inline-block;width: 121px;}
+.w-header-sec .whs-title {font-size:20px;color: #fff;text-align: center;font-family: "YouandiModernTB";padding-top: 14px;}
+.w-header-sec .ly-left {position: absolute;left: 20px;top: 17px;}
+.w-header-sec .ly-right {position: absolute;right: 20px;top: 15px;}
+.w-header-sec .ly-left .b-back {display: inline-block;width: 16px;height: 16px;overflow: hidden;background: url(/images/front/mtravel/contents/icon-common-secM.png) 0px 0px no-repeat;-webkit-background-size: 160px;background-size: 160px;}
+.w-header-sec .ly-right .b-mymenu {display: inline-block;width: 23px;height: 22px;overflow: hidden;background: url(/images/front/mtravel/contents/icon-common-secM.png) -19px 0px no-repeat;-webkit-background-size: 160px;background-size: 160px;margin-right: 15px;}
+.w-header-sec .ly-right .b-gnb {display: inline-block;position: relative;width: 28px;height: 22px;}
+.w-header-sec .ly-right .b-gnb:before {content: '';display: inline-block;width: 28px;height: 10px;overflow: hidden;background: url(/images/front/mtravel/contents/icon-common-secM.png) -45px 0px no-repeat;-webkit-background-size: 160px;background-size: 160px;position: absolute;left: 0;top: 6px;}
+
+/* 헤더 style1(하단 흰줄) */
+.w-header-sec.whs-st1:after {content: '';display: block;width: 100%;height: 1px;background-color: #fff;opacity: 0.25;bottom: 0;left: 0;position: absolute;}
+
+/*--------------------------------------------------------------------------------------------------------------
+ *  common - footer
+ *--------------------------------------------------------------------------------------------------------------*/
+.footer-sec .w-footer-sec {background-color: #000;padding: 30px 20px;margin-top: 40px;}
+.w-footer-sec .fts-top:after {content: '';display: block;clear:both;}
+.w-footer-sec .fts-top .fts-call {float: left;line-height: 1.3;}
+.w-footer-sec .fts-top .fts-call > span {display: block;}
+.w-footer-sec .fts-top .fts-call .txt1 {color: #fff;font-size:14px;font-weight: 500 !important;}
+.w-footer-sec .fts-top .fts-call .txt1 em a {color: #f30774;font-size:14px;font-weight: 500 !important;}
+.w-footer-sec .fts-top .fts-call .txt2 a {color: #fff;font-size:12px;}
+.w-footer-sec .fts-top .fts-go-link {float: right;}
+.w-footer-sec .fts-top .fts-go-link:after {content: '';display: block;clear:both;}
+.w-footer-sec .fts-top .fts-go-link li {float: left;margin-left: 10px;}
+.w-footer-sec .fts-top .fts-go-link li .bb-st1 a {min-width: 75px;}
+.w-footer-sec .nav-fnb {margin-top: 15px;}
+.w-footer-sec .nav-fnb:after {content: '';display: block;clear:both;}
+.w-footer-sec .nav-fnb li {float: left;position: relative;}
+.w-footer-sec .nav-fnb li a {font-size:12px;color: #999;padding: 1px 9px;}
+.w-footer-sec .nav-fnb li:before {content: '';display: block;width: 1px;height: 10px;background-color: #353535;position: absolute;top: 6px;left: 0;}
+.w-footer-sec .nav-fnb li:first-child a {padding-left: 0;}
+.w-footer-sec .nav-fnb li:last-child a {padding-right: 0;}
+.w-footer-sec .nav-fnb li:first-child:before {display: none;}
+.w-footer-sec .copyright {margin-top: 15px;}
+.w-footer-sec .copyright small {font-size:12px;color: #434343;}
+
+/*--------------------------------------------------------------------------------------------------------------
+ *  contents - 검색
+ *--------------------------------------------------------------------------------------------------------------*/
+.sc-air .w-header-sec, .sc-air .o-search-sec {background-color: #288ecc;}
+.sc-hotel .w-header-sec, .sc-hotel .o-search-sec {background-color: #00b290;}
+
+.sc-search-tab {width: 100%;background-color: #ebeef2;padding: 15px 20px;}
+.sc-ui-search-tab {background-color: #fff;border-radius: 4px;overflow: hidden;}
+
+.w-qst-cont {padding: 0 20px 15px 20px;}
+.w-qst-cont .qst-cont-tab:after {content: '';display: block;clear:both;}
+.w-qst-cont .qst-cont-tab {display:-webkit-box;display:-moz-box;display:-ms-flexbox;display:-webkit-flex;display:flex;}
+.w-qst-cont .qst-cont-tab li {-webkit-box-flex:1;-moz-box-flex:1;width:32%;-webkit-flex:1;-ms-flex:1;flex: 1;margin-left: 3%;position: relative;}
+.w-qst-cont .qst-cont-tab li:first-child {margin-left: 0;}
+.w-qst-cont .qst-cont-tab li:after {content: '';display: block;width: 100%;height: 2px;background-color: #fff;opacity: 0.5;transition: opacity 0.3s;}
+.w-qst-cont .qst-cont-tab li.on:after {opacity: 1;}
+.w-qst-cont .qst-cont-tab .qst-area {display: block;text-align: center;padding: 3px 0px 5px 0px;}
+.w-qst-cont .qst-cont-tab .qst-area .qst-input {display: block;font-size: 15px;color: #fff;}
+
+/*--------------------------------------------------------------------------------------------------------------
+ *  contents - 공통
+ *--------------------------------------------------------------------------------------------------------------*/
+/* 섹션 타이틀 */
+.c-tit-sec {margin-bottom: 20px;}
+.c-tit-sec a, .c-tit-sec span {font-family:'YouandiModernTB';display: inline-block;font-size:20px;color: #000;padding-right: 10px;position: relative;transition: color 0.3s;}
+.c-tit-sec a:after {content: '';display: block;width: 8px;height: 15px;position: absolute;right: 0px;top: 2px;background: url(/images/front/mtravel/contents/icon-common-secM.png) -76px 0 no-repeat;-webkit-background-size: 160px;background-size: 160px;}
+
+/* 탭메뉴 */
+.ui-tab-menu {position: absolute;right: 0;top: 5px;}
+.ui-tab-menu:after {content: '';display: block;clear:both;}
+.ui-tab-menu li {float: left;margin-left: 10px;}
+.ui-tab-menu .on .bbr-st3 a {background-color: #000;color: #fff;}
+.o-tab-menu .ui-tab-cont {display: none;}
+.o-tab-menu .ui-tab-cont.tab-on {display: block;}
+
+/* content 간격 */
+.w-content-sec .s-rec-promotion,
+.w-content-sec .s-benefit-cont,
+.w-content-sec .s-information-cont {margin-top: 40px;}
+
+/*--------------------------------------------------------------------------------------------------------------
+ *  contents - 프비m 메인
+ *--------------------------------------------------------------------------------------------------------------*/
+/* list-item-st1 */
+.list-item-st1 {width: 100%;}
+.list-item-st1:after {content: '';display: block;clear:both;}
+.list-item-st1 li {float: left;width: 70%;margin-left: 2%;}
+.list-item-st1 li:first-child {margin-left: 0;}
+.list-item-st1 .vis {display: block;overflow: hidden;border-radius: 4px;}
+.list-item-st1 .tit {display: block;color:#333;font-size:15px;font-weight: 400 !important;text-overflow:ellipsis;white-space:nowrap;overflow:hidden;margin-top: 10px;}
+.list-item-st1 .exp {display: block;color:#999;font-size:13px;text-overflow:ellipsis;white-space:nowrap;overflow:hidden;margin-top: 3px;}
+
+/* 추천 프로모션 */
+.s-rec-promotion .c-tit-sec {padding-left: 20px;}
+.s-rec-promotion .list-item-st1 {position: relative;left: -15%;margin-left: 20px;overflow: inherit;transition: margin-left 0.3s;}
+
+/* 이용혜택 */
+.s-benefit-cont {padding: 0 20px;position: relative;}
+.s-benefit-cont .b-benefit {position: absolute;right: 20px;top: -6px;}
+.s-benefit-cont .list-benefit {margin-top: 5px;}
+.s-benefit-cont .list-benefit li {background-color: #eef1f6;position: relative;margin-top: 12px;border-radius: 4px;overflow: hidden;}
+.s-benefit-cont .list-benefit li:before {content: '';display: block;width: 60px;height: 60px;background-color: #fff;border-radius: 50%;position: absolute;left: 20px;top: 50%;margin-top: -30px;}
+.s-benefit-cont .list-benefit li a {display: block;padding: 25px 20px 25px 100px;position: relative;}
+.s-benefit-cont .list-benefit li a:before {content: '';display: block;width: 40px;height: 40px;background: url(/images/front/mtravel/contents/icon-benefit-contents.png) 0 0 no-repeat;-webkit-background-size: 40px;background-size: 40px;position: absolute;left: 30px;top: 50%;margin-top: -20px;}
+.s-benefit-cont .list-benefit .info .tit {display: block;font-size:15px;color: #333;font-weight: 400 !important;}
+.s-benefit-cont .list-benefit .info .exp {display: block;font-size:14px;color: #666;}
+.s-benefit-cont .list-benefit .bfit1 a:before {background-position: 4px 8px;}
+.s-benefit-cont .list-benefit .bfit2 a:before {background-position: 6px -34px;}
+.s-benefit-cont .list-benefit .bfit3 a:before {background-position: 6px -69px;}
+.s-benefit-cont .list-benefit .bfit4 a:before {background-position: 6px -108px;}
+
+/* 공지사항 */
+.s-information-cont {padding: 0 20px;}
+.s-information-cont .c-tit-sec {margin-bottom: 0;}
+.s-information-cont .sic-board > li {border-bottom: 1px solid #e2e2e2;}
+.s-information-cont .sic-board > li a {padding: 17px 0 16px 0;display:block;text-overflow: ellipsis; white-space: nowrap; overflow: hidden;}
+.s-information-cont .sic-board .tit {font-size: 15px;color: #333;font-weight: 400 !important;}
+.s-information-cont .sic-board .info {margin-top: 2px;}
+.s-information-cont .sic-board .info:after {content: '';display: block;clear:both;}
+.s-information-cont .sic-board .info li {font-size: 13px;color: #999;float: left;padding: 0 10px;position: relative;}
+.s-information-cont .sic-board .info li:before {content: '';display: block;width: 1px;height: 10px;background-color: #d8d8d8;position: absolute;top: 5px;left: 0;}
+.s-information-cont .sic-board .info li:first-child {padding-left: 0;}
+.s-information-cont .sic-board .info li:first-child:before {display: none;}
+
+/*--------------------------------------------------------------------------------------------------------------
+ *  as is css 보완(추후 삭제됨)
+ *--------------------------------------------------------------------------------------------------------------*/
+/* 공통 */
+
+/* 항공 */
+
+/* 호텔 */
+
+/* 기획전 */
+
+/* 해외패키지 */
+
+

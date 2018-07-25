@@ -1,0 +1,185 @@
+<!doctype html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=no" />
+<meta name="format-detection" content="telephone=no" />
+<title>무제 문서</title>
+<link rel="shortcut icon" type="image/x-icon" href="//tmstatic.priviatravel.com/images/front/mtravel/common/favicon.ico" />
+<link rel="apple-touch-icon-precomposed" sizes="152x152" href="//tmstatic.priviatravel.com/images/front/mtravel/common/apple-touch-icon-152.png" />
+<link type="text/css" rel="stylesheet" href="/css/front/mtravel/jquery.mobile.1.4.2.css" />
+<link type="text/css" rel="stylesheet" href="/css/front/mtravel/base.css" />
+<link type="text/css" rel="stylesheet" href="/css/front/mtravel/common.css" />
+<link type="text/css" rel="stylesheet" href="/css/front/mtravel/contents.css" />
+<link type="text/css" rel="stylesheet" href="/css/front/mtravel/promotion.css" />
+<link type="text/css" rel="stylesheet" href="/css/front/mtravel/jquery.mCustomScrollbar.min.css" />
+<link type="text/css" rel="stylesheet" href="/css/front/mtravel/swiper.min.css" /> <!-- 프비 리뉴얼 css(슬라이드 관련) -->
+<link type="text/css" rel="stylesheet" href="/css/front/mtravel/commonModuleM.css" /> <!-- 프비 리뉴얼 css -->
+
+<script type="text/javascript" src="/js/front/mtravel/jquery-1.8.3.min.js"></script>
+<script type="text/javascript" src="/js/front/mtravel/init.js"></script>
+<script type="text/javascript" src="/js/front/mtravel/jquery.mobile-1.4.2.js"></script>
+<script type="text/javascript" src="/js/front/mtravel/jquery.mCustomScrollbar.concat.min.js"></script>
+<script type="text/javascript" src="/js/front/mtravel/main_datepicker.js"></script> <!-- 캘린더 운영 버전 -->
+<script type="text/javascript" src="/js/front/mtravel/main_datepicker_dev.js"></script> <!-- 캘린더 테스트 버전 -->
+<script type="text/javascript" src="/js/front/mtravel/swipe.js"></script>
+<script type="text/javascript" src="/js/front/mtravel/swiper.min.js"></script> <!-- 프비 리뉴얼 js(슬라이드 관련) -->
+<script type="text/javascript">
+var AIR_HTL_FLAG = "ETC";
+</script>
+<script type="text/javascript" src="/js/front/mtravel/commonUI.js"></script>
+<script type="text/javascript" src="/js/front/mtravel/commonModuleM.js"></script> <!-- 프비 리뉴얼 js -->
+<script type="text/javascript" src="/js/utils.js"></script>
+</head>
+
+<body>
+
+<!-- GNB -->
+<div class="gnbArea">
+    <div class="gnbHolder">
+        <span class="btnClose"><button type="button">메뉴닫기</button></span>
+        <nav>
+            <div class="mystatus">홍길동님 <button type="button" class="logout">로그아웃</button></div>
+            <div class="mystatus"><button type="button" class="login">로그인</button></div>
+            <ul class="gnb">
+                <li><a href="/html_mobile/air/PTM_I0001.html" data-ajax="false">HOME</a></li>
+                <li class="subon"><a href="#dep2_1">항공검색</a>
+                    <ul id="dep2_1">
+                        <li><a href="http://www.daum.net">국제선 검색</a></li>
+                        <li><a href="#">국내선 검색</a></li>
+                    </ul>
+                </li>
+                <li class="subon"><a href="#dep2_2">호텔검색</a>
+                    <ul id="dep2_2">
+                        <li><a href="#">해외호텔</a></li>
+                        <li><a href="#">국내숙박</a></li>
+                    </ul>
+                </li>
+                <li><a href="#">마이페이지</a></li>
+                <li><a href="#">고객센터</a></li>
+                <li><a href="#">프로모션</a></li>
+                <li><a href="#">설정</a></li>
+            </ul>
+        </nav>
+    </div>
+</div>
+<!-- //GNB -->
+
+<!-- page -->
+<div data-role="page">
+    
+    <!-- 메인 레이어팝업(메인/마이페이지 메인/고객센터 메인 사용) -->
+    <div id="layerpop1234" class="noti-layerpop"> <!-- id는 임시값으로 삭제 -->
+        <div class="inner">
+            <div class="cont">
+                <!--<a href="#"><img src="/images/front/mtravel/main/dummy_5.png" style="height:1000px" alt="" /></a>-->
+                <a href="#"><img src="/images/front/mtravel/main/dummy_5.png" alt="" /></a>
+                <div class="close">
+                    <span>
+                        <input type="checkbox" id="today-close" />
+                        <label for="today-close">오늘 하루 그만 보기</label>
+                    </span>
+                    <a href="#"><span class="blind">닫기</span></a>
+                </div>
+            </div>
+        </div>    
+    </div>
+    <script type="text/javascript">
+    $(document).ready(function(){
+        //팝업 노출 설정
+        var checkCloseYn = function () {
+            var closelayerPopId = '';
+            closelayerPopId = $.getCookie('noti-layerpop1234');
+            if(closelayerPopId == "Y") { 
+                $('.ui-page-active').removeAttr('style');
+                $('.noti-layerpop').removeClass('show');
+            } else {
+                if($('.noti-layerpop').length > 0){
+                    $('.ui-page-active').css({'position':'fixed',width:'100%'});
+                    $('.noti-layerpop').addClass('show');
+                }
+            };
+        };  
+
+        //페이지 로드될때 팝업 display셋팅
+        checkCloseYn();
+
+        //임시 미노출(실제로 운영에서 사용안함)
+        $('.ui-page-active').removeAttr('style');
+        $('.noti-layerpop').removeClass('show');
+
+        //팝업 닫기버튼 클릭 시
+        $('.noti-layerpop .close > a').on('click',function(){
+            $('.noti-layerpop').removeClass('show'); 
+            $('.ui-page-active').removeAttr('style');
+            if($('#today-close').is(':checked')){
+                $.setCookie('noti-layerpop1234', "Y", 1);
+            }
+            return false;
+        });
+    });
+    </script>
+    <!-- //메인 레이어팝업(메인/마이페이지 메인/고객센터 메인 사용) -->
+    
+    <!-- header-sec -->
+    <div class="header-sec">
+        <header class="w-header-sec whs-bs-st1">
+            <h1 class="logo"><a href="#"><img src="/images/front/mtravel/contents/logo-privia.png" alt="현대카드 PRIVIA 여행"></a></h1>
+            <!--<h2 class="whs-title">출발 도시 선택</h2>-->
+            <!--<div class="ly-left">
+                <a href="#" class="b-back" data-rel="back" data-direction="reverse"><span class="a11y">이전 페이지로 가기</span></a>
+                <a href="#" class="b-close" data-rel="back"><span class="a11y">페이지 닫기</span></a>
+            </div>-->
+            <div class="ly-right">
+                <a href="#" class="b-mymenu"><span class="a11y">마이페이지 가기</span></a>
+                <a href="#" class="b-gnb"><span class="a11y">메뉴보기</span></a>
+            </div>
+        </header>
+    </div>
+    <!-- //header-sec -->
+       
+    <!-- content-sec -->
+    <div class="content-sec">
+        <section class="w-content-sec">
+            
+        </section>
+    </div>
+    <!-- //content-sec -->
+        
+    <!-- footer-sec -->
+    <div class="footer-sec">
+        <footer class="w-footer-sec">
+            <div class="fts-top">
+                <p class="fts-call">
+                    <span class="txt1">고객센터 <em><a href="tel:1588-0360">1588-0360</a></em></span>
+                    <span class="txt2"><a href="tel:82-2-6911-8300">(해외 82-2-6911-8300)</a></span>
+                </p>
+                <ul class="fts-go-link">
+                    <li><span class="btn-base bb-st1"><a href="#">PC버전</a></span></li>
+                    <li><span class="btn-base bb-st1"><a href="#">고객센터</a></span></li>
+                </ul>
+            </div>
+            <ul class="nav-fnb">
+				<li><a href="#" target="_blank">사업자정보확인</a></li>
+				<li><a href="#">이용약관</a></li>
+				<li><a href="#">개인정보처리방침</a></li>
+				<li><a href="#">업무위탁현황</a></li>
+			</ul>            
+            <p class="copyright"><small>COPYRIGHT (c) TIDESQUARE CO. LTD. ALL RIGHTS RESERVED. <br />SPONSORED BY HYUNDAI CARD</small></p>
+        </footer>
+    </div>
+    <!-- //footer-sec -->
+    
+    <script type="text/javascript">
+    $(document).one('pageshow',function(e,data){      
+        
+    });
+    </script>
+</div>
+<!-- //page -->
+
+
+
+    
+</body>
+</html>
