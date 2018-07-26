@@ -17,7 +17,6 @@
 <link type="text/css" rel="stylesheet" href="/css/front/mtravel/commonModuleM.css" /> <!-- 프비 리뉴얼 css -->
 
 <script type="text/javascript" src="/js/front/mtravel/jquery-1.8.3.min.js"></script>
-<script type="text/javascript" src="/js/front/mtravel/jquery-ui.min.js"></script>
 <script type="text/javascript" src="/js/front/mtravel/init.js"></script>
 <script type="text/javascript" src="/js/front/mtravel/jquery.mobile-1.4.2.js"></script>
 <script type="text/javascript" src="/js/front/mtravel/jquery.mCustomScrollbar.concat.min.js"></script>
@@ -52,41 +51,130 @@
         <section class="w-content-sec">
             <div class="w-search-sec-pop">
                 <!-- 검색 탭 -->
-                <div class="sc-search-tab ot-shuttle">
-                    <ul class="list-tab">
-                        <li>
-                            <ul class="lt-col2 slt-places">
+                <div class="sc-search-tab ot-multiway">
+                   <ol class="list-tab-cont">
+                       <li class="t-air-md-1 on">
+                           <ul class="list-tab">
                                 <li>
-                                   <a href="#" class="slt-area" data-tab="mainsel">
-                                        <span class="slt-input on">ICN</span>
-                                    </a>                                    
+                                    <ul class="lt-col2 slt-places">
+                                        <li>
+                                           <a href="#" class="slt-area on" data-tab="mainsel">
+                                                <span class="slt-input">출발</span>
+                                            </a>                                    
+                                        </li>
+                                        <li>
+                                            <a href="#" class="slt-area" data-tab="mainsel">
+                                                <span class="slt-input">도착</span>
+                                            </a>
+                                        </li>
+                                    </ul>
                                 </li>
                                 <li>
-                                    <a href="#" class="slt-area on" data-tab="mainsel">
-                                        <span class="slt-input">도착</span>
+                                    <a href="#" class="slt-area" data-tab="calendar">
+                                        <span class="slt-chkin slt-input">출발일</span>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="#" class="slt-area" data-tab="capacity">
+                                        <span class="slt-input">성인1,일반석</span>
                                     </a>
                                 </li>
                             </ul>
-                        </li>
-                        <li>
-                            <a href="#" class="slt-area" data-tab="calendar">
-                                <span class="slt-chkin slt-input">출발일</span>
-                                <span class="slt-chkout slt-input">도착일</span>
-                            </a>
-                        </li>
-                        <li>
-                            <a href="#" class="slt-area" data-tab="capacity">
-                                <span class="slt-input">성인1,일반석</span>
-                            </a>
-                        </li>
-                    </ul>
+                       </li>
+                       <li class="t-air-md-2 on">
+                           <ul class="list-tab">
+                                <li>
+                                    <ul class="lt-col2 slt-places">
+                                        <li>
+                                           <a href="#" class="slt-area" data-tab="mainsel">
+                                                <span class="slt-input">출발</span>
+                                            </a>                                    
+                                        </li>
+                                        <li>
+                                            <a href="#" class="slt-area" data-tab="mainsel">
+                                                <span class="slt-input">도착</span>
+                                            </a>
+                                        </li>
+                                    </ul>
+                                </li>
+                                <li>
+                                    <a href="#" class="slt-area" data-tab="calendar">
+                                        <span class="slt-chkin slt-input">출발일</span>
+                                    </a>
+                                </li>
+                                <li>
+                                    <div class="slt-btn-add">
+                                        <button type="button" class="b-add-multiway"><span>여정 추가</span></button>
+                                    </div>
+                                </li>
+                            </ul>
+                       </li>
+                       <li class="t-air-md-3 on">
+                           <ul class="list-tab">
+                                <li>
+                                    <ul class="lt-col2 slt-places">
+                                        <li>
+                                           <a href="#" class="slt-area" data-tab="mainsel">
+                                                <span class="slt-input">출발</span>
+                                            </a>                                    
+                                        </li>
+                                        <li>
+                                            <a href="#" class="slt-area" data-tab="mainsel">
+                                                <span class="slt-input">도착</span>
+                                            </a>
+                                        </li>
+                                    </ul>
+                                </li>
+                                <li>
+                                    <a href="#" class="slt-area" data-tab="calendar">
+                                        <span class="slt-chkin slt-input">출발일</span>
+                                    </a>
+                                </li>
+                                <li>
+                                    <div class="slt-btn-add">
+                                        <button type="button" class="b-add-multiway"><span>여정 추가</span></button>
+                                        <button type="button" class="b-remove-multiway"><span>삭제</span></button>
+                                    </div>
+                                </li>
+                            </ul>
+                       </li>
+                       <li class="t-air-md-4 on">
+                           <ul class="list-tab">
+                                <li>
+                                    <ul class="lt-col2 slt-places">
+                                        <li>
+                                           <a href="#" class="slt-area" data-tab="mainsel">
+                                                <span class="slt-input">출발</span>
+                                            </a>                                    
+                                        </li>
+                                        <li>
+                                            <a href="#" class="slt-area" data-tab="mainsel">
+                                                <span class="slt-input">도착</span>
+                                            </a>
+                                        </li>
+                                    </ul>
+                                </li>
+                                <li>
+                                    <a href="#" class="slt-area" data-tab="calendar">
+                                        <span class="slt-chkin slt-input">출발일</span>
+                                    </a>
+                                </li>
+                                <li>
+                                    <div class="slt-btn-add on">
+                                        <button type="button" class="b-remove-multiway"><span>삭제</span></button>
+                                    </div>
+                                </li>
+                            </ul>
+                       </li>
+                   </ol>
+                    
                 </div>
                 <!-- //검색 탭 -->
             
                 <!-- 검색 box 영역 -->
                 <div class="sc-search-area">
                     <div class="list-ssa">
-                        <div class="ssa-ui-box uis-mainsel">
+                        <div class="ssa-ui-box uis-mainsel on">
                             <div class="uis-input isVal">
                                 <input type="keyword" placeholder="어디서 출발 하시나요?" class="input-base inp-search">
                                 <span class="btn-base b-clear"><button type="button"><span class="a11y">검색어 지우기</span></button></span>
@@ -190,20 +278,9 @@
                             </div>
                         </div>
                         <div class="ssa-ui-box uis-calendar on">
-                            <div class="uis-datepicker-weekend">
-                                <ul>
-                                    <li>일</li>
-                                    <li>월</li>
-                                    <li>화</li>
-                                    <li>수</li>
-                                    <li>목</li>
-                                    <li>금</li>
-                                    <li>토</li>
-                                </ul>
-                            </div>
-                            <div class="uis-datepicker"></div>
+                            calendarcalendarcalendarcalendarcalendar
                         </div>
-                        <div class="ssa-ui-box uis-capacity">
+                        <div class="ssa-ui-box uis-capacity on">
                             <div class="w-uis-sec">
                                 <div class="uis-sec">
                                     <p class="tit">인원</p>
@@ -302,62 +379,7 @@
     
     <script type="text/javascript">
     $(document).one('pageshow',function(e,data){      
-        $('.uis-datepicker').datepicker({
-            showMonthAfterYear: true,
-            yearSuffix: '<span class="ui-datepicker-dot">.</span>',
-            monthNames: ['01','02','03','04','05','06','07','08','09','10','11','12'],
-            dayNamesMin: ['일', '월', '화', '수', '목', '금', '토'],
-            minDate: '0',
-            maxDate: '+362',
-            numberOfMonths: [13,1],
-            dateFormat: 'yy/mm/dd',
-            beforeShowDay: function(date) {
-                var date1 = $.datepicker.parseDate($(this).datepicker('option', 'dateFormat'), '2018/08/10');
-                var date2 = $.datepicker.parseDate($(this).datepicker('option', 'dateFormat'), '2018/08/14');
-                return pvmFrontScript.beforeShowDayMark(date, date1, date2);
-            },
-            onSelect: function(dateText, inst) {
-                var date1 = $.datepicker.parseDate($(this).datepicker('option', 'dateFormat'), '2018/08/10');
-                var date2 = $.datepicker.parseDate($(this).datepicker('option', 'dateFormat'), '2018/08/14');
-                var selectedDate = $.datepicker.parseDate($(this).datepicker('option', 'dateFormat'), dateText);
-                var txtDay = pvmFrontScript.onSelectTxtDay($(this), dateText);
-                console.log(txtDay);
-                /*var date1 = $.datepicker.parseDate('yy-mm-dd', $(".chk-in .selectDay").val());
-                var date2 = $.datepicker.parseDate('yy-mm-dd', $(".chk-out .selectDay").val());
-                var selectedDate = $.datepicker.parseDate('yy-mm-dd', dateText);
-                var month = (selectedDate.getMonth()+1) < 10 ? '0' + (selectedDate.getMonth()+1)  : selectedDate.getMonth()+1;
-                var day = selectedDate.getDate() < 10 ? '0' + selectedDate.getDate()  : selectedDate.getDate();
-
-                if (!date1 || date2) {
-                    $(".chk-in .selectDay").val(dateText);
-                    $(".chk-out .selectDay").val('');
-                    $(".chk-in .cd-date").html('<em class="month">'+month+'</em>월 <em class="day">'+day+'</em>일');
-                    $(".chk-out .cd-date").html('');
-                    $('.wrap-select-date .c-fix-btn, .result-days').hide();
-                    $(this).datepicker();
-                } else {
-                    if( selectedDate < date1 ) {
-                        $(".chk-out .selectDay").val( $(".chk-in .selectDay").val() );
-                        $(".chk-in .selectDay").val(dateText);							
-                        $(".chk-out .cd-date").html($(".chk-in .cd-date").html());
-                        $(".chk-in .cd-date").html('<em class="month">'+month+'</em>월 <em class="day">'+day+'</em>일');
-                    } else {
-                        if($(".chk-in .selectDay").val() == dateText){return}
-                        $(".chk-out .selectDay").val(dateText);
-                        $(".chk-out .cd-date").html('<em class="month">'+month+'</em>월 <em class="day">'+day+'</em>일');
-                    }
-
-                    var chkIn = $(".chk-in .selectDay").val().split('-');
-                    var chkOut = $(".chk-out .selectDay").val().split('-');
-                    var chkInDate = new Date(chkIn[0], chkIn[1], chkIn[2]);
-                    var chkOutDate = new Date(chkOut[0], chkOut[1], chkOut[2]);
-                    var duration = (chkOutDate-chkInDate)/1000/60/60/24;
-                    $('.result-days .days').text(duration);
-                    $('.wrap-select-date .c-fix-btn, .result-days').show();
-                    $(this).datepicker();
-                }*/
-            }
-        });
+        
     });
     </script>
 </div>

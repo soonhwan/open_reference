@@ -308,8 +308,15 @@
         $('.hs-search-menu .hss-menu [data-tabsub]').on('click', function(e){
             var code = $(this).data('tabsub');
             if(!$(this).closest('li').hasClass('on')){
-                $(this).closest('.hss-sub').find('.on').removeClass('on');
-                $(this).closest('li').addClass('on');
+                if($(this).closest('.hss-menu').find('.hss-sub').length <= 0){
+                    $('.hs-search-menu .hss-menu.on').removeClass('on');
+                    $(this).closest('.hss-menu').addClass('on');
+                }
+                else{
+                    $(this).closest('.hss-sub').find('.on').removeClass('on');
+                    $(this).closest('li').addClass('on');
+                }
+                
                 //서브 체인지    
                 $('.hs-search-cont .o-'+code).closest('.hss-inner-cont').find('.sc-search-box.on').removeClass('on');   
                 $('.hs-search-cont .o-'+code).addClass('on');
