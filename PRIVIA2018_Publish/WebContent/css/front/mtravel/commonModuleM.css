@@ -98,6 +98,9 @@
 .content-sec *, .content-sec *:after, .content-sec *:before,
 .footer-sec *, .footer-sec *:after, .footer-sec *:before {font-family: "NotoSansKR", "Malgun Gothic", sans-serif;font-weight: 300;-moz-box-sizing:border-box;-webkit-box-sizing:border-box;box-sizing:border-box;}
 
+.header-sec table, .search-sec table, .content-sec table, .footer-sec table {border:0;border-spacing:0;border-collapse:collapse;}
+
+
 /*--------------------------------------------------------------------------------------------------------------
  *  common
  *  css naming : s- for Section, b- for Button, ly- for Layout, u- for UI, c- for Components, o- for Object
@@ -131,7 +134,7 @@
 .bbr-st1 a, .bbr-st1 button, .bbr-st1 input {font-size:12px;color: #fff;min-width: 50px;padding: 2px 14px 4px 14px;position: relative;z-index: 1;}
 .bbr-st1:before {content: '';display: block;width: 100%;height: 100%;background-color: #fff;position: absolute;top: 0;left: 0;opacity: 0.4;z-index: 0;transition: opacity 0.3s;}
 /* btn - radius 버튼2 */
-.bbr-st2 a, .bbr-st2 button, .bbr-st2 input {font-size:14px;color: #000;min-width: 50px;padding: 2px 14px 4px 14px;background-color: #e0e0e0;border-radius: 12px;}
+/*.bbr-st2 a, .bbr-st2 button, .bbr-st2 input {font-size:14px;color: #000;min-width: 50px;padding: 2px 14px 4px 14px;background-color: #e0e0e0;border-radius: 12px;}*/
 
 /* btn - 일반버튼1 */
 .bb-st1 a, .bb-st1 button, .bb-st1 input {font-size:13px;color: #fff;min-width: 60px;padding: 6px 14px 7px 14px;background-color: #434343;border-radius: 3px;}
@@ -153,36 +156,36 @@
 .label-base {display: inline-block;vertical-align: middle;position: relative;}
 .label-base span {display: inline-block;vertical-align: middle;width: 100%;}
 /* label - radius 라벨1 */ 
-.lbr-st1 span {font-size:12px;color: #000;border:1px solid #666;text-align: center;min-width: 42px;padding: 0 10px;border-radius:12px;}
+.lbr-st1 span {font-size:10px;color: #000;border:1px solid #666;text-align: center;min-width: 45px;padding: 0 6px;border-radius:10px;}
 /* label - radius 라벨2 */ 
-.lbr-st2 span {font-size:12px;color: #fff;text-align: center;min-width: 44px;padding: 1px 12px;border-radius:12px;background-color: #f42a86;}
+/*.lbr-st2 span {font-size:10px;color: #fff;text-align: center;min-width: 44px;padding: 1px 12px;border-radius:10px;background-color: #f42a86;}*/
 /* label - radius 라벨3 */ 
-.lbr-st3 span {font-size:12px;color: #f42a86;text-align: center;min-width: 38px;padding: 9px 7px;border-radius:2px;border:1px solid #ec0d61;}
+/*.lbr-st3 span {font-size:10px;color: #f42a86;text-align: center;min-width: 38px;padding: 9px 7px;border-radius:2px;border:1px solid #ec0d61;}*/
 
 /* ------------- checkbox */
-.chk-base {transition: opacity 0.3s;display: inline-block;}
+/*.chk-base {transition: opacity 0.3s;display: inline-block;}
 .chk-base.disabled {opacity: 0.4;pointer-events: none;}
-.chk-base label {display: inline-block;vertical-align: middle;position: relative;}
+.chk-base label {display: inline-block;vertical-align: middle;position: relative;}*/
 /* checkbox1 */ 
-.chk-st1 label {height: 20px;padding-left: 30px;font-size:14px;color: #fff;}
+/*.chk-st1 label {height: 20px;padding-left: 30px;font-size:14px;color: #fff;}
 .chk-st1 label:before {content: '';display: block;width: 20px;height: 20px;background: url(/images/front/travel/contents/icon-common-sec.png) 0px -235px no-repeat;position: absolute;top: 0;left: 0;}
 .chk-st1 input[type="checkbox"]:checked ~ label:before {background-position: -25px -235px;}
-.chk-st1 label.on:before {background-position: -25px -235px;}
+.chk-st1 label.on:before {background-position: -25px -235px;}*/
 /* checkbox2 */ 
-.chk-st2 label {height: 20px;padding-left: 30px;font-size:14px;color: #000;}
+/*.chk-st2 label {height: 20px;padding-left: 30px;font-size:14px;color: #000;}
 .chk-st2 label:before {content: '';display: block;width: 20px;height: 20px;background: url(/images/front/travel/contents/icon-common-sec.png) 0px -260px no-repeat;position: absolute;top: 0;left: 0;}
 .chk-st2 input[type="checkbox"]:checked ~ label:before {background-position: -25px -260px;}
-.chk-st2 label.on:before {background-position: -25px -260px;}
+.chk-st2 label.on:before {background-position: -25px -260px;}*/
 
 /* ------------- radio */
-.radio-base {transition: opacity 0.3s;display: inline-block;}
+/*.radio-base {transition: opacity 0.3s;display: inline-block;}
 .radio-base.disabled {opacity: 0.4;pointer-events: none;}
-.radio-base label {display: inline-block;vertical-align: middle;position: relative;}
+.radio-base label {display: inline-block;vertical-align: middle;position: relative;}*/
 /* radio1 */ 
-.radio-st1 label {height: 20px;padding-left: 30px;font-size:14px;color: #fff;}
+/*.radio-st1 label {height: 20px;padding-left: 30px;font-size:14px;color: #fff;}
 .radio-st1 label:before {content: '';display: block;width: 20px;height: 20px;background: url(/images/front/travel/contents/icon-common-sec.png) 0px -235px no-repeat;position: absolute;top: 0;left: 0;}
 .radio-st1 input[type="radio"]:checked ~ label:before {background-position: -25px -235px;}
-.radio-st1 label.on:before {background-position: -25px -235px;}
+.radio-st1 label.on:before {background-position: -25px -235px;}*/
 
 /* ------------- selectbox */
 
@@ -214,16 +217,16 @@
  *  common - footer
  *--------------------------------------------------------------------------------------------------------------*/
 .footer-sec .w-footer-sec {background-color: #000;padding: 30px 20px;margin-top: 40px;}
-.w-footer-sec .fts-top:after {content: '';display: block;clear:both;}
-.w-footer-sec .fts-top .fts-call {float: left;line-height: 1.3;}
-.w-footer-sec .fts-top .fts-call > span {display: block;}
-.w-footer-sec .fts-top .fts-call .txt1 {color: #fff;font-size:14px;font-weight: 500 !important;}
-.w-footer-sec .fts-top .fts-call .txt1 em a {color: #f30774;font-size:14px;font-weight: 500 !important;}
-.w-footer-sec .fts-top .fts-call .txt2 a {color: #fff;font-size:12px;}
-.w-footer-sec .fts-top .fts-go-link {float: right;}
-.w-footer-sec .fts-top .fts-go-link:after {content: '';display: block;clear:both;}
-.w-footer-sec .fts-top .fts-go-link li {float: left;margin-left: 10px;}
-.w-footer-sec .fts-top .fts-go-link li .bb-st1 a {min-width: 75px;}
+.w-footer-sec .fts-ly1:after {content: '';display: block;clear:both;}
+.w-footer-sec .fts-ly1 .fts-call {float: left;line-height: 1.3;}
+.w-footer-sec .fts-ly1 .fts-call > span {display: block;}
+.w-footer-sec .fts-ly1 .fts-call .txt1 {color: #fff;font-size:14px;font-weight: 500 !important;}
+.w-footer-sec .fts-ly1 .fts-call .txt1 em a {color: #f30774;font-size:14px;font-weight: 500 !important;}
+.w-footer-sec .fts-ly1 .fts-call .txt2 a {color: #fff;font-size:12px;}
+.w-footer-sec .fts-ly1 .fts-go-link {float: right;}
+.w-footer-sec .fts-ly1 .fts-go-link:after {content: '';display: block;clear:both;}
+.w-footer-sec .fts-ly1 .fts-go-link li {float: left;margin-left: 10px;}
+.w-footer-sec .fts-ly1 .fts-go-link li .bb-st1 a {min-width: 75px;}
 .w-footer-sec .nav-fnb {margin-top: 15px;}
 .w-footer-sec .nav-fnb:after {content: '';display: block;clear:both;}
 .w-footer-sec .nav-fnb li {float: left;position: relative;}
@@ -239,8 +242,8 @@
  *  contents - 검색
  *--------------------------------------------------------------------------------------------------------------*/
 /* 검색 섹션 배경 */
-.o-bg-air .w-header-sec, .o-bg-air .w-search-sec, .o-bg-air .w-search-sec-pop {background-color: #288ecc;}
-.o-bg-hotel .w-header-sec, .o-bg-hotel .w-search-sec, .o-bg-hotel .w-search-sec-pop {background-color: #00b290;}
+.o-bg-air .w-header-sec, .o-bg-air .w-search-sec, .o-bg-air .sc-search-tab, .o-bg-air .sc-search-tab .list-tab {background-color: #288ecc;}
+.o-bg-hotel .w-header-sec, .o-bg-hotel .w-search-sec, .o-bg-hotel .sc-search-tab, .o-bg-hotel .sc-search-tab .list-tab {background-color: #00b290;}
 /* 검색 메뉴(서브) */
 .w-search-sec {padding: 35px 10px;}
 .hs-search-menu {position: relative;padding: 0 10px;}
@@ -334,12 +337,15 @@
 .sc-hotel .places-exit .city .txt:after {content: '';display: block;width: 100%;height: 1px;background-color: #fff;left: -20px;padding-right: 20px;position:absolute;bottom: 0;-moz-box-sizing:initial;-webkit-box-sizing:initial;box-sizing:initial;}
 .sc-hotel .qsb-capacity .type-room {display: inline-block;}
 /* 검색 팝업(탭) */
-.sc-search-tab {padding: 0 20px 12px 20px;}
+.sc-search-tab {position: relative;height: 42px;z-index: 5;}
+.ot-multiway .sc-search-tab {height: 188px;}
+.sc-search-tab .sst-inner {position: fixed;width: 100%;top: 50px;}
+.sc-search-tab .list-tab {padding: 0 20px 12px 20px;}
 .sc-search-tab .list-tab:after {content: '';display: block;clear:both;}
 .sc-search-tab .list-tab {display:-webkit-box;display:-moz-box;display:-ms-flexbox;display:-webkit-flex;display:flex;}
 .sc-search-tab .list-tab li {-webkit-box-flex:1;-moz-box-flex:1;width:32%;-webkit-flex:1;-ms-flex:1;flex: 1;margin-left: 3%;position: relative;}
 .sc-search-tab .list-tab li:first-child {margin-left: 0;}
-.sc-search-tab .list-tab .lt-col2 li {-webkit-box-flex:none;-moz-box-flex:none;width:50%;-webkit-flex:none;-ms-flex:none;flex:none;float: left;margin-left: 0;}
+.sc-search-tab .list-tab .li-col2 li {-webkit-box-flex:none;-moz-box-flex:none;width:50%;-webkit-flex:none;-ms-flex:none;flex:none;float: left;margin-left: 0;}
 .sc-search-tab .list-tab .slt-area {display: block;text-overflow:ellipsis;white-space:nowrap;overflow:hidden;text-align: center;padding: 3px 0px 5px 0px;position: relative;}
 .sc-search-tab .list-tab .slt-area:after {content: '';display: block;width: 100%;height: 2px;background-color: #fff;opacity: 0.5;transition: opacity 0.3s;position: absolute;bottom:0;}
 .sc-search-tab .list-tab .slt-area.on:after {opacity: 1;}
@@ -348,8 +354,7 @@
 .sc-search-tab .list-tab .slt-area .slt-chkout {padding-left: 15px;position: relative;}
 .sc-search-tab .list-tab .slt-area .slt-chkout:before {content: '';display: block;width: 8px;height: 1px;background-color: #fff;opacity: 0.5;position: absolute;top: 11px;left: 3px;}
 .sc-search-tab .list-tab .slt-places:before {content: '';display: block;width: 11px;height: 10px;opacity: 0.5;position: absolute;top: 10px;left: 50%;margin-left: -4px;background: url(/images/front/mtravel/contents/icon-common-secM.png) 0px -44px no-repeat;-webkit-background-size: 160px;background-size: 160px;}
-.list-tab-cont > li {padding-top: 20px;}
-.list-tab-cont > li:first-child {padding-top: 10px;}
+.list-tab-cont .list-tab {padding-top: 5px;}
 .slt-btn-add .b-add-multiway {display: block;width: 100%;border:1px solid #fff;border-radius: 3px;text-align: center;padding: 3px 0 5px 0;}
 .slt-btn-add .b-add-multiway span {display: inline-block;color: #fff;font-size:13px;position: relative;padding-right: 20px;}
 .slt-btn-add .b-add-multiway span:before {content: '';display: block;width: 12px;height: 12px;color: #fff;position: absolute;right: 0;top: 4px;background: url(/images/front/mtravel/contents/icon-common-secM.png) 0px -71px no-repeat;-webkit-background-size: 160px;background-size: 160px;}
@@ -358,19 +363,21 @@
 .slt-btn-add .b-remove-multiway span:before {content: '';display: block;width: 12px;height: 12px;color: #fff;position: absolute;right: 0;top: 5px;background: url(/images/front/mtravel/contents/icon-common-secM.png) 0 -56px no-repeat;-webkit-background-size: 160px;background-size: 160px;}
 .slt-btn-add.on .b-add-multiway {display: none;}
 .slt-btn-add.on .b-remove-multiway {display: block;}
-.sc-search-tab.ot-multiway .slt-places:before {background-position: -14px -50px;}
+.ot-multiway .sc-search-tab .slt-places:before {background-position: -14px -50px;}
 /* 검색 팝업(box) layout */
-.sc-search-area .list-ssa {width: 100%;background-color: #ebeef2;padding: 15px 0;}
-.ssa-ui-box {background-color: #fff;border-radius: 4px;overflow: hidden;margin: 0 20px;display: none;}
+.sc-search-area .list-ssa {width: 100%;background-color: #ebeef2;padding: 15px 20px;}
+.ssa-ui-box {background-color: #fff;border-radius: 4px;overflow: hidden;min-height:300px;display: none;}
 .ssa-ui-box.on {display: block;}
 .ssa-ui-box .btn-search {margin: 10px;}
 /* 검색 팝업(box) - 도시, 호텔 검색 리스트 */
 .uis-input {position: relative;}
-.uis-input .inp-search {width: 100%;font-size:18px;color: #000;padding: 10px 15px;font-weight: 400 !important;}
+.uis-input .inp-search {width: 100%;font-size:18px;color: #000;border-bottom: 1px solid #000;padding: 10px 15px;font-weight: 400 !important;}
+.uis-input .inp-exp {display: inline-block;position: absolute;right: 15px;top: 15px;font-size:12px;color: #999;}
 .uis-input .b-clear {position: absolute;right: 10px;top: 50%;margin-top: -11px;display: none;}
 .uis-input .b-clear button {width: 23px;height: 24px;background: url(/images/front/mtravel/contents/icon-common-secM.png) -19px -24px no-repeat;-webkit-background-size: 160px;background-size: 160px;}
 .uis-input.isVal .b-clear {display: block;}
 .uis-input.isVal .inp-search {border-bottom: 1px solid #f30774;}
+.uis-input.isVal .inp-exp {display: none;}
 /* 검색 팝업(box) - 도시, 호텔 리스트 */
 .w-uis-sec {padding: 0 15px 15px 15px;}
 .uis-sec {padding-top: 16px;}
@@ -379,7 +386,9 @@
 .uis-sec .list li a, .uis-sec .list li > span {display: block;padding: 15px 0;position: relative;}
 .uis-sec .list li .name {font-size:15px;color: #333;font-weight: 400 !important;display: inline-block;}
 .uis-sec .list li .name-det {font-size:13px;color: #999;display: inline-block;margin-left: 3px;}
-.uis-sec .list li .code {font-size:13px;color: #333;font-weight: 600 !important;display: inline-block;margin-left: 3px;position: absolute;top: 16px;right: 0;}
+.uis-sec .list li .code {font-size:13px;color: #333;font-weight: 600 !important;display: inline-block;margin-left: 3px;position: absolute;top: 7x;right: 0;}
+.uis-sec .list li .lbr-st1 + .name {padding-left: 50px;}
+.uis-sec .list li .lbr-st1 {position: absolute;left: 0;top: 50%;margin-top: -10px;}
 .uis-list.recently .list a {padding-left: 25px;}
 .uis-list.recently .list a:before {content: '';display: block;width: 16px;height: 17px;background: url(/images/front/mtravel/contents/icon-common-secM.png) 0px -24px no-repeat;-webkit-background-size: 160px;background-size: 160px;position: absolute;top: 18px;left: 0;}
 .uis-list.recommend .tit-rec:after {content: '';display: block;width: 15px;height: 8px;background: url(/images/front/mtravel/contents/icon-common-secM.png) 0px -91px no-repeat;-webkit-background-size: 160px;background-size: 160px;position: absolute;top: 21px;right: 0;}
@@ -390,6 +399,8 @@
 .uis-list.recommend .list-sub li {padding-left: 10px;border-bottom: 0;}
 .uis-list.recommend .list-sub li a {padding: 6px 0 6px 20px;}
 .uis-list.recommend .list-sub li a:before {content: '';display: block;width: 9px;height: 10px;border-left:1px solid #cbcbcb;border-bottom:1px solid #cbcbcb;position: absolute;top: 13px;left: 0;}
+.uis-list.recommend .li-col2:after {content: '';display: block;clear:both;}
+.uis-list.recommend .li-col2 li {width: 50%;float: left;}
 /* 검색 팝업(box) - 인원,좌석,객실,체크리스트 */
 .uis-capacity-number li:after {content: '';display: block;clear:both;}
 .uis-capacity-number .tit {float: left;font-size:16px;color: #000;padding-top: 7px;}
@@ -408,52 +419,75 @@
 .uis-capacity-select .on a:after {background-position: -113px 0px;}
 .uis-capacity-number .exp-dom {display: none;}
 /* 검색 팝업(box) - 달력 */
-.uis-datepicker-weekend {margin: 0 15px;padding: 0 15px;background-color: #f8f8f8;}
-.uis-datepicker-weekend ul {border-bottom: 1px solid #e6e6e5;display: table;table-layout: fixed;width: 100%;background-color: #f8f8f8;}
-.uis-datepicker-weekend li {display: table-cell;width: 14.28571428571429%;font-size:12px;color: #000;font-family:'Roboto';font-weight: 300;text-align: center;padding: 19px 0;}
-.uis-datepicker-weekend li:first-child {color: #f35600;}
-.uis-datepicker-weekend li:last-child {color: #337be8;}
+.uis-datepicker-weekend {position: relative;height: 52px;margin: -15px -20px 0 -20px;}
+.uis-datepicker-weekend .udw-inner {padding: 15px 20px 0 20px;background-color: #ebeef2;position: fixed;width: 100%;z-index: 5;}
+.uis-datepicker-weekend ul {display: table;table-layout: fixed;width: 100%;border-bottom: 1px solid #e6e6e6;background-color: #fff;border-radius: 4px 4px 0 0;padding: 0 10px;}
+.uis-datepicker-weekend li {display: table-cell;width: 14.28571428571429%;font-size:12px;color: #000;text-align: center;font-weight: 400 !important;padding: 11px 0;}
+.uis-datepicker-weekend li:first-child {color: #ff3333;}
+.uis-datepicker-weekend li:last-child {color: #2c5ade;}
 /* datepicker */
-.ui-datepicker.ui-datepicker-multi{position:relative;background-color: #f8f8f8;border-radius:0;text-align:center;font-family:'Roboto';}
-.ui-datepicker-multi .ui-datepicker-group {float: none;}
-.ui-datepicker-multi .ui-datepicker-group table {width: 100%;margin: 0 auto;table-layout: fixed;}
-.ui-widget-header {background: none;border: 0;color: #000;font-weight: normal;}
-.ui-widget.ui-widget-content {border: 0;}
-.ui-datepicker .ui-datepicker-header {padding: 30px 0 20px 0;}
-.ui-datepicker .ui-datepicker-header .ui-corner-all {display: none;}
-.ui-datepicker .ui-datepicker-title {padding:0;font-size:17px;color:#000;font-weight: 600;}
-.ui-datepicker-calendar{width:100%;padding-top: 20px;}
-.ui-datepicker-calendar > thead {display: none;}
-.ui-datepicker-today .ui-state-default,
-.ui-state-active, 
-.ui-widget-content .ui-state-active, 
-.ui-widget-header .ui-state-active, 
-a.ui-button:active, 
-.ui-button:active, 
-.ui-button.ui-state-active:hover {background: none;}
-.ui-datepicker td.ui-datepicker-week-end:nth-child(1n) a,
-.ui-datepicker td.ui-datepicker-week-end:nth-child(1n) span{color:#f35600}
-.ui-datepicker td.ui-datepicker-week-end:nth-child(7n) a,
-.ui-datepicker td.ui-datepicker-week-end:nth-child(7n) span{color:#337be8}
-.ui-state-default,
-.ui-widget-content .ui-state-default,
-.ui-widget-header .ui-state-default, .ui-button,
-html .ui-button.ui-state-disabled:hover,
-html .ui-button.ui-state-disabled:active {width: 40px;height: 40px;line-height: 40px;display:block;font-size:15px;color:#181818;border: 0;text-align: center;padding: 0;margin: 0 auto;background: #f8f8f8;}
-.ui-datepicker {padding: 0 15px;}
-.ui-datepicker td {padding: 0;}
-.dp-highlight .ui-state-default {background: #fb4e02;color: #fff !important;font-weight: 600;border-radius: 50%;}
-.dp-highlight.pd-between {background: #fb4e02;}
-.dp-highlight.dp-first {
-	-webkit-background: linear-gradient(to right,#f8f8f8 0%,#f8f8f8 50%,#fb4e02 50%,#fb4e02 100%);
-	-moz-background: linear-gradient(to right,#f8f8f8 0%,#f8f8f8 50%,#fb4e02 50%,#fb4e02 100%);
-	background: linear-gradient(to right,#f8f8f8 0%,#f8f8f8 50%,#fb4e02 50%,#fb4e02 100%);
+.uis-datepicker .ui-datepicker {padding: 0 10px;}
+.uis-datepicker .ui-datepicker * {margin:0;padding:0;border:0;background:none;text-align:center;color:#000;font-weight: 400 !important;}
+.uis-datepicker .ui-datepicker.ui-datepicker-multi{position:relative;background-color: #fff;border-radius:0;text-align:center;}
+.uis-datepicker .ui-datepicker-multi .ui-datepicker-group {float: none;padding-bottom: 15px;border-top: 1px solid #e6e6e6;}
+.uis-datepicker .ui-datepicker-multi .ui-datepicker-group table {width: 100%;margin: 0 auto;table-layout: fixed;}
+.uis-datepicker .ui-widget.ui-widget-content {border: 0;}
+.uis-datepicker .ui-datepicker .ui-datepicker-header {padding: 20px 0 15px 0;}
+.uis-datepicker .ui-datepicker .ui-datepicker-header .ui-corner-all {display: none;}
+.uis-datepicker .ui-datepicker .ui-datepicker-title * {font-size:20px;}
+.uis-datepicker .ui-datepicker-calendar{width:100%;padding-top: 20px;}
+.uis-datepicker .ui-datepicker-calendar > thead {display: none;}
+.uis-datepicker .ui-datepicker-today .ui-state-default,
+.uis-datepicker .ui-state-active, 
+.uis-datepicker .ui-widget-content .ui-state-active, 
+.uis-datepicker .ui-widget-header .ui-state-active, 
+.uis-datepicker .ui-datepicker td.ui-datepicker-week-end:nth-child(1n) a,
+.uis-datepicker .ui-datepicker td.ui-datepicker-week-end:nth-child(1n) span, 
+.uis-datepicker .ui-datepicker td.date-holiday * {color:#ff3333;}
+.uis-datepicker .ui-datepicker td.ui-datepicker-week-end:nth-child(7n) a,
+.uis-datepicker .ui-datepicker td.ui-datepicker-week-end:nth-child(7n) span{color:#2c5ade;}
+.uis-datepicker .ui-datepicker-calendar tbody tr td a, 
+.uis-datepicker .ui-datepicker-calendar tbody tr td span {display: block;width: 35px;height: 35px;line-height: 35px;margin: 0 auto;color:#000;font-size:14px;position: relative;}
+.uis-datepicker .ui-datepicker-calendar tbody tr td.ui-state-disabled {opacity: 0.4;}
+/*.uis-datepicker .ui-datepicker-calendar tbody tr td .ui-state-default, */
+.uis-datepicker .ui-datepicker-calendar tbody tr td.ui-datepicker-today .ui-state-default {background: none;color: #000;border:0;}
+.uis-datepicker .ui-datepicker-calendar tbody tr td.ui-datepicker-today a:before {content: 'Today';width: 100%;font-size:10px;color: #f2006b;text-align: center;position: absolute;left: 0;bottom: -14px;}
+.uis-datepicker .ui-datepicker-calendar tbody tr td.ui-datepicker-today .ui-state-active:before {font-size:0;}
+.uis-datepicker .ui-datepicker-calendar tbody tr td .ui-state-hover {background-color: #eee;}
+.uis-datepicker .ui-datepicker-calendar tbody tr td .ui-state-active {background-color: #f30774 !important;color: #fff !important;border-radius: 3px;}
+/* highlight 왕복 */
+.uis-datepicker .dp-highlight {position: relative;}
+.uis-datepicker .dp-highlight.ui-datepicker-today a:before {font-size:0 !important;}
+.uis-datepicker .dp-highlight .ui-state-default {background-color: #f30774 !important;color: #fff !important;border-radius: 3px;}
+.uis-datepicker .dp-highlight .ui-state-hover {background: none;}
+.uis-datepicker .dp-highlight.pd-between .ui-state-default {background: none !important;color: #000 !important;border-radius: 0;}
+.uis-datepicker .dp-highlight.pd-between:before,
+.uis-datepicker .dp-highlight.dp-first:before,
+.uis-datepicker .dp-highlight.dp-end:before {content:'';display:block;width:100%;height:25px;position:absolute;left:0;top:5px;background: #fde9f1;z-index:0;}
+.uis-datepicker .dp-highlight.dp-first:before {left: 10px;width: 90%;}
+.uis-datepicker .dp-highlight.dp-end:before {left: -5px;width: 90%;}
+.uis-datepicker .dp-highlight.dp-first.ui-datepicker-today:before {font-size:0 !important;left: 10px !important;bottom: 0 !important;}
+.uis-datepicker .dp-highlight.dp-first .ui-state-default:after {content:'';display:block;height:100%;position:absolute;top:0;right:-12px;z-index:1;width:0;height:0;
+border-top:18px solid transparent;
+border-bottom:17px solid transparent;
+border-right:0;
+border-left:13px solid #f30774;
 }
-.dp-highlight.dp-end {
-	-webkit-background: linear-gradient(to right,#fb4e02 0%,#fb4e02 50%,#f8f8f8 50%,#f8f8f8 100%);
-	-moz-background: linear-gradient(to right,#fb4e02 0%,#fb4e02 50%,#f8f8f8 50%,#f8f8f8 100%);
-	background: linear-gradient(to right,#fb4e02 0%,#fb4e02 50%,#f8f8f8 50%,#f8f8f8 100%);	
+.uis-datepicker .dp-highlight.dp-end .ui-state-default:after {content:'';display:block;height:100%;position:absolute;top:0;left:-12px;z-index:1;width:0;height:0;
+border-top:18px solid transparent;
+border-bottom:17px solid transparent;
+border-right:13px solid #f30774;
+border-left:0;
 }
+/* highlight 다구간 */
+.uis-datepicker .dp-highlight-md {position: relative;}
+.uis-datepicker .dp-highlight-md.ui-datepicker-today a:before {font-size:0 !important;}
+.uis-datepicker .dp-highlight-md .txt {width: 100%;font-size:11px;color: #fff;text-align: center;position: absolute;left: 0;bottom: -1px;z-index: 1;}
+.uis-datepicker .dp-highlight-md .ui-state-default {background-color: #f30774 !important;color: #fff !important;border-radius: 3px;z-index: 1;}
+.uis-datepicker .dp-highlight-md .ui-state-hover {background: none;}
+.uis-datepicker .dp-highlight-md.pd-between .ui-state-default {background: none !important;color: #000 !important;border-radius: 0;}
+.uis-datepicker .dp-highlight-md.pd-between:before {content:'';display:block;width:150%;height:30px;position:absolute;left:50%;margin-left: -75%;top:5px;background: #fde9f1;z-index:0;}
+.uis-datepicker .dp-highlight-md.dp-first.ui-datepicker-today:before {font-size:0 !important;left: 10px !important;bottom: 0 !important;}
 
 /*--------------------------------------------------------------------------------------------------------------
  *  contents - 공통

@@ -1,0 +1,297 @@
+<!doctype html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=no" />
+<meta name="format-detection" content="telephone=no" />
+<title>무제 문서</title>
+<link rel="shortcut icon" type="image/x-icon" href="//tmstatic.priviatravel.com/images/front/mtravel/common/favicon.ico" />
+<link rel="apple-touch-icon-precomposed" sizes="152x152" href="//tmstatic.priviatravel.com/images/front/mtravel/common/apple-touch-icon-152.png" />
+<link type="text/css" rel="stylesheet" href="/css/front/mtravel/jquery.mobile.1.4.2.css" />
+<link type="text/css" rel="stylesheet" href="/css/front/mtravel/jquery-ui.min.css" /> <!-- 프비 리뉴얼 css(jquery-ui 관련) -->
+<link type="text/css" rel="stylesheet" href="/css/front/mtravel/base.css" />
+<link type="text/css" rel="stylesheet" href="/css/front/mtravel/common.css" />
+<link type="text/css" rel="stylesheet" href="/css/front/mtravel/contents.css" />
+<link type="text/css" rel="stylesheet" href="/css/front/mtravel/promotion.css" />
+<link type="text/css" rel="stylesheet" href="/css/front/mtravel/jquery.mCustomScrollbar.min.css" />
+<link type="text/css" rel="stylesheet" href="/css/front/mtravel/swiper.min.css" /> <!-- 프비 리뉴얼 css(슬라이드 관련) -->
+<link type="text/css" rel="stylesheet" href="/css/front/mtravel/commonModuleM.css" /> <!-- 프비 리뉴얼 css -->
+
+<script type="text/javascript" src="/js/front/mtravel/jquery-1.8.3.min.js"></script>
+<script type="text/javascript" src="/js/front/mtravel/jquery-ui.min.js"></script><!-- 프비 리뉴얼 js(jquery-ui) -->
+<script type="text/javascript" src="/js/front/mtravel/init.js"></script>
+<script type="text/javascript" src="/js/front/mtravel/jquery.mobile-1.4.2.js"></script>
+<script type="text/javascript" src="/js/front/mtravel/jquery.mCustomScrollbar.concat.min.js"></script>
+<script type="text/javascript" src="/js/front/mtravel/main_datepicker.js"></script> <!-- 캘린더 운영 버전 -->
+<script type="text/javascript" src="/js/front/mtravel/main_datepicker_dev.js"></script> <!-- 캘린더 테스트 버전 -->
+<script type="text/javascript" src="/js/front/mtravel/swipe.js"></script>
+<script type="text/javascript" src="/js/front/mtravel/swiper.min.js"></script> <!-- 프비 리뉴얼 js(슬라이드 관련) -->
+<!--<script type="text/javascript" src="/js/front/mtravel/commonUI.js"></script>-->
+<script type="text/javascript" src="/js/front/mtravel/commonUI-dev.js"></script><!-- commonUI 테스트 버전 -->
+<script type="text/javascript" src="/js/front/mtravel/commonModuleM.js"></script> <!-- 프비 리뉴얼 js -->
+<script type="text/javascript" src="/js/utils.js"></script>
+</head>
+
+<body>
+
+<!-- page -->
+<div data-role="page" class="o-bg-hotel"><!-- 검색섹션 배경색 -->
+    
+    <!-- header-sec -->
+    <div class="header-sec">
+        <header class="w-header-sec">
+            <h2 class="whs-title">여행지 검색</h2>
+            <div class="ly-left">
+                <a href="#" class="b-back" data-rel="back" data-direction="reverse"><span class="a11y">이전 페이지로 가기</span></a>
+                <a href="#" class="b-close" data-rel="back"><span class="a11y">페이지 닫기</span></a>
+            </div>
+        </header>
+    </div>
+    <!-- //header-sec -->
+           
+    <!-- content-sec -->
+    <div class="content-sec">
+        <section class="w-content-sec">
+            <div class="w-search-lp ot-domh">
+                <!-- 검색 탭 -->
+                <div class="sc-search-tab">
+                    <div class="sst-inner">
+                        <ul class="list-tab">
+                            <li>
+                                <a href="#" class="slt-area" data-tab="mainsel">
+                                    <span class="slt-input">여행지</span>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="#" class="slt-area" data-tab="calendar">
+                                    <span class="slt-chkin slt-input" data-day="">체크인</span>
+                                    <span class="slt-chkout slt-input" data-day="">체크아웃</span>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="#" class="slt-area" data-tab="capacity">
+                                    <span class="slt-input">1인실 1개</span>
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+                <!-- //검색 탭 -->
+            
+                <!-- 검색 box 영역 -->
+                <div class="sc-search-area">
+                    <div class="list-ssa">
+                        <div class="ssa-ui-box uis-mainsel on">
+                            <div class="uis-input">
+                                <input type="keyword" placeholder="어디로 가시나요?" class="input-base inp-search">
+                                <span class="inp-exp">도시, 호텔명 모두 검색 가능</span>
+                                <span class="btn-base b-clear"><button type="button"><span class="a11y">검색어 지우기</span></button></span>
+                            </div>
+                            <div class="w-uis-sec">
+                                <div class="uis-sec">
+                                    <p class="tit">추천 도시</p>
+                                    <ul class="list uis-list recommend">
+                                        <li><a href="#"><span class="name">제주도 전체</span></a></li>
+                                        <li><a href="#"><span class="name">서울특별시 전체</span></a></li>
+                                        <li><a href="#"><span class="name">부산광역시 전체</span></a></li>
+                                        <li><a href="#"><span class="name">대구광역시 전체</span></a></li>
+                                        <li><a href="#"><span class="name">대전광역시 전체</span></a></li>
+                                        <li><a href="#"><span class="name">울산광역시 전체</span></a></li>
+                                    </ul>
+                                </div> 
+                                <div class="uis-sec">
+                                    <p class="tit">검색결과</p>
+                                    <ul class="list uis-list result">
+                                        <li>
+                                            <a href="#">
+                                                <span class="label-base lbr-st1"><span>HOTEL</span></span>
+                                                <span class="name">파리, 프랑스 (PARIS, FRANCE)</span>
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a href="#">
+                                                <span class="label-base lbr-st1"><span>HOTEL</span></span>
+                                                <span class="name">파리 샤를드골 공항(CDG), 프랑스</span>
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a href="#">
+                                                <span class="label-base lbr-st1"><span>CITY</span></span>
+                                                <span class="name">파리(TN), 미국</span>
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a href="#">
+                                                <span class="label-base lbr-st1"><span>HOTEL</span></span>
+                                                <span class="name">모던 다운타운 오아시스 알로하 스위트, 코타키나발루, 말레이시아</span>
+                                            </a>
+                                        </li>
+                                    </ul>
+                                </div>                                  
+                            </div>
+                        </div>
+                        <div class="ssa-ui-box uis-calendar">
+                            <div class="uis-datepicker-weekend">
+                                <div class="udw-inner">
+                                    <ul>
+                                        <li>일</li>
+                                        <li>월</li>
+                                        <li>화</li>
+                                        <li>수</li>
+                                        <li>목</li>
+                                        <li>금</li>
+                                        <li>토</li>
+                                    </ul>
+                                </div>
+                            </div>
+                            <div class="uis-datepicker"></div>
+                        </div>
+                        <div class="ssa-ui-box uis-capacity">
+                            <div class="w-uis-sec">
+                                <div class="uis-sec">
+                                    <p class="tit">객실 타입</p>
+                                    <ul class="list uis-capacity-number">
+                                        <li>
+                                            <span>
+                                                <span class="name">1인실</span>
+                                            </span>
+                                            <div class="uis-custom-number">
+                                                <span class="btn-base ucn-crt b-minus on">
+                                                    <button type="button" data-type="room1-minus"><span class="a11y">빼기</span></button>
+                                                </span>
+                                                <span class="ucn-num num-room1">1</span>
+                                                <span class="btn-base ucn-crt b-plus on">
+                                                    <button type="button" data-type="room1-plus"><span class="a11y">더하기</span></button>
+                                                </span>
+                                            </div>
+                                        </li>
+                                        <li>
+                                            <span>
+                                                <span class="name">2인실 (더블요청)</span>
+                                            </span>
+                                            <div class="uis-custom-number">
+                                                <span class="btn-base ucn-crt b-minus">
+                                                    <button type="button" data-type="room2d-minus"><span class="a11y">빼기</span></button>
+                                                </span>
+                                                <span class="ucn-num num-room2d">0</span>
+                                                <span class="btn-base ucn-crt b-plus">
+                                                    <button type="button" data-type="room2d-plus"><span class="a11y">더하기</span></button>
+                                                </span>
+                                            </div>
+                                        </li>
+                                        <li>
+                                            <span>
+                                                <span class="name">2인실 (트윈요청)</span>
+                                            </span>
+                                            <div class="uis-custom-number">
+                                                <span class="btn-base ucn-crt b-minus">
+                                                    <button type="button" data-type="room2t-minus"><span class="a11y">빼기</span></button>
+                                                </span>
+                                                <span class="ucn-num num-room2t">0</span>
+                                                <span class="btn-base ucn-crt b-plus">
+                                                    <button type="button" data-type="room2t-plus"><span class="a11y">더하기</span></button>
+                                                </span>
+                                            </div>
+                                        </li>
+                                        <li>
+                                            <span>
+                                                <span class="name">3인실</span>
+                                            </span>
+                                            <div class="uis-custom-number">
+                                                <span class="btn-base ucn-crt b-minus">
+                                                    <button type="button" data-type="room3-minus"><span class="a11y">빼기</span></button>
+                                                </span>
+                                                <span class="ucn-num num-room3">0</span>
+                                                <span class="btn-base ucn-crt b-plus">
+                                                    <button type="button" data-type="room3-plus"><span class="a11y">더하기</span></button>
+                                                </span>
+                                            </div>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+                            <div class="btn-search">
+                                <span class="btn-base bb-st3"><button type="button" class="b-search">호텔 검색</button></span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- //검색 box 영역 -->
+            </div>
+        </section>
+    </div>
+    <!-- //content-sec -->
+    
+    <script type="text/javascript">
+    $(document).one('pageshow',function(e,data){      
+        $('.ot-domh .uis-datepicker').datepicker({
+            showMonthAfterYear: true,
+            yearSuffix: '<span class="ui-datepicker-dot">.</span>',
+            monthNames: ['01','02','03','04','05','06','07','08','09','10','11','12'],
+            dayNamesMin: ['일', '월', '화', '수', '목', '금', '토'],
+            minDate: '0',
+            maxDate: '+362',
+            numberOfMonths: [13,1],
+            dateFormat: 'yy/mm/dd',
+            beforeShowDay: function(date) {
+                var date1 = $.datepicker.parseDate($(this).datepicker('option', 'dateFormat'), $('.ot-domh .slt-chkin[data-day]').data('day'));
+                var date2 = $.datepicker.parseDate($(this).datepicker('option', 'dateFormat'), $('.ot-domh .slt-chkout[data-day]').data('day'));
+                return pvmFrontScript.beforeShowDayMark(date, date1, date2);
+            },
+            onSelect: function(dateText, inst) {
+                var date1 = $.datepicker.parseDate($(this).datepicker('option', 'dateFormat'), $('.ot-domh .slt-chkin[data-day]').data('day'));
+                var date2 = $.datepicker.parseDate($(this).datepicker('option', 'dateFormat'), $('.ot-domh .slt-chkout[data-day]').data('day'));
+                var selectedDate = $.datepicker.parseDate($(this).datepicker('option', 'dateFormat'), dateText);
+                var txtDay = pvmFrontScript.onSelectTxtDay($(this), dateText);
+
+                //출발, 도착 모두 선택인 경우, 아무것도 선택이 없는 경우(출발)
+                if (!date1 || date2) {
+                    //data input
+                    $('.ot-domh .slt-chkin[data-day]').data('day', dateText);
+                    $('.ot-domh .slt-chkout[data-day]').data('day', '');
+                    //panel input
+                    $('.ot-domh .slt-chkin').html(txtDay);
+                    $('.ot-domh .slt-chkout').html('도착일');
+                    //sbox input
+                    
+                } else {
+                    //출발 보다 이전 날짜 선택
+                    if( selectedDate.getTime() < date1.getTime() ) {
+                        //출발 -> 도착 이동
+                        //data input 
+                        $('.ot-domh .slt-chkout[data-day]').data('day', $('.ot-domh .slt-chkin[data-day]').data('day'));
+                        //panel input
+                        $('.ot-domh .slt-chkout').html($('.ot-domh .slt-chkin').html());
+                        //sbox input
+                        
+
+                        //출발 셋팅
+                        //data input 
+                        $('.ot-domh .slt-chkin[data-day]').data('day', dateText);
+                        //panel input
+                        $('.sc-air .o-domh .uis-date-chkin .txt-day').html(txtDay);
+                        //sbox input
+                        
+                    } 
+                    else {
+                        //출발이후 선택시(도착)
+                        //data input 		
+                        $('.ot-domh .slt-chkout[data-day]').data('day', dateText);
+                        //panel input
+                        $('.ot-domh .slt-chkout').html(txtDay);
+                        //sbox input
+                        
+                    }
+                }
+            }
+        }).find('.ui-datepicker-today .ui-state-active').removeClass("ui-state-active");
+    });
+    </script>
+</div>
+<!-- //page -->
+
+
+
+    
+</body>
+</html>

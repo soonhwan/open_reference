@@ -1,4 +1,86 @@
 /*
+ * 설명   : jQuery 메서드 모음
+ * 사용처 : document.ready 구문에 실행함수 탑재
+ * 작성자 : 권순환
+ */
+(function ($, window, document, undefined) {
+	$.fn.customCheckbox = function(){
+		return this.each(function(){
+			var $this = $(this);
+			var $chk = $this.find('[type="checkbox"]');
+			var $label = $this.find('label');
+			
+			if(!$chk || $this.hasClass('chk-initialized')){return;}
+			
+			//checked 유효체크
+			if($chk.prop('checked')){
+				$label.addClass('on');
+			}
+			else{
+				$label.removeClass('on');
+			}
+			
+			//disabled
+			if($chk.prop('disabled')){
+			   $this.addClass('disabled');
+			}
+			
+			//label click
+			$label.on('click', function(){
+				if($label.closest('.disabled').hasClass('disabled')){return;}
+				if($label.hasClass('on')){
+					$label.removeClass('on');
+				}
+				else{
+					$label.addClass('on');
+				}
+			});
+			
+			//initialized
+			$this.addClass('chk-initialized');
+		});
+	}
+	$.fn.customRadio = function(){
+		return this.each(function(){
+			var $this = $(this);
+			var $radio = $this.find('[type="radio"]');
+			var $label = $this.find('label');
+			var $name = $radio.attr('name');
+			
+			if(!$radio || $this.hasClass('radio-initialized')){return;}
+			
+			//name 저장
+			$label.name = $name;
+			
+			//checked 유효체크
+			if($radio.prop('checked')){
+				$label.addClass('on');
+			}
+			else{
+				$label.removeClass('on');
+			}
+			
+			//disabled
+			if($radio.prop('disabled')){
+			   $this.addClass('disabled');
+			}
+			
+			//label click
+			$label.on('click', function(){
+				if($label.closest('.disabled').hasClass('disabled')){return;}
+				if(!$label.hasClass('on')){
+					$('[name="'+$label.name+'"]').next('label.on').removeClass('on');
+					$label.addClass('on');	
+				}
+			});
+			
+			//initialized
+			$this.addClass('radio-initialized');
+		});
+	}
+}(window.jQuery, window, document));
+
+/*
  * 설명   : pvmFrontScript 메서드 모음
  * 사용처 : document.ready 구문에 실행함수 탑재
  * 작성자 : 권순환
@@ -75,10 +157,22 @@ var pvmFrontScript = window.pvmFrontScript || (function(){
 		"20200930":{title:"추석연휴",year:"2020"}
 	};
 	
-	
 	return {
-		init: function(){			
+		init: function(){
+			//공통 UI
+			pvmFrontScript.baseUI($(document));
+		},
+		baseUI: function($this){
+			/* 설명   : 전역 공통으로 사용하는 UI 
+			   사용처 : 기본 전역으로 1번 실행하고 나중에 다른곳에서 재실행 할때 방지되어 있는 구조 */
 			
+			var _ = $this;
+
+			//체크박스(공통)
+			_.find('.chk-base').customCheckbox();
+
+			//라디오버튼(공통)
+			_.find('.radio-base').customRadio();
 		},
 		onSelectTxtDay: function($this, dateText, inst){
 			/* 설명   : 통합검색 - 선택된 날짜 형식 ex)08월 07일 (화) dayNamesMin 옵션이 있어야함!
@@ -109,22 +203,18 @@ var pvmFrontScript = window.pvmFrontScript || (function(){
 			}
 
 			//주말
-			/*if(!result) {
+			if(!result) {
 				switch (date.getDay()) {
-					case 0:
+					/*case 0:
 						result = [true, "date-sunday"];
 						break;
 					case 6:
 						result = [true, "date-saturday"];
-						break;
+						break;*/
 					default:
 						result = [true, ""];
 						break;
 				}
-			}*/	
-			
-			if(!result) {
-				result = [true, ""];
 			}
 			
 			return result;
@@ -180,6 +270,74 @@ var pvmFrontScript = window.pvmFrontScript || (function(){
 			}
 
 			return result;	
+		},
+		comSearchEvtBind: function($section){
+			/* 설명   : 통합검색 - 섹션별 필요한 이벤트 제공
+			   사용처 : 통합헤더 섹션별 UI Event 필요시 호출 */
+			
+			var section = $section;
+			
+			//공통 UI
+			//pvFrontScript.baseUI(section);
+		
+			//팝업 닫기 버튼
+			if(section.find('.sc-ui-search-panel .b-scb-close').length > 0){
+				section.find('.sc-ui-search-panel .b-scb-close').on('click', function(e){
+					$(this).closest('.sc-ui-search-panel.on').removeClass('on');
+					e.preventDefault();
+				});
+			}
+
+			//캘린더 today 제거
+			if(section.find('.uis-datepicker').length > 0){
+				section.find('.uis-datepicker .ui-datepicker-today .ui-state-active').removeClass("ui-state-active"); 
+			}
+			
+			//capacity uis-capacity-number click(클래스 on 추가, 삭제 기능)
+			if(section.find('.sc-ui-search-panel .uis-capacity-number').length > 0){
+				//minus
+				section.find('.sc-ui-search-panel .uis-capacity-number .uis-custom-number .b-minus button').on('click', function(e){
+					var c = parseInt($(this).closest('.uis-custom-number').find('.ucn-num').text());
+					if(c < 1){
+						if($(this).closest('.uis-custom-number').find('.ucn-num').hasClass('on')){
+							$(this).closest('.uis-custom-number').find('.ucn-num.on').removeClass('on');
+						}
+					}
+					e.preventDefault();
+				});
+				//plus
+				section.find('.sc-ui-search-panel .uis-capacity-number .uis-custom-number .b-plus button').on('click', function(e){
+					var c = parseInt($(this).closest('.uis-custom-number').find('.ucn-num').text());
+					if(c > 0){
+						if(!$(this).closest('.uis-custom-number').find('.ucn-num').hasClass('on')){
+							$(this).closest('.uis-custom-number').find('.ucn-num').addClass('on');
+						}
+					}
+					e.preventDefault();
+				});
+			}
+			
+			//capacity uis-capacity-select click(클래스 on 추가, 삭제 기능)
+			if(section.find('.sc-ui-search-panel .uis-capacity-select').length > 0){
+				section.find('.sc-ui-search-panel .uis-capacity-select li a').on('click', function(e){
+					if(!$(this).closest('li').hasClass('on')){
+						section.find('.sc-ui-search-panel .uis-capacity-select li.on').removeClass('on');
+						$(this).closest('li').addClass('on');
+					}
+					e.preventDefault();
+				});
+			}
+			
+			//select list click(클래스 on 추가, 삭제 기능)
+			if(section.find('.sc-ui-search-panel.ui-select-list').length > 0){
+				section.find('.sc-ui-search-panel.ui-select-list .uis-list .list li a').on('click', function(e){
+					if(!$(this).closest('li').hasClass('on')){
+						$(this).closest('.ui-select-list .uis-list .list li.on').removeClass('on');
+						$(this).closest('li').addClass('on');
+					}
+					e.preventDefault();
+				});
+			}
 		}
 	}	
 }());

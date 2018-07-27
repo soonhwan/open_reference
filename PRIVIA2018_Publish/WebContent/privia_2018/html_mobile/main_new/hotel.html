@@ -8,6 +8,7 @@
 <link rel="shortcut icon" type="image/x-icon" href="//tmstatic.priviatravel.com/images/front/mtravel/common/favicon.ico" />
 <link rel="apple-touch-icon-precomposed" sizes="152x152" href="//tmstatic.priviatravel.com/images/front/mtravel/common/apple-touch-icon-152.png" />
 <link type="text/css" rel="stylesheet" href="/css/front/mtravel/jquery.mobile.1.4.2.css" />
+<link type="text/css" rel="stylesheet" href="/css/front/mtravel/jquery-ui.min.css" /> <!-- 프비 리뉴얼 css(jquery-ui 관련) -->
 <link type="text/css" rel="stylesheet" href="/css/front/mtravel/base.css" />
 <link type="text/css" rel="stylesheet" href="/css/front/mtravel/common.css" />
 <link type="text/css" rel="stylesheet" href="/css/front/mtravel/contents.css" />
@@ -17,6 +18,7 @@
 <link type="text/css" rel="stylesheet" href="/css/front/mtravel/commonModuleM.css" /> <!-- 프비 리뉴얼 css -->
 
 <script type="text/javascript" src="/js/front/mtravel/jquery-1.8.3.min.js"></script>
+<script type="text/javascript" src="/js/front/mtravel/jquery-ui.min.js"></script><!-- 프비 리뉴얼 js(jquery-ui) -->
 <script type="text/javascript" src="/js/front/mtravel/init.js"></script>
 <script type="text/javascript" src="/js/front/mtravel/jquery.mobile-1.4.2.js"></script>
 <script type="text/javascript" src="/js/front/mtravel/jquery.mCustomScrollbar.concat.min.js"></script>
@@ -24,7 +26,8 @@
 <script type="text/javascript" src="/js/front/mtravel/main_datepicker_dev.js"></script> <!-- 캘린더 테스트 버전 -->
 <script type="text/javascript" src="/js/front/mtravel/swipe.js"></script>
 <script type="text/javascript" src="/js/front/mtravel/swiper.min.js"></script> <!-- 프비 리뉴얼 js(슬라이드 관련) -->
-<script type="text/javascript" src="/js/front/mtravel/commonUI-dev.js"></script>
+<!--<script type="text/javascript" src="/js/front/mtravel/commonUI.js"></script>-->
+<script type="text/javascript" src="/js/front/mtravel/commonUI-dev.js"></script><!-- commonUI 테스트 버전 -->
 <script type="text/javascript" src="/js/front/mtravel/commonModuleM.js"></script> <!-- 프비 리뉴얼 js -->
 <script type="text/javascript" src="/js/utils.js"></script>
 </head>
@@ -32,7 +35,7 @@
 <body>
 
 <!-- page -->
-<div data-role="page" class="o-bg-hotel">
+<div data-role="page" class="o-bg-hotel"><!-- 검색섹션 배경색 -->
    
     <!-- header-sec -->
     <div class="header-sec">
@@ -132,7 +135,50 @@
                         
                         <!-- 국내숙박 -->
                         <div class="sc-search-box o-domh">
-                            
+                            <div class="w-qsb-cont">
+                                <div class="qsb-cont-box-indep">
+                                    <div class="qsb-places">
+                                        <div class="places-exit">
+                                            <span class="label">도시 또는 호텔명</span>
+                                            <a href="#" class="qsb-area">
+                                                <span class="city"><span class="txt">어디로 가시나요?</span></span>
+                                            </a>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="qsb-cont-box">
+                                    <div class="qsb-cont qsb-dates">
+                                        <a href="#" class="qsb-area on" data-panel="calendar">
+                                            <span class="qsb-label-hide">숙박날짜</span>
+                                            <span class="qsb-input">
+                                                <span class="qsb-chkin on">
+                                                    <span class="label">체크인</span>
+                                                    <span class="txt">08월 07일 (화)</span>
+                                                </span>
+                                                <span class="qsb-chkout on">
+                                                    <span class="label">체크아웃</span>
+                                                    <span class="txt">08월 07일 (화)</span>
+                                                </span>
+                                            </span>
+                                            <span class="qsb-result-days on"><em><span class="num">4</span>박</em></span>
+                                        </a>
+                                    </div>
+                                    <div class="qsb-cont qsb-capacity">
+                                        <a href="#" class="qsb-area on" data-panel="capacity">
+                                            <span class="qsb-label">객실타입, 객실수</span>
+                                            <span class="qsb-input" data-room1="1" data-room2d="0" data-room2t="0" data-room3="0">
+                                                <span class="type-room">1인실 <span class="num">1</span>개, </span>
+                                                <span class="type-room">2인실(더블요청) <span class="num">1</span>개, </span>
+                                                <span class="type-room">2인실(트윈요청) <span class="num">1</span>개, </span>
+                                                <span class="type-room">3인실 <span class="num">1</span>개</span>
+                                            </span>
+                                        </a>
+                                    </div>
+                                    <div class="qsb-cont qsb-btn-search">
+                                        <span class="btn-base bb-st3"><button type="button" class="b-search">항공권 검색</button></span>
+                                    </div>
+                                </div>
+                            </div>
                         </div>
                         <!-- //국내숙박 -->
                     </div>

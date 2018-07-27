@@ -415,7 +415,7 @@ var pvFrontScript = window.pvFrontScript || (function(){
 		},
 		comSearchEvtBind: function($section){
 			/* 설명   : 통합검색 - 섹션별 필요한 이벤트 제공
-			   사용처 : 통합헤더 섹션별 UI Evvent 필요시 호출 */
+			   사용처 : 통합헤더 섹션별 UI Event 필요시 호출 */
 			
 			var section = $section;
 			
