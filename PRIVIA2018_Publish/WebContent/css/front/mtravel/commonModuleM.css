@@ -386,7 +386,7 @@
 .uis-sec .list li a, .uis-sec .list li > span {display: block;padding: 15px 0;position: relative;}
 .uis-sec .list li .name {font-size:15px;color: #333;font-weight: 400 !important;display: inline-block;}
 .uis-sec .list li .name-det {font-size:13px;color: #999;display: inline-block;margin-left: 3px;}
-.uis-sec .list li .code {font-size:13px;color: #333;font-weight: 600 !important;display: inline-block;margin-left: 3px;position: absolute;top: 7x;right: 0;}
+.uis-sec .list li .code {font-size:13px;color: #333;font-weight: 600 !important;display: inline-block;margin-left: 3px;position: absolute;top: 7px;right: 0;}
 .uis-sec .list li .lbr-st1 + .name {padding-left: 50px;}
 .uis-sec .list li .lbr-st1 {position: absolute;left: 0;top: 50%;margin-top: -10px;}
 .uis-list.recently .list a {padding-left: 25px;}
