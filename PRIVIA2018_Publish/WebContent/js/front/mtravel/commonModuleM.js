@@ -185,6 +185,16 @@ var pvmFrontScript = window.pvmFrontScript || (function(){
 				txt = month + '월 ' + day + '일 (' + dayName + ')';
 			return txt;
 		},
+		onSelectTxtDayVer2: function($this, dateText, inst){
+			/* 설명   : 통합검색 - 선택된 날짜 형식 ex)02.04
+			   사용처 : jQuery UI datepicker : onSelect 내부 */
+
+			var sDate = $.datepicker.parseDate($this.datepicker('option', 'dateFormat'), dateText),
+				month = (sDate.getMonth()+1) < 10 ? '0' + (sDate.getMonth()+1)  : sDate.getMonth()+1,
+				day = sDate.getDate() < 10 ? '0' + sDate.getDate()  : sDate.getDate(),
+				txt = month + '.' + day;
+			return txt;
+		},
 		jqdHolidayMark: function(date){
 			/* 설명   : jQuery Ui datepicker 주말, 휴일 표시
 			   사용처 : 필요시 호출 ex) var result = pvmFrontScript.jqdHolidayMark(date); */
@@ -279,11 +289,22 @@ var pvmFrontScript = window.pvmFrontScript || (function(){
 			
 			//공통 UI
 			//pvFrontScript.baseUI(section);
-		
-			//팝업 닫기 버튼
-			if(section.find('.sc-ui-search-panel .b-scb-close').length > 0){
-				section.find('.sc-ui-search-panel .b-scb-close').on('click', function(e){
-					$(this).closest('.sc-ui-search-panel.on').removeClass('on');
+			
+			//추천 sub list 열고, 닫기
+			if(section.find('.uis-list .tit-rec').length > 0){
+				section.find('.uis-list .tit-rec').on('click', function(e){
+					if(!$(this).parent('li').hasClass('on')){
+						$(this).closest('.uis-list').find('> li.on .list-sub').height(0);
+						$(this).closest('.uis-list').find('> li.on').removeClass('on');
+						
+						var h = $(this).parent('li').find('.list-sub').prop('scrollHeight');
+						$(this).parent('li').find('.list-sub').height(h);
+						$(this).parent('li').addClass('on');
+					}
+					else{
+						$(this).closest('.uis-list').find('> li.on .list-sub').height(0);
+						$(this).closest('.uis-list').find('> li.on').removeClass('on');
+					}
 					e.preventDefault();
 				});
 			}
@@ -294,9 +315,9 @@ var pvmFrontScript = window.pvmFrontScript || (function(){
 			}
 			
 			//capacity uis-capacity-number click(클래스 on 추가, 삭제 기능)
-			if(section.find('.sc-ui-search-panel .uis-capacity-number').length > 0){
+			if(section.find('.uis-capacity .uis-capacity-number').length > 0){
 				//minus
-				section.find('.sc-ui-search-panel .uis-capacity-number .uis-custom-number .b-minus button').on('click', function(e){
+				section.find('.uis-capacity .uis-capacity-number .uis-custom-number .b-minus button').on('click', function(e){
 					var c = parseInt($(this).closest('.uis-custom-number').find('.ucn-num').text());
 					if(c < 1){
 						if($(this).closest('.uis-custom-number').find('.ucn-num').hasClass('on')){
@@ -306,7 +327,7 @@ var pvmFrontScript = window.pvmFrontScript || (function(){
 					e.preventDefault();
 				});
 				//plus
-				section.find('.sc-ui-search-panel .uis-capacity-number .uis-custom-number .b-plus button').on('click', function(e){
+				section.find('.uis-capacity .uis-capacity-number .uis-custom-number .b-plus button').on('click', function(e){
 					var c = parseInt($(this).closest('.uis-custom-number').find('.ucn-num').text());
 					if(c > 0){
 						if(!$(this).closest('.uis-custom-number').find('.ucn-num').hasClass('on')){
@@ -318,21 +339,10 @@ var pvmFrontScript = window.pvmFrontScript || (function(){
 			}
 			
 			//capacity uis-capacity-select click(클래스 on 추가, 삭제 기능)
-			if(section.find('.sc-ui-search-panel .uis-capacity-select').length > 0){
-				section.find('.sc-ui-search-panel .uis-capacity-select li a').on('click', function(e){
+			if(section.find('.uis-capacity .uis-capacity-select').length > 0){
+				section.find('.uis-capacity .uis-capacity-select li a').on('click', function(e){
 					if(!$(this).closest('li').hasClass('on')){
-						section.find('.sc-ui-search-panel .uis-capacity-select li.on').removeClass('on');
-						$(this).closest('li').addClass('on');
-					}
-					e.preventDefault();
-				});
-			}
-			
-			//select list click(클래스 on 추가, 삭제 기능)
-			if(section.find('.sc-ui-search-panel.ui-select-list').length > 0){
-				section.find('.sc-ui-search-panel.ui-select-list .uis-list .list li a').on('click', function(e){
-					if(!$(this).closest('li').hasClass('on')){
-						$(this).closest('.ui-select-list .uis-list .list li.on').removeClass('on');
+						section.find('.uis-capacity .uis-capacity-select li.on').removeClass('on');
 						$(this).closest('li').addClass('on');
 					}
 					e.preventDefault();

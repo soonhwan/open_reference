@@ -9,12 +9,12 @@
 <link rel="apple-touch-icon-precomposed" sizes="152x152" href="//tmstatic.priviatravel.com/images/front/mtravel/common/apple-touch-icon-152.png" />
 <link type="text/css" rel="stylesheet" href="/css/front/mtravel/jquery.mobile.1.4.2.css" />
 <link type="text/css" rel="stylesheet" href="/css/front/mtravel/jquery-ui.min.css" /> <!-- 프비 리뉴얼 css(jquery-ui 관련) -->
+<link type="text/css" rel="stylesheet" href="/css/front/mtravel/swiper.min.css" /> <!-- 프비 리뉴얼 css(슬라이드 관련) -->
+<link type="text/css" rel="stylesheet" href="/css/front/mtravel/jquery.mCustomScrollbar.min.css" />
 <link type="text/css" rel="stylesheet" href="/css/front/mtravel/base.css" />
 <link type="text/css" rel="stylesheet" href="/css/front/mtravel/common.css" />
 <link type="text/css" rel="stylesheet" href="/css/front/mtravel/contents.css" />
-<link type="text/css" rel="stylesheet" href="/css/front/mtravel/promotion.css" />
-<link type="text/css" rel="stylesheet" href="/css/front/mtravel/jquery.mCustomScrollbar.min.css" />
-<link type="text/css" rel="stylesheet" href="/css/front/mtravel/swiper.min.css" /> <!-- 프비 리뉴얼 css(슬라이드 관련) -->
+<link type="text/css" rel="stylesheet" href="/css/front/mtravel/promotion.css" /> <!-- 기획전 페이지에 필요한 css -->
 <link type="text/css" rel="stylesheet" href="/css/front/mtravel/commonModuleM.css" /> <!-- 프비 리뉴얼 css -->
 
 <script type="text/javascript" src="/js/front/mtravel/jquery-1.8.3.min.js"></script>
@@ -23,12 +23,13 @@
 <script type="text/javascript" src="/js/front/mtravel/jquery.mobile-1.4.2.js"></script>
 <script type="text/javascript" src="/js/front/mtravel/jquery.mCustomScrollbar.concat.min.js"></script>
 <script type="text/javascript" src="/js/front/mtravel/main_datepicker.js"></script> <!-- 캘린더 운영 버전 -->
-<script type="text/javascript" src="/js/front/mtravel/main_datepicker_dev.js"></script> <!-- 캘린더 테스트 버전 -->
-<script type="text/javascript" src="/js/front/mtravel/swipe.js"></script>
+<!--<script type="text/javascript" src="/js/front/mtravel/main_datepicker_dev.js"></script>--> <!-- 캘린더 테스트 버전 -->
+<script type="text/javascript" src="/js/front/mtravel/swipe.js"></script> <!-- 기존 슬라이드 관련 js -->
 <script type="text/javascript" src="/js/front/mtravel/swiper.min.js"></script> <!-- 프비 리뉴얼 js(슬라이드 관련) -->
-<!--<script type="text/javascript" src="/js/front/mtravel/commonUI.js"></script>-->
-<script type="text/javascript" src="/js/front/mtravel/commonUI-dev.js"></script><!-- commonUI 테스트 버전 -->
+<!--<script type="text/javascript" src="/js/front/mtravel/commonUI.js"></script>--> <!-- commonUI 운영 버전 -->
+<script type="text/javascript" src="/js/front/mtravel/commonUI-dev.js"></script> <!-- commonUI 테스트 버전 -->
 <script type="text/javascript" src="/js/front/mtravel/commonModuleM.js"></script> <!-- 프비 리뉴얼 js -->
+<script type="text/javascript" src="/js/front/mtravel/commonModuleSearchM.js"></script> <!-- 프비 리뉴얼 js(가이드버전) -->
 <script type="text/javascript" src="/js/utils.js"></script>
 </head>
 
@@ -396,28 +397,7 @@
     
     <script type="text/javascript">
     $(document).one('pageshow',function(e,data){      
-        $('.ot-multiway .uis-datepicker').datepicker({
-            showMonthAfterYear: true,
-            yearSuffix: '<span class="ui-datepicker-dot">.</span>',
-            monthNames: ['01','02','03','04','05','06','07','08','09','10','11','12'],
-            dayNamesMin: ['일', '월', '화', '수', '목', '금', '토'],
-            minDate: '0',
-            maxDate: '+362',
-            numberOfMonths: [13,1],
-            dateFormat: 'yy/mm/dd',
-            onSelect: function(dateText, inst) {
-                var date1 = $.datepicker.parseDate($(this).datepicker('option', 'dateFormat'), $('.ot-multiway .slt-chkin[data-day]').data('day'));
-                var selectedDate = $.datepicker.parseDate($(this).datepicker('option', 'dateFormat'), dateText);
-                var txtDay = pvmFrontScript.onSelectTxtDay($(this), dateText);
-                
-                //data input
-                $('.ot-multiway .slt-chkin[data-day]').data('day', dateText);
-                //panel input
-                $('.ot-multiway .slt-chkin').html(txtDay);
-                //sbox input
-                
-            }
-        }).find('.ui-datepicker-today .ui-state-active').removeClass("ui-state-active");
+        
     });
     </script>
 </div>

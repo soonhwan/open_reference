@@ -315,30 +315,30 @@
             
             <div class="s-rec-promotion">
                 <h3 class="c-tit-sec"><a href="#"><span>추천 프로모션</span></a></h3>
-                <div class="w-list-item-st1">
-                    <ul class="list-item-st1">
-                        <li>
+                <div class="list-item-st1 swiper-container">
+                    <ul class="swiper-wrapper">
+                        <li class="swiper-slide">
                             <a href="#">
                                 <span class="vis"><img src="/images/front/mtravel/vis-size/vis-520x292.jpg" alt="&nbsp;"></span>
                                 <span class="tit">봄, 여름 떠나기좋은 오키나와</span>
                                 <span class="exp">단독 혜택 + 5%, 7% 즉시 할인</span>
                             </a>
-                         </li>
-                         <li>
+                        </li>
+                         <li class="swiper-slide">
                             <a href="#">
                                 <span class="vis"><img src="/images/front/mtravel/vis-size/vis-520x292-2.jpg" alt="&nbsp;"></span>
                                 <span class="tit">봄, 여름 떠나기좋은 오키나와</span>
                                 <span class="exp">단독 혜택 + 5%, 7% 즉시 할인</span>
                             </a>
                         </li>
-                        <li>
+                        <li class="swiper-slide">
                             <a href="#">
                                 <span class="vis"><img src="/images/front/mtravel/vis-size/vis-520x292.jpg" alt="&nbsp;"></span>
                                 <span class="tit">봄, 여름 떠나기좋은 오키나와</span>
                                 <span class="exp">단독 혜택 + 5%, 7% 즉시 할인</span>
                             </a>
                         </li>
-                        <li>
+                         <li class="swiper-slide">
                             <a href="#">
                                 <span class="vis"><img src="/images/front/mtravel/vis-size/vis-520x292-2.jpg" alt="&nbsp;"></span>
                                 <span class="tit">봄, 여름 떠나기좋은 오키나와</span>
@@ -460,6 +460,25 @@
     <script type="text/javascript">
     $(document).one('pageshow',function(e,data){      
         pvmSearch.comSearchAir();
+        
+        var recPromSwiper = new Swiper('.s-rec-promotion .list-item-st1', {
+            slidesPerView: 'auto',
+            //centeredSlides: true,
+            freeMode: true,
+			on: {
+				slideChange: function(){
+                    //console.log(recPromSwiper.realIndex)
+                    if(recPromSwiper.realIndex == 0){
+                        //$('.s-rec-promotion .list-item-st1').css('margin-left', '20px');
+                    }
+					else{
+                        //$('.s-rec-promotion .list-item-st1').css('margin-left', '14%');
+                    }
+				}
+			}
+        });
+                
+        
     });
     </script>
     

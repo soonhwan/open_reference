@@ -487,7 +487,7 @@ var pvFrontScript = window.pvFrontScript || (function(){
 			if(section.find('.sc-ui-search-panel.ui-select-list').length > 0){
 				section.find('.sc-ui-search-panel.ui-select-list .uis-list .list li a').on('click', function(e){
 					if(!$(this).closest('li').hasClass('on')){
-						$(this).closest('.ui-select-list .uis-list .list li.on').removeClass('on');
+						$(this).closest('.uis-list').find('li.on').removeClass('on');
 						$(this).closest('li').addClass('on');
 					}
 					e.preventDefault();

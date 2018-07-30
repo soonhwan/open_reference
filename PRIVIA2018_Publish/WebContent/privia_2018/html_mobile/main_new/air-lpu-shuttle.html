@@ -9,12 +9,12 @@
 <link rel="apple-touch-icon-precomposed" sizes="152x152" href="//tmstatic.priviatravel.com/images/front/mtravel/common/apple-touch-icon-152.png" />
 <link type="text/css" rel="stylesheet" href="/css/front/mtravel/jquery.mobile.1.4.2.css" />
 <link type="text/css" rel="stylesheet" href="/css/front/mtravel/jquery-ui.min.css" /> <!-- 프비 리뉴얼 css(jquery-ui 관련) -->
+<link type="text/css" rel="stylesheet" href="/css/front/mtravel/swiper.min.css" /> <!-- 프비 리뉴얼 css(슬라이드 관련) -->
+<link type="text/css" rel="stylesheet" href="/css/front/mtravel/jquery.mCustomScrollbar.min.css" />
 <link type="text/css" rel="stylesheet" href="/css/front/mtravel/base.css" />
 <link type="text/css" rel="stylesheet" href="/css/front/mtravel/common.css" />
 <link type="text/css" rel="stylesheet" href="/css/front/mtravel/contents.css" />
-<link type="text/css" rel="stylesheet" href="/css/front/mtravel/promotion.css" />
-<link type="text/css" rel="stylesheet" href="/css/front/mtravel/jquery.mCustomScrollbar.min.css" />
-<link type="text/css" rel="stylesheet" href="/css/front/mtravel/swiper.min.css" /> <!-- 프비 리뉴얼 css(슬라이드 관련) -->
+<link type="text/css" rel="stylesheet" href="/css/front/mtravel/promotion.css" /> <!-- 기획전 페이지에 필요한 css -->
 <link type="text/css" rel="stylesheet" href="/css/front/mtravel/commonModuleM.css" /> <!-- 프비 리뉴얼 css -->
 
 <script type="text/javascript" src="/js/front/mtravel/jquery-1.8.3.min.js"></script>
@@ -23,12 +23,13 @@
 <script type="text/javascript" src="/js/front/mtravel/jquery.mobile-1.4.2.js"></script>
 <script type="text/javascript" src="/js/front/mtravel/jquery.mCustomScrollbar.concat.min.js"></script>
 <script type="text/javascript" src="/js/front/mtravel/main_datepicker.js"></script> <!-- 캘린더 운영 버전 -->
-<script type="text/javascript" src="/js/front/mtravel/main_datepicker_dev.js"></script> <!-- 캘린더 테스트 버전 -->
-<script type="text/javascript" src="/js/front/mtravel/swipe.js"></script>
+<!--<script type="text/javascript" src="/js/front/mtravel/main_datepicker_dev.js"></script>--> <!-- 캘린더 테스트 버전 -->
+<script type="text/javascript" src="/js/front/mtravel/swipe.js"></script> <!-- 기존 슬라이드 관련 js -->
 <script type="text/javascript" src="/js/front/mtravel/swiper.min.js"></script> <!-- 프비 리뉴얼 js(슬라이드 관련) -->
-<!--<script type="text/javascript" src="/js/front/mtravel/commonUI.js"></script>-->
-<script type="text/javascript" src="/js/front/mtravel/commonUI-dev.js"></script><!-- commonUI 테스트 버전 -->
+<!--<script type="text/javascript" src="/js/front/mtravel/commonUI.js"></script>--> <!-- commonUI 운영 버전 -->
+<script type="text/javascript" src="/js/front/mtravel/commonUI-dev.js"></script> <!-- commonUI 테스트 버전 -->
 <script type="text/javascript" src="/js/front/mtravel/commonModuleM.js"></script> <!-- 프비 리뉴얼 js -->
+<script type="text/javascript" src="/js/front/mtravel/commonModuleSearchM.js"></script> <!-- 프비 리뉴얼 js(가이드버전) -->
 <script type="text/javascript" src="/js/utils.js"></script>
 </head>
 
@@ -42,7 +43,6 @@
         <header class="w-header-sec">
             <h2 class="whs-title">출발 도시 선택</h2>
             <div class="ly-left">
-                <a href="#" class="b-back" data-rel="back" data-direction="reverse"><span class="a11y">이전 페이지로 가기</span></a>
                 <a href="#" class="b-close" data-rel="back"><span class="a11y">페이지 닫기</span></a>
             </div>
         </header>
@@ -59,14 +59,14 @@
                         <ul class="list-tab">
                             <li>
                                 <ul class="li-col2 slt-places">
-                                    <li>
-                                       <a href="#" class="slt-area" data-tab="mainsel">
-                                            <span class="slt-input on">ICN</span>
+                                    <li class="places-exit">
+                                        <a href="#" class="slt-area on" data-tab="mainsel">
+                                            <span class="slt-input" data-city="">출발</span>
                                         </a>                                    
                                     </li>
-                                    <li>
-                                        <a href="#" class="slt-area on" data-tab="mainsel">
-                                            <span class="slt-input">도착</span>
+                                    <li class="places-entry">
+                                        <a href="#" class="slt-area" data-tab="mainsel">
+                                            <span class="slt-input" data-city="">도착</span>
                                         </a>
                                     </li>
                                 </ul>
@@ -79,7 +79,7 @@
                             </li>
                             <li>
                                 <a href="#" class="slt-area" data-tab="capacity">
-                                    <span class="slt-input">성인1,일반석</span>
+                                    <span class="slt-input" data-adt="1" data-chd="0" data-inf="0" data-comp="Y">성인1,일반석</span>
                                 </a>
                             </li>
                         </ul>
@@ -91,7 +91,7 @@
                 <div class="sc-search-area">
                     <div class="list-ssa">
                         <div class="ssa-ui-box uis-mainsel on">
-                            <div class="uis-input isVal">
+                            <div class="uis-input">
                                 <input type="keyword" placeholder="어디서 출발 하시나요?" class="input-base inp-search">
                                 <span class="btn-base b-clear"><button type="button"><span class="a11y">검색어 지우기</span></button></span>
                             </div>
@@ -118,7 +118,7 @@
                                 <div class="uis-sec">
                                     <p class="tit">추천 공항</p>
                                     <ul class="list uis-list recommend">
-                                        <li class="on">
+                                        <li>
                                             <a href="#" class="tit-rec">국내</a>
                                             <ul class="list-sub">
                                                 <li>
@@ -156,9 +156,9 @@
                                             <ul class="list-sub">
                                                 <li>
                                                     <a href="#">
-                                                        <span class="name">인천</span>
-                                                        <span class="name-det">대한민국, 인천국제공항</span>
-                                                        <span class="code">ICN</span>
+                                                        <span class="name">홍콩</span>
+                                                        <span class="name-det">중국공항</span>
+                                                        <span class="code">HKJ</span>
                                                     </a>
                                                 </li>
                                             </ul>
@@ -223,11 +223,11 @@
                                                 </span>
                                             </span>
                                             <div class="uis-custom-number">
-                                                <span class="btn-base ucn-crt b-minus on">
+                                                <span class="btn-base ucn-crt b-minus">
                                                     <button type="button" data-type="adt-minus"><span class="a11y">빼기</span></button>
                                                 </span>
-                                                <span class="ucn-num num-adt">1</span>
-                                                <span class="btn-base ucn-crt b-plus on">
+                                                <span class="ucn-num num-adt">0</span>
+                                                <span class="btn-base ucn-crt b-plus">
                                                     <button type="button" data-type="adt-plus"><span class="a11y">더하기</span></button>
                                                 </span>
                                             </div>
@@ -271,26 +271,10 @@
                                 <div class="uis-sec">
                                     <p class="tit">좌석등급</p>
                                     <ul class="list uis-capacity-select">
-                                        <li>
-                                            <a href="#">
-                                                <span class="name">일반석</span>
-                                            </a>
-                                        </li>
-                                        <li class="on">
-                                            <a href="#">
-                                                <span class="name">프리미엄 이코노미</span>
-                                            </a>
-                                        </li>
-                                        <li>
-                                            <a href="#">
-                                                <span class="name">비즈니스석</span>
-                                            </a>
-                                        </li>
-                                        <li>
-                                            <a href="#">
-                                                <span class="name">일등석</span>
-                                            </a>
-                                        </li>
+                                        <li><a href="#" data-option="Y"><span class="name">일반석</span></a></li>
+                                        <li><a href="#" data-option="P"><span class="name">프리미엄 이코노미</span></a></li>
+                                        <li><a href="#" data-option="C"><span class="name">비즈니스석</span></a></li>
+                                        <li><a href="#" data-option="F"><span class="name">일등석</span></a></li>
                                     </ul>
                                 </div>
                             </div>
@@ -307,68 +291,9 @@
     <!-- //content-sec -->
     
     <script type="text/javascript">
-    $(document).one('pageshow',function(e,data){      
-        $('.ot-shuttle .uis-datepicker').datepicker({
-            showMonthAfterYear: true,
-            yearSuffix: '<span class="ui-datepicker-dot">.</span>',
-            monthNames: ['01','02','03','04','05','06','07','08','09','10','11','12'],
-            dayNamesMin: ['일', '월', '화', '수', '목', '금', '토'],
-            minDate: '0',
-            maxDate: '+362',
-            numberOfMonths: [13,1],
-            dateFormat: 'yy/mm/dd',
-            beforeShowDay: function(date) {
-                var date1 = $.datepicker.parseDate($(this).datepicker('option', 'dateFormat'), $('.ot-shuttle .slt-chkin[data-day]').data('day'));
-                var date2 = $.datepicker.parseDate($(this).datepicker('option', 'dateFormat'), $('.ot-shuttle .slt-chkout[data-day]').data('day'));
-                return pvmFrontScript.beforeShowDayMark(date, date1, date2);
-            },
-            onSelect: function(dateText, inst) {
-                var date1 = $.datepicker.parseDate($(this).datepicker('option', 'dateFormat'), $('.ot-shuttle .slt-chkin[data-day]').data('day'));
-                var date2 = $.datepicker.parseDate($(this).datepicker('option', 'dateFormat'), $('.ot-shuttle .slt-chkout[data-day]').data('day'));
-                var selectedDate = $.datepicker.parseDate($(this).datepicker('option', 'dateFormat'), dateText);
-                var txtDay = pvmFrontScript.onSelectTxtDay($(this), dateText);
-
-                //출발, 도착 모두 선택인 경우, 아무것도 선택이 없는 경우(출발)
-                if (!date1 || date2) {
-                    //data input
-                    $('.ot-shuttle .slt-chkin[data-day]').data('day', dateText);
-                    $('.ot-shuttle .slt-chkout[data-day]').data('day', '');
-                    //panel input
-                    $('.ot-shuttle .slt-chkin').html(txtDay);
-                    $('.ot-shuttle .slt-chkout').html('도착일');
-                    //sbox input
-                    
-                } else {
-                    //출발 보다 이전 날짜 선택
-                    if( selectedDate.getTime() < date1.getTime() ) {
-                        //출발 -> 도착 이동
-                        //data input 
-                        $('.ot-shuttle .slt-chkout[data-day]').data('day', $('.ot-shuttle .slt-chkin[data-day]').data('day'));
-                        //panel input
-                        $('.ot-shuttle .slt-chkout').html($('.ot-shuttle .slt-chkin').html());
-                        //sbox input
-                        
-
-                        //출발 셋팅
-                        //data input 
-                        $('.ot-shuttle .slt-chkin[data-day]').data('day', dateText);
-                        //panel input
-                        $('.sc-air .o-shuttle .uis-date-chkin .txt-day').html(txtDay);
-                        //sbox input
-                        
-                    } 
-                    else {
-                        //출발이후 선택시(도착)
-                        //data input 		
-                        $('.ot-shuttle .slt-chkout[data-day]').data('day', dateText);
-                        //panel input
-                        $('.ot-shuttle .slt-chkout').html(txtDay);
-                        //sbox input
-                        
-                    }
-                }
-            }
-        }).find('.ui-datepicker-today .ui-state-active').removeClass("ui-state-active");
+    $(document).one('pageshow',function(e,data){  
+        pvmSearch.comSearchAirLpu();
+        
     });
     </script>
 </div>
