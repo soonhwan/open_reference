@@ -31,15 +31,15 @@ var pvmSearch = window.pvmSearch || (function(){
 			
 			//출발 click
 			$('.sc-air .places-exit [data-panel="mainsel"]').on('click', function(e){
-				//pvmSearch.setAirData('출발', 1);
-				$.mobile.changePage('air-lpu-shuttle.html', {transition: 'slideup'});
+				pvmSearch.setAirData('mainsel-exit');
+				$.mobile.changePage('air-lpu-shuttle.html', {transition: 'slideup', role :'dialog'});
 				e.preventDefault();
 			});
 			
 			//도착 click
 			$('.sc-air .places-entry [data-panel="mainsel"]').on('click', function(e){
-				//pvmSearch.setAirData('도착', 2);
-				$.mobile.changePage('air-lpu-shuttle.html', {transition: 'slideup'});
+				pvmSearch.setAirData('mainsel-entry');
+				$.mobile.changePage('air-lpu-shuttle.html', {transition: 'slideup', role :'dialog'});
 				e.preventDefault();
 			});			
 			
@@ -94,43 +94,55 @@ var pvmSearch = window.pvmSearch || (function(){
 			
 			//여행날짜
 			$('.sc-air  [data-panel="calendar"]').on('click', function(e){
-				//pvmSearch.setAirData('여행날짜', 3);
-				$.mobile.changePage('air-lpu-shuttle.html', {transition: 'slideup'});
+				pvmSearch.setAirData('calendar');
+				$.mobile.changePage('air-lpu-shuttle.html', {transition: 'slideup', role :'dialog'});
 				e.preventDefault();
 			});
 			
 			//인원, 좌석등급
 			$('.sc-air  [data-panel="capacity"]').on('click', function(e){
-				//pvmSearch.setAirData('인원, 좌석등급', 4);
-				$.mobile.changePage('air-lpu-shuttle.html', {transition: 'slideup'});
+				pvmSearch.setAirData('capacity');
+				$.mobile.changePage('air-lpu-shuttle.html', {transition: 'slideup', role :'dialog'});
 				e.preventDefault();
 			});			
 		},
-		setAirData: function($type, $panel){
+		setAirData: function($area){
 			var tempData = {};
-			var type = $type;
+			var type = $('.sc-search-box.on').data('sc'); //타입
+			var area = $area; //클릭 영역
+			var plaExCode = $('.sc-search-box.on .places-exit .code').text(); //출발 코드
+			var plaExCity = $('.sc-search-box.on .places-exit .city').text(); //출발 이름
+			var plaEnCode = $('.sc-search-box.on .places-entry .code').text(); //도착 코드
+			var plaEnCity = $('.sc-search-box.on .places-entry .city').text(); //도착 이름
+			var chkin = $('.sc-search-box.on .qsb-dates .qsb-chkin').data('day'); //출발 날짜
+			var chkout = $('.sc-search-box.on .qsb-dates .qsb-chkout').data('day'); //도착 날짜
+			var adt = $('.sc-search-box.on .qsb-capacity .qsb-input').data('adt'); //성인
+			var chd = $('.sc-search-box.on .qsb-capacity .qsb-input').data('chd'); //아동
+			var inf = $('.sc-search-box.on .qsb-capacity .qsb-input').data('inf'); //유아
+			var comp = $('.sc-search-box.on .qsb-capacity .qsb-input').data('comp'); //좌석
 			
 			tempData = {
-				type: 'shuttle',
+				type: type,
+				area: area,
 				places:{
 					exit: {
-						code: 'INC',
-						city: '인천'
+						code: plaExCode,
+						city: plaExCity
 					},
 					entry: {
-						code: '',
-						city: ''
+						code: plaEnCode,
+						city: plaEnCity
 					}
 				},
 				dates: {
-					chkin: '2018/08/10',
-					chkout: '2018/08/15'
+					chkin: chkin,
+					chkout: chkout
 				},
 				capacity:{
-					adt: 1,
-					chd: 0,
-					inf: 0,
-					seat: 'Y'
+					adt: adt,
+					chd: chd,
+					inf: inf,
+					seat: comp
 				}
 			}
 			
@@ -143,7 +155,7 @@ var pvmSearch = window.pvmSearch || (function(){
 			var $currentCity = null; // 도시영역 저장
 			
 			//+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ 가져오기
-			//console.log('가져오기 = ', pvmSearch.getAirData())
+			console.log('가져오기 = ', pvmSearch.getAirData())
 			//도시
 			
 			//인원,좌석
