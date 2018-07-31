@@ -106,6 +106,18 @@
 			$this.addClass('radio-initialized');
 		});
 	}
+	$.fn.uisSelectList = function(){
+		return this.each(function(){
+			var $this = $(this);			
+			$this.find('.list li a').on('click', function(e){
+				if(!$(this).closest('li').hasClass('on')){
+					$(this).closest('.uis-list').find('li.on').removeClass('on');
+					$(this).closest('li').addClass('on');
+				}
+				e.preventDefault();
+			});
+		});
+	}
 }(window.jQuery, window, document));
 
 /*
@@ -485,13 +497,7 @@ var pvFrontScript = window.pvFrontScript || (function(){
 			
 			//select list click(클래스 on 추가, 삭제 기능)
 			if(section.find('.sc-ui-search-panel.ui-select-list').length > 0){
-				section.find('.sc-ui-search-panel.ui-select-list .uis-list .list li a').on('click', function(e){
-					if(!$(this).closest('li').hasClass('on')){
-						$(this).closest('.uis-list').find('li.on').removeClass('on');
-						$(this).closest('li').addClass('on');
-					}
-					e.preventDefault();
-				});
+				section.find('.sc-ui-search-panel.ui-select-list .uis-list').uisSelectList();
 			}
 		},
 		comSearchRecently: function($section){

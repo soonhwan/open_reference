@@ -761,7 +761,7 @@ if(window.addEventListener){
 		// $().fakeselect() 실행시 별도로 필요한 옵션 객체를 지정할 수 있고, 지정되지 않았을 경우 기본 옵션을 따름.
 		'select': {
 			//wrap()
-			wraphtml: '<span class="w-select-base"></span>',
+			//wraphtml: '<span class="w-select-base"></span>',
 			
 			// 타이틀
 			title: {
@@ -1039,8 +1039,8 @@ if(window.addEventListener){
 				checkdisabled($selects[currentindex][0]);
 				checkreadonly($selects[currentindex][0]);
 				
-				//NotoSansKR 폰트를 사용해서 사용하게됨
-				if(currentoptions.wraphtml != ''){
+				//NotoSansKR 기본폰트로 사용인 경우
+				/*if(currentoptions.wraphtml != ''){
 					//1. w-select-base 클래스로 wrap() -> font-family: Noto가 아닌것 적용
 					$titles[currentindex].wrap(currentoptions.wraphtml);
 					$titles[currentindex].parent().append($selects[currentindex]);
@@ -1048,7 +1048,7 @@ if(window.addEventListener){
 					if($selects[currentindex].prev().text() != ' '){
 						$selects[currentindex].before(' ');
 					}
-				}
+				}*/
 				
 			}
 		}

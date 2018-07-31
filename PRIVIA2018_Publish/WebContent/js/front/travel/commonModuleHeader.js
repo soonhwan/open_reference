@@ -728,10 +728,10 @@ function comSearchAir(){
 		}
 		
 		//출,도착 placeholder 텍스트 변경
-		if($currentCity.closest('.places-exit').hasClass('places-exit')){
+		if($currentCity.closest('.places-exit').length > 0){
 			$('.'+panelName).find('.ipu-search').attr('placeholder','출발 도시명을 검색하거나 아래 주요도시에서 선택하세요.');
 		}
-		else if($currentCity.closest('.places-entry').hasClass('places-entry')){
+		else if($currentCity.closest('.places-entry').length > 0){
 			$('.'+panelName).find('.ipu-search').attr('placeholder','도착 도시명을 검색하거나 아래 주요도시에서 선택하세요.');
 		}		
 		
@@ -783,7 +783,7 @@ function comSearchAir(){
 		$(this).val($currentCity.find('.city').text());
 	});
 	
-	//도시 체인지(왕복, 편도) click
+	//도시 체인지 click
 	$('.sc-air .b-change-places button').on('click', function(e){
 		var $exit = $(this).closest('.qsb-places').find('.places-exit .qsb-input');
 		var $entry = $(this).closest('.qsb-places').find('.places-entry .qsb-input');
@@ -1709,13 +1709,13 @@ function comSearchHotel(){
 		dayNamesMin: ['일', '월', '화', '수', '목', '금', '토'],
 		dateFormat: 'yy/mm/dd',
 		beforeShowDay: function(date) {
-			var date1 = $.datepicker.parseDate($(this).datepicker('option', 'dateFormat'), $(this).closest('.ui-date-calendar').find('.uis-date-chkin [data-day]').data('day'));
-			var date2 = $.datepicker.parseDate($(this).datepicker('option', 'dateFormat'), $(this).closest('.ui-date-calendar').find('.uis-date-chkout [data-day]').data('day'));
+			var date1 = $.datepicker.parseDate($(this).datepicker('option', 'dateFormat'), $('.sc-hotel .o-inth .uis-date-chkin [data-day]').data('day'));
+			var date2 = $.datepicker.parseDate($(this).datepicker('option', 'dateFormat'), $('.sc-hotel .o-inth .uis-date-chkout [data-day]').data('day'));
 			return pvFrontScript.beforeShowDayMark(date, date1, date2);
 		},
 		onSelect: function(dateText, inst) {
-			var date1 = $.datepicker.parseDate($(this).datepicker('option', 'dateFormat'), $(this).closest('.ui-date-calendar').find('.uis-date-chkin [data-day]').data('day'));
-			var date2 = $.datepicker.parseDate($(this).datepicker('option', 'dateFormat'), $(this).closest('.ui-date-calendar').find('.uis-date-chkout [data-day]').data('day'));
+			var date1 = $.datepicker.parseDate($(this).datepicker('option', 'dateFormat'), $('.sc-hotel .o-inth .uis-date-chkin [data-day]').data('day'));
+			var date2 = $.datepicker.parseDate($(this).datepicker('option', 'dateFormat'), $('.sc-hotel .o-inth .uis-date-chkout [data-day]').data('day'));
 			var selectedDate = $.datepicker.parseDate($(this).datepicker('option', 'dateFormat'), dateText);
 			var txtDay = pvFrontScript.onSelectTxtDay($(this), dateText);
 			
@@ -1796,13 +1796,13 @@ function comSearchHotel(){
 		dayNamesMin: ['일', '월', '화', '수', '목', '금', '토'],
 		dateFormat: 'yy/mm/dd',
 		beforeShowDay: function(date) {
-			var date1 = $.datepicker.parseDate($(this).datepicker('option', 'dateFormat'), $(this).closest('.ui-date-calendar').find('.uis-date-chkin [data-day]').data('day'));
-			var date2 = $.datepicker.parseDate($(this).datepicker('option', 'dateFormat'), $(this).closest('.ui-date-calendar').find('.uis-date-chkout [data-day]').data('day'));
+			var date1 = $.datepicker.parseDate($(this).datepicker('option', 'dateFormat'), $('.sc-hotel .o-domh .uis-date-chkin [data-day]').data('day'));
+			var date2 = $.datepicker.parseDate($(this).datepicker('option', 'dateFormat'), $('.sc-hotel .o-domh .uis-date-chkout [data-day]').data('day'));
 			return pvFrontScript.beforeShowDayMark(date, date1, date2);
 		},
 		onSelect: function(dateText, inst) {
-			var date1 = $.datepicker.parseDate($(this).datepicker('option', 'dateFormat'), $(this).closest('.ui-date-calendar').find('.uis-date-chkin [data-day]').data('day'));
-			var date2 = $.datepicker.parseDate($(this).datepicker('option', 'dateFormat'), $(this).closest('.ui-date-calendar').find('.uis-date-chkout [data-day]').data('day'));
+			var date1 = $.datepicker.parseDate($(this).datepicker('option', 'dateFormat'), $('.sc-hotel .o-domh .uis-date-chkin [data-day]').data('day'));
+			var date2 = $.datepicker.parseDate($(this).datepicker('option', 'dateFormat'), $('.sc-hotel .o-domh .uis-date-chkout [data-day]').data('day'));
 			var selectedDate = $.datepicker.parseDate($(this).datepicker('option', 'dateFormat'), dateText);
 			var txtDay = pvFrontScript.onSelectTxtDay($(this), dateText);
 			
@@ -1988,10 +1988,10 @@ function comSearchFreetour(){
 		
 		//공항픽업인 경우
 		if($currentCity.closest('.o-airpicup').length > 0){
-			if($currentCity.closest('.places-exit').hasClass('places-exit')){
+			if($currentCity.closest('.places-exit').length > 0){
 				$('.o-airpicup .'+panelName).find('.opt-txt').text('픽업장소를 선택하세요.');
 			}
-			else if($currentCity.closest('.places-entry').hasClass('places-entry')){
+			else if($currentCity.closest('.places-entry').length > 0){
 				$('.o-airpicup .'+panelName).find('.opt-txt').text('하차장소를 선택하세요.');	
 			}
 		}
@@ -2042,6 +2042,8 @@ function comSearchFreetour(){
 
 			//도시 셋팅
 			setFreetourCity(city);
+			
+			$('.sc-freetour .o-rentv .places-entry [data-panel="mainsel"]').trigger('click');
 		}
 		
 		e.preventDefault();
@@ -2335,6 +2337,8 @@ function comSearchFreetour(){
 	
 	//select click 팝업
 	$('.sc-freetour [data-panel="select"]').on('click', function(e){
+		if($(this).closest('.disabled').length > 0){ return false; } //비활성화 처리
+															  
 		//select 저장
 		$currentSelect = $(this);
 		
@@ -2487,13 +2491,13 @@ function comSearchFreetour(){
 		dayNamesMin: ['일', '월', '화', '수', '목', '금', '토'],
 		dateFormat: 'yy/mm/dd',
 		beforeShowDay: function(date) {
-			var date1 = $.datepicker.parseDate($(this).datepicker('option', 'dateFormat'), $(this).closest('.ui-date-calendar').find('.uis-date-chkin [data-day]').data('day'));
-			var date2 = $.datepicker.parseDate($(this).datepicker('option', 'dateFormat'), $(this).closest('.ui-date-calendar').find('.uis-date-chkout [data-day]').data('day'));
+			var date1 = $.datepicker.parseDate($(this).datepicker('option', 'dateFormat'), $('.sc-freetour .o-rentv .uis-date-chkin [data-day]').data('day'));
+			var date2 = $.datepicker.parseDate($(this).datepicker('option', 'dateFormat'), $('.sc-freetour .o-rentv .uis-date-chkout [data-day]').data('day'));
 			return pvFrontScript.beforeShowDayMark(date, date1, date2);
 		},
 		onSelect: function(dateText, inst) {
-			var date1 = $.datepicker.parseDate($(this).datepicker('option', 'dateFormat'), $(this).closest('.ui-date-calendar').find('.uis-date-chkin [data-day]').data('day'));
-			var date2 = $.datepicker.parseDate($(this).datepicker('option', 'dateFormat'), $(this).closest('.ui-date-calendar').find('.uis-date-chkout [data-day]').data('day'));
+			var date1 = $.datepicker.parseDate($(this).datepicker('option', 'dateFormat'), $('.sc-freetour .o-rentv .uis-date-chkin [data-day]').data('day'));
+			var date2 = $.datepicker.parseDate($(this).datepicker('option', 'dateFormat'), $('.sc-freetour .o-rentv .uis-date-chkout [data-day]').data('day'));
 			var selectedDate = $.datepicker.parseDate($(this).datepicker('option', 'dateFormat'), dateText);
 			var txtDay = pvFrontScript.onSelectTxtDay($(this), dateText);
 			
@@ -2598,7 +2602,7 @@ function comSearchFreetour(){
 		dayNamesMin: ['일', '월', '화', '수', '목', '금', '토'],
 		dateFormat: 'yy/mm/dd',
 		beforeShowDay: function(date) {
-			var date1 = $.datepicker.parseDate($(this).datepicker('option', 'dateFormat'), $(this).closest('.ui-date-calendar').find('.uis-date-chkin [data-day]').data('day'));
+			var date1 = $.datepicker.parseDate($(this).datepicker('option', 'dateFormat'), $('.sc-freetour .o-airpicup .uis-date-chkin [data-day]').data('day'));
 			return pvFrontScript.beforeShowDayMark(date, date1);
 		},
 		onSelect: function(dateText, inst) {

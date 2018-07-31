@@ -3,7 +3,7 @@
 /*--------------------------------------------------------------------------------------------------------------
  *  common - reset, lyout
  *--------------------------------------------------------------------------------------------------------------*/
-/* reset */
+/* reset - font-size:16px 부터 NotoSansKR 적용 */
 * {/*color: #000;*/}
 #top-area-sec, #top-area-sec, #top-area-sec,
 #top-area-sec *, #top-area-sec *:after, #top-area-sec *:before,
@@ -11,7 +11,7 @@
 #mobile-promotion-sec *, #mobile-promotion-sec *:after, #mobile-promotion-sec *:before, 
 #content-sec *, #content-sec *:after, #content-sec *:before,
 .w-nav-gsub-ly *, .w-nav-gsub-ly *:after, .w-nav-gsub-ly *:before,
-#footer-sec *, #footer-sec *:after, #footer-sec *:before {font-family: "NotoSansKR", "Malgun Gothic", sans-serif;font-weight: 300;-moz-box-sizing:border-box;-webkit-box-sizing:border-box;box-sizing:border-box;}
+#footer-sec *, #footer-sec *:after, #footer-sec *:before {font-family: "Malgun Gothic", "NotoSansKR", sans-serif;-moz-box-sizing:border-box;-webkit-box-sizing:border-box;box-sizing:border-box;}
 
 /* lyout */ 
 #top-area-sec, #header-sec, #content-sec, #footer-sec {min-width: 1200px;width: 100%;margin:0 auto;position: relative;}
@@ -93,13 +93,13 @@
 
 /* ------------- label */
 .label-base {display: inline-block;vertical-align: middle;position: relative;}
-.label-base span {display: inline-block;vertical-align: middle;width: 100%;}
+.label-base span {display: inline-block;vertical-align: middle;}
 /* label - radius 라벨1 */ 
-.lbr-st1 span {font-size:12px;color: #000;border:1px solid #666;text-align: center;min-width: 42px;padding: 0 10px;border-radius:12px;}
+.lbr-st1 span {font-size:12px;color: #000;border:1px solid #666;text-align: center;min-width: 42px;padding: 0 10px 2px 10px;border-radius:12px;}
 /* label - radius 라벨2 */ 
-.lbr-st2 span {font-size:12px;color: #fff;text-align: center;min-width: 44px;padding: 1px 12px;border-radius:12px;background-color: #f42a86;}
+.lbr-st2 span {font-size:12px;color: #fff;text-align: center;min-width: 44px;padding: 1px 12px 3px 12px;border-radius:12px;background-color: #f42a86;}
 /* label - radius 라벨3 */ 
-.lbr-st3 span {font-size:12px;color: #f42a86;text-align: center;min-width: 38px;padding: 9px 7px;border-radius:2px;border:1px solid #ec0d61;}
+.lbr-st3 span {font-size:12px;color: #f42a86;text-align: center;min-width: 38px;padding: 8px 7px 10px 7px;border-radius:2px;border:1px solid #ec0d61;}
 
 /* ------------- checkbox */
 .chk-base {transition: opacity 0.3s;display: inline-block;}
@@ -131,7 +131,7 @@
 .w-select-base {font-family: sans-serif !important;} /* NotoSansKR 경우 inline-block 공백이 불규칙함 */
 .select-title.select-base {text-align: left; vertical-align: middle; padding: 10px 15px 9px 15px; border: 1px solid #bdc0c6; display: inline-block;border-radius: 3px;position: relative;cursor: pointer;background-color: #fff;}
 .select-title.select-base:after {content: '';display: block;width: 12px;height: 7px;overflow: hidden;background: url(/images/front/travel/contents/icon-common-sec.png) -66px -360px no-repeat;position: absolute;top: 16px;right: 15px;}
-.select-title.select-base strong {width: 100%; font-weight: normal; font-size:14px;color: #000; word-break: break-all; line-height: 1.2em; padding: 1px 0 2px; display: block; overflow: hidden;}
+.select-title.select-base strong {width: 100%;font-size:14px;font-weight: normal;color: #000;word-break: break-all;line-height: 1.2em;padding: 1px 0 2px;display: block;overflow: hidden;}
 .select-title.select-base.focus {color: #000; border-color: #bdc0c6;}
 .select-title.select-base.active {border-radius: 3px 3px 0px 0px;}
 .select-title.select-base.active.upper {border-radius: 0px 0px 3px 3px;}
@@ -142,7 +142,7 @@
 .select-option.select-base ul {margin: 0; padding: 0;}
 .select-option.select-base li {list-style: none;}
 .select-option.select-base span,
-.select-option.select-base strong {padding: 10px 15px 9px 15px;font-size:14px;color: #000;  white-space: nowrap; text-overflow: ellipsis; line-height: 1.4; text-decoration: none;display: block; overflow: hidden; cursor: default;font-family: "NotoSansKR";font-weight: 300;background-color: #fff;}
+.select-option.select-base strong {padding: 10px 15px 9px 15px;font-size:14px;color: #000;  white-space: nowrap; text-overflow: ellipsis; line-height: 1.4; text-decoration: none;display: block; overflow: hidden; cursor: default;font-family: "Malgun Gothic";background-color: #fff;}
 .select-option.select-base strong {font-weight: bold; color: #000; border-top: 1px solid #f5f5f5; border-bottom: 1px solid #ccc;}
 .select-option.select-base li li span {padding-left: 10px;}
 .select-option.select-base span:hover,
@@ -168,12 +168,12 @@
 .help-tooltip .over {display: inline-block;vertical-align: middle;width: 18px;height: 18px;text-align: center;line-height: 16px;font-size: 13px;color: #fff;border:1px solid #fff;border-radius: 18px;cursor: pointer;}
 .help-tooltip .over:hover + .cont {opacity: 1;visibility: visible;}
 /*.help-tooltip .over + .cont {opacity: 1;visibility: visible;}*/
-.help-tooltip .cont {display: inline-block;vertical-align: middle;position: absolute;background-color: #fff;font-size:14px;color: #000;line-height: 24px;padding: 18px;word-wrap: break-word;border-radius: 6px;top: 7px;left: 40px;z-index: 1;opacity: 0;visibility: hidden;transition: opacity 0.3s, visibility 0.3s;
+.help-tooltip .cont {display: inline-block;vertical-align: middle;position: absolute;background-color: #fff;font-size:14px;letter-spacing: -1px;color: #000;line-height: 24px;padding: 18px;word-wrap: break-word;border-radius: 6px;top: 7px;left: 40px;z-index: 1;opacity: 0;visibility: hidden;transition: opacity 0.3s, visibility 0.3s;
 -webkit-box-shadow: 0 3px 3px 0px rgba(0,0,0,0.1);
 -moz-box-shadow: 0 3px 3px 0px rgba(0,0,0,0.1);
 box-shadow: 0 3px 3px 0px rgba(0,0,0,0.1);
 }
-.help-tooltip .cont strong {font-weight: 500 !important;}
+/*.help-tooltip .cont strong {font-weight: bold;}*/
 .help-tooltip .cont:after {content: '';display: block;width: 0;height: 0;border-left: 30px solid transparent;border-right: 0px solid transparent;border-top: 30px solid #fff;position: absolute;left: -14px;top: 0;}
 
 /*--------------------------------------------------------------------------------------------------------------
@@ -192,7 +192,7 @@ box-shadow: 0 3px 3px 0px rgba(0,0,0,0.1);
 .w-tas-promotion .tasp-list > li > a:hover .tasp-tit .tit {color: #e93a84;}
 .w-tas-promotion .tasp-list .tasp-tit {display: block;position: relative;}
 .w-tas-promotion .tasp-list .tasp-tit:after {content: '';display: block;width: 11px;height: 21px;position: absolute;right: 0;top: 23px;background: url(/images/front/travel/contents/icon-common-sec.png) 0 -1px no-repeat;opacity: 0.4;}
-.w-tas-promotion .tasp-list .tasp-tit .label {font-size: 12px;display: inline-block;min-width: 25px;padding: 1px 10px;border:1px solid #ddd;border-radius: 10px;text-align: center;margin-bottom: 5px;color: #ddd;}
+.w-tas-promotion .tasp-list .tasp-tit .label {font-size: 12px;display: inline-block;min-width: 25px;padding: 0px 10px 2px 10px;border:1px solid #ddd;border-radius: 10px;text-align: center;margin-bottom: 5px;color: #ddd;}
 .w-tas-promotion .tasp-list .tasp-tit .tit {display: block;color: #ddd;font-size: 14px;line-height: 24px;transition: color 0.3s;}
 .w-tas-promotion .tasp-detail {padding: 10px 0 35px 0;display: none;}
 .w-tas-promotion .tasp-detail dt, .tasp-detail dd {font-size: 12px;line-height: 20px;color: #ddd;}
@@ -229,7 +229,7 @@ box-shadow: 0 3px 3px 0px rgba(0,0,0,0.1);
 .w-header-util .hu-notice .point strong {display: inline-block;font-size:12px;font-weight: 300;color: #fff;background-color: #e93a84;border-radius: 10px;padding: 0 10px 1px 10px;margin-right: 8px;vertical-align: middle;}
 .w-header-util .hu-user {display: inline-block;text-align: right;vertical-align: top;}
 .w-header-util .hu-user span {display: inline-block;font-size:12px;color: #fff;padding-left: 22px;position: relative;}
-.w-header-util .hu-user span:after {content: '';display: block;width: 14px;height: 14px;position: absolute;left:0;top:4px;background: url(/images/front/travel/contents/icon-common-sec.png) 0 0 no-repeat;}
+.w-header-util .hu-user span:after {content: '';display: block;width: 14px;height: 14px;position: absolute;left:0;top:3px;background: url(/images/front/travel/contents/icon-common-sec.png) 0 0 no-repeat;}
 .w-header-util .hu-user.privia span:after {background-position: 0px -65px;}
 .w-header-util .hu-user.naver span:after {background-position: 0 -84px;}
 .w-header-util .hu-user.facebook span:after {background-position: 0 -103px;}
@@ -265,7 +265,7 @@ box-shadow: 0 3px 3px 0px rgba(0,0,0,0.1);
 .w-header-gnb .nav-gnb > li > a {display: inline-block;padding: 0 20px;}
 .w-header-gnb .nav-gnb > li > a:hover .txt {/*font-weight: 500 !important;*/}
 .w-header-gnb .nav-gnb > li > a:hover .txt:before {opacity: 1;}
-.w-header-gnb .nav-gnb > li .txt {font-size:18px;color: #fff;position: relative;}
+.w-header-gnb .nav-gnb > li .txt {font-family:"NotoSansKR" !important;font-weight: 300;font-size:18px;color: #fff;position: relative;}
 .w-header-gnb .nav-gnb > li .txt:before {content: '';display: block;width: 100%;height: 4px;background-color: #fff;position: absolute;bottom: -26px;left: 0;opacity: 0;}
 .w-header-gnb .nav-gnb .on .txt {font-weight: 500 !important;}
 .w-header-gnb .nav-gnb .on .txt:before {opacity: 1;}
@@ -293,7 +293,7 @@ box-shadow: 3px 7px 22px 0px rgba(0,0,0,0.3);
 }
 .nav-gnb-total {border-top:4px solid #ee2a74;margin-right: -2px;overflow: hidden;}
 .nav-gnb-total > li {float: left;width: 16.66666666666667%;height: 250px;background-color: #fff;position: relative;border-bottom:1px solid #ededed;}
-.nav-gnb-total > li .tit a {display: block;font-size:14px;color: #000;font-weight: 500 !important;background-color: #f9f9f9;padding: 17px 10px 17px 20px;position: relative;z-index: 1;border-bottom:1px solid #ededed;}
+.nav-gnb-total > li .tit a {display: block;font-size:14px;color: #000;font-weight: bold;background-color: #f9f9f9;padding: 17px 10px 17px 20px;position: relative;z-index: 1;border-bottom:1px solid #ededed;}
 .nav-gnb-total > li:before {content: '';display: block;width: 1px;height: 100%;background-color: #ededed;position: absolute;right: 0;top: 0;z-index: 0;}
 .nav-gnb-total .list {padding: 8px 13px;border-right:1px solid #ededed;}
 .nav-gnb-total .list > li {margin: 2px 0;}
@@ -342,7 +342,7 @@ box-shadow: 0 10px 20px 0px rgba(0,0,0,0.1);
 .hs-search-menu:after {content: '';display: block;clear:both;}
 .hs-search-menu .hss-menu.on {display: inline-block !important;}
 .hs-search-menu .hss-main {float: left;}
-.hs-search-menu .hss-main a {font-size:24px;color: #fff;opacity: 0.4;}
+.hs-search-menu .hss-main a {font-size:24px;font-family:"NotoSansKR" !important;font-weight: 300;color: #fff;opacity: 0.4;}
 .hs-search-menu .hss-sub {float: left;margin-top: 8px;overflow: hidden;display: none;}
 .hs-search-menu .hss-sub:after {content: '';display: block;clear:both;}
 .hs-search-menu .hss-sub li {float: left;margin-left: 10px;}
@@ -387,11 +387,14 @@ box-shadow: 0 10px 20px 0px rgba(0,0,0,0.1);
 .sc-search-box .qsb-cont-indep .qsb-cont {overflow: hidden;border-radius: 6px;}
 .sc-search-box .qsb-cont {background-color: #fff;padding: 22px 30px;height: 90px;}
 .sc-search-box .qsb-cont .qsb-area {display: block;z-index: 0;}
-.sc-search-box .qsb-cont .qsb-label {display: block;font-size: 18px;color: #999;font-weight: 500 !important;margin-top: 10px;transition: all 0.3s;}
+.sc-search-box .qsb-cont .qsb-label {display: block;font-size: 18px;color: #999;font-family:"NotoSansKR" !important;font-weight: 500;margin-top: 10px;transition: all 0.3s;}
 .sc-search-box .qsb-cont .qsb-input {display: none;text-overflow:ellipsis;white-space:nowrap;overflow:hidden;}
-.sc-search-box .qsb-cont .qsb-area.on .qsb-label {font-size: 12px;color: #666;font-weight: 300 !important;margin-top: 0;}
-.sc-search-box .qsb-cont .qsb-area.on .qsb-input {display: block;font-size:18px;color: #000;font-weight: 500 !important;margin-top: 3px;}
-.sc-search-box .qsb-cont .qsb-area.on .qsb-input * {font-size:18px;font-weight: 500 !important;}
+.sc-search-box .qsb-cont .qsb-area.on .qsb-label {font-size: 12px;color: #666;font-weight: bold;margin-top: 0;}
+.sc-search-box .qsb-cont .qsb-area.on .qsb-input {display: block;font-size:18px;color: #000;font-family:"NotoSansKR" !important;font-weight: 500;margin-top: 3px;}
+.sc-search-box .qsb-cont .qsb-area.on .qsb-input * {font-size:18px;font-family:"NotoSansKR" !important;font-weight: 500;}
+.sc-search-box .qsb-cont.disabled * {opacity: 0.7;}
+.sc-search-box .qsb-cont.disabled:before, 
+.sc-search-box .qsb-cont.disabled:after {opacity: 0.5;}
 .sc-search-box .w-opt-box {margin-top: 20px;display: inline-block;position: relative;z-index: 1;}
 .sc-search-box .w-opt-box .chk-st1 {margin-right: 20px;}
 .hss-inner-cont.isRecently .w-opt-box {margin-bottom: -45px;} /* 최근검색이 있으면 */
@@ -427,7 +430,7 @@ box-shadow: 0 10px 20px 0px rgba(0,0,0,0.1);
 .sc-search-box .qsb-dates:after {content: '';display: block;clear:both;}
 /* 검색 박스 - 검색버튼 */
 .sc-search-box .qsb-btn-search {background-color: #000;padding: 0;position: relative;}
-.sc-search-box .qsb-btn-search .b-search {background-color: transparent;display: block;width: 100%;text-align: center;color: #fff;font-size:18px;font-weight: 500 !important;line-height: 90px;cursor: pointer;position: relative;z-index: 1;}
+.sc-search-box .qsb-btn-search .b-search {background-color: transparent;display: block;width: 100%;text-align: center;color: #fff;font-size:18px;font-family:"NotoSansKR" !important;font-weight: 500;line-height: 90px;cursor: pointer;position: relative;z-index: 1;}
 .sc-search-box .qsb-btn-search.on:before {opacity: 0;}
 /* 검색 박스 - 다구간 추가, 삭제 버튼 */
 .sc-search-box .qsb-btn-add {position: absolute;top: 22px;right: 24px;border-radius: 2px;overflow: hidden;}
@@ -459,23 +462,23 @@ box-shadow: 3px 7px 22px 0px rgba(0,0,0,0.3);
 .sc-ui-search-panel .b-scb-close {display: block;width: 17px;height: 9px;background: url(/images/front/travel/contents/icon-common-sec.png) -22px -360px no-repeat;position: absolute;top: 50px;right: 30px;}
 /* 검색 UI 팝업 - 상단 input */
 .uis-input {padding: 40px 28px;border-bottom: 1px solid #ededed;background-color: #fff;} 
-.uis-input .sel-cus-tit {font-size:18px;font-weight: 500 !important;color: #e93a84;} 
-.uis-input .ipu-search {border:0;width: 100%;font-size:18px;font-weight: 400 !important;} 
-.uis-input .opt-txt {font-size:18px;font-weight: 500 !important;color: #999;} 
+.uis-input .sel-cus-tit {font-size:18px;font-family:"NotoSansKR" !important;font-weight: 500;color: #e93a84;} 
+.uis-input .ipu-search {border:0;width: 100%;font-size:18px;font-family:"NotoSansKR" !important;font-weight: 400;} 
+.uis-input .opt-txt {font-size:18px;font-family:"NotoSansKR" !important;font-weight: 500;color: #999;} 
 .uis-input .uis-date-chkin {display: inline-block;}
-.uis-input .uis-date-chkin .txt-day, .uis-input .uis-date-chkout .txt-day {display: inline-block;margin-right: 20px;/*min-width: 226px;*/font-size:18px;color: #999;} 
+.uis-input .uis-date-chkin .txt-day, .uis-input .uis-date-chkout .txt-day {display: inline-block;margin-right: 20px;/*min-width: 226px;*/font-size:18px;font-family:"NotoSansKR" !important;font-weight: 300;color: #999;} 
 .uis-input .uis-date-chkout .txt-day {min-width: auto;}
 .uis-input .uis-date-chkin .txt-day.on, .uis-input .uis-date-chkout .txt-day.on {color: #000;font-weight: 500 !important;} 
 .uis-input .uis-date-chkout {position: relative;padding-left: 28px;display: none;} 
 .uis-input .uis-date-chkout.on {display: inline-block;} 
 .uis-input .uis-date-chkout:before {content: '';display: block;width: 10px;height: 1px;background-color: #909090;position: absolute;left: 0;top: 14px;}
-.uis-input .qsb-result-days * {font-size:18px;font-weight: 500 !important;} 
+.uis-input .qsb-result-days * {font-size:18px;font-family:"NotoSansKR" !important;font-weight: 500;} 
 .uis-input.udc-label {padding: 31px 28px;}
-.uis-input.udc-label .txt-label {display: block;font-size: 12px;color: #666;font-weight: 300 !important;}
+.uis-input.udc-label .txt-label {display: block;font-size: 12px;color: #666;font-weight: bold}
 .uis-input.udc-label .uis-date-chkout:before {top:31px;}
 /* 검색 UI 팝업 - 주요도시 */
 .uis-mainsel-table {width: 100%;table-layout: fixed;background-color: #fff;}
-.uis-mainsel-table th {text-align: left;background-color: #f9f9f9;font-size:14px;font-weight: 500 !important;border-bottom:1px solid #ececec;padding: 15px 20px;}
+.uis-mainsel-table th {text-align: left;background-color: #f9f9f9;font-size:14px;font-weight: bold;border-bottom:1px solid #ececec;padding: 15px 20px;}
 .uis-mainsel-table td {vertical-align: top;border-bottom:1px solid #ececec;border-right:1px solid #ececec;padding: 15px 0 15px 20px;}
 .uis-mainsel-table td .list a {display: block;font-size:14px;color: #000;padding: 3px 0;transition: color 0.3s;}
 .uis-mainsel-table td .list a:hover {color: #e93a84;}
@@ -485,14 +488,14 @@ box-shadow: 3px 7px 22px 0px rgba(0,0,0,0.3);
 .uis-list .list {overflow-y: auto;max-height:170px;}
 .uis-list .list li {border-top: 1px solid #ededed;}
 .uis-list .list li:first-child {border-top: 0;}
-.uis-list .list li a {display: block;padding: 15px 29px;background-color: #fff;font-size:16px;color: #000;font-weight: 500 !important;}
+.uis-list .list li a {display: block;padding: 15px 29px;background-color: #fff;font-size:16px;color: #000;font-family:"NotoSansKR" !important;font-weight: 500;}
 .uis-list .list li a * {vertical-align: middle;}
-.uis-list .list .no-list {padding: 15px 29px;background-color: #fff;font-size:16px;color: #000;}
+.uis-list .list .no-list {padding: 15px 29px;background-color: #fff;font-size:16px;font-family:"NotoSansKR" !important;font-weight: 300;color: #000;}
 .uis-list .list li a:hover {background-color: #f9f9f9;}
-/*.uis-list .list li .s-opt {display: inline-block;font-size:16px;color: #000;font-weight: 500 !important;}*/
+/*.uis-list .list li .s-opt {display: inline-block;font-size:16px;color: #000;font-family:"NotoSansKR" !important;font-weight: 500;}*/
 .uis-list .list li .sel-city {background-color: #ededed;pointer-events: none;}
-.uis-list .list li .name {display: inline-block;font-size:16px;color: #000;font-weight: 500 !important;}
-.uis-list .list li .name-det {display: inline-block;font-size:16px;color: #000;margin-left: 15px;}
+.uis-list .list li .name {display: inline-block;font-size:16px;color: #000;font-family:"NotoSansKR" !important;font-weight: 500;}
+.uis-list .list li .name-det {display: inline-block;font-size:16px;font-family:"NotoSansKR" !important;font-weight: 300;color: #000;margin-left: 15px;}
 .uis-list .list li .lbr-st1 span {width: 55px;}
 .uis-list .list .on a {color: #f42a86;background-color: #f9f9f9;position:relative}
 .uis-list .list .on a:after {content: '';display: block;width: 17px;height: 11px;background: url(/images/front/travel/contents/icon-common-sec.png) 0 -285px no-repeat;position: absolute;right: 30px;top: 22px;}
@@ -504,14 +507,14 @@ box-shadow: 3px 7px 22px 0px rgba(0,0,0,0.3);
 .ui-select-list .uis-list .list {max-height:230px;}
 /* 검색 UI 팝업 - datepicker */
 .uis-datepicker .ui-datepicker {margin:0;padding:25px 30px 30px 30px;border:0;}
-.uis-datepicker .ui-datepicker * {margin:0;padding:0;border:0;background:none;text-align:center;color:#000;font-weight: 500 !important;}
+.uis-datepicker .ui-datepicker * {margin:0;padding:0;border:0;background:none;text-align:center;color:#000;font-weight: bold;}
 .uis-datepicker .ui-datepicker-multi {width: 100% !important;}
 .uis-datepicker .ui-datepicker-multi:after {content: '';display: block;clear:both;}
 .uis-datepicker .ui-datepicker-multi-2 .ui-datepicker-group {float: left;width: 50% !important;}
 .uis-datepicker .ui-datepicker-header {padding-bottom:25px;background-color: #fff;position: relative;z-index: 10;}
 .uis-datepicker .ui-datepicker-header a {cursor: pointer;}
 .uis-datepicker .ui-datepicker-header .ui-state-disabled {opacity:0.5;}
-.uis-datepicker .ui-datepicker-header .ui-datepicker-title span {font-size:18px;}
+.uis-datepicker .ui-datepicker-header .ui-datepicker-title span {font-size:18px;font-family:"NotoSansKR" !important;font-weight: 400;}
 .uis-datepicker .ui-datepicker-header .ui-datepicker-prev span {display:inline-block;width:14px;height:26px;text-indent:-9999px;background: url(/images/front/travel/contents/icon-common-sec.png) -70px -304px no-repeat;}
 .uis-datepicker .ui-datepicker-header .ui-datepicker-next span {display:inline-block;width:14px;height:26px;text-indent:-9999px;background: url(/images/front/travel/contents/icon-common-sec.png) -89px -304px no-repeat;}
 .uis-datepicker .ui-datepicker-header .ui-datepicker-prev {position:absolute;top: 125px;left:-3px;}
@@ -526,7 +529,7 @@ box-shadow: 3px 7px 22px 0px rgba(0,0,0,0.3);
 .uis-datepicker .ui-datepicker-calendar thead tr th .Saturday,
 .uis-datepicker .ui-datepicker-calendar tbody tr td.date-saturday * {color: #2c5ade !important;}
 .uis-datepicker .ui-datepicker-calendar tbody tr td a, 
-.uis-datepicker .ui-datepicker-calendar tbody tr td span {display: block;width:40px !important;height:40px !important;line-height:40px !important;margin: 0 auto;color:#000;font-size:14px;font-weight: 500 !important;position: relative;}
+.uis-datepicker .ui-datepicker-calendar tbody tr td span {display: block;width:40px !important;height:40px !important;line-height:40px !important;margin: 0 auto;color:#000;font-size:14px;position: relative;}
 .uis-datepicker .ui-datepicker-calendar tbody tr td.ui-state-disabled {opacity: 0.4;}
 /*.uis-datepicker .ui-datepicker-calendar tbody tr td .ui-state-default,*/ 
 .uis-datepicker .ui-datepicker-calendar tbody tr td.ui-datepicker-today .ui-state-default {background: none;color: #000;border:0;}
@@ -572,14 +575,15 @@ border-left:0;
 .uis-capacity-number {margin: 30px 0;background-color: #fff;}
 .uis-capacity-number li {margin: 15px 0;padding: 0 30px;}
 .uis-capacity-number li:after {content: '';display: block;clear:both;}
-.uis-capacity-number .tit {float: left;font-size:16px;color: #000;padding-top: 7px;}
+.uis-capacity-number .tit {float: left;padding-top: 7px;font-size:16px;font-family:"NotoSansKR" !important;font-weight: 300;color: #000;}
+.uis-capacity-number .tit * {font-size:16px;font-family:"NotoSansKR" !important;font-weight: 300;color: #000;}
 .uis-capacity-number .tit em {font-weight: 500 !important;}
 .uis-custom-number {float: right;}
 .uis-txt-area {border-top: 1px solid #ededed;padding: 15px 30px;}
 .uis-txt-area .uis-txt1 {font-size:14px;color: #000;letter-spacing: -1px;}
 .uis-custom-number {border: 1px solid #cacdd4;border-radius: 3px;overflow: hidden;}
 .uis-custom-number:after {content: '';display: block;clear:both;}
-.uis-custom-number .ucn-num {float: left;display: inline-block;width: 54px;height: 38px;line-height: 38px;text-align: center;border-left: 1px solid #cacdd4;border-right: 1px solid #cacdd4;font-size:16px;color: #999;font-weight: 500 !important;background-color: #f9f9f9;}
+.uis-custom-number .ucn-num {float: left;display: inline-block;width: 54px;height: 38px;line-height: 38px;text-align: center;border-left: 1px solid #cacdd4;border-right: 1px solid #cacdd4;font-size:16px;color: #999;font-family:"NotoSansKR" !important;font-weight: 500;background-color: #f9f9f9;}
 .uis-custom-number .ucn-num.on {color: #f42a86;}
 .uis-custom-number .ucn-crt {float: left;}
 .uis-custom-number .ucn-crt button {width: 36px;height: 38px;background-color: #fff;position: relative;}
@@ -587,7 +591,7 @@ border-left:0;
 .uis-custom-number .ucn-crt button:after {content:'';display:block;width:1px;height:17px;background-color:#cacdd4;position:absolute;top:50%;left:50%;margin-top:-8px;}
 .uis-custom-number .b-minus button:after {display: none;}
 .uis-capacity-select li {border-top: 1px solid #ededed;}
-.uis-capacity-select li a {display: block;font-size:16px;color: #000;font-weight: 500 !important;padding: 15px 30px;position: relative;}
+.uis-capacity-select li a {display: block;font-size:16px;color: #000;font-family:"NotoSansKR" !important;font-weight: 500;padding: 15px 30px;position: relative;}
 .uis-capacity-select li a:hover {background-color: #f9f9f9;}
 .uis-capacity-select .on a {color: #f42a86;background-color: #f9f9f9;}
 .uis-capacity-select .on a:after {content: '';display: block;width: 17px;height: 11px;background: url(/images/front/travel/contents/icon-common-sec.png) 0 -285px no-repeat;position: absolute;right: 30px;top: 22px;}
@@ -610,13 +614,13 @@ border-left:0;
 .hss-recently-search * {display: inline-block;vertical-align: middle;}
 .hss-recently-search .qrs-area {padding-right: 40px;position: relative;}
 .hss-recently-search .qrs-area:before {content: '';display: block;width: 17px;height: 9px;background: url(/images/front/travel/contents/icon-common-sec.png) 0 -360px no-repeat;position: absolute;top: 8px;right: 0;}
-.hss-recently-search .qrs-area .inf-total {font-size:16px;color: #fff;font-weight: 500 !important;}
+.hss-recently-search .qrs-area .inf-total {font-size:16px;color: #fff;font-family:"NotoSansKR" !important;font-weight: 500;}
 .hss-recently-search .qrs-area .inf-sum {font-size:14px;color: #fff;}
 /*.hss-recently-search .qrs-area .inf-sum .tit {font-size:14px;color: #fff;padding-left: 15px;}*/
-.hss-recently-search .qrs-area .inf-sum .cont {font-size:14px;color: #fff;padding-left: 15px;;max-width:380px;text-overflow:ellipsis;white-space:nowrap;overflow:hidden;max-width:380px;height: 22px;line-height: 22px;}
+.hss-recently-search .qrs-area .inf-sum .cont {font-size:14px;color: #fff;padding-left: 15px;max-width:380px;text-overflow:ellipsis;white-space:nowrap;overflow:hidden;max-width:380px;height: 22px;line-height: 22px;}
 .hss-recently-search .ui-recently-search {text-align: left;}
-.hss-recently-search .ui-recently-search .urs-tit {display: block;padding: 30px 20px;width: 100%;font-size:16px;font-weight: 500 !important;color: #000;border-bottom: 1px solid #ededed;}
-.hss-recently-search .ui-recently-search .urs-tit em {font-size:16px;font-weight: 500 !important;color: #f42a86;display: inline-block;vertical-align: top;}
+.hss-recently-search .ui-recently-search .urs-tit {display: block;padding: 30px 20px;width: 100%;font-size:16px;font-family:"NotoSansKR" !important;font-weight: 500;color: #000;border-bottom: 1px solid #ededed;}
+.hss-recently-search .ui-recently-search .urs-tit em {font-size:16px;font-family:"NotoSansKR" !important;font-weight: 500;color: #f42a86;display: inline-block;vertical-align: top;}
 .hss-recently-search .ui-recently-search .list {width: 100%;overflow-y: auto;max-height:237px;}
 .hss-recently-search .ui-recently-search .list li {width: 100%;border-bottom: 1px solid #ededed;}
 /*.hss-recently-search .ui-recently-search .list li > a {display: table;table-layout: fixed;}*/
@@ -625,7 +629,7 @@ border-left:0;
 .hss-recently-search .ui-recently-search .list li:after {content: '';display: block;clear:both;}
 /*.hss-recently-search .ui-recently-search .list li .tit {display: table-cell;width: 115px;vertical-align: middle;font-size:16px;font-weight: 500 !important;color: #000;}
 .hss-recently-search .ui-recently-search .list li .cont {display: table-cell;width: auto;font-size:16px;color: #000;transition: color 0.3s;}*/
-.hss-recently-search .ui-recently-search .list li .cont {font-size:16px;color: #000;transition: color 0.3s;}
+.hss-recently-search .ui-recently-search .list li .cont {font-size:16px;font-family:"NotoSansKR" !important;font-weight: 300;color: #000;transition: color 0.3s;}
 .hss-recently-search .ui-recently-search .b-scb-close {top: 38px;}
 .hss-recently-search .ui-recently-search {top: -30px;right: -30px;}
 /* ------- 검색 박스 lyout -  팝업 사이즈 */
@@ -787,7 +791,7 @@ box-shadow: 0px 5px 20px 0px rgba(0,0,0,0.2);
 /* 푸터 영역 */
 #footer-sec {background-color: #000;margin-top: 80px;}
 .w-footer-sec {padding: 80px 0;}
-.w-footer-sec .fts-call a {color: #fff;font-size:16px;transition: color 0.3s;}
+.w-footer-sec .fts-call a {color: #fff;font-size:16px;font-family:"NotoSansKR" !important;font-weight: 300;transition: color 0.3s;}
 .w-footer-sec .fts-call a:hover {color: #e93a84;}
 .w-footer-sec .fts-call em {color: #e93a84;}
 .w-footer-sec .nav-fnb {margin-top: 20px;}
@@ -818,7 +822,7 @@ box-shadow: 0px 5px 20px 0px rgba(0,0,0,0.2);
  *--------------------------------------------------------------------------------------------------------------*/
 /* 섹션 타이틀 */
 .c-tit-sec {margin-bottom: 40px;}
-.c-tit-sec a, .c-tit-sec span {display: inline-block;font-size:24px;color: #000;font-weight: 400 !important;padding-right: 20px;position: relative;transition: color 0.3s;}
+.c-tit-sec a, .c-tit-sec span {display: inline-block;font-size:24px;color: #000;font-family:"NotoSansKR" !important;font-weight: 400;padding-right: 20px;position: relative;transition: color 0.3s;}
 .c-tit-sec a:after {content: '';display: block;width: 11px;height: 21px;position: absolute;right: 0;top: 9px;background: url(/images/front/travel/contents/icon-common-sec.png) -14px 0 no-repeat;}
 .c-tit-sec a:hover span{color: #e93a84;}
 
@@ -855,7 +859,7 @@ box-shadow: 0px 5px 20px 0px rgba(0,0,0,0.2);
 .s-rec-promotion .rlc-list-main .o-box {width: 100%;}
 .s-rec-promotion .rlc-list-main .o-box > a:hover .tit {color: #e93a84;}
 .s-rec-promotion .rlc-list-main .vis {display: block;overflow: hidden;border-radius: 6px;margin-bottom: 30px;}
-.s-rec-promotion .rlc-list-main .tit {display: block;color: #000;font-size:26px;line-height: 36px;font-weight: 400;margin-bottom: 10px;transition: color 0.3s;}
+.s-rec-promotion .rlc-list-main .tit {display: block;color: #000;font-size:26px;font-family:"NotoSansKR" !important;font-weight: 300;line-height: 36px;margin-bottom: 10px;transition: color 0.3s;}
 .s-rec-promotion .rlc-list-main .exp {display: block;color: #000;font-size:14px;line-height: 20px;margin-top: 10px;}
 .s-rec-promotion .rlc-list-sub .rlc-ls-left {float: left;width: 272px;}
 .s-rec-promotion .rlc-list-sub .rlc-ls-right {float: right;width: 272px;}
@@ -866,8 +870,8 @@ box-shadow: 0px 5px 20px 0px rgba(0,0,0,0.2);
 .s-rec-promotion .rlc-list-sub .o-box > a:hover .tit {color: #e93a84;}
 .s-rec-promotion .rlc-list-sub .vis {display: block;overflow: hidden;border-radius: 6px;z-index: 1;}
 .s-rec-promotion .rlc-list-sub .info-box {display: block;z-index: 0;padding: 35px 19px 28px 19px;border:1px solid #e2e6eb;border-radius: 6px;margin-top: -10px;}
-.s-rec-promotion .rlc-list-sub .tit {display: block;color: #000;font-size:18px;line-height: 28px;z-index: 1;transition: color 0.3s;}
-.s-rec-promotion .rlc-list-sub .date {display: block;color: #000;font-size:14px;line-height: 24px;margin-top: 10px;}
+.s-rec-promotion .rlc-list-sub .tit {display: block;color: #000;font-size:18px;font-family:"NotoSansKR" !important;font-weight: 300;line-height: 28px;z-index: 1;transition: color 0.3s;}
+.s-rec-promotion .rlc-list-sub .date {display: block;color: #000;font-size:14px;line-height: 24px;margin-top: 10px;letter-spacing: -0.05em;}
 .s-rec-promotion .cb-crt {position: absolute;width: 100%;top:126px;z-index: 1;}
 .s-rec-promotion .cb-crt .bb-st4 {position: absolute;top:0;}
 .s-rec-promotion .cb-crt .bb-prev {left: -30px;}
@@ -905,7 +909,7 @@ box-shadow: 0px 5px 20px 0px rgba(0,0,0,0.2);
 .s-benefit-cont .list-benefit .ico-bfit span img {position:absolute;top:0;left:0;right:0;bottom:0;margin:auto;}
 .s-benefit-cont .list-benefit .ico-bfit .over {opacity: 0;z-index: 1;}
 .s-benefit-cont .list-benefit li .inner {display: table;width: 100%;min-height: 50px;margin-top: 20px;}
-.s-benefit-cont .list-benefit .txt {display: table-cell;vertical-align: middle;text-align: center;font-size: 18px;color: #000;line-height: 28px;font-weight: 400;transition: color 0.3s;}
+.s-benefit-cont .list-benefit .txt {display: table-cell;vertical-align: middle;text-align: center;font-size: 18px;color: #000;line-height: 28px;font-family:"NotoSansKR" !important;font-weight: 300;transition: color 0.3s;}
 .s-benefit-cont .list-benefit li:before {content: '';display: block;width: 140px;height: 140px;background-color: #fff;border-radius: 50%;position: absolute;top: 40px;left: 50%;margin-left: -25%;pointer-events: none;}
 /*.s-benefit-cont .list-benefit li .inner:before {content: '';display: block;width: 80px;height: 80px;position: absolute;left: 50%;margin-left: -40px;top: 25%;background:url(/images/front/travel/contents/icon-benefit-contents.png) 50% 50% no-repeat;transition: opacity 0.3s;}
 .s-benefit-cont .list-benefit li .inner:after {content: '';display: block;width: 80px;height: 80px;position: absolute;left: 50%;margin-left: -40px;top: 25%;background:url(/images/front/travel/contents/icon-benefit-contents.png) 50% 50% no-repeat;opacity: 0;transition: opacity 0.3s;}
@@ -925,14 +929,14 @@ box-shadow: 0px 5px 20px 0px rgba(0,0,0,0.2);
 .s-information-cont .sic-left {float: left;width: 892px;position: relative;}
 .s-information-cont .sic-board .c-tit-sec {margin-bottom: 25px;}
 .s-information-cont .sic-board .list li {border-bottom: 1px solid #e2e2e2;position: relative;}
-.s-information-cont .sic-board .list li a {font-size: 16px;color: #000;padding: 11px 0 13px 0;display:block;text-overflow: ellipsis; white-space: nowrap; overflow: hidden; width:780px;transition: color 0.3s;}
+.s-information-cont .sic-board .list li a {font-size: 16px;font-family:"NotoSansKR" !important;font-weight: 300;color: #000;padding: 11px 0 13px 0;display:block;text-overflow: ellipsis; white-space: nowrap; overflow: hidden; width:780px;transition: color 0.3s;}
 .s-information-cont .sic-board .list li a:hover {color: #e93a84;}
-.s-information-cont .sic-board .list .date {font-size: 16px;color: #818181;position: absolute;right: 0;top: 10px;}
+.s-information-cont .sic-board .list .date {font-size: 16px;font-family:"NotoSansKR" !important;font-weight: 300;color: #818181;position: absolute;right: 0;top: 10px;}
 .s-information-cont .sic-right {float: right;width: 285px}
-.s-information-cont .sic-aside .tit {display: block;font-size:18px;color: #000;line-height: 28px;height: 56px;font-weight: 300;margin-bottom: 30px;transition: color 0.3s;}
+.s-information-cont .sic-aside .tit {display: block;font-size:18px;font-family:"NotoSansKR" !important;font-weight: 300;color: #000;line-height: 28px;height: 56px;font-weight: 300;margin-bottom: 30px;transition: color 0.3s;}
 .s-information-cont .sic-aside > a {display: block;width: 100%;height: 100%;}
 .s-information-cont .sic-aside > a:hover .tit {color: #e93a84;}
-.s-information-cont .sic-aside .tit em {font-weight: inherit;}
+.s-information-cont .sic-aside .tit em {font-size:18px;font-family:"NotoSansKR" !important;font-weight: 300;}
 .s-information-cont .sic-aside .vis {display: block;border-radius: 6px;overflow: hidden;position: absolute;bottom: 0;}
 
 
@@ -944,7 +948,7 @@ box-shadow: 0px 5px 20px 0px rgba(0,0,0,0.2);
 .s-rec-promotion-cont .srpc-prom .srpc-left {float: left;width: 390px;border-radius: 6px;overflow: hidden;}
 .s-rec-promotion-cont .srpc-prom .slick-dots:after {content: '';display: block;clear:both;}
 .s-rec-promotion-cont .srpc-prom .slick-dots li {float: left;width: 50%;}
-.s-rec-promotion-cont .srpc-prom .slick-dots li .btn {display: block;width: 100%;padding: 16px 20px;text-align: left;font-size:14px;color: #000;line-height: 24px;white-space:normal;background-color: #eef1f6;border: 1px solid #e2e6eb;border-left: 0;letter-spacing: -0.07em;transition: all 0.3s;}
+.s-rec-promotion-cont .srpc-prom .slick-dots li .btn {display: block;width: 100%;padding: 16px 20px;text-align: left;font-size:14px;color: #000;line-height: 24px;white-space:normal;background-color: #eef1f6;border: 1px solid #e2e6eb;border-left: 0;letter-spacing: -1px;transition: all 0.3s;}
 .s-rec-promotion-cont .srpc-prom .slick-dots li:first-child .btn {border-left: 1px solid #e2e6eb;}
 .s-rec-promotion-cont .srpc-prom .slick-dots li .btn:hover {color: #e93a84;}
 .s-rec-promotion-cont .srpc-prom .slick-dots .slick-active .btn {color: #fff;border: 1px solid #288ecc !important;background-color: #288ecc;}
@@ -961,18 +965,18 @@ box-shadow: 0px 5px 20px 0px rgba(0,0,0,0.2);
 .list-item-st1 .vis {display: block;overflow: hidden;border-radius: 6px;z-index: 1;}
 .list-item-st1 .info-box {display: block;z-index: 0;padding: 35px 19px 28px 19px;border:1px solid #e2e6eb;border-radius: 6px;margin-top: -10px;}
 .list-item-st1 .tit {display:block;min-height:28px;position:relative;z-index: 1;}
-.list-item-st1 .tit span {display: inline-block;width:100%;color:#000;font-size:18px;line-height:28px;text-overflow:ellipsis;white-space:nowrap;overflow:hidden;transition:all 0.3s;}
+.list-item-st1 .tit span {display: inline-block;width:100%;color:#000;font-size:18px;font-family:"NotoSansKR" !important;font-weight: 300;line-height:28px;text-overflow:ellipsis;white-space:nowrap;overflow:hidden;transition:all 0.3s;}
 .list-item-st1 .tit.tit-over span {width:100%;height: 28px;position:absolute;top:0;left:0;}
 .list-item-st1 li > a:hover .tit span {color: #e93a84;}
 .list-item-st1 li > a:hover .tit-over span {height: auto;max-height:62px;padding-bottom: 10px;white-space: inherit;}
 .list-item-st1 .tit-ori {display: block;color: #000;font-size:14px;line-height: 24px;margin-top: 12px;}
-.list-item-st1 .date {display: block;color: #000;font-size:14px;line-height: 24px;margin-top: 10px;}
+.list-item-st1 .date {display: block;color: #000;font-size:14px;line-height: 24px;margin-top: 10px;letter-spacing: -0.05em;}
 .list-item-st1 .logo-airline {display: block;margin-bottom:15px;padding-left: 8px;}
 .list-item-st1 .rec-mark {display: block;position: absolute;top: 10px;right: 10px;text-align: right;}
 .list-item-st1 .mark {display: block;margin-bottom:15px;}
 .list-item-st1 .lbr-st1 {margin-right: 6px;}
 .list-item-st1 .price {display: block;color: #ec0d61;font-size:14px;line-height: 20px;margin-top: 10px;}
-.list-item-st1 .price em {color: #ec0d61;font-size:20px;font-weight: 500 !important;margin-left: 3px;}
+.list-item-st1 .price em {color: #ec0d61;font-size:20px;font-family:"NotoSansKR" !important;font-weight: 500;margin-left: 3px;}
 .list-item-st1 .info {display: block;margin-top: 12px;height: 44px;}
 .list-item-st1 .info span {vertical-align: middle;}
 .list-item-st1 .info .txt {display: inline-block;width: 180px;height: 44px;overflow: hidden;margin-left: 10px;color: #000;font-size:14px;line-height: 22px;}
@@ -989,13 +993,13 @@ box-shadow: 0px 5px 20px 0px rgba(0,0,0,0.2);
 .list-item-st2 li a:hover .over {top: 0;}
 .list-item-st2 .inner {display: table-cell;vertical-align: middle;text-align: center;position: relative;z-index: 1;}
 .list-item-st2 .inner .label-base {display: block;}
-.list-item-st2 .inner .tit {display: block;margin-top: 15px;font-size:26px;line-height: 36px;color: #fff;}
+.list-item-st2 .inner .tit {display: block;margin-top: 15px;font-size:26px;font-family:"NotoSansKR" !important;font-weight: 300;line-height: 36px;color: #fff;}
 .list-item-st2 .inner .tit-ori {display: block;margin-top: 15px;font-size:14px;line-height: 24px;color: #fff;}
 .list-item-st2 .over {position: absolute;display: table;width: 100%;height: 100%;text-align: center;top: 100%;left: 0;z-index: 2;transition: top 0.5s;}
 .list-item-st2 .over-inner {display: table-cell;vertical-align: middle;}
-.list-item-st2 .over-inner .tit {display: block;font-size:18px;color: #fff;}
-.list-item-st2 .over-inner .price {display: block;font-size:24px;color: #fff;}
-.list-item-st2 .over-inner .price em {font-size:34px;color: #fff;font-weight: 500 !important;}
+.list-item-st2 .over-inner .tit {display: block;font-size:18px;font-family:"NotoSansKR" !important;font-weight: 300;color: #fff;}
+.list-item-st2 .over-inner .price {display: block;font-size:24px;font-family:"NotoSansKR" !important;font-weight: 300;color: #fff;}
+.list-item-st2 .over-inner .price em {font-size:34px;color: #fff;font-family:"NotoSansKR" !important;font-weight: 500;}
 .s-rec-area-cont.rac-hotel .over-inner {background-color: #00b290;}
 .s-rec-area-cont.rac-hotel .lbr-st2 span {background-color: #00b290;}
 .s-rec-area-cont.rac-air .over-inner {background-color: #288ecc;}
@@ -1005,14 +1009,14 @@ box-shadow: 0px 5px 20px 0px rgba(0,0,0,0.2);
 .s-information-cont.sic-faq .sic-right {width: 278px;}
 .s-information-cont.sic-faq .list li a {width: 100%;}
 .s-information-cont .sic-aside-services {position: absolute;bottom: 0;width: 278px}
-.s-information-cont .sic-aside-services > a {display: block;width: 100%;padding: 30px 35px;color: #000;font-size:18px;line-height: 28px;background-color: #eef1f6;border:1px solid #e2e6eb;border-radius: 3px; transition: color 0.3s;}
+.s-information-cont .sic-aside-services > a {display: block;width: 100%;padding: 30px 35px;color: #000;font-size:18px;font-family:"NotoSansKR" !important;font-weight: 300;line-height: 28px;background-color: #eef1f6;border:1px solid #e2e6eb;border-radius: 3px; transition: color 0.3s;}
 .s-information-cont .sic-aside-services > a:before {content: '';display: block;width: 11px;height: 21px;position: absolute;right: 30px;top: 50%;margin-top: -10px;background: url(/images/front/travel/contents/icon-common-sec.png) -14px 0 no-repeat;}
 .s-information-cont .sic-aside-services > a:hover {color: #e93a84;}
 
 /* 해외패키지 2, 3뎁스 */
 .w-nav-gsub-ly *, .w-nav-gsub-ly *:after, .w-nav-gsub-ly *:before {font-family: "NotoSansKR", "Malgun Gothic", sans-serif;font-weight: 300;-moz-box-sizing:border-box;-webkit-box-sizing:border-box;box-sizing: border-box;}
 .w-nav-gsub-ly {position: fixed;width: 100%;top: 120px;z-index: 201;}
-.w-nav-gsub-ly .l-total-nav-open{position:absolute;width:80px;display:inline-block;letter-spacing:-1px;top:0px;height:47px;line-height: 47px;left:50%;margin-left:515px;cursor:pointer;font-size:14px;font-weight:bold;background:none;text-indent:0px;z-index:0;font-weight: 500 !important;}
+.w-nav-gsub-ly .l-total-nav-open{position:absolute;width:80px;display:inline-block;letter-spacing:-1px;top:0px;height:47px;line-height: 47px;left:50%;margin-left:515px;cursor:pointer;font-size:14px;font-weight:bold;background:none;text-indent:0px;z-index:0;}
 .w-nav-gsub-ly .l-total-nav-open:hover{text-decoration:underline}
 .w-nav-gsub-ly .l-total-nav-open.on{background:none;border-bottom: none}
 .w-nav-gsub-ly .l-total-nav-open i{position:absolute;right: 0;top: 16px;vertical-align:middle;margin-left:5px;display:inline-block;width:13px;height:13px;background:url(/images/front/travel/main/gnb-text-plus-minus.gif) no-repeat left 0px}
@@ -1031,8 +1035,7 @@ box-shadow: 0px 5px 20px 0px rgba(0,0,0,0.2);
 .w-nav-gsub-ly .l-gnb.on{border-bottom:1px solid #d5d5d5}
 .w-nav-gsub-ly .l-gnb-menu{width: 1200px;margin:0 auto;text-align: right;padding-right: 105px;}
 .w-nav-gsub-ly .l-gnb-menu li{display:inline-block;float: none;padding:0;margin-top:0;}
-.w-nav-gsub-ly .l-gnb-menu li a{letter-spacing:0;width:auto !important;text-indent:0;line-height:47px;display:inline-block;height:47px;overflow:hidden;padding:0 15px 0 16px;background:none !important;
-font-size:14px;font-weight: 500 !important;display: block;}
+.w-nav-gsub-ly .l-gnb-menu li a{letter-spacing:0;width:auto !important;text-indent:0;line-height:47px;display:inline-block;height:47px;overflow:hidden;padding:0 15px 0 16px;background:none !important;font-size:14px;font-weight: bold;display: block;}
 .w-nav-gsub-ly .l-gnb-menu li:first-child a{padding-left:0;background:none !important}
 .w-nav-gsub-ly .l-gnb-menu li.PGR008 a{background-position: center 0;width:70px}
 .w-nav-gsub-ly .l-gnb-menu li.PGR009 a{background-position: center -40px;width:66px}
@@ -1081,7 +1084,7 @@ font-size:14px;font-weight: 500 !important;display: block;}
 .w-nav-gsub-ly .l-detail-search .help-text{margin-top:12px;float:right}
 
 .w-nav-gsub-ly .pkg-header.pkg-logo{margin-left:-106px}
-.w-nav-gsub-ly .ispgkresult .pkg-p-search{width:120px;height:47px;padding-left:16px;padding-right:14px;line-height:47px;background:none;position:absolute;top:0;left:50%;text-indent:0;cursor:pointer;margin-left:475px;font-size:14px;color:#ee217c;font-weight:500 !important;background:url(/images/front/travel/deco_line_1x15_e2e2.gif) no-repeat 0 center}
+.w-nav-gsub-ly .ispgkresult .pkg-p-search{width:120px;height:47px;padding-left:16px;padding-right:14px;line-height:47px;background:none;position:absolute;top:0;left:50%;text-indent:0;cursor:pointer;margin-left:475px;font-size:14px;color:#ee217c;font-weight:bold;background:url(/images/front/travel/deco_line_1x15_e2e2.gif) no-repeat 0 center}
 .w-nav-gsub-ly .ispgkresult .pkg-p-search.on{background:url(/images/front/travel/deco_line_1x15_e2e2.gif) no-repeat 0 center}
 .w-nav-gsub-ly .ispgkresult .pkg-p-search i{position:absolute;right: 0;top: 16px;vertical-align:middle;margin-left:5px;display:inline-block;width:13px;height:13px;background:url(/images/front/travel/main/gnb-text-plus-minus2.gif) no-repeat left 0px}
 .w-nav-gsub-ly .ispgkresult .pkg-p-search.on i{background-position:right 0}

@@ -1083,7 +1083,7 @@ if(not_chrome == true){
 		});	
 	}
 }
-function setBanner( obj, autorolling, dtime, align, duration, interval) {
+function setBanner( obj, autorolling, dtime, align, duration, interval, isRandom) {
 	var w = obj.find('.roll_img > ul > li').width(),
 	leng = obj.find('.roll_img > ul > li').length,
 	btns = '',
@@ -1095,6 +1095,16 @@ function setBanner( obj, autorolling, dtime, align, duration, interval) {
 	delay = dtime,
 	_timer,
 	play_posX = leng * 13 + 20;
+	
+	//요소 랜덤
+	if(isRandom){
+		var ul = obj.find('.roll_img > ul'); 
+		var liArr = ul.children('li'); 
+		liArr.sort(function() { 
+			var temp = parseInt(Math.random()*leng); 
+			var temp1 = parseInt(Math.random()*leng); return temp1-temp; 
+		}).appendTo(ul);
+	}
 	
 	var promotiomain = false;
 	if(obj.parent("li").parent("ul").hasClass("promo_item")){

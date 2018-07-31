@@ -1897,7 +1897,7 @@ table.list tbody tr td .ro-htl-new .child-add-info span em{color:#cecece}
 #relation-promotion li .pride{text-align:right;margin-top:10px}
 #relation-promotion .prev{position:absolute;top:-40px;right:29px;background:url(/images/front/travel/btn_roll_ctrl.gif) no-repeat 0 0;width:30px;height:30px;cursor:pointer;display:inline-block;text-indent:9999px}
 #relation-promotion .next{position:absolute;top:-40px;right:0;background:url(/images/front/travel/btn_roll_ctrl.gif) no-repeat -29px 0;width:30px;height:30px;cursor:pointer;display:inline-block;text-indent:9999px}
-
+#relation-promotion  .rap-mag{position:absolute;bottom:15px;right:0px}
 /* 29148 (해외출발 미노출) */
 .quick-section #QS-AIR .sch-2dep .mr_etc{margin-right: 0;margin-left: 52px;}
 .quick-section #QS-AIR .sch-2dep .mr_etc:first-child {margin-left: 0;}

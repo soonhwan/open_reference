@@ -1547,6 +1547,7 @@ table.total_benefit_air tbody tr td.sum div ul li{height:auto;margin:10px 0}
 .airline_table_tp div.th{background-image:url(/images/front/travel/search/th_table_airline_white.gif)} /* white.css 적용 대상자 */
 .airline_table_tp .scroll{background:url(/images/front/travel/search/th_table_airline_white.gif) repeat-x 0 -211px} /* white.css 적용 대상자 */
 .airline_table_tp .scroll ul li div.price2{border-bottom:1px solid #d7d7d7}/* white.css 적용 대상자 */
+.airline_table_tp .scroll ul li div.price2 a {font-weight: bold;}
 
 /* 9125 */
 .section_main .best_deal_wide .location .cont table td.emblem span{display:inline-block;overflow:hidden;width:26px;height:20px;text-indent:-9999px;background:url(/images/front/travel/search/ico_search.png) no-repeat}
