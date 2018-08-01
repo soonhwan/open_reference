@@ -382,6 +382,9 @@ box-shadow: 0 10px 20px 0px rgba(0,0,0,0.1);
 .sc-search-box .qsb-cont-box .qsb-cont-box-inner {display: none;}
 .sc-search-box .qsb-cont-box .qsb-cont-box-inner.on {display: block;}
 .sc-search-box .qsb-cont-box .qsb-cont ~ .qsb-cont-box-inner .qsb-cont {border-left: 1px solid #ddd;}
+.sc-search-box .qsb-cont-box .qsb-disabled * {opacity: 0.7;}
+.sc-search-box .qsb-cont-box .qsb-disabled:before, 
+.sc-search-box .qsb-cont-box .qsb-disabled:after {opacity: 0.5;}
 .sc-search-box .qsb-cont-indep {border-radius: 0;}
 .sc-search-box .qsb-cont-indep:after {content: '';display: block;clear:both;}
 .sc-search-box .qsb-cont-indep .qsb-cont {overflow: hidden;border-radius: 6px;}
@@ -392,9 +395,6 @@ box-shadow: 0 10px 20px 0px rgba(0,0,0,0.1);
 .sc-search-box .qsb-cont .qsb-area.on .qsb-label {font-size: 12px;color: #666;font-weight: bold;margin-top: 0;}
 .sc-search-box .qsb-cont .qsb-area.on .qsb-input {display: block;font-size:18px;color: #000;font-family:"NotoSansKR" !important;font-weight: 500;margin-top: 3px;}
 .sc-search-box .qsb-cont .qsb-area.on .qsb-input * {font-size:18px;font-family:"NotoSansKR" !important;font-weight: 500;}
-.sc-search-box .qsb-cont.disabled * {opacity: 0.7;}
-.sc-search-box .qsb-cont.disabled:before, 
-.sc-search-box .qsb-cont.disabled:after {opacity: 0.5;}
 .sc-search-box .w-opt-box {margin-top: 20px;display: inline-block;position: relative;z-index: 1;}
 .sc-search-box .w-opt-box .chk-st1 {margin-right: 20px;}
 .hss-inner-cont.isRecently .w-opt-box {margin-bottom: -45px;} /* 최근검색이 있으면 */

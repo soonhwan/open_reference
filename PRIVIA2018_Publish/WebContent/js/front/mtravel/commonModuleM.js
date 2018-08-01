@@ -242,7 +242,7 @@ var pvmFrontScript = window.pvmFrontScript || (function(){
 			if(date1){
 				if(date.getTime() == date1.getTime()){
 					if(date2){
-						result = [true, "dp-highlight dp-first"];
+						result = [true, "dp-highlight dp-first", $.datepicker.formatDate('yy/mm/dd', date1)];
 					}
 					else{
 						result = [true, "dp-highlight"];
@@ -250,7 +250,7 @@ var pvmFrontScript = window.pvmFrontScript || (function(){
 				}
 				else if(date2){
 					if(date.getTime() == date2.getTime()){
-						result = [true, "dp-highlight dp-end"];
+						result = [true, "dp-highlight dp-end", $.datepicker.formatDate('yy/mm/dd', date2)];
 					}
 					else if(date.getTime() > date1.getTime() && date.getTime() < date2.getTime()){
 						result = [true, "dp-highlight pd-between"];
@@ -294,15 +294,15 @@ var pvmFrontScript = window.pvmFrontScript || (function(){
 			if(section.find('.uis-list .tit-rec').length > 0){
 				section.find('.uis-list .tit-rec').on('click', function(e){
 					if(!$(this).parent('li').hasClass('on')){
-						$(this).closest('.uis-list').find('> li.on .list-sub').height(0);
+						$(this).closest('.uis-list').find('> li.on .w-list-sub').height(0);
 						$(this).closest('.uis-list').find('> li.on').removeClass('on');
 						
-						var h = $(this).parent('li').find('.list-sub').prop('scrollHeight');
-						$(this).parent('li').find('.list-sub').height(h);
+						var h = $(this).parent('li').find('.w-list-sub').prop('scrollHeight');
+						$(this).parent('li').find('.w-list-sub').height(h);
 						$(this).parent('li').addClass('on');
 					}
 					else{
-						$(this).closest('.uis-list').find('> li.on .list-sub').height(0);
+						$(this).closest('.uis-list').find('> li.on .w-list-sub').height(0);
 						$(this).closest('.uis-list').find('> li.on').removeClass('on');
 					}
 					e.preventDefault();

@@ -1074,7 +1074,7 @@ function comSearchAir(){
 					$('.sc-air .o-shuttle .uis-date-chkout [data-day]').data('day',$('.sc-air .o-shuttle .uis-date-chkin [data-day]').data('day'));
 					//panel input
 					$('.sc-air .o-shuttle .uis-date-chkout .txt-day').addClass('on');
-					$('.sc-air .o-shuttle .uis-date-chkout .txt-day').html($('.sc-air .o-shuttle .qsb-dates .qsb-chkin').html()+' 도착');
+					$('.sc-air .o-shuttle .uis-date-chkout .txt-day').html($('.sc-air .o-shuttle .qsb-dates .qsb-chkin .txt-day').html()+' 도착');
 					//sbox input
 					$('.sc-air .o-shuttle .qsb-dates .qsb-chkout').addClass('on');
 					$('.sc-air .o-shuttle .qsb-dates .qsb-chkout').html($('.sc-air .o-shuttle .qsb-dates .qsb-chkin').html());	
@@ -1746,7 +1746,7 @@ function comSearchHotel(){
 					$('.sc-hotel .o-inth .uis-date-chkout [data-day]').data('day',$('.sc-hotel .o-inth .uis-date-chkin [data-day]').data('day'));
 					//panel input
 					$('.sc-hotel .o-inth .uis-date-chkout .txt-day').addClass('on');
-					$('.sc-hotel .o-inth .uis-date-chkout .txt-day').html($('.sc-hotel .o-inth .qsb-dates .qsb-chkin').html()+' 체크아웃');
+					$('.sc-hotel .o-inth .uis-date-chkout .txt-day').html($('.sc-hotel .o-inth .qsb-dates .qsb-chkin .txt-day').html()+' 체크아웃');
 					//sbox input
 					$('.sc-hotel .o-inth .qsb-dates .qsb-chkout').addClass('on');
 					$('.sc-hotel .o-inth .qsb-dates .qsb-chkout').html($('.sc-hotel .o-inth .qsb-dates .qsb-chkin').html());	
@@ -1833,7 +1833,7 @@ function comSearchHotel(){
 					$('.sc-hotel .o-domh .uis-date-chkout [data-day]').data('day',$('.sc-hotel .o-domh .uis-date-chkin [data-day]').data('day'));
 					//panel input
 					$('.sc-hotel .o-domh .uis-date-chkout .txt-day').addClass('on');
-					$('.sc-hotel .o-domh .uis-date-chkout .txt-day').html($('.sc-hotel .o-domh .qsb-dates .qsb-chkin').html()+' 체크아웃');
+					$('.sc-hotel .o-domh .uis-date-chkout .txt-day').html($('.sc-hotel .o-domh .qsb-dates .qsb-chkin .txt-day').html()+' 체크아웃');
 					//sbox input
 					$('.sc-hotel .o-domh .qsb-dates .qsb-chkout').addClass('on');
 					$('.sc-hotel .o-domh .qsb-dates .qsb-chkout').html($('.sc-hotel .o-domh .qsb-dates .qsb-chkin').html());	
@@ -2337,7 +2337,7 @@ function comSearchFreetour(){
 	
 	//select click 팝업
 	$('.sc-freetour [data-panel="select"]').on('click', function(e){
-		if($(this).closest('.disabled').length > 0){ return false; } //비활성화 처리
+		if($(this).closest('.qsb-disabled').length > 0){ return false; } //비활성화 처리
 															  
 		//select 저장
 		$currentSelect = $(this);
