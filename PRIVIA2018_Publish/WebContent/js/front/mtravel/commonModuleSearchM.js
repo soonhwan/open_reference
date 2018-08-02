@@ -717,11 +717,11 @@ var pvmSearch = window.pvmSearch || (function(){
 					return false;
 				}
 				else{
-					$(this).parent('.slt-btn-add').addClass('on');
+					//$(this).parent('.slt-btn-add').addClass('on');
 					$('.ot-multiway .t-air-md-'+_MDCnt).addClass('on');
-					if(_MDCnt == _MDMax){
+					/*if(_MDCnt == _MDMax){
 						$('.ot-multiway .t-air-md-'+_MDMax).find('.slt-btn-add').addClass('on');
-					}
+					}*/
 					
 					_mdDateArr.push(""); //다중날짜 추가
 					
@@ -773,23 +773,15 @@ var pvmSearch = window.pvmSearch || (function(){
 
 					//맨뒤에 있는 구간 숨김
 					$('.ot-multiway .t-air-md-'+openTotal).removeClass('on');
-
-					//버튼 변경
-					/*if(openTotal >= _MDMax){
-						$('.sc-air .o-multiway .air-md-'+(openTotal-1)+' .qsb-btn-add').removeClass('on');			
-					}*/
-
-					//버튼 변경 - 구간 2개 남을때
-					/*if(openTotal <= _MDMinCnt+1){
-						$('.sc-air .o-multiway .air-md-2 .qsb-btn-add').removeClass('on');			
-					}*/
+					
+					//sbox trigger
+					$('.sc-air .o-multiway .air-md-'+(removeIdx*1+1)+' .remove-md a').trigger('click');
 					
 					//다중날짜 리셋
 					_mdDateArr.splice(removeIdx, 1);
 					initMDDate();
 					
-					//sbox trigger
-					$('.sc-air .o-multiway .remove-md a').trigger('click');
+					
 					
 					//reset height
 					resetMDHeight();

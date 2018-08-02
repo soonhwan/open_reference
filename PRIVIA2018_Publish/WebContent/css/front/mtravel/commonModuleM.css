@@ -365,11 +365,11 @@
 .slt-btn-add .b-add-multiway {display: block;width: 100%;border:1px solid #fff;border-radius: 3px;text-align: center;padding: 3px 0 5px 0;}
 .slt-btn-add .b-add-multiway span {display: inline-block;color: #fff;font-size:13px;position: relative;padding-right: 20px;}
 .slt-btn-add .b-add-multiway span:before {content: '';display: block;width: 12px;height: 12px;color: #fff;position: absolute;right: 0;top: 4px;background: url(/images/front/mtravel/contents/icon-common-secM.png) 0px -71px no-repeat;-webkit-background-size: 160px;background-size: 160px;}
-.slt-btn-add .b-remove-multiway {display: none;width: 100%;text-align: center;padding: 3px 0 5px 0;}
+.slt-btn-add .b-remove-multiway {display: block;width: 100%;text-align: center;padding: 3px 0 5px 0;}
 .slt-btn-add .b-remove-multiway span {display: inline-block;color: #fff;font-size:15px;padding-right: 18px;position: relative;}
 .slt-btn-add .b-remove-multiway span:before {content: '';display: block;width: 12px;height: 12px;color: #fff;position: absolute;right: 0;top: 5px;background: url(/images/front/mtravel/contents/icon-common-secM.png) 0 -56px no-repeat;-webkit-background-size: 160px;background-size: 160px;}
-.slt-btn-add.on .b-add-multiway {display: none;}
-.slt-btn-add.on .b-remove-multiway {display: block;}
+/*.slt-btn-add.on .b-add-multiway {display: none;}
+.slt-btn-add.on .b-remove-multiway {display: block;}*/
 /* 검색 팝업(box) layout */
 .sc-search-area .list-ssa {width: 100%;background-color: #ebeef2;padding: 15px 20px;}
 .ssa-ui-box {background-color: #fff;border-radius: 4px;overflow: hidden;min-height:300px;display: none;}
