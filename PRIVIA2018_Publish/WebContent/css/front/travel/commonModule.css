@@ -479,6 +479,7 @@ box-shadow: 3px 7px 22px 0px rgba(0,0,0,0.3);
 /* 검색 UI 팝업 - 주요도시 */
 .uis-mainsel-table {width: 100%;table-layout: fixed;background-color: #fff;}
 .uis-mainsel-table th {text-align: left;background-color: #f9f9f9;font-size:14px;font-weight: bold;border-bottom:1px solid #ececec;padding: 15px 20px;}
+.uis-mainsel-table th a {font-size:14px;font-weight: bold;}
 .uis-mainsel-table td {vertical-align: top;border-bottom:1px solid #ececec;border-right:1px solid #ececec;padding: 15px 0 15px 20px;}
 .uis-mainsel-table td .list a {display: block;font-size:14px;color: #000;padding: 3px 0;transition: color 0.3s;}
 .uis-mainsel-table td .list a:hover {color: #e93a84;}
@@ -537,7 +538,7 @@ box-shadow: 3px 7px 22px 0px rgba(0,0,0,0.3);
 .uis-datepicker .ui-datepicker-calendar tbody tr td.ui-datepicker-today .ui-state-active:before {font-size:0;}
 .uis-datepicker .ui-datepicker-calendar tbody tr td .ui-state-hover {background-color: #eee;}
 .uis-datepicker .ui-datepicker-calendar tbody tr td .ui-state-active {/*background-color: #f30774 !important;*/color: #fff !important;border-radius: 3px;}
-/* highlight 왕복 */
+/* highlight date1, date2 */
 .uis-datepicker .dp-highlight {position: relative;}
 .uis-datepicker .dp-highlight.ui-datepicker-today a:before {font-size:0 !important;}
 .uis-datepicker .dp-highlight .ui-state-default {background-color: #f30774 !important;color: #fff !important;border-radius: 3px;}
@@ -948,7 +949,7 @@ box-shadow: 0px 5px 20px 0px rgba(0,0,0,0.2);
 .s-rec-promotion-cont .srpc-prom .srpc-left {float: left;width: 390px;border-radius: 6px;overflow: hidden;}
 .s-rec-promotion-cont .srpc-prom .slick-dots:after {content: '';display: block;clear:both;}
 .s-rec-promotion-cont .srpc-prom .slick-dots li {float: left;width: 50%;}
-.s-rec-promotion-cont .srpc-prom .slick-dots li .btn {display: block;width: 100%;padding: 16px 20px;text-align: left;font-size:14px;color: #000;line-height: 24px;white-space:normal;background-color: #eef1f6;border: 1px solid #e2e6eb;border-left: 0;letter-spacing: -1px;transition: all 0.3s;}
+.s-rec-promotion-cont .srpc-prom .slick-dots li .btn {display: block;width: 100%;padding: 16px 20px;text-align: left;font-size:14px;color: #000;line-height: 24px;white-space:normal;background-color: #eef1f6;border: 1px solid #e2e6eb;border-left: 0;letter-spacing: -2px;height: 82px;transition: all 0.3s;}
 .s-rec-promotion-cont .srpc-prom .slick-dots li:first-child .btn {border-left: 1px solid #e2e6eb;}
 .s-rec-promotion-cont .srpc-prom .slick-dots li .btn:hover {color: #e93a84;}
 .s-rec-promotion-cont .srpc-prom .slick-dots .slick-active .btn {color: #fff;border: 1px solid #288ecc !important;background-color: #288ecc;}

@@ -195,6 +195,17 @@ var pvmFrontScript = window.pvmFrontScript || (function(){
 				txt = month + '.' + day;
 			return txt;
 		},
+		onSelectTxtDayVer3: function($this, dateText, inst){
+			/* 설명   : 통합검색 - 선택된 날짜 형식 ex)02.04(목)
+			   사용처 : jQuery UI datepicker : onSelect 내부 */
+
+			var sDate = $.datepicker.parseDate($this.datepicker('option', 'dateFormat'), dateText),
+				month = (sDate.getMonth()+1) < 10 ? '0' + (sDate.getMonth()+1)  : sDate.getMonth()+1,
+				day = sDate.getDate() < 10 ? '0' + sDate.getDate()  : sDate.getDate(),
+				dayName = sDate.getUTCDay() < 6 ? $this.datepicker('option', 'dayNamesMin')[sDate.getUTCDay()+1] : $this.datepicker('option', 'dayNamesMin')[0],
+				txt = month + '.' + day + '('+dayName+')';
+			return txt;
+		},
 		jqdHolidayMark: function(date){
 			/* 설명   : jQuery Ui datepicker 주말, 휴일 표시
 			   사용처 : 필요시 호출 ex) var result = pvmFrontScript.jqdHolidayMark(date); */

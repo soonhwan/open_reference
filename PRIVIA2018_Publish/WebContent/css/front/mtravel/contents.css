@@ -704,7 +704,7 @@ fieldset.basicForm legend + .comment li:first-child {margin-top:0}
 .subIndex .my-benefit ul li.mb3 a{background-position: 50% -195px;}
 .subIndex .my-benefit ul li.mb4 a{background-position: 50% -300px;}
 .subIndex .my-benefit ul li.mb5 a{background-position: 50% -394px;}
-.subIndex .my-benefit ul li.mb6 a{background-position: 50% -300px;} /* 수정요 */
+.subIndex .my-benefit ul li.mb6 a{background-position: 50% -501px;}
 
 .subIndex .notiList li a{display:block;line-height:1.6;font-size:14px;color:#767676;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
 #maypgeIndex .myInfo{position:relative;padding:15px 19px 14px;background-color:#424242;color:#fff;font-size:11px}
@@ -1479,7 +1479,7 @@ flex: 1;				  /* NEW, Spec - Opera 12.1, Firefox 20+ */
 .list-privia-service li.lps3 span:after {background-position: 50% -93px;}
 .list-privia-service li.lps4 span:after {background-position: 50% -141px;}
 .list-privia-service li.lps5 span:after {background-position: 50% -191px;}
-.list-privia-service li.lps6 span:after {background-position: 50% -141px;} /* 수정요 */
+.list-privia-service li.lps6 span:after {background-position: 50% -241px;}
 .list-privia-service:after{content:'';display:inline-block;clear:both}
 
 .set-guide-call .sg-call {border-bottom: 1px dotted #d5d5d5;padding: 0 14px 13px 14px;}
