@@ -1234,7 +1234,7 @@ function comSearchAir(){
 			var openTotal = $('.sc-air .o-multiway .list-qsb-cont li[class*="air-md-"].on').length;
 			//console.log('삭제구간 = ', removeIdx, removeIdx+1, '노출된 총구간 = ', openTotal);
 									
-			//삭제구간 부터 데이터 초기화하고 한칸씩 옮김(날짜는 따로 리셋)
+			//삭제구간 부터 데이터 초기화하고 한칸씩 옮김
 			$('.sc-air .o-multiway .list-qsb-cont li[class*="air-md-"].on').each(function(){
 				var idx = $(this).index();
 				if(idx >= removeIdx){
@@ -2042,8 +2042,6 @@ function comSearchFreetour(){
 
 			//도시 셋팅
 			setFreetourCity(city);
-			
-			$('.sc-freetour .o-rentv .places-entry [data-panel="mainsel"]').trigger('click');
 		}
 		
 		e.preventDefault();

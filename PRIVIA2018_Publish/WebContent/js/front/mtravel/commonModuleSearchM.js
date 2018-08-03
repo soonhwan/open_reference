@@ -116,11 +116,11 @@ var pvmSearch = window.pvmSearch || (function(){
 					return false;
 				}
 				else{
-					//$(this).parent('.qsb-btn-add').addClass('on');
 					$('.sc-air .o-multiway .air-md-'+_MDCnt).addClass('on');
-					/*if(_MDCnt == _MDMax){
-						$('.sc-air .o-multiway .air-md-'+_MDMax).find('.qsb-btn-add').addClass('on');
-					}*/
+					if(_MDCnt > _MDMinCnt){
+						$('.sc-air .o-multiway .air-md-'+_MDMinCnt).find('.number').hide();
+						$('.sc-air .o-multiway .air-md-'+_MDMinCnt).find('.remove-md').show();
+					}
 				}
 				e.preventDefault();
 			});
@@ -176,6 +176,15 @@ var pvmSearch = window.pvmSearch || (function(){
 							}
 						}
 					});
+					
+					//버튼 변경
+					$('.sc-air .o-multiway .air-md-'+(openTotal-1)+' .qsb-btn-add').removeClass('on');		
+
+					//버튼 변경 - 구간 2개 남을때
+					if(openTotal <= _MDMinCnt+1){
+						$('.sc-air .o-multiway .air-md-'+_MDMinCnt).find('.number').show();
+						$('.sc-air .o-multiway .air-md-'+_MDMinCnt).find('.remove-md').hide();			
+					}
 
 					//맨뒤에 있는 구간 숨김
 					$('.sc-air .o-multiway .ol-list-qsb .air-md-'+openTotal).removeClass('on');
@@ -376,14 +385,14 @@ var pvmSearch = window.pvmSearch || (function(){
 
 						if(chkin != ''){
 							$('.sc-search-tab .slt-dates .slt-chkin').data('day', chkin);
-							$('.sc-search-tab .slt-dates .slt-chkin').text(pvmFrontScript.onSelectTxtDayVer2($('.ui-page-active .uis-datepicker'), chkin));
+							$('.sc-search-tab .slt-dates .slt-chkin').text(pvmFrontScript.onSelectTxtDaySt2($('.ui-page-active .uis-datepicker'), chkin));
 							$('.ui-page-active .uis-datepicker').datepicker('setDate', new Date(chkin));
 							$('.sc-search-tab .slt-dates .slt-chkin').addClass('on');
 						}
 
 						if(chkout != ''){
 							$('.sc-search-tab .slt-dates .slt-chkout').data('day', chkout);
-							$('.sc-search-tab .slt-dates .slt-chkout').text(pvmFrontScript.onSelectTxtDayVer2($('.ui-page-active .uis-datepicker'), chkout));
+							$('.sc-search-tab .slt-dates .slt-chkout').text(pvmFrontScript.onSelectTxtDaySt2($('.ui-page-active .uis-datepicker'), chkout));
 							$('.ui-page-active .uis-datepicker').datepicker('setDate', new Date(chkout));
 							$('.sc-search-tab .slt-dates .slt-chkout').addClass('on');
 						}
@@ -597,7 +606,7 @@ var pvmSearch = window.pvmSearch || (function(){
 					var date2 = $.datepicker.parseDate($(this).datepicker('option', 'dateFormat'), $('.ot-shuttle .slt-chkout').data('day'));
 					var selectedDate = $.datepicker.parseDate($(this).datepicker('option', 'dateFormat'), dateText);
 					var txtDay = pvmFrontScript.onSelectTxtDay($(this), dateText);
-					var txtDayVer2 = pvmFrontScript.onSelectTxtDayVer2($(this), dateText);
+					var txtDayVer2 = pvmFrontScript.onSelectTxtDaySt2($(this), dateText);
 
 					//출발, 도착 모두 선택인 경우, 아무것도 선택이 없는 경우(출발)
 					if (!date1 || date2) {
@@ -675,7 +684,7 @@ var pvmSearch = window.pvmSearch || (function(){
 					var date1 = $.datepicker.parseDate($(this).datepicker('option', 'dateFormat'), $('.ot-oneway .slt-chkin').data('day'));
 					var selectedDate = $.datepicker.parseDate($(this).datepicker('option', 'dateFormat'), dateText);
 					var txtDay = pvmFrontScript.onSelectTxtDay($(this), dateText);
-					var txtDayVer2 = pvmFrontScript.onSelectTxtDayVer2($(this), dateText);
+					var txtDayVer2 = pvmFrontScript.onSelectTxtDaySt2($(this), dateText);
 					
 					//data input
 					$('.ot-oneway .slt-chkin').data('day', dateText);
@@ -702,7 +711,6 @@ var pvmSearch = window.pvmSearch || (function(){
 				dateFormat: 'yy/mm/dd',
 				onSelect: function(dateText, inst) {
 					var selectedDate = $.datepicker.parseDate($(this).datepicker('option', 'dateFormat'), dateText);
-					
 					//다중날짜 체크
 					checkMdDate(_mdDateIdx, selectedDate);
 				}
@@ -717,17 +725,11 @@ var pvmSearch = window.pvmSearch || (function(){
 					return false;
 				}
 				else{
-					//$(this).parent('.slt-btn-add').addClass('on');
+					$(this).parent('.slt-btn-add').addClass('on');
 					$('.ot-multiway .t-air-md-'+_MDCnt).addClass('on');
-					/*if(_MDCnt == _MDMax){
-						$('.ot-multiway .t-air-md-'+_MDMax).find('.slt-btn-add').addClass('on');
-					}*/
-					
 					_mdDateArr.push(""); //다중날짜 추가
-					
 					//sbox trigger
 					$('.sc-air .o-multiway .add-md').trigger('click');
-					
 					//reset height
 					resetMDHeight();
 				}
@@ -746,14 +748,16 @@ var pvmSearch = window.pvmSearch || (function(){
 					var openTotal = $('.ot-multiway .ol-list-tab [class*="t-air-md-"].on').length;
 					//console.log('삭제구간 = ', removeIdx, removeIdx+1, '노출된 총구간 = ', openTotal);
 
-					//삭제구간 부터 데이터 초기화하고 한칸씩 옮김(날짜는 따로 리셋)
+					//삭제구간 부터 데이터 초기화하고 한칸씩 옮김
 					$('.ot-multiway .ol-list-tab [class*="t-air-md-"].on').each(function(){
 						var idx = $(this).index();
 						if(idx >= removeIdx){
 							//qsb 초기화
-							$(this).find('.slt-places .slt-area.on, .slt-places .slt-input.on').removeClass('on');
+							$(this).find('.slt-places .slt-area.on, .slt-places .slt-input.on, .slt-dates .slt-input.on').removeClass('on');
 							$(this).find('.slt-places .places-exit .slt-input').text('출발');
 							$(this).find('.slt-places .places-entry .slt-input').text('도착');
+							$(this).find('.slt-dates .slt-chkin').text('출발일');
+							$(this).find('.slt-dates .slt-chkin').data('day','');
 
 							//다음 데이터 적용
 							var exit = $(this).next().find('.places-exit .slt-input'); //출발
@@ -770,6 +774,9 @@ var pvmSearch = window.pvmSearch || (function(){
 							}
 						}
 					});
+					
+					//버튼 변경
+					$('.ot-multiway .t-air-md-'+(openTotal-1)+' .slt-btn-add').removeClass('on');
 
 					//맨뒤에 있는 구간 숨김
 					$('.ot-multiway .t-air-md-'+openTotal).removeClass('on');
@@ -780,8 +787,6 @@ var pvmSearch = window.pvmSearch || (function(){
 					//다중날짜 리셋
 					_mdDateArr.splice(removeIdx, 1);
 					initMDDate();
-					
-					
 					
 					//reset height
 					resetMDHeight();
@@ -795,8 +800,8 @@ var pvmSearch = window.pvmSearch || (function(){
 				//여행 날짜 표시 리셋
 				for(var i in _mdDateArr){
 					if(_mdDateArr[i] != ""){
-						var txtDay = pvmFrontScript.onSelectTxtDayVer2($('.ui-page-active .ot-multiway .uis-datepicker'), _mdDateArr[i]);
-						var txtDayVer3 = pvmFrontScript.onSelectTxtDayVer3($('.ui-page-active .ot-multiway .uis-datepicker'), _mdDateArr[i]);
+						var txtDay = pvmFrontScript.onSelectTxtDaySt2($('.ui-page-active .ot-multiway .uis-datepicker'), _mdDateArr[i]);
+						var txtDayVer3 = pvmFrontScript.onSelectTxtDaySt3($('.ui-page-active .ot-multiway .uis-datepicker'), _mdDateArr[i]);
 						
 						//data input
 						$('.ot-multiway .ol-list-tab .t-air-md-'+(i*1+1)+' .slt-dates .slt-chkin').data('day', _mdDateArr[i]);
@@ -841,7 +846,7 @@ var pvmSearch = window.pvmSearch || (function(){
 				//datepicker - beforeShowDay
 				$('.ui-page-active .ot-multiway .uis-datepicker').datepicker('option', 'beforeShowDay', function(date) {
 					return pvmFrontScript.beforeShowDayMarkMD(date, tempParseDateArr);
-				});	
+				}).find('.ui-state-active').removeClass("ui-state-active"); 
 
 				//텍스트 삽입
 				addTextToMD($('.ui-page-active .ot-multiway .uis-datepicker'));
@@ -921,7 +926,7 @@ var pvmSearch = window.pvmSearch || (function(){
 
 				initMDDate(); //다중날짜 리셋
 				
-				//다음 구간 팝업 열기
+				//다음 구간 표시
 				for(var i in _mdDateArr){
 					if(_mdDateArr[i] == ""){
 						setTimeout(function(){
@@ -1154,14 +1159,14 @@ var pvmSearch = window.pvmSearch || (function(){
 					
 					if(chkin != ''){
 						$('.sc-search-tab .slt-dates .slt-chkin').data('day', chkin);
-						$('.sc-search-tab .slt-dates .slt-chkin').text(pvmFrontScript.onSelectTxtDayVer2($('.ui-page-active .uis-datepicker'), chkin));
+						$('.sc-search-tab .slt-dates .slt-chkin').text(pvmFrontScript.onSelectTxtDaySt2($('.ui-page-active .uis-datepicker'), chkin));
 						$('.ui-page-active .uis-datepicker').datepicker('setDate', new Date(chkin));
 						$('.sc-search-tab .slt-dates .slt-chkin').addClass('on');
 					}
 					
 					if(chkout != ''){
 						$('.sc-search-tab .slt-dates .slt-chkout').data('day', chkout);
-						$('.sc-search-tab .slt-dates .slt-chkout').text(pvmFrontScript.onSelectTxtDayVer2($('.ui-page-active .uis-datepicker'), chkout));
+						$('.sc-search-tab .slt-dates .slt-chkout').text(pvmFrontScript.onSelectTxtDaySt2($('.ui-page-active .uis-datepicker'), chkout));
 						$('.ui-page-active .uis-datepicker').datepicker('setDate', new Date(chkout));
 						$('.sc-search-tab .slt-dates .slt-chkout').addClass('on');
 					}
@@ -1314,7 +1319,7 @@ var pvmSearch = window.pvmSearch || (function(){
 					var date2 = $.datepicker.parseDate($(this).datepicker('option', 'dateFormat'), $('.ui-page-active .slt-chkout').data('day'));
 					var selectedDate = $.datepicker.parseDate($(this).datepicker('option', 'dateFormat'), dateText);
 					var txtDay = pvmFrontScript.onSelectTxtDay($(this), dateText);
-					var txtDayVer2 = pvmFrontScript.onSelectTxtDayVer2($(this), dateText);
+					var txtDayVer2 = pvmFrontScript.onSelectTxtDaySt2($(this), dateText);
 
 					//체크인, 체크아웃 모두 선택인 경우, 아무것도 선택이 없는 경우(체크인)
 					if (!date1 || date2) {

@@ -185,7 +185,7 @@ var pvmFrontScript = window.pvmFrontScript || (function(){
 				txt = month + '월 ' + day + '일 (' + dayName + ')';
 			return txt;
 		},
-		onSelectTxtDayVer2: function($this, dateText, inst){
+		onSelectTxtDaySt2: function($this, dateText, inst){
 			/* 설명   : 통합검색 - 선택된 날짜 형식 ex)02.04
 			   사용처 : jQuery UI datepicker : onSelect 내부 */
 
@@ -195,7 +195,7 @@ var pvmFrontScript = window.pvmFrontScript || (function(){
 				txt = month + '.' + day;
 			return txt;
 		},
-		onSelectTxtDayVer3: function($this, dateText, inst){
+		onSelectTxtDaySt3: function($this, dateText, inst){
 			/* 설명   : 통합검색 - 선택된 날짜 형식 ex)02.04(목)
 			   사용처 : jQuery UI datepicker : onSelect 내부 */
 
