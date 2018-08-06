@@ -424,12 +424,8 @@ var pvmSearch = window.pvmSearch || (function(){
 					$('.sc-search-area .uis-capacity-select li').eq(3).addClass('on');
 				}		
 
-				//국내선인 경우 셋팅(성인, 아동 나이텍스트 변경, 좌석 숨김)
-				/*
-				$('.uis-capacity-select .ui-capacity .uis-capacity-select').hide();
-				$('.uis-capacity-select .uis-capacity-number .exp-int').hide();
-				$('.uis-capacity-select .uis-capacity-number .exp-dom').show();
-				*/
+				//국내선인 경우 셋팅(좌석 숨김)
+				//$('.uis-capacity-select .ui-capacity .uis-capacity-select').hide();
 				
 				//인원,좌석 결과 셋팅				
 				var sum = adt+chd+inf;
@@ -455,7 +451,12 @@ var pvmSearch = window.pvmSearch || (function(){
 						$(idxPath).find('[data-tab="calendar"]').trigger('click');
 						break;
 					case 'capacity':
-						$('.sc-search-tab [data-tab="capacity"]').trigger('click');
+						if(_type == 'multiway'){	
+							$('.sc-search-tab [data-tab="capacity"]').trigger('click');
+						}
+						else{
+							$('.sc-search-tab .lit-base [data-tab="capacity"]').trigger('click');
+						}
 						break;
 					default :
 						$(idxPath).find('.places-exit [data-tab="mainsel"]').trigger('click');
@@ -464,7 +465,7 @@ var pvmSearch = window.pvmSearch || (function(){
 									
 			//+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ 컨트롤 event
 			//하단 검색 박스 설정
-			$('.sc-search-tab .list-tab [data-tab]').on('click', function(){
+			$('.sc-search-tab .list-tab [data-tab]').on('click', function(e){
 				var _this = $(this);
 				var type = $(this).data('tab');
 				
@@ -507,9 +508,12 @@ var pvmSearch = window.pvmSearch || (function(){
 				
 				//인원,좌석 셋팅
 				if(type == 'capacity'){
-					//국내선인 경우
+					//국내선인 경우 셋팅(좌석 숨김)
+					//$('.uis-capacity-select .ui-capacity .uis-capacity-select').hide();
 					pvmSearch.changeTitle('인원 및 좌석 선택');
 				}
+				
+				e.preventDefault();
 			});				
 			
 			//----------------------------------- 도시			
@@ -1206,7 +1210,7 @@ var pvmSearch = window.pvmSearch || (function(){
 									
 			//+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ 컨트롤 event
 			//하단 검색 박스 설정
-			$('.sc-search-tab .list-tab [data-tab]').on('click', function(){
+			$('.sc-search-tab .list-tab [data-tab]').on('click', function(e){
 				var _this = $(this);
 				var type = $(this).data('tab');
 				
@@ -1240,6 +1244,8 @@ var pvmSearch = window.pvmSearch || (function(){
 				if(type == 'capacity'){
 					pvmSearch.changeTitle('객실 타입 선택');
 				}
+				
+				e.preventDefault();
 			});				
 			
 			//----------------------------------- 도시			
