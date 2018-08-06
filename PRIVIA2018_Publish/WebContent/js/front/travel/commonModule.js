@@ -194,7 +194,7 @@ var pvFrontScript = window.pvFrontScript || (function(){
 			//항공 주요도시
 			if($area == 'air-mainsel'){
 				$panel.position({
-					my: 'left top-10',
+					my: 'left top+92',
 					at: 'left top',
 					collision: 'none',
 					of: $this.closest('.qsb-cont-box')
@@ -204,7 +204,7 @@ var pvFrontScript = window.pvFrontScript || (function(){
 			if($area == 'air-mainsel-auto'){
 				if($this.closest('.places-entry').length > 0){
 					$panel.position({
-						my: 'left+7 top-32',
+						my: 'left+16 top+70',
 						at: 'left top',
 						collision: 'none',
 						of: $this.closest('.places-entry')
@@ -212,7 +212,7 @@ var pvFrontScript = window.pvFrontScript || (function(){
 				}
 				else{
 					$panel.position({
-						my: 'left top-10',
+						my: 'left top+92',
 						at: 'left top',
 						collision: 'none',
 						of: $this.closest('.qsb-cont')
@@ -225,7 +225,7 @@ var pvFrontScript = window.pvFrontScript || (function(){
 				//항공 다구간
 				if($this.closest('.o-multiway').length > 0){
 					$panel.position({
-						my: 'left-338 top-10',
+						my: 'left-338 top+92',
 						at: 'left top',
 						collision: 'none',
 						of: $this.closest('.qsb-cont')
@@ -236,10 +236,10 @@ var pvFrontScript = window.pvFrontScript || (function(){
 			//항공 인원,좌석
 			if($area == 'air-capacity'){
 				if($this.closest('.o-multiway').hasClass('on')){
-					_my = 'left top-10';
+					_my = 'left top+92';
 				}
 				else{
-					_my = 'left-24 top-10';
+					_my = 'left-24 top+92';
 				}
 				$panel.position({
 					my: _my,
@@ -252,7 +252,7 @@ var pvFrontScript = window.pvFrontScript || (function(){
 			//호텔 주요도시
 			if($area == 'hotel-mainsel'){
 				$panel.position({
-					my: 'left top-10',
+					my: 'left top+92',
 					at: 'left top',
 					collision: 'none',
 					of: $this.closest('.qsb-cont-box')
@@ -261,17 +261,17 @@ var pvFrontScript = window.pvFrontScript || (function(){
 			//호텔 객실
 			if($area == 'hotel-capacity'){
 				$panel.position({
-					my: 'left top-10',
+					my: 'left top+92',
 					at: 'left top',
 					collision: 'none',
 					of: $this.closest('.qsb-cont')
 				});	
 			}
 			
-			//자유여행 주요도시
+			//투액 주요도시
 			if($area == 'freetour-mainsel'){
 				$panel.position({
-					my: 'left top-10',
+					my: 'left top+92',
 					at: 'left top',
 					collision: 'none',
 					of: $this.closest('.qsb-cont-box')
@@ -282,7 +282,7 @@ var pvFrontScript = window.pvFrontScript || (function(){
 			if($area == 'freetour-mainsel-auto'){
 				if($this.closest('.places-entry').length > 0){
 					$panel.position({
-						my: 'left+10 top-32',
+						my: 'left-8 top+70',
 						at: 'left top',
 						collision: 'none',
 						of: $this.closest('.places-entry')
@@ -290,7 +290,7 @@ var pvFrontScript = window.pvFrontScript || (function(){
 				}
 				else{
 					$panel.position({
-						my: 'left top-10',
+						my: 'left top+92',
 						at: 'left top',
 						collision: 'none',
 						of: $this.closest('.qsb-cont')
@@ -300,10 +300,10 @@ var pvFrontScript = window.pvFrontScript || (function(){
 			//투액 인원, 테마, 여행도시(유럽)
 			if($area == 'freetour-capacity'){
 				if($this.closest('.o-transpass').hasClass('on') && $this.data('panel-name') == 'global-ui-capacity'){
-					_my = 'left-24 top-10';
+					_my = 'left-24 top+92';
 				}
 				else{
-					_my = 'left top-10';
+					_my = 'left top+92';
 				}
 				
 				$panel.position({
@@ -317,7 +317,7 @@ var pvFrontScript = window.pvFrontScript || (function(){
 			//셀렉트 리스트
 			if($area == 'panel-sel'){
 				$panel.position({
-					my: 'left top-10',
+					my: 'left top+92',
 					at: 'left top',
 					collision: 'none',
 					of: $this.closest('.qsb-cont')
@@ -544,15 +544,17 @@ var pvFrontScript = window.pvFrontScript || (function(){
 			   사용처 : pvFrontScript.comHeaderControl(); */
 
 			//공지사항 롤링
-			$('.w-header-util .hu-notice .list').slick({
-				draggable: false,
-				arrows:false,
-				dots: false,
-				pauseOnHover: true,
-				vertical: true,
-				autoplay: true,
-				autoplaySpeed: 5000
-			});	
+			if($('.w-header-util .hu-notice .list').length > 0){
+				$('.w-header-util .hu-notice .list').slick({
+					draggable: false,
+					arrows:false,
+					dots: false,
+					pauseOnHover: true,
+					vertical: true,
+					autoplay: true,
+					autoplaySpeed: 5000
+				});	
+			}
 
 			//기획전 롤링
 			if(!$('.hs-prom-roll').hasClass('hide')){
@@ -976,20 +978,7 @@ var pvFrontScript = window.pvFrontScript || (function(){
 				};
 
 				//main left
-				rlcLeftMain = $('.rlc-left .rlc-list-main .list').on('init', function(event, slick){
-					slick.slickSetOption({
-						dots: true,
-						autoplay: true,
-						autoplaySpeed: 10000,
-						appendDots: $('.rlc-left .rlc-list-main .c-slick-dots'),
-						customPaging : function(slider, i) {
-							var className, title;
-							className = $(slider.$slides[i]).data('classname');
-							title = $(slider.$slides[i]).data('title');
-							return '<button type="button" data-role="none" role="button" tabindex="'+i+'" class="'+className+'">'+title+'</button>';
-						}
-					}, true);
-				}).slick(mainSlickSettings).on('beforeChange', function(event, slick, currentSlide, nextSlide){
+				rlcLeftMain = $('.rlc-left .rlc-list-main .list').slick(mainSlickSettings).on('beforeChange', function(event, slick, currentSlide, nextSlide){
 					setTimeout(function(){rlcLeftSub1.slick(slickOpt);},speedMSlick);
 				});
 
@@ -998,12 +987,6 @@ var pvFrontScript = window.pvFrontScript || (function(){
 					slick.slickSetOption({
 						dots: true,
 						appendDots: $('.rlc-right .rlc-list-main .c-slick-dots'),
-						customPaging : function(slider, i) {
-							var className, title;
-							className = $(slider.$slides[i]).data('classname');
-							title = $(slider.$slides[i]).data('title');
-							return '<button type="button" data-role="none" role="button" tabindex="'+i+'" class="'+className+'">'+title+'</button>';
-						}
 					}, true);
 				}).slick(mainSlickSettings).on('beforeChange', function(event, slick, currentSlide, nextSlide){
 					setTimeout(function(){rlcRightsub1.slick(slickOpt);},speedMSlick);

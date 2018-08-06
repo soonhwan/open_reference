@@ -523,7 +523,6 @@
 															</a>
 														</div>
 														<div class="qsb-btn-add">
-															<button type="button" class="b-add-multiway"><span class="a11y">다구간 추가</span></button>
 															<button type="button" class="b-remove-multiway"><span class="a11y">다구간 삭제</span></button>
 														</div>
 													</div>
@@ -568,7 +567,6 @@
 															</a>
 														</div>
 														<div class="qsb-btn-add">
-															<button type="button" class="b-add-multiway"><span class="a11y">다구간 추가</span></button>
 															<button type="button" class="b-remove-multiway"><span class="a11y">다구간 삭제</span></button>
 														</div>
 													</div>
@@ -613,7 +611,6 @@
 															</a>
 														</div>
 														<div class="qsb-btn-add">
-															<button type="button" class="b-add-multiway"><span class="a11y">다구간 추가</span></button>
 															<button type="button" class="b-remove-multiway"><span class="a11y">다구간 삭제</span></button>
 														</div>
 													</div>
@@ -622,6 +619,7 @@
 										</ol>
 										<div class="w-qsb-cont">
 											<div class="qsb-cont-indep">
+												<button type="button" class="b-add-multiway"><span>여정추가</span></button>
 												<div class="qsb-cont qsb-capacity">
 													<a href="#" class="qsb-area on" data-panel="capacity" data-panel-name="global-ui-capacity">
 														<span class="qsb-label">인원, 좌석등급</span>
@@ -781,8 +779,20 @@
 												<li>
 													<div class="tit">
 														<em>성인</em>
-														<span class="exp-int"> (만 12세 이상)</span>
-														<span class="exp-dom"> (만 13세 이상)</span>
+														<span class="help-tooltip heltt-st2">
+															<span class="over">?</span>
+															<span class="cont" style="width:170px">
+																<span class="heltt-tit">성인</span>
+																<dl class="heltt-exp-box">
+																	<dt>국제선</dt>
+																	<dd>탑승일 기준 만 12세 이상</dd>
+																</dl>
+																<dl class="heltt-exp-box">
+																	<dt>국내선</dt>
+																	<dd>탑승일 기준 만 13세 이상</dd>
+																</dl>
+															</span>
+														</span>
 													</div>
 													<div class="uis-custom-number">
 														<span class="btn-base ucn-crt b-minus">
@@ -797,8 +807,20 @@
 												<li>
 													<div class="tit">
 														<em>아동</em> 
-														<span class="exp-int"> (만 12세 미만)</span>
-														<span class="exp-dom"> (만 13세 미만)</span>
+														<span class="help-tooltip heltt-st2">
+															<span class="over">?</span>
+															<span class="cont" style="width:170px">
+																<span class="heltt-tit">아동</span>
+																<dl class="heltt-exp-box">
+																	<dt>국제선</dt>
+																	<dd>탑승일 기준 만 2세 ~ 12세 미만</dd>
+																</dl>
+																<dl class="heltt-exp-box">
+																	<dt>국내선</dt>
+																	<dd>탑승일 기준 만 2세 ~ 13세 미만</dd>
+																</dl>
+															</span>
+														</span>
 													</div>
 													<div class="uis-custom-number">
 														<span class="btn-base ucn-crt b-minus">
@@ -811,7 +833,19 @@
 													</div>
 												</li>
 												<li>
-													<div class="tit"><em>유아</em> (만 24개월 미만)</div>
+													<div class="tit">
+														<em>유아</em>
+														<span class="help-tooltip heltt-st2">
+															<span class="over">?</span>
+															<span class="cont" style="width:170px">
+																<span class="heltt-tit">유아</span>
+																<dl class="heltt-exp-box">
+																	<dt>국제선/국내선</dt>
+																	<dd><spna class="c-point1-400">출/도착</spna> 탑승일 기준 만 2세(24개월) 미만</dd>
+																</dl>
+															</span>
+														</span>
+													</div>
 													<div class="uis-custom-number">
 														<span class="btn-base ucn-crt b-minus">
 															<button type="button" data-type="inf-minus"><span class="a11y">빼기</span></button>
@@ -823,12 +857,6 @@
 													</div>
 												</li>
 											</ul>
-											<div class="uis-txt-area">
-												<div class="uis-txt1">
-													성인: 출발일 탑승일 기준<br />
-													아동/유아: <span class="c-point1">출/도착일 탑승일 기준</span>
-												</div>
-											</div>
 											<ul class="uis-capacity-select select-comp">
 												<li class="on"><a href="#" data-option="Y">일반석</a></li>
 												<li><a href="#" data-option="P">프리미엄 이코노미석</a></li>
@@ -1370,8 +1398,8 @@
 												</colgroup>
 												<tbody>
 													<tr>
-														<th>비즈니스석</th>
-														<th>프로모션</th>
+														<th><a href="#">비즈니스석</a></th>
+														<th><a href="#">프로모션</a></th>
 													</tr>
 													<tr>
 														<td>
@@ -2624,9 +2652,9 @@
 					</div>
 					<div class="srpc-right">
 						<ul class="list">
-							<li><a href="#"><img src="/images/front/travel/vis-size/vis-770x300.jpg" alt="케세이퍼시픽항공<br />전노선할인" class="o-txt"></a></li>
-							<li><a href="#"><img src="/images/front/travel/vis-size/vis-770x300-2.jpg" alt="필리핀항공 팔라완 취항<br />기념 특별 할인" class="o-txt"></a></li>
-							<li><a href="#"><img src="/images/front/travel/vis-size/vis-770x300.jpg" alt="아시아나항공 유럽<br />주요 도시 특별 할인" class="o-txt"></a></li>
+							<li><a href="#"><img src="/images/front/travel/vis-size/vis-780x300.jpg" alt="케세이퍼시픽항공<br />전노선할인" class="o-txt"></a></li>
+							<li><a href="#"><img src="/images/front/travel/vis-size/vis-780x300-2.jpg" alt="필리핀항공 팔라완 취항<br />기념 특별 할인" class="o-txt"></a></li>
+							<li><a href="#"><img src="/images/front/travel/vis-size/vis-780x300.jpg" alt="아시아나항공 유럽<br />주요 도시 특별 할인" class="o-txt"></a></li>
 							<li><a href="#"><img src="/images/front/travel/vis-size/vis-770x300-2.jpg" alt="에바항공 주요 도시<br />특별 할인 이벤트" class="o-txt"></a></li>
 						</ul>
 						<span class="btn-base bb-st4 bb-next"><button tyle="button"><span class="a11y">다음 보기 버튼</span></button></span>

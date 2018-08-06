@@ -622,11 +622,10 @@ var pvmSearch = window.pvmSearch || (function(){
 						$('.o-shuttle .qsb-dates .qsb-area').addClass('on')
 						$('.o-shuttle .qsb-dates .qsb-chkin').addClass('on');
 						$('.o-shuttle .qsb-dates .qsb-chkin').data('day', dateText);
-						$('.o-shuttle .qsb-dates .qsb-chkin').html(txtDay);
+						$('.o-shuttle .qsb-dates .qsb-chkin .txt').html(txtDay);
 						$('.o-shuttle .qsb-dates .qsb-chkout').removeClass('on');
 						$('.o-shuttle .qsb-dates .qsb-chkout').data('day', '');
-						$('.o-shuttle .qsb-dates .qsb-chkout').html('');						
-
+						$('.o-shuttle .qsb-dates .qsb-chkout .txt').html('');
 					} else {
 						//출발 보다 이전 날짜 선택
 						if( selectedDate.getTime() < date1.getTime() ) {
@@ -639,7 +638,7 @@ var pvmSearch = window.pvmSearch || (function(){
 							//sbox input
 							$('.o-shuttle .qsb-dates .qsb-chkout').addClass('on');
 							$('.o-shuttle .qsb-dates .qsb-chkout').data('day', $('.o-shuttle .qsb-dates .qsb-chkin').data('day'));
-							$('.o-shuttle .qsb-dates .qsb-chkout').html($('.o-shuttle .qsb-dates .qsb-chkin').html());
+							$('.o-shuttle .qsb-dates .qsb-chkout .txt').html($('.o-shuttle .qsb-dates .qsb-chkin .txt').html());							
 
 							//출발 셋팅
 							//data input 
@@ -648,7 +647,7 @@ var pvmSearch = window.pvmSearch || (function(){
 							$('.ot-shuttle .slt-chkin').html(txtDayVer2);
 							//sbox input
 							$('.o-shuttle .qsb-dates .qsb-chkin').data('day', dateText);
-							$('.o-shuttle .qsb-dates .qsb-chkin').html(txtDay);
+							$('.o-shuttle .qsb-dates .qsb-chkin .txt').html(txtDay);
 						} 
 						else {
 							//출발이후 선택시(도착)
@@ -660,7 +659,7 @@ var pvmSearch = window.pvmSearch || (function(){
 							//sbox input
 							$('.o-shuttle .qsb-dates .qsb-chkout').addClass('on');
 							$('.o-shuttle .qsb-dates .qsb-chkout').data('day', dateText);
-							$('.o-shuttle .qsb-dates .qsb-chkout').html(txtDay);
+							$('.o-shuttle .qsb-dates .qsb-chkout .txt').html(txtDay);
 						}
 					}
 				}
@@ -695,7 +694,7 @@ var pvmSearch = window.pvmSearch || (function(){
 					$('.o-oneway .qsb-dates .qsb-area').addClass('on')
 					$('.o-oneway .qsb-dates .qsb-chkin').addClass('on');
 					$('.o-oneway .qsb-dates .qsb-chkin').data('day', dateText);
-					$('.o-oneway .qsb-dates .qsb-chkin').html(txtDay);
+					$('.o-oneway .qsb-dates .qsb-chkin .txt').html(txtDay);
 				}
 			});
 			
@@ -815,7 +814,7 @@ var pvmSearch = window.pvmSearch || (function(){
 						//sbox input
 						$('.o-multiway .ol-list-qsb .air-md-'+(i*1+1)+' .qsb-dates .qsb-area').addClass('on');
 						$('.o-multiway .ol-list-qsb .air-md-'+(i*1+1)+' .qsb-dates .qsb-chkin').addClass('on');
-						$('.o-multiway .ol-list-qsb .air-md-'+(i*1+1)+' .qsb-dates .qsb-chkin').html(txtDayVer3);
+						$('.o-multiway .ol-list-qsb .air-md-'+(i*1+1)+' .qsb-dates .qsb-chkin .txt').html(txtDayVer3);
 						$('.o-multiway .ol-list-qsb .air-md-'+(i*1+1)+' .qsb-dates .qsb-chkin').data('day', _mdDateArr[i]);
 					}
 					else{
@@ -827,7 +826,7 @@ var pvmSearch = window.pvmSearch || (function(){
 						//sbox input
 						$('.o-multiway .ol-list-qsb .air-md-'+(i*1+1)+' .qsb-dates .qsb-area.on').removeClass('on');
 						$('.o-multiway .ol-list-qsb .air-md-'+(i*1+1)+' .qsb-dates .qsb-chkin.on').removeClass('on');
-						$('.o-multiway .ol-list-qsb .air-md-'+(i*1+1)+' .qsb-dates .qsb-chkin').html('');
+						$('.o-multiway .ol-list-qsb .air-md-'+(i*1+1)+' .qsb-dates .qsb-chkin .txt').html('');
 						$('.o-multiway .ol-list-qsb .air-md-'+(i*1+1)+' .qsb-dates .qsb-chkin').data('day', '');
 					}
 				}

@@ -524,7 +524,6 @@
 															</a>
 														</div>
 														<div class="qsb-btn-add">
-															<button type="button" class="b-add-multiway"><span class="a11y">다구간 추가</span></button>
 															<button type="button" class="b-remove-multiway"><span class="a11y">다구간 삭제</span></button>
 														</div>
 													</div>
@@ -569,7 +568,6 @@
 															</a>
 														</div>
 														<div class="qsb-btn-add">
-															<button type="button" class="b-add-multiway"><span class="a11y">다구간 추가</span></button>
 															<button type="button" class="b-remove-multiway"><span class="a11y">다구간 삭제</span></button>
 														</div>
 													</div>
@@ -614,7 +612,6 @@
 															</a>
 														</div>
 														<div class="qsb-btn-add">
-															<button type="button" class="b-add-multiway"><span class="a11y">다구간 추가</span></button>
 															<button type="button" class="b-remove-multiway"><span class="a11y">다구간 삭제</span></button>
 														</div>
 													</div>
@@ -623,6 +620,7 @@
 										</ol>
 										<div class="w-qsb-cont">
 											<div class="qsb-cont-indep">
+												<button type="button" class="b-add-multiway"><span>여정추가</span></button>
 												<div class="qsb-cont qsb-capacity">
 													<a href="#" class="qsb-area on" data-panel="capacity" data-panel-name="global-ui-capacity">
 														<span class="qsb-label">인원, 좌석등급</span>
@@ -782,8 +780,20 @@
 												<li>
 													<div class="tit">
 														<em>성인</em>
-														<span class="exp-int"> (만 12세 이상)</span>
-														<span class="exp-dom"> (만 13세 이상)</span>
+														<span class="help-tooltip heltt-st2">
+															<span class="over">?</span>
+															<span class="cont" style="width:170px">
+																<span class="heltt-tit">성인</span>
+																<dl class="heltt-exp-box">
+																	<dt>국제선</dt>
+																	<dd>탑승일 기준 만 12세 이상</dd>
+																</dl>
+																<dl class="heltt-exp-box">
+																	<dt>국내선</dt>
+																	<dd>탑승일 기준 만 13세 이상</dd>
+																</dl>
+															</span>
+														</span>
 													</div>
 													<div class="uis-custom-number">
 														<span class="btn-base ucn-crt b-minus">
@@ -798,8 +808,20 @@
 												<li>
 													<div class="tit">
 														<em>아동</em> 
-														<span class="exp-int"> (만 12세 미만)</span>
-														<span class="exp-dom"> (만 13세 미만)</span>
+														<span class="help-tooltip heltt-st2">
+															<span class="over">?</span>
+															<span class="cont" style="width:170px">
+																<span class="heltt-tit">아동</span>
+																<dl class="heltt-exp-box">
+																	<dt>국제선</dt>
+																	<dd>탑승일 기준 만 2세 ~ 12세 미만</dd>
+																</dl>
+																<dl class="heltt-exp-box">
+																	<dt>국내선</dt>
+																	<dd>탑승일 기준 만 2세 ~ 13세 미만</dd>
+																</dl>
+															</span>
+														</span>
 													</div>
 													<div class="uis-custom-number">
 														<span class="btn-base ucn-crt b-minus">
@@ -812,7 +834,19 @@
 													</div>
 												</li>
 												<li>
-													<div class="tit"><em>유아</em> (만 24개월 미만)</div>
+													<div class="tit">
+														<em>유아</em>
+														<span class="help-tooltip heltt-st2">
+															<span class="over">?</span>
+															<span class="cont" style="width:170px">
+																<span class="heltt-tit">유아</span>
+																<dl class="heltt-exp-box">
+																	<dt>국제선/국내선</dt>
+																	<dd><spna class="c-point1-400">출/도착</spna> 탑승일 기준 만 2세(24개월) 미만</dd>
+																</dl>
+															</span>
+														</span>
+													</div>
 													<div class="uis-custom-number">
 														<span class="btn-base ucn-crt b-minus">
 															<button type="button" data-type="inf-minus"><span class="a11y">빼기</span></button>
@@ -824,12 +858,6 @@
 													</div>
 												</li>
 											</ul>
-											<div class="uis-txt-area">
-												<div class="uis-txt1">
-													성인: 출발일 탑승일 기준<br />
-													아동/유아: <span class="c-point1">출/도착일 탑승일 기준</span>
-												</div>
-											</div>
 											<ul class="uis-capacity-select select-comp">
 												<li class="on"><a href="#" data-option="Y">일반석</a></li>
 												<li><a href="#" data-option="P">프리미엄 이코노미석</a></li>
@@ -1371,8 +1399,8 @@
 												</colgroup>
 												<tbody>
 													<tr>
-														<th>비즈니스석</th>
-														<th>프로모션</th>
+														<th><a href="#">비즈니스석</a></th>
+														<th><a href="#">프로모션</a></th>
 													</tr>
 													<tr>
 														<td>
@@ -2625,16 +2653,18 @@
 				<div class="rlc-left">
 					<div class="rlc-list-main">
 						<ul class="list">
-							<li class="o-box" data-title="항공" data-classname="dot-air">
+							<li class="o-box">
+								<h2 class="c-tit-sec"><a href="#"><span>항공 프로모션</span></a></h2>
 								<a href="#">
-									<span class="vis"><img src="/images/front/travel/vis-size/vis-575x300.jpg" alt="&nbsp;"></span>
+									<span class="vis"><img src="/images/front/travel/vis-size/vis-585x300.jpg" alt="&nbsp;"></span>
 									<span class="tit">하와이안 항공<br />프리미엄 클래스 특별 이벤트</span>
 									<span class="exp">현대카드 PRIVIA 항공 특가 + 카드별 7%, 10% 청구 할인</span>
 								</a>
 							</li>
-							<li class="o-box" data-title="자유여행" data-classname="dot-free">
+							<li class="o-box">
+								<h2 class="c-tit-sec"><a href="#"><span>자유여행 프로모션</span></a></h2>
 								<a href="#">
-									<span class="vis"><img src="/images/front/travel/vis-size/vis-575x300-2.jpg" alt="&nbsp;"></span>
+									<span class="vis"><img src="/images/front/travel/vis-size/vis-585x300-2.jpg" alt="&nbsp;"></span>
 									<span class="tit">하와이안 항공<br />프리미엄 클래스 특별 이벤트</span>
 									<span class="exp">현대카드 PRIVIA 항공 특가 + 카드별 7%, 10% 청구 할인</span>
 								</a>
@@ -2647,7 +2677,7 @@
 							<ul class="list">
 								<li class="o-box">
 									<a href="#">
-										<span class="vis"><img src="/images/front/travel/vis-size/vis-272x170.jpg" alt="&nbsp;"></span>
+										<span class="vis"><img src="/images/front/travel/vis-size/vis-278x170-3.jpg" alt="&nbsp;"></span>
 										<span class="info-box">
 											<span class="tit">롯데면세점 <br />적립금 증정 프로모션</span>
 											<span class="date">예약기간  :  2018. 04. 01 ~ 2018. 12. 31</span>
@@ -2656,7 +2686,7 @@
 								</li>
 								<li class="o-box">
 									<a href="#">
-										<span class="vis"><img src="/images/front/travel/vis-size/vis-272x170-4.jpg" alt="&nbsp;"></span>
+										<span class="vis"><img src="/images/front/travel/vis-size/vis-278x170-4.jpg" alt="&nbsp;"></span>
 										<span class="info-box">
 											<span class="tit">롯데면세점 <br />적립금 증정 프로모션</span>
 											<span class="date">예약기간  :  2018. 04. 01 ~ 2018. 12. 31</span>
@@ -2669,7 +2699,7 @@
 							<ul class="list">
 								<li class="o-box">
 									<a href="#">
-										<span class="vis"><img src="/images/front/travel/vis-size/vis-272x170-2.jpg" alt="&nbsp;"></span>
+										<span class="vis"><img src="/images/front/travel/vis-size/vis-278x170-2.jpg" alt="&nbsp;"></span>
 										<span class="info-box">
 											<span class="tit">에어캐나다 <br />미국/캐나다 특별 할인</span>
 											<span class="date">예약기간  :  2018. 01. 31 ~ 2018. 05. 31</span>
@@ -2678,7 +2708,7 @@
 								</li>
 								<li class="o-box">
 									<a href="#">
-										<span class="vis"><img src="/images/front/travel/vis-size/vis-272x170.jpg" alt="&nbsp;"></span>
+										<span class="vis"><img src="/images/front/travel/vis-size/vis-278x170-3.jpg" alt="&nbsp;"></span>
 										<span class="info-box">
 											<span class="tit">에어캐나다 <br />미국/캐나다 특별 할인</span>
 											<span class="date">예약기간  :  2018. 01. 31 ~ 2018. 05. 31</span>
@@ -2692,16 +2722,18 @@
 				<div class="rlc-right">
 					<div class="rlc-list-main">
 						<ul class="list">
-							<li class="o-box" data-title="호텔" data-classname="dot-hotel">
+							<li class="o-box">
+								<h2 class="c-tit-sec"><a href="#"><span>호텔 프로모션</span></a></h2>
 								<a href="#">
-									<span class="vis"><img src="/images/front/travel/vis-size/vis-575x300-2.jpg" alt="&nbsp;"></span>
+									<span class="vis"><img src="/images/front/travel/vis-size/vis-585x300-2.jpg" alt="&nbsp;"></span>
 									<span class="tit">오키나와 호텔 예약하고<br />츄라우미 수족관 무료 입장</span>
 									<span class="exp">츄라우미 입장권 증정, 바닷속 생물들 마주할 기회 </span>
 								</a>
 							</li>
-							<li class="o-box" data-title="투어&amp;액티비티" data-classname="dot-freetour">
+							<li class="o-box">
+								<h2 class="c-tit-sec"><a href="#"><span>투어&amp;액티비티 프로모션</span></a></h2>
 								<a href="#">
-									<span class="vis"><img src="/images/front/travel/vis-size/vis-575x300.jpg" alt="&nbsp;"></span>
+									<span class="vis"><img src="/images/front/travel/vis-size/vis-585x300.jpg" alt="&nbsp;"></span>
 									<span class="tit">오키나와 호텔 예약하고<br />츄라우미 수족관 무료 입장</span>
 									<span class="exp">츄라우미 입장권 증정, 바닷속 생물들 마주할 기회 </span>
 								</a>
@@ -2718,7 +2750,7 @@
 							<ul class="list">
 								<li class="o-box">
 									<a href="#">
-										<span class="vis"><img src="/images/front/travel/vis-size/vis-272x170-3.jpg" alt="&nbsp;"></span>
+										<span class="vis"><img src="/images/front/travel/vis-size/vis-278x170-3.jpg" alt="&nbsp;"></span>
 										<span class="info-box">
 											<span class="tit">Summer holiday in <br />닛코 괌 호텔</span>
 											<span class="date">예약기간  :  2018. 04. 20 ~ 2018. 05. 31</span>
@@ -2727,7 +2759,7 @@
 								</li>
 								<li class="o-box">
 									<a href="#">
-										<span class="vis"><img src="/images/front/travel/vis-size/vis-272x170-2.jpg" alt="&nbsp;"></span>
+										<span class="vis"><img src="/images/front/travel/vis-size/vis-278x170-2.jpg" alt="&nbsp;"></span>
 										<span class="info-box">
 											<span class="tit">Summer holiday in <br />닛코 괌 호텔</span>
 											<span class="date">예약기간  :  2018. 04. 20 ~ 2018. 05. 31</span>
@@ -2740,7 +2772,7 @@
 							<ul class="list">
 								<li class="o-box">
 									<a href="#">
-										<span class="vis"><img src="/images/front/travel/vis-size/vis-272x170-4.jpg" alt="&nbsp;"></span>
+										<span class="vis"><img src="/images/front/travel/vis-size/vis-278x170-4.jpg" alt="&nbsp;"></span>
 										<span class="info-box">
 											<span class="tit">세계의 지붕, 네팔, <br />주요 도시 BEST 호텔 추천</span>
 											<span class="date">예약기간  :  2018. 04. 11 ~ 2018. 05. 13</span>
@@ -2749,7 +2781,7 @@
 								</li>
 								<li class="o-box">
 									<a href="#">
-										<span class="vis"><img src="/images/front/travel/vis-size/vis-272x170-3.jpg" alt="&nbsp;"></span>
+										<span class="vis"><img src="/images/front/travel/vis-size/vis-278x170-3.jpg" alt="&nbsp;"></span>
 										<span class="info-box">
 											<span class="tit">세계의 지붕, 네팔, <br />주요 도시 BEST 호텔 추천</span>
 											<span class="date">예약기간  :  2018. 04. 11 ~ 2018. 05. 13</span>

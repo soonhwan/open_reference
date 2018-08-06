@@ -770,6 +770,7 @@ function comSearchAir(){
 
 			//add auto
 			$(this).closest('.ui-mainsel-air').addClass('ui-search-auto');
+			$(this).closest('.ui-mainsel-air .ipu-search').removeClass('placeholder'); //IE9
 		}
 	});
 		
@@ -943,11 +944,9 @@ function comSearchAir(){
 			$('.sc-air .select-comp li').eq(3).addClass('on');
 		}		
 		
-		//국내선인 경우 셋팅(성인, 아동 나이텍스트 변경, 좌석 숨김)
+		//국내선인 경우 셋팅(좌석 숨김)
 		/*
 		$('.sc-air .ui-capacity .select-comp').hide();
-		$('.sc-air .global-ui-capacity .exp-int').hide();
-		$('.sc-air .global-ui-capacity .exp-dom').show();
 		*/
 		
 		e.preventDefault();
@@ -1212,10 +1211,9 @@ function comSearchAir(){
 			return false;
 		}
 		else{
-			$(this).parent('.qsb-btn-add').addClass('on');
 			$('.sc-air .o-multiway .air-md-'+_MDCnt).addClass('on');
-			if(_MDCnt == _MDMax){
-				$('.sc-air .o-multiway .air-md-'+_MDMax).find('.qsb-btn-add').addClass('on');
+			if(_MDCnt > _MDMinCnt){
+				$('.sc-air .o-multiway .air-md-'+_MDMinCnt).find('.qsb-btn-add').show();
 			}
 			_mdDateArr.push(""); //다중날짜 추가
 		}
@@ -1262,15 +1260,10 @@ function comSearchAir(){
 			
 			//맨뒤에 있는 구간 숨김
 			$('.sc-air .o-multiway .air-md-'+openTotal).removeClass('on');
-			
-			//버튼 변경
-			if(openTotal >= _MDMax){
-				$('.sc-air .o-multiway .air-md-'+(openTotal-1)+' .qsb-btn-add').removeClass('on');			
-			}
-			
+						
 			//버튼 변경 - 구간 2개 남을때
 			if(openTotal <= _MDMinCnt+1){
-				$('.sc-air .o-multiway .air-md-2 .qsb-btn-add').removeClass('on');			
+				$('.sc-air .o-multiway .air-md-2 .qsb-btn-add').hide();			
 			}
 			
 			//다중날짜 리셋
@@ -1492,6 +1485,7 @@ function comSearchHotel(){
 		if(!$(this).closest('.ui-mainsel-hotel').hasClass('ui-search-auto') && $(this).val('')){
 			//add auto
 			$(this).closest('.ui-mainsel-hotel').addClass('ui-search-auto');
+			$(this).closest('.ui-mainsel-hotel .ipu-search').removeClass('placeholder'); //IE9
 		}
 	});
 	
@@ -2058,6 +2052,7 @@ function comSearchFreetour(){
 			
 			//add auto
 			$(this).closest('.ui-mainsel-freetour').addClass('ui-search-auto');
+			$(this).closest('.ui-mainsel-freetour .ipu-search').removeClass('placeholder'); //IE9
 		}
 	});
 	
