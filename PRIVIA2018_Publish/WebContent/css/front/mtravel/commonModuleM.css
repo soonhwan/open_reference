@@ -331,8 +331,6 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#eef1f6', end
 .sc-air .o-multiway .ol-list-qsb li {padding: 15px 0;margin: 0 10px;position: relative;display: none;}
 .sc-air .o-multiway .ol-list-qsb li:after {content: '';display: block;width: 100%;height: 1px;background-color: #fff;opacity: 0.25;bottom: 0;left: 0;position: absolute;}
 .sc-air .o-multiway .ol-list-qsb li:first-child {padding-top: 0;}
-.sc-air .o-multiway .ol-list-qsb li:last-child {padding-bottom: 0;}
-.sc-air .o-multiway .ol-list-qsb li:last-child:after {display: none;}
 .sc-air .o-multiway .ol-list-qsb li.on {display: block;}
 .sc-air .o-multiway .qsb-cont-box-indep:after {content: '';display: block;clear:both;}
 .sc-air .o-multiway .qsb-places {float: left;width: 74%;padding: 0 10px;}
