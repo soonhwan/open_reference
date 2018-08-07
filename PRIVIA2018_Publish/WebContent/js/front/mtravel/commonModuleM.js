@@ -292,6 +292,9 @@ var pvmFrontScript = window.pvmFrontScript || (function(){
 
 			return result;	
 		},
+		changeTitle: function(title){
+			$('.ui-page-active .w-header-sec .whs-title').html(title);
+		},
 		comSearchEvtBind: function($section){
 			/* 설명   : 통합검색 - 섹션별 필요한 이벤트 제공
 			   사용처 : 통합헤더 섹션별 UI Event 필요시 호출 */
@@ -367,5 +370,5 @@ var pvmFrontScript = window.pvmFrontScript || (function(){
  * document ready
  */
 $(function(){	
-	pvmFrontScript.init();
+	//pvmFrontScript.init();
 });

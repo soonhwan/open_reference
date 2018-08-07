@@ -279,13 +279,15 @@
 .list-privia-service {border: 1px solid #e2e2e2;padding: 30px 0;overflow: hidden;}
 .list-privia-service > li {float: left;border-left:1px solid #e2e2e2;}
 .list-privia-service > li:first-child {border-left:0;}
-.list-privia-service > li > a {display: block;width: 188px;padding: 95px 0 29px 0;overflow: hidden;}
+.list-privia-service > li > a {display: block;width: 157px;padding: 95px 0 29px 0;overflow: hidden;}
 .list-privia-service > li > a span {display: block;font-size: 14px;font-weight: bold;color: #333;text-align: center;}
+.list-privia-service > li > a span.oneline{line-height:32px;}
 .list-privia-service .lps1 a {background: url(/images/front/travel/customer/icon-privia-service.png) 50% 30px no-repeat;}
 .list-privia-service .lps2 a {background: url(/images/front/travel/customer/icon-privia-service.png) 50% -170px no-repeat;}
 .list-privia-service .lps3 a {background: url(/images/front/travel/customer/icon-privia-service.png) 50% -370px no-repeat;}
 .list-privia-service .lps4 a {background: url(/images/front/travel/customer/icon-privia-service.png) 50% -570px no-repeat;}
-.list-privia-service .lps5 a {background: url(/images/front/travel/customer/icon-privia-service.png) 50% -770px no-repeat;}
+.list-privia-service .lps5 a {background: url(/images/front/travel/main/icon-main-greenvoucher.png) 50% 22px no-repeat;}
+.list-privia-service .lps6 a {background: url(/images/front/travel/customer/icon-privia-service.png) 50% -770px no-repeat;}
 
 .list-guide-call {margin-top: 30px;margin-left: -10px;}
 .list-guide-call > li {float: left;margin-left: 10px;margin-bottom: 50px;width: 310px;}

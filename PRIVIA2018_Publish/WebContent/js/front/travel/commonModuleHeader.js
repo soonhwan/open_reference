@@ -769,6 +769,7 @@ function comSearchAir(){
 			});
 
 			//add auto
+			$(this).attr('placeholder','도시 또는 공항을 검색하세요.');
 			$(this).closest('.ui-mainsel-air').addClass('ui-search-auto');
 			$(this).closest('.ui-mainsel-air .ipu-search').removeClass('placeholder'); //IE9
 		}
@@ -1293,14 +1294,15 @@ function comSearchAir(){
 			if(_mdDateArr[i] != ""){
 				//sbox input
 				var txtDay = pvFrontScript.onSelectTxtDay($('.sc-air .o-multiway .uis-datepicker'), _mdDateArr[i]);
-				if(!$('.sc-air .o-multiway .air-md-'+(i*1+1)+' .qsb-dates .qsb-area').hasClass('on')){
-					$('.sc-air .o-multiway .air-md-'+(i*1+1)+' .qsb-dates .qsb-area').addClass('on');
+				if(!$('.sc-air .o-multiway [class*="air-md-"]').eq(i).find('.qsb-dates .qsb-area').hasClass('on')){
+					$('.sc-air .o-multiway [class*="air-md-"]').eq(i).find('.qsb-dates .qsb-area').addClass('on');
+					$('.sc-air .o-multiway [class*="air-md-"]').eq(i).find('.qsb-dates .qsb-area').addClass('on');
 				}
-				$('.sc-air .o-multiway .air-md-'+(i*1+1)+' .qsb-dates .qsb-chkin').html(txtDay);		
+				$('.sc-air .o-multiway [class*="air-md-"]').eq(i).find('.qsb-dates .qsb-chkin').html(txtDay);		
 			}
 			else{
-				$('.sc-air .o-multiway .air-md-'+(i*1+1)+' .qsb-dates .qsb-area.on').removeClass('on');
-				$('.sc-air .o-multiway .air-md-'+(i*1+1)+' .qsb-dates .qsb-chkin').html('');		
+				$('.sc-air .o-multiway [class*="air-md-"]').eq(i).find('.qsb-dates .qsb-area.on').removeClass('on');
+				$('.sc-air .o-multiway [class*="air-md-"]').eq(i).find('.qsb-dates .qsb-chkin').html('');		
 			}
 		}
 		
