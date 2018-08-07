@@ -166,6 +166,8 @@ var pvFrontScript = window.pvFrontScript || (function(){
 		panelPosition: function(options){
 			/* 설명   : 통합 헤더 검색 팝업 노출시 위치 설정(팝업 사이즈, 위치 수정을 프론트에서 관리하기 위해)
 			   사용처 : 통합 헤더 검색 팝업 호출시 */
+			
+			var winBottom, panelPos;
 
 			if(!options) {return false;}
 			
@@ -326,6 +328,16 @@ var pvFrontScript = window.pvFrontScript || (function(){
 					
 			if(!$panel.hasClass('on') || $area == null){
 				$panel.addClass('on');
+			}
+			
+			//fixed 모드에서 window 하단을 넘어간 경우
+			if($('.header-sec-fixed').length > 0){
+				winBottom = $(window).scrollTop() + $(window).height();
+				panelPos = $panel.offset().top+$panel.height();
+				if(panelPos > winBottom){
+					var pt = parseInt($panel.css('top'));
+					$panel.css('top', pt-(panelPos-winBottom));
+				}
 			}
 		},
 		onSelectTxtDay: function($this, dateText, inst){
@@ -671,6 +683,7 @@ var pvFrontScript = window.pvFrontScript || (function(){
 							//console.log('commonHeaderObject = ', h);
 						}
 
+						$('.header-sec-fixed #header-sec .w-header-search').attr('style','');
 						$('.header-sec-fixed #header-sec .w-header-search').slideUp('fast', function(){
 							isHs = false;
 						});
@@ -759,7 +772,8 @@ var pvFrontScript = window.pvFrontScript || (function(){
 						}
 
 						//검색
-						$('#header-sec .w-header-search').show();
+						$('#header-sec .w-header-search').stop().show();
+						$('#header-sec .w-header-search').attr('style','');
 						
 						//퀵버전 검색버튼
 						if($('.w-header-gnb .b-open-search button.on').length > 0){
@@ -909,11 +923,11 @@ var pvFrontScript = window.pvFrontScript || (function(){
 				else{
 					$('.w-header-gnb .b-open-search button').on('click', function(){
 						if($('.header-sec-fixed #header-sec .w-header-search').css('display') == 'block'){
-						   $('.header-sec-fixed #header-sec .w-header-search').slideUp('fast');
+							$('.header-sec-fixed #header-sec .w-header-search').stop().slideUp('fast');
 							$(this).removeClass('on');
 						}
 						else{
-						   $('.header-sec-fixed #header-sec .w-header-search').slideDown('fast');
+							$('.header-sec-fixed #header-sec .w-header-search').stop().slideDown('fast');
 							$(this).addClass('on');
 						}
 					});
