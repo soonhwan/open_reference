@@ -1247,7 +1247,9 @@ var pvmSearch = window.pvmSearch || (function(){
 				//달력 셋팅
 				if(type == 'calendar'){
 					pvmFrontScript.changeTitle('숙박 날짜 선택');
-					//$(document).scrollTop($('.ui-page-active .uis-datepicker .ui-state-active').offset().top);
+					if($('.ui-page-active .uis-datepicker .ui-state-active').length > 0){
+						$(document).scrollTop($('.ui-page-active .uis-datepicker .ui-state-active').offset().top-300);
+					}
 				}
 				
 				//객실 셋팅

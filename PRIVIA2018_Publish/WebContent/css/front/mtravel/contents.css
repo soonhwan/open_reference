@@ -1835,27 +1835,23 @@ flex: 1;				  /* NEW, Spec - Opera 12.1, Firefox 20+ */
 .tab__slider_list li a.on {color: #ed174f;border-bottom: 1px solid #ed174f;}
 
 /* #24414 검색 탭메뉴 */
-.wrap-tsp {position: relative;background: url(/images/front/mtravel/cont/vis-main-pkg.jpg) 50% 50% no-repeat;-webkit-background-size: cover;background-size:cover;width: 100%;height: 90%;z-index: 3;transition: height 0.5s, margin-bottom 0.5s;line-height: 1.35;}
+.wrap-tsp {position: relative;background: url(/images/front/mtravel/cont/vis-main-pkg.jpg) 50% 50% no-repeat;-webkit-background-size: cover;background-size:cover;width: 100%;height: 90%;z-index: 3;transition: height margin-bottom 0.5s;line-height: 1.35;}
 .wrap-tsp h3.tit {position: absolute;top:15.02732240437158%;width:100%;text-align: center;transition: margin-top 0.5s;}
 .wrap-tsp h3.tit img {width: 69.21875%;max-width:340px;}
-.tab-search-pkg {overflow: hidden;position: absolute;bottom: 0;width: 100%;height:50px;}
+.tab-search-pkg {overflow: hidden;position: absolute;bottom: 0;width: 100%;height:45px;}
 .tab-search-pkg:after{content:'';display:block;clear:both;}
 .tab-search-pkg li {float: left;width: 33.33333333%;position: relative;z-index: 5;}
-.tab-search-pkg li:before {content: '';display: block;width: 1px;height: 100%;background-color: #d5d5d5;position: absolute;top: 0;left: 0;display: none;z-index: 12;}
-.tab-search-pkg li:first-child:before {display: none !important;}
-.tab-search-pkg li a {display: block;text-align: center;padding: 16px 0px;font-size:14px;color: #fff;z-index: 10;position: relative;transition: background-color 0.3s;}
-.tab-search-pkg li a.on {font-size: 17px;padding: 14px 0px;font-weight: bold;color: #e92175;background-color: #fff !important;}
-.tab-search-pkg li:after{content:'';position: absolute;width: 100%;height: 100%;background-color: #000;opacity: 0.4;top:0;left:0;z-index: 0;transition: opacity 0.3s;}
+.tab-search-pkg li a {display: block;text-align: center;padding: 14px 0px;font-size:13px;color: #fff;z-index: 10;position: relative;}
+.tab-search-pkg li a.on {font-weight: bold;color: #fff95a;}
+.tab-search-pkg li:after{content:'';position: absolute;width: 100%;height: 100%;background-color: #000;opacity: 0.4;top:0;left:0;z-index: 0;transition: opacity 0.5s;}
 .wrap-tsp.tsp-on {background: none;}
-.wrap-tsp.tsp-on .tab-search-pkg {position: fixed;bottom: auto;top:47px;z-index: 12;background: url(/images/front/mtravel/cont/vis-main-pkg.jpg) 50% 90% no-repeat;-webkit-background-size: cover;background-size:cover;}
-.wrap-tsp.tsp-on .tab-search-pkg li:before {display: block;} 
-.wrap-tsp.tsp-on .tab-search-pkg li a {background-color: #bbb;}
+.wrap-tsp.tsp-on .tab-search-pkg {position: fixed;bottom: auto;top:0;z-index: 12;background: url(/images/front/mtravel/cont/vis-main-pkg.jpg) 50% 90% no-repeat;-webkit-background-size: cover;background-size:cover;}
 .wrap-tsp.tsp-ond {z-index: 0;}
 .wrap-tsp.tsp-onf {height: 45px;background: none;}
 .wrap-tsp.tsp-onf h3.tit {margin-top:-100%;}
 .section-tsp {display: none;}
 .section-tsp.tsp1 {display: block;}
-.wrap-tsp .btn-eme-inv {position: absolute;width: 107px;left: 0;top: 20px;z-index: 5;transition: top 0.5s;}
+.wrap-tsp .btn-eme-inv {position: absolute;width: 116px;left: 0;top: 5%;z-index: 2;transition: top 0.5s;}
 .wrap-tsp.tsp-onf .btn-eme-inv {top:-100%;}
 .wrap-tsp .btn-swiper-next {position: absolute;width: 26%;text-align: center;left: 50%;margin-left: -13%;top: 15.02732240437158%;z-index: 2;transition: top 0.5s;}
 .wrap-tsp .btn-swiper-next a {display: inline-block;margin-top: 160%;}
