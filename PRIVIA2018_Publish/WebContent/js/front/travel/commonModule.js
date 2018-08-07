@@ -929,7 +929,6 @@ var pvFrontScript = window.pvFrontScript || (function(){
 				$('.commonHeaderObject .o-CHO-inner').addClass('header-sec-fixed');
 				//리본상태
 				$('#top-area-sec .top-area-sec').addClass('on');
-				$('.w-header-util .hu-control .b-crt.bc-close').addClass('hide'); //리본버튼
 			}
 
 			//헤더 풀버전
@@ -937,6 +936,10 @@ var pvFrontScript = window.pvFrontScript || (function(){
 				//리본상태
 				$('.w-header-util .hu-control .b-crt.bc-open a').trigger('click'); // 상단 리본 1단계 오픈
 			}	
+			else{
+				//리본상태
+				$('.w-header-util .hu-control .b-crt.bc-close').addClass('hide'); //리본버튼
+			}
 		},
 		comHeaderControl: function(){
 			/* 설명   : 공통 헤더 컨트롤(상단리본, 공지사항, 스크롤 헤더반응형, 검색UI)

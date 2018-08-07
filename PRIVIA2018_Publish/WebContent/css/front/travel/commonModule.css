@@ -177,7 +177,7 @@ box-shadow: 0 3px 3px 0px rgba(0,0,0,0.1);
 .help-tooltip .cont:after {content: '';display: block;width: 0;height: 0;border-left: 30px solid transparent;border-right: 0px solid transparent;border-top: 30px solid #fff;position: absolute;left: -14px;top: 0;}
 
 /* 툴팁 st2 */
-.help-tooltip.heltt-st2 .over {display: inline-block;vertical-align: middle;width: 16px;height: 16px;text-align: center;line-height: 16px;font-size: 10px;color: #fff;background-color: #565656;border-radius: 50%;cursor: pointer;font-family: "YouandiModernHEB" !important;}
+.help-tooltip.heltt-st2 .over {display: inline-block;vertical-align: middle;width: 16px;height: 16px;text-align: center;line-height: 16px;font-size: 10px;color: #fff;background-color: #565656;border-radius: 50%;cursor: pointer;font-family: "YouandiModernTB" !important;}
 .help-tooltip.heltt-st2 .cont {display: inline-block;vertical-align: middle;position: absolute;background-color: #000;font-size:12px;letter-spacing: -1px;color: #FFF;line-height: 24px;padding: 18px;word-wrap: break-word;border-radius: 6px;top: -21px;left: 33px;z-index: 1;opacity: 0;visibility:hidden;transition: opacity 0.3s, visibility 0.3s;
 }
 .help-tooltip.heltt-st2 .over:hover {background-color: #f30774;}
@@ -351,8 +351,8 @@ box-shadow: 0 10px 20px 0px rgba(0,0,0,0.1);
 .o-bg-freetour {background-color: #765cba !important;}
 
 /* ------------- 검색 영역(o-search- : all(기본), air, hotel, free, freetour)) */
-.o-CHO-full .w-header-search {padding: 50px 0 20px 0;}
-.w-header-search {padding: 55px 0 40px 0;z-index: 1;}
+/*.o-CHO-full .w-header-search {padding: 50px 0 20px 0;}*/
+.w-header-search {padding: 50px 0 20px 0;z-index: 1;}
 .w-header-search .ly-inner:after {content: '';display: block;clear:both;}
 .hs-search-menu:after {content: '';display: block;clear:both;}
 /* ------- 검색 메뉴 */
@@ -454,7 +454,7 @@ box-shadow: 0 10px 20px 0px rgba(0,0,0,0.1);
 .sc-search-box .qsb-btn-add {position: absolute;top: 22px;right: 24px;border-radius: 2px;overflow: hidden;}
 .sc-search-box .qsb-btn-add .b-remove-multiway {display: block;width: 46px;height: 46px;background-color: #fff;padding: 0;border:2px solid #288ecc;cursor: pointer;position: relative;}
 .sc-search-box .qsb-btn-add .b-remove-multiway:before {content: '';display: block;width: 18px;height: 18px;background: url(/images/front/travel/contents/icon-common-sec.png) -41px -45px no-repeat;position: absolute;left: 12px;top: 12px;}
-.qsb-cont-indep .b-add-multiway {background-color: transparent;display:inline-block;border:2px dashed #fff;text-align: center;width: 63.5%;float: left;border-radius: 6px;cursor: pointer;}
+.qsb-cont-indep .b-add-multiway {background-color: transparent;display:inline-block;border:2px dashed #fff;text-align: center;width: 63%;float: left;border-radius: 6px;cursor: pointer;}
 .qsb-cont-indep .b-add-multiway span {display: inline-block;height: 86px;color: #fff;font-size: 18px;line-height: 86px;font-family:"NotoSansKR" !important;font-weight: 500;position: relative;padding-right: 26px;}
 .qsb-cont-indep .b-add-multiway span:after {content: '';display: block;width: 16px;height: 16px;background: url(/images/front/travel/contents/icon-common-sec.png) -40px 0 no-repeat;position: absolute;top: 35px;right: 0;}
 /* 검색 박스 - 다구간 여정 number */
@@ -669,7 +669,7 @@ border-left:0;
 /* 검색 박스 lyout -  왕복 */
 .sc-air .global-ui-capacity .exp-dom {display: none;}
 .sc-air .o-shuttle .b-change-places button:before {background-position: -63px -336px;}
-.sc-air .o-shuttle .b-change-places button.on:before {background-position: -85px -336px;}
+/*.sc-air .o-shuttle .b-change-places button:hover:before {background-position: -85px -336px;}*/
 .sc-air .o-shuttle .qsb-places {width: 41%;}
 .sc-air .o-shuttle .qsb-dates {width: 28%;}
 .sc-air .o-shuttle .qsb-capacity {width: 23%;}
