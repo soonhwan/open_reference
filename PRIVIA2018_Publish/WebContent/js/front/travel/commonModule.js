@@ -687,8 +687,8 @@ var pvFrontScript = window.pvFrontScript || (function(){
 							//console.log('commonHeaderObject = ', h);
 						}
 
-						$('.header-sec-fixed #header-sec .w-header-search').attr('style','');
 						$('.header-sec-fixed #header-sec .w-header-search').slideUp('fast', function(){
+							$('#header-sec .w-header-search').attr('style','');
 							isHs = false;
 						});
 						
@@ -789,8 +789,7 @@ var pvFrontScript = window.pvFrontScript || (function(){
 					
 					//검색
 					if(!isNoHeaderSearch){
-						$('#header-sec .w-header-search').stop().show();
-						$('#header-sec .w-header-search').attr('style', '');
+						$('#header-sec .w-header-search').show();
 						
 						//퀵버전 검색버튼
 						if($('.w-header-gnb .b-open-search button.on').length > 0){
