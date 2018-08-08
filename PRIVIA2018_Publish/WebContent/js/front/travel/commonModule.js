@@ -339,6 +339,13 @@ var pvFrontScript = window.pvFrontScript || (function(){
 					$panel.css('top', pt-(panelPos-winBottom));
 				}
 			}
+			else{
+				winBottom = $(window).scrollTop() + $(window).height();
+				panelPos = $panel.offset().top+$panel.height();
+				if(panelPos > winBottom){
+					$('html, body').stop().animate({scrollTop:$(window).scrollTop()+(panelPos-winBottom)}, 500);
+				}
+			}
 		},
 		onSelectTxtDay: function($this, dateText, inst){
 			/* 설명   : 통합검색 - 선택된 날짜 형식 ex)08월 07일 (화) dayNamesMin 옵션이 있어야함!
@@ -474,6 +481,17 @@ var pvFrontScript = window.pvFrontScript || (function(){
 			
 			//capacity uis-capacity-number click(클래스 on 추가, 삭제 기능)
 			if(section.find('.sc-ui-search-panel .uis-capacity-number').length > 0){
+				//셋팅
+				/*section.find('.sc-ui-search-panel .uis-capacity-number .uis-custom-number').each(function(){
+					console.log(parseInt($(this).find('.ucn-num').text()));
+					if(parseInt($(this).find('.ucn-num').text()) <= 0){
+						$(this).find('.ucn-num.b-minus').addClass('ucn-disable');
+					}
+					else if(parseInt($(this).find('.ucn-num').text()) > 0){
+						$(this).find('.ucn-num.b-minus.ucn-disable').removeClass('ucn-disable');
+					}
+				});*/
+				
 				//minus
 				section.find('.sc-ui-search-panel .uis-capacity-number .uis-custom-number .b-minus button').on('click', function(e){
 					var c = parseInt($(this).closest('.uis-custom-number').find('.ucn-num').text());
@@ -913,9 +931,9 @@ var pvFrontScript = window.pvFrontScript || (function(){
 			pvFrontScript.beforeSettingNav();
 
 			//gnb 해외패키지 2dep, 3dep 설정
-			if($('.w-header-gnb .nav-gnb #n-gnb-pkg.on').length > 0){
+			/*if($('.w-header-gnb .nav-gnb #n-gnb-pkg.on').length > 0){
 				$('.commonHeaderObject .o-CHO-inner').addClass('no-shadow');
-			}
+			}*/
 
 			//gnb 전체메뉴 열고 닫기
 			$('.w-header-gnb .nav-gnb .b-total-nav > a').on('click', function(e){
