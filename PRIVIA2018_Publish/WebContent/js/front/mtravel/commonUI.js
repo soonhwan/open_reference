@@ -1813,6 +1813,16 @@ var pvmFrontScript = window.pvmFrontScript || (function(){
 					e.preventDefault();
 				});
 			}
+		},
+		comContents: function(){
+			if($('.s-rec-promotion .w-list-item-st1').length > 0){
+				var recPromSwiper = new Swiper('.s-rec-promotion .swiper-container', {
+					slidesPerView: 'auto',
+					autoplay: {
+						delay: 5000,
+					  }
+				});
+			}
 		}
 	}	
 }());

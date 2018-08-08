@@ -1767,7 +1767,7 @@ border-left:0;
  *  contents - 프비m 메인
  *--------------------------------------------------------------------------------------------------------------*/
 /* list-item-st1 */
-.w-list-item-st1 {position: relative;overflow-y: hidden;-webkit-overflow-scrolling: touch;margin-left: -20px;margin-right: -20px;}
+/*.w-list-item-st1 {position: relative;overflow-y: hidden;-webkit-overflow-scrolling: touch;margin-left: -20px;margin-right: -20px;}
 .list-item-st1 {
     padding: 0 20px;
 	position: relative;
@@ -1783,7 +1783,9 @@ border-left:0;
 .list-item-st1::-webkit-scrollbar, .list-item-st1::-webkit-scrollbar {
     -webkit-appearance: none;
     display: none ;
-}
+}*/
+.w-list-item-st1 {position: relative;padding-right: 20px;}
+.list-item-st1 {padding: 0 20px;position: relative;}
 .list-item-st1:after {content: '';display: block;clear:both;}
 .list-item-st1 li {display: inline-block;width: 80%;margin-right: 2%;}
 .list-item-st1 li:last-child {margin-right: 20px;}
@@ -1792,7 +1794,8 @@ border-left:0;
 .list-item-st1 .exp {display: block;color:#999;font-size:13px;text-overflow:ellipsis;white-space:nowrap;overflow:hidden;margin-top: 3px;}
 
 /* 추천 프로모션 */
-.s-rec-promotion {padding: 0 20px;}
+/*.s-rec-promotion {padding: 0 20px;}*/
+.s-rec-promotion .c-tit-sec {padding-left: 20px;}
 
 /* 이용혜택 */
 .s-benefit-cont {padding: 0 20px;position: relative;}
