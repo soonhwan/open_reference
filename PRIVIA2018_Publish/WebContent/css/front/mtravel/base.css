@@ -1,5 +1,93 @@
 @charset "utf-8"; 
 
+/*--------------------------------------------------------------------------------------------------------------
+ *  fonts
+ *--------------------------------------------------------------------------------------------------------------*/
+@font-face {
+    font-family: 'YouandiModernTR'; 
+    font-style: normal; 
+    font-weight: normal; 
+    src: url(/fonts/Youandi_Modern_TextRegular.eot); 
+    src: url(/fonts/Youandi_Modern_TextRegular.eot?#iefix) format('embedded-opentype'),
+         url(/fonts/Youandi_Modern_TextRegular.woff) format('woff')
+}
+@font-face {
+    font-family: 'YouandiModernTB'; 
+    font-style: normal; 
+    font-weight: normal; 
+    src: url(/fonts/Youandi_Modern_TextBold.eot); 
+    src: url(/fonts/Youandi_Modern_TextBold.eot?#iefix) format('embedded-opentype'),
+         url(/fonts/Youandi_Modern_TextBold.woff) format('woff')
+}
+@font-face {
+    font-family:'YouandiModernHEB'; 
+    font-style: normal; 
+    font-weight: normal; 
+    src: url(/fonts/Youandi_Modern_HeadExtraBold.eot); 
+    src: url(/fonts/Youandi_Modern_HeadExtraBold.eot?#iefix) format('embedded-opentype'),
+         url(/fonts/Youandi_Modern_HeadExtraBold.woff) format('woff')
+}
+@font-face {
+    font-family:'NotoSansKR';
+    font-style:normal;
+    font-weight:100;
+    src: url('/fonts/NotoSansKR-Thin.eot');
+    src: local(☺),
+         url('/fonts/NotoSansKR-Thin.woff2') format('woff2'),
+         url('/fonts/NotoSansKR-Thin.woff') format('woff'),
+         url('/fonts/NotoSansKR-Thin.otf') format('opentype');
+}
+@font-face {
+    font-family:'NotoSansKR';
+    font-style:normal;
+    font-weight:300;
+	src: url('/fonts/NotoSansKR-Light.eot');
+    src: local(☺),
+         url('/fonts/NotoSansKR-Light.woff2') format('woff2'),
+         url('/fonts/NotoSansKR-Light.woff') format('woff'),
+         url('/fonts/NotoSansKR-Light.otf') format('opentype');
+}
+@font-face {
+    font-family:'NotoSansKR';
+    font-style:normal;
+    font-weight:400;
+	src: url('/fonts/NotoSansKR-Regular.eot');
+    src: local(☺),
+         url('/fonts/NotoSansKR-Regular.woff2') format('woff2'),
+         url('/fonts/NotoSansKR-Regular.woff') format('woff'),
+         url('/fonts/NotoSansKR-Regular.otf') format('opentype');
+}
+@font-face {
+    font-family:'NotoSansKR';
+    font-style:normal;
+    font-weight:500;
+	src: url('/fonts/NotoSansKR-Medium.eot');
+    src: local(☺),
+         url('/fonts/NotoSansKR-Medium.woff2') format('woff2'),
+         url('/fonts/NotoSansKR-Medium.woff') format('woff'),
+         url('/fonts/NotoSansKR-Medium.otf') format('opentype');
+}
+@font-face {
+    font-family:'NotoSansKR';
+    font-style:normal;
+    font-weight:700;
+	src: url('/fonts/NotoSansKR-Bold.eot');
+    src: local(☺),
+         url('/fonts/NotoSansKR-Bold.woff2') format('woff2'),
+         url('/fonts/NotoSansKR-Bold.woff') format('woff'),
+         url('/fonts/NotoSansKR-Bold.otf') format('opentype');
+}
+@font-face {
+    font-family:'NotoSansKR';
+    font-style:normal;
+    font-weight:900;
+	src: url('/fonts/NotoSansKR-Black.eot');
+    src: local(☺),
+         url('/fonts/NotoSansKR-Black.woff2') format('woff2'),
+         url('/fonts/NotoSansKR-Black.woff') format('woff'),
+         url('/fonts/NotoSansKR-Black.otf') format('opentype');
+}
+
 @font-face{
 font-family:'YMR';
 src: url('/images/front/mtravel/common/YouandiModernHRA.eot');
@@ -185,3 +273,65 @@ box-sizing: border-box;
 .ui-mobile [data-role=dialog] .header .s-state-pkg + .leftArea .btnBack {display: none !important;}
 .ui-dialog-contain{min-height:100%;opacity:1 !important;background:#fff !important}
 .ui-mobile [data-role=dialog] .contentWrap{position:relative;min-height:100%;-moz-box-sizing:border-box;-webkit-box-sizing:border-box;box-sizing:border-box;padding-bottom:50px;opacity:1 !important;background:#fff !important}
+
+/*--------------------------------------------------------------------------------------------------------------
+ *  common - reset, lyout
+ *--------------------------------------------------------------------------------------------------------------*/
+/* reset */
+* {/*color: #000;*/}
+.popWrap-sec *, .popWrap-sec *:after, .popWrap-sec *:before, 
+.search-sec *, .search-sec *:after, .search-sec *:before,
+.content-sec *, .content-sec *:after, .content-sec *:before,
+.footer-sec *, .footer-sec *:after, .footer-sec *:before {font-family: "NotoSansKR", "Malgun Gothic", sans-serif;font-weight: 300;-moz-box-sizing:border-box;-webkit-box-sizing:border-box;box-sizing:border-box;}
+.header-sec table, .search-sec table, .content-sec table, .footer-sec table {border:0;border-spacing:0;border-collapse:collapse;}
+
+/*--------------------------------------------------------------------------------------------------------------
+ *  common - header
+ *--------------------------------------------------------------------------------------------------------------*/
+/* 헤더 기본(fixed) */
+.header-sec {position: relative;height: 50px;}
+.w-header-sec {height: 50px;background-color: #eef1f6;border-bottom: 1px solid #e6e6e6;width: 100%;position: fixed;z-index: 10;}
+.w-header-sec .logo {padding: 18px 0 0 20px;}
+.w-header-sec .logo a {display: inline-block;width: 130px;}
+.w-header-sec .whs-title {font-size:20px;color: #000;text-align: center;font-family: "YouandiModernTB";padding-top: 14px;}
+.w-header-sec .ly-left {position: absolute;left: 20px;top: 17px;}
+.w-header-sec .ly-right {position: absolute;right: 20px;top: 15px;}
+/*.w-header-sec .ly-left .b-back {display: inline-block;width: 16px;height: 16px;overflow: hidden;background: url(/images/front/mtravel/contents/icon-common-secM.png) 0px 0px no-repeat;-webkit-background-size: 160px;background-size: 160px;}*/
+.w-header-sec .ly-left .b-close {display: inline-block;width: 16px;height: 16px;overflow: hidden;background: url(/images/front/mtravel/contents/icon-common-secM.png) 0px 0px no-repeat;-webkit-background-size: 160px;background-size: 160px;}
+.w-header-sec .ly-right .b-mymenu {display: inline-block;width: 23px;height: 22px;overflow: hidden;background: url(/images/front/mtravel/contents/icon-common-secM.png) -19px 0px no-repeat;-webkit-background-size: 160px;background-size: 160px;margin-right: 15px;}
+.w-header-sec .ly-right .b-gnb {display: inline-block;position: relative;width: 28px;height: 22px;}
+.w-header-sec .ly-right .b-gnb:before {content: '';display: inline-block;width: 28px;height: 10px;overflow: hidden;background: url(/images/front/mtravel/contents/icon-common-secM.png) -45px 0px no-repeat;-webkit-background-size: 160px;background-size: 160px;position: absolute;left: 0;top: 6px;}
+
+/*--------------------------------------------------------------------------------------------------------------
+ *  common - footer
+ *--------------------------------------------------------------------------------------------------------------*/
+.footer-sec .w-footer-sec {background-color: #000;padding: 30px 20px;margin-top: 40px;}
+.w-footer-sec .fts-ly1:after {content: '';display: block;clear:both;}
+.w-footer-sec .fts-ly1 .fts-call {float: left;line-height: 1.3;}
+.w-footer-sec .fts-ly1 .fts-call > span {display: block;}
+.w-footer-sec .fts-ly1 .fts-call .txt1 {color: #fff;font-size:14px;font-weight: 500;}
+.w-footer-sec .fts-ly1 .fts-call .txt1 em a {color: #f30774;font-size:14px;font-weight: 500;}
+.w-footer-sec .fts-ly1 .fts-call .txt2 a {color: #fff;font-size:12px;}
+.w-footer-sec .fts-ly1 .fts-go-link {float: right;}
+.w-footer-sec .fts-ly1 .fts-go-link:after {content: '';display: block;clear:both;}
+.w-footer-sec .fts-ly1 .fts-go-link li {float: left;margin-left: 10px;}
+.w-footer-sec .fts-ly1 .fts-go-link li .bb-st1 a {min-width: 75px;}
+.w-footer-sec .nav-fnb {margin-top: 15px;}
+.w-footer-sec .nav-fnb:after {content: '';display: block;clear:both;}
+.w-footer-sec .nav-fnb li {float: left;position: relative;}
+.w-footer-sec .nav-fnb li a {font-size:12px;color: #999;padding: 1px 9px;}
+.w-footer-sec .nav-fnb li:before {content: '';display: block;width: 1px;height: 10px;background-color: #353535;position: absolute;top: 6px;left: 0;}
+.w-footer-sec .nav-fnb li:first-child a {padding-left: 0;}
+.w-footer-sec .nav-fnb li:last-child a {padding-right: 0;}
+.w-footer-sec .nav-fnb li:first-child:before {display: none;}
+.w-footer-sec .copyright {margin-top: 15px;}
+.w-footer-sec .copyright small {font-size:12px;color: #434343;}
+
+/*--------------------------------------------------------------------------------------------------------------
+ *  common - popWrap-sec
+ *--------------------------------------------------------------------------------------------------------------*/
+.popWrap-sec {border-radius: 4px;overflow: hidden;margin: 0 auto;}
+.popWrap-sec .popHead .tit {color: #333;font-family: "NotoSansKR";font-weight: 500 !important;}
+.popWrap-sec .pop-exp-st1 dt {font-size:14px;font-weight: 500 !important;margin-bottom: 2px;color: #333;}
+.popWrap-sec .pop-exp-st1 dd {font-size:14px;color: #333;}
+.popWrap-sec .pop-exp-st1 + .pop-exp-st1 {margin-top: 10px;}
