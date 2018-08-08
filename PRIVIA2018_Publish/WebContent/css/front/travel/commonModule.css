@@ -455,6 +455,7 @@ box-shadow: 0 10px 20px 0px rgba(0,0,0,0.1);
 .qsb-cont-indep .b-add-multiway {background-color: transparent;display:inline-block;border:2px dashed #fff;text-align: center;width: 63%;float: left;border-radius: 6px;cursor: pointer;}
 .qsb-cont-indep .b-add-multiway span {display: inline-block;height: 86px;color: #fff;font-size: 18px;line-height: 86px;font-family:"NotoSansKR" !important;font-weight: 500;position: relative;padding-right: 26px;}
 .qsb-cont-indep .b-add-multiway span:after {content: '';display: block;width: 16px;height: 16px;background: url(/images/front/travel/contents/icon-common-sec.png) -40px 0 no-repeat;position: absolute;top: 35px;right: 0;}
+.qsb-cont-indep .b-add-multiway.disabled {opacity: 0.4;cursor: default;}
 /* 검색 박스 - 다구간 여정 number */
 .sc-search-box .qsb-number {text-align: center;padding: 20px 0;}
 .sc-search-box .qsb-number .qsb-number-inner {border-right: 1px solid #ddd;padding: 4px 30px;}
@@ -608,9 +609,9 @@ border-left:0;
 .uis-custom-number .ucn-crt button:before {content:'';display:block;width:17px;height:1px;background-color:#b2b6c0;position:absolute;top:50%;left:50%;margin-left:-8px;}
 .uis-custom-number .ucn-crt button:after {content:'';display:block;width:1px;height:17px;background-color:#b2b6c0;position:absolute;top:50%;left:50%;margin-top:-8px;}
 .uis-custom-number .b-minus button:after {display: none;}
-.uis-custom-number .ucn-crt.ucn-disable:after {content: '';display: block;width: 100%;height: 100%;position: absolute;top: 0;left: 0;background-color: transparent;z-index: 1;}
-.uis-custom-number .ucn-crt.ucn-disable button:before,
-.uis-custom-number .ucn-crt.ucn-disable button:after {background-color:#e4e6e9;}
+.uis-custom-number .ucn-crt.ucn-disabled:after {content: '';display: block;width: 100%;height: 100%;position: absolute;top: 0;left: 0;background-color: transparent;z-index: 1;}
+.uis-custom-number .ucn-crt.ucn-disabled button:before,
+.uis-custom-number .ucn-crt.ucn-disabled button:after {background-color:#e4e6e9;}
 
 
 
@@ -677,7 +678,7 @@ border-left:0;
 .sc-air .o-shuttle .qsb-capacity {width: 23%;}
 .sc-air .o-shuttle .qsb-btn-search {width: 8%;}
 .sc-air .o-shuttle .ui-date-calendar {top: 92px;left: 430px;}
-.sc-air .o-shuttle .ui-date-calendar .uis-date-chkout .txt-day.disabled {opacity: 0;visibility: visible;}
+/*.sc-air .o-shuttle .ui-date-calendar .uis-date-chkout .txt-day.disabled {opacity: 0;visibility: visible;}*/
 .sc-air .o-shuttle .ui-date-calendar .uis-date-chkin {position: relative;}
 .sc-air .o-shuttle .ui-date-calendar .uis-select {position: absolute;top: -6px;left: 26px;display: none;}
 .sc-air .o-shuttle .ui-date-calendar .uis-select.on {display: block;}

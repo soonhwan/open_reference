@@ -1208,13 +1208,17 @@ function comSearchAir(){
 		_MDCnt++;
 		if(_MDCnt > _MDMax){
 			_MDCnt = _MDMax;
-			alert('여정은 총 ' + _MDCnt + '개 까지만 가능합니다.\n' + _MDCnt + '개 이상의 여정이 있으시다면 1;1문의로 요청해 주시기 바랍니다.');
-			return false;
+			//alert('여정은 총 ' + _MDCnt + '개 까지만 가능합니다.\n' + _MDCnt + '개 이상의 여정이 있으시다면 1;1문의로 요청해 주시기 바랍니다.');
+			if($(this).hasClass('disabled')){ return false; }
 		}
 		else{
 			$('.sc-air .o-multiway .air-md-'+_MDCnt).addClass('on');
 			if(_MDCnt > _MDMinCnt){
 				$('.sc-air .o-multiway .air-md-'+_MDMinCnt).find('.qsb-btn-add').show();
+			}
+			
+			if(_MDCnt == _MDMax){
+			   $('.sc-air .o-multiway .b-add-multiway').addClass('disabled');
 			}
 			_mdDateArr.push(""); //다중날짜 추가
 		}
@@ -1265,6 +1269,10 @@ function comSearchAir(){
 			//버튼 변경 - 구간 2개 남을때
 			if(openTotal <= _MDMinCnt+1){
 				$('.sc-air .o-multiway .air-md-2 .qsb-btn-add').hide();			
+			}
+			
+			if(_MDCnt < _MDMax){
+			   $('.sc-air .o-multiway .b-add-multiway').removeClass('disabled');
 			}
 			
 			//다중날짜 리셋
