@@ -2040,3 +2040,12 @@ box-sizing: border-box;
 .air_rv_b{position:relative;padding:15px 20px;border-bottom:1px dotted #d5d5d5;}
 .air_rv_b p{width:85%;}
 .air_rv_b .btn_close{position:absolute;top:25%;right:20px;}
+
+/* 31788 */
+.hyundai-card-simple{padding:15px 20px;overflow:hidden;}
+.hyundai-card-simple:after{display:block;content:'';clear:both;}
+.hyundai-card-simple ul.fl{float:left;width:52%;word-break:keep-all;}
+.hyundai-card-simple ul.fr{float:right;width:45%;word-break:keep-all;}
+.hyundai-card-simple li{margin-bottom:10px;background-position:0 8px;font-family:'YMB';font-size:13px;color:#333;}
+.hyundai-card-simple li:last-child{margin-bottom:0px;}
+.hyundai-card-simple:last-child li{color:#767676;font-size:12px;font-family:'Malgun Gothic','맑은 고딕',돋움,sans-serif;}

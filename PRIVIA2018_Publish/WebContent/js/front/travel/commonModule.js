@@ -698,8 +698,9 @@ var pvFrontScript = window.pvFrontScript || (function(){
 					//검색영역
 					if($('.header-sec-fixed #header-sec .w-header-search').css('display') == 'block' && isHs == false && isNoHeaderSearch == false){
 						isHs = true;
+						
 						//console.log('isFixed() = ', $('.w-header-search').height());
-						if(headerSearchH != $('.w-header-search').height()){
+						if(headerSearchH != $('.w-header-search').height() && $('.header-sec-fixed #header-sec .w-header-search').hasClass('is-hide') == false){
 							var h = $('.commonHeaderObject').height() + ($('.w-header-search').height() - headerSearchH);
 							$('.commonHeaderObject').height(h);
 							//console.log('commonHeaderObject = ', h);
@@ -737,7 +738,7 @@ var pvFrontScript = window.pvFrontScript || (function(){
 					isFixed();
 				}
 				else{
-				
+					
 				}*/
 				
 				scUTarget = $CHO.offset().top + $CHO.height();
@@ -795,7 +796,7 @@ var pvFrontScript = window.pvFrontScript || (function(){
 					$('#top-area-sec .top-area-sec .tasp-list').removeClass('on');
 					$('#top-area-sec .top-area-sec .tasp-detail').hide(); 
 					if($('#top-area-sec .top-area-sec').hasClass('on')){
-						$('#top-area-sec .top-area-sec').show();
+						$('#top-area-sec .top-area-sec').show();						
 						//리본버튼
 						$('.w-header-util .hu-control .b-crt.bc-open.hide, .w-header-util .hu-control .b-crt.bc-close.hide').removeClass('hide');
 					}
@@ -805,9 +806,14 @@ var pvFrontScript = window.pvFrontScript || (function(){
 						$('.header-sec-fixed .w-header-util .hu-control .b-crt.bc-close').addClass('hide');
 					}
 					
-					//검색
 					if(!isNoHeaderSearch){
-						$('#header-sec .w-header-search').show();
+						//검색영역
+						if($('#header-sec .w-header-search').hasClass('is-hide')){
+							$('#header-sec .w-header-search').hide();	
+						}
+						else{
+							$('#header-sec .w-header-search').show();
+						}
 						
 						//퀵버전 검색버튼
 						if($('.w-header-gnb .b-open-search button.on').length > 0){
@@ -962,13 +968,19 @@ var pvFrontScript = window.pvFrontScript || (function(){
 				}
 				else{
 					$('.w-header-gnb .b-open-search button').on('click', function(){
-						if($('.header-sec-fixed #header-sec .w-header-search').css('display') == 'block'){
-							$('.header-sec-fixed #header-sec .w-header-search').stop().slideUp('fast');
+						if($('#header-sec .w-header-search').css('display') == 'block'){
+							$('#header-sec .w-header-search').stop().slideUp('fast');
 							$(this).removeClass('on');
+							if(!$('.commonHeaderObject.o-CHO-quick .o-CHO-inner').hasClass('header-sec-fixed')){ 
+								$('.commonHeaderObject.o-CHO-quick .w-header-search').addClass('is-hide');
+							}
 						}
 						else{
-							$('.header-sec-fixed #header-sec .w-header-search').stop().slideDown('fast');
+							$('#header-sec .w-header-search').stop().slideDown('fast');
 							$(this).addClass('on');
+							if(!$('.commonHeaderObject.o-CHO-quick .o-CHO-inner').hasClass('header-sec-fixed')){ 
+								$('.commonHeaderObject.o-CHO-quick .w-header-search.is-hide').removeClass('is-hide');
+							}
 						}
 					});
 				}
@@ -979,11 +991,9 @@ var pvFrontScript = window.pvFrontScript || (function(){
 			   사용처 : comHeaderControl(); */
 
 			//헤더 퀵모드
-			/*if($('.commonHeaderObject').hasClass('o-CHO-quick')){
-				$('.commonHeaderObject .o-CHO-inner').addClass('header-sec-fixed');
-				//리본상태
-				$('#top-area-sec .top-area-sec').addClass('on');
-			}*/
+			if($('.commonHeaderObject').hasClass('o-CHO-quick')){
+				$('.commonHeaderObject.o-CHO-quick .w-header-search').addClass('is-hide');
+			}
 
 			//헤더 풀버전
 			if($('.commonHeaderObject').hasClass('o-CHO-full')){

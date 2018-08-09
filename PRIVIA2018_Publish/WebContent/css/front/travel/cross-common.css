@@ -2446,3 +2446,10 @@ hr.line{border-top:1px solid #e2e2e2;border-bottom:0 none;margin:30px 0}
 .faq-widget-holder .chat-open span{font-size:16px}
 .faq-widget-holder .chat-open span:after{display:inline-block;content:"";width:15px;height:16px;background:url(/images/front/travel/icon_chat_open.gif) no-repeat 0 0;margin-left:10px;vertical-align:middle}
 .faq-widget-holder .chat-close{position:absolute;top:-34px;right:0px}
+
+/* 31788 */
+.hyundai-card-simple ul{width:908px;padding:20px 20px 0;}
+.hyundai-card-simple ul:after{content:"";display:block;clear:both;}
+.hyundai-card-simple li{float:left;width:294px;font-size:14px;color:#333333;}
+.hyundai-card-simple .tail-info{padding:20px 20px 0;margin-top:40px;border-top:1px solid #e8e8e8;font-size:12px;color:#333333;}
+.hyundai-card-simple .tail-info a{text-decoration:underline}
