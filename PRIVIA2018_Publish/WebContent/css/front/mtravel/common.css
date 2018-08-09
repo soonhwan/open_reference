@@ -1624,8 +1624,8 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#eef1f6', end
 .uis-sec .list li .lbr-st1 {position: absolute;left: 0;top: 50%;margin-top: -10px;}
 .uis-list.recently li a {padding-left: 25px;}
 .uis-list.recently li a:before {content: '';display: block;width: 16px;height: 17px;background: url(/images/front/mtravel/contents/icon-common-secM.png) 0px -24px no-repeat;-webkit-background-size: 160px;background-size: 160px;position: absolute;top: 18px;left: 0;}
-.uis-list.recommend .tit-rec:after {content: '';display: block;width: 15px;height: 8px;background: url(/images/front/mtravel/contents/icon-common-secM.png) 0px -91px no-repeat;-webkit-background-size: 160px;background-size: 160px;position: absolute;top: 21px;right: 0;transform: rotate(0deg);transition: transform 0.3s;}
-.uis-list.recommend .on > .tit-rec:after {background-position: -18px -91px;transform: rotate(180deg);}
+.uis-list.recommend .tit-rec:after {content: '';display: block;width: 15px;height: 8px;background: url(/images/front/mtravel/contents/icon-common-secM.png) 0px -91px no-repeat;-webkit-background-size: 160px;background-size: 160px;position: absolute;top: 21px;right: 0;opacity: 1;/*transform: rotate(0deg);*/transition: opacity 0.3s;}
+.uis-list.recommend .on > .tit-rec:after {/*background-position: -18px -91px;transform: rotate(180deg);*/opacity: 0;}
 .uis-list.recommend .on > .tit-rec {color: #f30175;border-bottom: 1px solid #f30175;}
 .uis-list.recommend .w-list-sub {height: 0;overflow: hidden;transition: height 0.3s;}
 .uis-list.recommend .list-sub {padding: 14px 0;}

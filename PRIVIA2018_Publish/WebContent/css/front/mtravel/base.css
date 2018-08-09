@@ -174,12 +174,7 @@ box-sizing: border-box;
 .headWrap .header .rightArea .btnMypage{margin-right:-2px}
 .headWrap .header .rightArea .btnExport{margin-top:-2px}
 .headWrap .header .rightArea .btnExport:after{height:20px;background-image:url(/images/front/mtravel/common/head_export.png);background-size:18px auto}
-.gnbArea{width:200px;position:fixed;top:0;right:-200px;height:100%;background-color:#fff;z-index:100;
--webkit-transform:translate(0,0);
-transform:translate(0,0);
--webkit-transition:all .3s ease-out;
-transition:all .3s ease-out;
-}
+
 .headWrap .header .rightArea.fIcon a{overflow:hidden;width:32px;height: 100%;line-height: 20px;margin:0;padding:0;text-indent:-9999px;background:url(/images/front/mtravel/search/icon_filter.png) no-repeat;background-size:80px 160px} 
 .headWrap .header .rightArea.fIcon .btnMap{background-position:0 -85px}
 
@@ -225,30 +220,6 @@ position: absolute;
 .headWrap.hdw-st4 .rightArea .align {background-position: 4px -975px;}
 .headWrap.hdw-st4 .rightArea .btnMap {background-position: 6px -1024px;}
 
-.gnbArea.open{
-box-shadow:0 0 10px #212123;
--webkit-transform:translate(-200px,0);
-transform:translate(-200px,0);
-}
-.gnbHolder{position:relative;min-height:100%;background-color:#fff}
-.gnbArea .btnClose{position:absolute;top:9px;right:9px}
-.gnbArea .btnClose *{overflow:hidden;width:25px;height:25px;text-indent:-9999px;background:url(/images/front/mtravel/common/btn_close.gif) no-repeat center center;background-size:18px 18px}
-.gnbArea .mystatus{padding:15px 25px 12px;border-bottom:1px solid #585858;font-size:14px;color:#1e1e1e;font-family:'YMR'}
-.gnbArea .mystatus button{font-family:'YMR'}
-.gnbArea .mystatus .logout{display:inline-block;padding:0 5px}
-.gnbArea .mystatus .login{display:inline-block;height:100%;margin-top:-15px;margin-bottom:-15px;margin-left:-25px;padding:15px 90px 15px 25px}
-.gnbArea .gnb li{border-bottom:1px solid #d5d5d5}
-.gnbArea .gnb li a{display:block;padding:13px 25px 10px;font-size:14px;color:#1e1e1e;font-family:'YMR'}
-.gnbArea .gnb >li.subon{background:url(/images/front/mtravel/common/bg_gnb_arrow.gif) no-repeat 100% 18px;background-size:27px 63px}
-.gnbArea .gnb >li.suboff{background:url(/images/front/mtravel/common/bg_gnb_arrow.gif) no-repeat 100% -39px;background-size:27px 63px}
-.gnbArea .gnb li ul{display:none;border-top:1px solid #d5d5d5}
-.gnbArea .gnb li ul li a{padding:11px 20px 9px 37px;background-color:#f0f0f0}
-.gnbArea .gnb li ul li:last-child{border-bottom:0 none}
-.gnbArea .footer{padding:30px 7px 20px 16px}
-.gnbArea .footer .golink{margin-bottom:8px}
-.gnbArea .footer .golink a{display:inline-block;margin-bottom:5px;color:#1e1e1e;font-size:11px;font-family:'YMR'}
-.gnbArea .footer .copyright{font-size:11px;font-family:'YMR';color:#767676}
-
 .footWrap{margin:0 10px;padding:23px 0 25px;border-top:1px solid #d5d5d5}
 .footWrap *{font-size:10px !important;line-height:1.5 !important}
 .footWrap .call-center{float:left;margin-top:-2px;line-height:1.1;vertical-align:top}
@@ -279,11 +250,12 @@ box-sizing: border-box;
  *--------------------------------------------------------------------------------------------------------------*/
 /* reset */
 * {/*color: #000;*/}
+.gnbArea-sec *, .gnbArea-sec *:after, .gnbArea-sec *:before, 
 .popWrap-sec *, .popWrap-sec *:after, .popWrap-sec *:before, 
 .search-sec *, .search-sec *:after, .search-sec *:before,
 .content-sec *, .content-sec *:after, .content-sec *:before,
 .footer-sec *, .footer-sec *:after, .footer-sec *:before {font-family: "NotoSansKR", "Malgun Gothic", sans-serif;font-weight: 300;-moz-box-sizing:border-box;-webkit-box-sizing:border-box;box-sizing:border-box;}
-.header-sec table, .search-sec table, .content-sec table, .footer-sec table {border:0;border-spacing:0;border-collapse:collapse;}
+.popWrap-sec table, .header-sec table, .search-sec table, .content-sec table, .footer-sec table {border:0;border-spacing:0;border-collapse:collapse;}
 
 /*--------------------------------------------------------------------------------------------------------------
  *  common - header
@@ -301,6 +273,54 @@ box-sizing: border-box;
 .w-header-sec .ly-right .b-mymenu {display: inline-block;width: 23px;height: 22px;overflow: hidden;background: url(/images/front/mtravel/contents/icon-common-secM.png) -19px 0px no-repeat;-webkit-background-size: 160px;background-size: 160px;margin-right: 15px;}
 .w-header-sec .ly-right .b-gnb {display: inline-block;position: relative;width: 28px;height: 22px;}
 .w-header-sec .ly-right .b-gnb:before {content: '';display: inline-block;width: 28px;height: 10px;overflow: hidden;background: url(/images/front/mtravel/contents/icon-common-secM.png) -45px 0px no-repeat;-webkit-background-size: 160px;background-size: 160px;position: absolute;left: 0;top: 6px;}
+
+/* gnb */
+.gnbArea{width:200px;position:fixed;top:0;right:-200px;height:100%;background-color:#fff;z-index:100;
+-webkit-transform:translate(0,0);
+transform:translate(0,0);
+-webkit-transition:all .3s ease-out;
+transition:all .3s ease-out;
+}
+.gnbArea.open{
+box-shadow:0 0 10px #212123;
+-webkit-transform:translate(-200px,0);
+transform:translate(-200px,0);
+}
+.gnbHolder{position:relative;min-height:100%;background-color:#fff}
+.gnbArea .btnClose{position:absolute;top:9px;right:9px}
+.gnbArea .btnClose *{overflow:hidden;width:25px;height:25px;text-indent:-9999px;background:url(/images/front/mtravel/common/btn_close.gif) no-repeat center center;background-size:18px 18px}
+.gnbArea .mystatus{padding:15px 25px 12px;border-bottom:1px solid #585858;font-size:14px;color:#1e1e1e;font-family:'YMR'}
+.gnbArea .mystatus button{font-family:'YMR'}
+.gnbArea .mystatus .logout{display:inline-block;padding:0 5px}
+.gnbArea .mystatus .login{display:inline-block;height:100%;margin-top:-15px;margin-bottom:-15px;margin-left:-25px;padding:15px 90px 15px 25px}
+.gnbArea .gnb li{border-bottom:1px solid #d5d5d5}
+.gnbArea .gnb li a{display:block;padding:13px 25px 10px;font-size:14px;color:#1e1e1e;font-family:'YMR'}
+.gnbArea .gnb >li.subon{background:url(/images/front/mtravel/common/bg_gnb_arrow.gif) no-repeat 100% 18px;background-size:27px 63px}
+.gnbArea .gnb >li.suboff{background:url(/images/front/mtravel/common/bg_gnb_arrow.gif) no-repeat 100% -39px;background-size:27px 63px}
+.gnbArea .gnb li ul{display:none;border-top:1px solid #d5d5d5}
+.gnbArea .gnb li ul li a{padding:11px 20px 9px 37px;background-color:#f0f0f0}
+.gnbArea .gnb li ul li:last-child{border-bottom:0 none}
+.gnbArea .footer{padding:30px 7px 20px 16px}
+.gnbArea .footer .golink{margin-bottom:8px}
+.gnbArea .footer .golink a{display:inline-block;margin-bottom:5px;color:#1e1e1e;font-size:11px;font-family:'YMR'}
+.gnbArea .footer .copyright{font-size:11px;font-family:'YMR';color:#767676}
+
+.gnbArea-sec {width: 235px;right: -235px;}
+.gnbArea-sec.open {-webkit-transform:translate(-235px,0);transform:translate(-235px,0);}
+.gnbArea-sec * {font-family: "NotoSansKR" !important;font-weight: 400;font-size: 15px !important;color: #303030 !important;}
+.gnbArea-sec .btnClose {top: 13px;right: 15px;}
+.gnbArea-sec .btnClose * {overflow:hidden;width:25px;height:25px;text-indent:-9999px;position: relative;background: none !important;}
+.gnbArea-sec .btnClose button:before {content: '';width:17px;height:17px;background:url(/images/front/mtravel/contents/icon-common-secM.png) no-repeat 0 0;-webkit-background-size: 160px;background-size: 160px;position: absolute;top: 5px;left: 5px;}
+.gnbArea-sec .mystatus {border-bottom: 1px solid #000;}
+.gnbArea-sec .mystatus:first-child {font-weight: 500;font-size:15px;color: #000 !important;padding: 15px 20px 13px;}
+.gnbArea-sec .mystatus:first-child button {font-weight: 500;font-size:15px;color: #000 !important;}
+.gnbArea-sec .mystatus .login {padding: 14px 90px 12px 20px;}
+.gnbArea-sec .gnb li {border-bottom: 0;border-top: 1px solid #e7e7e7;position: relative;background: none !important;}
+.gnbArea-sec .gnb li:first-child{border-top: 0;}
+.gnbArea-sec .gnb li a {padding: 15px 20px 12px;}
+.gnbArea-sec .gnb li ul li a {padding: 14px 20px 12px 37px;background-color: #f0f0f0;}
+.gnbArea-sec .gnb >li.subon:after {content: '';display: block;width: 15px;height: 8px;background: url(/images/front/mtravel/contents/icon-common-secM.png) 0px -91px no-repeat;-webkit-background-size: 160px;background-size: 160px;position: absolute;top: 22px;right: 30px;transform: rotate(0deg);transition: transform 0.3s;}
+.gnbArea-sec .gnb >li.suboff:after {content: '';display: block;width: 15px;height: 8px;background: url(/images/front/mtravel/contents/icon-common-secM.png) 0px -91px no-repeat;-webkit-background-size: 160px;background-size: 160px;position: absolute;top: 22px;right: 30px;transform: rotate(180deg);transition: transform 0.3s;}
 
 /*--------------------------------------------------------------------------------------------------------------
  *  common - footer
@@ -324,6 +344,11 @@ box-sizing: border-box;
 .w-footer-sec .nav-fnb li:first-child a {padding-left: 0;}
 .w-footer-sec .nav-fnb li:last-child a {padding-right: 0;}
 .w-footer-sec .nav-fnb li:first-child:before {display: none;}
+.w-footer-sec .w-address {margin-top: 15px;}
+.w-footer-sec .w-address li {font-size: 12px;color: #999;display: inline;position: relative;}
+.w-footer-sec .w-address li:after {content: '';display: inline-block;width: 1px;height: 8px;background-color: #999;margin:0 4px 0 8px;}
+.w-footer-sec .w-address .address {display: block;margin: 0;}
+.w-footer-sec .w-address .address:after, .w-footer-sec .w-address li:last-child:after {display: none;}
 .w-footer-sec .copyright {margin-top: 15px;}
 .w-footer-sec .copyright small {font-size:12px;color: #434343;}
 
