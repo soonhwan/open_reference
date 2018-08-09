@@ -477,6 +477,7 @@ var pvFrontScript = window.pvFrontScript || (function(){
 			//캘린더 today 제거
 			if(section.find('.sc-ui-search-panel .uis-datepicker').length > 0){
 				section.find('.sc-ui-search-panel .uis-datepicker .ui-datepicker-today .ui-state-active').removeClass("ui-state-active"); 
+				section.find('.sc-ui-search-panel .uis-datepicker .ui-state-hover').removeClass("ui-state-hover"); 
 			}
 			
 			//capacity uis-capacity-number click(클래스 on 추가, 삭제 기능)

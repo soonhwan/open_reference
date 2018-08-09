@@ -1714,14 +1714,14 @@ border-right:13px solid #f30774;
 border-left:0;
 }
 .ot-shuttle .uis-datepicker .dp-highlight.ui-datepicker-current-day:after, 
-.ot-shuttle .uis-datepicker .dp-highlight.dp-first:after {content: '출발';width: 100%;font-size:10px;color: #fff;text-align: center;position: absolute;left: 0;bottom: -1px;}
-.ot-shuttle .uis-datepicker .dp-highlight.dp-end:after {content: '도착';width: 100%;font-size:10px;color: #fff;text-align: center;position: absolute;left: 0;bottom: -1px;}
+.ot-shuttle .uis-datepicker .dp-highlight.dp-first:after {content: '출발';width:100%;font-size:10px;color:#fff;text-align:center;position:absolute;left:0;bottom:-1px;}
+.ot-shuttle .uis-datepicker .dp-highlight.dp-end:after {content: '도착';width:100%;font-size:10px;color:#fff;text-align:center;position:absolute;left:0;bottom:-1px;}
 .ot-inth .uis-datepicker .dp-highlight.ui-datepicker-current-day:after, 
 .ot-domh .uis-datepicker .dp-highlight.ui-datepicker-current-day:after, 
 .ot-inth .uis-datepicker .dp-highlight.dp-first:after,
-.ot-domh .uis-datepicker .dp-highlight.dp-first:after {content: '체크인';width: 100%;font-size:10px;color: #fff;text-align: center;position: absolute;left: 0;bottom: -1px;}
+.ot-domh .uis-datepicker .dp-highlight.dp-first:after {content: '체크인';width:100%;font-size:10px;color:#fff;text-align:center;position:absolute;left:0;bottom:-1px;}
 .ot-inth .uis-datepicker .dp-highlight.dp-end:after,
-.ot-domh .uis-datepicker .dp-highlight.dp-end:after {content: '체크아웃';width: 100%;font-size:10px;color: #fff;text-align: center;position: absolute;left: 0;bottom: -1px;}
+.ot-domh .uis-datepicker .dp-highlight.dp-end:after {content: '체크아웃';width:100%;font-size:10px;color:#fff;text-align:center;position:absolute;left:0;bottom:-1px;}
 /* highlight 다구간 */
 .uis-datepicker .dp-highlight-md {position: relative;}
 .uis-datepicker .dp-highlight-md.ui-datepicker-today a:before {font-size:0 !important;}

@@ -2489,7 +2489,7 @@ function comSearchFreetour(){
 	
 	//캘린더 datepicker - 렌터카
 	$('.sc-freetour .o-rentv .uis-datepicker').datepicker({
-		minDate: '0',
+		minDate: '+2',
 		maxDate: '+362',
 		dayNamesMin: ['일', '월', '화', '수', '목', '금', '토'],
 		dateFormat: 'yy/mm/dd',
