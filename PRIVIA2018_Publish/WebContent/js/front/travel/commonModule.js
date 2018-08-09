@@ -481,35 +481,29 @@ var pvFrontScript = window.pvFrontScript || (function(){
 			}
 			
 			//capacity uis-capacity-number click(클래스 on 추가, 삭제 기능)
-			if(section.find('.sc-ui-search-panel .uis-capacity-number').length > 0){
-				//셋팅
-				/*section.find('.sc-ui-search-panel .uis-capacity-number .uis-custom-number').each(function(){
-					console.log(parseInt($(this).find('.ucn-num').text()));
-					if(parseInt($(this).find('.ucn-num').text()) <= 0){
-						$(this).find('.ucn-num.b-minus').addClass('ucn-disable');
-					}
-					else if(parseInt($(this).find('.ucn-num').text()) > 0){
-						$(this).find('.ucn-num.b-minus.ucn-disable').removeClass('ucn-disable');
-					}
-				});*/
-				
+			if(section.find('.sc-ui-search-panel .uis-capacity-number').length > 0){				
 				//minus
 				section.find('.sc-ui-search-panel .uis-capacity-number .uis-custom-number .b-minus button').on('click', function(e){
-					var c = parseInt($(this).closest('.uis-custom-number').find('.ucn-num').text());
+					var $ucn = $(this).closest('.uis-custom-number');
+					var c = parseInt($ucn.find('.ucn-num').text());
 					if(c < 1){
-						if($(this).closest('.uis-custom-number').find('.ucn-num').hasClass('on')){
-							$(this).closest('.uis-custom-number').find('.ucn-num.on').removeClass('on');
+						if($ucn.find('.ucn-num').hasClass('on')){
+							$ucn.find('.ucn-num.on').removeClass('on');
+							$ucn.find('.b-minus').addClass('ucn-disabled');
 						}
 					}
 					e.preventDefault();
 				});
 				//plus
 				section.find('.sc-ui-search-panel .uis-capacity-number .uis-custom-number .b-plus button').on('click', function(e){
-					var c = parseInt($(this).closest('.uis-custom-number').find('.ucn-num').text());
+					var $ucn = $(this).closest('.uis-custom-number');
+					var c = parseInt($ucn.find('.ucn-num').text());
 					if(c > 0){
-						if(!$(this).closest('.uis-custom-number').find('.ucn-num').hasClass('on')){
-							$(this).closest('.uis-custom-number').find('.ucn-num').addClass('on');
+						if(!$ucn.find('.ucn-num').hasClass('on')){
+							$ucn.find('.ucn-num').addClass('on');
+							$ucn.find('.b-minus.ucn-disabled').removeClass('ucn-disabled');
 						}
+						
 					}
 					e.preventDefault();
 				});

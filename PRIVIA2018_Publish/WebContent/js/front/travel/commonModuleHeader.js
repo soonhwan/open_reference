@@ -918,11 +918,11 @@ function comSearchAir(){
 		
 		//셋팅
 		if(adt > 0){$('.sc-air .uis-capacity-number .num-adt').addClass('on');} 
-		else{$('.sc-air .uis-capacity-number .num-adt').removeClass('on');}
+		else{$('.sc-air .uis-capacity-number .num-adt').closest('.uis-custom-number').find('.b-minus').addClass('ucn-disabled');}
 		if(chd > 0){$('.sc-air .uis-capacity-number .num-chd').addClass('on');} 
-		else{$('.sc-air .uis-capacity-number .num-chd').removeClass('on');}
+		else{$('.sc-air .uis-capacity-number .num-chd').closest('.uis-custom-number').find('.b-minus').addClass('ucn-disabled');}
 		if(inf > 0){$('.sc-air .uis-capacity-number .num-inf').addClass('on');} 
-		else{$('.sc-air .uis-capacity-number .num-inf').removeClass('on');}
+		else{$('.sc-air .uis-capacity-number .num-inf').closest('.uis-custom-number').find('.b-minus').addClass('ucn-disabled');}
 		$('.sc-air .uis-capacity-number .num-adt').text(adt);
 		$('.sc-air .uis-capacity-number .num-chd').text(chd);
 		$('.sc-air .uis-capacity-number .num-inf').text(inf);
@@ -1617,13 +1617,13 @@ function comSearchHotel(){
 		
 		//셋팅
 		if(room1 > 0){$('.sc-hotel .uis-capacity-number .num-room1').addClass('on');} 
-		else{$('.sc-hotel .uis-capacity-number .num-room1').removeClass('on');}
+		else{$('.sc-hotel .uis-capacity-number .num-room1').closest('.uis-custom-number').find('.b-minus').addClass('ucn-disabled');}
 		if(room2d > 0){$('.sc-hotel .uis-capacity-number .num-room2d').addClass('on');} 
-		else{$('.sc-hotel .uis-capacity-number .num-room2d').removeClass('on');}
+		else{$('.sc-hotel .uis-capacity-number .num-room2d').closest('.uis-custom-number').find('.b-minus').addClass('ucn-disabled');}
 		if(room2t > 0){$('.sc-hotel .uis-capacity-number .num-room2t').addClass('on');} 
-		else{$('.sc-hotel .uis-capacity-number .num-room2t').removeClass('on');}
+		else{$('.sc-hotel .uis-capacity-number .num-room2t').closest('.uis-custom-number').find('.b-minus').addClass('ucn-disabled');}
 		if(room3 > 0){$('.sc-hotel .uis-capacity-number .num-room3').addClass('on');} 
-		else{$('.sc-hotel .uis-capacity-number .num-room3').removeClass('on');}
+		else{$('.sc-hotel .uis-capacity-number .num-room3').closest('.uis-custom-number').find('.b-minus').addClass('ucn-disabled');}
 		$('.sc-hotel .uis-capacity-number .num-room1').text(room1);
 		$('.sc-hotel .uis-capacity-number .num-room2d').text(room2d);
 		$('.sc-hotel .uis-capacity-number .num-room2t').text(room2t);
@@ -2196,9 +2196,9 @@ function comSearchFreetour(){
 
 			//셋팅
 			if(adt > 0){$('.sc-freetour .uis-capacity-number .num-adt').addClass('on');} 
-			else{$('.sc-freetour .uis-capacity-number .num-adt').removeClass('on');}
+			else{$('.sc-freetour .uis-capacity-number .num-adt').closest('.uis-custom-number').find('.b-minus').addClass('ucn-disabled');}
 			if(chd > 0){$('.sc-freetour .uis-capacity-number .num-chd').addClass('on');} 
-			else{$('.sc-freetour .uis-capacity-number .num-chd').removeClass('on');}
+			else{$('.sc-freetour .uis-capacity-number .num-chd').closest('.uis-custom-number').find('.b-minus').addClass('ucn-disabled');}
 			$('.sc-freetour .uis-capacity-number .num-adt').text(adt);
 			$('.sc-freetour .uis-capacity-number .num-chd').text(chd);
 			
@@ -2213,9 +2213,15 @@ function comSearchFreetour(){
 				
 				//셋팅
 				if(yth > 0){$('.sc-freetour .uis-capacity-number .num-yth').addClass('on');} 
-				else{$('.sc-freetour .uis-capacity-number .num-yth').removeClass('on');}
+				else{
+					$('.sc-freetour .uis-capacity-number .num-yth').removeClass('on');
+					$('.sc-freetour .uis-capacity-number .num-yth').closest('.uis-custom-number').find('.b-minus').addClass('ucn-disabled');
+				}
 				if(old > 0){$('.sc-freetour .uis-capacity-number .num-old').addClass('on');} 
-				else{$('.sc-freetour .uis-capacity-number .num-old').removeClass('on');}
+				else{
+					$('.sc-freetour .uis-capacity-number .num-old').removeClass('on');
+					$('.sc-freetour .uis-capacity-number .num-old').closest('.uis-custom-number').find('.b-minus').addClass('ucn-disabled');
+				}
 				$('.sc-freetour .uis-capacity-number .num-yth').text(yth);
 				$('.sc-freetour .uis-capacity-number .num-old').text(old);
 			}

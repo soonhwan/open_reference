@@ -401,9 +401,12 @@ var pvmSearch = window.pvmSearch || (function(){
 				}
 
 				//인원 셋팅
-				if(adt > 0){$('.sc-search-area .uis-capacity-number .num-adt').addClass('on');} 
+				if(adt > 0){$('.sc-search-area .uis-capacity-number .num-adt').addClass('on');}
+				else{$('.sc-search-area .uis-capacity-number .num-adt').closest('.uis-custom-number').find('.b-minus').addClass('ucn-disabled');}
 				if(chd > 0){$('.sc-search-area .uis-capacity-number .num-chd').addClass('on');} 
+				else{$('.sc-search-area .uis-capacity-number .num-chd').closest('.uis-custom-number').find('.b-minus').addClass('ucn-disabled');}
 				if(inf > 0){$('.sc-search-area .uis-capacity-number .num-inf').addClass('on');} 
+				else{$('.sc-search-area .uis-capacity-number .num-inf').closest('.uis-custom-number').find('.b-minus').addClass('ucn-disabled');}
 				$('.sc-search-area .uis-capacity-number .num-adt').text(adt);
 				$('.sc-search-area .uis-capacity-number .num-chd').text(chd);
 				$('.sc-search-area .uis-capacity-number .num-inf').text(inf);
@@ -1186,9 +1189,13 @@ var pvmSearch = window.pvmSearch || (function(){
 
 				//객실 셋팅	
 				if(room1 > 0){$('.sc-search-area .uis-capacity-number .num-room1').addClass('on');} 
+				else{$('.sc-search-area .uis-capacity-number .num-room1').closest('.uis-custom-number').find('.b-minus').addClass('ucn-disabled');}
 				if(room2d > 0){$('.sc-search-area .uis-capacity-number .num-room2d').addClass('on');} 
+				else{$('.sc-search-area .uis-capacity-number .num-room2d').closest('.uis-custom-number').find('.b-minus').addClass('ucn-disabled');}
 				if(room2t > 0){$('.sc-search-area .uis-capacity-number .num-room2t').addClass('on');} 
+				else{$('.sc-search-area .uis-capacity-number .num-room2t').closest('.uis-custom-number').find('.b-minus').addClass('ucn-disabled');}
 				if(room3 > 0){$('.sc-search-area .uis-capacity-number .num-room3').addClass('on');} 
+				else{$('.sc-search-area .uis-capacity-number .num-room3').closest('.uis-custom-number').find('.b-minus').addClass('ucn-disabled');}
 				$('.sc-search-area .uis-capacity-number .num-room1').text(room1);
 				$('.sc-search-area .uis-capacity-number .num-room2d').text(room2d);
 				$('.sc-search-area .uis-capacity-number .num-room2t').text(room2t);

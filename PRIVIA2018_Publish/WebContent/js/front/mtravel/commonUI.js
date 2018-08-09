@@ -1777,26 +1777,31 @@ var pvmFrontScript = window.pvmFrontScript || (function(){
 			//캘린더 today 제거
 			if(section.find('.uis-datepicker').length > 0){
 				section.find('.uis-datepicker .ui-datepicker-today .ui-state-active').removeClass("ui-state-active"); 
+				section.find('.uis-datepicker .ui-state-hover').removeClass("ui-state-hover"); 
 			}
 			
 			//capacity uis-capacity-number click(클래스 on 추가, 삭제 기능)
 			if(section.find('.uis-capacity .uis-capacity-number').length > 0){
 				//minus
 				section.find('.uis-capacity .uis-capacity-number .uis-custom-number .b-minus button').on('click', function(e){
-					var c = parseInt($(this).closest('.uis-custom-number').find('.ucn-num').text());
+					var $ucn = $(this).closest('.uis-custom-number');
+					var c = parseInt($ucn.find('.ucn-num').text());
 					if(c < 1){
-						if($(this).closest('.uis-custom-number').find('.ucn-num').hasClass('on')){
-							$(this).closest('.uis-custom-number').find('.ucn-num.on').removeClass('on');
+						if($ucn.find('.ucn-num').hasClass('on')){
+							$ucn.find('.ucn-num.on').removeClass('on');
+							$ucn.find('.b-minus').addClass('ucn-disabled');
 						}
 					}
 					e.preventDefault();
 				});
 				//plus
 				section.find('.uis-capacity .uis-capacity-number .uis-custom-number .b-plus button').on('click', function(e){
-					var c = parseInt($(this).closest('.uis-custom-number').find('.ucn-num').text());
+					var $ucn = $(this).closest('.uis-custom-number');
+					var c = parseInt($ucn.find('.ucn-num').text());
 					if(c > 0){
-						if(!$(this).closest('.uis-custom-number').find('.ucn-num').hasClass('on')){
-							$(this).closest('.uis-custom-number').find('.ucn-num').addClass('on');
+						if(!$ucn.find('.ucn-num').hasClass('on')){
+							$ucn.find('.ucn-num').addClass('on');
+							$ucn.find('.b-minus.ucn-disabled').removeClass('ucn-disabled');
 						}
 					}
 					e.preventDefault();
