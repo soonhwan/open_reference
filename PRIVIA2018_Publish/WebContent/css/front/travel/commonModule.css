@@ -510,6 +510,7 @@ box-shadow: 3px 7px 22px 0px rgba(0,0,0,0.3);
 .uis-list .list li .name {display: inline-block;font-size:16px;color: #000;font-family:"NotoSansKR" !important;font-weight: 500;}
 .uis-list .list li .name-det {display: inline-block;font-size:16px;font-family:"NotoSansKR" !important;font-weight: 300;color: #000;margin-left: 15px;max-width:380px;max-height: 48px;overflow: hidden;}
 .uis-list .list li .lbr-st1 span {width: 55px;}
+.uis-list .list .mCSB_scrollTools {opacity: 1;height: 98%;top: 1%;}
 .uis-list .list .on a {color: #f42a86;background-color: #f9f9f9;position:relative}
 .uis-list .list .on a:after {content: '';display: block;width: 17px;height: 11px;background: url(/images/front/travel/contents/icon-common-sec.png) 0 -285px no-repeat;position: absolute;right: 30px;top: 22px;}
 .uis-list .list-sub li {border-top: 1px solid #ededed !important;position: relative;}
@@ -674,7 +675,7 @@ border-left:0;
 .hs-search-cont .ui-mainsel-freetour {width: 1200px;}
 .hs-search-cont .ui-recently-search {max-width: 557px;min-width: 200px}
 .hs-search-cont .ui-date-calendar {width: 770px;}
-.hs-search-cont .ui-date-calendar .uis-input {display: none;}
+/*.hs-search-cont .ui-date-calendar .uis-input {display: none;}*/
 .hs-search-cont .ui-capacity {min-width: 396px;}
 .hs-search-cont .ui-select-list {min-width: 270px;}
 .hs-search-cont .ui-search-auto .uis-mainsel-table, 
