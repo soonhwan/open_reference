@@ -609,7 +609,7 @@ var pvmSearch = window.pvmSearch || (function(){
 				monthNames: ['01','02','03','04','05','06','07','08','09','10','11','12'],
 				dayNamesMin: ['일', '월', '화', '수', '목', '금', '토'],
 				minDate: '0',
-				maxDate: '+362',
+				maxDate: '+365',
 				numberOfMonths: [13,1],
 				dateFormat: 'yy/mm/dd',
 				beforeShowDay: function(date) {
@@ -688,7 +688,7 @@ var pvmSearch = window.pvmSearch || (function(){
 				monthNames: ['01','02','03','04','05','06','07','08','09','10','11','12'],
 				dayNamesMin: ['일', '월', '화', '수', '목', '금', '토'],
 				minDate: '0',
-				maxDate: '+362',
+				maxDate: '+365',
 				numberOfMonths: [13,1],
 				dateFormat: 'yy/mm/dd',
 				beforeShowDay: function(date) {
@@ -721,7 +721,7 @@ var pvmSearch = window.pvmSearch || (function(){
 				monthNames: ['01','02','03','04','05','06','07','08','09','10','11','12'],
 				dayNamesMin: ['일', '월', '화', '수', '목', '금', '토'],
 				minDate: '0',
-				maxDate: '+362',
+				maxDate: '+365',
 				numberOfMonths: [13,1],
 				dateFormat: 'yy/mm/dd',
 				onSelect: function(dateText, inst) {
@@ -1329,7 +1329,7 @@ var pvmSearch = window.pvmSearch || (function(){
 				monthNames: ['01','02','03','04','05','06','07','08','09','10','11','12'],
 				dayNamesMin: ['일', '월', '화', '수', '목', '금', '토'],
 				minDate: '0',
-				maxDate: '+362',
+				maxDate: '+365',
 				numberOfMonths: [13,1],
 				dateFormat: 'yy/mm/dd',
 				beforeShowDay: function(date) {
@@ -1367,6 +1367,16 @@ var pvmSearch = window.pvmSearch || (function(){
 
 					} else {
 						//체크인 보다 이전 날짜 선택
+						
+						// 박수 계산
+						var duration = Math.abs(selectedDate.getTime() - date1.getTime());
+						duration = Math.ceil(duration/(1000*3600*24));
+						if(duration>15){
+							$('.ui-page-active .uis-datepicker').datepicker('setDate', new Date($('.ui-page-active .slt-chkin').data('day')));
+							alert("15박까지 예약할 수 있습니다.");
+							return false;
+						}
+						
 						if( selectedDate.getTime() < date1.getTime() ) {
 							//체크인 -> 체크아웃 이동
 							//data input 
@@ -1403,12 +1413,7 @@ var pvmSearch = window.pvmSearch || (function(){
 							$('.sc-search-box.on .qsb-dates .qsb-chkout .txt').html(txtDay);
 						}
 						
-						//박수 계산
-						var chkIn = $('.ui-page-active .slt-chkin[data-day]').data('day').split('/');
-						var chkOut = $('.ui-page-active .slt-chkout[data-day]').data('day').split('/');
-						var chkInDate = new Date(chkIn[0], chkIn[1], chkIn[2]);
-						var chkOutDate = new Date(chkOut[0], chkOut[1], chkOut[2]);
-						var duration = (chkOutDate-chkInDate)/1000/60/60/24;
+						//박수 표시
 						if(!$('.sc-search-box.on .qsb-dates .qsb-result-days').hasClass('on')){
 							$('.sc-search-box.on .qsb-dates .qsb-result-days').addClass('on');
 						}

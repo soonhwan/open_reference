@@ -4261,8 +4261,8 @@ function wfnShowRenderingOfReturnCity(){
 													<a href="#" class="qsb-area" data-panel="calendar" data-panel-name="ui-date-calendar">
 														<span class="qsb-label">여행날짜</span>
 														<span class="qsb-input">
-															<span class="qsb-chkin"></span>
-															<span class="qsb-chkout"></span>
+															<span class="qsb-chkin" data-day=""></span>
+															<span class="qsb-chkout" data-day=""></span>
 														</span>
 													</a>
 												</div>
@@ -4282,39 +4282,9 @@ function wfnShowRenderingOfReturnCity(){
 
 											<!-- 캘린더 왕복 -->
 											<div class="sc-ui-search-panel ui-date-calendar">
-												<div class="uis-input">
-													<span class="uis-date-chkin">
-														<span class="txt-day" data-day="">출발일을 선택해주세요.</span>
-													</span>
-													<span class="uis-date-chkout">
-														<span class="txt-day" data-day="">도착일을 선택해주세요.</span>
-														<span class="uis-select">
-															<select class="select-base sel-unday">
-																<option value="" selected="">도착일 미정</option>
-																<option value="5D">5일</option>
-																<option value="7D">7일</option>
-																<option value="14D">14일</option>
-																<option value="20D">20일</option>
-																<option value="1M">1개월</option>
-																<option value="3M">3개월</option>
-																<option value="6M">6개월</option>
-																<option value="1Y">1년</option>
-															</select>
-														</span>
-													</span>
-												</div>
 												<div class="uis-calendar">
 													<div class="uis-datepicker"></div>
 												</div> 
-												<!--<div class="uis-opt-bottom">
-													<div class="uisob-left">
-														<span class="chk-base chk-st2 chk-unday">
-															<input type="checkbox" id="unDayAir" class="a11y">
-															<label for="unDayAir">도착일 미정</label> 
-														</span>
-													</div>
-												</div>-->
-												<a href="#" class="b-scb-close"><span class="a11y">닫기</span></a>
 											</div>
 											<!-- //캘린더 왕복 -->
 										</div>
@@ -4350,7 +4320,7 @@ function wfnShowRenderingOfReturnCity(){
 													<a href="#" class="qsb-area" data-panel="calendar" data-panel-name="ui-date-calendar">
 														<span class="qsb-label">여행날짜</span>
 														<span class="qsb-input">
-															<span class="qsb-chkin"></span>
+															<span class="qsb-chkin" data-day=""></span>
 														</span>
 													</a>
 												</div>
@@ -4370,15 +4340,9 @@ function wfnShowRenderingOfReturnCity(){
 
 											<!-- 캘린더 편도 -->
 											<div class="sc-ui-search-panel ui-date-calendar">
-												<div class="uis-input">
-													<span class="uis-date-chkin">
-														<span class="txt-day" data-day="">출발일을 선택해주세요.</span>
-													</span>
-												</div>
 												<div class="uis-calendar">
 													<div class="uis-datepicker"></div>
 												</div> 
-												<a href="#" class="b-scb-close"><span class="a11y">닫기</span></a>
 											</div>
 											<!-- //캘린더 편도 -->
 										</div>
@@ -4422,7 +4386,7 @@ function wfnShowRenderingOfReturnCity(){
 															<a href="#" class="qsb-area" data-panel="calendar" data-panel-name="ui-date-calendar">
 																<span class="qsb-label">여행날짜</span>
 																<span class="qsb-input">
-																	<span class="qsb-chkin"></span>
+																	<span class="qsb-chkin" data-day=""></span>
 																</span>
 															</a>
 														</div>
@@ -4463,7 +4427,7 @@ function wfnShowRenderingOfReturnCity(){
 															<a href="#" class="qsb-area" data-panel="calendar" data-panel-name="ui-date-calendar">
 																<span class="qsb-label">여행날짜</span>
 																<span class="qsb-input">
-																	<span class="qsb-chkin"></span>
+																	<span class="qsb-chkin" data-day=""></span>
 																</span>
 															</a>
 														</div>
@@ -4507,7 +4471,7 @@ function wfnShowRenderingOfReturnCity(){
 															<a href="#" class="qsb-area" data-panel="calendar" data-panel-name="ui-date-calendar">
 																<span class="qsb-label">여행날짜</span>
 																<span class="qsb-input">
-																	<span class="qsb-chkin"></span>
+																	<span class="qsb-chkin" data-day=""></span>
 																</span>
 															</a>
 														</div>
@@ -4551,7 +4515,7 @@ function wfnShowRenderingOfReturnCity(){
 															<a href="#" class="qsb-area" data-panel="calendar" data-panel-name="ui-date-calendar">
 																<span class="qsb-label">여행날짜</span>
 																<span class="qsb-input">
-																	<span class="qsb-chkin"></span>
+																	<span class="qsb-chkin" data-day=""></span>
 																</span>
 															</a>
 														</div>
@@ -4582,16 +4546,9 @@ function wfnShowRenderingOfReturnCity(){
 										
 										<!-- 캘린더 다구간 -->
 										<div class="sc-ui-search-panel ui-date-calendar">
-											<div class="uis-input">
-												<span class="uis-date-chkin">
-													<!-- data-day='["2018/07/20"]' 작은따옴표('') 형식 -->
-													<span class="txt-day" data-day='[]'>출발일을 선택해주세요.</span>
-												</span>
-											</div>
 											<div class="uis-calendar">
 												<div class="uis-datepicker"></div>
 											</div> 
-											<a href="#" class="b-scb-close"><span class="a11y">닫기</span></a>
 										</div>
 										<!-- //캘린더 다구간 -->
 									</div>
@@ -4875,8 +4832,8 @@ function wfnShowRenderingOfReturnCity(){
 													<a href="#" class="qsb-area" data-panel="calendar" data-panel-name="ui-date-calendar">
 														<span class="qsb-label">숙박 날짜</span>
 														<span class="qsb-input">
-															<span class="qsb-chkin"></span>
-															<span class="qsb-chkout"></span>
+															<span class="qsb-chkin" data-day=""></span>
+															<span class="qsb-chkout" data-day=""></span>
 															<span class="qsb-result-days"><em class="qsb-c"><span class="num"></span>박</em></span>
 														</span> 
 													</a>
@@ -5044,19 +5001,9 @@ function wfnShowRenderingOfReturnCity(){
 
 											<!-- 캘린더 해외 -->
 											<div class="sc-ui-search-panel ui-date-calendar">
-												<div class="uis-input">
-													<span class="uis-date-chkin">
-														<span class="txt-day" data-day="">체크인 날짜를 선택해주세요.</span>
-													</span>
-													<span class="uis-date-chkout">
-														<span class="txt-day" data-day="">체크아웃 날짜를 선택해주세요.</span>
-													</span>
-													<span class="qsb-result-days"><em class="qsb-c"><span class="num"></span>박</em></span>
-												</div>
 												<div class="uis-calendar">
 													<div class="uis-datepicker"></div>
 												</div> 
-												<a href="#" class="b-scb-close"><span class="a11y">닫기</span></a>
 											</div>
 											<!-- //캘린더 해외 -->
 										</div>
@@ -5079,8 +5026,8 @@ function wfnShowRenderingOfReturnCity(){
 													<a href="#" class="qsb-area" data-panel="calendar" data-panel-name="ui-date-calendar">
 														<span class="qsb-label">숙박 날짜</span>
 														<span class="qsb-input">
-															<span class="qsb-chkin"></span>
-															<span class="qsb-chkout"></span>
+															<span class="qsb-chkin" data-day=""></span>
+															<span class="qsb-chkout" data-day=""></span>
 															<span class="qsb-result-days"><em class="qsb-c"><span class="num"></span>박</em></span>
 														</span> 
 													</a>
@@ -5173,19 +5120,9 @@ function wfnShowRenderingOfReturnCity(){
 
 											<!-- 캘린더 국내 -->
 											<div class="sc-ui-search-panel ui-date-calendar">
-												<div class="uis-input">
-													<span class="uis-date-chkin">
-														<span class="txt-day" data-day="">체크인 날짜를 선택해주세요.</span>
-													</span>
-													<span class="uis-date-chkout">
-														<span class="txt-day" data-day="">체크아웃 날짜를 선택해주세요.</span>
-													</span>
-													<span class="qsb-result-days"><em class="qsb-c"><span class="num"></span>박</em></span>
-												</div>
 												<div class="uis-calendar">
 													<div class="uis-datepicker"></div>
 												</div> 
-												<a href="#" class="b-scb-close"><span class="a11y">닫기</span></a>
 											</div>
 											<!-- //캘린더 국내 -->
 										</div>
@@ -5331,10 +5268,7 @@ function wfnShowRenderingOfReturnCity(){
 										</div>
 										
 										<!-- 프리미엄 에어텔 선택 리스트 -->
-										<div class="sc-ui-search-panel ui-mainsel-airtel">
-											<div class="uis-input">
-												<span class="sel-cus-tit">프리미엄 에어텔 보기</span>
-											</div>		
+										<div class="sc-ui-search-panel ui-mainsel-airtel">		
 											<table class="uis-mainsel-table">
 												<caption>프리미엄 에어텔 선택 리스트</caption>
 												<colgroup>
@@ -5384,9 +5318,6 @@ function wfnShowRenderingOfReturnCity(){
 										
 										<!-- select1 지역/종류 -->
 										<div class="sc-ui-search-panel ui-select-list o-sel-airtel1">
-											<div class="uis-input">
-												<span class="opt-txt">지역/종류</span>
-											</div>
 											<div class="uis-list">
 												<ul class="list o-customscrollbar">
 													<li><a href="#" data-option="">프리미엄 에어텔</a></li>
@@ -5399,15 +5330,11 @@ function wfnShowRenderingOfReturnCity(){
 													<li><a href="#" data-option="">호주</a></li>
 												</ul>
 											</div>
-											<a href="#" class="b-scb-close"><span class="a11y">닫기</span></a>
 										</div>
 										<!-- //select1 지역/종류 -->
 										
 										<!-- select2 국가/상세 -->
 										<div class="sc-ui-search-panel ui-select-list o-sel-airtel2">
-											<div class="uis-input">
-												<span class="opt-txt">국가/상세</span>
-											</div>
 											<div class="uis-list">
 												<ul class="list o-customscrollbar">
 													<li><a href="#" data-option="">비즈니스 프로모션</a></li>
@@ -5418,15 +5345,11 @@ function wfnShowRenderingOfReturnCity(){
 													<li><a href="#" data-option="">동남아</a></li>
 												</ul>
 											</div>
-											<a href="#" class="b-scb-close"><span class="a11y">닫기</span></a>
 										</div>
 										<!-- //select2 국가/상세 -->
 																				
 										<!-- select3 상품/종류 -->
 										<div class="sc-ui-search-panel ui-select-list o-sel-airtel3">
-											<div class="uis-input">
-												<span class="opt-txt">상품/종류</span>
-											</div>
 											<div class="uis-list">
 												<ul class="list o-customscrollbar">
 													<li><a href="#" data-option="">발리 - 대한항공</a></li>
@@ -5437,7 +5360,6 @@ function wfnShowRenderingOfReturnCity(){
 													<li><a href="#" data-option="">방콕 - 아시아나항공</a></li>
 												</ul>
 											</div>
-											<a href="#" class="b-scb-close"><span class="a11y">닫기</span></a>
 										</div>
 										<!-- //select3 상품/종류 -->
 									</div>
@@ -5500,8 +5422,8 @@ function wfnShowRenderingOfReturnCity(){
 													<a href="#" class="qsb-area" data-panel="calendar" data-panel-name="ui-date-calendar">
 														<span class="qsb-label">대여날짜</span>
 														<span class="qsb-input">
-															<span class="qsb-chkin"><span class="day"></span><span class="time"></span></span>
-															<span class="qsb-chkout"><span class="day"></span><span class="time"></span></span>
+															<span class="qsb-chkin" data-day=""><span class="day"></span><span class="time"></span></span>
+															<span class="qsb-chkout" data-day=""><span class="day"></span><span class="time"></span></span>
 														</span>
 													</a>
 												</div>
@@ -5696,7 +5618,7 @@ function wfnShowRenderingOfReturnCity(){
 												<div class="uis-input udc-label">
 													<span class="uis-date-chkin">
 														<span class="txt-label">대여일</span>
-														<span class="txt-day" data-day="">대여일을 선택해주세요.</span>
+														<span class="txt-day">대여일을 선택해주세요.</span>
 														<span class="uis-select">
 															<select class="select-base timeh">
 																<option value="0">00시</option>
@@ -5734,7 +5656,7 @@ function wfnShowRenderingOfReturnCity(){
 													</span>
 													<span class="uis-date-chkout">
 														<span class="txt-label">반납일</span>
-														<span class="txt-day" data-day="">반납일을 선택해주세요.</span>
+														<span class="txt-day">반납일을 선택해주세요.</span>
 														<span class="uis-select">
 															<select class="select-base timeh">
 																<option value="0">00시</option>
@@ -5835,9 +5757,6 @@ function wfnShowRenderingOfReturnCity(){
 											
 											<!-- select1 여행지역 -->
 											<div class="sc-ui-search-panel ui-select-list o-sel-intticket1">
-												<div class="uis-input">
-													<span class="opt-txt">여행지역</span>
-												</div>
 												<div class="uis-list">
 													<ul class="list o-customscrollbar">
 														<li><a href="#" data-option="">동남아</a></li>
@@ -5847,15 +5766,11 @@ function wfnShowRenderingOfReturnCity(){
 														<li><a href="#" data-option="">남태평양</a></li>
 													</ul>
 												</div>
-												<a href="#" class="b-scb-close"><span class="a11y">닫기</span></a>
 											</div>
 											<!-- //select1 여행지역 -->
 
 											<!-- select2 여행국가 -->
 											<div class="sc-ui-search-panel ui-select-list o-sel-intticket2">
-												<div class="uis-input">
-													<span class="opt-txt">여행국가</span>
-												</div>
 												<div class="uis-list">
 													<ul class="list o-customscrollbar">
 														<li><a href="#" data-option="">여행국가1</a></li>
@@ -5865,7 +5780,6 @@ function wfnShowRenderingOfReturnCity(){
 														<li><a href="#" data-option="">여행국가5</a></li>
 													</ul>
 												</div>
-												<a href="#" class="b-scb-close"><span class="a11y">닫기</span></a>
 											</div>
 											<!-- //select2 여행국가 -->
 											
@@ -6010,7 +5924,6 @@ function wfnShowRenderingOfReturnCity(){
 														<span class="qsb-label">여행테마</span>
 														<!--  data-chk='[1,1,1,1,1,1]' 작은따옴표('') 형식 -->
 														<span class="qsb-input" data-chk='[1,1,1,1,1,1]'>
-														<!--<span class="qsb-input" data-chk="1-1-1-1-1-1">-->
 															<span class="txt-list">콤보할인, 즐길거리, 관광, 음식, 가이드/차량, 골프</span>
 														</span>
 													</a>
@@ -6022,9 +5935,6 @@ function wfnShowRenderingOfReturnCity(){
 											
 											<!-- select1 여행국가 -->
 											<div class="sc-ui-search-panel ui-select-list o-sel-actualtour1">
-												<div class="uis-input">
-													<span class="opt-txt">여행국가</span>
-												</div>
 												<div class="uis-list">
 													<ul class="list o-customscrollbar">
 														<li><a href="#" data-option="">동남아</a></li>
@@ -6033,15 +5943,11 @@ function wfnShowRenderingOfReturnCity(){
 														<li><a href="#" data-option="">중국/홍콩</a></li>
 													</ul>
 												</div>
-												<a href="#" class="b-scb-close"><span class="a11y">닫기</span></a>
 											</div>
 											<!-- //select1 여행국가 -->
 
 											<!-- select2 여행도시 -->
 											<div class="sc-ui-search-panel ui-select-list o-sel-actualtour2">
-												<div class="uis-input">
-													<span class="opt-txt">여행도시</span>
-												</div>
 												<div class="uis-list">
 													<ul class="list o-customscrollbar">
 														<li><a href="#" data-option="">여행국가1</a></li>
@@ -6051,7 +5957,6 @@ function wfnShowRenderingOfReturnCity(){
 														<li><a href="#" data-option="">여행국가5</a></li>
 													</ul>
 												</div>
-												<a href="#" class="b-scb-close"><span class="a11y">닫기</span></a>
 											</div>
 											<!-- //select2 여행도시 -->
 											
@@ -6181,9 +6086,6 @@ function wfnShowRenderingOfReturnCity(){
 											
 											<!-- select1 여행지역 -->
 											<div class="sc-ui-search-panel ui-select-list o-sel-transpass1">
-												<div class="uis-input">
-													<span class="opt-txt">여행지역</span>
-												</div>
 												<div class="uis-list">
 													<ul class="list o-customscrollbar">
 														<li><a href="#" data-option="A3">동남아</a></li>
@@ -6192,15 +6094,11 @@ function wfnShowRenderingOfReturnCity(){
 														<li><a href="#" data-option="C1">중국/홍콩</a></li>
 													</ul>
 												</div>
-												<a href="#" class="b-scb-close"><span class="a11y">닫기</span></a>
 											</div>
 											<!-- //select1 여행지역 -->
 
 											<!-- select2 여행국가 -->
 											<div class="sc-ui-search-panel ui-select-list o-sel-transpass2">
-												<div class="uis-input">
-													<span class="opt-txt">여행국가</span>
-												</div>
 												<div class="uis-list">
 													<ul class="list o-customscrollbar">
 														<li><a href="#" data-option="">여행국가1</a></li>
@@ -6210,15 +6108,11 @@ function wfnShowRenderingOfReturnCity(){
 														<li><a href="#" data-option="">여행국가5</a></li>
 													</ul>
 												</div>
-												<a href="#" class="b-scb-close"><span class="a11y">닫기</span></a>
 											</div>
 											<!-- //select2 여행국가 -->
 
 											<!-- select3 여행도시 -->
 											<div class="sc-ui-search-panel ui-select-list o-sel-transpass3">
-												<div class="uis-input">
-													<span class="opt-txt">여행도시</span>
-												</div>
 												<div class="uis-list">
 													<ul class="list o-customscrollbar">
 														<li><a href="#" data-option="">여행도시1</a></li>
@@ -6228,15 +6122,11 @@ function wfnShowRenderingOfReturnCity(){
 														<li><a href="#" data-option="">여행도시5</a></li>
 													</ul>
 												</div>
-												<a href="#" class="b-scb-close"><span class="a11y">닫기</span></a>
 											</div>
 											<!-- //select3 여행도시 -->
 																						
 											<!-- select4 패스타입(유럽을 선택한 경우) -->
 											<div class="sc-ui-search-panel ui-select-list o-sel-transpass4">
-												<div class="uis-input">
-													<span class="opt-txt">패스타입</span>
-												</div>
 												<div class="uis-list">
 													<ul class="list o-customscrollbar">
 														<li><a href="#" data-option="Type0">다국가패스</a></li>
@@ -6246,7 +6136,6 @@ function wfnShowRenderingOfReturnCity(){
 														<li><a href="#" data-option="Type4">셀렉트패스 4개국</a></li>
 													</ul>
 												</div>
-												<a href="#" class="b-scb-close"><span class="a11y">닫기</span></a>
 											</div>
 											<!-- //select4 패스타입(유럽을 선택한 경우) -->
 											
@@ -6342,7 +6231,7 @@ function wfnShowRenderingOfReturnCity(){
 													<a href="#" class="qsb-area" data-panel="calendar" data-panel-name="ui-date-calendar">
 														<span class="qsb-label">픽업날짜</span>
 														<span class="qsb-input">
-															<span class="qsb-chkin"></span>
+															<span class="qsb-chkin" data-day=""></span>
 														</span>
 													</a>
 												</div>
@@ -6359,9 +6248,6 @@ function wfnShowRenderingOfReturnCity(){
 											
 											<!-- select1 여행국가 -->
 											<div class="sc-ui-search-panel ui-select-list o-sel-airpicup1">
-												<div class="uis-input">
-													<span class="opt-txt">여행국가</span>
-												</div>
 												<div class="uis-list">
 													<ul class="list o-customscrollbar">
 														<li><a href="#" data-option="">여행국가1</a></li>
@@ -6371,15 +6257,11 @@ function wfnShowRenderingOfReturnCity(){
 														<li><a href="#" data-option="">여행국가5</a></li>
 													</ul>
 												</div>
-												<a href="#" class="b-scb-close"><span class="a11y">닫기</span></a>
 											</div>
 											<!-- //select1 여행국가 -->
 
 											<!-- select2 여행도시 -->
 											<div class="sc-ui-search-panel ui-select-list o-sel-airpicup2">
-												<div class="uis-input">
-													<span class="opt-txt">여행도시</span>
-												</div>
 												<div class="uis-list">
 													<ul class="list o-customscrollbar">
 														<li><a href="#" data-option="">여행도시1</a></li>
@@ -6389,7 +6271,6 @@ function wfnShowRenderingOfReturnCity(){
 														<li><a href="#" data-option="">여행도시5</a></li>
 													</ul>
 												</div>
-												<a href="#" class="b-scb-close"><span class="a11y">닫기</span></a>
 											</div>
 											<!-- //select2 여행도시 -->
 											
@@ -6413,23 +6294,14 @@ function wfnShowRenderingOfReturnCity(){
 											
 											<!-- 캘린더 공항픽업 -->
 											<div class="sc-ui-search-panel ui-date-calendar">
-												<div class="uis-input">
-													<span class="uis-date-chkin">
-														<span class="txt-day" data-day="">픽업날짜를 선택해주세요.</span>
-													</span>
-												</div>
 												<div class="uis-calendar">
 													<div class="uis-datepicker"></div>
 												</div> 
-												<a href="#" class="b-scb-close"><span class="a11y">닫기</span></a>
 											</div>
 											<!-- //캘린더 공항픽업 -->
 											
 											<!-- select3 인원 -->
 											<div class="sc-ui-search-panel ui-select-list o-sel-airpicup3">
-												<div class="uis-input">
-													<span class="opt-txt">인원</span>
-												</div>
 												<div class="uis-list">
 													<ul class="list o-customscrollbar">
 														<li><a href="#" data-option="">승객1</a></li>
@@ -6439,7 +6311,6 @@ function wfnShowRenderingOfReturnCity(){
 														<li><a href="#" data-option="">승객5</a></li>
 													</ul>
 												</div>
-												<a href="#" class="b-scb-close"><span class="a11y">닫기</span></a>
 											</div>
 											<!-- //select3 인원 -->
 										</div>
