@@ -519,8 +519,8 @@ box-shadow: 3px 7px 22px 0px rgba(0,0,0,0.3);
 /* 검색 UI 팝업 - select list */
 /*.ui-select-list .uis-input {padding: 30px 28px;}*/
 .ui-select-list .uis-list .list {max-height:230px;}
-.ui-select-list .uis-input {display: none;}
-.ui-select-list .b-scb-close {display: none;}
+/*.ui-select-list .uis-input {display: none;}
+.ui-select-list .b-scb-close {display: none;}*/
 /* 검색 UI 팝업 - datepicker */
 .uis-datepicker .ui-datepicker {margin:0;padding:25px 30px 30px 30px;border:0;}
 .uis-datepicker .ui-datepicker * {margin:0;padding:0;border:0;background:none;text-align:center;color:#000;font-weight: bold;}
@@ -743,8 +743,8 @@ border-left:0;
 .sc-free .o-airtel .qsb-btn-search {width: 10.7%;}
 .sc-free .o-airtel .sel-cus-airtel .qsb-label {color: #000;}
 .sc-free .o-airtel .ui-mainsel-airtel {top: 92px;left: 0;/*overflow: visible;-webkit-box-shadow: none;-moz-box-shadow: none;box-shadow: none;*/}
-.sc-free .o-airtel .ui-mainsel-airtel .uis-input {/*border-radius: 6px;*/display: none;}
-.sc-free .o-airtel .ui-mainsel-airtel .b-scb-close {display: none;}
+/*.sc-free .o-airtel .ui-mainsel-airtel .uis-input {border-radius: 6px;display: none;}*/
+/*.sc-free .o-airtel .ui-mainsel-airtel .b-scb-close {display: none;}*/
 /*.sc-free .o-airtel .ui-mainsel-airtel .uis-mainsel-table {width: 1200px;border-radius: 0 6px 6px 6px;overflow: hidden;
 -webkit-box-shadow: 3px 7px 22px 0px rgba(0,0,0,0.3);
 -moz-box-shadow: 3px 7px 22px 0px rgba(0,0,0,0.3);
@@ -763,7 +763,7 @@ border-collapse: inherit;
 .sc-freetour .o-rentv .qsb-dates {width: 40%;}
 .sc-freetour .o-rentv .qsb-btn-search {width: 8%;}
 .sc-freetour .o-rentv .ui-date-calendar {top: 92px;left: 430px;}
-.sc-freetour .o-rentv .ui-date-calendar .uis-input {display: block;}
+/*.sc-freetour .o-rentv .ui-date-calendar .uis-input {display: block;}*/
 .sc-freetour .o-rentv .ui-date-calendar .uis-date-chkin {position: relative;}
 .sc-freetour .o-rentv .ui-date-calendar .txt-day {width: 282px;}
 .sc-freetour .o-rentv .ui-date-calendar .uis-select {position: absolute;top: 13px;left: 120px;display: none;}
