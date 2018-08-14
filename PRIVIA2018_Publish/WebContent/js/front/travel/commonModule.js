@@ -489,7 +489,7 @@ var pvFrontScript = window.pvFrontScript || (function(){
 					if(c < 1){
 						if($ucn.find('.ucn-num').hasClass('on')){
 							$ucn.find('.ucn-num.on').removeClass('on');
-							$ucn.find('.b-minus').addClass('ucn-disabled');
+							//$ucn.find('.b-minus').addClass('ucn-disabled');
 						}
 					}
 					e.preventDefault();
@@ -501,7 +501,7 @@ var pvFrontScript = window.pvFrontScript || (function(){
 					if(c > 0){
 						if(!$ucn.find('.ucn-num').hasClass('on')){
 							$ucn.find('.ucn-num').addClass('on');
-							$ucn.find('.b-minus.ucn-disabled').removeClass('ucn-disabled');
+							//$ucn.find('.b-minus.ucn-disabled').removeClass('ucn-disabled');
 						}
 						
 					}
