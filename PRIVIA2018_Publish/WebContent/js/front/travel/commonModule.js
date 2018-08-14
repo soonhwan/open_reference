@@ -906,7 +906,7 @@ var pvFrontScript = window.pvFrontScript || (function(){
 
 			//최대높이
 			var mh = 0;
-			var titH = $('.w-nav-gnb-total .nav-gnb-total .tit a').outerHeight()+20;
+			var titH = $('.w-nav-gnb-total .nav-gnb-total .tit a').outerHeight();
 			$('.w-nav-gnb-total .nav-gnb-total > li ').each(function(index){
 				var list = $(this).find('.list');
 				mh = (mh < list.outerHeight()) ? list.outerHeight() : mh

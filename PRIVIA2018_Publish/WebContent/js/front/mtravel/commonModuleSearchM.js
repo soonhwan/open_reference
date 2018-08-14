@@ -118,6 +118,10 @@ var pvmSearch = window.pvmSearch || (function(){
 						$('.sc-air .o-multiway .air-md-'+_MDMinCnt).find('.number').hide();
 						$('.sc-air .o-multiway .air-md-'+_MDMinCnt).find('.remove-md').show();
 					}
+					
+					if(_MDCnt == _MDMax){
+					   $('.sc-air .o-multiway .add-md').hide();
+					}
 				}
 				e.preventDefault();
 			});
@@ -181,6 +185,10 @@ var pvmSearch = window.pvmSearch || (function(){
 					if(openTotal <= _MDMinCnt+1){
 						$('.sc-air .o-multiway .air-md-'+_MDMinCnt).find('.number').show();
 						$('.sc-air .o-multiway .air-md-'+_MDMinCnt).find('.remove-md').hide();			
+					}
+					
+					if(_MDCnt < _MDMax){
+					   $('.sc-air .o-multiway .add-md').show();
 					}
 
 					//맨뒤에 있는 구간 숨김
@@ -532,7 +540,7 @@ var pvmSearch = window.pvmSearch || (function(){
 			//도시 검색 click
 			$('.sc-search-area .uis-mainsel .uis-list a').on('click', function(e){
 				if(!$(this).hasClass('tit-rec')){
-					var city = $(this).find('.name').text(); //도시 이름(임시)
+					var city = $(this).find('.name-det').text(); //도시 이름(임시)
 					var code = $(this).find('.code').text(); //도시 코드(임시)
 					
 					if(_type == 'multiway'){
@@ -1286,6 +1294,8 @@ var pvmSearch = window.pvmSearch || (function(){
 						$('.sc-search-box.on .places-exit .qsb-area').addClass('on')
 					}
 					$('.sc-search-box.on .places-exit .city .txt').text(city);
+					
+					$('.uis-mainsel .inp-exp').hide();
 			   	}
 				e.preventDefault();
 			});
@@ -1314,6 +1324,13 @@ var pvmSearch = window.pvmSearch || (function(){
 					$(this).closest('.uis-input').removeClass('isFocus');
 				}
 				$(this).val($currentCity.find('.slt-input').data('city'));
+				
+				if($(this).val() != ''){
+					$('.uis-mainsel .inp-exp').hide();
+				}
+				else{
+					$('.uis-mainsel .inp-exp').show();
+				}				
 			});
 			
 			//검색어 input 삭제
@@ -1352,7 +1369,7 @@ var pvmSearch = window.pvmSearch || (function(){
 						//panel input
 						$('.ui-page-active .slt-chkin').html(txtDayVer2);
 						$('.ui-page-active .slt-chkin').addClass('on');
-						$('.ui-page-active .slt-chkout').html('체크아웃');
+						$('.ui-page-active .slt-chkout').html('');
 						$('.ui-page-active .slt-chkout').removeClass('on');
 						//sbox input
 						$('.sc-search-box.on .qsb-dates .qsb-area').addClass('on')
@@ -1509,22 +1526,8 @@ var pvmSearch = window.pvmSearch || (function(){
 					}
 					$('.uis-capacity-number .num-room3').text(room3Cnt);
 				}
-				
+								
 				//객실 결과 셋팅
-				var sum = room1Cnt+room2dCnt+room2tCnt+room3Cnt;
-				if(sum > 0 ){
-					if(!$('.sc-search-tab .slt-capacity .slt-input').hasClass('on')){
-						$('.sc-search-tab .slt-capacity .slt-input').addClass('on');	
-					}
-				}
-				else{
-					if($('.sc-search-tab .slt-capacity .slt-input').hasClass('on')){
-						$('.sc-search-tab .slt-capacity .slt-input').removeClass('on');	
-					}
-				}
-				$('.sc-search-tab .slt-capacity .slt-input .num').text(sum);	
-				
-				//sbox input
 				var txt = '';
 				if(room1Cnt > 0){
 					roomArr.push('<span class="type-room">1인실</span><span><em class="num"> '+room1Cnt+'</em>개</span>');
@@ -1548,24 +1551,39 @@ var pvmSearch = window.pvmSearch || (function(){
 					}
 					txt += roomArr[i];
 				}
-
-				if(txt == ''){
-					if($('.sc-search-box.on .qsb-capacity .qsb-area').hasClass('on')){
-						$('.sc-search-box.on .qsb-capacity .qsb-area').removeClass('on');
-					}
-				}
-				else{
-					if(!$('.sc-search-box.on .qsb-capacity .qsb-area').hasClass('on')){
-						$('.sc-search-box.on .qsb-capacity .qsb-area').addClass('on');
-					}
-				}
 				
+				//panel input
+				$('.sc-search-tab .slt-capacity .slt-input').empty();
+				$('.sc-search-tab .slt-capacity .slt-input').html(txt);				
+				//sbox input
 				$('.sc-search-box.on .qsb-capacity .qsb-input').data('room1', room1Cnt);
 				$('.sc-search-box.on .qsb-capacity .qsb-input').data('room2d', room2dCnt);
 				$('.sc-search-box.on .qsb-capacity .qsb-input').data('room2t', room2tCnt);
 				$('.sc-search-box.on .qsb-capacity .qsb-input').data('room3', room3Cnt);
 				$('.sc-search-box.on .qsb-capacity .qsb-area').find('.qsb-input').empty();
 				$('.sc-search-box.on .qsb-capacity .qsb-area').find('.qsb-input').html(txt);
+				
+				if(txt == ''){
+					//panel input	
+					if($('.sc-search-tab .slt-capacity .slt-input').hasClass('on')){
+						$('.sc-search-tab .slt-capacity .slt-input').removeClass('on');	
+						$('.sc-search-tab .slt-capacity .slt-input').text('객실타입');	
+					}
+					//sbox input
+					if($('.sc-search-box.on .qsb-capacity .qsb-area').hasClass('on')){
+						$('.sc-search-box.on .qsb-capacity .qsb-area').removeClass('on');
+					}
+				}
+				else{
+					//panel input
+					if(!$('.sc-search-tab .slt-capacity .slt-input').hasClass('on')){
+						$('.sc-search-tab .slt-capacity .slt-input').addClass('on');	
+					}		
+					//sbox input
+					if(!$('.sc-search-box.on .qsb-capacity .qsb-area').hasClass('on')){
+						$('.sc-search-box.on .qsb-capacity .qsb-area').addClass('on');
+					}
+				}	
 			}
 			
 			//객실 minus, plus click

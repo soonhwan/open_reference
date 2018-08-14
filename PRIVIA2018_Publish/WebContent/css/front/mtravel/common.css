@@ -1509,7 +1509,7 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#eef1f6', end
 .sc-search-box .qsb-places .b-change-places {position: absolute;left: 50%;margin-left: -16px;top: 17px;}
 .sc-search-box .qsb-places .b-change-places button {display: block;width: 33px;height: 33px;position: relative;}
 .sc-search-box .qsb-places .b-change-places button:before {content: '';display: block;width: 33px;height: 34px;background: url(/images/front/mtravel/contents/icon-common-secM.png) -46px -18px no-repeat;-webkit-background-size: 160px;background-size: 160px;}
-.sc-search-box.o-oneway .b-change-places button:before, .sc-search-box.o-multiway .b-change-places button:before {background-position: -46px -54px;}
+.sc-search-box.o-multiway .b-change-places button:before {background-position: -46px -54px;}
 /* 검색 박스(메인) - places */ 
 .sc-air .sc-search-box .qsb-places {position: relative;padding: 0 20px;}
 .sc-air .sc-search-box .qsb-places:after {content: '';display: block;clear:both;}
@@ -1561,7 +1561,7 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#eef1f6', end
 .sc-hotel .places-exit .label {display: block;font-size: 14px;color: #fff;margin-bottom: 5px;}
 .sc-hotel .places-exit .city {display: block;position: relative;}
 /*.sc-hotel .places-exit .city:before {content: '';display: block;width: 35px;height: 35px;position: absolute;right: 10px;top: 3px;background: url(/images/front/mtravel/contents/icon-common-secM.png) 0 -101px no-repeat;-webkit-background-size: 160px;background-size: 160px;}*/
-.sc-hotel .places-exit .city .txt {display: inline-block;position: relative;font-size: 33px;color: #fff;font-family: "YouandiModernTB";opacity: 0.5;}
+.sc-hotel .places-exit .city .txt {display: block;position: relative;font-size: 33px;color: #fff;font-family: "YouandiModernTB";opacity: 0.5;text-overflow:ellipsis;white-space:nowrap;overflow:hidden;}
 /*.sc-hotel .places-exit .city .txt:after {content: '';display: block;width: 100%;height: 1px;background-color: #fff;left: -20px;padding-right: 20px;position:absolute;bottom: 0;-moz-box-sizing:initial;-webkit-box-sizing:initial;box-sizing:initial;}*/
 .sc-hotel .qsb-capacity .type-room {display: inline-block;}
 /* 검색 팝업(탭) */
@@ -1578,10 +1578,14 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#eef1f6', end
 .sc-search-tab .list-tab .slt-area.on:after {opacity: 1;}
 .sc-search-tab .list-tab .slt-area .slt-input {display: inline-block;font-size: 15px;color: #fff;opacity: 0.5;}
 .sc-search-tab .list-tab .slt-area .slt-input.on {opacity: 1;}
-.sc-search-tab .list-tab .slt-area .slt-chkout {padding-left: 15px;position: relative;}
-.sc-search-tab .list-tab .slt-area .slt-chkout:before {content: '';display: block;width: 8px;height: 1px;background-color: #fff;opacity: 0.5;position: absolute;top: 11px;left: 3px;}
+.sc-search-tab .list-tab .slt-area .slt-chkin {padding-right: 15px;position: relative;}
+.sc-search-tab .list-tab .slt-area .slt-chkin:before {content: '';display: block;width: 8px;height: 1px;background-color: #fff;opacity: 0.5;position: absolute;top: 11px;right: 3px;}
 .sc-search-tab .list-tab .slt-places .li-col2:before {content: '';display: block;width: 11px;height: 10px;opacity: 0.5;position: absolute;top: 10px;left: 50%;margin-left: -4px;background: url(/images/front/mtravel/contents/icon-common-secM.png) 0px -44px no-repeat;-webkit-background-size: 160px;background-size: 160px;}
 .ot-oneway .sc-search-tab .slt-places .li-col2:before, .ot-multiway .sc-search-tab .slt-places .li-col2:before {background-position: -14px -50px;}
+.o-bg-hotel .sc-search-tab .list-tab .slt-area .slt-chkin {padding-right: 0;}
+.o-bg-hotel .sc-search-tab .list-tab .slt-area .slt-chkin:before {display: none;}
+.o-bg-hotel .sc-search-tab .list-tab .slt-area .slt-chkin.on {padding-right: 15px;}
+.o-bg-hotel .sc-search-tab .list-tab .slt-area .slt-chkin.on:before {display: block;}
 /* 다구간 list */
 .sc-search-tab .ol-list-tab {display: none;}
 .sc-search-tab .ol-list-tab [class*="t-air-md"]{display: none;}
@@ -1602,7 +1606,7 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#eef1f6', end
 .ssa-ui-box .btn-search {margin: 10px;}
 /* 검색 팝업(box) - 도시, 호텔 검색 리스트 */
 .uis-input {position: relative;transition: border-bottom 0.3s; }
-.uis-input .inp-search {width: 100%;font-size:18px;color: #000;border-bottom: 1px solid #000;padding: 10px 15px;font-weight: 400;}
+.uis-input .inp-search {width: 100%;font-size:18px;color: #000;border-bottom: 1px solid #000;padding: 10px 15px;font-weight: 400;display: block;text-overflow:ellipsis;white-space:nowrap;overflow:hidden;}
 .uis-input .inp-exp {display: inline-block;position: absolute;right: 15px;top: 15px;font-size:12px;color: #999;}
 .uis-input .b-clear {position: absolute;right: 10px;top: 50%;margin-top: -11px;display: none;}
 .uis-input .b-clear button {width: 23px;height: 24px;background: url(/images/front/mtravel/contents/icon-common-secM.png) -19px -24px no-repeat;-webkit-background-size: 160px;background-size: 160px;}
@@ -1617,15 +1621,16 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#eef1f6', end
 .uis-sec .list li a, .uis-sec .list li > span {display: block;padding: 14px 0;position: relative;}
 .uis-sec .list li .btn-base {margin-left: 5px;}
 .uis-sec .list li .btn-base a {padding: 0;}
-.uis-sec .list li .name {font-size:15px;color: #333;font-weight: 400;display: inline-block;}
-.uis-sec .list li .name-det {font-size:13px;color: #999;display: inline-block;margin-left: 3px;}
-.uis-sec .list li .code {font-size:13px;color: #333;font-weight: 600;display: inline-block;margin-left: 3px;position: absolute;top: 16px;right: 0;}
+.uis-sec .list li .name, .uis-sec .list li .code {font-size:15px;color: #333;font-weight: 400;display: inline-block;}
+.uis-sec .list li .name-det {font-size:13px;color: #333;display: inline-block;margin-left: 3px;}
+/*.uis-sec .list li .code {font-size:13px;color: #333;font-weight: 600;display: inline-block;margin-left: 3px;position: absolute;top: 16px;right: 0;}*/
 .uis-sec .list li .lbr-st1 + .name {padding-left: 50px;}
 .uis-sec .list li .lbr-st1 {position: absolute;left: 0;top: 50%;margin-top: -10px;}
 .uis-list.recently li a {padding-left: 25px;}
 .uis-list.recently li a:before {content: '';display: block;width: 16px;height: 17px;background: url(/images/front/mtravel/contents/icon-common-secM.png) 0px -24px no-repeat;-webkit-background-size: 160px;background-size: 160px;position: absolute;top: 18px;left: 0;}
-.uis-list.recommend .tit-rec:after {content: '';display: block;width: 15px;height: 8px;background: url(/images/front/mtravel/contents/icon-common-secM.png) 0px -91px no-repeat;-webkit-background-size: 160px;background-size: 160px;position: absolute;top: 21px;right: 0;opacity: 1;/*transform: rotate(0deg);*/transition: opacity 0.3s;}
-.uis-list.recommend .on > .tit-rec:after {/*background-position: -18px -91px;transform: rotate(180deg);*/opacity: 0;}
+.uis-list.recommend .tit-rec {font-size: 15px;}
+.uis-list.recommend .tit-rec:after {content: '';display: block;width: 15px;height: 8px;background: url(/images/front/mtravel/contents/icon-common-secM.png) 0px -91px no-repeat;-webkit-background-size: 160px;background-size: 160px;position: absolute;top: 21px;right: 0;transform: rotate(0deg);transition: transform 0.3s;}
+.uis-list.recommend .on > .tit-rec:after {background-position: -18px -91px;transform: rotate(180deg);}
 .uis-list.recommend .on > .tit-rec {color: #f30175;border-bottom: 1px solid #f30175;}
 .uis-list.recommend .w-list-sub {height: 0;overflow: hidden;transition: height 0.3s;}
 .uis-list.recommend .list-sub {padding: 14px 0;}
