@@ -671,7 +671,7 @@ function comSearchEvent(){
     $(document).on('mousedown', function(e){
         //fakeselect option
         if($(e.target).closest('.select-option').length > 0){
-            return;
+            return false;
         }
         else{
             //검색팝업
@@ -1496,7 +1496,7 @@ function comSearchHotel(){
 					$('.sc-hotel .o-inth .qsb-chkin').html(txtDay);
 				} 
 				else {
-					if($('.sc-hotel .o-inth .qsb-chkin').data('day') == dateText){return} //같은날짜는 return
+					if($('.sc-hotel .o-inth .qsb-chkin').data('day') == dateText){return false;} //같은날짜는 return
 					
 					//체크인이후 선택시(체크아웃)
 					//sbox input
@@ -1567,7 +1567,7 @@ function comSearchHotel(){
 					$('.sc-hotel .o-domh .qsb-chkin').html(txtDay);
 				} 
 				else {
-					if($('.sc-hotel .o-domh .qsb-chkin').data('day') == dateText){return} //같은날짜는 return
+					if($('.sc-hotel .o-domh .qsb-chkin').data('day') == dateText){return false;} //같은날짜는 return
 					
 					//체크인이후 선택시(체크아웃)
 					//sbox input
@@ -2242,28 +2242,6 @@ function comSearchFreetour(){
 	
 	//최근검색 존재하면 event 셋팅
 	pvFrontScript.comSearchRecently($('.sc-freetour'));
-	
-	//+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ event 바인딩 이후 event
-	//인원 컨트롤(별도로 조건이 필요한 경우 실행)
-	function setCapacity(type, action){
-		var cType = type;
-		var cAction = action;
-		var adtCnt = parseInt($('.sc-freetour .global-ui-capacity .uis-capacity-number .num-adt').text()); //성인
-		var ythCnt = parseInt($('.sc-freetour .global-ui-capacity .uis-capacity-number .num-yth').text()); //유스
-		var chdCnt = parseInt($('.sc-freetour .global-ui-capacity .uis-capacity-number .num-chd').text()); //아동
-		var oldCnt = parseInt($('.sc-freetour .global-ui-capacity .uis-capacity-number .num-old').text()); //경로
-		//console.log('setCapacity click = ', cType, cAction, adtCnt, ythCnt, chdCnt, oldCnt);
-		
-		//조건
-	}
-	
-	//인원 minus, plus click(별도로 조건이 필요한 경우 실행)
-	$('.sc-freetour .global-ui-capacity .uis-custom-number .ucn-crt button').on('click', function(e){
-		var type = $(this).data('type').split('-')[0];
-		var action = $(this).data('type').split('-')[1];
-		setCapacity(type, action);
-		e.preventDefault();
-	});
 }
 //..검색 - 투액 관련
 

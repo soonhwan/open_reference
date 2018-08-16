@@ -38,7 +38,7 @@
 			var $chk = $this.find('[type="checkbox"]');
 			var $label = $this.find('label');
 			
-			if(!$chk || $this.hasClass('chk-initialized')){return;}
+			if(!$chk || $this.hasClass('chk-initialized')){return false;}
 			
 			//checked 유효체크
 			if($chk.prop('checked')){
@@ -75,7 +75,7 @@
 			var $label = $this.find('label');
 			var $name = $radio.attr('name');
 			
-			if(!$radio || $this.hasClass('radio-initialized')){return;}
+			if(!$radio || $this.hasClass('radio-initialized')){return false;}
 			
 			//name 저장
 			$label.name = $name;
@@ -139,7 +139,7 @@
 				chkNnum(setting.num);
 			}
 			else{
-				if($this.hasClass('ucn-initialized')){return;}
+				if($this.hasClass('ucn-initialized')){return false;}
 				
 				//add class
 				$this.addClass('ucn-initialized uis-custom-number-'+type);
