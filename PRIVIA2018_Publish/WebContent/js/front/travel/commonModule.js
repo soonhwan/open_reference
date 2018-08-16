@@ -118,6 +118,81 @@
 			});
 		});
 	}
+	$.fn.uisCustomNumber = function(setting){
+		return this.each(function(){
+			var $this = $(this);	
+			var type, min, max, $ucn;
+			
+			//data
+			if($this.data('ucn') != undefined){
+				type = $this.data('ucn').type || 'undefined';
+				min = $this.data('ucn').min || 0;
+				max = $this.data('ucn').max || 9999;
+			}
+			else{
+				type = 'undefined';
+				min = 0;
+				max = 9999;
+			}
+			
+			if(setting){
+				chkNnum(setting.num);
+			}
+			else{
+				if($this.hasClass('ucn-initialized')){return;}
+				
+				//add class
+				$this.addClass('ucn-initialized uis-custom-number-'+type);
+				
+				//minus
+				$this.find('.b-minus button').on('click', function(e){
+					var c = parseInt($this.find('.ucn-num').text());
+					c--;
+					chkNnum(c);				
+					e.preventDefault();
+				});
+				//plus
+				$this.find('.b-plus button').on('click', function(e){
+					var c = parseInt($this.find('.ucn-num').text());
+					c++;
+					chkNnum(c);				
+					e.preventDefault();
+				});
+			}
+			
+			function chkNnum(c){
+			//console.log(type, min, max);
+				//0
+				if(c < 1){
+					c = 0;
+					$this.find('.ucn-num.on').removeClass('on');
+				}
+				else if(c > 0){
+					$this.find('.ucn-num').addClass('on');
+				}
+
+				//min
+				if(c <= min){
+					c = min;
+					$this.find('.b-minus').addClass('ucn-disabled');
+				}
+				else if(c > min){
+					$this.find('.b-minus.ucn-disabled').removeClass('ucn-disabled');
+				}
+
+				//max
+				if(c >= max){
+					c = max;
+					$this.find('.b-plus').addClass('ucn-disabled');
+				}
+				else if(c < max){
+					$this.find('.b-plus.ucn-disabled').removeClass('ucn-disabled');
+				}
+
+				$this.find('.ucn-num').text(c);
+			}
+		});
+	}
 }(window.jQuery, window, document));
 
 /*
@@ -482,31 +557,7 @@ var pvFrontScript = window.pvFrontScript || (function(){
 			
 			//capacity uis-capacity-number click(클래스 on 추가, 삭제 기능)
 			if(section.find('.sc-ui-search-panel .uis-capacity-number').length > 0){				
-				//minus
-				section.find('.sc-ui-search-panel .uis-capacity-number .uis-custom-number .b-minus button').on('click', function(e){
-					var $ucn = $(this).closest('.uis-custom-number');
-					var c = parseInt($ucn.find('.ucn-num').text());
-					if(c < 1){
-						if($ucn.find('.ucn-num').hasClass('on')){
-							$ucn.find('.ucn-num.on').removeClass('on');
-							//$ucn.find('.b-minus').addClass('ucn-disabled');
-						}
-					}
-					e.preventDefault();
-				});
-				//plus
-				section.find('.sc-ui-search-panel .uis-capacity-number .uis-custom-number .b-plus button').on('click', function(e){
-					var $ucn = $(this).closest('.uis-custom-number');
-					var c = parseInt($ucn.find('.ucn-num').text());
-					if(c > 0){
-						if(!$ucn.find('.ucn-num').hasClass('on')){
-							$ucn.find('.ucn-num').addClass('on');
-							//$ucn.find('.b-minus.ucn-disabled').removeClass('ucn-disabled');
-						}
-						
-					}
-					e.preventDefault();
-				});
+				section.find('.uis-custom-number').uisCustomNumber();
 			}
 			
 			//capacity uis-capacity-select click(클래스 on 추가, 삭제 기능)

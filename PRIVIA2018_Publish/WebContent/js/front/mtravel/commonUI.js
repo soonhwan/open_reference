@@ -26,7 +26,7 @@
 		}
 		return unescape(dc.substring(begin + prefix.length, end));
 	};
-	$.fn.customCheckbox = function(){
+	/*$.fn.customCheckbox = function(){
 		return this.each(function(){
 			var $this = $(this);
 			var $chk = $this.find('[type="checkbox"]');
@@ -61,8 +61,8 @@
 			//initialized
 			$this.addClass('chk-initialized');
 		});
-	}
-	$.fn.customRadio = function(){
+	}*/
+	/*$.fn.customRadio = function(){
 		return this.each(function(){
 			var $this = $(this);
 			var $radio = $this.find('[type="radio"]');
@@ -98,6 +98,81 @@
 			
 			//initialized
 			$this.addClass('radio-initialized');
+		});
+	}*/
+	$.fn.uisCustomNumber = function(setting){
+		return this.each(function(){
+			var $this = $(this);	
+			var type, min, max, $ucn;
+			
+			//data
+			if($this.data('ucn') != undefined){
+				type = $this.data('ucn').type || 'undefined';
+				min = $this.data('ucn').min || 0;
+				max = $this.data('ucn').max || 9999;
+			}
+			else{
+				type = 'undefined';
+				min = 0;
+				max = 9999;
+			}
+			
+			if(setting){
+				chkNnum(setting.num);
+			}
+			else{
+				if($this.hasClass('ucn-initialized')){return;}
+				
+				//add class
+				$this.addClass('ucn-initialized uis-custom-number-'+type);
+				
+				//minus
+				$this.find('.b-minus button').on('click', function(e){
+					var c = parseInt($this.find('.ucn-num').text());
+					c--;
+					chkNnum(c);				
+					e.preventDefault();
+				});
+				//plus
+				$this.find('.b-plus button').on('click', function(e){
+					var c = parseInt($this.find('.ucn-num').text());
+					c++;
+					chkNnum(c);				
+					e.preventDefault();
+				});
+			}
+			
+			function chkNnum(c){
+			//console.log(type, min, max);
+				//0
+				if(c < 1){
+					c = 0;
+					$this.find('.ucn-num.on').removeClass('on');
+				}
+				else if(c > 0){
+					$this.find('.ucn-num').addClass('on');
+				}
+
+				//min
+				if(c <= min){
+					c = min;
+					$this.find('.b-minus').addClass('ucn-disabled');
+				}
+				else if(c > min){
+					$this.find('.b-minus.ucn-disabled').removeClass('ucn-disabled');
+				}
+
+				//max
+				if(c >= max){
+					c = max;
+					$this.find('.b-plus').addClass('ucn-disabled');
+				}
+				else if(c < max){
+					$this.find('.b-plus.ucn-disabled').removeClass('ucn-disabled');
+				}
+
+				$this.find('.ucn-num').text(c);
+			}
 		});
 	}
 }(window.jQuery, window, document));
@@ -1417,9 +1492,11 @@ function pkgSearchGnb(){
 		var scTop = null;
 		var scUTarget = null;
 		var scDTarget = null;		
+		var headH = null;		
 		
 		$(document).off('scroll').on('scroll', function(){
-			scTop = $(document).scrollTop();
+			headH = $('.headWrap').height();
+			scTop = $(document).scrollTop() + headH;
 			scUTarget = $('.wrap-tsp .tab-search-pkg').offset().top;
 			scDTarget = $('.wrap-tsp').offset().top + ($('.wrap-tsp').height() - $('.wrap-tsp .tab-search-pkg').height());
 				
@@ -1439,19 +1516,42 @@ function pkgSearchGnb(){
 				//fixed
 				if(scUTarget <= scTop && isFix == false){
 					$('.wrap-tsp').addClass('tsp-on');
+					$('.wrap-tsp .headWrap').removeClass('hdw-st2'); 
+					
+					if($('.f-point2').length > 0){
+						$('.f-point2 .s-state-pkg').addClass('fix');
+						$('.f-point2').css({'padding-top':'76px'});
+					}
 					isFix = true;
+					
+					//#30336
+					if($('.wrap-tsp .swiper-container').hasClass('on')){
+						$('.wrap-tsp .headWrap').show();
+					}
 				}
 
 				//relative
 				if(scDTarget > scTop && isFix == true){
 					$('.wrap-tsp').removeClass('tsp-on');
+					$('.wrap-tsp .headWrap').addClass('hdw-st2'); 
+					
+					if($('.f-point2').length > 0){
+						$('.f-point2 .s-state-pkg').removeClass('fix');
+						$('.f-point2').css({'padding-top':'0'});
+					}
 					isFix = false;
-				}
+					
+					if($('.wrap-tsp .swiper-container').hasClass('on')){
+						$('.wrap-tsp .headWrap').hide();
+					}
+				}				
 			}			
 		});
 		
 		$('.wrap-tsp .tab-search-pkg li a').off('click').on('click', function(e){			
-			if(!$('.wrap-tsp').hasClass('tsp-onf')){
+			$('html,body').stop().animate({scrollTop:scUTarget-headH+1},sp);	
+						
+			/*if(!$('.wrap-tsp').hasClass('tsp-onf')){
 				if(isFix == false){
 					$('.wrap-tsp h3.tit').stop().animate({'margin-top':'-100%'},sp/4);
 					$('.wrap-tsp .btn-eme-inv').stop().animate({'top':'-100%'},sp/4);
@@ -1468,7 +1568,7 @@ function pkgSearchGnb(){
 					$('.wrap-tsp').addClass('tsp-onf');
 					$('html,body').stop().animate({scrollTop:0},sp);
 				}
-			}
+			}*/
 
 			if(!$(this).hasClass('on')){
                 var url = $(this).attr('href');
@@ -1507,7 +1607,7 @@ function pkgSearchGnb(){
 				},
 				on: {
 					slideChange: function(swiper, event){
-						var s = $('.wrap-tsp h3.tit, .wrap-tsp .btn-eme-inv, .wrap-tsp .btn-swiper-next');
+						var s = $('.wrap-tsp h3.tit, .wrap-tsp .btn-eme-inv, .wrap-tsp .btn-swiper-next, .wrap-tsp .headWrap');
 						if(tspSwiper.realIndex == 0){
 							$('.wrap-tsp .swiper-container').removeClass('on');
 							s.fadeIn('fast');
@@ -1620,10 +1720,10 @@ var pvmFrontScript = window.pvmFrontScript || (function(){
 			var _ = $this;
 
 			//체크박스(공통)
-			_.find('.chk-base').customCheckbox();
+			//_.find('.chk-base').customCheckbox();
 
 			//라디오버튼(공통)
-			_.find('.radio-base').customRadio();
+			//_.find('.radio-base').customRadio();
 		},
 		onSelectTxtDay: function($this, dateText, inst){
 			/* 설명   : 통합검색 - 선택된 날짜 형식 ex)08월 07일 (화) dayNamesMin 옵션이 있어야함!
@@ -1782,30 +1882,7 @@ var pvmFrontScript = window.pvmFrontScript || (function(){
 			
 			//capacity uis-capacity-number click(클래스 on 추가, 삭제 기능)
 			if(section.find('.uis-capacity .uis-capacity-number').length > 0){
-				//minus
-				section.find('.uis-capacity .uis-capacity-number .uis-custom-number .b-minus button').on('click', function(e){
-					var $ucn = $(this).closest('.uis-custom-number');
-					var c = parseInt($ucn.find('.ucn-num').text());
-					if(c < 1){
-						if($ucn.find('.ucn-num').hasClass('on')){
-							$ucn.find('.ucn-num.on').removeClass('on');
-							$ucn.find('.b-minus').addClass('ucn-disabled');
-						}
-					}
-					e.preventDefault();
-				});
-				//plus
-				section.find('.uis-capacity .uis-capacity-number .uis-custom-number .b-plus button').on('click', function(e){
-					var $ucn = $(this).closest('.uis-custom-number');
-					var c = parseInt($ucn.find('.ucn-num').text());
-					if(c > 0){
-						if(!$ucn.find('.ucn-num').hasClass('on')){
-							$ucn.find('.ucn-num').addClass('on');
-							$ucn.find('.b-minus.ucn-disabled').removeClass('ucn-disabled');
-						}
-					}
-					e.preventDefault();
-				});
+				section.find('.uis-custom-number').uisCustomNumber();
 			}
 			
 			//capacity uis-capacity-select click(클래스 on 추가, 삭제 기능)

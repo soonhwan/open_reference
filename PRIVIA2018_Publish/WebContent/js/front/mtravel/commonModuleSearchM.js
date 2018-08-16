@@ -409,15 +409,9 @@ var pvmSearch = window.pvmSearch || (function(){
 				}
 
 				//인원 셋팅
-				if(adt > 0){$('.sc-search-area .uis-capacity-number .num-adt').addClass('on');}
-				else{$('.sc-search-area .uis-capacity-number .num-adt').closest('.uis-custom-number').find('.b-minus').addClass('ucn-disabled');}
-				if(chd > 0){$('.sc-search-area .uis-capacity-number .num-chd').addClass('on');} 
-				else{$('.sc-search-area .uis-capacity-number .num-chd').closest('.uis-custom-number').find('.b-minus').addClass('ucn-disabled');}
-				if(inf > 0){$('.sc-search-area .uis-capacity-number .num-inf').addClass('on');} 
-				else{$('.sc-search-area .uis-capacity-number .num-inf').closest('.uis-custom-number').find('.b-minus').addClass('ucn-disabled');}
-				$('.sc-search-area .uis-capacity-number .num-adt').text(adt);
-				$('.sc-search-area .uis-capacity-number .num-chd').text(chd);
-				$('.sc-search-area .uis-capacity-number .num-inf').text(inf);
+				$('.uis-custom-number-adt').uisCustomNumber({num: adt});
+				$('.uis-custom-number-chd').uisCustomNumber({num: chd});
+				$('.uis-custom-number-inf').uisCustomNumber({num: inf});
 				
 				//일반석
 				if(comp == 'Y'){
@@ -961,8 +955,16 @@ var pvmSearch = window.pvmSearch || (function(){
 
 				//console.log('e _mdDateArr = ', _mdDateArr);
 			}
+			
 						
-			//----------------------------------- 인원,좌석
+			//event 바인딩
+			pvmFrontScript.comSearchEvtBind($('.ui-page-active .w-search-lp'));
+			
+			////----------------------------------- event 바인딩 이후 event
+			//searchData 셋팅
+			initSearchData();
+			
+			//----------------------------------- 인원,좌석	
 			//인원 컨트롤
 			function setCapacity(type, action){
 				var cType = type;
@@ -971,64 +973,8 @@ var pvmSearch = window.pvmSearch || (function(){
 				var chdCnt = parseInt($('.uis-capacity-number .num-chd').text()); //아동
 				var infCnt = parseInt($('.uis-capacity-number .num-inf').text()); //유아
 				//console.log('setCapacity click = ', cType, cAction, adtCnt, chdCnt, infCnt);
-
-				//성인
-				if(cType == 'adt'){
-					if(cAction == 'minus'){
-						adtCnt--;
-						if(adtCnt < 1){
-							adtCnt = 1;
-							alert('성인은 최소 1명 이상 탑승해야 합니다.');
-							return false;
-						}
-					}
-					else if(cAction == 'plus'){
-						adtCnt++;
-						if(adtCnt > 9){
-							adtCnt = 9;
-							return false;
-						}
-					}
-					$('.uis-capacity-number .num-adt').text(adtCnt);
-				}
-
-				//아동
-				if(cType == 'chd'){
-					if(cAction == 'minus'){
-						chdCnt--;
-						if(chdCnt < 0){
-							chdCnt = 0;
-							return false;
-						}
-					}
-					else if(cAction == 'plus'){
-						chdCnt++;
-						if(chdCnt > 9){
-							chdCnt = 9;
-							return false;
-						}
-					}
-					$('.uis-capacity-number .num-chd').text(chdCnt);
-				}
-
-				//유아
-				if(cType == 'inf'){
-					if(cAction == 'minus'){
-						infCnt--;
-						if(infCnt < 0){
-							infCnt = 0;
-							return false;
-						}
-					}
-					else if(cAction == 'plus'){
-						infCnt++;
-						if(infCnt > 9){
-							infCnt = 9;
-							return false;
-						}
-					}
-					$('.uis-capacity-number .num-inf').text(infCnt);
-				}
+				
+				//조건
 				
 				//인원 결과 셋팅
 				var sum = adtCnt+chdCnt+infCnt;
@@ -1056,7 +1002,7 @@ var pvmSearch = window.pvmSearch || (function(){
 				setCapacity(type, action);
 				e.preventDefault();
 			});
-			
+					
 			//좌석 선택
 			$('.uis-capacity-select li a').on('click', function(e){
 				var opt = $(this).data('option');
@@ -1070,12 +1016,6 @@ var pvmSearch = window.pvmSearch || (function(){
 				$('.sc-search-box.on .qsb-capacity .type-seat').text(name);
 				e.preventDefault();
 			});
-			
-			//searchData 셋팅
-			initSearchData();
-
-			//event 바인딩
-			pvmFrontScript.comSearchEvtBind($('.ui-page-active .w-search-lp'));
 		},
 		comSearchHotel: function(){
 			//상단 검색 tab 메뉴 event
@@ -1195,25 +1135,49 @@ var pvmSearch = window.pvmSearch || (function(){
 					}
 				}
 
-				//객실 셋팅	
-				if(room1 > 0){$('.sc-search-area .uis-capacity-number .num-room1').addClass('on');} 
-				else{$('.sc-search-area .uis-capacity-number .num-room1').closest('.uis-custom-number').find('.b-minus').addClass('ucn-disabled');}
-				if(room2d > 0){$('.sc-search-area .uis-capacity-number .num-room2d').addClass('on');} 
-				else{$('.sc-search-area .uis-capacity-number .num-room2d').closest('.uis-custom-number').find('.b-minus').addClass('ucn-disabled');}
-				if(room2t > 0){$('.sc-search-area .uis-capacity-number .num-room2t').addClass('on');} 
-				else{$('.sc-search-area .uis-capacity-number .num-room2t').closest('.uis-custom-number').find('.b-minus').addClass('ucn-disabled');}
-				if(room3 > 0){$('.sc-search-area .uis-capacity-number .num-room3').addClass('on');} 
-				else{$('.sc-search-area .uis-capacity-number .num-room3').closest('.uis-custom-number').find('.b-minus').addClass('ucn-disabled');}
-				$('.sc-search-area .uis-capacity-number .num-room1').text(room1);
-				$('.sc-search-area .uis-capacity-number .num-room2d').text(room2d);
-				$('.sc-search-area .uis-capacity-number .num-room2t').text(room2t);
-				$('.sc-search-area .uis-capacity-number .num-room3').text(room3);
+				//객실 셋팅					
+				$('.uis-custom-number-room1').uisCustomNumber({num: room1});
+				$('.uis-custom-number-room2d').uisCustomNumber({num: room2d});
+				$('.uis-custom-number-room2t').uisCustomNumber({num: room2t});
+				$('.uis-custom-number-room3').uisCustomNumber({num: room3});
 				
-				//객실 결과 셋팅				
-				var sum = room1+room2d+room2t+room3;
-				if(sum > 0 ){
+				//객실 결과 셋팅
+				var txt = '', roomArr = [];
+				if(room1 > 0){
+					roomArr.push('<span class="type-room">1인실</span><span><em class="num"> '+room1+'</em>개</span>');
+				}
+
+				if(room2d > 0){
+					roomArr.push('<span class="type-room">2인실(더블요청)</span><span><em class="num"> '+room2d+'</em>개</span>');
+				}
+
+				if(room2t > 0){
+					roomArr.push('<span class="type-room">2인실(트윈요청)</span><span><em class="num"> '+room2t+'</em>개</span>');
+				}
+
+				if(room3 > 0){
+					roomArr.push('<span class="type-room">3인실</span><span><em class="num"> '+room3+'</em>개</span>');
+				}
+
+				for(var i in roomArr){
+					if(i > 0){
+						txt += ', ';
+					}
+					txt += roomArr[i];
+				}
+				
+				//panel input
+				$('.sc-search-tab .slt-capacity .slt-input').empty();
+				$('.sc-search-tab .slt-capacity .slt-input').html(txt);	
+				
+				if(txt == ''){
+					//panel input	
+					$('.sc-search-tab .slt-capacity .slt-input.on').removeClass('on');	
+					$('.sc-search-tab .slt-capacity .slt-input').text('객실타입');	
+				}
+				else{
+					//panel input
 					$('.sc-search-tab .slt-capacity .slt-input').addClass('on');	
-					$('.sc-search-tab .slt-capacity .slt-input .num').text(sum);	
 				}
 				
 				//해당 탭 보여주기
@@ -1438,7 +1402,14 @@ var pvmSearch = window.pvmSearch || (function(){
 					}
 				}
 			});
+			
+			//event 바인딩
+			pvmFrontScript.comSearchEvtBind($('.ui-page-active .w-search-lp'));
 						
+			////----------------------------------- event 바인딩 이후 event
+			//searchData 셋팅
+			initSearchData();
+			
 			//----------------------------------- 객실타입, 객실수
 			//객실타입, 객실수 컨트롤
 			function setCapacity(type, action){
@@ -1451,81 +1422,7 @@ var pvmSearch = window.pvmSearch || (function(){
 				var roomArr = [];
 				//console.log('setCapacity click = ', cType, cAction, room1Cnt, room2dCnt, room2tCnt, room3Cnt);
 
-				//1인실
-				if(cType == 'room1'){
-					if(cAction == 'minus'){
-						room1Cnt--;
-						if(room1Cnt < 0){
-							room1Cnt = 0;
-							return false;
-						}
-					}
-					else if(cAction == 'plus'){
-						room1Cnt++;
-						if(room1Cnt > 3){
-							room1Cnt = 3;
-							return false;
-						}
-					}	
-					$('.uis-capacity-number .num-room1').text(room1Cnt);
-				}
-
-				//2인실 더블
-				if(cType == 'room2d'){
-					if(cAction == 'minus'){
-						room2dCnt--;
-						if(room2dCnt < 0){
-							room2dCnt = 0;
-							return false;
-						}
-					}
-					else if(cAction == 'plus'){
-						room2dCnt++;
-						if(room2dCnt > 3){
-							room2dCnt = 3;
-							return false;
-						}
-					}
-					$('.uis-capacity-number .num-room2d').text(room2dCnt);
-				}
-
-				//2인실 트윈
-				if(cType == 'room2t'){
-					if(cAction == 'minus'){
-						room2tCnt--;
-						if(room2tCnt < 0){
-							room2tCnt = 0;
-							return false;
-						}
-					}
-					else if(cAction == 'plus'){
-						room2tCnt++;
-						if(room2tCnt > 3){
-							room2tCnt = 3;
-							return false;
-						}
-					}
-					$('.uis-capacity-number .num-room2t').text(room2tCnt);
-				}
-
-				//3인실
-				if(cType == 'room3'){
-					if(cAction == 'minus'){
-						room3Cnt--;
-						if(room3Cnt < 0){
-							room3Cnt = 0;
-							return false;
-						}
-					}
-					else if(cAction == 'plus'){
-						room3Cnt++;
-						if(room3Cnt > 3){
-							room3Cnt = 3;
-							return false;
-						}
-					}
-					$('.uis-capacity-number .num-room3').text(room3Cnt);
-				}
+				//조건
 								
 				//객실 결과 셋팅
 				var txt = '';
@@ -1593,12 +1490,6 @@ var pvmSearch = window.pvmSearch || (function(){
 				setCapacity(type, action);
 				e.preventDefault();
 			});
-			
-			//searchData 셋팅
-			initSearchData();
-
-			//event 바인딩
-			pvmFrontScript.comSearchEvtBind($('.ui-page-active .w-search-lp'));
 		}
 	}	
 }());

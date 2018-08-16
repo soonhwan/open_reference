@@ -829,74 +829,6 @@ function comSearchAir(){
 	});
 	
 	//+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ 인원,좌석
-	//인원 컨트롤
-	function setCapacity(type, action){
-		var cType = type;
-		var cAction = action;
-		var adtCnt = parseInt($('.sc-air .global-ui-capacity .uis-capacity-number .num-adt').text()); //성인
-		var chdCnt = parseInt($('.sc-air .global-ui-capacity .uis-capacity-number .num-chd').text()); //아동
-		var infCnt = parseInt($('.sc-air .global-ui-capacity .uis-capacity-number .num-inf').text()); //유아
-		//console.log('setCapacity click = ', cType, cAction, adtCnt, chdCnt, infCnt);
-		
-		//성인
-		if(cType == 'adt'){
-			if(cAction == 'minus'){
-				adtCnt--;
-				if(adtCnt < 1){
-					adtCnt = 1;
-					alert('성인은 최소 1명 이상 탑승해야 합니다.');
-					return false;
-				}
-			}
-			else if(cAction == 'plus'){
-				adtCnt++;
-				if(adtCnt > 9){
-					adtCnt = 9;
-					return false;
-				}
-			}
-			$('.sc-air .global-ui-capacity .uis-capacity-number .num-adt').text(adtCnt);
-		}
-		
-		//아동
-		if(cType == 'chd'){
-			if(cAction == 'minus'){
-				chdCnt--;
-				if(chdCnt < 0){
-					chdCnt = 0;
-					return false;
-				}
-			}
-			else if(cAction == 'plus'){
-				chdCnt++;
-				if(chdCnt > 9){
-					chdCnt = 9;
-					return false;
-				}
-			}
-			$('.sc-air .global-ui-capacity .uis-capacity-number .num-chd').text(chdCnt);
-		}
-		
-		//유아
-		if(cType == 'inf'){
-			if(cAction == 'minus'){
-				infCnt--;
-				if(infCnt < 0){
-					infCnt = 0;
-					return false;
-				}
-			}
-			else if(cAction == 'plus'){
-				infCnt++;
-				if(infCnt > 9){
-					infCnt = 9;
-					return false;
-				}
-			}
-			$('.sc-air .global-ui-capacity .uis-capacity-number .num-inf').text(infCnt);
-		}
-	}
-	
 	//인원, 좌석등급 팝업
 	$('.sc-air [data-panel="capacity"]').on('click', function(e){
 		//capacity 저장
@@ -916,24 +848,9 @@ function comSearchAir(){
 		//console.log('가져오기 = ', adt, chd, inf, comp);
 		
 		//셋팅
-		if(adt > 0){$('.sc-air .uis-capacity-number .num-adt').addClass('on');} 
-		else{
-			$('.sc-air .uis-capacity-number .num-adt').removeClass('on');
-			//$('.sc-air .uis-capacity-number .num-adt').closest('.uis-custom-number').find('.b-minus').addClass('ucn-disabled');
-		}
-		if(chd > 0){$('.sc-air .uis-capacity-number .num-chd').addClass('on');} 
-		else{
-			$('.sc-air .uis-capacity-number .num-chd').removeClass('on');
-			//$('.sc-air .uis-capacity-number .num-chd').closest('.uis-custom-number').find('.b-minus').addClass('ucn-disabled');
-		}
-		if(inf > 0){$('.sc-air .uis-capacity-number .num-inf').addClass('on');} 
-		else{
-			$('.sc-air .uis-capacity-number .num-inf').removeClass('on');
-			//$('.sc-air .uis-capacity-number .num-inf').closest('.uis-custom-number').find('.b-minus').addClass('ucn-disabled');
-		}
-		$('.sc-air .uis-capacity-number .num-adt').text(adt);
-		$('.sc-air .uis-capacity-number .num-chd').text(chd);
-		$('.sc-air .uis-capacity-number .num-inf').text(inf);
+		$('.sc-air .uis-custom-number-adt').uisCustomNumber({num: adt});
+		$('.sc-air .uis-custom-number-chd').uisCustomNumber({num: chd});
+		$('.sc-air .uis-custom-number-inf').uisCustomNumber({num: inf});
 		
 		$('.sc-air .select-comp li.on').removeClass('on');
 		//일반석
@@ -960,15 +877,7 @@ function comSearchAir(){
 		
 		e.preventDefault();
 	});
-	
-	//인원 minus, plus click
-	$('.sc-air .global-ui-capacity .uis-custom-number .ucn-crt button').on('click', function(e){
-		var type = $(this).data('type').split('-')[0];
-		var action = $(this).data('type').split('-')[1];
-		setCapacity(type, action);
-		e.preventDefault();
-	});
-		
+			
 	//인원, 좌석등급 완료 click
 	$('.sc-air .global-ui-capacity .b-complete a').on('click', function(e){
 		var adtCnt = parseInt($('.sc-air .global-ui-capacity .uis-capacity-number .num-adt').text()); //성인
@@ -1338,6 +1247,27 @@ function comSearchAir(){
 	
 	//최근검색 존재하면 event 셋팅
 	pvFrontScript.comSearchRecently($('.sc-air'));
+	
+	//+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ event 바인딩 이후 event
+	//인원 컨트롤(별도로 조건이 필요한 경우 실행)
+	function setCapacity(type, action){
+		var cType = type;
+		var cAction = action;
+		var adtCnt = parseInt($('.sc-air .global-ui-capacity .uis-capacity-number .num-adt').text()); //성인
+		var chdCnt = parseInt($('.sc-air .global-ui-capacity .uis-capacity-number .num-chd').text()); //아동
+		var infCnt = parseInt($('.sc-air .global-ui-capacity .uis-capacity-number .num-inf').text()); //유아
+		//console.log('setCapacity click = ', cType, cAction, adtCnt, chdCnt, infCnt);
+		
+		//조건
+	}
+	
+	//인원 minus, plus click(별도로 조건이 필요한 경우 실행)
+	$('.sc-air .global-ui-capacity .uis-custom-number .ucn-crt button').on('click', function(e){
+		var type = $(this).data('type').split('-')[0];
+		var action = $(this).data('type').split('-')[1];
+		setCapacity(type, action);
+		e.preventDefault();
+	});
 }
 //..검색 - 항공 관련
 
@@ -1419,94 +1349,7 @@ function comSearchHotel(){
 		$(this).val($currentCity.find('.city').text());
 	});
 	
-	//+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ 객실타입, 객실수
-	//객실타입, 객실수 컨트롤
-	function setCapacity(type, action){
-		var cType = type;
-		var cAction = action;
-		var room1Cnt = parseInt($('.sc-hotel .global-ui-capacity .uis-capacity-number .num-room1').text()); //1인실
-		var room2dCnt = parseInt($('.sc-hotel .global-ui-capacity .uis-capacity-number .num-room2d').text()); //2인실 더블
-		var room2tCnt = parseInt($('.sc-hotel .global-ui-capacity .uis-capacity-number .num-room2t').text()); //2인실 트윈
-		var room3Cnt = parseInt($('.sc-hotel .global-ui-capacity .uis-capacity-number .num-room3').text()); //3인실
-		//console.log('setCapacity click = ', cType, cAction, room1Cnt, room2dCnt, room2tCnt, room3Cnt);
-		
-		//1인실
-		if(cType == 'room1'){
-			if(cAction == 'minus'){
-				room1Cnt--;
-				if(room1Cnt < 0){
-					room1Cnt = 0;
-					return false;
-				}
-			}
-			else if(cAction == 'plus'){
-				room1Cnt++;
-				if(room1Cnt > 3){
-					room1Cnt = 3;
-					return false;
-				}
-			}	
-			$('.sc-hotel .global-ui-capacity .uis-capacity-number .num-room1').text(room1Cnt);
-		}
-		
-		//2인실 더블
-		if(cType == 'room2d'){
-			if(cAction == 'minus'){
-				room2dCnt--;
-				if(room2dCnt < 0){
-					room2dCnt = 0;
-					return false;
-				}
-			}
-			else if(cAction == 'plus'){
-				room2dCnt++;
-				if(room2dCnt > 3){
-					room2dCnt = 3;
-					return false;
-				}
-			}
-			$('.sc-hotel .global-ui-capacity .uis-capacity-number .num-room2d').text(room2dCnt);
-		}
-		
-		//2인실 트윈
-		if(cType == 'room2t'){
-			if(cAction == 'minus'){
-				room2tCnt--;
-				if(room2tCnt < 0){
-					room2tCnt = 0;
-					return false;
-				}
-			}
-			else if(cAction == 'plus'){
-				room2tCnt++;
-				if(room2tCnt > 3){
-					room2tCnt = 3;
-					return false;
-				}
-			}
-			$('.sc-hotel .global-ui-capacity .uis-capacity-number .num-room2t').text(room2tCnt);
-		}
-		
-		//3인실
-		if(cType == 'room3'){
-			if(cAction == 'minus'){
-				room3Cnt--;
-				if(room3Cnt < 0){
-					room3Cnt = 0;
-					return false;
-				}
-			}
-			else if(cAction == 'plus'){
-				room3Cnt++;
-				if(room3Cnt > 3){
-					room3Cnt = 3;
-					return false;
-				}
-			}
-			$('.sc-hotel .global-ui-capacity .uis-capacity-number .num-room3').text(room3Cnt);
-		}
-	}
-	
+	//+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ 객실타입, 객실수	
 	//객실타입, 객실수 팝업
 	$('.sc-hotel [data-panel="capacity"]').on('click', function(e){
 		//capacity 저장
@@ -1526,42 +1369,14 @@ function comSearchHotel(){
 		//console.log('가져오기 = ', room1, room2d, room2t, room3);
 		
 		//셋팅
-		if(room1 > 0){$('.sc-hotel .uis-capacity-number .num-room1').addClass('on');} 
-		else{
-			$('.sc-hotel .uis-capacity-number .num-room1').removeClass('on');
-			//$('.sc-hotel .uis-capacity-number .num-room1').closest('.uis-custom-number').find('.b-minus').addClass('ucn-disabled');
-		}
-		if(room2d > 0){$('.sc-hotel .uis-capacity-number .num-room2d').addClass('on');} 
-		else{
-			$('.sc-hotel .uis-capacity-number .num-room2d').removeClass('on');
-			//$('.sc-hotel .uis-capacity-number .num-room2d').closest('.uis-custom-number').find('.b-minus').addClass('ucn-disabled');
-		}
-		if(room2t > 0){$('.sc-hotel .uis-capacity-number .num-room2t').addClass('on');} 
-		else{
-			$('.sc-hotel .uis-capacity-number .num-room2t').removeClass('on');
-			//$('.sc-hotel .uis-capacity-number .num-room2t').closest('.uis-custom-number').find('.b-minus').addClass('ucn-disabled');
-		}
-		if(room3 > 0){$('.sc-hotel .uis-capacity-number .num-room3').addClass('on');} 
-		else{
-			$('.sc-hotel .uis-capacity-number .num-room3').removeClass('on');
-			//$('.sc-hotel .uis-capacity-number .num-room3').closest('.uis-custom-number').find('.b-minus').addClass('ucn-disabled');
-		}
-		$('.sc-hotel .uis-capacity-number .num-room1').text(room1);
-		$('.sc-hotel .uis-capacity-number .num-room2d').text(room2d);
-		$('.sc-hotel .uis-capacity-number .num-room2t').text(room2t);
-		$('.sc-hotel .uis-capacity-number .num-room3').text(room3);
+		$('.sc-hotel .uis-custom-number-room1').uisCustomNumber({num: room1});
+		$('.sc-hotel .uis-custom-number-room2d').uisCustomNumber({num: room2d});
+		$('.sc-hotel .uis-custom-number-room2t').uisCustomNumber({num: room2t});
+		$('.sc-hotel .uis-custom-number-room3').uisCustomNumber({num: room3});
 				
 		e.preventDefault();
 	});
-	
-	//객실수 minus, plus click
-	$('.sc-hotel .global-ui-capacity .uis-custom-number .ucn-crt button').on('click', function(e){
-		var type = $(this).data('type').split('-')[0];
-		var action = $(this).data('type').split('-')[1];
-		setCapacity(type, action);
-		e.preventDefault();
-	});
-		
+			
 	//객실타입, 객실수 완료 click
 	$('.sc-hotel .global-ui-capacity .b-complete a').on('click', function(e){
 		var room1Cnt = parseInt($('.sc-hotel .global-ui-capacity .uis-capacity-number .num-room1').text()); //1인실
@@ -1776,6 +1591,28 @@ function comSearchHotel(){
 	
 	//최근검색 존재하면 event 셋팅
 	pvFrontScript.comSearchRecently($('.sc-hotel'));
+	
+	//+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ event 바인딩 이후 event
+	//객실타입, 객실수 컨트롤(별도로 조건이 필요한 경우 실행)
+	function setCapacity(type, action){
+		var cType = type;
+		var cAction = action;
+		var room1Cnt = parseInt($('.sc-hotel .global-ui-capacity .uis-capacity-number .num-room1').text()); //1인실
+		var room2dCnt = parseInt($('.sc-hotel .global-ui-capacity .uis-capacity-number .num-room2d').text()); //2인실 더블
+		var room2tCnt = parseInt($('.sc-hotel .global-ui-capacity .uis-capacity-number .num-room2t').text()); //2인실 트윈
+		var room3Cnt = parseInt($('.sc-hotel .global-ui-capacity .uis-capacity-number .num-room3').text()); //3인실
+		//console.log('setCapacity click = ', cType, cAction, room1Cnt, room2dCnt, room2tCnt, room3Cnt);
+		
+		//조건
+	}
+	
+	//객실수 minus, plus click(별도로 조건이 필요한 경우 실행)
+	$('.sc-hotel .global-ui-capacity .uis-custom-number .ucn-crt button').on('click', function(e){
+		var type = $(this).data('type').split('-')[0];
+		var action = $(this).data('type').split('-')[1];
+		setCapacity(type, action);
+		e.preventDefault();
+	});
 }
 //..검색 - 호텔 관련
 
@@ -1977,94 +1814,7 @@ function comSearchFreetour(){
 		}
 	});
 	
-	//+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ 인원
-	//인원 컨트롤
-	function setCapacity(type, action){
-		var cType = type;
-		var cAction = action;
-		var adtCnt = parseInt($('.sc-freetour .global-ui-capacity .uis-capacity-number .num-adt').text()); //성인
-		var ythCnt = parseInt($('.sc-freetour .global-ui-capacity .uis-capacity-number .num-yth').text()); //유스
-		var chdCnt = parseInt($('.sc-freetour .global-ui-capacity .uis-capacity-number .num-chd').text()); //아동
-		var oldCnt = parseInt($('.sc-freetour .global-ui-capacity .uis-capacity-number .num-old').text()); //경로
-		//console.log('setCapacity click = ', cType, cAction, adtCnt, ythCnt, chdCnt, oldCnt);
-		
-		//성인
-		if(cType == 'adt'){
-			if(cAction == 'minus'){
-				adtCnt--;
-				if(adtCnt < 0){
-					adtCnt = 0;
-					return false;
-				}
-			}
-			else if(cAction == 'plus'){
-				adtCnt++;
-				if(adtCnt > 9){
-					adtCnt = 9;
-					return false;
-				}
-			}
-			$('.sc-freetour .global-ui-capacity .uis-capacity-number .num-adt').text(adtCnt);
-		}
-		
-		//유스
-		if(cType == 'yth'){
-			if(cAction == 'minus'){
-				ythCnt--;
-				if(ythCnt < 0){
-					ythCnt = 0;
-					return false;
-				}
-			}
-			else if(cAction == 'plus'){
-				ythCnt++;
-				if(ythCnt > 9){
-					ythCnt = 9;
-					return false;
-				}
-			}
-			$('.sc-freetour .global-ui-capacity .uis-capacity-number .num-yth').text(ythCnt);
-		}
-		
-		//아동
-		if(cType == 'chd'){
-			if(cAction == 'minus'){
-				chdCnt--;
-				if(chdCnt < 0){
-					chdCnt = 0;
-					return false;
-				}
-			}
-			else if(cAction == 'plus'){
-				chdCnt++;
-				if(chdCnt > 9){
-					chdCnt = 9;
-					return false;
-				}
-			}
-			$('.sc-freetour .global-ui-capacity .uis-capacity-number .num-chd').text(chdCnt);
-		}
-		
-		//경로
-		if(cType == 'old'){
-			if(cAction == 'minus'){
-				oldCnt--;
-				if(oldCnt < 0){
-					oldCnt = 0;
-					return false;
-				}
-			}
-			else if(cAction == 'plus'){
-				oldCnt++;
-				if(oldCnt > 9){
-					oldCnt = 9;
-					return false;
-				}
-			}
-			$('.sc-freetour .global-ui-capacity .uis-capacity-number .num-old').text(oldCnt);
-		}
-	}
-	
+	//+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ 인원	
 	//인원, 테마, 교통패스 팝업
 	$('.sc-freetour [data-panel="capacity"]').on('click', function(e){
 		var panelName = $(this).data('panel-name');
@@ -2084,20 +1834,10 @@ function comSearchFreetour(){
 			var adt = $currenCapacity.find('[data-adt]').data('adt'); //성인
 			var chd = $currenCapacity.find('[data-chd]').data('chd'); //아동
 			//console.log('가져오기 = ', adt, chd);
-
+			
 			//셋팅
-			if(adt > 0){$('.sc-freetour .uis-capacity-number .num-adt').addClass('on');} 
-			else{
-				$('.sc-freetour .uis-capacity-number .num-adt').removeClass('on');
-				//$('.sc-freetour .uis-capacity-number .num-adt').closest('.uis-custom-number').find('.b-minus').addClass('ucn-disabled');
-			}
-			if(chd > 0){$('.sc-freetour .uis-capacity-number .num-chd').addClass('on');} 
-			else{
-				$('.sc-freetour .uis-capacity-number .num-chd').removeClass('on');
-				//$('.sc-freetour .uis-capacity-number .num-chd').closest('.uis-custom-number').find('.b-minus').addClass('ucn-disabled');
-			}
-			$('.sc-freetour .uis-capacity-number .num-adt').text(adt);
-			$('.sc-freetour .uis-capacity-number .num-chd').text(chd);
+			$('.sc-freetour .uis-custom-number-adt').uisCustomNumber({num: adt});
+			$('.sc-freetour .uis-custom-number-chd').uisCustomNumber({num: chd});
 			
 			if($(this).closest('.scbi-2').hasClass('on')){
 				//값 가져오기
@@ -2109,18 +1849,8 @@ function comSearchFreetour(){
 				$('.sc-freetour .uis-capacity-number .old').show();
 				
 				//셋팅
-				if(yth > 0){$('.sc-freetour .uis-capacity-number .num-yth').addClass('on');} 
-				else{
-					$('.sc-freetour .uis-capacity-number .num-yth').removeClass('on');
-					//$('.sc-freetour .uis-capacity-number .num-yth').closest('.uis-custom-number').find('.b-minus').addClass('ucn-disabled');
-				}
-				if(old > 0){$('.sc-freetour .uis-capacity-number .num-old').addClass('on');} 
-				else{
-					$('.sc-freetour .uis-capacity-number .num-old').removeClass('on');
-					//$('.sc-freetour .uis-capacity-number .num-old').closest('.uis-custom-number').find('.b-minus').addClass('ucn-disabled');
-				}
-				$('.sc-freetour .uis-capacity-number .num-yth').text(yth);
-				$('.sc-freetour .uis-capacity-number .num-old').text(old);
+				$('.sc-freetour .uis-custom-number-yth').uisCustomNumber({num: yth});
+				$('.sc-freetour .uis-custom-number-old').uisCustomNumber({num: old});
 			}
 			else{
 				$('.sc-freetour .uis-capacity-number .yth').hide();
@@ -2146,7 +1876,6 @@ function comSearchFreetour(){
 			}
 		}
 		
-		
 		//교통패스 - 여행도시 selectbox
 		if(panelName == 'select-nation'){
 			//값 가져오기
@@ -2163,14 +1892,6 @@ function comSearchFreetour(){
 			$('.sc-freetour .o-transpass .select-nation .uis-set-selectbox li select').fakeselect();
 		}
 		
-		e.preventDefault();
-	});
-	
-	//인원 minus, plus click
-	$('.sc-freetour .global-ui-capacity .uis-custom-number .ucn-crt button').on('click', function(e){
-		var type = $(this).data('type').split('-')[0];
-		var action = $(this).data('type').split('-')[1];
-		setCapacity(type, action);
 		e.preventDefault();
 	});
 		
@@ -2521,6 +2242,28 @@ function comSearchFreetour(){
 	
 	//최근검색 존재하면 event 셋팅
 	pvFrontScript.comSearchRecently($('.sc-freetour'));
+	
+	//+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ event 바인딩 이후 event
+	//인원 컨트롤(별도로 조건이 필요한 경우 실행)
+	function setCapacity(type, action){
+		var cType = type;
+		var cAction = action;
+		var adtCnt = parseInt($('.sc-freetour .global-ui-capacity .uis-capacity-number .num-adt').text()); //성인
+		var ythCnt = parseInt($('.sc-freetour .global-ui-capacity .uis-capacity-number .num-yth').text()); //유스
+		var chdCnt = parseInt($('.sc-freetour .global-ui-capacity .uis-capacity-number .num-chd').text()); //아동
+		var oldCnt = parseInt($('.sc-freetour .global-ui-capacity .uis-capacity-number .num-old').text()); //경로
+		//console.log('setCapacity click = ', cType, cAction, adtCnt, ythCnt, chdCnt, oldCnt);
+		
+		//조건
+	}
+	
+	//인원 minus, plus click(별도로 조건이 필요한 경우 실행)
+	$('.sc-freetour .global-ui-capacity .uis-custom-number .ucn-crt button').on('click', function(e){
+		var type = $(this).data('type').split('-')[0];
+		var action = $(this).data('type').split('-')[1];
+		setCapacity(type, action);
+		e.preventDefault();
+	});
 }
 //..검색 - 투액 관련
 
