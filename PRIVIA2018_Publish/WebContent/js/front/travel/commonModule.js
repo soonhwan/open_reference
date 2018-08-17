@@ -143,6 +143,7 @@
 				
 				//add class
 				$this.addClass('ucn-initialized uis-custom-number-'+type);
+				chkNnum(parseInt($this.find('.ucn-num').text()));
 				
 				//minus
 				$this.find('.b-minus button').on('click', function(e){
@@ -162,15 +163,6 @@
 			
 			function chkNnum(c){
 			//console.log(type, min, max);
-				//0
-				if(c < 1){
-					c = 0;
-					$this.find('.ucn-num.on').removeClass('on');
-				}
-				else if(c > 0){
-					$this.find('.ucn-num').addClass('on');
-				}
-
 				//min
 				if(c <= min){
 					c = min;
@@ -187,6 +179,15 @@
 				}
 				else if(c < max){
 					$this.find('.b-plus.ucn-disabled').removeClass('ucn-disabled');
+				}
+				
+				//0
+				if(c < 1){
+					c = 0;
+					$this.find('.ucn-num.on').removeClass('on');
+				}
+				else if(c > 0){
+					$this.find('.ucn-num').addClass('on');
 				}
 
 				$this.find('.ucn-num').text(c);
@@ -990,15 +991,17 @@ var pvFrontScript = window.pvFrontScript || (function(){
 			//gnb 전체메뉴 열고 닫기
 			$('.w-header-gnb .nav-gnb .b-total-nav > a').on('click', function(e){
 				if($(this).hasClass('on')){
-					//$('.w-header-gnb .nav-gnb .w-nav-gnb-total').slideUp('fast');
 					$('.w-header-gnb .nav-gnb .w-nav-gnb-total').height(0);
 					$(this).removeClass('on');
 				}
 				else{
 					var h = $('.w-header-gnb .nav-gnb .w-nav-gnb-total').prop('scrollHeight');
 					$('.w-header-gnb .nav-gnb .w-nav-gnb-total').height(h);
-					//$('.w-header-gnb .nav-gnb .w-nav-gnb-total').slideDown('fast');
 					$(this).addClass('on');
+					
+					if($('.w-header-gnb .b-open-search button.on').length > 0){
+					   $('.w-header-gnb .b-open-search button.on').trigger('click');
+					}
 				}
 				e.preventDefault();
 			});
@@ -1026,6 +1029,10 @@ var pvFrontScript = window.pvFrontScript || (function(){
 							$(this).addClass('on');
 							if(!$('.commonHeaderObject.o-CHO-quick .o-CHO-inner').hasClass('header-sec-fixed')){ 
 								$('.commonHeaderObject.o-CHO-quick .w-header-search.is-hide').removeClass('is-hide');
+							}
+							
+							if($('.w-header-gnb .nav-gnb .b-total-nav > a.on').length > 0){
+								$('.w-header-gnb .nav-gnb .b-total-nav > a.on').trigger('click');
 							}
 						}
 					});

@@ -1851,7 +1851,7 @@ flex: 1;				  /* NEW, Spec - Opera 12.1, Firefox 20+ */
 .wrap-tsp.tsp-on .tab-search-pkg li:before {display: block;} 
 .wrap-tsp.tsp-on .tab-search-pkg li a {background-color: #bbb;}
 .wrap-tsp.tsp-ond {z-index: 0;}
-.wrap-tsp.tsp-onf {height: 45px;background: none;}
+.wrap-tsp.tsp-onf {height: 97px;background: none;}
 .wrap-tsp.tsp-onf h3.tit {margin-top:-100%;}
 .section-tsp {display: none;}
 .section-tsp.tsp1 {display: block;}

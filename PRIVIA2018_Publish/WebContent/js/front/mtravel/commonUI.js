@@ -32,7 +32,7 @@
 			var $chk = $this.find('[type="checkbox"]');
 			var $label = $this.find('label');
 			
-			if(!$chk || $this.hasClass('chk-initialized')){return;}
+			if(!$chk || $this.hasClass('chk-initialized')){return false;}
 			
 			//checked 유효체크
 			if($chk.prop('checked')){
@@ -69,7 +69,7 @@
 			var $label = $this.find('label');
 			var $name = $radio.attr('name');
 			
-			if(!$radio || $this.hasClass('radio-initialized')){return;}
+			if(!$radio || $this.hasClass('radio-initialized')){return false;}
 			
 			//name 저장
 			$label.name = $name;
@@ -121,7 +121,7 @@
 				chkNnum(setting.num);
 			}
 			else{
-				if($this.hasClass('ucn-initialized')){return;}
+				if($this.hasClass('ucn-initialized')){return false;}
 				
 				//add class
 				$this.addClass('ucn-initialized uis-custom-number-'+type);
@@ -1510,7 +1510,7 @@ function pkgSearchGnb(){
 			if(!$('.ui-dialog').hasClass('ui-page-active') && isDialog == true){
 				$('.wrap-tsp').removeClass('tsp-ond');
 				isDialog = false;
-			}			
+			}
 			
 			if(!$('.wrap-tsp').hasClass('tsp-onf')){
 				//fixed
@@ -1549,39 +1549,65 @@ function pkgSearchGnb(){
 		});
 		
 		$('.wrap-tsp .tab-search-pkg li a').off('click').on('click', function(e){			
-			$('html,body').stop().animate({scrollTop:scUTarget-headH+1},sp);	
-						
-			/*if(!$('.wrap-tsp').hasClass('tsp-onf')){
+			//$('html,body').stop().animate({scrollTop:scUTarget-headH+1},sp);
+			$('html,body').stop().animate({scrollTop:$('.ui-page-active').offset().top-96},sp);
+			
+			if(!$('.wrap-tsp').hasClass('tsp-onf')){
+				
 				if(isFix == false){
-					$('.wrap-tsp h3.tit').stop().animate({'margin-top':'-100%'},sp/4);
-					$('.wrap-tsp .btn-eme-inv').stop().animate({'top':'-100%'},sp/4);
-					$('.wrap-tsp .btn-swiper-next').stop().animate({'top':'-100%'},sp/4);
-					$('.wrap-tsp').stop().animate({'height':'45px'},sp);
+					$('.wrap-tsp h3.tit').stop().animate({'margin-top':'-100%'},sp);
+					$('.wrap-tsp .btn-eme-inv').stop().animate({'top':'-100%'},sp);
+					$('.wrap-tsp .btn-swiper-next').stop().animate({'top':'-100%'},sp);
+					$('.wrap-tsp').stop().animate({'height':'97px'},sp);
 					$('html,body').stop().animate({scrollTop:0},sp, function(){
-						$('.wrap-tsp').addClass('tsp-on');
-						$('.wrap-tsp').addClass('tsp-onf');
-					});					
+						$('.wrap-tsp').addClass('tsp-on tsp-onf');
+						$('.wrap-tsp .headWrap').removeClass('hdw-st2'); 
+					});	
 				}
 				
 				if(isFix == true){
-					$('.wrap-tsp').addClass('tsp-on');
-					$('.wrap-tsp').addClass('tsp-onf');
+					$('.wrap-tsp').addClass('tsp-on tsp-onf');
+					$('.wrap-tsp .headWrap').removeClass('hdw-st2'); 
+					$('.wrap-tsp h3.tit').css({'margin-top':'-100%'});
+					$('.wrap-tsp .btn-eme-inv').css({'top':'-100%'});
+					$('.wrap-tsp .btn-swiper-next').css({'top':'-100%'});
+					$('.wrap-tsp').css({'height':'97px'});
 					$('html,body').stop().animate({scrollTop:0},sp);
 				}
-			}*/
+			}
 
 			if(!$(this).hasClass('on')){
                 var url = $(this).attr('href');
                 $('.wrap-tsp .tab-search-pkg li a.on').removeClass('on');
                 $(this).addClass('on');								
 				$('.tab-search-pkg').width($(window).width());
+				
 				$.mobile.changePage(url, {
 					transition : "slide"
 				});
+				
+				/*setTimeout(function(){
+					$.mobile.changePage(url, {
+						transition : "slide"
+					});
+				}, 800);*/
             }
 			e.preventDefault();
 		});
-				
+			
+		$('.wrap-tsp .headWrap .logo img').off('click').on('click', function(e){
+			if($('.wrap-tsp.tsp-onf').length > 0){
+				$('.wrap-tsp .headWrap').addClass('hdw-st2'); 
+				$('.wrap-tsp').removeClass('tsp-on tsp-onf');
+				$('.wrap-tsp h3.tit').css({'margin-top':'0'});
+				$('.wrap-tsp .btn-eme-inv').css({'top':'20px'});
+				$('.wrap-tsp .btn-swiper-next').css({'top':'15.02732240437158%'});
+				$('.wrap-tsp').css({'height':'90%'});
+				$('html,body').stop().animate({scrollTop:0},sp);
+			}
+			e.preventDefault();
+		});
+		
 		$('.wrap-tsp').addClass('tsp-ond');
 		$('.tab-search-pkg').removeAttr('style');
 		
@@ -1596,7 +1622,7 @@ function pkgSearchGnb(){
 			$('.tab-search-pkg li').eq(2).find('a').addClass('on');
 		}	
 		
-		if(!$('.wrap-tsp').hasClass('tsp-onf') && $('.wrap-tsp .swiper-container').length > 0){
+		if($('.wrap-tsp .swiper-container').length > 0 && $('.wrap-tsp .swiper-container .swiper-slide-active').length <= 0){
 			var tspSwiper = new Swiper('.wrap-tsp .swiper-container', {
 				slidesPerView: 'auto',
 				centeredSlides: true,

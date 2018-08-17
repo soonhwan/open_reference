@@ -199,7 +199,7 @@ box-shadow: 0 3px 3px 0px rgba(0,0,0,0.1);
  *  common - header
  *--------------------------------------------------------------------------------------------------------------*/
 /* ------------- 상단 리본 영역 */
-#top-area-sec {z-index: 10;}
+#top-area-sec {z-index: 201;}
 #top-area-sec .top-area-sec {width: 100%;background-color: #eef1f6;border-bottom: 1px solid #fff;display: none;}
 #top-area-sec .top-area-sec.on {display: block;}
 .w-tas-promotion {padding: 30px 0;}
@@ -222,7 +222,7 @@ box-shadow: 0 3px 3px 0px rgba(0,0,0,0.1);
 
 /* ------------- 헤더 영역(o-CHO-full(기본), o-CHO-section(섹션), o-CHO-quick(퀵버전), header-sec-fixed(헤더 fixed)) */
 .commonHeaderObject {transition: height 0.3s;}
-#header-sec {z-index: 10;}
+#header-sec {z-index: 201;}
 #header-sec .header-sec {width: 100%;background-color: inherit;z-index: 10;transition: background-color 0.5s;}
 /* 유틸 영역 */
 .w-header-util {height: 40px;padding-top: 10px;overflow: hidden;text-align: right;background-color: #eef1f6;}
@@ -316,7 +316,7 @@ box-shadow: 3px 7px 22px 0px rgba(0,0,0,0.3);
 .nav-gnb-total .list a:hover {color: #e93a84;}
 /* GNB - 퀵버전 */
 /*.o-CHO-quick {height: 120px;}*/
-.header-sec-fixed {position: fixed;width: 100%;z-index: 10001;opacity: 1;}
+.header-sec-fixed {position: fixed;width: 100%;z-index: 999 !important;opacity: 1;}
 .no-header-search .w-header-gnb, .header-sec-fixed .w-header-gnb {padding: 27px 0 26px 0;/*background-color: #fff;*/}
 .header-sec-fixed .w-header-gnb:before {opacity: 0;}
 /*.header-sec-fixed .w-header-gnb .h-logo a {background: url(/images/front/travel/contents/logo-privia-mgt.png) 0 0 no-repeat;}*/
@@ -509,6 +509,9 @@ box-shadow: 3px 7px 22px 0px rgba(0,0,0,0.3);
 .uis-list .list li .lbr-st1 span {width: 55px;}
 .uis-list .list .on a {color: #f42a86;background-color: #f9f9f9;position:relative}
 .uis-list .list .on a:after {content: '';display: block;width: 17px;height: 11px;background: url(/images/front/travel/contents/icon-common-sec.png) 0 -285px no-repeat;position: absolute;right: 30px;top: 22px;}
+.uis-list.uis-list-auto .list .on a {color: #000;background-color: #fff;}
+.uis-list.uis-list-auto .list .on a:after {display: none;}
+.uis-list.uis-list-auto .list .on a:hover {background-color: #f9f9f9;}
 .uis-list .list-sub li {border-top: 1px solid #ededed !important;position: relative;}
 .uis-list .list-sub li:before {content: '';display: block;width: 11px;height: 15px;border-left: 1px solid #adb0b7;border-bottom: 1px solid #adb0b7;position: absolute;left: 29px;top: 20px;}
 .uis-list .list-sub li a {padding-left: 50px;}
@@ -726,7 +729,8 @@ border-left:0;
 /*.sc-hotel .ui-mainsel-hotel {top: -10px;left: 0;}*/
 .sc-hotel .ui-mainsel-hotel.ui-search-auto {min-width: 520px;}
 .sc-hotel .ui-mainsel-hotel .uis-list.uis-list-auto .list {max-height:290px;}
-.sc-hotel .ui-recently-search .list .cont {height: 24px;width: 100%;display: block;overflow: hidden;text-overflow: ellipsis;white-space: nowrap;}
+/*.sc-hotel .ui-recently-search .list .cont {height: 24px;width: 100%;display: block;overflow: hidden;text-overflow: ellipsis;white-space: nowrap;}*/
+.sc-hotel .ui-recently-search {width: 557px;}
 /* 검색 박스 lyout - 국내호텔 */
 .sc-hotel .o-domh .qsb-places {width: 30%;border-left: 0;}
 .sc-hotel .o-domh .qsb-places .places-exit {width: 100%;}

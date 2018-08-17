@@ -1380,7 +1380,7 @@ var pvmSearch = window.pvmSearch || (function(){
 							$('.sc-search-box.on .qsb-dates .qsb-chkin .txt').html(txtDay);
 						} 
 						else {
-							if($('.sc-search-box.on .qsb-dates .qsb-chkin').data('day') == dateText){return} //같은날짜는 return
+							if($('.sc-search-box.on .qsb-dates .qsb-chkin').data('day') == dateText){return false;} //같은날짜는 return
 							
 							//체크인이후 선택시(체크아웃)
 							//data input 		
