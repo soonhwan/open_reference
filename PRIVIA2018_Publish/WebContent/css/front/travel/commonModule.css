@@ -675,7 +675,7 @@ border-left:0;
 .hs-search-cont .ui-mainsel-hotel {width: 1200px;}
 .hs-search-cont .ui-mainsel-airtel {/*width: 292px;*/width: 1200px;}
 .hs-search-cont .ui-mainsel-freetour {width: 1200px;}
-.hs-search-cont .ui-recently-search {max-width: 557px;min-width: 200px}
+.hs-search-cont .ui-recently-search {/*max-width: 557px;min-width: 200px*/width: 557px;}
 .hs-search-cont .ui-date-calendar {width: 770px;}
 /*.hs-search-cont .ui-date-calendar .uis-input {display: none;}*/
 .hs-search-cont .ui-capacity {min-width: 396px;}
@@ -729,8 +729,7 @@ border-left:0;
 /*.sc-hotel .ui-mainsel-hotel {top: -10px;left: 0;}*/
 .sc-hotel .ui-mainsel-hotel.ui-search-auto {min-width: 520px;}
 .sc-hotel .ui-mainsel-hotel .uis-list.uis-list-auto .list {max-height:290px;}
-/*.sc-hotel .ui-recently-search .list .cont {height: 24px;width: 100%;display: block;overflow: hidden;text-overflow: ellipsis;white-space: nowrap;}*/
-.sc-hotel .ui-recently-search {width: 557px;}
+/*.sc-hotel .ui-recently-search {width: 557px;}*/
 /* 검색 박스 lyout - 국내호텔 */
 .sc-hotel .o-domh .qsb-places {width: 30%;border-left: 0;}
 .sc-hotel .o-domh .qsb-places .places-exit {width: 100%;}
@@ -757,7 +756,7 @@ border-left:0;
 box-shadow: 3px 7px 22px 0px rgba(0,0,0,0.3);
 border-collapse: inherit;
 }*/
-.sc-free .ui-recently-search {width: 557px;}
+/*.sc-free .ui-recently-search {width: 557px;}*/
 /* 검색 박스 lyout - 렌터카 */
 .sc-freetour .o-rentv .qsb-places {width: 52%;border-left: 0;}
 .sc-freetour .o-rentv .qsb-places .places-exit {position: relative;padding-right: 20px;}
@@ -782,8 +781,7 @@ border-collapse: inherit;
 .sc-freetour .o-rentv .ui-mainsel-freetour .uis-list .list {max-height:290px;}
 .sc-freetour .o-rentv .ui-mainsel-freetour .opt-txt {display: none;}
 .sc-freetour .o-rentv.on ~ .hss-recently-search {margin-top: -22px;}
-.sc-freetour .ui-recently-search {width: 557px;}
-/*.sc-freetour .ui-recently-search .list .cont {height: 24px;width: 75%;overflow: hidden;text-overflow: ellipsis;white-space: nowrap;}*/
+/*.sc-freetour .ui-recently-search {width: 557px;}*/
 /* 검색 박스 lyout - 해외 입장권 */
 .sc-freetour .o-intticket .qsb-select {width: 28%;}
 .sc-freetour .o-intticket .qsb-capacity {width: 36%;}
@@ -825,7 +823,7 @@ border-collapse: inherit;
  *  common - footer
  *--------------------------------------------------------------------------------------------------------------*/
 /* 하단 프로모션 */
-.w-mobile-promotion {position: fixed;width: auto;bottom: 40px;right: 30px;text-align: right;z-index: 15;}
+.w-mobile-promotion {position: fixed;width: auto;bottom: 40px;right: 30px;text-align: right;z-index: 999;}
 .w-mobile-promotion .b-open {display: inline-block;}
 .w-mobile-promotion .txt {display: inline-block;width: 72px;text-align: center;padding-top: 70px;background: url(/images/front/travel/contents/event-fix-promotion.png) 50% 0 no-repeat;}
 .w-mobile-promotion .fpromo-box {position: absolute;bottom: 0;right: 0;width: 290px;text-align: left;border: 1px solid #e2e6eb;border-radius:10px;overflow: hidden;display: none;
@@ -1205,10 +1203,11 @@ box-shadow: 0px 5px 20px 0px rgba(0,0,0,0.2);
 .w-nav-gsub-ly .pkg-benefit-icon.detail-view.on .pbi-view2{margin-top:-12px}
 
 /*--------------------------------------------------------------------------------------------------------------
- *  as is css 보완(추후 삭제됨)
+ *  as is css 보완
  *--------------------------------------------------------------------------------------------------------------*/
 /* 공통 */
-
+.footer-banner {margin-bottom: -80px;} /* 하단 섹션메인 간격 */
+.pu_notice {z-index: 1000;} /* 공지팝업 z-index */
 /* 항공 */
 
 /* 호텔 */
@@ -1220,6 +1219,7 @@ box-shadow: 0px 5px 20px 0px rgba(0,0,0,0.2);
 .section_main .item_banner2ea ul li {float: none;margin-left:0;margin-top: 10px;}
 .section_main .item_banner2ea ul li:first-child {margin-top: 0;}
 .section_main .item_banner2ea ul li > a {float: none;}
+.freedirect-detail .myselect-pos.fixed .layout-right {top: 140px;} /* 나의선택 위치 */
 
 /* 투액 */
 .c2-main .c2-content-wrap {margin-top: 40px;}

@@ -722,6 +722,9 @@ var pvFrontScript = window.pvFrontScript || (function(){
 			var $CHO, scTop, isFix = false, isHs = false, isTopArea = false, headerSearchH, scUTarget, isNoHeaderSearch = false;
 			$CHO = $('.commonHeaderObject');
 			
+			//헤더 fixed 모드 사용 안하는 경우 
+			if($CHO.find('.no-header-fixed').length > 0){ return false; }
+			
 			if($CHO.find('.no-header-search').length > 0){
 				isNoHeaderSearch = true;
 			}
@@ -779,15 +782,6 @@ var pvFrontScript = window.pvFrontScript || (function(){
 
 			function pos(){
 				scTop = $(window).scrollTop();	
-
-				//퀵버전
-				/*if($('.commonHeaderObject').hasClass('o-CHO-quick')){
-					isFixed();
-				}
-				else{
-					
-				}*/
-				
 				scUTarget = $CHO.offset().top + $CHO.height();
 
 				//fixed 모드 시작
@@ -890,6 +884,16 @@ var pvFrontScript = window.pvFrontScript || (function(){
 				if(isFix){
 					isFixed();
 				}		
+				
+				if($('.freedirect-detail .search-pos').length > 0){
+					var s1 = $('.freedirect-detail .search-pos').offset().top;
+					var s2 = $('.commonHeaderObject .header-sec-fixed').height();
+					
+					if(s1-s2 < scTop && s1 > scTop){
+						//console.log(s1-s2-scTop);
+						$('.commonHeaderObject .header-sec-fixed').css({'margin-top' : s1-s2-scTop+'px'});
+					}
+				}
 
 			}
 
@@ -1083,93 +1087,6 @@ var pvFrontScript = window.pvFrontScript || (function(){
 			}//..if
 		},
 		comContents: function(){
-			//메인전용
-			if($('.w-content-sec.ws-main-sec').length > 0){		
-				//메인 추천 프로모션
-				var mainSlickSettings, rlcLeftMain, rlcLeftSub1, rlcLeftSub2, rlcRightMain, rlcRightsub1, rlcRightsub2, mSlickPrevBtn, mSlickNextBtn, mSlickCrt, slickOpt = 'slickNext', slickMotionEnd = false, speedMSlick = 50;
-				//기본셋팅
-				mainSlickSettings = {
-					draggable: false,
-					arrows:false,
-					dots: false,
-					pauseOnHover: false,
-					pauseOnFocus: false,
-					speed: 500
-				};
-
-				//main left
-				rlcLeftMain = $('.rlc-left .rlc-list-main .list').slick(mainSlickSettings).on('beforeChange', function(event, slick, currentSlide, nextSlide){
-					setTimeout(function(){rlcLeftSub1.slick(slickOpt);},speedMSlick);
-				});
-
-				//main right
-				rlcRightMain = $('.rlc-right .rlc-list-main .list').on('init', function(event, slick){
-					slick.slickSetOption({
-						dots: true,
-						appendDots: $('.rlc-right .rlc-list-main .c-slick-dots'),
-					}, true);
-				}).slick(mainSlickSettings).on('beforeChange', function(event, slick, currentSlide, nextSlide){
-					setTimeout(function(){rlcRightsub1.slick(slickOpt);},speedMSlick);
-				});
-
-				//main sub
-				rlcLeftSub1 = $('.rlc-left .rlc-ls-left .list').slick(mainSlickSettings).on('beforeChange', function(event, slick, currentSlide, nextSlide){
-					setTimeout(function(){rlcLeftSub2.slick(slickOpt);},speedMSlick);
-				});
-				rlcLeftSub2 = $('.rlc-left .rlc-ls-right .list').slick(mainSlickSettings).on('beforeChange', function(event, slick, currentSlide, nextSlide){
-					setTimeout(function(){rlcRightMain.slick(slickOpt);},speedMSlick);
-				});
-				rlcRightsub1 = $('.rlc-right .rlc-ls-left .list').slick(mainSlickSettings).on('beforeChange', function(event, slick, currentSlide, nextSlide){
-					setTimeout(function(){rlcRightsub2.slick(slickOpt);},speedMSlick);
-				});
-				rlcRightsub2 = $('.rlc-right .rlc-ls-right .list').slick(mainSlickSettings).on('afterChange', function(event, slick, currentSlide, nextSlide){
-					slickOpt = 'slickNext';
-					slickMotionEnd = false;
-				});
-
-				//메인 slick 컨트롤
-				mSlickPrevBtn =  $('.s-rec-promotion .cb-crt .bb-prev button');
-				mSlickNextBtn = $('.s-rec-promotion .cb-crt .bb-next button');
-				mSlickCrt = $('.rlc-right .rlc-list-main .b-slick-crt');
-				//이전
-				mSlickPrevBtn.on('click', function(e){
-					mainSlickMotion('slickPrev');
-					e.preventDefault();
-				});
-				//다음
-				mSlickNextBtn.on('click', function(e){
-					mainSlickMotion('slickNext');
-					e.preventDefault();
-				});
-				//autoplay control
-				mSlickCrt.on('click', function(){
-					if(!slickMotionEnd){
-						if($(this).hasClass('on')){
-							//mainSlickMotion('slickPause');
-							rlcLeftMain.slick('slickPause');
-							$(this).removeClass('on');
-							$(this).find('.txt').text('자동재생 버튼');
-						}
-						else{
-							//mainSlickMotion('slickPlay');	
-							rlcLeftMain.slick('slickPlay');
-							$(this).addClass('on');
-							$(this).find('.txt').text('일시정지 버튼');
-						}
-					}
-				});
-				//slick opt
-				function mainSlickMotion(opt){
-					if(slickMotionEnd == false){
-						slickMotionEnd = true;
-						slickOpt = opt;
-						rlcLeftMain.slick(slickOpt);
-					}
-				}
-				// slick dots disable click
-				$('.s-rec-promotion .rlc-list-main .slick-dots button').on('click', function(e){e.stopPropagation();}); 
-			}//..if
-
 			//섹션 메인 프로모션
 			if($('.s-rec-promotion-cont').length > 0){
 				var sectionMainSlickSettings, srpcLeft, srpcRight;
@@ -1254,6 +1171,91 @@ var pvFrontScript = window.pvFrontScript || (function(){
 					});
 				});
 			}
+		},
+		mainContents: function(){
+			//메인 추천 프로모션
+			var mainSlickSettings, rlcLeftMain, rlcLeftSub1, rlcLeftSub2, rlcRightMain, rlcRightsub1, rlcRightsub2, mSlickPrevBtn, mSlickNextBtn, mSlickCrt, slickOpt = 'slickNext', slickMotionEnd = false, speedMSlick = 50;
+			//기본셋팅
+			mainSlickSettings = {
+				draggable: false,
+				arrows:false,
+				dots: false,
+				pauseOnHover: false,
+				pauseOnFocus: false,
+				speed: 500
+			};
+
+			//main left
+			rlcLeftMain = $('.rlc-left .rlc-list-main .list').slick(mainSlickSettings).on('beforeChange', function(event, slick, currentSlide, nextSlide){
+				setTimeout(function(){rlcLeftSub1.slick(slickOpt);},speedMSlick);
+			});
+
+			//main right
+			rlcRightMain = $('.rlc-right .rlc-list-main .list').on('init', function(event, slick){
+				slick.slickSetOption({
+					dots: true,
+					appendDots: $('.rlc-right .rlc-list-main .c-slick-dots'),
+				}, true);
+			}).slick(mainSlickSettings).on('beforeChange', function(event, slick, currentSlide, nextSlide){
+				setTimeout(function(){rlcRightsub1.slick(slickOpt);},speedMSlick);
+			});
+
+			//main sub
+			rlcLeftSub1 = $('.rlc-left .rlc-ls-left .list').slick(mainSlickSettings).on('beforeChange', function(event, slick, currentSlide, nextSlide){
+				setTimeout(function(){rlcLeftSub2.slick(slickOpt);},speedMSlick);
+			});
+			rlcLeftSub2 = $('.rlc-left .rlc-ls-right .list').slick(mainSlickSettings).on('beforeChange', function(event, slick, currentSlide, nextSlide){
+				setTimeout(function(){rlcRightMain.slick(slickOpt);},speedMSlick);
+			});
+			rlcRightsub1 = $('.rlc-right .rlc-ls-left .list').slick(mainSlickSettings).on('beforeChange', function(event, slick, currentSlide, nextSlide){
+				setTimeout(function(){rlcRightsub2.slick(slickOpt);},speedMSlick);
+			});
+			rlcRightsub2 = $('.rlc-right .rlc-ls-right .list').slick(mainSlickSettings).on('afterChange', function(event, slick, currentSlide, nextSlide){
+				slickOpt = 'slickNext';
+				slickMotionEnd = false;
+			});
+
+			//메인 slick 컨트롤
+			mSlickPrevBtn =  $('.s-rec-promotion .cb-crt .bb-prev button');
+			mSlickNextBtn = $('.s-rec-promotion .cb-crt .bb-next button');
+			mSlickCrt = $('.rlc-right .rlc-list-main .b-slick-crt');
+			//이전
+			mSlickPrevBtn.on('click', function(e){
+				mainSlickMotion('slickPrev');
+				e.preventDefault();
+			});
+			//다음
+			mSlickNextBtn.on('click', function(e){
+				mainSlickMotion('slickNext');
+				e.preventDefault();
+			});
+			//autoplay control
+			mSlickCrt.on('click', function(){
+				if(!slickMotionEnd){
+					if($(this).hasClass('on')){
+						//mainSlickMotion('slickPause');
+						rlcLeftMain.slick('slickPause');
+						$(this).removeClass('on');
+						$(this).find('.txt').text('자동재생 버튼');
+					}
+					else{
+						//mainSlickMotion('slickPlay');	
+						rlcLeftMain.slick('slickPlay');
+						$(this).addClass('on');
+						$(this).find('.txt').text('일시정지 버튼');
+					}
+				}
+			});
+			//slick opt
+			function mainSlickMotion(opt){
+				if(slickMotionEnd == false){
+					slickMotionEnd = true;
+					slickOpt = opt;
+					rlcLeftMain.slick(slickOpt);
+				}
+			}
+			// slick dots disable click
+			$('.s-rec-promotion .rlc-list-main .slick-dots button').on('click', function(e){e.stopPropagation();}); 
 		}
 	}	
 }());

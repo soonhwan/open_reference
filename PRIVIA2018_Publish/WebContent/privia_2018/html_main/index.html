@@ -50,8 +50,9 @@
 
 <div id="wrap">
 	<!-- 통합헤더 설명 참고(https://redmine.tidesquare.com/issues/31266#note-5) -->
-	<!-- .commonHeaderObject : 헤더 타입 클래스 change(o-CHO- : full(기본), section(섹션), quick(퀵버전), header-sec-fixed(헤더 fixed) -->
+	<!-- .commonHeaderObject : 헤더 타입 클래스 change(o-CHO- : full(기본), section(섹션), quick(퀵버전) -->
 	<div class="commonHeaderObject">
+		<!-- .o-CHO-inner : 헤더 inner (header-sec-fixed(헤더 fixed), no-header-fixed(fixed 모드 사용안함) -->
 		<div class="o-CHO-inner">
 			<!-- #top-area-sec(상단리본) -->
 			<div id="top-area-sec">
@@ -2800,7 +2801,12 @@
 	</div>	
 	<!-- //#footer-sec -->
 </div>
+<script>
+$(function(){	
+	pvFrontScript.mainContents();
+});
 
+</script>
 
 </body>
 </html>
