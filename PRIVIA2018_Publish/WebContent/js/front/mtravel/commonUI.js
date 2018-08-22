@@ -1906,7 +1906,7 @@ var pvmFrontScript = window.pvmFrontScript || (function(){
 				section.find('.uis-datepicker .ui-state-hover').removeClass("ui-state-hover"); 
 			}
 			
-			//capacity uis-capacity-number click(클래스 on 추가, 삭제 기능)
+			//capacity uis-capacity-number click(카운팅 기능)
 			if(section.find('.uis-capacity .uis-capacity-number').length > 0){
 				section.find('.uis-custom-number').uisCustomNumber();
 			}

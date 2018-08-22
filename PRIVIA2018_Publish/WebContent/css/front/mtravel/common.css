@@ -1583,6 +1583,8 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#eef1f6', end
 .sc-search-tab .list-tab .slt-places .li-col2:before {content: '';display: block;width: 11px;height: 10px;opacity: 0.5;position: absolute;top: 10px;left: 50%;margin-left: -4px;background: url(/images/front/mtravel/contents/icon-common-secM.png) 0px -44px no-repeat;-webkit-background-size: 160px;background-size: 160px;}
 .ot-oneway .sc-search-tab .slt-places .li-col2:before, .ot-multiway .sc-search-tab .slt-places .li-col2:before {background-position: -14px -50px;}
 .o-bg-hotel .sc-search-tab .list-tab .slt-area .slt-chkin {padding-right: 0;}
+.ot-oneway .sc-search-tab .list-tab .slt-area .slt-chkin:before,
+.ot-multiway .sc-search-tab .list-tab .slt-area .slt-chkin:before,
 .o-bg-hotel .sc-search-tab .list-tab .slt-area .slt-chkin:before {display: none;}
 .o-bg-hotel .sc-search-tab .list-tab .slt-area .slt-chkin.on {padding-right: 15px;}
 .o-bg-hotel .sc-search-tab .list-tab .slt-area .slt-chkin.on:before {display: block;}

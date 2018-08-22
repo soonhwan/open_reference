@@ -12,7 +12,7 @@ var pvmSearch = window.pvmSearch || (function(){
 		},
 		comSearchEvent: function(){
 			//상단 검색 tab 메뉴 click
-			$('.hs-search-menu .hss-menu [data-tabsub]').on('click', function(e){
+			$(document).on('click', '.hs-search-menu .hss-menu [data-tabsub]', function(e){
 				var code = $(this).data('tabsub');
 				if(!$(this).closest('li').hasClass('on')){
 					if($(this).closest('.hss-menu').find('.hss-sub').length <= 0){
@@ -471,7 +471,7 @@ var pvmSearch = window.pvmSearch || (function(){
 									
 			//+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ 컨트롤 event
 			//하단 검색 박스 설정
-			$('.sc-search-tab .list-tab [data-tab]').on('click', function(e){
+			$(document).on('click', '.sc-search-tab .list-tab [data-tab]', function(e){
 				var _this = $(this);
 				var type = $(this).data('tab');
 				
@@ -532,7 +532,7 @@ var pvmSearch = window.pvmSearch || (function(){
 			
 			//----------------------------------- 도시			
 			//도시 검색 click
-			$('.sc-search-area .uis-mainsel .uis-list a').on('click', function(e){
+			$(document).on('click', '.sc-search-area .uis-mainsel .uis-list a', function(e){
 				if(!$(this).hasClass('tit-rec')){
 					var city = $(this).find('.name-det').text(); //도시 이름(임시)
 					var code = $(this).find('.code').text(); //도시 코드(임시)
@@ -1004,7 +1004,7 @@ var pvmSearch = window.pvmSearch || (function(){
 			});
 					
 			//좌석 선택
-			$('.uis-capacity-select li a').on('click', function(e){
+			$(document).on('click', '.uis-capacity-select li a', function(e){
 				var opt = $(this).data('option');
 				var name = $(this).find('.name').text();
 				
@@ -1198,7 +1198,7 @@ var pvmSearch = window.pvmSearch || (function(){
 									
 			//+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ 컨트롤 event
 			//하단 검색 박스 설정
-			$('.sc-search-tab .list-tab [data-tab]').on('click', function(e){
+			$(document).on('click', '.sc-search-tab .list-tab [data-tab]', function(e){
 				var _this = $(this);
 				var type = $(this).data('tab');
 				
@@ -1240,7 +1240,7 @@ var pvmSearch = window.pvmSearch || (function(){
 			
 			//----------------------------------- 도시			
 			//도시 검색 click
-			$('.sc-search-area .uis-mainsel .uis-list a').on('click', function(e){
+			$(document).on('click', '.sc-search-area .uis-mainsel .uis-list a', function(e){
 				if(!$(this).hasClass('tit-rec')){
 					var city = $(this).find('.name').text(); //도시 이름(임시)
 
