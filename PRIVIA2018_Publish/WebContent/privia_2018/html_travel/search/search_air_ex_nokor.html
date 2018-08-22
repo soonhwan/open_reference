@@ -167,10 +167,7 @@ $(function(){
 	//#23430 플로팅메뉴 실행함수 개선
 	$('.float-menu-pos').floatMenuPosRe({
 		fmTop :125,
-		fmLeft :20,
-		fmFixTop :140,
 		contWid: 750,
-		fmStop : $('.list_more'),
 		sCallback : function(){
 			//롤링배너(3초)(롤링이 필요한 경우 작성) 
 			setBanner( $('#fm-roll'), true, '3000', "left", null, '3000');
@@ -3754,7 +3751,7 @@ $(function(){
 		<!-- #15129 리스트 -->        
 		<ul class="result_air result_air_tp result_air_tp2 result_air_ex"> 
 			<!-- loop -->
-			<li class="on">
+			<li class="">
 				<!-- 항공 정보 -->
 				<div class="cont_air cont_air_emblem">
 					<div class="plane">
@@ -3806,7 +3803,7 @@ $(function(){
 				<!-- //항공 정보 -->
 				
 				<!-- 리스트 클릭 세부정보 -->
-				<div class="cont_detail" style="display:block;">				
+				<div class="cont_detail" style="display:none;">				
 					<!-- 스케쥴 조회 -->
 					<h4 class="section-title">스케줄 조회</h4>
 					<div class="clearfix">
@@ -6908,6 +6905,32 @@ $(function(){
     <!-- //#21402 플로팅메뉴개선 -->
 </div>
 <!-- //content -->
+
+<!-- #footer-sec -->
+<div id="footer-sec">
+	<div class="w-footer-sec ly-inner">
+		<p class="fts-call"><a href="/customer/main/counselMain#infoCall">고객센터 대표번호 <em>1588-0360</em> (해외 82-2-6911-8300)</a></p>
+		<ul class="nav-fnb">
+			<li><a href="/etc/aboutPriviaTab">ABOUT PRIVIA 여행</a></li>
+			<li><a href="/etc/siteMap">사이트맵</a></li>
+			<li><a href="/etc/conditionPrivia">이용약관</a></li>
+			<li><a href="/etc/conditionOutKorea">국외여행약관</a></li>
+			<li><a href="/etc/conditionInKorea">국내여행약관</a></li>
+			<li><a href="/etc/personalInfoCtrlNew"><strong>개인정보처리방침</strong></a></li>
+			<li><a href="/etc/jobConsignNewInfo">업무위탁현황</a>	</li>
+		</ul>
+		<ul class="fts-info">
+			<li>서울특별시 중구 청계천로 100 시그니쳐 타워 서관 16층</li>
+			<li>㈜타이드스퀘어 대표이사 윤민</li>
+			<li>사업자등록번호 124-86-86370 <a href="http://www.ftc.go.kr/info/bizinfo/communicationView.jsp?apv_perm_no=2015301013030200788&amp;area1=&amp;area2=&amp;currpage=1&amp;searchKey=04&amp;searchVal=1248686370&amp;stdate=&amp;enddate=" target="_blank"><em>사업자정보확인</em></a></li>
+			<li>관광사업자번호 제 2015-000033호</li>
+			<li class="line-down">통신판매업신고번호 제 2015-서울중구-0788호</li>
+			<li class="line-down"><small>COPYRIGHT (c) TIDESQUARE CO. LTD. ALL RIGHTS RESERVED. SPONSORED BY HYUNDAI CARD</small></li>
+		</ul>
+		<p class="fts-partnership">현대카드는 현대카드 PRIVIA 여행사이트의 스폰서로서 ㈜타이드스퀘어와 파트너십을 맺고 있습니다. <br />현대카드 PRIVIA 여행사이트는 ㈜타이드스퀘어가 운영하는 여행사이트이며, 여행서비스 전반에 대한 의무와 책임은 ㈜타이드스퀘어에 있습니다.</p>
+	</div>
+</div>	
+<!-- //#footer-sec -->
 
 </div>
 </body>
