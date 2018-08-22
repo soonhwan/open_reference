@@ -650,19 +650,15 @@ border-left:0;
 .hss-recently-search .qrs-area:before {content: '';display: block;width: 17px;height: 9px;background: url(/images/front/travel/contents/icon-common-sec.png) 0 -360px no-repeat;position: absolute;top: 8px;right: 0;}
 .hss-recently-search .qrs-area .inf-total {font-size:16px;color: #fff;font-family:"NotoSansKR" !important;font-weight: 500;}
 .hss-recently-search .qrs-area .inf-sum {font-size:14px;color: #fff;}
-/*.hss-recently-search .qrs-area .inf-sum .tit {font-size:14px;color: #fff;padding-left: 15px;}*/
-.hss-recently-search .qrs-area .inf-sum .cont {font-size:14px;color: #fff;padding-left: 15px;max-width:380px;text-overflow:ellipsis;white-space:nowrap;overflow:hidden;max-width:380px;height: 22px;line-height: 22px;}
+.hss-recently-search .qrs-area .inf-sum .cont {font-size:14px;color: #fff;padding-left: 15px;width:380px;text-align: left;text-overflow:ellipsis;white-space:nowrap;overflow:hidden;max-width:380px;height: 22px;line-height: 22px;}
 .hss-recently-search .ui-recently-search {text-align: left;}
 .hss-recently-search .ui-recently-search .urs-tit {display: block;padding: 30px 20px;width: 100%;font-size:16px;font-family:"NotoSansKR" !important;font-weight: 500;color: #000;border-bottom: 1px solid #ededed;}
 .hss-recently-search .ui-recently-search .urs-tit em {font-size:16px;font-family:"NotoSansKR" !important;font-weight: 500;color: #f42a86;display: inline-block;vertical-align: top;}
 .hss-recently-search .ui-recently-search .list {width: 100%;overflow-y: auto;max-height:237px;}
 .hss-recently-search .ui-recently-search .list li {width: 100%;border-bottom: 1px solid #ededed;}
-/*.hss-recently-search .ui-recently-search .list li > a {display: table;table-layout: fixed;}*/
 .hss-recently-search .ui-recently-search .list li > a {display: block;padding: 15px 25px;width: 100%;}
 .hss-recently-search .ui-recently-search .list li > a:hover .cont {color: #f42a86;}
 .hss-recently-search .ui-recently-search .list li:after {content: '';display: block;clear:both;}
-/*.hss-recently-search .ui-recently-search .list li .tit {display: table-cell;width: 115px;vertical-align: middle;font-size:16px;font-weight: 500 !important;color: #000;}
-.hss-recently-search .ui-recently-search .list li .cont {display: table-cell;width: auto;font-size:16px;color: #000;transition: color 0.3s;}*/
 .hss-recently-search .ui-recently-search .list li .cont {font-size:16px;font-family:"NotoSansKR" !important;font-weight: 300;color: #000;transition: color 0.3s;}
 .hss-recently-search .ui-recently-search .b-scb-close {top: 38px;}
 .hss-recently-search .ui-recently-search {top: -30px;right: -30px;}
@@ -825,7 +821,7 @@ border-collapse: inherit;
 /* 하단 프로모션 */
 .w-mobile-promotion {position: fixed;width: auto;bottom: 40px;right: 30px;text-align: right;z-index: 999;}
 .w-mobile-promotion .b-open {display: inline-block;}
-.w-mobile-promotion .txt {display: inline-block;width: 72px;text-align: center;padding-top: 70px;background: url(/images/front/travel/contents/event-fix-promotion.png) 50% 0 no-repeat;}
+.w-mobile-promotion .txt {display: inline-block;width: 90px;text-align: center;padding-top: 94px;background: url(/images/front/travel/contents/event-fix-promotion.gif) 50% 0 no-repeat;}
 .w-mobile-promotion .fpromo-box {position: absolute;bottom: 0;right: 0;width: 290px;text-align: left;border: 1px solid #e2e6eb;border-radius:10px;overflow: hidden;display: none;
 -webkit-box-shadow: 0px 5px 20px 0px rgba(0,0,0,0.2);
 -moz-box-shadow: 0px 5px 20px 0px rgba(0,0,0,0.2);
@@ -908,7 +904,7 @@ box-shadow: 0px 5px 20px 0px rgba(0,0,0,0.2);
 .s-rec-promotion .rlc-list-main .o-box > a:hover .tit {color: #e93a84;}
 .s-rec-promotion .rlc-list-main .vis {display: block;overflow: hidden;border-radius: 6px;margin-bottom: 25px;}
 .s-rec-promotion .rlc-list-main .vis img {width: 585px;height: 300px;}
-.s-rec-promotion .rlc-list-main .tit {display: block;color: #000;font-size:26px;font-family:"NotoSansKR" !important;font-weight: 300;line-height: 36px;transition: color 0.3s;}
+.s-rec-promotion .rlc-list-main .tit {display: block;color: #000;font-size:26px;font-family:"NotoSansKR" !important;font-weight: 300;line-height: 36px;height: 72px;overflow: hidden;transition: color 0.3s;}
 .s-rec-promotion .rlc-list-main .exp {display: block;color: #000;font-size:14px;line-height: 20px;margin-top: 10px;min-height: 20px}
 .s-rec-promotion .rlc-list-sub .rlc-ls-left {float: left;width: 278px;}
 .s-rec-promotion .rlc-list-sub .rlc-ls-right {float: right;width: 278px;}
@@ -920,7 +916,7 @@ box-shadow: 0px 5px 20px 0px rgba(0,0,0,0.2);
 .s-rec-promotion .rlc-list-sub .vis {display: block;overflow: hidden;border-radius: 6px;z-index: 1;}
 .s-rec-promotion .rlc-list-sub .vis img {width: 278px;height: 170px;}
 .s-rec-promotion .rlc-list-sub .info-box {display: block;z-index: 0;padding: 35px 19px 28px 19px;border:1px solid #e2e6eb;border-radius: 6px;margin-top: -10px;}
-.s-rec-promotion .rlc-list-sub .tit {display: block;color: #000;font-size:18px;font-family:"NotoSansKR" !important;font-weight: 300;line-height: 28px;z-index: 1;transition: color 0.3s;min-height: 56px;}
+.s-rec-promotion .rlc-list-sub .tit {display: block;color: #000;font-size:18px;font-family:"NotoSansKR" !important;font-weight: 300;line-height: 28px;z-index: 1;transition: color 0.3s;height: 56px;overflow: hidden;}
 .s-rec-promotion .rlc-list-sub .date {display: block;color: #000;font-size:14px;line-height: 24px;margin-top: 10px;letter-spacing: -0.05em;}
 .s-rec-promotion .cb-crt {position: absolute;width: 100%;top:196px;z-index: 1;}
 .s-rec-promotion .cb-crt .bb-st4 {position: absolute;top:0;}
@@ -976,14 +972,14 @@ box-shadow: 0px 5px 20px 0px rgba(0,0,0,0.2);
 
 /* 메인 공지사항 */
 .s-information-cont:after {content: '';display: block;clear:both;}
-.s-information-cont .sic-left {float: left;width: 892px;position: relative;}
+.s-information-cont .sic-left {float: left;width: 892px;position: relative;min-height: 404px;}
 .s-information-cont .sic-board .c-tit-sec {margin-bottom: 25px;}
 .s-information-cont .sic-board .list li {border-bottom: 1px solid #e2e2e2;position: relative;}
 .s-information-cont .sic-board .list li a {font-size: 16px;font-family:"NotoSansKR" !important;font-weight: 300;color: #000;padding: 11px 0 13px 0;display:block;text-overflow: ellipsis; white-space: nowrap; overflow: hidden; width:780px;transition: color 0.3s;}
 .s-information-cont .sic-board .list li a:hover {color: #e93a84;}
 .s-information-cont .sic-board .list .date {font-size: 16px;font-family:"NotoSansKR" !important;font-weight: 300;color: #818181;position: absolute;right: 0;top: 10px;}
 .s-information-cont .sic-right {float: right;width: 285px}
-.s-information-cont .sic-aside .tit {display: block;font-size:18px;font-family:"NotoSansKR" !important;font-weight: 300;color: #000;line-height: 28px;height: 56px;font-weight: 300;margin-bottom: 30px;transition: color 0.3s;}
+.s-information-cont .sic-aside .tit {display: block;font-size:18px;font-family:"NotoSansKR" !important;font-weight: 300;color: #000;line-height: 28px;height: 56px;overflow: hidden;font-weight: 300;margin-bottom: 30px;transition: color 0.3s;}
 .s-information-cont .sic-aside > a {display: block;width: 100%;height: 100%;}
 .s-information-cont .sic-aside > a:hover .tit {color: #e93a84;}
 .s-information-cont .sic-aside .tit em {font-size:18px;font-family:"NotoSansKR" !important;font-weight: 300;}
@@ -999,7 +995,8 @@ box-shadow: 0px 5px 20px 0px rgba(0,0,0,0.2);
 .s-rec-promotion-cont .srpc-prom .srpc-left .list img {width: 390px;height: 300px;}
 .s-rec-promotion-cont .srpc-prom .slick-dots:after {content: '';display: block;clear:both;}
 .s-rec-promotion-cont .srpc-prom .slick-dots li {float: left;width: 50%;}
-.s-rec-promotion-cont .srpc-prom .slick-dots li .btn {display: block;width: 100%;padding: 16px 20px;text-align: left;font-size:14px;color: #000;line-height: 24px;white-space:normal;background-color: #eef1f6;border: 1px solid #e2e6eb;border-left: 0;letter-spacing: -2px;height: 82px;transition: all 0.3s;}
+.s-rec-promotion-cont .srpc-prom .slick-dots li .btn {display: block;width: 100%;padding: 16px 20px;text-align: left;font-size:14px;color: #000;line-height: 24px;white-space:normal;background-color: #eef1f6;border: 1px solid #e2e6eb;border-left: 0;letter-spacing: -2px;transition: all 0.3s;}
+.s-rec-promotion-cont .srpc-prom .slick-dots li .btn span {display: inline-block;height: 36px;overflow: hidden;}
 .s-rec-promotion-cont .srpc-prom .slick-dots li:first-child .btn {border-left: 1px solid #e2e6eb;}
 .s-rec-promotion-cont .srpc-prom .slick-dots li .btn:hover {color: #e93a84;}
 .s-rec-promotion-cont .srpc-prom .slick-dots .slick-active .btn {color: #fff;border: 1px solid #288ecc !important;background-color: #288ecc;}
@@ -1017,10 +1014,12 @@ box-shadow: 0px 5px 20px 0px rgba(0,0,0,0.2);
 .list-item-st1 .vis {display: block;overflow: hidden;border-radius: 6px;z-index: 1;}
 .list-item-st1 .vis img {width: 278px;height: 170px;}
 .list-item-st1 .info-box {display: block;z-index: 0;padding: 35px 19px 28px 19px;border:1px solid #e2e6eb;border-radius: 6px;margin-top: -10px;}
-.list-item-st1 .tit {display:block;min-height:28px;position:relative;z-index: 1;}
+.list-item-st1 .tit {display:block;height:56px;overflow: hidden;position:relative;z-index: 1;}
 .list-item-st1 .tit span {display: inline-block;width:100%;color:#000;font-size:18px;font-family:"NotoSansKR" !important;font-weight: 300;line-height:28px;text-overflow:ellipsis;white-space:nowrap;overflow:hidden;transition:all 0.3s;}
-.list-item-st1 .tit.tit-over span {width:100%;height: 28px;position:absolute;top:0;left:0;}
+.list-item-st1 .tit.tit-over {min-height:28px;height: auto;}
+.list-item-st1 .tit.tit-over span {width:100%;min-height: 28px;position:absolute;top:0;left:0;}
 .list-item-st1 li > a:hover .tit span {color: #e93a84;}
+.list-item-st1 li > a:hover .tit-over {overflow: inherit;}
 .list-item-st1 li > a:hover .tit-over span {height: auto;max-height:62px;padding-bottom: 10px;white-space: inherit;}
 .list-item-st1 .tit-ori {display: block;color: #000;font-size:14px;line-height: 24px;margin-top: 12px;}
 .list-item-st1 .date {display: block;color: #000;font-size:14px;line-height: 24px;margin-top: 10px;letter-spacing: -0.05em;}
@@ -1047,11 +1046,11 @@ box-shadow: 0px 5px 20px 0px rgba(0,0,0,0.2);
 .list-item-st2 li a:hover .over {top: 0;}
 .list-item-st2 .inner {display: table-cell;vertical-align: middle;text-align: center;position: relative;z-index: 1;}
 .list-item-st2 .inner .label-base {display: block;}
-.list-item-st2 .inner .tit {display: block;margin-top: 15px;font-size:26px;font-family:"NotoSansKR" !important;font-weight: 300;line-height: 36px;color: #fff;}
-.list-item-st2 .inner .tit-ori {display: block;margin-top: 15px;font-size:14px;line-height: 24px;color: #fff;}
+.list-item-st2 .inner .tit {display: block;margin-top: 15px;font-size:26px;font-family:"NotoSansKR" !important;font-weight: 300;line-height: 36px;color: #fff;max-height:72px;overflow: hidden;}
+.list-item-st2 .inner .tit-ori {display: block;margin-top: 15px;font-size:14px;line-height: 24px;color: #fff;min-height: 24px;overflow: hidden;}
 .list-item-st2 .over {position: absolute;display: table;width: 100%;height: 100%;text-align: center;top: 100%;left: 0;z-index: 2;transition: top 0.5s;}
 .list-item-st2 .over-inner {display: table-cell;vertical-align: middle;}
-.list-item-st2 .over-inner .tit {display: block;font-size:18px;font-family:"NotoSansKR" !important;font-weight: 300;color: #fff;}
+.list-item-st2 .over-inner .tit {display: block;font-size:18px;font-family:"NotoSansKR" !important;font-weight: 300;color: #fff;max-height:54px;overflow: hidden;}
 .list-item-st2 .over-inner .price {display: block;font-size:24px;font-family:"NotoSansKR" !important;font-weight: 300;color: #fff;}
 .list-item-st2 .over-inner .price em {font-size:34px;color: #fff;font-family:"NotoSansKR" !important;font-weight: 500;}
 .s-rec-area-cont.rac-hotel .over-inner {background-color: #00b290;}

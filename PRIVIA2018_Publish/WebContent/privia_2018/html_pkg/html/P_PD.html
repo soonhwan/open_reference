@@ -1,55 +1,221 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml"><head>
-<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
-<meta http-equiv="Pragma" content="no-cache" />
-<meta http-equiv="Expires" content="-1" />
+<!--[if lt IE 7 ]> <html xmlns="http://www.w3.org/1999/xhtml" lang="ko" xml:lang="ko" class="ie6"> <![endif]-->
+<!--[if IE 7 ]> <html xmlns="http://www.w3.org/1999/xhtml" lang="ko" xml:lang="ko" class="ie7"> <![endif]-->
+<!--[if IE 8 ]> <html xmlns="http://www.w3.org/1999/xhtml" lang="ko" xml:lang="ko" class="ie8"> <![endif]-->
+<!--[if IE 9 ]> <html xmlns="http://www.w3.org/1999/xhtml" lang="ko" xml:lang="ko" class="ie9"> <![endif]-->
+<!--[if (gt IE 9)|!(IE)]><!--> <html xmlns="http://www.w3.org/1999/xhtml" lang="ko" xml:lang="ko"> <!--<![endif]-->
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>현대카드 PRIVIA 패키지</title>
 <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-<title>PRIVIA 항공</title>
-<meta name="description" content="PRIVIA 항공은 국내 주요 항공사 및 해외 100여 개 이상의 외국 항공사와의 제휴로 최적의 요금 및 다양한 할인 혜택을 제공해드립니다."/>
-<meta property="og:title" content="PRIVIA 항공"/>
-<meta property="og:description" content="PRIVIA 항공은 국내 주요 항공사 및 해외 100여 개 이상의 외국 항공사와의 제휴로 최적의 요금 및 다양한 할인 혜택을 제공해드립니다."/>
-<!--<meta name="google-site-verification" content="8lm4neGkIHHnzHD_x2qCvgG26Sm97YQh1m_nauytBtM" />
-<meta name="naver-site-verification" content="96a120fd70d173b6c754dd04b0dcbb111fbcb74e"/>-->
-<link rel="shortcut icon" type="image/x-icon" href="//static.priviatravel.com/images/front/travel/favicon.ico" />
-<link rel="stylesheet" type="text/css" href="/css/front/travel/base.css" />
 <link rel="stylesheet" type="text/css" href="/css/front/travel/reset.css" />
-<link type="text/css" rel="stylesheet" href="/css/front/travel/commonModule.css" /> <!-- 프비 리뉴얼 css -->
+<link rel="stylesheet" type="text/css" href="/css/front/travel/layout.css" />
+<link rel="stylesheet" type="text/css" href="/css/front/travel/globalUI.css" />
+<link rel="stylesheet" type="text/css" href="/css/front/travel/cross-common.css" />
+<link rel="stylesheet" type="text/css" href="/css/front/travel/pkg.css" />
 <link rel="stylesheet" type="text/css" href="/css/front/travel/jquery.mCustomScrollbar.min.css" />
+<link type="text/css" rel="stylesheet" href="/css/front/travel/commonModule.css" /> <!-- 프비 리뉴얼 css -->
+
 <script type="text/javascript" src="/js/front/config.js"></script>
 <script type="text/javascript" src="/js/front/travel/jquery-1.8.3.min.js"></script>
 <script type="text/javascript" src="/js/front/travel/jquery-ui.js"></script>
-<script type="text/javascript" src="/js/front/travel/jquery.mCustomScrollbar.concat.min.js"></script>
 <script type="text/javascript" src="/js/front/travel/fakeselect.js"></script>
 <script type="text/javascript" src="/js/front/travel/cufon-yui.js"></script>
 <script type="text/javascript" src="/js/front/travel/ymhb_400.font.js"></script>
 <script type="text/javascript" src="/js/front/travel/ymhr_400.font.js"></script>
 <script type="text/javascript" src="/js/front/travel/ui.js"></script>
 <script type="text/javascript" src="/js/front/travel/init.js"></script>
-<script type="text/javascript" src="/js/front/travel/myTravel.js"></script>
-<script type="text/javascript" src="/js/utils.js"></script>
-<!--<script type="text/javascript" src="//air.priviatravel.com/script/front/travel/quickSearchHistory.js"></script>
-<script type="text/javascript" src="//www.priviatravel.com/share/headerManager"></script>-->
-<script type="text/javascript" src="https://auth.priviatravel.com/check"></script>
+<!-- start : time sale countdown에 필요한 CDN 스크립트 -->
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery-countdown/2.0.1/jquery.plugin.min.js"></script>
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery-countdown/2.0.1/jquery.countdown.min.js"></script>
+<!-- end : time sale countdown에 필요한 CDN 스크립트 -->
+
+<script type="text/javascript" src="/js/front/travel/jquery.mCustomScrollbar.concat.min.js"></script>
 <script type="text/javascript" src="/js/front/travel/commonModuleHeader.js"></script> <!-- 프비 리뉴얼 js(가이드버전) -->
 <script type="text/javascript" src="/js/front/travel/slick.min.js"></script> <!-- 프비 리뉴얼 js -->
 <script type="text/javascript" src="/js/front/travel/commonModule.js"></script> <!-- 프비 리뉴얼 js -->
 
+<script type="text/javascript">
+	
+function getServerTime() { 
+    var time = null; 
+    /* 개발자필독 : 실제 서비스에 부착시 클라이언트의 시간조작을 피하기 위해 서버의 현재시간을 가져와야 하기 때문에 아래와 같이 ajax로 현재시간을 가져와서 startCountDown함수에서 사용한다.
+    http://keith-wood.name/countdown.html의 플러그인을 썼으며, 개발자는 해당홈페이지의 Time Zones탭내용을 참조한다.
+    $.ajax({        
+        url: '/serverTime', //서버타임을 구해와아할 요청주소(개발요소) 
+        async: false, 
+        dataType: 'text', 
+        success: function(text) {             
+            time = new Date(text);             
+        }, error: function(http, message, exc) { 
+            time = new Date(); // 에러시 클라언트로컬시간으로 설정할지는 개발에서 기획과 상의해서 선택해야 함.
+    }});
+    */    
+    time = new Date(); // 퍼블리싱용 클라언트 로컬 현재시간. 이 한줄은 실제 개발시 주석처리.  
+    return time; 
+}
+function startCountDown(wrapperID,month,day,hour,minute,second){
+    var setTime = {
+        month  : month,
+        day    : day,
+        hour   : hour || 0,
+        minute : minute || 0,
+        second : second || 0
+    }
+	var checkServerTime = new Date(getServerTime());
+    var austDay = new Date(getServerTime().getFullYear(), setTime.month - 1, setTime.day, setTime.hour, setTime.minute, setTime.second);
+	if(checkServerTime >= austDay){
+		periodEnd();
+	}
+    $('#'+wrapperID).countdown({
+        until: austDay,
+        format: 'DHMS',
+        padZeroes: true,
+        onExpiry: function(){
+			 periodEnd();
+		}, //카운팅이 0일때 발생되는 콜백
+        serverSync:getServerTime
+    });
+	
+	function periodEnd(){
+		$('#'+wrapperID).closest('.timeSale-item').find('.p-info').append("<img src='/images/front/travel/img_timesale_end3.png' alt='마감' class='close-img'>");
+	}
+} 
+$(function(){
+	//l-total-nav-open
+	$('.l-total-nav-open').on('click',function(){
+		$('.l-gnb').trigger('mouseleave');
+		if($(this).hasClass('on')){
+			$('.l-total-nav-layer').slideUp(300,function(){
+				$('.l-total-nav-open').removeClass('on');
+				$('.help-text').css('z-index','101'); //말풍선 z-index 수정
+			});
+			
+		}
+		else{
+			if($('.l-total-nav-layer').is(':animated')){return false}
+			$(this).addClass('on');
+			$('.l-total-nav-layer').slideDown(300);
+			$('.help-text').css('z-index','2'); //말풍선 z-index 수정
+		}
+	})
+	
+	//l-total-nav-close
+	$('.btn-total-nav-layer').on('click',function(){
+		$('.l-total-nav-open').removeClass('on');
+		$('.l-total-nav-layer').slideUp(300,function(){
+			$('.help-text').css('z-index','101'); //말풍선 z-index 수정
+		});
+	})
+	
+	//l-gnb-menu .hover
+	var t;
+	$('.l-gnb-menu li').on('mouseenter',function(){
+		$('.btn-total-nav-layer').trigger('click');
+		if($('.l-gnb-sub').is(':animated')){return false}
+		$('.l-gnb-menu li').removeClass('on');
+		$(this).addClass('on');
+		//Cufon.refresh();
+		t = setTimeout(function(){
+			$('.l-gnb-sub').slideDown(300);
+		},200)	
+		var idx = $(this).index();
+		menuChange(idx);
+	})
+	$('.l-gnb').on('mouseleave',function(){
+		if($('.l-gnb-sub').is(':animated')){return false}
+		clearTimeout(t);
+		$('.l-gnb-menu li a span').removeClass('on');
+		Cufon.refresh();
+		$('.l-gnb-sub').slideUp(300);
+	})
+	$('.l-gnb-sub .btn-close').on('click',function(){
+		if($('.l-gnb-sub').is(':animated')){return false}
+		$('.l-gnb-sub').slideUp(300);
+		$('.l-gnb-menu li a span').removeClass('on');
+		Cufon.refresh();
+		return false;
+	})
+	
+	//sub-menu click
+	$('.sub-menu li a').on('mouseenter',function(){
+		if($(this).hasClass('on')){return false;}
+		var idx = $(this).parent().index();
+		$(this).closest('ul').find('li').each(function(i){
+			if(i == idx){
+				$(this).find('a').addClass('on');
+			}
+			else{
+				$(this).find('a').removeClass('on');
+			}
+		})
+	})
+	
+	//여행상품 검색
+	$('.pkg-p-search').on('click',function(){
+		$('.l-gnb').trigger('mouseleave');
+		$('.btn-total-nav-layer').trigger('click');
+		if($(this).hasClass('on')){
+			$(this).removeClass('on');
+			$('.l-detail-search').slideUp(300,function(){
+				$('.l-gnb').addClass('on');
+			});
+		}
+		else{
+			$(this).addClass('on');
+			$('.l-gnb').removeClass('on');
+			$('.l-detail-search').slideDown(300);
+		}
+	})
+	$('#dp1').datepicker();
+	
+	//탑버튼
+	topBtnCtrl();
+	
+	//예약 버튼 지날 시 위치변경(상세 전용)
+	/* #14305 */
+	var targetBox = $('.p-detail-title');
+	var targetBox2 = $('.pkg-benefit-icon.detail-view');
+	var targetBoxBtn = targetBox.find('.s-hidden');
+	$(window).scroll(function(){
+		var sTop = $(window).scrollTop();
+		var frameOffset = $('#the_iframe').offset();
+		if(sTop >= frameOffset.top + 882){
+			targetBox.addClass('on');
+			targetBox2.addClass('on');
+			targetBoxBtn.removeClass('s-hidden');
+		}else{
+			targetBox.removeClass('on');
+			targetBox2.removeClass('on');
+			targetBoxBtn.addClass('s-hidden');
+		}
+	})
+	/* //#14305 */
 
+	startCountDown('countdown1',7,20,17,43,0);  // 4월 30일 0시 0분 0초
+})
+function menuChange(idx){
+	//메뉴 체인지 소스 들어갈 자리(개발)
+	// idx = 메뉴 넘버 ex(0 ~ 7)
+}
+
+</script>
 </head>
-
 <body>
-
-<!-- #skipnav -->
+<!-- skip nav -->
 <div id="skipnav">
-	<a href="#nav-gnb">주메뉴 바로가기</a>
-	<a href="#content">본문영역 바로가기</a>
-	<a href="#footer-sec">하단영역 바로가기</a>
+	<a href="#header" accesskey="m">상단영역 바로가기 : 엑세스키 Alt + m</a>
+	<a href="#totalSearch" accesskey="s">검색 영역 바로가기 : 엑세스키 Alt + s</a>
+	<a href="#content" accesskey="c">본문영역 바로가기 : 엑세스키 Alt + c</a>
+	<a href="#footer" accesskey="b">하단영역 바로가기 : 엑세스키 Alt + b</a>
 </div>
-<!-- //#skipnav -->
 
+<!-- //skip nav -->
+
+<!-- wrap -->
 <div id="wrap">
 	<!-- 통합헤더 설명 참고(https://redmine.tidesquare.com/issues/31266#note-5) -->
-	<!-- .commonHeaderObject : 헤더 타입 클래스 change(o-CHO- : full(기본), section(섹션), quick(퀵버전), header-sec-fixed(헤더 fixed) -->
+	<!-- .commonHeaderObject : 헤더 타입 클래스 change(o-CHO- : full(기본), section(섹션), quick(퀵버전) -->
 	<div class="commonHeaderObject">
 		<!-- .o-CHO-inner : 헤더 inner (header-sec-fixed(헤더 fixed), no-header-fixed(fixed 모드 사용안함) -->
 		<div class="o-CHO-inner">
@@ -2494,7 +2660,7 @@
 	</div>
 	<!-- //.commonHeaderObject -->
 	<script>
-		setActiveSearch(QUICK_CODE_AIR, GNB_CODE_AIR, HEADER_TYPE_SECTION);
+        setActiveSearch(QUICK_CODE_FREE, GNB_CODE_FREE, HEADER_TYPE_QUICK);
 	</script>
 	<!-- //통합헤더 -->
 	
@@ -2513,1170 +2679,69 @@
 		</div>
 	</div>
 	<!-- //#mobile-promotion-sec -->
-	
-	<!-- #content -->
-	<div id="content-sec">
-		<div class="w-content-sec">
-			<div class="s-rec-promotion-cont ly-inner">
-				<div class="srpc-prom">
-					<h2 class="c-tit-sec"><a href="http://www.priviatravel.com/promotion/promotionList?recomDivn=AIR"><span>현대카드 PRIVIA 항공 프로모션</span></a></h2>
-					<div class="srpc-left">
-						<ul class="list">
-							<li><a href="#"><img src="/images/front/travel/vis-size/vis-390x300.jpg" alt="현대카드 PRIVIA 항공 <br />프리미엄 클래스 전용센터" class="o-txt"></a></li>
-							<li><a href="#"><img src="/images/front/travel/vis-size/vis-390x300-2.jpg" alt="필리핀항공 팔라완 <br />취항 기념 특별 할인" class="o-txt"></a></li>
-						</ul>
-					</div>
-					<div class="srpc-right">
-						<!-- #31266-1 이미지 사이즈 변경 -->
-						<ul class="list">
-							<li><a href="#"><img src="/images/front/travel/vis-size/vis-780x300.jpg" alt="케세이퍼시픽항공<br />전노선할인" class="o-txt"></a></li>
-							<li><a href="#"><img src="/images/front/travel/vis-size/vis-780x300-2.jpg" alt="필리핀항공 팔라완 취항<br />기념 특별 할인" class="o-txt"></a></li>
-							<li><a href="#"><img src="/images/front/travel/vis-size/vis-780x300.jpg" alt="아시아나항공 유럽<br />주요 도시 특별 할인" class="o-txt"></a></li>
-							<li><a href="#"><img src="/images/front/travel/vis-size/vis-780x300-2.jpg" alt="에바항공 주요 도시<br />특별 할인 이벤트" class="o-txt"></a></li>
-						</ul>
-						<!-- //#31266-1 이미지 사이즈 변경 -->
-						<span class="btn-base bb-st4 bb-next"><button tyle="button"><span class="a11y">다음 보기 버튼</span></button></span>
-					</div>
-				</div>
-				<ul class="list-item-st1">
-					<li>
-						<a href="#">
-							<span class="vis"><img src="/images/front/travel/vis-size/vis-278x170-3.jpg" alt="&nbsp;"></span>
-							<span class="info-box">
-								<span class="tit"><span>롯데면세점 <br />적립금 증정 프로모션</span></span>
-								<span class="date">예약기간  :  2018. 04. 01 ~ 2018. 12. 31</span>
-							</span>
-						</a>
-					</li>
-					<li>
-						<a href="#">
-							<span class="vis"><img src="/images/front/travel/vis-size/vis-278x170-2.jpg" alt="&nbsp;"></span>
-							<span class="info-box">
-								<span class="tit"><span>롯데면세점 <br />적립금 증정 프로모션</span></span>
-								<span class="date">예약기간  :  2018. 04. 01 ~ 2018. 12. 31</span>
-							</span>
-						</a>
-					</li>
-					<li>
-						<a href="#">
-							<span class="vis"><img src="/images/front/travel/vis-size/vis-278x170-3.jpg" alt="&nbsp;"></span>
-							<span class="info-box">
-								<span class="tit"><span>롯데면세점 <br />적립금 증정 프로모션</span></span>
-								<span class="date">예약기간  :  2018. 04. 01 ~ 2018. 12. 31</span>
-							</span>
-						</a>
-					</li>
-					<li>
-						<a href="#">
-							<span class="vis"><img src="/images/front/travel/vis-size/vis-278x170-2.jpg" alt="&nbsp;"></span>
-							<span class="info-box">
-								<span class="tit"><span>롯데면세점 <br />적립금 증정 프로모션</span></span>
-								<span class="date">예약기간  :  2018. 04. 01 ~ 2018. 12. 31</span>
-							</span>
-						</a>
-					</li>
-				</ul>
-			</div> 
-			
-			<div class="s-always-banner">
-				<h2 class="a11y">상시 프로모션</h2>
-				<ul class="ab-list">
-					<li>
-						<a href="#" class="vis" style="background: url(/images/front/travel/vis-size/vis-1920x320.jpg) 50% 0 no-repeat;">
-							<span class="a11y">해외 항공권 11만원부터! 카드별 7%, 10%할인 2~3개월 무이자 할부</span>
-						</a>
-					</li>
-					<li>
-						<a href="#" class="vis" style="background: url(/images/front/travel/vis-size/vis-1920x320-2.jpg) 50% 0 no-repeat;">
-							<span class="a11y">해외 항공권 11만원부터! 카드별 7%, 10%할인 2~3개월 무이자 할부</span>
-						</a>
-					</li>
-					<li>
-						<a href="#" class="vis" style="background: url(/images/front/travel/vis-size/vis-1920x320-3.jpg) 50% 0 no-repeat;">
-							<span class="a11y">해외 항공권 11만원부터! 카드별 7%, 10%할인 2~3개월 무이자 할부</span>
-						</a>
-					</li>
-					<li>
-						<a href="#" class="vis" style="background: url(/images/front/travel/vis-size/vis-1920x320.jpg) 50% 0 no-repeat;">
-							<span class="a11y">해외 항공권 11만원부터! 카드별 7%, 10%할인 2~3개월 무이자 할부</span>
-						</a>
-					</li>
-				</ul>
-				<div class="ab-crt ly-inner">
-					<div class="c-slick-dots">
-						<span class="cs-dots-crt">
-							<button  type="button" class="b-slick-crt on"><span class="a11y txt">일시정지 버튼</span></button>
-						</span>
-					</div>
-					<span class="btn-base bb-st4 bb-next"><button tyle="button"><span class="a11y">다음 보기 버튼</span></button></span>
-				</div>
-			</div>
-			
-			<div class="s-best-promotion-cont ly-inner">
-				<h2 class="c-tit-sec"><span>현대카드 PRIVIA 항공 Special</span></h2>
-				<ul class="list-item-st1">
-					<li>
-						<a href="#">
-							<span class="vis"><img src="/images/front/travel/vis-size/vis-278x170-4.jpg" alt="&nbsp;"></span>
-							<span class="info-box">
-								<span class="logo-airline"><img src="/images/front/travel/contents/logo-air/7C.png" alt="제주항공"></span>
-								<span class="tit tit-over"><span>[KE비즈니스] 뉴욕 4박 7일 - 호텔선택 특가프로모션</span></span>
-								<span class="date">예약기간  :  2018. 04. 01 ~ 2018. 12. 31</span>
-								<!--<span class="price">최저가 <em>413,300</em> 원~</span> #31266-2 삭제 -->
-							</span>
-						</a>
-					</li>
-					<li>
-						<a href="#">
-							<span class="vis"><img src="/images/front/travel/vis-size/vis-278x170-5.jpg" alt="&nbsp;"></span>
-							<span class="info-box">
-								<span class="logo-airline"><img src="/images/front/travel/contents/logo-air/AC.png" alt="에어캐나다"></span>
-								<span class="tit tit-over"><span>[KE비즈니스] 뉴욕 4박 7일</span></span>
-								<span class="date">예약기간  :  2018. 04. 01 ~ 2018. 12. 31</span>
-								<!--<span class="price">최저가 <em>413,300</em> 원~</span> #31266-2 삭제 -->
-							</span>
-						</a>
-					</li>
-					<li>
-						<a href="#">
-							<span class="vis"><img src="/images/front/travel/vis-size/vis-278x170-6.jpg" alt="&nbsp;"></span>
-							<span class="info-box">
-								<span class="logo-airline"><img src="/images/front/travel/contents/logo-air/7C.png" alt="제주항공"></span>
-								<span class="tit tit-over"><span>[KE비즈니스] 뉴욕 4박 7일 - 호텔선택 특가프로모션 - 호텔선택 특가프로모션</span></span>
-								<span class="date">예약기간  :  2018. 04. 01 ~ 2018. 12. 31</span>
-								<!--<span class="price">최저가 <em>413,300</em> 원~</span> #31266-2 삭제 -->
-							</span>
-						</a>
-					</li>
-					<li>
-						<a href="#">
-							<span class="vis"><img src="/images/front/travel/vis-size/vis-278x170-4.jpg" alt="&nbsp;"></span>
-							<span class="info-box">
-								<span class="logo-airline"><img src="/images/front/travel/contents/logo-air/KE.png" alt="대한항공"></span>
-								<span class="tit tit-over"><span>[KE비즈니스] 뉴욕 4박 7일 - 호텔선택 특가프로모션</span></span>
-								<span class="date">예약기간  :  2018. 04. 01 ~ 2018. 12. 31</span>
-								<!--<span class="price">최저가 <em>413,300</em> 원~</span> #31266-2 삭제 -->
-							</span>
-						</a>
-					</li>
-				</ul>
-			</div>
-				
-			<div class="s-best-promotion-cont ly-inner">
-				<h2 class="c-tit-sec"><a href="http://airtel.priviatravel.com/dprs/fr/realtime/rcdCityList.lts?par_cat_id=22475"><span>자유여행 지역별 Best Deal</span></a></h2>
-				<div class="o-tab-menu">
-					<ul class="ui-tab-menu">
-						<li class="on"><span class="btn-base bbr-st3"><a href="#bestList1">전체</a></span></li>
-						<li><span class="btn-base bbr-st3"><a href="#bestList2">아시아</a></span></li>
-						<li><span class="btn-base bbr-st3"><a href="#bestList3">홍콩/중국</a></span></li>
-						<li><span class="btn-base bbr-st3"><a href="#bestList4">일본</a></span></li>
-						<li><span class="btn-base bbr-st3"><a href="#bestList5">남태평양</a></span></li>
-						<li><span class="btn-base bbr-st3"><a href="#bestList6">유럽</a></span></li>
-						<li><span class="btn-base bbr-st3"><a href="#bestList7">미주/캐나다</a></span></li>
-					</ul>
-					<ul class="list-item-st1 ui-tab-cont tab-on" id="bestList1">
-						<li>
-							<a href="#">
-								<span class="vis"><img src="/images/front/travel/vis-size/vis-278x170-3.jpg" alt="&nbsp;"></span>
-								<span class="info-box">
-									<span class="mark">
-										<span class="label-base lbr-st1"><span>뉴욕</span></span>
-									</span>
-									<span class="tit tit-over"><span>라스베가스 6일 + 시내 야경투어</span></span>
-									<span class="date">여행기간 : 4박 6일</span>
-									<span class="price">1박 <em>413,300</em> 원~</span>
-								</span>
-							</a>
-						</li>
-						<li>
-							<a href="#">
-								<span class="vis"><img src="/images/front/travel/vis-size/vis-278x170-4.jpg" alt="&nbsp;"></span>
-								<span class="info-box">
-									<span class="mark">
-										<span class="label-base lbr-st1"><span>뉴욕</span></span>
-									</span>
-									<span class="tit tit-over"><span>라스베가스 6일 + 시내 야경투어 라스베가스 6일 + 시내 야경투어</span></span>
-									<span class="date">여행기간 : 4박 6일</span>
-									<span class="price">1박 <em>413,300</em> 원~</span>
-								</span>
-							</a>
-						</li>
-						<li>
-							<a href="#">
-								<span class="vis"><img src="/images/front/travel/vis-size/vis-278x170-5.jpg" alt="&nbsp;"></span>
-								<span class="info-box">
-									<span class="mark">
-										<span class="label-base lbr-st1"><span>뉴욕</span></span>
-									</span>
-									<span class="tit tit-over"><span>삿포로[노보리베츠 마호로바 1박 + 삿포로[노보리베츠 마호로바 1박</span></span>
-									<span class="date">여행기간 : 4박 6일</span>
-									<span class="price">1박 <em>413,300</em> 원~</span>
-								</span>
-							</a>
-						</li>
-						<li>
-							<a href="#">
-								<span class="vis"><img src="/images/front/travel/vis-size/vis-278x170-6.jpg" alt="&nbsp;"></span>
-								<span class="info-box">
-									<span class="mark">
-										<span class="label-base lbr-st1"><span>뉴욕</span></span>
-									</span>
-									<span class="tit tit-over"><span>삿포로[노보리베츠 마호로바 1박 + 삿포로[노보리베츠 마호로바 1박</span></span>
-									<span class="date">여행기간 : 4박 6일</span>
-									<span class="price">1박 <em>413,300</em> 원~</span>
-								</span>
-							</a>
-						</li>
-					</ul>
-					<ul class="list-item-st1 ui-tab-cont" id="bestList2">
-						<li>
-							<a href="#">
-								<span class="vis"><img src="/images/front/travel/vis-size/vis-278x170-7.jpg" alt="&nbsp;"></span>
-								<span class="info-box">
-									<span class="mark">
-										<span class="label-base lbr-st1"><span>뉴욕</span></span>
-									</span>
-									<span class="tit tit-over"><span>라스베가스 6일 + 시내 야경투어</span></span>
-									<span class="date">여행기간 : 4박 6일</span>
-									<span class="price">1박 <em>413,300</em> 원~</span>
-								</span>
-							</a>
-						</li>
-						<li>
-							<a href="#">
-								<span class="vis"><img src="/images/front/travel/vis-size/vis-278x170-6.jpg" alt="&nbsp;"></span>
-								<span class="info-box">
-									<span class="mark">
-										<span class="label-base lbr-st1"><span>뉴욕</span></span>
-									</span>
-									<span class="tit tit-over"><span>라스베가스 6일 + 시내 야경투어</span></span>
-									<span class="date">여행기간 : 4박 6일</span>
-									<span class="price">1박 <em>413,300</em> 원~</span>
-								</span>
-							</a>
-						</li>
-						<li>
-							<a href="#">
-								<span class="vis"><img src="/images/front/travel/vis-size/vis-278x170-4.jpg" alt="&nbsp;"></span>
-								<span class="info-box">
-									<span class="mark">
-										<span class="label-base lbr-st1"><span>뉴욕</span></span>
-									</span>
-									<span class="tit tit-over"><span>삿포로[노보리베츠 마호로바 1박 + 삿포로[노보리베츠 마호로바 1박</span></span>
-									<span class="date">여행기간 : 4박 6일</span>
-									<span class="price">1박 <em>413,300</em> 원~</span>
-								</span>
-							</a>
-						</li>
-						<li>
-							<a href="#">
-								<span class="vis"><img src="/images/front/travel/vis-size/vis-278x170-3.jpg" alt="&nbsp;"></span>
-								<span class="info-box">
-									<span class="mark">
-										<span class="label-base lbr-st1"><span>뉴욕</span></span>
-									</span>
-									<span class="tit tit-over"><span>삿포로[노보리베츠 마호로바 1박 + 삿포로[노보리베츠 마호로바 1박</span></span>
-									<span class="date">여행기간 : 4박 6일</span>
-									<span class="price">1박 <em>413,300</em> 원~</span>
-								</span>
-							</a>
-						</li>
-					</ul>
-					<ul class="list-item-st1 ui-tab-cont" id="bestList3">
-						<li>
-							<a href="#">
-								<span class="vis"><img src="/images/front/travel/vis-size/vis-278x170-4.jpg" alt="&nbsp;"></span>
-								<span class="info-box">
-									<span class="mark">
-										<span class="label-base lbr-st1"><span>뉴욕</span></span>
-									</span>
-									<span class="tit tit-over"><span>라스베가스 6일 + 시내 야경투어</span></span>
-									<span class="date">여행기간 : 4박 6일</span>
-									<span class="price">1박 <em>413,300</em> 원~</span>
-								</span>
-							</a>
-						</li>
-						<li>
-							<a href="#">
-								<span class="vis"><img src="/images/front/travel/vis-size/vis-278x170-5.jpg" alt="&nbsp;"></span>
-								<span class="info-box">
-									<span class="mark">
-										<span class="label-base lbr-st1"><span>뉴욕</span></span>
-									</span>
-									<span class="tit tit-over"><span>라스베가스 6일 + 시내 야경투어</span></span>
-									<span class="date">여행기간 : 4박 6일</span>
-									<span class="price">1박 <em>413,300</em> 원~</span>
-								</span>
-							</a>
-						</li>
-						<li>
-							<a href="#">
-								<span class="vis"><img src="/images/front/travel/vis-size/vis-278x170-6.jpg" alt="&nbsp;"></span>
-								<span class="info-box">
-									<span class="mark">
-										<span class="label-base lbr-st1"><span>뉴욕</span></span>
-									</span>
-									<span class="tit tit-over"><span>삿포로[노보리베츠 마호로바 1박 + 삿포로[노보리베츠 마호로바 1박</span></span>
-									<span class="date">여행기간 : 4박 6일</span>
-									<span class="price">1박 <em>413,300</em> 원~</span>
-								</span>
-							</a>
-						</li>
-						<li>
-							<a href="#">
-								<span class="vis"><img src="/images/front/travel/vis-size/vis-278x170-7.jpg" alt="&nbsp;"></span>
-								<span class="info-box">
-									<span class="mark">
-										<span class="label-base lbr-st1"><span>뉴욕</span></span>
-									</span>
-									<span class="tit tit-over"><span>삿포로[노보리베츠 마호로바 1박 + 삿포로[노보리베츠 마호로바 1박</span></span>
-									<span class="date">여행기간 : 4박 6일</span>
-									<span class="price">1박 <em>413,300</em> 원~</span>
-								</span>
-							</a>
-						</li>
-					</ul>
-					<ul class="list-item-st1 ui-tab-cont" id="bestList4">
-						<li>
-							<a href="#">
-								<span class="vis"><img src="/images/front/travel/vis-size/vis-278x170-4.jpg" alt="&nbsp;"></span>
-								<span class="info-box">
-									<span class="mark">
-										<span class="label-base lbr-st1"><span>뉴욕</span></span>
-									</span>
-									<span class="tit tit-over"><span>라스베가스 6일 + 시내 야경투어</span></span>
-									<span class="date">여행기간 : 4박 6일</span>
-									<span class="price">1박 <em>413,300</em> 원~</span>
-								</span>
-							</a>
-						</li>
-						<li>
-							<a href="#">
-								<span class="vis"><img src="/images/front/travel/vis-size/vis-278x170-3.jpg" alt="&nbsp;"></span>
-								<span class="info-box">
-									<span class="mark">
-										<span class="label-base lbr-st1"><span>뉴욕</span></span>
-									</span>
-									<span class="tit tit-over"><span>라스베가스 6일 + 시내 야경투어</span></span>
-									<span class="date">여행기간 : 4박 6일</span>
-									<span class="price">1박 <em>413,300</em> 원~</span>
-								</span>
-							</a>
-						</li>
-						<li>
-							<a href="#">
-								<span class="vis"><img src="/images/front/travel/vis-size/vis-278x170-2.jpg" alt="&nbsp;"></span>
-								<span class="info-box">
-									<span class="mark">
-										<span class="label-base lbr-st1"><span>뉴욕</span></span>
-									</span>
-									<span class="tit tit-over"><span>삿포로[노보리베츠 마호로바 1박 + 삿포로[노보리베츠 마호로바 1박</span></span>
-									<span class="date">여행기간 : 4박 6일</span>
-									<span class="price">1박 <em>413,300</em> 원~</span>
-								</span>
-							</a>
-						</li>
-						<li>
-							<a href="#">
-								<span class="vis"><img src="/images/front/travel/vis-size/vis-278x170-5.jpg" alt="&nbsp;"></span>
-								<span class="info-box">
-									<span class="mark">
-										<span class="label-base lbr-st1"><span>뉴욕</span></span>
-									</span>
-									<span class="tit tit-over"><span>삿포로[노보리베츠 마호로바 1박 + 삿포로[노보리베츠 마호로바 1박</span></span>
-									<span class="date">여행기간 : 4박 6일</span>
-									<span class="price">1박 <em>413,300</em> 원~</span>
-								</span>
-							</a>
-						</li>
-					</ul>
-					<ul class="list-item-st1 ui-tab-cont" id="bestList5">
-						<li>
-							<a href="#">
-								<span class="vis"><img src="/images/front/travel/vis-size/vis-278x170-6.jpg" alt="&nbsp;"></span>
-								<span class="info-box">
-									<span class="mark">
-										<span class="label-base lbr-st1"><span>뉴욕</span></span>
-									</span>
-									<span class="tit tit-over"><span>라스베가스 6일 + 시내 야경투어</span></span>
-									<span class="date">여행기간 : 4박 6일</span>
-									<span class="price">1박 <em>413,300</em> 원~</span>
-								</span>
-							</a>
-						</li>
-						<li>
-							<a href="#">
-								<span class="vis"><img src="/images/front/travel/vis-size/vis-278x170-7.jpg" alt="&nbsp;"></span>
-								<span class="info-box">
-									<span class="mark">
-										<span class="label-base lbr-st1"><span>뉴욕</span></span>
-									</span>
-									<span class="tit tit-over"><span>라스베가스 6일 + 시내 야경투어</span></span>
-									<span class="date">여행기간 : 4박 6일</span>
-									<span class="price">1박 <em>413,300</em> 원~</span>
-								</span>
-							</a>
-						</li>
-						<li>
-							<a href="#">
-								<span class="vis"><img src="/images/front/travel/vis-size/vis-278x170-4.jpg" alt="&nbsp;"></span>
-								<span class="info-box">
-									<span class="mark">
-										<span class="label-base lbr-st1"><span>뉴욕</span></span>
-									</span>
-									<span class="tit tit-over"><span>삿포로[노보리베츠 마호로바 1박 + 삿포로[노보리베츠 마호로바 1박</span></span>
-									<span class="date">여행기간 : 4박 6일</span>
-									<span class="price">1박 <em>413,300</em> 원~</span>
-								</span>
-							</a>
-						</li>
-						<li>
-							<a href="#">
-								<span class="vis"><img src="/images/front/travel/vis-size/vis-278x170-3.jpg" alt="&nbsp;"></span>
-								<span class="info-box">
-									<span class="mark">
-										<span class="label-base lbr-st1"><span>뉴욕</span></span>
-									</span>
-									<span class="tit tit-over"><span>삿포로[노보리베츠 마호로바 1박 + 삿포로[노보리베츠 마호로바 1박</span></span>
-									<span class="date">여행기간 : 4박 6일</span>
-									<span class="price">1박 <em>413,300</em> 원~</span>
-								</span>
-							</a>
-						</li>
-					</ul>
-					<ul class="list-item-st1 ui-tab-cont" id="bestList6">
-						<li>
-							<a href="#">
-								<span class="vis"><img src="/images/front/travel/vis-size/vis-278x170-2.jpg" alt="&nbsp;"></span>
-								<span class="info-box">
-									<span class="mark">
-										<span class="label-base lbr-st1"><span>뉴욕</span></span>
-									</span>
-									<span class="tit tit-over"><span>라스베가스 6일 + 시내 야경투어</span></span>
-									<span class="date">여행기간 : 4박 6일</span>
-									<span class="price">1박 <em>413,300</em> 원~</span>
-								</span>
-							</a>
-						</li>
-						<li>
-							<a href="#">
-								<span class="vis"><img src="/images/front/travel/vis-size/vis-278x170-6.jpg" alt="&nbsp;"></span>
-								<span class="info-box">
-									<span class="mark">
-										<span class="label-base lbr-st1"><span>뉴욕</span></span>
-									</span>
-									<span class="tit tit-over"><span>라스베가스 6일 + 시내 야경투어</span></span>
-									<span class="date">여행기간 : 4박 6일</span>
-									<span class="price">1박 <em>413,300</em> 원~</span>
-								</span>
-							</a>
-						</li>
-						<li>
-							<a href="#">
-								<span class="vis"><img src="/images/front/travel/vis-size/vis-278x170-4.jpg" alt="&nbsp;"></span>
-								<span class="info-box">
-									<span class="mark">
-										<span class="label-base lbr-st1"><span>뉴욕</span></span>
-									</span>
-									<span class="tit tit-over"><span>삿포로[노보리베츠 마호로바 1박 + 삿포로[노보리베츠 마호로바 1박</span></span>
-									<span class="date">여행기간 : 4박 6일</span>
-									<span class="price">1박 <em>413,300</em> 원~</span>
-								</span>
-							</a>
-						</li>
-						<li>
-							<a href="#">
-								<span class="vis"><img src="/images/front/travel/vis-size/vis-278x170-3.jpg" alt="&nbsp;"></span>
-								<span class="info-box">
-									<span class="mark">
-										<span class="label-base lbr-st1"><span>뉴욕</span></span>
-									</span>
-									<span class="tit tit-over"><span>삿포로[노보리베츠 마호로바 1박 + 삿포로[노보리베츠 마호로바 1박</span></span>
-									<span class="date">여행기간 : 4박 6일</span>
-									<span class="price">1박 <em>413,300</em> 원~</span>
-								</span>
-							</a>
-						</li>
-					</ul>
-					<ul class="list-item-st1 ui-tab-cont" id="bestList7">
-						<li>
-							<a href="#">
-								<span class="vis"><img src="/images/front/travel/vis-size/vis-278x170-2.jpg" alt="&nbsp;"></span>
-								<span class="info-box">
-									<span class="mark">
-										<span class="label-base lbr-st1"><span>뉴욕</span></span>
-									</span>
-									<span class="tit tit-over"><span>라스베가스 6일 + 시내 야경투어</span></span>
-									<span class="date">여행기간 : 4박 6일</span>
-									<span class="price">1박 <em>413,300</em> 원~</span>
-								</span>
-							</a>
-						</li>
-						<li>
-							<a href="#">
-								<span class="vis"><img src="/images/front/travel/vis-size/vis-278x170-7.jpg" alt="&nbsp;"></span>
-								<span class="info-box">
-									<span class="mark">
-										<span class="label-base lbr-st1"><span>뉴욕</span></span>
-									</span>
-									<span class="tit tit-over"><span>라스베가스 6일 + 시내 야경투어</span></span>
-									<span class="date">여행기간 : 4박 6일</span>
-									<span class="price">1박 <em>413,300</em> 원~</span>
-								</span>
-							</a>
-						</li>
-						<li>
-							<a href="#">
-								<span class="vis"><img src="/images/front/travel/vis-size/vis-278x170-5.jpg" alt="&nbsp;"></span>
-								<span class="info-box">
-									<span class="mark">
-										<span class="label-base lbr-st1"><span>뉴욕</span></span>
-									</span>
-									<span class="tit tit-over"><span>삿포로[노보리베츠 마호로바 1박 + 삿포로[노보리베츠 마호로바 1박</span></span>
-									<span class="date">여행기간 : 4박 6일</span>
-									<span class="price">1박 <em>413,300</em> 원~</span>
-								</span>
-							</a>
-						</li>
-						<li>
-							<a href="#">
-								<span class="vis"><img src="/images/front/travel/vis-size/vis-278x170-6.jpg" alt="&nbsp;"></span>
-								<span class="info-box">
-									<span class="mark">
-										<span class="label-base lbr-st1"><span>뉴욕</span></span>
-									</span>
-									<span class="tit tit-over"><span>삿포로[노보리베츠 마호로바 1박 + 삿포로[노보리베츠 마호로바 1박</span></span>
-									<span class="date">여행기간 : 4박 6일</span>
-									<span class="price">1박 <em>413,300</em> 원~</span>
-								</span>
-							</a>
-						</li>
-					</ul>
-				</div>
-			</div>
-			
-			<div class="s-rec-area-cont rac-hotel ly-inner">
-				<h2 class="c-tit-sec"><a href="http://hotel.priviatravel.com/htl/bk/HtlSearchPromo.lts?phc_pmh_id=P0613HTL0208&template_divn"><span>인기지역 추천호텔</span></a></h2>
-				<div class="o-tab-menu">
-					<ul class="ui-tab-menu">
-						<li class="on"><span class="btn-base bbr-st3"><a href="#recAreaList1">전체</a></span></li>
-						<li><span class="btn-base bbr-st3"><a href="#recAreaList2">아시아</a></span></li>
-						<li><span class="btn-base bbr-st3"><a href="#recAreaList3">홍콩/중국</a></span></li>
-						<li><span class="btn-base bbr-st3"><a href="#recAreaList4">일본</a></span></li>
-						<li><span class="btn-base bbr-st3"><a href="#recAreaList5">남태평양</a></span></li>
-						<li><span class="btn-base bbr-st3"><a href="#recAreaList6">유럽</a></span></li>
-						<li><span class="btn-base bbr-st3"><a href="#recAreaList7">미주/캐나다</a></span></li>
-					</ul>
-					<ul class="list-item-st2 ui-tab-cont tab-on" id="recAreaList1">
-						<li><a href="#" style="background: url(/images/front/travel/vis-size/vis-380x450.jpg) 50% 50% no-repeat;">
-							<span class="inner">
-								<span class="label-base lbr-st2"><span>방콕</span></span>
-								<span class="tit">르메르디앙 에투알</span>
-								<span class="tit-ori">Le Meridien Etoile</span>
-							</span>
-							<span class="over">
-								<span class="over-inner">
-									<span class="tit">로열 퍼시픽 포텔 앤드 타워</span>
-									<span class="price">1박 <em>413,300</em> 원~</span>
-								</span>
-							</span>
-						</a></li>
-						<li><a href="#" style="background: url(/images/front/travel/vis-size/vis-380x210.jpg) 50% 50% no-repeat;">
-							<span class="inner">
-								<span class="label-base lbr-st2"><span>푸켓</span></span>
-								<span class="tit">호텔 방케</span>
-								<span class="tit-ori">Hotel Banke</span>
-							</span>
-							<span class="over">
-								<span class="over-inner">
-									<span class="tit">호텔 방케</span>
-									<span class="price">1박 <em>413,300</em> 원~</span>
-								</span>
-							</span>
-						</a></li>
-						<li><a href="#" style="background: url(/images/front/travel/vis-size/vis-380x210-2.jpg) 50% 50% no-repeat;">
-							<span class="inner">
-								<span class="label-base lbr-st2"><span>코타키나발루</span></span>
-								<span class="tit">하얏트 리젠시 파리 에투알</span>
-								<span class="tit-ori">Hyatt Regency Paris Etoile</span>
-							</span>
-							<span class="over">
-								<span class="over-inner">
-									<span class="tit">하얏트 리젠시 파리 에투알</span>
-									<span class="price">1박 <em>413,300</em> 원~</span>
-								</span>
-							</span>
-						</a></li>
-						<li><a href="#" style="background: url(/images/front/travel/vis-size/vis-380x210-2.jpg) 50% 50% no-repeat;">
-							<span class="inner">
-								<span class="label-base lbr-st2"><span>방콕</span></span>
-								<span class="tit">로열 퍼시픽 호텔 앤드 타워</span>
-								<span class="tit-ori">Le Meridien Etoile</span>
-							</span>
-							<span class="over">
-								<span class="over-inner">
-									<span class="tit">로열 퍼시픽 포텔 앤드 타워</span>
-									<span class="price">1박 <em>413,300</em> 원~</span>
-								</span>
-							</span>
-						</a></li>
-						<li><a href="#" style="background: url(/images/front/travel/vis-size/vis-380x210-3.jpg) 50% 50% no-repeat;">
-							<span class="inner">
-								<span class="label-base lbr-st2"><span>파리</span></span>
-								<span class="tit">풀먼 파리 타워 에펠</span>
-								<span class="tit-ori">Pullman Paris Tour Eiffel</span>
-							</span>
-							<span class="over">
-								<span class="over-inner">
-									<span class="tit">풀먼 파리 타워 에펠</span>
-									<span class="price">1박 <em>413,300</em> 원~</span>
-								</span>
-							</span>
-						</a></li>
-					</ul>
-					<ul class="list-item-st2 ui-tab-cont" id="recAreaList2">
-						<li><a href="#" style="background: url(/images/front/travel/vis-size/vis-380x450.jpg) 50% 50% no-repeat;">
-							<span class="inner">
-								<span class="label-base lbr-st2"><span>방콕</span></span>
-								<span class="tit">르메르디앙 에투알</span>
-								<span class="tit-ori">Le Meridien Etoile</span>
-							</span>
-							<span class="over">
-								<span class="over-inner">
-									<span class="tit">로열 퍼시픽 포텔 앤드 타워</span>
-									<span class="price">1박 <em>413,300</em> 원~</span>
-								</span>
-							</span>
-						</a></li>
-						<li><a href="#" style="background: url(/images/front/travel/vis-size/vis-380x210-2.jpg) 50% 50% no-repeat;">
-							<span class="inner">
-								<span class="label-base lbr-st2"><span>푸켓</span></span>
-								<span class="tit">호텔 방케</span>
-								<span class="tit-ori">Hotel Banke</span>
-							</span>
-							<span class="over">
-								<span class="over-inner">
-									<span class="tit">호텔 방케</span>
-									<span class="price">1박 <em>413,300</em> 원~</span>
-								</span>
-							</span>
-						</a></li>
-						<li><a href="#" style="background: url(/images/front/travel/vis-size/vis-380x210-3.jpg) 50% 50% no-repeat;">
-							<span class="inner">
-								<span class="label-base lbr-st2"><span>코타키나발루</span></span>
-								<span class="tit">하얏트 리젠시 파리 에투알</span>
-								<span class="tit-ori">Hyatt Regency Paris Etoile</span>
-							</span>
-							<span class="over">
-								<span class="over-inner">
-									<span class="tit">하얏트 리젠시 파리 에투알</span>
-									<span class="price">1박 <em>413,300</em> 원~</span>
-								</span>
-							</span>
-						</a></li>
-						<li><a href="#" style="background: url(/images/front/travel/vis-size/vis-380x210-3.jpg) 50% 50% no-repeat;">
-							<span class="inner">
-								<span class="label-base lbr-st2"><span>방콕</span></span>
-								<span class="tit">로열 퍼시픽 호텔 앤드 타워</span>
-								<span class="tit-ori">Le Meridien Etoile</span>
-							</span>
-							<span class="over">
-								<span class="over-inner">
-									<span class="tit">로열 퍼시픽 포텔 앤드 타워</span>
-									<span class="price">1박 <em>413,300</em> 원~</span>
-								</span>
-							</span>
-						</a></li>
-						<li><a href="#" style="background: url(/images/front/travel/vis-size/vis-380x210.jpg) 50% 50% no-repeat;">
-							<span class="inner">
-								<span class="label-base lbr-st2"><span>파리</span></span>
-								<span class="tit">풀먼 파리 타워 에펠</span>
-								<span class="tit-ori">Pullman Paris Tour Eiffel</span>
-							</span>
-							<span class="over">
-								<span class="over-inner">
-									<span class="tit">풀먼 파리 타워 에펠</span>
-									<span class="price">1박 <em>413,300</em> 원~</span>
-								</span>
-							</span>
-						</a></li>
-					</ul>
-					<ul class="list-item-st2 ui-tab-cont" id="recAreaList3">
-						<li><a href="#" style="background: url(/images/front/travel/vis-size/vis-380x450.jpg) 50% 50% no-repeat;">
-							<span class="inner">
-								<span class="label-base lbr-st2"><span>방콕</span></span>
-								<span class="tit">르메르디앙 에투알</span>
-								<span class="tit-ori">Le Meridien Etoile</span>
-							</span>
-							<span class="over">
-								<span class="over-inner">
-									<span class="tit">로열 퍼시픽 포텔 앤드 타워</span>
-									<span class="price">1박 <em>413,300</em> 원~</span>
-								</span>
-							</span>
-						</a></li>
-						<li><a href="#" style="background: url(/images/front/travel/vis-size/vis-380x210.jpg) 50% 50% no-repeat;">
-							<span class="inner">
-								<span class="label-base lbr-st2"><span>푸켓</span></span>
-								<span class="tit">호텔 방케</span>
-								<span class="tit-ori">Hotel Banke</span>
-							</span>
-							<span class="over">
-								<span class="over-inner">
-									<span class="tit">호텔 방케</span>
-									<span class="price">1박 <em>413,300</em> 원~</span>
-								</span>
-							</span>
-						</a></li>
-						<li><a href="#" style="background: url(/images/front/travel/vis-size/vis-380x210-2.jpg) 50% 50% no-repeat;">
-							<span class="inner">
-								<span class="label-base lbr-st2"><span>코타키나발루</span></span>
-								<span class="tit">하얏트 리젠시 파리 에투알</span>
-								<span class="tit-ori">Hyatt Regency Paris Etoile</span>
-							</span>
-							<span class="over">
-								<span class="over-inner">
-									<span class="tit">하얏트 리젠시 파리 에투알</span>
-									<span class="price">1박 <em>413,300</em> 원~</span>
-								</span>
-							</span>
-						</a></li>
-						<li><a href="#" style="background: url(/images/front/travel/vis-size/vis-380x210-2.jpg) 50% 50% no-repeat;">
-							<span class="inner">
-								<span class="label-base lbr-st2"><span>방콕</span></span>
-								<span class="tit">로열 퍼시픽 호텔 앤드 타워</span>
-								<span class="tit-ori">Le Meridien Etoile</span>
-							</span>
-							<span class="over">
-								<span class="over-inner">
-									<span class="tit">로열 퍼시픽 포텔 앤드 타워</span>
-									<span class="price">1박 <em>413,300</em> 원~</span>
-								</span>
-							</span>
-						</a></li>
-						<li><a href="#" style="background: url(/images/front/travel/vis-size/vis-380x210-3.jpg) 50% 50% no-repeat;">
-							<span class="inner">
-								<span class="label-base lbr-st2"><span>파리</span></span>
-								<span class="tit">풀먼 파리 타워 에펠</span>
-								<span class="tit-ori">Pullman Paris Tour Eiffel</span>
-							</span>
-							<span class="over">
-								<span class="over-inner">
-									<span class="tit">풀먼 파리 타워 에펠</span>
-									<span class="price">1박 <em>413,300</em> 원~</span>
-								</span>
-							</span>
-						</a></li>
-					</ul>
-					<ul class="list-item-st2 ui-tab-cont" id="recAreaList4">
-						<li><a href="#" style="background: url(/images/front/travel/vis-size/vis-380x450.jpg) 50% 50% no-repeat;">
-							<span class="inner">
-								<span class="label-base lbr-st2"><span>방콕</span></span>
-								<span class="tit">르메르디앙 에투알</span>
-								<span class="tit-ori">Le Meridien Etoile</span>
-							</span>
-							<span class="over">
-								<span class="over-inner">
-									<span class="tit">로열 퍼시픽 포텔 앤드 타워</span>
-									<span class="price">1박 <em>413,300</em> 원~</span>
-								</span>
-							</span>
-						</a></li>
-						<li><a href="#" style="background: url(/images/front/travel/vis-size/vis-380x210-2.jpg) 50% 50% no-repeat;">
-							<span class="inner">
-								<span class="label-base lbr-st2"><span>푸켓</span></span>
-								<span class="tit">호텔 방케</span>
-								<span class="tit-ori">Hotel Banke</span>
-							</span>
-							<span class="over">
-								<span class="over-inner">
-									<span class="tit">호텔 방케</span>
-									<span class="price">1박 <em>413,300</em> 원~</span>
-								</span>
-							</span>
-						</a></li>
-						<li><a href="#" style="background: url(/images/front/travel/vis-size/vis-380x210-3.jpg) 50% 50% no-repeat;">
-							<span class="inner">
-								<span class="label-base lbr-st2"><span>코타키나발루</span></span>
-								<span class="tit">하얏트 리젠시 파리 에투알</span>
-								<span class="tit-ori">Hyatt Regency Paris Etoile</span>
-							</span>
-							<span class="over">
-								<span class="over-inner">
-									<span class="tit">하얏트 리젠시 파리 에투알</span>
-									<span class="price">1박 <em>413,300</em> 원~</span>
-								</span>
-							</span>
-						</a></li>
-						<li><a href="#" style="background: url(/images/front/travel/vis-size/vis-380x210-3.jpg) 50% 50% no-repeat;">
-							<span class="inner">
-								<span class="label-base lbr-st2"><span>방콕</span></span>
-								<span class="tit">로열 퍼시픽 호텔 앤드 타워</span>
-								<span class="tit-ori">Le Meridien Etoile</span>
-							</span>
-							<span class="over">
-								<span class="over-inner">
-									<span class="tit">로열 퍼시픽 포텔 앤드 타워</span>
-									<span class="price">1박 <em>413,300</em> 원~</span>
-								</span>
-							</span>
-						</a></li>
-						<li><a href="#" style="background: url(/images/front/travel/vis-size/vis-380x210.jpg) 50% 50% no-repeat;">
-							<span class="inner">
-								<span class="label-base lbr-st2"><span>파리</span></span>
-								<span class="tit">풀먼 파리 타워 에펠</span>
-								<span class="tit-ori">Pullman Paris Tour Eiffel</span>
-							</span>
-							<span class="over">
-								<span class="over-inner">
-									<span class="tit">풀먼 파리 타워 에펠</span>
-									<span class="price">1박 <em>413,300</em> 원~</span>
-								</span>
-							</span>
-						</a></li>
-					</ul>
-					<ul class="list-item-st2 ui-tab-cont" id="recAreaList5">
-						<li><a href="#" style="background: url(/images/front/travel/vis-size/vis-380x450.jpg) 50% 50% no-repeat;">
-							<span class="inner">
-								<span class="label-base lbr-st2"><span>방콕</span></span>
-								<span class="tit">르메르디앙 에투알</span>
-								<span class="tit-ori">Le Meridien Etoile</span>
-							</span>
-							<span class="over">
-								<span class="over-inner">
-									<span class="tit">로열 퍼시픽 포텔 앤드 타워</span>
-									<span class="price">1박 <em>413,300</em> 원~</span>
-								</span>
-							</span>
-						</a></li>
-						<li><a href="#" style="background: url(/images/front/travel/vis-size/vis-380x210.jpg) 50% 50% no-repeat;">
-							<span class="inner">
-								<span class="label-base lbr-st2"><span>푸켓</span></span>
-								<span class="tit">호텔 방케</span>
-								<span class="tit-ori">Hotel Banke</span>
-							</span>
-							<span class="over">
-								<span class="over-inner">
-									<span class="tit">호텔 방케</span>
-									<span class="price">1박 <em>413,300</em> 원~</span>
-								</span>
-							</span>
-						</a></li>
-						<li><a href="#" style="background: url(/images/front/travel/vis-size/vis-380x210-2.jpg) 50% 50% no-repeat;">
-							<span class="inner">
-								<span class="label-base lbr-st2"><span>코타키나발루</span></span>
-								<span class="tit">하얏트 리젠시 파리 에투알</span>
-								<span class="tit-ori">Hyatt Regency Paris Etoile</span>
-							</span>
-							<span class="over">
-								<span class="over-inner">
-									<span class="tit">하얏트 리젠시 파리 에투알</span>
-									<span class="price">1박 <em>413,300</em> 원~</span>
-								</span>
-							</span>
-						</a></li>
-						<li><a href="#" style="background: url(/images/front/travel/vis-size/vis-380x210-2.jpg) 50% 50% no-repeat;">
-							<span class="inner">
-								<span class="label-base lbr-st2"><span>방콕</span></span>
-								<span class="tit">로열 퍼시픽 호텔 앤드 타워</span>
-								<span class="tit-ori">Le Meridien Etoile</span>
-							</span>
-							<span class="over">
-								<span class="over-inner">
-									<span class="tit">로열 퍼시픽 포텔 앤드 타워</span>
-									<span class="price">1박 <em>413,300</em> 원~</span>
-								</span>
-							</span>
-						</a></li>
-						<li><a href="#" style="background: url(/images/front/travel/vis-size/vis-380x210-3.jpg) 50% 50% no-repeat;">
-							<span class="inner">
-								<span class="label-base lbr-st2"><span>파리</span></span>
-								<span class="tit">풀먼 파리 타워 에펠</span>
-								<span class="tit-ori">Pullman Paris Tour Eiffel</span>
-							</span>
-							<span class="over">
-								<span class="over-inner">
-									<span class="tit">풀먼 파리 타워 에펠</span>
-									<span class="price">1박 <em>413,300</em> 원~</span>
-								</span>
-							</span>
-						</a></li>
-					</ul>
-					<ul class="list-item-st2 ui-tab-cont" id="recAreaList6">
-						<li><a href="#" style="background: url(/images/front/travel/vis-size/vis-380x450.jpg) 50% 50% no-repeat;">
-							<span class="inner">
-								<span class="label-base lbr-st2"><span>방콕</span></span>
-								<span class="tit">르메르디앙 에투알</span>
-								<span class="tit-ori">Le Meridien Etoile</span>
-							</span>
-							<span class="over">
-								<span class="over-inner">
-									<span class="tit">로열 퍼시픽 포텔 앤드 타워</span>
-									<span class="price">1박 <em>413,300</em> 원~</span>
-								</span>
-							</span>
-						</a></li>
-						<li><a href="#" style="background: url(/images/front/travel/vis-size/vis-380x210-2.jpg) 50% 50% no-repeat;">
-							<span class="inner">
-								<span class="label-base lbr-st2"><span>푸켓</span></span>
-								<span class="tit">호텔 방케</span>
-								<span class="tit-ori">Hotel Banke</span>
-							</span>
-							<span class="over">
-								<span class="over-inner">
-									<span class="tit">호텔 방케</span>
-									<span class="price">1박 <em>413,300</em> 원~</span>
-								</span>
-							</span>
-						</a></li>
-						<li><a href="#" style="background: url(/images/front/travel/vis-size/vis-380x210.jpg) 50% 50% no-repeat;">
-							<span class="inner">
-								<span class="label-base lbr-st2"><span>코타키나발루</span></span>
-								<span class="tit">하얏트 리젠시 파리 에투알</span>
-								<span class="tit-ori">Hyatt Regency Paris Etoile</span>
-							</span>
-							<span class="over">
-								<span class="over-inner">
-									<span class="tit">하얏트 리젠시 파리 에투알</span>
-									<span class="price">1박 <em>413,300</em> 원~</span>
-								</span>
-							</span>
-						</a></li>
-						<li><a href="#" style="background: url(/images/front/travel/vis-size/vis-380x210.jpg) 50% 50% no-repeat;">
-							<span class="inner">
-								<span class="label-base lbr-st2"><span>방콕</span></span>
-								<span class="tit">로열 퍼시픽 호텔 앤드 타워</span>
-								<span class="tit-ori">Le Meridien Etoile</span>
-							</span>
-							<span class="over">
-								<span class="over-inner">
-									<span class="tit">로열 퍼시픽 포텔 앤드 타워</span>
-									<span class="price">1박 <em>413,300</em> 원~</span>
-								</span>
-							</span>
-						</a></li>
-						<li><a href="#" style="background: url(/images/front/travel/vis-size/vis-380x210-3.jpg) 50% 50% no-repeat;">
-							<span class="inner">
-								<span class="label-base lbr-st2"><span>파리</span></span>
-								<span class="tit">풀먼 파리 타워 에펠</span>
-								<span class="tit-ori">Pullman Paris Tour Eiffel</span>
-							</span>
-							<span class="over">
-								<span class="over-inner">
-									<span class="tit">풀먼 파리 타워 에펠</span>
-									<span class="price">1박 <em>413,300</em> 원~</span>
-								</span>
-							</span>
-						</a></li>
-					</ul>
-					<ul class="list-item-st2 ui-tab-cont" id="recAreaList7">
-						<li><a href="#" style="background: url(/images/front/travel/vis-size/vis-380x450.jpg) 50% 50% no-repeat;">
-							<span class="inner">
-								<span class="label-base lbr-st2"><span>방콕</span></span>
-								<span class="tit">르메르디앙 에투알</span>
-								<span class="tit-ori">Le Meridien Etoile</span>
-							</span>
-							<span class="over">
-								<span class="over-inner">
-									<span class="tit">로열 퍼시픽 포텔 앤드 타워</span>
-									<span class="price">1박 <em>413,300</em> 원~</span>
-								</span>
-							</span>
-						</a></li>
-						<li><a href="#" style="background: url(/images/front/travel/vis-size/vis-380x210-3.jpg) 50% 50% no-repeat;">
-							<span class="inner">
-								<span class="label-base lbr-st2"><span>푸켓</span></span>
-								<span class="tit">호텔 방케</span>
-								<span class="tit-ori">Hotel Banke</span>
-							</span>
-							<span class="over">
-								<span class="over-inner">
-									<span class="tit">호텔 방케</span>
-									<span class="price">1박 <em>413,300</em> 원~</span>
-								</span>
-							</span>
-						</a></li>
-						<li><a href="#" style="background: url(/images/front/travel/vis-size/vis-380x210-2.jpg) 50% 50% no-repeat;">
-							<span class="inner">
-								<span class="label-base lbr-st2"><span>코타키나발루</span></span>
-								<span class="tit">하얏트 리젠시 파리 에투알</span>
-								<span class="tit-ori">Hyatt Regency Paris Etoile</span>
-							</span>
-							<span class="over">
-								<span class="over-inner">
-									<span class="tit">하얏트 리젠시 파리 에투알</span>
-									<span class="price">1박 <em>413,300</em> 원~</span>
-								</span>
-							</span>
-						</a></li>
-						<li><a href="#" style="background: url(/images/front/travel/vis-size/vis-380x210-2.jpg) 50% 50% no-repeat;">
-							<span class="inner">
-								<span class="label-base lbr-st2"><span>방콕</span></span>
-								<span class="tit">로열 퍼시픽 호텔 앤드 타워</span>
-								<span class="tit-ori">Le Meridien Etoile</span>
-							</span>
-							<span class="over">
-								<span class="over-inner">
-									<span class="tit">로열 퍼시픽 포텔 앤드 타워</span>
-									<span class="price">1박 <em>413,300</em> 원~</span>
-								</span>
-							</span>
-						</a></li>
-						<li><a href="#" style="background: url(/images/front/travel/vis-size/vis-380x210.jpg) 50% 50% no-repeat;">
-							<span class="inner">
-								<span class="label-base lbr-st2"><span>파리</span></span>
-								<span class="tit">풀먼 파리 타워 에펠</span>
-								<span class="tit-ori">Pullman Paris Tour Eiffel</span>
-							</span>
-							<span class="over">
-								<span class="over-inner">
-									<span class="tit">풀먼 파리 타워 에펠</span>
-									<span class="price">1박 <em>413,300</em> 원~</span>
-								</span>
-							</span>
-						</a></li>
-					</ul>
-				</div>
-			</div>
-			
-			<div class="s-benefit-cont ly-inner">
-				<h2 class="a11y">PRIVIA 혜택</h2>
-				<ul class="list-benefit">
-					<li>
-						<a href="#">
-							<span class="ico-bfit">
-								<span class="out"><img src="/images/front/travel/contents/icon-benefit01.png" alt="&nbsp;"></span>
-								<span class="over"><img src="/images/front/travel/contents/icon-benefit01-over.png" alt="&nbsp;"></span>
-							</span>
-							<span class="inner"><span class="txt">항공 할인 헤택<br />확인 서비스</span></span>
-						</a>
-					</li>
-					<li>
-						<a href="#">
-							<span class="ico-bfit">
-								<span class="out"><img src="/images/front/travel/contents/icon-benefit02.png" alt="&nbsp;"></span>
-								<span class="over"><img src="/images/front/travel/contents/icon-benefit02-over.png" alt="&nbsp;"></span>
-							</span>
-							<span class="inner"><span class="txt">프리미엄 클래스<br />전용 혜택</span></span>
-						</a>
-					</li>
-					<li>
-						<a href="#">
-							<span class="ico-bfit">
-								<span class="out"><img src="/images/front/travel/contents/icon-benefit03.png" alt="&nbsp;"></span>
-								<span class="over"><img src="/images/front/travel/contents/icon-benefit03-over.png" alt="&nbsp;"></span>
-							</span>
-							<span class="inner"><span class="txt">온라인 ONE-STOP<br />다구간 항공권 예약 서비스</span></span>
-						</a>
-					</li>
-					<li> 
-						<a href="#">
-							<span class="ico-bfit">
-								<span class="out"><img src="/images/front/travel/contents/icon-benefit04.png" alt="&nbsp;"></span>
-								<span class="over"><img src="/images/front/travel/contents/icon-benefit04-over.png" alt="&nbsp;"></span>
-							</span>
-							<span class="inner"><span class="txt">1:1 상담문의</span></span>
-						</a>
-					</li>
-				</ul>
-			</div>
+
+	<!-- content -->
+	<div id="content">
+		<div class="p-detail-title">
+			<div class="vgood clearfix">
+			<!-- 기타 제휴사 클래스명
+			<div class="modoo clearfix">
+			<div class="hana clearfix">
+			<div class="hanjin clearfix">
+			<div class="lotte clearfix">
+			<div class="vgood clearfix">
+			-->
+				<div class="fl"><img src="/images/front/travel/img_titlevgood.gif" alt="참좋은여행" /></div>
+				<!--
+				<div class="fl"><img src="/images/front/travel/img_titlemode.gif" alt="모두투어" /></div>
+				<div class="fl"><img src="/images/front/travel/img_titlehana.gif" alt="하나투어" /></div>
+				<div class="fl"><img src="/images/front/travel/img_titlehanjin.gif" alt="한진관광" /></div>
+				<div class="fl"><img src="/images/front/travel/img_titlelotte.gif" alt="롯데관광" /></div>
+				<div class="fl"><img src="/images/front/travel/img_titlevgood.gif" alt="참좋은여행" /></div>
+				-->
+				<div class="fr">
+					<a href="#" class="btn-wf btn-wf-md">1:1 문의</a>
+					<a href="#" class="btn-wf btn-wf-md s-hidden">다른 출발일 보기</a>
+					<a href="#" class="btn-wf btn-wf-md btn-action s-hidden">예약</a>
+					<!-- 다른 상태 버튼(개발처리요망)
+					<a href="#" class="btn-wf btn-wf-md btn-action s-hidden">예약</a>
+					<a href="#" class="btn-wf btn-wf-md btn-action s-hidden">대기예약</a>	
+					<span href="#" class="btn-wf btn-wf-md btn-disable s-hidden">예약마감</span>
+					-->
 					
-			<div class="s-information-cont sic-faq ly-inner">
-				<div class="sic-left">
-					<div class="sic-board">
-						<h2 class="c-tit-sec"><a href="#"><span>FAQ</span></a></h2>
-						<div class="o-tab-menu">
-							<ul class="ui-tab-menu">
-								<li class="on"><span class="btn-base bbr-st3"><a href="#faqList1">전체</a></span></li>
-								<li><span class="btn-base bbr-st3"><a href="#faqList2">할인</a></span></li>
-								<li><span class="btn-base bbr-st3"><a href="#faqList3">바우처/쿠폰</a></span></li>
-								<li><span class="btn-base bbr-st3"><a href="#faqList4">변경/환불</a></span></li>
-							</ul>
-							<ul class="list ui-tab-cont tab-on" id="faqList1">
-								<li><a href="#">할인 좌석배정은 어디서 하나요?</a></li>
-								<li><a href="#">자동발권이 무엇인가요?</a></li>
-								<li><a href="#">운임조건의 할인 혜택은 어떻게 받을 수 있나요?</a></li>
-								<li><a href="#">현대카드 할인 가능 여부 및 할인율을 바로 확인할 수 있나요?</a></li>
-								<li><a href="#">현대카드 할인 가능 여부 및 할인율을 바로 확인할 수 있나요?</a></li>
-								<li><a href="#">운임조건의 할인 혜택은 어떻게 받을 수 있나요?</a></li>
-								<li><a href="#">현대카드 할인 가능 여부 및 할인율을 바로 확인할 수 있나요? 현대카드 할인 가능 여부 및 할인율을 바로 확인할 수 있나요? 있나요? 있나요?</a></li>
-							</ul>
-							<ul class="list ui-tab-cont" id="faqList2">
-								<li><a href="#">바우처/쿠폰 좌석배정은 어디서 하나요?</a></li>
-								<li><a href="#">자동발권이 무엇인가요?</a></li>
-								<li><a href="#">운임조건의 할인 혜택은 어떻게 받을 수 있나요?</a></li>
-								<li><a href="#">현대카드 할인 가능 여부 및 할인율을 바로 확인할 수 있나요?</a></li>
-								<li><a href="#">현대카드 할인 가능 여부 및 할인율을 바로 확인할 수 있나요?</a></li>
-								<li><a href="#">운임조건의 할인 혜택은 어떻게 받을 수 있나요?</a></li>
-								<li><a href="#">현대카드 할인 가능 여부 및 할인율을 바로 확인할 수 있나요?</a></li>
-							</ul>
-							<ul class="list ui-tab-cont" id="faqList3">
-								<li><a href="#">변경/환불 좌석배정은 어디서 하나요?</a></li>
-								<li><a href="#">자동발권이 무엇인가요?</a></li>
-								<li><a href="#">운임조건의 할인 혜택은 어떻게 받을 수 있나요?</a></li>
-								<li><a href="#">현대카드 할인 가능 여부 및 할인율을 바로 확인할 수 있나요?</a></li>
-								<li><a href="#">현대카드 할인 가능 여부 및 할인율을 바로 확인할 수 있나요?</a></li>
-								<li><a href="#">운임조건의 할인 혜택은 어떻게 받을 수 있나요?</a></li>
-								<li><a href="#">현대카드 할인 가능 여부 및 할인율을 바로 확인할 수 있나요?</a></li>
-							</ul>
-							<ul class="list ui-tab-cont" id="faqList4">
-								<li><a href="#">좌석배정은 어디서 하나요?</a></li>
-								<li><a href="#">자동발권이 무엇인가요?</a></li>
-								<li><a href="#">운임조건의 할인 혜택은 어떻게 받을 수 있나요?</a></li>
-								<li><a href="#">현대카드 할인 가능 여부 및 할인율을 바로 확인할 수 있나요?</a></li>
-								<li><a href="#">현대카드 할인 가능 여부 및 할인율을 바로 확인할 수 있나요?</a></li>
-								<li><a href="#">운임조건의 할인 혜택은 어떻게 받을 수 있나요?</a></li>
-								<li><a href="#">현대카드 할인 가능 여부 및 할인율을 바로 확인할 수 있나요?</a></li>
-							</ul>
-						</div>
-					</div>
-				</div>
-				<div class="sic-right">
-					<div class="sic-board">
-						<h2 class="c-tit-sec"><a href="#"><span>공지사항</span></a></h2>
-						<ul class="list">
-							<li><a href="#">2018년 5월 국제선 유류할증료 안내</a></li>
-							<li><a href="#">진에어 국내선 시스템 점검 안내</a></li>
-							<li><a href="#">제주항공 국내선 환불 수수료 변경 안내</a></li>
-							<li><a href="#">인천국제공항 제2여객터미널 개장으로 인천국제공항 제2여객터미널 개장으로</a></li>
-						</ul>
-					</div>
-					<div class="sic-aside-services">
-						<a href="#">24시간 365일 <br />긴급 항공상담 서비스</a>
-					</div>
 				</div>
 			</div>
 		</div>
-	</div>
-	<!-- //#content -->
-	
-	<!-- #footer-sec -->
-	<div id="footer-sec">
-		<div class="w-footer-sec ly-inner">
-			<p class="fts-call"><a href="/customer/main/counselMain#infoCall">고객센터 대표번호 <em>1588-0360</em> (해외 82-2-6911-8300)</a></p>
-			<ul class="nav-fnb">
-				<li><a href="/etc/aboutPriviaTab">ABOUT PRIVIA 여행</a></li>
-				<li><a href="/etc/siteMap">사이트맵</a></li>
-				<li><a href="/etc/conditionPrivia">이용약관</a></li>
-				<li><a href="/etc/conditionOutKorea">국외여행약관</a></li>
-				<li><a href="/etc/conditionInKorea">국내여행약관</a></li>
-				<li><a href="/etc/personalInfoCtrlNew"><strong>개인정보처리방침</strong></a></li>
-				<li><a href="/etc/jobConsignNewInfo">업무위탁현황</a>	</li>
+		
+		<!-- pkg-benefit-icon -->
+		<div class="pkg-benefit-icon detail-view">
+			<span class="pbi-msg">PRIVIA패키지 혜택</span>
+			<ul>
+				<li class="i1">현대카드<br />3 ~ 7% 즉시 할인</li>
+				<li class="i2">현대카드<br />5% M포인트 사용</li>
+				<li class="i3">현대카드<br />3개월 무이자할부<br />또는 M포인트 적립</li>
 			</ul>
-			<ul class="fts-info">
-				<li>서울특별시 중구 청계천로 100 시그니쳐 타워 서관 16층</li>
-				<li>㈜타이드스퀘어 대표이사 윤민</li>
-				<li>사업자등록번호 124-86-86370 <a href="http://www.ftc.go.kr/info/bizinfo/communicationView.jsp?apv_perm_no=2015301013030200788&amp;area1=&amp;area2=&amp;currpage=1&amp;searchKey=04&amp;searchVal=1248686370&amp;stdate=&amp;enddate=" target="_blank"><em>사업자정보확인</em></a></li>
-				<li>관광사업자번호 제 2015-000033호</li>
-				<li class="line-down">통신판매업신고번호 제 2015-서울중구-0788호</li>
-				<li class="line-down"><small>COPYRIGHT (c) TIDESQUARE CO. LTD. ALL RIGHTS RESERVED. SPONSORED BY HYUNDAI CARD</small></li>
-			</ul>
-			<p class="fts-partnership">현대카드는 현대카드 PRIVIA 여행사이트의 스폰서로서 ㈜타이드스퀘어와 파트너십을 맺고 있습니다. <br />현대카드 PRIVIA 여행사이트는 ㈜타이드스퀘어가 운영하는 여행사이트이며, 여행서비스 전반에 대한 의무와 책임은 ㈜타이드스퀘어에 있습니다.</p>
+			<a href="http://package.priviatravel.com/pkgRenewal/htmlPlan?PROMOTION_SEQ=54" target="_blank" class="btn-sf btn-sf-sm pbi-view2">자세히 보기</a>	
 		</div>
-	</div>	
-	<!-- //#footer-sec -->
+		<!-- //pkg-benefit-icon -->
+		
+		<!-- 타임세일 상품 -->
+		<div class="timeSale-type3 bd-gray clearfix">
+			<span class="clr-type3 timeTxt">이 상품은 타임세일상품입니다. 지금 예약하세요!</span>
+			<span class="cntTxt">타임세일 남은시간</span>
+			<div class="countdown-wrap fr">
+				<div id="countdown1" class="ui-countdown"></div>
+			</div>
+		</div>
+		<!-- //타임세일 상품 -->
+		
+		<!-- 업체 iframe -->
+		<!-- #14305 -->
+		<iframe id="the_iframe" src="/html_pkg/html/P_PD_01.html" width="950" height="2500" frameborder="0" style="padding-top:82px"></iframe>
+		<!-- //#14305 -->
+		
+	</div>
+	<!-- //content -->
 </div>
-
-
 </body>
 </html>

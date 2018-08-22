@@ -219,6 +219,8 @@ position: absolute;
 .headWrap.hdw-st4 .rightArea > a {padding: 0 !important;display: inline-block;font-size:0;line-height: 0;text-indent:-9999px;overflow:hidden;width:26px;height: 32px;background:url(/images/front/mtravel/main/sprite_icon_collection.png) no-repeat;background-size:60px;vertical-align: middle;}
 .headWrap.hdw-st4 .rightArea .align {background-position: 4px -975px;}
 .headWrap.hdw-st4 .rightArea .btnMap {background-position: 6px -1024px;}
+.headWrap.hdw-st4 .rightArea .btnMenu {background: none;width: 18px;height: 18px;padding: 4px !important;margin-top: 3px;}
+.headWrap.hdw-st4.on .rightArea .btnMenu {margin-top: 0;}
 
 .footWrap{margin:0 10px;padding:23px 0 25px;border-top:1px solid #d5d5d5}
 .footWrap *{font-size:10px !important;line-height:1.5 !important}
