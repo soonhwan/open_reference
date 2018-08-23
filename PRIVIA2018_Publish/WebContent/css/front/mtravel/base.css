@@ -354,6 +354,15 @@ transform:translate(-200px,0);
 .w-footer-sec .copyright {margin-top: 15px;}
 .w-footer-sec .copyright small {font-size:12px;color: #434343;}
 
+@media all and (max-width:370px) { 
+    .w-footer-sec .fts-ly1 .fts-call .txt1 {font-size:12px;}
+    .w-footer-sec .fts-ly1 .fts-call .txt1 em a {font-size:12px;}
+    .w-footer-sec .fts-ly1 .fts-call .txt2 a {font-size:11px;}
+    .w-footer-sec .nav-fnb li a {font-size:10px;padding: 1px 8px;}
+    .w-footer-sec .w-address li {font-size:11px;}
+    .w-footer-sec .copyright small {font-size: 11px;}
+}
+
 /*--------------------------------------------------------------------------------------------------------------
  *  common - popWrap-sec
  *--------------------------------------------------------------------------------------------------------------*/

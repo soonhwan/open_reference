@@ -109,7 +109,7 @@
 	$.fn.setTabMenu = function(){
 		return this.each(function(){
 			var $this = $(this);
-			$this.on('click', '.ui-tab-menu a', function(e){
+			$('.ui-tab-menu a', $this).on('click', function(e){
 				if(!$(this).closest('li').hasClass('on')){
 					var show = $(this).attr('href');
 					$this.find('.tab-on').removeClass('tab-on');
@@ -258,10 +258,7 @@ var pvFrontScript = window.pvFrontScript || (function(){
 			_.find('.radio-base').customRadio();
 
 			//셀렉트박스(공통)
-			_.find('.select-base').fakeselect();
-			
-			//탭메뉴(공통)
-			_.find('.o-tab-menu').setTabMenu();							
+			_.find('.select-base').fakeselect();						
 		},
 		docuMoudownTrigger: function($delay){ 
 			/* 설명   : document mousedown 트리거
@@ -699,7 +696,7 @@ var pvFrontScript = window.pvFrontScript || (function(){
 					return false;
 				}
 
-				if($('#top-area-sec .top-area-sec').hasClass('on')){
+				if($('#top-area-sec .top-area-sec').css('display') == 'block'){
 					$('#top-area-sec .top-area-sec').slideUp('fast', function(){
 						//fixed 모드에서는 클래스를 컨트롤 하지 않음
 						if(!$('.header-sec-fixed').length > 0){
@@ -925,38 +922,23 @@ var pvFrontScript = window.pvFrontScript || (function(){
 				//자유,해외패키지 상세
 				var $hd = $('.commonHeaderObject .header-sec-fixed');
 				var $hdH = $('.commonHeaderObject .header-sec-fixed').height();
+				var $targetSub;
 				if($('.freedirect-detail .search-pos').length > 0){
-					var freeSearch = $('.freedirect-detail .search-pos').offset().top;
-					
-					if(freeSearch-$hdH > scTop){
-						$hd.css({'margin-top' : '0px'});
-					}
-					
-					if(freeSearch-$hdH < scTop && freeSearch > scTop){
-						//console.log(freeSearch-$hdH-scTop);
-						$hd.css({'margin-top' : freeSearch-$hdH-scTop+'px'});
-					}
-					
-					if(freeSearch < scTop){
-						$hd.css({'margin-top' : '-100%'});
-					}
-				}
+					$targetSub = $('.freedirect-detail .search-pos').offset().top;
+				}				
 				if($('#the_iframe').length > 0){
-					var theIframe = $('#the_iframe').offset().top+882;
-					
-					if(theIframe-$hdH > scTop){
-						$hd.css({'margin-top' : '0px'});
-					}
-					
-					if(theIframe-$hdH < scTop && theIframe > scTop){
-						//console.log(theIframe-$hdH-scTop);
-						$hd.css({'margin-top' : theIframe-$hdH-scTop+'px'});
-					}
-					
-					if(theIframe < scTop){
-						$hd.css({'margin-top' : '-100%'});
-					}
+					$targetSub = $('#the_iframe').offset().top+882;
 				}
+				
+				if($targetSub-$hdH > scTop){
+					$hd.css({'margin-top' : '0px'});
+				}
+				if($targetSub-$hdH < scTop && $targetSub > scTop){
+					$hd.css({'margin-top' : $targetSub-$hdH-scTop+'px'});
+				}
+				if($targetSub < scTop){
+					$hd.css({'margin-top' : '-100%'});
+				}				
 			}
 
 			$(window).on('scroll load', pos);
@@ -1149,6 +1131,9 @@ var pvFrontScript = window.pvFrontScript || (function(){
 			}//..if
 		},
 		comContents: function(){
+			//탭메뉴(공통)
+			$('.o-tab-menu').setTabMenu();	
+			
 			//타이틀 오버시 텍스트2줄 노출
 			$('.list-item-st1 .tit-over').overListItemTitle();
 			

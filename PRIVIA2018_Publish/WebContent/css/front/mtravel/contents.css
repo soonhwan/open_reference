@@ -889,7 +889,6 @@ fieldset.basicForm legend + .comment li:first-child {margin-top:0}
 .priviaCont .cardRoll{position:relative;overflow:hidden}
 .priviaCont .cardRoll .mask > ul{position:relative;height:100%}
 .priviaCont .cardRoll .mask > ul > li{float:left;position:relative;-moz-box-sizing:border-box;-webkit-box-sizing:border-box;box-sizing:border-box;width:100%;height:100%;padding:0 19px}
-.priviaCont .cardRoll .mask > ul > li .bulList3 {display: none;}
 .priviaCont .cardRoll .sale{display:block;margin-bottom:15px;text-align:center;color:#333;font-size:17px;font-family:'YMB';letter-spacing:-1px}
 .priviaCont .cardRoll .cardImg{display:block;width:150px;margin:0 auto;text-align:center}
 .priviaCont .cardRoll .cardImg img{width:146px;height:92px}
