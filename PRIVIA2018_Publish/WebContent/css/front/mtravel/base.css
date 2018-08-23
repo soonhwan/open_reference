@@ -267,7 +267,7 @@ box-sizing: border-box;
 .w-header-sec {height: 50px;background-color: #eef1f6;border-bottom: 1px solid #e6e6e6;width: 100%;position: fixed;z-index: 10;}
 .w-header-sec .logo {padding: 18px 0 0 20px;}
 .w-header-sec .logo a {display: inline-block;width: 130px;}
-.w-header-sec .whs-title {font-size:20px;color: #000;text-align: center;font-family: "YouandiModernTB";padding-top: 14px;}
+.w-header-sec .whs-title {font-size:20px;color: #000;text-align: center;font-family: "YouandiModernTB";padding-top: 16px;}
 .w-header-sec .ly-left {position: absolute;left: 20px;top: 17px;}
 .w-header-sec .ly-right {position: absolute;right: 20px;top: 15px;}
 /*.w-header-sec .ly-left .b-back {display: inline-block;width: 16px;height: 16px;overflow: hidden;background: url(/images/front/mtravel/contents/icon-common-secM.png) 0px 0px no-repeat;-webkit-background-size: 160px;background-size: 160px;}*/

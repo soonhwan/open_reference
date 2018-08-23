@@ -1072,7 +1072,7 @@ box-shadow: 0px 5px 20px 0px rgba(0,0,0,0.1);
 /* 해외패키지 2, 3뎁스 */
 .w-nav-gsub-ly *, .w-nav-gsub-ly *:after, .w-nav-gsub-ly *:before {font-family: "NotoSansKR", "Malgun Gothic", sans-serif;font-weight: 300;-moz-box-sizing:border-box;-webkit-box-sizing:border-box;box-sizing: border-box;}
 .w-nav-gsub-ly {position: relative;width: 100%;z-index: 201;}
-.w-nav-gsub-ly.fixed-ngs-ly {position: fixed;width: 100%;top: 120px;z-index: 201;}
+.w-nav-gsub-ly.fixed-ngs-ly {position: fixed;width: 100%;top: 120px;z-index: 200;}
 .w-nav-gsub-ly .l-total-nav-open{position:absolute;width:80px;display:inline-block;letter-spacing:-1px;top:0px;height:47px;line-height: 47px;left:50%;margin-left:515px;cursor:pointer;font-size:14px;font-weight:bold;background:none;text-indent:0px;z-index:0;}
 .w-nav-gsub-ly .l-total-nav-open:hover{text-decoration:underline}
 .w-nav-gsub-ly .l-total-nav-open.on{background:none;border-bottom: none}
