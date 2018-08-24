@@ -176,6 +176,7 @@
 				
 				//minus
 				$this.find('.b-minus button').on('click', function(e){
+					if($(this).closest('.ucn-disabled').length > 0){ return false; }
 					var c = parseInt($this.find('.ucn-num').text());
 					c--;
 					chkNnum(c);				
@@ -183,6 +184,7 @@
 				});
 				//plus
 				$this.find('.b-plus button').on('click', function(e){
+					if($(this).closest('.ucn-disabled').length > 0){ return false; }
 					var c = parseInt($this.find('.ucn-num').text());
 					c++;
 					chkNnum(c);				
