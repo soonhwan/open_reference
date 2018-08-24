@@ -932,12 +932,21 @@ var pvFrontScript = window.pvFrontScript || (function(){
 				
 				if($targetSub-$hdH > scTop){
 					$hd.css({'margin-top' : '0px'});
+					if($('.w-header-gnb .nav-gnb #n-gnb-pkg.on').length > 0 && $('.w-nav-gsub-ly').css('display') == 'none'){
+						$('.w-nav-gsub-ly').show();
+					}
 				}
 				if($targetSub-$hdH < scTop && $targetSub > scTop){
 					$hd.css({'margin-top' : $targetSub-$hdH-scTop+'px'});
+					if($('.w-header-gnb .nav-gnb #n-gnb-pkg.on').length > 0 && $('.w-nav-gsub-ly').css('display') == 'block'){
+						$('.w-nav-gsub-ly').hide();
+					}
 				}
 				if($targetSub < scTop){
 					$hd.css({'margin-top' : '-100%'});
+					if($('.w-header-gnb .nav-gnb #n-gnb-pkg.on').length > 0 && $('.w-nav-gsub-ly').css('display') == 'block'){
+						$('.w-nav-gsub-ly').hide();
+					}
 				}				
 			}
 
