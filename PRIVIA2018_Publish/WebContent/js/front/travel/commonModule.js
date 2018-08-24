@@ -120,7 +120,7 @@
 				e.preventDefault();
 			});
 		});
-	},
+	}
 	$.fn.overListItemTitle = function(){
 		var $this = $(this);
 		var $p = $this.closest('ul').parent();
