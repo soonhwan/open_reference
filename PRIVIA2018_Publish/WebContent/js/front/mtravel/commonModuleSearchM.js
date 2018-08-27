@@ -316,6 +316,14 @@ var pvmSearch = window.pvmSearch || (function(){
 			//reset height
 			function resetMDHeight(){
 				$('.ot-multiway .sc-search-tab').height($('.ot-multiway .ol-list-tab').height());
+				$('.uis-datepicker-weekend .udw-inner').css({'top':$('.ot-multiway .ol-list-tab').height()+$('.uis-datepicker-weekend').height()});
+			}
+			
+			//position date 
+			function positionActiveDate(){
+				setTimeout(function(){
+					$('html,body').stop().animate({scrollTop:$('.ui-page-active .uis-datepicker .ui-state-active').offset().top-300},200);
+				},250);
 			}
 			
 			//settingData 셋팅
@@ -680,6 +688,9 @@ var pvmSearch = window.pvmSearch || (function(){
 							$('.o-shuttle .qsb-dates .qsb-chkout .txt').html(txtDay);
 						}
 					}
+					
+					//position date 
+					positionActiveDate();
 				}
 			});
 			
@@ -713,6 +724,9 @@ var pvmSearch = window.pvmSearch || (function(){
 					$('.o-oneway .qsb-dates .qsb-chkin').addClass('on');
 					$('.o-oneway .qsb-dates .qsb-chkin').data('day', dateText);
 					$('.o-oneway .qsb-dates .qsb-chkin .txt').html(txtDay);
+					
+					//position date 
+					positionActiveDate();
 				}
 			});
 			
@@ -730,6 +744,9 @@ var pvmSearch = window.pvmSearch || (function(){
 					var selectedDate = $.datepicker.parseDate($(this).datepicker('option', 'dateFormat'), dateText);
 					//다중날짜 체크
 					checkMdDate(_mdDateIdx, selectedDate);
+					
+					//position date 
+					positionActiveDate();
 				}
 			});
 			

@@ -763,6 +763,7 @@ box-shadow: 2px 2px 1px 0px rgba(0, 0, 0, 0.1);
 .imgCrop{display:none}
 
 /* etc */
+.line-through{text-decoration: line-through !important;}
 .undline{text-decoration:underline !important;}
 .bold{font-weight:bold !important}
 .s-hidden{display:none}

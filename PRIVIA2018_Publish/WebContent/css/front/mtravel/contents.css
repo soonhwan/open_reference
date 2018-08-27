@@ -889,6 +889,7 @@ fieldset.basicForm legend + .comment li:first-child {margin-top:0}
 .priviaCont .cardRoll{position:relative;overflow:hidden}
 .priviaCont .cardRoll .mask > ul{position:relative;height:100%}
 .priviaCont .cardRoll .mask > ul > li{float:left;position:relative;-moz-box-sizing:border-box;-webkit-box-sizing:border-box;box-sizing:border-box;width:100%;height:100%;padding:0 19px}
+.priviaCont .cardRoll .mask > ul > li .bulList3 {display: none;}
 .priviaCont .cardRoll .sale{display:block;margin-bottom:15px;text-align:center;color:#333;font-size:17px;font-family:'YMB';letter-spacing:-1px}
 .priviaCont .cardRoll .cardImg{display:block;width:150px;margin:0 auto;text-align:center}
 .priviaCont .cardRoll .cardImg img{width:146px;height:92px}
@@ -1385,6 +1386,11 @@ flex: 1;				  /* NEW, Spec - Opera 12.1, Firefox 20+ */
 .agreeArea-st4 > span {display: inline-block;vertical-align: middle;}
 .agreeArea-st4 > span + span {width: 90%;}
 .agreeArea-st4 > span label {display: inline-block;padding-left: 5px;color: #424242;font-weight: bold;font-size:13px;margin-bottom: 0;}
+.agreeArea-st5 {border-bottom: 1px dashed #e0e0e0;padding: 10px 0 15px 0;}
+.agreeArea-st5 .txt-exp {font-size:11px;}
+.agreeArea-st5 .txt-inp {display: inline-block;vertical-align: top;width: 100%;text-align: center;margin-top: 5px;}
+.agreeArea-st5 .txt-inp input {margin-top: 2px;}
+.agreeArea-st5 .txt-inp label {display: inline-block;padding-left: 5px;color: #333;font-weight: bold;font-size:11px;margin-bottom: 0;}
 
 /* 16820 상담서비스 - 1:1 문의 개선 */
 .list-guide-top {padding: 14px 19px 13px 19px;border-bottom: 1px solid #ccc;color: #767676;font-size:12px;position: relative;} 
