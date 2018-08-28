@@ -15,6 +15,7 @@
 
 /* lyout */ 
 #top-area-sec, #header-sec, #content-sec, #footer-sec {min-width: 1200px;width: 100%;margin:0 auto;position: relative;}
+#content-sec {min-height:400px;}
 .ly-inner {width:1200px;margin:0 auto;position:relative;}
 
 /*--------------------------------------------------------------------------------------------------------------
@@ -982,7 +983,7 @@ box-shadow: 0px 5px 20px 0px rgba(0,0,0,0.1);
 .s-information-cont .sic-board .list li a {font-size: 16px;font-family:"NotoSansKR" !important;font-weight: 300;color: #000;padding: 11px 0 13px 0;display:block;text-overflow: ellipsis; white-space: nowrap; overflow: hidden; width:780px;transition: color 0.3s;}
 .s-information-cont .sic-board .list li a:hover {color: #e93a84;}
 .s-information-cont .sic-board .list .date {font-size: 16px;font-family:"NotoSansKR" !important;font-weight: 300;color: #818181;position: absolute;right: 0;top: 10px;}
-.s-information-cont .sic-right {float: right;width: 285px}
+.s-information-cont .sic-right {float: right;width: 278px}
 .s-information-cont .sic-aside .tit {display: block;font-size:18px;font-family:"NotoSansKR" !important;font-weight: 300;color: #000;line-height: 28px;height: 56px;overflow: hidden;font-weight: 300;margin-bottom: 30px;transition: color 0.3s;}
 .s-information-cont .sic-aside > a {display: block;width: 100%;height: 100%;}
 .s-information-cont .sic-aside > a:hover .tit {color: #e93a84;}
@@ -1074,7 +1075,7 @@ box-shadow: 0px 5px 20px 0px rgba(0,0,0,0.1);
 
 /* 해외패키지 2, 3뎁스 */
 .w-nav-gsub-ly *, .w-nav-gsub-ly *:after, .w-nav-gsub-ly *:before {font-family: "NotoSansKR", "Malgun Gothic", sans-serif;font-weight: 300;-moz-box-sizing:border-box;-webkit-box-sizing:border-box;box-sizing: border-box;}
-.w-nav-gsub-ly {position: relative;width: 100%;z-index: 201;}
+.w-nav-gsub-ly {position: relative;width: 100%;z-index: 200;}
 .w-nav-gsub-ly.fixed-ngs-ly {position: fixed;width: 100%;top: 120px;z-index: 200;}
 .w-nav-gsub-ly .l-total-nav-open{position:absolute;width:80px;display:inline-block;letter-spacing:-1px;top:0px;height:47px;line-height: 47px;left:50%;margin-left:515px;cursor:pointer;font-size:14px;font-weight:bold;background:none;text-indent:0px;z-index:0;}
 .w-nav-gsub-ly .l-total-nav-open:hover{text-decoration:underline}
@@ -1234,6 +1235,8 @@ box-shadow: 0px 5px 20px 0px rgba(0,0,0,0.1);
 .l-main-search {z-index: 0;}
 
 /* 국내여행 */
+#m-banner .visualList {width: 100%;}
+
 
 /* 기획전 */
 

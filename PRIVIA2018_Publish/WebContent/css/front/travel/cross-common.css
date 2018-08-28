@@ -2124,7 +2124,7 @@ table.list tr td.ar10 div{text-align:right}
 .detail_picks .booking .btn a.picks-htl{width:113px; height:38px; text-align:left; text-indent:-9999px; margin-right:-2px; background:url(/images/front/travel/btn_pick_htl.gif) 0 0 no-repeat}
 
 /* #21402 플로팅메뉴개선(#23430 style.css 옮김) */
-.float-menu-pos {position:absolute;top:125px;right: 50%;margin-right: -675px;width:180px;min-height:320px;z-index:200;}
+.float-menu-pos {position:absolute;top:125px;right: 50%;margin-right: -675px;width:180px;min-height:320px;z-index:199;}
 .float-menu-pos .layout-right {width:180px;position: absolute;}
 .float-menu-pos.fixed .layout-right {position:fixed;top:20px;left:50%;}
 .float-menu-pos .section {margin-bottom: 10px;}

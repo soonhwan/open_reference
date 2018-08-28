@@ -1020,21 +1020,12 @@ var pvFrontScript = window.pvFrontScript || (function(){
 			var titH = $('.w-nav-gnb-total .nav-gnb-total .tit a').outerHeight();
 			$('.w-nav-gnb-total .nav-gnb-total > li ').each(function(index){
 				var list = $(this).find('.list');
-				mh = (mh < list.outerHeight()) ? list.outerHeight() : mh
-
-				/*console.log((index+1) % 6 + ' = ', mh);
-				if((index+1) % 6 == 0){
-					console.log('index = ', index, mh);
-					//console.log('index = ', index, mh);
-					//list.parent('li').height(mh+titH);
-					$(this).prevAll().css('border','5px solid red');
+				mh = (mh < list.outerHeight()) ? list.outerHeight() : mh;
+				if(index == 5){
+					$('.w-nav-gnb-total .nav-gnb-total > li').height(mh+titH);	
 				}
-				else{
-					//console.log('else index = ', index, mh);
-					//list.parent('li').height(mh+titH);
-				}*/
 			});
-			$('.w-nav-gnb-total .nav-gnb-total > li').height(mh+titH);
+			$('.w-nav-gnb-total .nav-gnb-total > li:eq(5)~').height(mh+titH);
 		},
 		comGNBInit: function(){
 			/* 설명   : GNB, 전체메뉴 셋팅
