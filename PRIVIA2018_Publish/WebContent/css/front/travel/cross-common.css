@@ -1110,7 +1110,7 @@ box-shadow: 2px 2px 1px 0px rgba(0, 0, 0, 0.1);
 .agree-personalInfo .svc-agreement{font-size:12px}
 
 /* 레이아웃 변경(20151118) */
-#wrap{width:100%;min-width:950px}
+#wrap{width:100%;min-width:1260px}
 #header{width:950px;margin:0 auto}
 #content{margin-left:auto;margin-right:auto}
 #footer-new{margin-left:auto;margin-right:auto}

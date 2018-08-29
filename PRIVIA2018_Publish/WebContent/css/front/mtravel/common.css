@@ -1385,7 +1385,7 @@ box-sizing: border-box;
 /* btn - radius 버튼1 */
 .bbr-st1 {position: relative;overflow: hidden;border-radius: 14px;}
 .bbr-st1 a, .bbr-st1 button, .bbr-st1 input {font-size:12px;color: #fff;min-width: 50px;padding: 2px 14px 4px 14px;position: relative;z-index: 1;}
-.bbr-st1:before {content: '';display: block;width: 100%;height: 100%;background-color: #fff;position: absolute;top: 0;left: 0;opacity: 0.4;z-index: 0;transition: opacity 0.3s;}
+.bbr-st1:before {content: '';display: block;width: 100%;height: 100%;background-color: #fff;position: absolute;top: 0;left: 0;border-radius: 14px;opacity: 0.4;z-index: 0;transition: opacity 0.3s;}
 /* btn - radius 버튼2 */
 /*.bbr-st2 a, .bbr-st2 button, .bbr-st2 input {font-size:14px;color: #000;min-width: 50px;padding: 2px 14px 4px 14px;background-color: #e0e0e0;border-radius: 12px;}*/
 
@@ -1602,7 +1602,7 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#eef1f6', end
 .slt-btn-add .b-remove-multiway:before {content: '';display: block;width: 12px;height: 12px;color: #fff;position: absolute;right: 7px;top: 7px;background: url(/images/front/mtravel/contents/icon-common-secM.png) 0 -56px no-repeat;-webkit-background-size: 160px;background-size: 160px;}
 .slt-btn-add.on .b-add-multiway {display: none;}
 /* 검색 팝업(box) layout */
-.sc-search-area .list-ssa {width: 100%;background-color: #ebeef2;padding: 0 10px;}
+.sc-search-area .list-ssa {width: 100%;background-color: #ebeef2;padding: 0 10px 10px 10px;}
 .ssa-ui-box {background-color: #fff;border-radius: 4px;overflow: hidden;min-height:300px;display: none;}
 .ssa-ui-box.on {display: block;}
 .ssa-ui-box .btn-search {margin: 10px;}

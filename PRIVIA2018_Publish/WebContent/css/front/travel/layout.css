@@ -5,7 +5,7 @@ html {background:#fff;} /* white.css 적용 대상자 */
 #skipnav {/*position:absolute; top:-400px; left:0;*/}
 #skipnav a {position:absolute; top:-400px; left:0; display:block; width:100%; padding:10px 0; border-bottom:1px solid #d2d2d2; background:#fff; text-align:center}
 #skipnav a:hover, #skipnav a:focus, #skipnav a:active {position:static}
-#wrap {position:relative; width:950px; margin:0 auto;}
+#wrap {position:relative; width:1260px; margin:0 auto;}
 #header {height:100px; z-index:100; position:relative;}
 #header h1 {position:absolute; top:54px;left:50%; margin-left:-98px}
 
