@@ -14,7 +14,7 @@
 #footer-sec *, #footer-sec *:after, #footer-sec *:before {font-family: "Malgun Gothic", "NotoSansKR", sans-serif;-moz-box-sizing:border-box;-webkit-box-sizing:border-box;box-sizing:border-box;}
 
 /* lyout */ 
-#top-area-sec, #header-sec, #content-sec, #footer-sec {min-width: 1200px;width: 100%;margin:0 auto;position: relative;}
+#top-area-sec, #header-sec, #content-sec, #footer-sec {min-width: 1260px;width: 100%;margin:0 auto;position: relative;}
 #content-sec {min-height:400px;}
 .ly-inner {width:1200px;margin:0 auto;position:relative;}
 
@@ -224,7 +224,7 @@ box-shadow: 0 3px 3px 0px rgba(0,0,0,0.1);
 .w-tas-promotion .tasp-list.on .b-tasp-more {opacity: 1;transition: opacity 1s;}
 
 /* ------------- 헤더 영역(o-CHO-full(기본), o-CHO-section(섹션), o-CHO-quick(퀵버전), header-sec-fixed(헤더 fixed)) */
-.commonHeaderObject {transition: height 0.3s;min-width: 1260px;}
+.commonHeaderObject {transition: height 0.3s;}
 #header-sec {z-index: 201;}
 #header-sec .header-sec {width: 100%;background-color: inherit;z-index: 10;transition: background-color 0.5s;}
 /* 유틸 영역 */
