@@ -727,12 +727,12 @@ function comSearchAir(){
 		}
 		
 		//출,도착 placeholder 텍스트 변경
-		if($currentCity.closest('.places-exit').length > 0){
+		/*if($currentCity.closest('.places-exit').length > 0){
 			$('.'+panelName).find('.ipu-search').attr('placeholder','출발 도시명을 검색하거나 아래 주요도시에서 선택하세요.');
 		}
 		else if($currentCity.closest('.places-entry').length > 0){
 			$('.'+panelName).find('.ipu-search').attr('placeholder','도착 도시명을 검색하거나 아래 주요도시에서 선택하세요.');
-		}		
+		}*/		
 		
 		//도시가 있으면 팝업 인풋에 내용 표시
 		if($currentCity.hasClass('on')){
@@ -741,6 +741,10 @@ function comSearchAir(){
 		}
 		else{
 			$('.'+panelName).find('.ipu-search').val('');
+			// #32511 검색영역 포커스
+			setTimeout(function(){
+				$('.'+panelName).find('.ipu-search').focus(); 
+			}, 100);
 		}
 		e.preventDefault();
 	});
@@ -1314,6 +1318,10 @@ function comSearchHotel(){
 		}
 		else{
 			$('.'+panelName).find('.ipu-search').val('');
+			// #32511 검색영역 포커스
+			setTimeout(function(){
+				$('.'+panelName).find('.ipu-search').focus(); 
+			}, 100);
 		}
 		e.preventDefault();
 	});
@@ -1712,6 +1720,10 @@ function comSearchFreetour(){
 			}
 			else{
 				$('.o-rentv .'+panelName).find('.ipu-search').val('');
+				// #32511 검색영역 포커스
+				setTimeout(function(){
+					$('.o-rentv .'+panelName).find('.ipu-search').focus(); 
+				}, 100);
 			}
 		  	
 			$('.o-rentv .'+panelName).find('.uis-input .ipu-search').show();

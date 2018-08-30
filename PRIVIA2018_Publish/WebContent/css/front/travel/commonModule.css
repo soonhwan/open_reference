@@ -321,14 +321,8 @@ box-shadow: 3px 7px 22px 0px rgba(0,0,0,0.3);
 /* GNB - 퀵버전 */
 /*.o-CHO-quick {height: 120px;}*/
 .header-sec-fixed {position: fixed;width: 100%;z-index: 999 !important;opacity: 1;}
-.no-header-search .w-header-gnb, .header-sec-fixed .w-header-gnb {padding: 27px 0 26px 0;/*background-color: #fff;*/}
+.no-header-search .w-header-gnb, .header-sec-fixed .w-header-gnb {padding: 27px 0 26px 0;}
 .header-sec-fixed .w-header-gnb:before {opacity: 0;}
-/*.header-sec-fixed .w-header-gnb .h-logo a {background: url(/images/front/travel/contents/logo-privia-mgt.png) 0 0 no-repeat;}*/
-/*.header-sec-fixed .w-header-gnb .nav-gnb > li .txt {color: #000;}
-.header-sec-fixed .w-header-gnb .nav-gnb > li .txt:before {background-color: #e93a84;}
-.header-sec-fixed .w-header-gnb .nav-gnb .on .txt:before {background-color: #e93a84;}*/
-/*.header-sec-fixed .w-header-gnb .nav-gnb .b-total-nav > a {background-position: 0px -325px;}*/
-/*.header-sec-fixed .w-header-gnb .nav-gnb .b-total-nav > a.on {background-position: -30px -328px;}*/
 .o-CHO-quick .w-header-gnb .b-open-search, .header-sec-fixed .w-header-gnb .b-open-search {display: inline-block;}
 .o-CHO-quick #top-area-sec .top-area-sec, .header-sec-fixed #top-area-sec .top-area-sec {display: none;} 
 .o-CHO-quick #header-sec .w-header-search, .header-sec-fixed #header-sec .w-header-search {display: none;}
