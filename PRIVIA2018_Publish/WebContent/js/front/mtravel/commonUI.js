@@ -1832,7 +1832,12 @@ var pvmFrontScript = window.pvmFrontScript || (function(){
 			if(date1){
 				if(date.getTime() == date1.getTime()){
 					if(date2){
-						result = [true, "dp-highlight dp-first", $.datepicker.formatDate('yy/mm/dd', date1)];
+						if(date1.getTime() == date2.getTime()){
+							result = [true, "dp-highlight dp-same", $.datepicker.formatDate('yy/mm/dd', date1)];
+						}
+						else{
+							result = [true, "dp-highlight dp-first", $.datepicker.formatDate('yy/mm/dd', date1)];
+						}
 					}
 					else{
 						result = [true, "dp-highlight"];

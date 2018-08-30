@@ -318,8 +318,7 @@ box-shadow: 3px 7px 22px 0px rgba(0,0,0,0.3);
 .nav-gnb-total .list > li {margin: 2px 0;}
 .nav-gnb-total .list a {display: block;font-size:14px;color: #000;padding: 1px 0;}
 .nav-gnb-total .list a:hover {color: #e93a84;}
-/* GNB - 퀵버전 */
-/*.o-CHO-quick {height: 120px;}*/
+/* GNB - 퀵버전(header-sec-fixed) */
 .header-sec-fixed {position: fixed;width: 100%;z-index: 999 !important;opacity: 1;}
 .no-header-search .w-header-gnb, .header-sec-fixed .w-header-gnb {padding: 27px 0 26px 0;}
 .header-sec-fixed .w-header-gnb:before {opacity: 0;}
@@ -346,11 +345,12 @@ box-shadow: 0 10px 20px 0px rgba(0,0,0,0.1);
 .o-bg-freetour {background-color: #765cba !important;}
 
 /* ------------- 검색 영역(o-search- : all(기본), air, hotel, free, freetour)) */
-.o-CHO-full .w-header-search {padding: 80px 0 40px 0;}
-.w-header-search {padding: 50px 0 20px 0;z-index: 1;/*min-height:258px;*/}
+.w-header-search {padding: 50px 0 20px 0;z-index: 1;display: none;/*min-height:258px;*/}
 .w-header-search .ly-inner {min-height:188px;}
 .w-header-search .ly-inner:after {content: '';display: block;clear:both;}
 .hs-search-menu:after {content: '';display: block;clear:both;}
+.o-CHO-full .w-header-search {padding: 80px 0 40px 0;display: block;}
+.o-CHO-section .w-header-search {display: block;}
 /* ------- 검색 메뉴 */
 .hs-search-menu .hss-menu {float: left;margin-right: 30px;display: inline-block;}
 .hs-search-menu:after {content: '';display: block;clear:both;}
@@ -582,6 +582,7 @@ border-left:0;
 .o-oneway .uis-datepicker .dp-highlight:after, 
 .o-shuttle .uis-datepicker .dp-highlight.dp-first:after {content: '출발';width:100%;font-size:11px;letter-spacing:-1px;color:#fff;text-align:center;position:absolute;left:0;bottom:-1px;z-index:1;}
 .o-shuttle .uis-datepicker .dp-highlight.dp-end:after {content: '도착';width:100%;font-size:11px;letter-spacing:-1px;color:#fff;text-align:center;position:absolute;left:0;bottom:-1px;z-index:1;}
+.o-shuttle .uis-datepicker .dp-highlight.dp-same:after {content: '출/도착';width:100%;font-size:11px;letter-spacing:-1px;color:#fff;text-align:center;position:absolute;left:0;bottom:-1px;z-index:1;}
 .o-inth .uis-datepicker .dp-highlight:after, 
 .o-domh .uis-datepicker .dp-highlight:after, 
 .o-inth .uis-datepicker .dp-highlight.dp-first:after,

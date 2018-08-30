@@ -512,7 +512,12 @@ var pvFrontScript = window.pvFrontScript || (function(){
 			if(date1){
 				if(date.getTime() == date1.getTime()){
 					if(date2){
-						result = [true, "dp-highlight dp-first"];
+						if(date1.getTime() == date2.getTime()){
+							result = [true, "dp-highlight dp-same"];
+						}
+						else{
+							result = [true, "dp-highlight dp-first"];
+						}
 					}
 					else{
 						result = [true, "dp-highlight"];
@@ -1070,14 +1075,18 @@ var pvFrontScript = window.pvFrontScript || (function(){
 				else{
 					$('.w-header-gnb .b-open-search button').on('click', function(){
 						if($('#header-sec .w-header-search').css('display') == 'block'){
-							$('#header-sec .w-header-search').stop().slideUp('fast');
+							$('#header-sec .w-header-search').stop().slideUp('fast', function(){
+								$('#header-sec .w-header-search').attr('style', 'display: none;');
+							});
 							$(this).removeClass('on');
 							if(!$('.commonHeaderObject.o-CHO-quick .o-CHO-inner').hasClass('header-sec-fixed')){ 
 								$('.commonHeaderObject.o-CHO-quick .w-header-search').addClass('is-hide');
 							}
 						}
 						else{
-							$('#header-sec .w-header-search').stop().slideDown('fast');
+							$('#header-sec .w-header-search').stop().slideDown('fast', function(){
+								$('#header-sec .w-header-search').attr('style', 'display: block;');
+							});
 							$(this).addClass('on');
 							if(!$('.commonHeaderObject.o-CHO-quick .o-CHO-inner').hasClass('header-sec-fixed')){ 
 								$('.commonHeaderObject.o-CHO-quick .w-header-search.is-hide').removeClass('is-hide');

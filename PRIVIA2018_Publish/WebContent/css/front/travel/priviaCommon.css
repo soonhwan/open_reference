@@ -652,7 +652,7 @@ html.no_ios_device .check-msg-tooltip a:focus + .tip-box {display:block}
 .layer_pop .content .using-info dl.dc-card-last{margin-bottom:0;}
 .layer_pop .content .using-info dt{font-size:14px;font-weight:bold;color:#000;}
 .layer_pop .content .using-info dd{margin-top:20px;background: #f5f5f5;padding: 20px;border:1px solid #e2e2e2;}
-.line-box.dc-card-guide-new .box-fill-gray{margin: 20px 0;}
 .line-box.dc-card-guide-new .box-fill-gray .text-list2-md li{margin-top:10px;margin-bottom:0;font-weight:bold;}
 .line-box.dc-card-guide-new .box-fill-gray .text-list2-md li:first-child{margin-top:0;padding-left:0;background: none;}
 .set-cont-dc-card .cont .list > li .text-list-md.show {display: block;}
+.line-box.dc-card-guide-new .text-list-md{margin: 20px 0;}
