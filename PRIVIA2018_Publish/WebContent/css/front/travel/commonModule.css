@@ -325,18 +325,6 @@ box-shadow: 3px 7px 22px 0px rgba(0,0,0,0.3);
 .o-CHO-quick .w-header-gnb .b-open-search, .header-sec-fixed .w-header-gnb .b-open-search {display: inline-block;}
 .o-CHO-quick #top-area-sec .top-area-sec, .header-sec-fixed #top-area-sec .top-area-sec {display: none;} 
 .o-CHO-quick #header-sec .w-header-search, .header-sec-fixed #header-sec .w-header-search {display: none;}
-/*.header-sec-fixed #header-sec .header-sec {
--webkit-box-shadow: 0 3px 7px 0px rgba(0,0,0,0.1);
--moz-box-shadow: 0 3px 7px 0px rgba(0,0,0,0.1);
-box-shadow: 0 3px 7px 0px rgba(0,0,0,0.1);
-}
-.header-sec-fixed #header-sec {
--webkit-box-shadow: 0 10px 20px 0px rgba(0,0,0,0.1);
--moz-box-shadow: 0 10px 20px 0px rgba(0,0,0,0.1);
-box-shadow: 0 10px 20px 0px rgba(0,0,0,0.1);
-}
-.no-shadow.header-sec-fixed #header-sec .header-sec,
-.no-shadow.header-sec-fixed #header-sec {-webkit-box-shadow: none !important;-moz-box-shadow: none !important;box-shadow: none !important;}*/
 
 /* ------------- 헤더 배경색상 */
 .o-bg-air {background-color: #288ecc !important;}
@@ -926,12 +914,6 @@ box-shadow: 0px 5px 20px 0px rgba(0,0,0,0.1);
 .s-rec-promotion .rlc-list-main .c-slick-dots .slick-dots {text-align: right;background-color: #fff;}
 .s-rec-promotion .rlc-list-main .c-slick-dots .slick-dots li {pointer-events: none;cursor: none;}
 .s-rec-promotion .rlc-list-main .c-slick-dots .slick-dots li:last-child {margin-right: 0;}
-/*.s-rec-promotion .rlc-list-main .c-slick-dots .slick-dots button {opacity: 1;transition: opacity, color, background-color, width, padding 0.3s;}
-.s-rec-promotion .rlc-list-main .c-slick-dots .slick-dots .slick-active button {opacity: 1;text-indent: inherit;font-size:13px;color: #fff;width: auto;height: auto;padding: 1px 12px 3px 12px;border-radius: 12px;}*/
-/*.s-rec-promotion .rlc-list-main .c-slick-dots .slick-dots .slick-active .dot-air {background-color:#288ecc;}
-.s-rec-promotion .rlc-list-main .c-slick-dots .slick-dots .slick-active .dot-hotel {background-color:#00b290;}
-.s-rec-promotion .rlc-list-main .c-slick-dots .slick-dots .slick-active .dot-free {background-color:#765cba;}
-.s-rec-promotion .rlc-list-main .c-slick-dots .slick-dots .slick-active .dot-freetour {background-color:#c45190;}*/
 
 /* 메인 상시 프로모션 */
 .s-always-banner {position: relative;}
@@ -957,18 +939,6 @@ box-shadow: 0px 5px 20px 0px rgba(0,0,0,0.1);
 .s-benefit-cont .list-benefit li .inner {display: table;width: 100%;min-height: 50px;margin-top: 20px;}
 .s-benefit-cont .list-benefit .txt {display: table-cell;vertical-align: middle;text-align: center;font-size: 18px;color: #000;line-height: 28px;font-family:"NotoSansKR" !important;font-weight: 300;transition: color 0.3s;}
 .s-benefit-cont .list-benefit li:before {content: '';display: block;width: 140px;height: 140px;background-color: #fff;border-radius: 50%;position: absolute;top: 40px;left: 50%;margin-left: -25%;pointer-events: none;}
-/*.s-benefit-cont .list-benefit li .inner:before {content: '';display: block;width: 80px;height: 80px;position: absolute;left: 50%;margin-left: -40px;top: 25%;background:url(/images/front/travel/contents/icon-benefit-contents.png) 50% 50% no-repeat;transition: opacity 0.3s;}
-.s-benefit-cont .list-benefit li .inner:after {content: '';display: block;width: 80px;height: 80px;position: absolute;left: 50%;margin-left: -40px;top: 25%;background:url(/images/front/travel/contents/icon-benefit-contents.png) 50% 50% no-repeat;opacity: 0;transition: opacity 0.3s;}
-.s-benefit-cont .list-benefit .bfit1 .inner:before {background-position: 0 0;}
-.s-benefit-cont .list-benefit .bfit2 .inner:before {background-position: 0 -61px;}
-.s-benefit-cont .list-benefit .bfit3 .inner:before {background-position: 0 -122px;}
-.s-benefit-cont .list-benefit .bfit4 .inner:before {background-position: 0 -170px;}
-.s-benefit-cont .list-benefit .bfit1 .inner:after {background-position: -60px 0;}
-.s-benefit-cont .list-benefit .bfit2 .inner:after {background-position: -60px -61px;}
-.s-benefit-cont .list-benefit .bfit3 .inner:after {background-position: -60px -122px;}
-.s-benefit-cont .list-benefit .bfit4 .inner:after {background-position: -60px -170px;}
-.s-benefit-cont .list-benefit li a:hover .inner:before {opacity: 0;}
-.s-benefit-cont .list-benefit li a:hover .inner:after {opacity: 1;}*/
 
 /* 메인 공지사항 */
 .s-information-cont:after {content: '';display: block;clear:both;}
