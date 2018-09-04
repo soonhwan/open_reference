@@ -66,8 +66,8 @@ function commify(n) {
 			next : '.next',
 			mask : '.scrollMask',
 			unit : '.scrollMask li',
-            dimm : false, // 마크업 참고 링크 : http://pstatic.priviatravel.com/html_travel/section/free_renew.html - 주석명 : #24959
-			expand : false // 마크업 참고 링크 : http://pstatic.priviatravel.com/html_travel/section/free_renew.html - 주석명 : #24959
+            dimm : false,
+			expand : false
 		}, option);
 
 		$(this).each(function(){
@@ -266,20 +266,26 @@ function commify(n) {
  * 설명 : 타겟 엘리먼트의 위치로 페이지 스크롤 처리
  * 사용법 : scrollTopThis($("#id")); scrollTopThis($(".class")); scrollTopThis($(this));
  */
-var scrollTopThis = function($element){
+var scrollTopThis = function($element, $elGap){
 	var target = "body",
 	speed = 500,
 	timeout = 300,	
+	gap = $elGap || 0,	
 	top = $element.offset(),
-	top = top.top;
+	top = top.top - gap;
 	if($.browser.msie){
 		target = "html";
 	}else if($.browser.mozilla || $.browser.webkit){
 		target = "body,html";
 	}
 	setTimeout(function(){
-		$(target).animate({scrollTop:top},speed);	
-	},timeout);
+		if($('.commonHeaderObject').length > 0){
+			$(target).animate({scrollTop:top-120},speed);	
+		}
+		else{
+			$(target).animate({scrollTop:top},speed);	
+		}
+	},timeout);	
 };
 
 /*
@@ -1023,8 +1029,7 @@ var modalPopLayer = function(menuid,url,scrolling,height){
  * dimmed 레이어 팝업 resize, reposition
  * 설명 : 레이어 팝업 아이프레임 사이즈 변경, 위치 변경 처리
  * 사용법 : 아이프레임으로 띄울 레이어 내부에서 호출 
- * 참조 : /HCC_PRIVIA_TOTAL_ADMIN/webapp/resources/layerpop_test.jsp
- */
+*/
 var modalPopLayerReset = function(id,width,height){
 	var idPop = $("#modalPopup" + id);
 	var idPopFrame = $("#modalPopup" + id);
@@ -1854,7 +1859,6 @@ var iosCheck = function(){
 /*
  * 함수명 : boxshadow
  * 설명 : 9 미만 버전의 ie에 대해 css3 box shadow 처리
- * 사용법: box_shadow.html 참조 
  */
 $.fn.boxshadow = function(options){
 	return this.each(function(){		
@@ -3006,9 +3010,8 @@ $.datepicker.setDefaults($.datepicker.regional['ko']);
 //var guideInterval = setInterval(getGuideStatus, 1000*20);
 /* 전체 공통 스크립트 */
 $(function(){
-	if(iosCheck() == false){
-		$("html").addClass("no_ios_device");
-	}
+	if(iosCheck() == false){ $("html").addClass("no_ios_device"); }
+	if(checkMobile() == true){ $("html").addClass("is_mobile"); }
 	
 	//마이트레블 영역 init
 	initMytravel();
@@ -3253,7 +3256,6 @@ $(window).load(function(){
 /* 함수명 : slideUI (jQuery plugin)
  * 설명   : 좌우 슬라이딩 롤링 UI
  * 사용법 : 타임세일 UI에 현재 사용되고 있음.
- * REFS  : /html_pkg/html/P_PM_01.html
  */    
 (function($){
     $.fn.slideUI = function(options){
@@ -3570,7 +3572,6 @@ $(function(){
 /*
  * 함수명 : adjustPayCalcWidth
  * 설명   : 결제요금의 계산식을 표현하는 UI에 쓰이며, 각 TD의 넓이를 동일하게 맞춰주는 스크립트로, 해당 UI가 나오는 페이지에 함수를 호출해준다.
- * REFS   : /html_dprs/search/rent_reserve_step2.html
  * 작성자 : 정일영
  */
 function adjustPayCalcWidth(){
@@ -3584,7 +3585,6 @@ function adjustPayCalcWidth(){
 /*
  * 함수명 : adjustNavNewWidth
  * 설명   : 페이지의 navi중 sub navi UI에 쓰이며, 각 li의 넓이를 동일하게 맞춰주는 스크립트로, 해당 UI가 나오는 페이지에 함수를 호출해준다.
- * REFS   : /html_dprs/html/PTF_5102.html
  * 작성자 : 박선희
  */
 function adjustNavNewWidth(){
@@ -3604,7 +3604,6 @@ function adjustNavNewWidth(){
 /*
  * 함수명 : formHasValueBg
  * 설명   : input.text 또는 .textarea가 value가 있는 채로 focusout되었을 시 사선으로 된 백그라운드를 해지하는 함수(가독성 확보).
- * REFS   : /html_dprs/search/rent_reserve_step2.html
  * 작성자 : 정일영
  */
 function formHasValueBg(){
@@ -3646,7 +3645,6 @@ function formHasValueBg(){
 /*
  * 함수명 : cufonReplace
  * 설명   : you&i폰트 사용(타이틀, 버튼)을 위해 처음 페이지 로드시 cufon replace 실행 (ajax처리하는 경우 그 후에 한번 더 호출해준다)
- * REFS   : /html_dprs/html/PTF_C0010.html
  * 작성자 : 박선희
 */
 function cufonReplace(){
@@ -3804,7 +3802,6 @@ $(function(){
 /* 함수명 : rankUI (jQuery plugin)
  * 설명   : 실시간 검색어 순위 자동롤링
  * 사용법 : 패키지 검색결과 UI에 현재 사용되고 있음.
- * REFS  : /html_pkg/html/P_SR_01.html
  */ 
 
 (function($){
@@ -3862,7 +3859,6 @@ $(function(){
 /* 함수명 : updownRoll (jQuery plugin)
  * 설명   : 공지사항 롤링
  * 사용법 : 공지사항 게시물이 1개씩 위아래 롤링
- * REFS  : /html_travel/customer/customer-main-new2.html
  */ 
 
 (function($){
@@ -3963,7 +3959,6 @@ function priceWrapResize(){
 /*
  * 함수명 : toggleResultList
  * 설명   : 항공 요금표기 개선(리스트 열고 닫기)
- * 사용처 : ex) /html_travel/search/search_air_ex_nokor.html
  * 작성자 : 권순환
  */ 
 function toggleResultList(){
@@ -3988,7 +3983,6 @@ function toggleResultList(){
 /*
  * 함수명 : toggleResultListAdd
  * 설명   : 항공 요금표기 개선(리스트 더보기 열고 닫기)
- * 사용처 : ex) /html_travel/search/search_air_ex_nokor.html
  * 작성자 : 권순환
  */ 
 function toggleResultListAdd(){
@@ -4014,7 +4008,6 @@ function toggleResultListAdd(){
 /*
  * 함수명 : openAirlineReload
  * 설명   : 항공 요금표기 개선(항공 재검색 열고 닫기)
- * 사용처 : ex) /html_travel/search/search_air_ex_nokor.html
  * 작성자 : 권순환
  */ 
 function openAirlineReload(){
@@ -4037,7 +4030,6 @@ function openAirlineReload(){
 /*
  * 함수명 : toggleTotalDetail
  * 설명   : 항공 요금표기 개선(요금표 상세 요금 열고 닫기)
- * 사용처 : ex) /html_travel/search/search_air_ex_nokor.html
  * 작성자 : 권순환
  */ 
 function toggleTotalDetail(){
@@ -4057,7 +4049,6 @@ function toggleTotalDetail(){
 /*
  * 함수명 : toggleListHeadFilter
  * 설명   : 항공 요금표기 개선(검색결과 리스트 헤더 필터메뉴 열고 닫기)
- * 사용처 : ex) /html_travel/search/search_air_ex_nokor.html
  * 작성자 : 권순환
  */ 
 function toggleListHeadFilter(){
@@ -4096,7 +4087,6 @@ function autoCompleteEmpty(){
 /*
  * 함수명 : oldVerClassRemove
  * 설명   : 기존 .old-ver css 충돌 때문에 제거
- * 사용처 : ex) /html_travel/search/search_air_ex_nokor.html
  * 작성자 : 권순환
  */ 
 function oldVerClassRemove(){
@@ -4124,7 +4114,6 @@ function GetURLParameter(sParam){
 /*
  * 함수명 : floatMenuPosRe
  * 설명   : content 우측 플로팅 메뉴 
- * 사용처 : ex) /html_travel/search/search_air_ex_nokor.html
  * 작성자 : 권순환
  */
 (function($){
@@ -4132,9 +4121,9 @@ function GetURLParameter(sParam){
 		var defaults = $.extend({
 			fmTop :125, 
 			fmLeft :20, 
-			fmFixTop :20, 
+			fmFixTop :140, 
 			contWid :950, 
-			fmStop : null 
+			fmStop : $('#footer-sec')
 		},options);		
 		
 		return this.each(function(){
@@ -4149,16 +4138,16 @@ function GetURLParameter(sParam){
 			
 			$this.css({'top':fmTop+'px','maring-right':-(innerleft+$this.width())+'px'});
 			innerleft = contWid/2 + fmLeft;
-			innerTop = $this.offset().top - fmFixTop;
 
 			function fmPos(ml, t){
 				inner.css({'margin-left':ml,'top':t});
 			}
 			
 			function pos(){
+				innerTop = $this.offset().top - fmFixTop;
 				sc = $(window).scrollTop();	
 				if(innerTop < sc){
-					if(fmStop != null){fmStop = defaults.fmStop.offset().top - inner.height();}
+					if(fmStop != null){fmStop = defaults.fmStop.offset().top - defaults.fmStop.outerHeight(true) - inner.height()+240;}
 					if(fmStop < sc && fmStop != null){
 						$this.removeClass('fixed');
 						var t = fmStop-$this.offset().top+fmFixTop;
@@ -4260,7 +4249,7 @@ $(function(){
     var mainnotipop;
     if($('.pu_notice').length > 0){
         mainnotipop = $('.pu_notice').detach();
-        $('body').append('<div id="pu-notice-origin" style="width:950px;position:absolute;top:0;left:50%;margin-left:-475px"></div>');
+        $('body').append('<div id="pu-notice-origin" style="width:1200px;position:absolute;top:0;left:50%;margin-left:-600px"></div>');
         $('#pu-notice-origin').html(mainnotipop);
     }
 	lowIEVersion()  // ie 버전별 대응을 위해 html에 class 삽입

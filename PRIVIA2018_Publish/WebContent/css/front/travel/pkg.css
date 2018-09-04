@@ -783,7 +783,7 @@
 .pkg-benefit-icon .pbi-view{position:absolute;top:50%;right:30px;margin-top:-10px;font-weight:bold;font-family:'맑은 고딕';font-size:14px;background:url(/images/front/travel/deco_bul_arrow_4x8.gif) no-repeat right center;padding-right:15px}
 
 .pkg-benefit-icon.detail-view{position:relative;top:82px;padding:0 0 15px;background-color:white}
-.pkg-benefit-icon.detail-view.on{position:fixed;top:70px;padding-top:10px}
+.pkg-benefit-icon.detail-view.on{position:fixed;top:75px;padding-top:10px}
 
 .pkg-benefit-icon.detail-view ul{margin-left:185px}
 .pkg-benefit-icon.detail-view .pbi-msg{position:absolute;top:50%;left:20px;margin-top:-18px;font-weight:bold;font-family:'맑은 고딕';font-size:14px;background:url(/images/front/travel/deco_bul_arrow_4x8.gif) no-repeat right center;padding-right:15px}

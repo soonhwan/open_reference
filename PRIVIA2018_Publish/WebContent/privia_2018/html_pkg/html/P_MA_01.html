@@ -365,6 +365,14 @@ function menuChange(idx){
 								<!-- 자유여행 -->
 								<div class="hss-menu hss-free">
 									<h3 class="hss-main"><a href="#" data-tabmain="free">자유여행</a></h3>
+									<!-- #32433 추가 -->
+									<ul class="hss-sub">
+										<ul class="ssm-sub">
+											<li><span class="btn-base bbr-st2 b-airtel"><a href="#" data-tabsub="airtel">지역별 에어텔</a></span></li>
+											<li><span class="btn-base bbr-st2 b-airtelpremium"><a href="#" data-tabsub="airtelpremium">프리미엄 에어텔</a></span></li>
+										</ul>
+									</ul>
+									<!-- //#32433 추가 -->
 								</div>	
 								<!-- //자유여행 -->
 
@@ -712,7 +720,7 @@ function menuChange(idx){
 									<!-- 항공 주요도시 리스트 -->
 									<div class="sc-ui-search-panel ui-mainsel-air">
 										<div class="uis-input">
-											<input type="text" class="input-base ipu-search" placeholder="도시명을 검색하거나 아래 주요도시에서 선택하세요." autocomplete="off">
+											<input type="text" class="input-base ipu-search" placeholder=" 도시명을 검색하거나 아래 주요도시에서 선택하세요." autocomplete="off"><!-- #32511 수정(placeholder 한칸 띄기) -->
 										</div>	
 										<table class="uis-mainsel-table">
 											<caption>주요도시 선택 리스트</caption>
@@ -1010,7 +1018,7 @@ function menuChange(idx){
 											<!-- 해외 주요도시 리스트 -->
 											<div class="sc-ui-search-panel ui-mainsel-hotel">
 												<div class="uis-input">
-													<input type="text" class="input-base ipu-search" placeholder="도시, 호텔명을 검색하거나 아래 주요도시에서 선택하세요." autocomplete="off">
+													<input type="text" class="input-base ipu-search" placeholder=" 도시, 호텔명을 검색하거나 아래 주요도시에서 선택하세요." autocomplete="off"><!-- #32511 수정(placeholder 한칸 띄기) -->
 												</div>						
 												<table class="uis-mainsel-table">
 													<caption>주요도시 선택 리스트</caption>
@@ -1204,7 +1212,7 @@ function menuChange(idx){
 											<!-- 국내 주요도시 리스트 -->
 											<div class="sc-ui-search-panel ui-mainsel-hotel">
 												<div class="uis-input">
-													<input type="text" class="input-base ipu-search" placeholder="도시, 호텔명을 검색하거나 아래 주요도시에서 선택하세요." autocomplete="off">
+													<input type="text" class="input-base ipu-search" placeholder=" 도시, 호텔명을 검색하거나 아래 주요도시에서 선택하세요." autocomplete="off"><!-- #32511 수정(placeholder 한칸 띄기) -->
 												</div>
 												<div class="uis-list">
 													<ul class="list o-customscrollbar">
@@ -1393,15 +1401,9 @@ function menuChange(idx){
 
 								<!-- 자유여행 -->
 								<div class="hss-inner-cont sc-free" id="SC-FREE">
+									<!-- 지역별 에어텔(#32433) -->
 									<div class="sc-search-box o-airtel on">
 										<div class="w-qsb-cont">
-											<div class="qsb-cont-box">
-												<div class="qsb-cont qsb-select">
-													<a href="#" class="qsb-area sel-cus-airtel" data-panel="mainsel" data-panel-name="ui-mainsel-airtel">
-														<span class="qsb-label">프리미엄 에어텔 보기</span>
-													</a>
-												</div>
-											</div>
 											<div class="qsb-cont-box">												
 												<div class="qsb-cont qsb-select">
 													<a href="#" class="qsb-area" data-panel="select" data-panel-name="o-sel-airtel1">
@@ -1427,59 +1429,10 @@ function menuChange(idx){
 											</div>
 										</div>
 										
-										<!-- 프리미엄 에어텔 선택 리스트 -->
-										<div class="sc-ui-search-panel ui-mainsel-airtel">		
-											<table class="uis-mainsel-table">
-												<caption>프리미엄 에어텔 선택 리스트</caption>
-												<colgroup>
-													<col width="25%">
-													<col>
-												</colgroup>
-												<tbody>
-													<tr>
-														<th><a href="#">비즈니스석</a></th>
-														<th><a href="#">프로모션</a></th>
-													</tr>
-													<tr>
-														<td>
-															<ul class="list">
-																<li><a href="#">오키나와</a></li> 
-																<li><a href="#">방콕</a></li> 
-																<li><a href="#">홍콩</a></li> 
-																<li><a href="#">카오락</a></li> 
-																<li><a href="#">사이판</a></li> 
-																<li><a href="#">싱가포르</a></li> 
-																<li><a href="#">하와이</a></li> 
-																<li><a href="#">런던</a></li> 
-																<li><a href="#">프라하</a></li> 
-																<li><a href="#">두바이</a></li> 
-															</ul>
-														</td>
-														<td>
-															<ul class="list">
-																<li><a href="#">세부</a></li> 
-																<li><a href="#">다낭</a></li> 
-																<li><a href="#">괌</a></li> 
-																<li><a href="#">사이판</a></li> 
-																<li><a href="#">방콕</a></li> 
-																<li><a href="#">푸켓</a></li> 
-																<li><a href="#">카오락</a></li> 
-																<li><a href="#">하와이(마우이)</a></li> 
-																<li><a href="#">런던</a></li> 
-																<li><a href="#">파리</a></li> 
-															</ul>
-														</td>
-													</tr>
-												</tbody>
-											</table>
-										</div>
-										<!-- //프리미엄 에어텔 선택 리스트 -->
-										
 										<!-- select1 지역/종류 -->
 										<div class="sc-ui-search-panel ui-select-list o-sel-airtel1">
 											<div class="uis-list">
 												<ul class="list o-customscrollbar">
-													<li><a href="#" data-option="">프리미엄 에어텔</a></li>
 													<li><a href="#" data-option="">동남아</a></li>
 													<li><a href="#" data-option="">일본</a></li>
 													<li><a href="#" data-option="">홍콩/마카오/대만</a></li>
@@ -1496,12 +1449,11 @@ function menuChange(idx){
 										<div class="sc-ui-search-panel ui-select-list o-sel-airtel2">
 											<div class="uis-list">
 												<ul class="list o-customscrollbar">
-													<li><a href="#" data-option="">비즈니스 프로모션</a></li>
-													<li><a href="#" data-option="">동남아</a></li>
-													<li><a href="#" data-option="">괌</a></li>
-													<li><a href="#" data-option="">유럽</a></li>
-													<li><a href="#" data-option="">비즈니스 프로모션</a></li>
-													<li><a href="#" data-option="">동남아</a></li>
+													<li><a href="#" data-option="">다낭/나트랑</a></li>
+													<li><a href="#" data-option="">방콕/파타야</a></li>
+													<li><a href="#" data-option="">푸켓/카오락</a></li>
+													<li><a href="#" data-option="">세부</a></li>
+													<li><a href="#" data-option="">발리</a></li>
 												</ul>
 											</div>
 										</div>
@@ -1522,6 +1474,57 @@ function menuChange(idx){
 										</div>
 										<!-- //select3 상품/종류 -->
 									</div>
+									<!-- //지역별 에어텔(#32433) -->
+									
+									<!-- 프리미엄 에어텔(#32433) -->
+									<div class="sc-search-box o-airtelpremium">
+										<div class="w-qsb-cont">
+											<div class="qsb-cont-box">												
+												<div class="qsb-cont qsb-select">
+													<a href="#" class="qsb-area" data-panel="select" data-panel-name="o-sel-airtelpremium1">
+														<span class="qsb-label">종류</span>
+														<span class="qsb-input"></span>
+													</a>
+												</div>
+												<div class="qsb-cont qsb-select">
+													<a href="#" class="qsb-area" data-panel="select" data-panel-name="o-sel-airtelpremium2">
+														<span class="qsb-label">국가/상세</span>
+														<span class="qsb-input"></span>
+													</a>
+												</div>
+												<div class="qsb-cont qsb-btn-search">
+													<button type="button" class="b-search">검색</button>
+												</div>
+											</div>
+										</div>
+										
+										<!-- select1 종류 -->
+										<div class="sc-ui-search-panel ui-select-list o-sel-airtelpremium1">
+											<div class="uis-list">
+												<ul class="list o-customscrollbar">
+													<li><a href="#" data-option="">비즈니스석</a></li>
+													<li><a href="#" data-option="">비즈니스 승급석</a></li>
+													<li><a href="#" data-option="">프로모션</a></li>
+												</ul>
+											</div>
+										</div>
+										<!-- //select1 종류 -->
+										
+										<!-- select2 국가/상세 -->
+										<div class="sc-ui-search-panel ui-select-list o-sel-airtelpremium2">
+											<div class="uis-list">
+												<ul class="list o-customscrollbar">
+													<li><a href="#" data-option="">다낭/나트랑</a></li>
+													<li><a href="#" data-option="">방콕/파타야</a></li>
+													<li><a href="#" data-option="">푸켓/카오락</a></li>
+													<li><a href="#" data-option="">세부</a></li>
+													<li><a href="#" data-option="">발리</a></li>
+												</ul>
+											</div>
+										</div>
+										<!-- //select2 국가/상세 -->
+									</div>
+									<!-- //프리미엄 에어텔(#32433) -->
 									
 									<!-- 자유여행 최근검색 -->
 									<div class="hss-recently-search">
@@ -1594,7 +1597,7 @@ function menuChange(idx){
 											<!-- 대여도시 리스트 -->
 											<div class="sc-ui-search-panel ui-mainsel-freetour">
 												<div class="uis-input">
-													<input type="text" class="input-base ipu-search" placeholder="도시명을 검색하거나 아래 주요도시에서 선택하세요." autocomplete="off">
+													<input type="text" class="input-base ipu-search" placeholder=" 도시명을 검색하거나 아래 주요도시에서 선택하세요." autocomplete="off"><!-- #32511 수정(placeholder 한칸 띄기) -->
 													<span class="opt-txt">대여장소를 선택하여 주세요.</span>
 												</div>						
 												<table class="uis-mainsel-table">

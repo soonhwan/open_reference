@@ -730,17 +730,17 @@ border-left:0;
 .sc-free .o-airtel .qsb-cont-box + .qsb-cont-box {float: right;width: 75%;}
 .sc-free .o-airtel .qsb-cont-box + .qsb-cont-box .qsb-select {width: 29.76666666666667%;}
 .sc-free .o-airtel .qsb-btn-search {width: 10.7%;}
-.sc-free .o-airtel .sel-cus-airtel .qsb-label {color: #000;}
-.sc-free .o-airtel .ui-mainsel-airtel {top: 92px;left: 0;/*overflow: visible;-webkit-box-shadow: none;-moz-box-shadow: none;box-shadow: none;*/}
-/*.sc-free .o-airtel .ui-mainsel-airtel .uis-input {border-radius: 6px;display: none;}*/
-/*.sc-free .o-airtel .ui-mainsel-airtel .b-scb-close {display: none;}*/
-/*.sc-free .o-airtel .ui-mainsel-airtel .uis-mainsel-table {width: 1200px;border-radius: 0 6px 6px 6px;overflow: hidden;
--webkit-box-shadow: 3px 7px 22px 0px rgba(0,0,0,0.3);
--moz-box-shadow: 3px 7px 22px 0px rgba(0,0,0,0.3);
-box-shadow: 3px 7px 22px 0px rgba(0,0,0,0.3);
-border-collapse: inherit;
-}*/
-/*.sc-free .ui-recently-search {width: 557px;}*/
+.sc-free .o-airtel .sel-cus-airtel .qsb-label {color: #999;}
+.sc-free .o-airtel .ui-mainsel-airtel {top: 92px;left: 0;}
+
+/* #32433 
+.sc-free .o-airtel .qsb-cont-box .qsb-select {width: 30.66666666666667%;}
+.sc-free .o-airtel .qsb-btn-search {width: 8%;}
+.sc-free .o-airtel .ui-select-list {min-width:367px;}
+.sc-free .o-airtelpremium .qsb-cont-box .qsb-select {width: 46%;}
+.sc-free .o-airtelpremium .qsb-btn-search {width: 8%;}
+.sc-free .o-airtelpremium .ui-select-list {min-width:552px;} */
+
 /* 검색 박스 lyout - 렌터카 */
 .sc-freetour .o-rentv .qsb-places {width: 52%;border-left: 0;}
 .sc-freetour .o-rentv .qsb-places .places-exit {position: relative;padding-right: 20px;}
@@ -894,15 +894,15 @@ box-shadow: 0px 5px 20px 0px rgba(0,0,0,0.1);
 .s-rec-promotion .rlc-list-main .vis img {width: 585px;height: 300px;}
 .s-rec-promotion .rlc-list-main .tit {display: block;color: #000;font-size:26px;font-family:"NotoSansKR" !important;font-weight: 300;line-height: 36px;height: 72px;overflow: hidden;transition: color 0.3s;}
 .s-rec-promotion .rlc-list-main .exp {display: block;color: #000;font-size:14px;line-height: 20px;margin-top: 10px;height: 20px;}
-.s-rec-promotion .rlc-list-sub .rlc-ls-left {float: left;width: 278px;}
-.s-rec-promotion .rlc-list-sub .rlc-ls-right {float: right;width: 278px;}
+.s-rec-promotion .rlc-list-sub .rlc-ls-left {float: left;width: 277px;}
+.s-rec-promotion .rlc-list-sub .rlc-ls-right {float: right;width: 277px;}
 .s-rec-promotion .rlc-list-sub .slick-slide {margin-left: 15px;}
 .s-rec-promotion .rlc-list-sub .slick-list {margin-left: -15px;}
 .s-rec-promotion .rlc-list-sub .list {width: 100%;overflow: hidden;}
 .s-rec-promotion .rlc-list-sub .o-box {width: 100%;}
 .s-rec-promotion .rlc-list-sub .o-box > a:hover .tit {color: #e93a84;}
 .s-rec-promotion .rlc-list-sub .vis {display: block;overflow: hidden;border-radius: 6px;z-index: 1;}
-.s-rec-promotion .rlc-list-sub .vis img {width: 278px;height: 170px;}
+.s-rec-promotion .rlc-list-sub .vis img {width: 277px;height: 170px;}
 .s-rec-promotion .rlc-list-sub .info-box {display: block;z-index: 0;padding: 35px 19px 28px 19px;border:1px solid #e2e6eb;border-radius: 6px;margin-top: -10px;}
 .s-rec-promotion .rlc-list-sub .tit {display: block;color: #000;font-size:18px;font-family:"NotoSansKR" !important;font-weight: 300;line-height: 28px;z-index: 1;transition: color 0.3s;height: 56px;overflow: hidden;}
 .s-rec-promotion .rlc-list-sub .date {display: block;color: #000;font-size:14px;line-height: 24px;margin-top: 10px;letter-spacing: -0.05em;}
@@ -966,7 +966,7 @@ box-shadow: 0px 5px 20px 0px rgba(0,0,0,0.1);
 .s-rec-promotion-cont .srpc-prom .slick-dots:after {content: '';display: block;clear:both;}
 .s-rec-promotion-cont .srpc-prom .slick-dots li {float: left;width: 50%;}
 .s-rec-promotion-cont .srpc-prom .slick-dots li .btn {display: block;width: 100%;padding: 16px 20px;text-align: left;font-size:14px;color: #000;line-height: 24px;white-space:normal;background-color: #eef1f6;border: 1px solid #e2e6eb;border-left: 0;transition: all 0.3s;}
-.s-rec-promotion-cont .srpc-prom .slick-dots li .btn span {display: inline-block;height: 36px;overflow: hidden;}
+.s-rec-promotion-cont .srpc-prom .slick-dots li .btn span {display: inline-block;height: 36px;line-height: 18px;overflow: hidden;}
 .s-rec-promotion-cont .srpc-prom .slick-dots li:first-child .btn {border-left: 1px solid #e2e6eb;}
 .s-rec-promotion-cont .srpc-prom .slick-dots li .btn:hover {color: #e93a84;}
 .s-rec-promotion-cont .srpc-prom .slick-dots .slick-active .btn {color: #fff;border: 1px solid #288ecc !important;background-color: #288ecc;}
@@ -979,11 +979,11 @@ box-shadow: 0px 5px 20px 0px rgba(0,0,0,0.1);
 .s-rec-promotion-cont .list-item-st1 {margin-top: 30px;}
 /* list-item-st1 */
 .list-item-st1:after {content: '';display: block;clear:both;}
-.list-item-st1 li {float: left;width: 278px;margin-left: 29px;}
+.list-item-st1 li {float: left;width: 277px;margin-left: 30.5px;}
 .list-item-st1 li:first-child {margin-left: 0;}
 .list-item-st1 li > a {display: block;position: relative;}
 .list-item-st1 .vis {display: block;overflow: hidden;border-radius: 6px;z-index: 1;}
-.list-item-st1 .vis img {width: 278px;height: 170px;}
+.list-item-st1 .vis img {width: 277px;height: 170px;}
 .list-item-st1 .info-box {display: block;z-index: 0;padding: 35px 19px 28px 19px;border:1px solid #e2e6eb;border-radius: 6px;margin-top: -10px;}
 .list-item-st1 .tit {display:block;height:56px;overflow: hidden;position:relative;z-index: 1;}
 .list-item-st1 .tit span {display: inline-block;width:100%;color:#000;font-size:18px;font-family:"NotoSansKR" !important;font-weight: 300;line-height:28px;/*text-overflow:ellipsis;white-space:nowrap;*/overflow:hidden;transition:all 0.3s;}
@@ -991,11 +991,12 @@ box-shadow: 0px 5px 20px 0px rgba(0,0,0,0.1);
 .list-item-st1 .tit.tit-over span {width:100%;min-height: 28px;position:absolute;top:0;left:0;}
 .list-item-st1 li > a:hover .tit span {color: #e93a84;}
 .list-item-st1 li > a:hover .tit-over {overflow: inherit;}
-.list-item-st1 li > a:hover .tit-over span {height: auto;max-height:61px;padding-bottom: 10px;/*white-space: inherit;*/}
+.list-item-st1 li > a:hover .tit-over span {height: auto;max-height:61px;padding-bottom: 10px;}
 .list-item-st1 .tit-ori {display: block;color: #000;font-size:14px;line-height: 24px;margin-top: 12px;height: 24px;overflow: hidden;}
 .list-item-st1 .date {display: block;color: #000;font-size:14px;line-height: 24px;margin-top: 10px;letter-spacing: -0.05em;}
 .list-item-st1 .logo-airline {display: block;margin-bottom:15px;/*padding-left: 8px;*/}
 .list-item-st1 .logo-airline img {width: 42px;}
+.list-item-st1 .logo-airline .lgo-name {vertical-align: middle;display: inline-block;font-size:18px;font-family:"NotoSansKR" !important;font-weight: 300;color: #000;}
 .list-item-st1 .rec-mark {display: block;position: absolute;top: 10px;right: 10px;text-align: right;}
 .list-item-st1 .mark {display: block;margin-bottom:15px;}
 .list-item-st1 .lbr-st1 {margin-right: 6px;}
@@ -1181,10 +1182,6 @@ box-shadow: 0px 5px 20px 0px rgba(0,0,0,0.1);
 .footer-banner {margin-bottom: -80px;} /* 하단 섹션메인 간격 */
 .pu_notice {z-index: 1000;} /* 공지팝업 z-index */
 
-/* 항공 */
-
-/* 호텔 */
-
 /* 자유여행 */
 .section_main.free_travel {padding-top: 50px;}
 .free_travel .item_630x310 {float: left;}
@@ -1196,7 +1193,6 @@ box-shadow: 0px 5px 20px 0px rgba(0,0,0,0.1);
 
 /* 투액 */
 .c2-main .c2-content-wrap {margin-top: 40px;}
-.c2-main #content {width: 1260px;}
 
 /* 해외패키지 */
 .l-main-search {z-index: 0;}
@@ -1204,4 +1200,17 @@ box-shadow: 0px 5px 20px 0px rgba(0,0,0,0.1);
 /* 국내여행 */
 #m-banner .visualList {width: 100%;}
 
-/* 기획전 */
+/* 모바일 버전 layout */
+/* 1310px(기본) 1350px(자유상세) */
+.is_mobile #wrap, .is_mobile #top-area-sec, .is_mobile #header-sec, .is_mobile #content-sec, .is_mobile #footer-sec {min-width: 1350px !important;}
+/* hover시 타이틀 2줄 미리노출 */
+.is_mobile .list-item-st1 li > a .tit-over {overflow: inherit;}
+.is_mobile .list-item-st1 li > a .tit-over span {height: auto;max-height:61px;padding-bottom: 10px;}
+.is_mobile .list-item-st1 .tit.tit-over ~ .date,
+.is_mobile .list-item-st1 .tit.tit-over ~ .info {margin-top: 30px;}
+/* 상세페이지 */
+.is_mobile .c2-main #content {min-width: 1260px;}
+.is_mobile .commonHeaderObject ~ .old-ver {min-width: 1260px;margin: 0 auto;}
+.is_mobile .commonHeaderObject ~ .layout-3grid {left: 50%;margin-left: -385px !important;}
+.c2-main #content {min-width: 1260px;}
+.commonHeaderObject ~ .old-ver {min-width: 1260px;margin: 0 auto;}

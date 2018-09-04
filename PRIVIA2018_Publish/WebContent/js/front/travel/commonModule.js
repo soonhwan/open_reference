@@ -1183,6 +1183,8 @@ var pvFrontScript = window.pvFrontScript || (function(){
 				var mainSlickSettings, rlcLeftMain, rlcLeftSub1, rlcLeftSub2, rlcRightMain, rlcRightsub1, rlcRightsub2, mSlickPrevBtn, mSlickNextBtn, mSlickCrt, slickOpt = 'slickNext', slickMotionEnd = false, speedMSlick = 50;
 				//기본셋팅
 				mainSlickSettings = {
+					swipe: false,
+					touchMove: false,
 					draggable: false,
 					arrows:false,
 					dots: false,

@@ -642,8 +642,8 @@ input[type="radio"]:checked{background-position:0 -155px}
 .wrap-bnn-fix .bnn-t-fix > div {float: left;}
 .wrap-bnn-fix .bnn-t-fix > div * {vertical-align: middle;}
 .wrap-bnn-fix .bnn-t-fix .btn-close a {display: inline-block;width: 15px;height: 15px;background: url(/images/front/mtravel/main/btn_close_32x32.png) 50% 50% no-repeat;font-size:0;text-indent: -9999em;-webkit-background-size: 13px;background-size: 13px;}
-.wrap-bnn-fix .bnn-t-fix .txt {color: #1e1e1e;font-size:13px;font-family: "YMB";padding-left: 3px;}
-.wrap-bnn-fix .bnn-t-fix .txt span {padding-left: 36px;padding-top: 1px;position: relative;display: inline-block;background:url(/images/front/mtravel/common/icon-air-app.png) 4px 50% no-repeat;-webkit-background-size: 24px;background-size: 24px;}
+.wrap-bnn-fix .bnn-t-fix .txt {color: #1e1e1e;font-size:13px;font-family: "YMB";padding-left: 39px;background:url(/images/front/mtravel/common/icon-air-app.png) 8px 50% no-repeat;-webkit-background-size: 24px;background-size: 24px;min-height:24px;}
+.wrap-bnn-fix .bnn-t-fix .txt span {padding-top: 1px;position: relative;display: inline-block;vertical-align: middle;line-height: 15px;}
 .wrap-bnn-fix .bnn-t-fix .btn-open-app {float: right;}
 .wrap-bnn-fix .bnn-t-fix .btn-open-app .btn {min-width:44px}
 
