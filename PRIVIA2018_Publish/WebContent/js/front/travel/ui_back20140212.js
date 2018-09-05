@@ -754,7 +754,6 @@ var modalPopLayer = function(menuid,url,scrolling,height){
  * dimmed 레이어 팝업 resize, reposition
  * 설명 : 레이어 팝업 아이프레임 사이즈 변경, 위치 변경 처리
  * 사용법 : 아이프레임으로 띄울 레이어 내부에서 호출 
- * 참조 : /HCC_PRIVIA_TOTAL_ADMIN/webapp/resources/layerpop_test.jsp
  */
 var modalPopLayerReset = function(id,width,height){
 	var idPop = $("#modalPopup" + id);

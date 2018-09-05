@@ -932,8 +932,8 @@ var pvFrontScript = window.pvFrontScript || (function(){
 					if($('.freedirect-detail .search-pos').length > 0){
 						$targetSub = $('.freedirect-detail .search-pos').offset().top;
 					}				
-					if($('#the_iframe').length > 0){
-						$targetSub = $('#the_iframe').offset().top+882;
+					if($('.pkg-benefit-icon ~ #the_iframe').length > 0){
+						$targetSub = $('.pkg-benefit-icon ~ #the_iframe').offset().top+882;
 					}
 
 					if($targetSub-$hdH > scTop){
@@ -1183,8 +1183,8 @@ var pvFrontScript = window.pvFrontScript || (function(){
 				var mainSlickSettings, rlcLeftMain, rlcLeftSub1, rlcLeftSub2, rlcRightMain, rlcRightsub1, rlcRightsub2, mSlickPrevBtn, mSlickNextBtn, mSlickCrt, slickOpt = 'slickNext', slickMotionEnd = false, speedMSlick = 50;
 				//기본셋팅
 				mainSlickSettings = {
-					swipe: false,
-					touchMove: false,
+					swipe: false, //모바일에서 swipe false
+					touchMove: false, //모바일에서 터치 false
 					draggable: false,
 					arrows:false,
 					dots: false,

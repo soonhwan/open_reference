@@ -724,22 +724,22 @@ border-left:0;
 .sc-hotel .o-domh .ui-mainsel-hotel {top: 92px;left: 0;width: 520px;}
 .sc-hotel .o-domh .ui-mainsel-hotel .uis-list .list {max-height:290px;}
 /* 검색 박스 lyout - 자유여행 */
-.sc-free .o-airtel .w-qsb-cont:after {content: '';display: block;clear:both;}
+/*.sc-free .o-airtel .w-qsb-cont:after {content: '';display: block;clear:both;}
 .sc-free .o-airtel .qsb-cont-box {float: left;width: 24%;}
 .sc-free .o-airtel .qsb-cont-box .qsb-select {width: 100%;}
 .sc-free .o-airtel .qsb-cont-box + .qsb-cont-box {float: right;width: 75%;}
 .sc-free .o-airtel .qsb-cont-box + .qsb-cont-box .qsb-select {width: 29.76666666666667%;}
 .sc-free .o-airtel .qsb-btn-search {width: 10.7%;}
 .sc-free .o-airtel .sel-cus-airtel .qsb-label {color: #999;}
-.sc-free .o-airtel .ui-mainsel-airtel {top: 92px;left: 0;}
+.sc-free .o-airtel .ui-mainsel-airtel {top: 92px;left: 0;}*/
 
-/* #32433 
+/* #32433 */
 .sc-free .o-airtel .qsb-cont-box .qsb-select {width: 30.66666666666667%;}
 .sc-free .o-airtel .qsb-btn-search {width: 8%;}
 .sc-free .o-airtel .ui-select-list {min-width:367px;}
 .sc-free .o-airtelpremium .qsb-cont-box .qsb-select {width: 46%;}
 .sc-free .o-airtelpremium .qsb-btn-search {width: 8%;}
-.sc-free .o-airtelpremium .ui-select-list {min-width:552px;} */
+.sc-free .o-airtelpremium .ui-select-list {min-width:552px;} 
 
 /* 검색 박스 lyout - 렌터카 */
 .sc-freetour .o-rentv .qsb-places {width: 52%;border-left: 0;}
@@ -1201,16 +1201,11 @@ box-shadow: 0px 5px 20px 0px rgba(0,0,0,0.1);
 #m-banner .visualList {width: 100%;}
 
 /* 모바일 버전 layout */
-/* 1310px(기본) 1350px(자유상세) */
-.is_mobile #wrap, .is_mobile #top-area-sec, .is_mobile #header-sec, .is_mobile #content-sec, .is_mobile #footer-sec {min-width: 1350px !important;}
-/* hover시 타이틀 2줄 미리노출 */
+.is_mobile body {min-width: 1350px;}
+.is_mobile #content {left: 50%;margin-left: -475px;}
 .is_mobile .list-item-st1 li > a .tit-over {overflow: inherit;}
 .is_mobile .list-item-st1 li > a .tit-over span {height: auto;max-height:61px;padding-bottom: 10px;}
 .is_mobile .list-item-st1 .tit.tit-over ~ .date,
+.is_mobile .list-item-st1 .tit.tit-over ~ .tit-ori,
 .is_mobile .list-item-st1 .tit.tit-over ~ .info {margin-top: 30px;}
-/* 상세페이지 */
-.is_mobile .c2-main #content {min-width: 1260px;}
-.is_mobile .commonHeaderObject ~ .old-ver {min-width: 1260px;margin: 0 auto;}
-.is_mobile .commonHeaderObject ~ .layout-3grid {left: 50%;margin-left: -385px !important;}
-.c2-main #content {min-width: 1260px;}
-.commonHeaderObject ~ .old-ver {min-width: 1260px;margin: 0 auto;}
+.is_mobile .w-mobile-promotion .b-close {-webkit-transform:scale(1.5);transform:scale(1.5);}

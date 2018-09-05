@@ -3010,8 +3010,13 @@ $.datepicker.setDefaults($.datepicker.regional['ko']);
 //var guideInterval = setInterval(getGuideStatus, 1000*20);
 /* 전체 공통 스크립트 */
 $(function(){
-	if(iosCheck() == false){ $("html").addClass("no_ios_device"); }
-	if(checkMobile() == true){ $("html").addClass("is_mobile"); }
+	if(iosCheck() == false){ $("html").addClass("no_ios_device"); } // ios check	
+	if(checkMobile() == true){ //모바일 check
+		$("html").addClass("is_mobile");
+		if($('#ifrmEventContent').length > 0){
+			$('.is_mobile #content').css({'left':'auto','margin-left':'auto'});
+		}
+	}
 	
 	//마이트레블 영역 init
 	initMytravel();
@@ -4127,7 +4132,7 @@ function GetURLParameter(sParam){
 		},options);		
 		
 		return this.each(function(){
-			var sc,winGap,winWid,innerleft,innerTop;
+			var sc,winGap,winWid,innerleft,innerTop,fixedLeft;
 			var $this = $(this);
 			var inner = $this.find('.layout-right');
 			var fmTop = defaults.fmTop;
@@ -4155,13 +4160,18 @@ function GetURLParameter(sParam){
 					}
 					else{
 						$this.addClass('fixed');
-						winWid = $(window).width();
-						if(winWid < contWid){
-							winGap = $('#wrap').width() - winWid;
-						} else {
-							winGap = $('body').width() - winWid;
-						}        
-						var fixedLeft = innerleft - $(window).scrollLeft() + (winGap/2);
+						if($('.is_mobile').length > 0){
+							fixedLeft = innerleft;
+						}
+						else{
+							winWid = $(window).width();
+							if(winWid < contWid){
+								winGap = contWid - winWid;
+							} else {
+								winGap = $('body').width() - winWid;
+							}     
+							fixedLeft = innerleft - $(window).scrollLeft() + (winGap/2);
+						}
 						fmPos(fixedLeft+'px',fmFixTop+'px');
 						//console.log('winWid =', winWid, 'contWid =', contWid, 'winGap =', winGap, 'scrollLeft =', $(window).scrollLeft(), 'fixedLeft =',fixedLeft);
 					}
@@ -4238,7 +4248,7 @@ $(function(){
 		}
 	}
 	
-	$('.imgCrop').imgCrop();
+	if($('.imgCrop').length > 0 ){ $('.imgCrop').imgCrop(); }
 	
 	/*
 	$('head').append('<meta name="google-site-verification" content="8lm4neGkIHHnzHD_x2qCvgG26Sm97YQh1m_nauytBtM" />')

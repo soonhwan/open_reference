@@ -1398,6 +1398,13 @@ var showTab = function(tabName,contId,num){
 $(function(){
 	//formHasValueBg()
 	if(iosCheck() == false){$("html").addClass("no_ios_device");}  // ios check	
+	if(checkMobile() == true){ //모바일 check
+		$("html").addClass("is_mobile");
+		if($('#ifrmEventContent').length > 0){
+			$('.is_mobile #content').css({'left':'auto','margin-left':'auto'});
+		}
+	}
+	
 	//minMaxTopBanner();                                             // 리본배너 확장/축소
 	//closeTopBanner_rb();                                              // 리본배너 닫기(1일간열지않음 쿠키처리)
 	//initGNB();                                                     // GNB 및 전체보기의 이벤트 핸들링
@@ -1413,5 +1420,13 @@ $(function(){
 	//setBanner($('#main-promotion'), true, '2000', "right");        // 메인 프로모션 롤링
 	//setBanner($('#sub-promotion-rolling'), true, '4000', 'right', '6000'); // 서브 프로모션(중배너) 롤링
 	//setBanner($('#sub-promotion-rolling2'), true, '7000', 'right','6000'); // 서브 프로모션(쿠폰 전시 관리) 롤링
+	
+	// 메인 레이어팝업 위치 수정
+    var mainnotipop;
+    if($('.pu_notice').length > 0){
+        mainnotipop = $('.pu_notice').detach();
+        $('body').append('<div id="pu-notice-origin" style="width:1200px;position:absolute;top:0;left:50%;margin-left:-600px"></div>');
+        $('#pu-notice-origin').html(mainnotipop);
+    }
 });
 

@@ -69,12 +69,17 @@ function mySelectPos(){
     var top = $(myselectpos).offset().top;  
     if(top < scroll){
         myselectpos.addClass('fixed');       
-        if($(window).width() < 950){
-            var windowSizeGap = $('#wrap').width() - $(window).width();
-        } else {
-            var windowSizeGap = $('body').width() - $(window).width();
+        if($('.is_mobile').length > 0){
+            var mySelectLeft = 495;
+        }
+        else{
+            if($(window).width() < 950){
+                var windowSizeGap = $('#wrap').width() - $(window).width();
+            } else {
+                var windowSizeGap = $('body').width() - $(window).width();
+            }        
+            var mySelectLeft = 495 - $(window).scrollLeft() + windowSizeGap / 2;
         }        
-        var mySelectLeft = 495 - $(window).scrollLeft() + windowSizeGap / 2;
         inner.css({'margin-left':mySelectLeft + 'px'});        
     } else {
         myselectpos.removeClass('fixed');
@@ -93,12 +98,18 @@ function searchFormPos(){
         searchpos.addClass('fixed');       
         var paddingtop = $('.search-pos .inner').outerHeight() + 20; //20은 css에 선언된 px값
         $('.detail-cont').css({'padding-top':paddingtop+'px'});
-        if($(window).width() < 950){
-            var windowSizeGap = $('#wrap').width() - $(window).width();
-        } else {
-            var windowSizeGap = $('body').width() - $(window).width();
-        } 
-        var innerLeft = -(475 + $(window).scrollLeft() - windowSizeGap / 2);
+        
+        if($('.is_mobile').length > 0){
+            var innerLeft = -475;
+        }
+        else{
+            if($(window).width() < 950){
+                var windowSizeGap = $('#wrap').width() - $(window).width();
+            } else {
+                var windowSizeGap = $('body').width() - $(window).width();
+            } 
+            var innerLeft = -(475 + $(window).scrollLeft() - windowSizeGap / 2);
+        }
         inner.css({'margin-left':innerLeft + 'px'});               
     } else {
         searchpos.removeClass('fixed');
