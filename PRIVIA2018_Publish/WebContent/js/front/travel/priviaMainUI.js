@@ -1398,12 +1398,7 @@ var showTab = function(tabName,contId,num){
 $(function(){
 	//formHasValueBg()
 	if(iosCheck() == false){$("html").addClass("no_ios_device");}  // ios check	
-	if(checkMobile() == true){ //모바일 check
-		$("html").addClass("is_mobile");
-		if($('#ifrmEventContent').length > 0){
-			$('.is_mobile #content').css({'left':'auto','margin-left':'auto'});
-		}
-	}
+	if(checkMobile() == true){ $("html").addClass("is_mobile"); } //모바일 check
 	
 	//minMaxTopBanner();                                             // 리본배너 확장/축소
 	//closeTopBanner_rb();                                              // 리본배너 닫기(1일간열지않음 쿠키처리)
