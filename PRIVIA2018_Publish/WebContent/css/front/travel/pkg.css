@@ -837,7 +837,7 @@
 .pkgAirtel-banner.ps-banner .p-cont .month-area{margin-top:10px;min-height:40px;}
 .pkgAirtel-banner.ps-banner .p-cont .p-month{margin-bottom:10px;}
 .pkgAirtel-banner.ps-banner .p-cont .p-month:after{display:block;content:'';clear:both;}
-.pkgAirtel-banner.ps-banner .p-cont .p-month .month{float:left;font-weight:bold;margin-right:15px;}
+.pkgAirtel-banner.ps-banner .p-cont .p-month .month{float:left;font-weight:bold;margin-right:5px;width:27px;}
 .pkgAirtel-banner.ps-banner .p-cont .p-month .date{float:left;}
 .pkgAirtel-banner.ps-banner .p-cont .p-month .date a{float:left;display:inline-block;padding:0 10px;text-decoration:underline;border-right:1px solid #d6d6d6;}
 .pkgAirtel-banner.ps-banner .p-cont .p-month .date a:last-child{border-right:none;}

@@ -385,6 +385,9 @@ var selectPop = {
 		var popup = $("#" + id);
 		popup.wrap('<div class="dialogue_pop"/>');
 		popup.parent(".dialogue_pop").show(function(){
+			if(popup.hasClass('popWrap-fix')){
+				$(this).addClass('dialogue_pop_fix');
+			}
 			popup.show();
 			selectPop.position(id);
 			$(this).fadeTo(200,1);
@@ -394,6 +397,12 @@ var selectPop = {
 		var popup = $("#" + id);
 		popup.empty().load(url,function(){
 			var html = popup.find(".popWrap").html();
+			if(popup.find(".popWrap-sec").length > 0){
+				popup.addClass('popWrap-sec');
+			}
+			if(popup.find(".popWrap-fix").length > 0){
+				popup.addClass('popWrap-fix');
+			}
 			popup.empty().html(html);
 			selectPop.position(id);
 			$('.input_text').removeRequired();

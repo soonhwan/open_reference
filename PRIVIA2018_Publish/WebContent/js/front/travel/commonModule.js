@@ -1175,7 +1175,28 @@ var pvFrontScript = window.pvFrontScript || (function(){
 						autoplay: true
 					});
 				}
-			}			
+			}	
+			
+			//기획전 앵커이동
+			if($(".pb-container .tab-area, .promotion-wrap").length > 0){
+				var $qsObj;
+				var objTarget = $(".pb-container .tab-area, .promotion-wrap ~ .tab-new a");
+				objTarget.each(function () {
+					var href = $(this).attr("href");
+					if(href.indexOf("#") == 0){
+						$(this).click(function() {
+							var ancOffset = $(href).offset(),
+							headdH = $(".commonHeaderObject .o-CHO-inner").height();
+							if($('.w-header-gnb .nav-gnb #n-gnb-pkg.on').length > 0){
+								headdH = $(".commonHeaderObject .o-CHO-inner").height()+$(".w-nav-gsub-ly").height();
+							}
+							$('html,body').scrollTop(ancOffset.top - headdH);
+							return false;
+						});
+
+					}							
+				});
+			}
 		},
 		mainContents: function(){
 			if($('.w-content-sec.ws-main-sec').length > 0){		

@@ -594,22 +594,6 @@ input[type="radio"]:checked{background-position:0 -155px}
 .calendarWrap .noselect{background-color:#f0f0f0;color:#a7a7a7;border:1px solid #d5d5d5}
 .calendarWrap .sunday.noselect{color:#ff8080}
 
-/* 팝업 */
-.popWrap{background-color:#fff}
-.popWrap .popHead{position:relative;padding:14px 15px 10px;border-bottom:1px solid #d5d5d5}
-.popWrap .popHead .tit{color:#1e1e1e;font-size:15px;font-family:'YMB'}
-.popWrap .btnClose{position:absolute;top:11px;right:11px}
-.popWrap .btnClose *{display:block;width:19px;height:19px;overflow:hidden;text-indent:-9999px;background:url(/images/front/mtravel/common/btn_close.gif) no-repeat;background-size:19px 19px}
-.popWrap .itemSelect li{width:100%;float:none;border-right:0 none}
-.popWrap .itemSelect li:nth-child(2){border-top:1px solid #d5d5d5}
-.popWrap .itemSelect label{padding:11px 15px 9px}
-.popWrap .popCont .boxType3 + .btnArea{margin-top:0}
-.popWrap .popCont .btnArea{padding-bottom:15px;margin-bottom:0}
-.dialogue_pop {display:none; position:absolute; z-index:300; left:0; top:0; height:100%; width:100%; opacity:0; -webkit-opacity:0; padding:0 7px;-moz-box-sizing:border-box;-webkit-box-sizing:border-box;box-sizing:border-box;background:rgba(0,0,0,0.8)}
-.dialogue_pop .popWrap {display:block}
-.layerPopWrapper {position:absolute; left:0; top:0; z-index:200; width:100%;  background:#fff; opacity:0; -webkit-opacity:0; -moz-opacity:0; -o-opacity:0; -ms-opacity:0} 
-.bg_layerpop {position:absolute; left:0; top:0; z-index:90; background:rgba(0,0,0,0.65); width:100%; height:0; opacity:0; display:none}
-
 /* 토글 스위치(플립 스위치) */
 .toggle_swicth {display:inline-block; position:relative; overflow:hidden; width:50px; height:20px}
 .toggle_swicth input,
@@ -1822,16 +1806,3 @@ border-left:0;
 .s-information-cont .sic-board .info li:before {content: '';display: block;width: 1px;height: 10px;background-color: #d8d8d8;position: absolute;top: 6px;left: 0;}
 .s-information-cont .sic-board .info li:first-child {padding-left: 0;}
 .s-information-cont .sic-board .info li:first-child:before {display: none;}
-
-/*--------------------------------------------------------------------------------------------------------------
- *  as is css 보완(추후 삭제됨)
- *--------------------------------------------------------------------------------------------------------------*/
-/* 공통 */
-
-/* 항공 */
-
-/* 호텔 */
-
-/* 기획전 */
-
-/* 해외패키지 */

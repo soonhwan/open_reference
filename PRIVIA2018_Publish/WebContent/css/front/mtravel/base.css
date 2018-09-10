@@ -247,6 +247,31 @@ box-sizing: border-box;
 .ui-dialog-contain{min-height:100%;opacity:1 !important;background:#fff !important}
 .ui-mobile [data-role=dialog] .contentWrap{position:relative;min-height:100%;-moz-box-sizing:border-box;-webkit-box-sizing:border-box;box-sizing:border-box;padding-bottom:50px;opacity:1 !important;background:#fff !important}
 
+/* 팝업 */
+.popWrap{background-color:#fff}
+.popWrap .popHead{position:relative;padding:14px 15px 10px;border-bottom:1px solid #d5d5d5}
+.popWrap .popHead .tit{color:#1e1e1e;font-size:15px;font-family:'YMB'}
+.popWrap .btnClose{position:absolute;top:11px;right:11px}
+.popWrap .btnClose *{display:block;width:19px;height:19px;overflow:hidden;text-indent:-9999px;background:url(/images/front/mtravel/common/btn_close.gif) no-repeat;background-size:19px 19px}
+.popWrap .itemSelect li{width:100%;float:none;border-right:0 none}
+.popWrap .itemSelect li:nth-child(2){border-top:1px solid #d5d5d5}
+.popWrap .itemSelect label{padding:11px 15px 9px}
+.popWrap .popCont .boxType3 + .btnArea{margin-top:0}
+.popWrap .popCont .btnArea{padding-bottom:15px;margin-bottom:0}
+.dialogue_pop {display:none; position:absolute; z-index:300; left:0; top:0; height:100%; width:100%; opacity:0; -webkit-opacity:0; padding:0 7px;-moz-box-sizing:border-box;-webkit-box-sizing:border-box;box-sizing:border-box;background:rgba(0,0,0,0.5)}
+.dialogue_pop .popWrap {display:block}
+.layerPopWrapper {position:absolute; left:0; top:0; z-index:200; width:100%;  background:#fff; opacity:0; -webkit-opacity:0; -moz-opacity:0; -o-opacity:0; -ms-opacity:0} 
+.bg_layerpop {position:absolute; left:0; top:0; z-index:90; background:rgba(0,0,0,0.5); width:100%; height:0; opacity:0; display:none}
+/* popWrap-sec */
+.popWrap-sec {border-radius: 4px;overflow: hidden;margin: 0 auto;}
+.popWrap-sec .pop-exp-st1 dt {font-size:14px;font-weight: 500 !important;margin-bottom: 2px;color: #333;}
+.popWrap-sec .pop-exp-st1 dd {font-size:14px;color: #333;}
+.popWrap-sec .pop-exp-st1 + .pop-exp-st1 {margin-top: 10px;}
+/* popWrap-fix */
+.popWrap-fix {position: relative;top: 50%;margin-top: -200px;}
+.dialogue_pop.dialogue_pop_fix {position: fixed;padding-top: 0 !important;height: 100% !important;}
+.inner-popCont-scroll {max-height:400px;overflow-y: auto;-webkit-overflow-scrolling:touch;}
+
 /*--------------------------------------------------------------------------------------------------------------
  *  common - reset, lyout
  *--------------------------------------------------------------------------------------------------------------*/
@@ -362,12 +387,3 @@ transform:translate(-200px,0);
     .w-footer-sec .w-address li {font-size:11px;}
     .w-footer-sec .copyright small {font-size: 11px;}
 }
-
-/*--------------------------------------------------------------------------------------------------------------
- *  common - popWrap-sec
- *--------------------------------------------------------------------------------------------------------------*/
-.popWrap-sec {border-radius: 4px;overflow: hidden;margin: 0 auto;}
-.popWrap-sec .popHead .tit {color: #333;font-family: "NotoSansKR";font-weight: 500 !important;}
-.popWrap-sec .pop-exp-st1 dt {font-size:14px;font-weight: 500 !important;margin-bottom: 2px;color: #333;}
-.popWrap-sec .pop-exp-st1 dd {font-size:14px;color: #333;}
-.popWrap-sec .pop-exp-st1 + .pop-exp-st1 {margin-top: 10px;}

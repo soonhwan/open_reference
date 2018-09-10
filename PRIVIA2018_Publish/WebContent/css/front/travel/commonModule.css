@@ -14,7 +14,7 @@
 #footer-sec *, #footer-sec *:after, #footer-sec *:before {font-family: "Malgun Gothic", "NotoSansKR", sans-serif;-moz-box-sizing:border-box;-webkit-box-sizing:border-box;box-sizing:border-box;}
 
 /* lyout */ 
-#top-area-sec, #header-sec, #content-sec, #footer-sec {min-width: 1260px;width: 100%;margin:0 auto;position: relative;}
+#warp, #top-area-sec, #header-sec, #content-sec, #footer-sec {min-width: 1260px;width: 100%;margin:0 auto;position: relative;}
 #content-sec {min-height:400px;}
 .ly-inner {width:1200px;margin:0 auto;position:relative;}
 

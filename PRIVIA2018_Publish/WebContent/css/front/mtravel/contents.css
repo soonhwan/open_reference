@@ -2057,3 +2057,11 @@ box-sizing: border-box;
 .hyundai-card-simple li{margin-bottom:10px;background-position:0 8px;font-family:'YMB';font-size:13px;color:#333;}
 .hyundai-card-simple li:last-child{margin-bottom:0px;}
 .hyundai-card-simple:last-child li{color:#767676;font-size:12px;font-family:'Malgun Gothic','맑은 고딕',돋움,sans-serif;}
+
+/* 32400 */
+.w-hyundai-card-list .hci-card {text-align: center;padding: 10px 0;}
+.w-hyundai-card-list .hci-card img {width: 199px;}
+.w-hyundai-card-list .hci-list {margin: 0 15px 15px 15px;border-left: 1px solid #e6e6e6;border-top: 1px solid #e6e6e6;display: -webkit-box;display: -moz-box;display: -ms-flexbox;display: -webkit-flex;display: flex;flex-wrap:wrap;}
+.w-hyundai-card-list .hci-list li {width: 50%;border-bottom: 1px solid #e6e6e6;border-right: 1px solid #e6e6e6;}
+.w-hyundai-card-list .hci-list li span {display: block;height: 100%;padding: 13px;font-size:14px;letter-spacing: -0.05em;color: #333;display: -webkit-box;display: -moz-box;display: -ms-flexbox;display: -webkit-flex;display: flex;-webkit-box-align: center;-ms-flex-align: center;-webkit-align-items: center;align-items: center;}
+.w-hyundai-card-list .bulList3 strong {color: #333;font-weight: 400;}
