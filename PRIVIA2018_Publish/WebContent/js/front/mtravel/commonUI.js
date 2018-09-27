@@ -1732,6 +1732,7 @@ var pvmFrontScript = window.pvmFrontScript || (function(){
 		"20180613":{title:"지방선거",year:"2018"},
 		"20180925":{title:"추석연휴",year:"2018"},
 		"20180923":{title:"추석연휴",year:"2018"},
+        "20180926":{title:"대체휴일",year:"2018"},
 		"20190205":{title:"설날",year:"2019"},
 		"20190512":{title:"석가탄신일",year:"2019"},
 		"20190204":{title:"설연휴",year:"2019"},

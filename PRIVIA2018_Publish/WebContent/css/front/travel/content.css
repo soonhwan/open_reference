@@ -1146,7 +1146,7 @@ table.airtel_proinfo tbody tr td .start_member li strong {color:#333;}
 .rolling_box .rolling_s ul.rolling_dsc li a:hover img {filter: alpha(opacity=100); opacity: 1.0; -moz-opacity: 1.0;}
 .rolling_box .rolling_s ul.rolling_dsc li.click a {border-top:5px solid #ff2084}
 .rolling_box .rolling_s ul.rolling_dsc li.click a img {filter: alpha(opacity=100); opacity: 1.0; -moz-opacity: 1.0;}
-.hotel_cont {background:#fff; border:1px solid #999; padding:19px; margin-top:10px;} /* 호텔예약(추천호텔 공통 사용) */
+.hotel_cont {background:#fff; border:1px solid #999; padding:19px; margin-top:10px;z-index: 10;} /* 호텔예약(추천호텔 공통 사용) */
 .hotel_cont.picks_stay {background:#fff; border:0 none; margin-top:3px; padding:0px; margin-top:0px;/*#2690 border-left:1px solid #e5e5e5; */}
 .hotel_option {float:left; margin:10px 10px 0 0; padding-top:7px; *zoom:1;}
 .hotel_option:after {content:""; display:block; clear:both;}

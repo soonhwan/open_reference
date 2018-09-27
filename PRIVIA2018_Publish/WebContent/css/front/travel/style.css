@@ -2191,6 +2191,7 @@ background-image:url(/images/front/travel/common/ico_form.png);background-positi
 .airline_new .result_head .header_select .select_multiple.sm3 {width: 90px;}
 .airline_new .result_head .header_select .select_multiple.sm3 .option_list {width: 70px;}
 .airline_new .result_head .header_select .select_multiple.sm4 {width: 90px;}
+.airline_new .result_head .header_select .select_multiple.sm4 ~ span.tit > a {background-position: 100% -15px;}
 .airline_new .result_head .header_select .select_multiple.sm4 .option_list {width: 100px;}
 .airline_new .result_head .header_select .select_multiple.sm5 {width: 79px;}
 .airline_new .result_head .header_select .select_multiple.sm5 .option_list {width: 80px;left: -21px;}

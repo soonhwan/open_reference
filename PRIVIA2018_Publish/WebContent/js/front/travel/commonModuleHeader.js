@@ -735,7 +735,7 @@ function comSearchAir(){
 		}*/		
 		
 		//도시가 있으면 팝업 인풋에 내용 표시
-		if($currentCity.hasClass('on')){
+		/*if($currentCity.hasClass('on')){
 			var city = $currentCity.find('.city').text();
 			$('.'+panelName).find('.ipu-search').val(city);
 		}
@@ -745,7 +745,11 @@ function comSearchAir(){
 			setTimeout(function(){
 				$('.'+panelName).find('.ipu-search').focus(); 
 			}, 100);
-		}
+		}*/
+		$('.'+panelName).find('.ipu-search').val('');
+		setTimeout(function(){
+			$('.'+panelName).find('.ipu-search').focus(); 
+		}, 100);
 		e.preventDefault();
 	});
 	
@@ -1312,7 +1316,7 @@ function comSearchHotel(){
 		}
 		
 		//목적지가 있으면 팝업 인풋에 내용 표시
-		if($currentCity.hasClass('on')){
+		/*if($currentCity.hasClass('on')){
 			var city = $currentCity.find('.city').text();
 			$('.'+panelName).find('.ipu-search').val(city);
 		}
@@ -1322,7 +1326,11 @@ function comSearchHotel(){
 			setTimeout(function(){
 				$('.'+panelName).find('.ipu-search').focus(); 
 			}, 100);
-		}
+		}*/
+		$('.'+panelName).find('.ipu-search').val('');
+		setTimeout(function(){
+			$('.'+panelName).find('.ipu-search').focus(); 
+		}, 100);
 		e.preventDefault();
 	});
 	
@@ -1714,7 +1722,7 @@ function comSearchFreetour(){
 			}
 			
 			//도시가 있으면 팝업 인풋에 내용 표시
-			if($currentCity.hasClass('on')){
+			/*if($currentCity.hasClass('on')){
 				var city = $currentCity.find('.city').text();
 				$('.o-rentv .'+panelName).find('.ipu-search').val(city);
 			}
@@ -1724,7 +1732,11 @@ function comSearchFreetour(){
 				setTimeout(function(){
 					$('.o-rentv .'+panelName).find('.ipu-search').focus(); 
 				}, 100);
-			}
+			}*/
+			$('.o-rentv .'+panelName).find('.ipu-search').val('');
+			setTimeout(function(){
+				$('.o-rentv .'+panelName).find('.ipu-search').focus(); 
+			}, 100);
 		  	
 			$('.o-rentv .'+panelName).find('.uis-input .ipu-search').show();
 			$('.o-rentv .'+panelName).find('.uis-input .opt-txt').hide();

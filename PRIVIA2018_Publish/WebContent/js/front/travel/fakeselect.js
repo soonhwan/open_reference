@@ -1240,7 +1240,7 @@ if(window.addEventListener){
 			displayedindex = -1;
 			displayed[index] = false;
 			$titles[index].removeClass(options[index].title.classname.active);
-			!ismobile && $selects[index].focus();
+			//!ismobile && $selects[index].focus(); //스크롤 왼쪽으로 튐 현상
 		}
 
 		function closeopenedoption() {

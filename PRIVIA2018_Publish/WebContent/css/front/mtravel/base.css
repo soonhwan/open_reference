@@ -268,9 +268,9 @@ box-sizing: border-box;
 .popWrap-sec .pop-exp-st1 dd {font-size:14px;color: #333;}
 .popWrap-sec .pop-exp-st1 + .pop-exp-st1 {margin-top: 10px;}
 /* popWrap-fix */
-.popWrap-fix {position: relative;top: 50%;margin-top: -200px;}
 .dialogue_pop.dialogue_pop_fix {position: fixed;padding-top: 0 !important;height: 100% !important;}
-.inner-popCont-scroll {max-height:400px;overflow-y: auto;-webkit-overflow-scrolling:touch;}
+.dialogue_pop .popWrap-fix {position: relative;top: 50%;margin-top: -200px;}
+.inner-popCont-scroll {max-height:400px;/*overflow-y:scroll;-webkit-overflow-scrolling:touch;*/}
 
 /*--------------------------------------------------------------------------------------------------------------
  *  common - reset, lyout

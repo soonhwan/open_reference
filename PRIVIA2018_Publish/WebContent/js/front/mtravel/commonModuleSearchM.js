@@ -500,7 +500,18 @@ var pvmSearch = window.pvmSearch || (function(){
 				if(type == 'mainsel'){
 				  	$currentCity = _this;
 					$('.sc-search-area .uis-mainsel .uis-input .inp-search').val($currentCity.find('.slt-input').data('city'));
-					
+					//#32907 input x버튼 컨트롤 - 내용이 있는지 없는지 체크
+					if($currentCity.find('.slt-input').data('city') != ''){
+						if(!$('.sc-search-area .uis-mainsel .uis-input').hasClass('isFocus')){
+							$('.sc-search-area .uis-mainsel .uis-input').addClass('isFocus');
+						}
+					}
+					else{
+						if($('.sc-search-area .uis-mainsel .uis-input').hasClass('isFocus')){
+							$('.sc-search-area .uis-mainsel .uis-input').removeClass('isFocus');
+						}
+					}
+										
 					//출,도착 placeholder 텍스트 변경
 					if($currentCity.closest('.places-exit').hasClass('places-exit')){
 						$('.sc-search-area .uis-mainsel .uis-input .inp-search').attr('placeholder','어디서 출발 하시나요?');
@@ -552,6 +563,10 @@ var pvmSearch = window.pvmSearch || (function(){
 
 					//data input 
 					$('.sc-search-area .uis-mainsel .uis-input .inp-search').val(city);
+					//#32907 input x버튼 컨트롤 - 탭을 클릭시 셋팅(내용이 있던 말건 무조건 나타남)
+					if(!$('.sc-search-area .uis-mainsel .uis-input').hasClass('isFocus')){
+						$('.sc-search-area .uis-mainsel .uis-input').addClass('isFocus');
+					}
 
 					//panel input
 					if(!$currentCity.find('.slt-input').hasClass('on')){
@@ -582,6 +597,7 @@ var pvmSearch = window.pvmSearch || (function(){
 			
 			//도시 검색 input keyup
 			$('.sc-search-area .uis-mainsel .uis-input .inp-search').on('keyup', function(){
+				//#32907 input x버튼 컨트롤 - 검색어 입력시(입력시 당연히 나타남)
 				if(!$(this).closest('.uis-input').hasClass('isFocus')){
 					$(this).closest('.uis-input').addClass('isFocus');
 				}
@@ -592,7 +608,7 @@ var pvmSearch = window.pvmSearch || (function(){
 				if($(this).val() != ''){
 					$(this).val('');
 				}
-				
+				//#32907 input x버튼 컨트롤 - input 포커스인(무조건 나타남)
 				if(!$(this).closest('.uis-input').hasClass('isFocus')){
 					$(this).closest('.uis-input').addClass('isFocus');
 				}
@@ -600,15 +616,26 @@ var pvmSearch = window.pvmSearch || (function(){
 
 			//도시 검색 input focusout
 			$('.sc-search-area .uis-mainsel .uis-input .inp-search').on('focusout', function(){
-				if($(this).closest('.uis-input').hasClass('isFocus')){
-					$(this).closest('.uis-input').removeClass('isFocus');
-				}
 				$(this).val($currentCity.find('.slt-input').data('city'));
+				
+				//#32907 input x버튼 컨트롤 - input 포커스아웃(이전에 내용이 있으면 나타나고 없으면 사라짐)
+				if($currentCity.find('.slt-input').data('city') != ''){
+					if(!$('.sc-search-area .uis-mainsel .uis-input').hasClass('isFocus')){
+						$('.sc-search-area .uis-mainsel .uis-input').addClass('isFocus');
+					}
+				}
+				else{
+					if($('.sc-search-area .uis-mainsel .uis-input').hasClass('isFocus')){
+						$('.sc-search-area .uis-mainsel .uis-input').removeClass('isFocus');
+					}
+				}
 			});
 			
 			//검색어 input 삭제
-			$('.sc-search-area .uis-mainsel .uis-input .b-clear').on('mousedown', function(){
+			$('.sc-search-area .uis-mainsel .uis-input .b-clear').on('vclick', function(e){ //#32907 input x버튼 컨트롤 - mousedown -> vclick 변경
 				$(this).closest('.uis-input').find('.inp-search').val('');
+				e.preventDefault(); //#32907 input x버튼 컨트롤 - event 차단 이후 포커싱을 위해
+				$('.sc-search-area .uis-mainsel .uis-input .inp-search').focus(); //#32907 input x버튼 컨트롤 - x버튼을 누르면 포커스가 벗어나서 다시 포커스인
 			});			
 			
 			//----------------------------------- 캘린더
@@ -1237,6 +1264,17 @@ var pvmSearch = window.pvmSearch || (function(){
 				  	$currentCity = _this;
 					pvmFrontScript.changeTitle('여행지 검색');	
 					$('.sc-search-area .uis-mainsel .uis-input .inp-search').val($currentCity.find('.slt-input').data('city'));
+					//#32907 input x버튼 컨트롤 - 내용이 있는지 없는지 체크
+					if($currentCity.find('.slt-input').data('city') != ''){
+						if(!$('.sc-search-area .uis-mainsel .uis-input').hasClass('isFocus')){
+							$('.sc-search-area .uis-mainsel .uis-input').addClass('isFocus');
+						}
+					}
+					else{
+						if($('.sc-search-area .uis-mainsel .uis-input').hasClass('isFocus')){
+							$('.sc-search-area .uis-mainsel .uis-input').removeClass('isFocus');
+						}
+					}
 				}
 				
 				//달력 셋팅
@@ -1263,11 +1301,16 @@ var pvmSearch = window.pvmSearch || (function(){
 
 					//data input 
 					$('.sc-search-area .uis-mainsel .uis-input .inp-search').val(city);
-
+					//#32907 input x버튼 컨트롤 - 탭을 클릭시 셋팅(내용이 있던 말건 무조건 나타남)
+					if(!$('.sc-search-area .uis-mainsel .uis-input').hasClass('isFocus')){
+						$('.sc-search-area .uis-mainsel .uis-input').addClass('isFocus');
+					}
+					
 					//panel input
 					if(!$currentCity.find('.slt-input').hasClass('on')){
 						$currentCity.find('.slt-input').addClass('on')
 					}
+					$currentCity.find('.slt-input').data('city', city);
 					$currentCity.find('.slt-input').text(city);
 					
 					//sbox input
@@ -1283,6 +1326,7 @@ var pvmSearch = window.pvmSearch || (function(){
 			
 			//도시 검색 input keyup
 			$('.sc-search-area .uis-mainsel .uis-input .inp-search').on('keyup', function(){
+				//#32907 input x버튼 컨트롤 - 검색어 입력시(입력시 당연히 나타남)
 				if(!$(this).closest('.uis-input').hasClass('isFocus')){
 					$(this).closest('.uis-input').addClass('isFocus');
 				}
@@ -1294,6 +1338,7 @@ var pvmSearch = window.pvmSearch || (function(){
 					$(this).val('');
 				}
 				
+				//#32907 input x버튼 컨트롤 - input 포커스인(무조건 나타남)
 				if(!$(this).closest('.uis-input').hasClass('isFocus')){
 					$(this).closest('.uis-input').addClass('isFocus');
 				}
@@ -1301,10 +1346,19 @@ var pvmSearch = window.pvmSearch || (function(){
 
 			//도시 검색 input focusout
 			$('.sc-search-area .uis-mainsel .uis-input .inp-search').on('focusout', function(){
-				if($(this).closest('.uis-input').hasClass('isFocus')){
-					$(this).closest('.uis-input').removeClass('isFocus');
-				}
 				$(this).val($currentCity.find('.slt-input').data('city'));
+				
+				//#32907 input x버튼 컨트롤 - input 포커스아웃(이전에 내용이 있으면 나타나고 없으면 사라짐)
+				if($currentCity.find('.slt-input').data('city') != ''){
+					if(!$('.sc-search-area .uis-mainsel .uis-input').hasClass('isFocus')){
+						$('.sc-search-area .uis-mainsel .uis-input').addClass('isFocus');
+					}
+				}
+				else{
+					if($('.sc-search-area .uis-mainsel .uis-input').hasClass('isFocus')){
+						$('.sc-search-area .uis-mainsel .uis-input').removeClass('isFocus');
+					}
+				}
 				
 				if($(this).val() != ''){
 					$('.uis-mainsel .inp-exp').hide();
@@ -1315,8 +1369,10 @@ var pvmSearch = window.pvmSearch || (function(){
 			});
 			
 			//검색어 input 삭제
-			$('.sc-search-area .uis-mainsel .uis-input .b-clear').on('mousedown', function(){
+			$('.sc-search-area .uis-mainsel .uis-input .b-clear').on('vclick', function(e){ //#32907 input x버튼 컨트롤 - mousedown -> vclick 변경
 				$(this).closest('.uis-input').find('.inp-search').val('');
+				e.preventDefault(); //#32907 input x버튼 컨트롤 - event 차단 이후 포커싱을 위해
+				$('.sc-search-area .uis-mainsel .uis-input .inp-search').focus(); //#32907 input x버튼 컨트롤 - x버튼을 누르면 포커스가 벗어나서 다시 포커스인
 			});			
 			
 			//----------------------------------- 캘린더

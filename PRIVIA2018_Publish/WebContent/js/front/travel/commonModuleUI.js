@@ -65,13 +65,13 @@ var holidays = {
 	"20180613":{title:"지방선거",year:"2018"},
 	"20180925":{title:"추석연휴",year:"2018"},
 	"20180923":{title:"추석연휴",year:"2018"},
+    "20180926":{title:"대체휴일",year:"2018"},
 	"20190205":{title:"설날",year:"2019"},
 	"20190512":{title:"석가탄신일",year:"2019"},
 	"20190204":{title:"설연휴",year:"2019"},
 	"20190912":{title:"추석연휴",year:"2019"},
 	"20190913":{title:"추석",year:"2019"},
 	"20190914":{title:"추석연휴",year:"2019"},
-    "20180926":{title:"대체휴일",year:"2018"},
 	"20190206":{title:"설연휴",year:"2019"},
 	"20200430":{title:"석가탄신일",year:"2020"},
 	"20200125":{title:"설날",year:"2020"},
@@ -532,6 +532,9 @@ $(function(){
 	if(iosCheck() == false){$("html").addClass("no_ios_device");}  // ios check	
 	if(checkMobile() == true){ 										//모바일 check
 		$("html").addClass("is_mobile");
+		if($('#ifrmEventContent').length > 0){
+			$('.is_mobile #content').css({'left':'auto','margin-left':'auto'});
+		}
 	}
 	lowIEVersion();												   //ie 버전체크
 	

@@ -25,6 +25,7 @@
 <script type="text/javascript" src="/js/front/travel/ymhr_400.font.js"></script>
 <script type="text/javascript" src="/js/front/travel/ui.js"></script>
 <script type="text/javascript" src="/js/front/travel/jquery.mCustomScrollbar.concat.min.js"></script>
+<!--<script type="text/javascript" src="http://twww.priviatravel.com/share/headerManager"></script>-->
 <script type="text/javascript" src="/js/front/travel/commonModuleHeader.js"></script> <!-- headerManager 가이드 버전 실제로는 반영 되지 않음 -->
 <script type="text/javascript" src="/js/front/travel/commonModule.js"></script> <!-- 프비 리뉴얼 js -->
 
@@ -60,7 +61,7 @@ var searchFixedLayer = {
     }
 };
 
-//우측 나의선택 
+//우측 나의선택(#32627 수정)
 function mySelectPos(){
     var container = $('#wrap');
     var myselectpos = $('.myselect-pos');
@@ -71,6 +72,7 @@ function mySelectPos(){
         myselectpos.addClass('fixed');       
         if($('.is_mobile').length > 0){
             var mySelectLeft = 495;
+            $('#mobile-promotion-sec').hide(); //모바일 혜택 숨김
         }
         else{
             if($(window).width() < 950){
@@ -84,10 +86,13 @@ function mySelectPos(){
     } else {
         myselectpos.removeClass('fixed');
         inner.css({'margin-left':''});
+        if($('.is_mobile').length > 0){
+            $('#mobile-promotion-sec').show(); //모바일 혜택 노출
+        }
     }
 }
 
-//출발일 및 여행인원 선택
+//출발일 및 여행인원 선택(#32627 수정)
 function searchFormPos(){
     var container = $('#wrap');
     var searchpos = $('.search-pos');
@@ -4622,7 +4627,7 @@ Triple의 경우 3인 숙박이 가능한 객실로 경우에 따라 여러 침�
                                 <td class="bdl">485,600원</td>
                             </tr>
                             <tr>
-                                <th scope="row" colspan="2"><strong>추가요금</strong>&nbsp;&nbsp;<a href="#" class="btn-sf btn-sf-sm">상세</a></th>
+                                <th scope="row" colspan="2"><strong>추가요금</strong>&nbsp;&nbsp;<a href="#A" onclick="dimmLayerPop('addChargeLayer');" class="btn-sf btn-sf-sm">상세</a></th>
                                 <td class="bdl">0원</td>
                             </tr>
                             </tbody>
@@ -5020,7 +5025,41 @@ Triple의 경우 3인 숙박이 가능한 객실로 경우에 따라 여러 침�
         </div>
     </div>
     <!-- //20150803 나의 선택 추가(오른쪽영역) -->
-
+    
+    
+    <div id="addChargeLayer" style="display: none;">
+        <div class="layer_pop" style="width:820px;">
+            <div class="heading">
+                <h2><cufon class="cufon cufon-canvas" alt="추가요금 " style="width: 68px; height: 18px;"><canvas width="86" height="21" style="width: 86px; height: 21px; top: 0px; left: -2px;"></canvas><cufontext>추가요금 </cufontext></cufon><cufon class="cufon cufon-canvas" alt="상세" style="width: 32px; height: 18px;"><canvas width="39" height="21" style="width: 39px; height: 21px; top: 0px; left: -2px;"></canvas><cufontext>상세</cufontext></cufon></h2>
+                <a class="btn_close" href="#A">닫기</a>
+            </div>
+            <div class="content">
+                <table class="list-new2" summary="추가요금 상세 내역입니다.">
+                    <caption>추가요금 상세</caption>
+                    <colgroup>
+                        <col width="15%"><col width="35%"><col width="35%"><col width="15%">
+                    </colgroup>
+                    <thead>
+                        <tr>
+                            <th scope="col">구분</th>
+                            <th scope="col">상품명</th>
+                            <th scope="col">추가요청 내용</th>
+                            <th scope="col">추가요금</th>
+                        </tr>
+                    </thead>
+                    <tfoot>
+                        <tr>
+                            <th scope="row">총 추가요금</th>				
+                            <td class="ar" colspan="3"><strong id="stTotalAddCharge">0원</strong></td>
+                        </tr>
+                    </tfoot>
+                    <tbody id="tbAddCharge">
+                    </tbody>
+                </table>
+                <div class="btn-group tac"><a href="#A" class="btn-wf btn-wf-lg btn_close"><cufon class="cufon cufon-canvas" alt="확인" style="width: 24px; height: 14px;"><canvas width="30" height="16" style="width: 30px; height: 16px; top: 0px; left: -1px;"></canvas><cufontext>확인</cufontext></cufon></a></div>
+            </div>
+        </div>
+       </div>
 </div>
 <!-- //content -->
 

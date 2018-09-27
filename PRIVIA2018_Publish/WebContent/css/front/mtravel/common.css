@@ -1596,7 +1596,8 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#eef1f6', end
 .uis-input .b-clear {position: absolute;right: 10px;top: 50%;margin-top: -11px;display: none;}
 .uis-input .b-clear button {width: 23px;height: 24px;background: url(/images/front/mtravel/contents/icon-common-secM.png) -19px -24px no-repeat;-webkit-background-size: 160px;background-size: 160px;}
 .uis-input.isFocus .b-clear {display: block;}
-.uis-input.isFocus .inp-search {border-bottom: 1px solid #f30774;}
+/*.uis-input.isFocus .inp-search {border-bottom: 1px solid #f30774;}*/
+.uis-input .inp-search:focus {border-bottom: 1px solid #f30774;}
 .uis-input.isFocus .inp-exp {display: none !important;}
 /* 검색 팝업(box) - 도시, 호텔 리스트 */
 .w-uis-sec {padding: 0 15px 15px 15px;}

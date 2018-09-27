@@ -11,27 +11,6 @@
  * 작성자 : 권순환
  */
 (function ($, window, document, undefined) {
-	$.setCookie = function (name, value, expiredays) {
-		var today = new Date();
-		today.setDate( today.getDate() + expiredays );
-		document.cookie = name + "=" + escape( value ) + "; expires=" + today.toGMTString() + "; path=/";
-	}
-	$.getCookie = function (name) {
-		var dc = document.cookie;
-		var prefix = name + "=";
-		var begin = dc.indexOf("; " + prefix);
-		if (begin == -1) {
-			begin = dc.indexOf(prefix);
-			if (begin != 0) { return null;}
-		} else {
-			begin += 2;
-		}
-		var end = document.cookie.indexOf(";", begin);
-		if (end == -1) {
-			end = dc.length;
-		}
-		return unescape(dc.substring(begin + prefix.length, end));
-	}
 	$.fn.customCheckbox = function(){
 		return this.each(function(){
 			var $this = $(this);
@@ -1005,16 +984,18 @@ var pvFrontScript = window.pvFrontScript || (function(){
 			$('.w-nav-gnb-total .nav-gnb-total').append(totalNav);
 
 			//높이설정
-			var mh = 0;
-			var titH = $('.w-nav-gnb-total .nav-gnb-total .tit a').outerHeight();
-			$('.w-nav-gnb-total .nav-gnb-total > li ').each(function(index){
-				var list = $(this).find('.list');
-				mh = (mh < list.outerHeight()) ? list.outerHeight() : mh;
-				if(index == 5){
-					$('.w-nav-gnb-total .nav-gnb-total > li').height(mh+titH);	
-				}
-			});
-			$('.w-nav-gnb-total .nav-gnb-total > li:eq(5)~').height(mh+titH);
+			setTimeout(function(){
+				var mh = 0;
+				var titH = $('.w-nav-gnb-total .nav-gnb-total .tit a').outerHeight();
+				$('.w-nav-gnb-total .nav-gnb-total > li ').each(function(index){
+					var list = $(this).find('.list');
+					mh = (mh < list.outerHeight()) ? list.outerHeight() : mh;
+					if(index == 5){
+						$('.w-nav-gnb-total .nav-gnb-total > li').height(mh+titH);	
+					}
+				});
+				$('.w-nav-gnb-total .nav-gnb-total > li:eq(5)~').height(mh+titH);
+			},($('.is_mobile').length > 0) ? 1000 : 250);
 		},
 		comGNBInit: function(){
 			/* 설명   : GNB, 전체메뉴 셋팅

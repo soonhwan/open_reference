@@ -2003,8 +2003,10 @@ box-sizing: border-box;
 .s-coupon1 .txt2 em {color: #e81e75;}
 
 /* 20154 */
-.s-air__templet__search {padding-top: 45px !important;position: relative;}
-.s-air__templet__search:after {content: '';display: block;width: 90%;height: 1px;background-color: #333;position: absolute;left: 5%;top: 31px;}
+/*.s-air__templet__search .cont-wrap{position: relative;}
+.s-air__templet__search .cont-wrap:after {content: '';display: block;width: 100%;height: 1px;background-color: #dcdcdc;margin-top: 20px;}*/
+.s-air__templet__search .cont-wrap .btn-group {padding-bottom: 20px;border-bottom: 1px solid #dcdcdc;}
+
 
 /* 25871 */
 .w-mark {padding:14px 0 0 7px}

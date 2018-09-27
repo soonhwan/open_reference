@@ -1756,7 +1756,8 @@ box-shadow: 2px 2px 1px 0px rgba(0, 0, 0, 0.1);
 .wrap_total_price .list_st1 li span {font-family: "Malgun Gothic";letter-spacing: -1px;vertical-align: bottom;}
 .wrap_total_price .list_st1 ul.list_price li {margin-bottom: 5px;text-align: right;}
 .wrap_total_price li span a.btn-sf {padding: 0;width: 40px;height: 28px;line-height: 28px;text-align: center;letter-spacing: 0;}
-.wrap_total_price .list_st1 li span.icon {width: 42px;/*padding-left: 8px;*/display: inline-block;}
+.wrap_total_price .list_st1 li span.icon {width: 42px;/*padding-left: 8px;*/display: inline-block;text-align: left;}
+.wrap_total_price .list_st1 li span.icon .tip * {font-family: "돋움";}
 .wrap_total_price .list_st1 li.btn {padding-left: 7px;}
 .wrap_total_price .list_st1 li.btn .btn-action {padding: 40px 23px 39px;font-size:18px;}
 .wrap_total_price .list_st1 li.btn > ul > li:first-child {margin-bottom: 7px;}
