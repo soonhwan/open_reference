@@ -563,7 +563,8 @@ var pvmSearch = window.pvmSearch || (function(){
 			
 			//----------------------------------- 도시			
 			//도시 검색 click
-			$(document).on('click', '.sc-search-area .uis-mainsel .uis-list a', function(e){
+			//$(document).on('click', '.sc-search-area .uis-mainsel .uis-list a', function(e){
+			$('.sc-search-area .uis-mainsel .uis-list a').on('click', function(e){ //중복 이벤트 방지(#32956)
 				if(!$(this).hasClass('tit-rec')){
 					var city = $(this).find('.name-det').text(); //도시 이름(임시)
 					var code = $(this).find('.code').text(); //도시 코드(임시)
@@ -1253,7 +1254,8 @@ var pvmSearch = window.pvmSearch || (function(){
 									
 			//+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ 컨트롤 event
 			//하단 검색 박스 설정
-			$(document).on('click', '.sc-search-tab .list-tab [data-tab]', function(e){
+			//$(document).on('click', '.sc-search-tab .list-tab [data-tab]', function(e){
+			$('.sc-search-tab .list-tab [data-tab]').on('click', function(e){ //중복 이벤트 방지(#32956)
 				var _this = $(this);
 				var type = $(this).data('tab');
 				
@@ -1306,7 +1308,8 @@ var pvmSearch = window.pvmSearch || (function(){
 			
 			//----------------------------------- 도시			
 			//도시 검색 click
-			$(document).on('click', '.sc-search-area .uis-mainsel .uis-list a', function(e){
+			//$(document).on('click', '.sc-search-area .uis-mainsel .uis-list a', function(e){
+			$('.sc-search-area .uis-mainsel .uis-list a').on('click', function(e){ //중복 이벤트 방지(#32956)
 				if(!$(this).hasClass('tit-rec')){
 					var city = $(this).find('.name').text(); //도시 이름(임시)
 
