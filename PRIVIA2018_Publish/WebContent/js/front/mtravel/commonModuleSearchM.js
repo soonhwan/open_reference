@@ -533,6 +533,18 @@ var pvmSearch = window.pvmSearch || (function(){
 						if($currentDate.find('.slt-chkin').data('day') != ''){
 							$(document).scrollTop($('.ui-page-active .uis-datepicker [title="'+$currentDate.find('.slt-chkin').data('day')+'"]').offset().top-300);
 						}
+						
+						//여정1 표시된경우 이전날짜 비활성화 처리(#32956)
+						if(_mdDateArr[0] != ''){
+							if(_mdDateIdx == 0){
+								$('.ui-page-active .ot-multiway .uis-datepicker').datepicker( "option", "minDate", '0');
+								addTextToMD($('.ui-page-active .ot-multiway .uis-datepicker'));
+							}
+							else{
+								$('.ui-page-active .ot-multiway .uis-datepicker').datepicker( "option", "minDate", _mdDateArr[0]);
+								addTextToMD($('.ui-page-active .ot-multiway .uis-datepicker'));
+							}
+						}						
 					}
 					else if($('.ui-page-active .uis-datepicker .ui-state-active').length > 0){
 						$(document).scrollTop($('.ui-page-active .uis-datepicker .ui-state-active').offset().top-300);

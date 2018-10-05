@@ -465,6 +465,31 @@ input[type="radio"]:checked{background-position:0 -155px}
 .photoList .rightArea .price-low{display:block;color:#a7a7a7;font-weight:normal;text-align:right;font-size:12px;margin-bottom: 2px;}
 .photoList .rightArea .price-low *{vertical-align:middle}
 .photoList .rightArea .price-low em{display:inline-block;margin:0 2px -3px;vertical-align:bottom;font-size:16px;line-height:1.3;font-family:'YMB'}
+/* 33045 */
+.photoList-st2 {background-color: #f0f0f0;}
+.photoList-st2 * {box-sizing: border-box;}
+.photoList-st2 .photoList__searchresult {padding: 5px 0 15px 0;}
+.photoList-st2 .photoList__item {margin: 10px 7px 0 7px;background-color: #fff;}
+.photoList-st2 .photoList__item > a {display: block;min-height: 130px;}
+.photoList-st2 .photoList__item > a:after {content:"";display:block;clear:both;}
+.photoList-st2 .photoList__item__gallery {float: left;width: 35%;position: relative;}
+.photoList-st2 .photoList__item__details {float: left;width: 65%;padding: 10px 12px;}
+.photoList-st2 .ptl__img {display: block;width: 100%;min-height: 130px;background-position:50% 50%;-webkit-background-size: cover;background-size: cover;}
+.photoList-st2 .ptl__label--recohtl {display: block;width: 34px;position: absolute;top: 0;left: -4px;}
+.photoList-st2 .photoList__item__details {position: relative;min-height: 130px;}
+.photoList-st2 .photoList__details__tit .tit {font-size:16px;font-weight: bold;line-height: 20px;color: #1e1e1e;max-height: 40px;overflow: hidden;text-overflow:ellipsis;word-wrap:break-word;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;}
+.photoList-st2 .photoList__details__tit .tit--ko {font-size:12px;line-height: 14px;color: #a7a7a7;max-height: 28px;overflow: hidden;text-overflow:ellipsis;word-wrap:break-word;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;}
+.photoList-st2 .photoList__details__price {position: absolute;top: 84px;left: 0;width: 100%;}
+.photoList-st2 .photoList__details__price:after {content:"";display:block;clear:both;}
+.photoList-st2 .photoList__details__price .area-left {float: left;margin-left: 10px;}
+.photoList-st2 .photoList__details__price .area-right {float: right;margin-right: 10px;}
+.photoList-st2 .photoList__details__price .price {text-align: right;color: #1e1e1e;font-size:14px;font-weight: normal;font-family: 'YMB';}
+.photoList-st2 .photoList__details__price .price strong {font-size:20px;font-weight: normal;}
+.photoList-st2 .photoList__details__price .price-oneday {text-align: right;color: #a7a7a7;font-size:12px;font-weight: normal;font-family: 'YMB';margin-top: -4px;}
+.photoList-st2 .photoList__details__price .price-oneday em {font-size: 14px;font-weight: normal;}
+.photoList-st2 .photoList__details__price .emph em {display: block;}
+.photoList-st2 .bnn--temp2 {margin: 10px 0 0 0;}
+
 .toggleList li{border-bottom:1px solid #ccc}
 .toggleList .launcher{display:block;padding:13px 42px 12px 19px;font-size:14px;background:url(/images/front/mtravel/common/bg_toggle_arrow_open.gif) no-repeat 100% 50%;background-size:31px 7px}
 .toggleList .launcher.open{background-image:url(/images/front/mtravel/common/bg_toggle_arrow_close.gif)}

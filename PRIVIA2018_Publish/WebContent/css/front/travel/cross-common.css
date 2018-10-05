@@ -2455,3 +2455,33 @@ hr.line{border-top:1px solid #e2e2e2;border-bottom:0 none;margin:30px 0}
 .hyundai-card-simple li{float:left;width:294px;font-size:14px;color:#333333;}
 .hyundai-card-simple .tail-info{padding:20px 20px 0;margin-top:40px;border-top:1px solid #e8e8e8;font-size:12px;color:#333333;}
 .hyundai-card-simple .tail-info a{text-decoration:underline}
+
+/* 32654 */
+.product-view-new .p-detail.h375{position:relative;height:359px;}
+.product-view-new .p-detail-bottom{position: absolute;width:360px;left:0;bottom:0;}
+.product-basic-benefit{width:948px;margin-bottom:20px;border:1px solid #636363;}
+.product-basic-benefit:after{content:"";display:block;clear:both;}
+.product-basic-benefit .front-bg{float:left;width:125px;height:113px;background:#636363 url(/images/front/travel/basic_benefit.jpg) 50% 50% no-repeat;text-indent:-20000px;}
+.product-basic-benefit .back-cont{float:right;width:823px;height:113px;}
+.product-basic-benefit .back-cont .cont-wr{width:823px;}
+.product-basic-benefit .back-cont .cont-wr:after{content:"";display:block;clear:both;}
+.product-basic-benefit .back-cont .cont-wr .cont-l
+{position:relative;float:left;width:445px;}
+.product-basic-benefit .back-cont .cont-wr .cont-l:after{position: absolute;right:0;top:50%;margin-top:-36px;content:"";display:block;width:1px;height:72px;background:#e2e2e2;}
+.product-basic-benefit .back-cont .cont-wr .cont-r{float:right;width:378px;}
+.product-basic-benefit .back-cont .cont-wr .inner{padding:20px 30px;}
+.product-basic-benefit .back-cont .tit{margin-bottom:12px;font-size:12px;color:#000;font-weight:bold;}
+.product-basic-benefit .text-list-md li{margin-bottom:0;letter-spacing:-.5px;}
+
+.product-hyundai-benefit{width:948px;margin-bottom:20px;border:1px solid #636363;}
+.product-hyundai-benefit:after{content:"";display:block;clear:both;}
+.product-hyundai-benefit .cont-wr{width:948px;}
+.product-hyundai-benefit .cont-wr:after{content:"";display:block;clear:both;}
+.product-hyundai-benefit .cont-wr .cont-l,
+.product-hyundai-benefit .cont-wr .cont-r{position:relative;float:left;padding-left:80px;height:120px;}
+.product-hyundai-benefit .cont-wr .cont-l:after{position: absolute;right:0;top:50%;margin-top:-36px;content:"";display:block;width:1px;height:72px;background:#e2e2e2;}
+.product-hyundai-benefit .cont-wr .cont-l{width:488px;background:url(/images/front/travel/hyundai_benefit_1.png) 30px 50% no-repeat;}
+.product-hyundai-benefit .cont-wr .cont-r{width:300px;background:url(/images/front/travel/hyundai_benefit_2.png) 30px 50% no-repeat;}
+.product-hyundai-benefit .cont-wr .inner{padding:20px 30px;}
+.product-hyundai-benefit .tit{margin-bottom:12px;font-size:12px;color:#000;font-weight:bold;}
+.product-hyundai-benefit .text-list-md li{margin-bottom:0;letter-spacing:-.5px;}

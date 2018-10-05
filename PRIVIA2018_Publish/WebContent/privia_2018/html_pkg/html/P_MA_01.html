@@ -720,7 +720,7 @@ function menuChange(idx){
 									<!-- 항공 주요도시 리스트 -->
 									<div class="sc-ui-search-panel ui-mainsel-air">
 										<div class="uis-input">
-											<input type="text" class="input-base ipu-search" placeholder=" 도시명을 검색하거나 아래 주요도시에서 선택하세요." autocomplete="off"><!-- #32511 수정(placeholder 한칸 띄기) -->
+											<input type="text" class="input-base ipu-search" placeholder=" 도시명을 검색하거나 아래 주요도시에서 선택하세요." autocomplete="off">
 										</div>	
 										<table class="uis-mainsel-table">
 											<caption>주요도시 선택 리스트</caption>
@@ -749,6 +749,8 @@ function menuChange(idx){
 															<li><a href="#" data-city="김포" data-code="GMP">김포</a></li>
 															<li><a href="#" data-city="제주" data-code="CJU">제주</a></li>
 															<li><a href="#" data-city="부산" data-code="PUS">부산</a></li>
+															<li><a href="#" data-city="대구" data-code="TAE">대구</a></li>
+															<li><a href="#" data-city="광주" data-code="KWJ">광주</a></li>
 														</ul>
 													</td>
 													<td>
@@ -759,6 +761,7 @@ function menuChange(idx){
 															<li><a href="#" data-city="나고야" data-code="NGO">나고야</a></li>
 															<li><a href="#" data-city="후쿠오카" data-code="FUK">후쿠오카</a></li>
 															<li><a href="#" data-city="오키나와" data-code="OKA">오키나와</a></li>
+															<li><a href="#" data-city="삿포로" data-code="CTS">삿포로</a></li>
 														</ul>
 													</td>
 													<td>
@@ -768,6 +771,8 @@ function menuChange(idx){
 															<li><a href="#" data-city="대만(송산)" data-code="TSA">대만(송산)</a></li>
 															<li><a href="#" data-city="상해(푸동)" data-code="PVG">상해(푸동)</a></li>
 															<li><a href="#" data-city="상해(홍차오)" data-code="SHA">상해(홍차오)</a></li>
+															<li><a href="#" data-city="북경" data-code="PEK">북경</a></li>
+															<li><a href="#" data-city="청도" data-code="TAO">청도</a></li>
 														</ul>
 													</td>
 													<td>
@@ -788,6 +793,7 @@ function menuChange(idx){
 															<li><a href="#" data-city="샌프란시스코" data-code="SFO">샌프란시스코</a></li>
 															<li><a href="#" data-city="뉴욕(전체)" data-code="NYC">뉴욕(전체)</a></li>
 															<li><a href="#" data-city="뉴욕(JFK)" data-code="JFK">뉴욕(JFK)</a></li>
+															<li><a href="#" data-city="밴쿠버" data-code="YVR">밴쿠버</a></li>
 															<li><a href="#" data-city="토론토" data-code="YTO">토론토</a></li>
 														</ul>
 													</td>
@@ -799,6 +805,7 @@ function menuChange(idx){
 															<li><a href="#" data-city="바르셀로나" data-code="BCN">바르셀로나</a></li>
 															<li><a href="#" data-city="이스탄불" data-code="IST">이스탄불</a></li>
 															<li><a href="#" data-city="프랑크푸르트" data-code="FRA">프랑크푸르트</a></li>
+															<li><a href="#" data-city="블라디보스톡" data-code="VVO">블라디보스톡</a></li>
 														</ul>
 													</td>
 												</tr>
@@ -1018,7 +1025,7 @@ function menuChange(idx){
 											<!-- 해외 주요도시 리스트 -->
 											<div class="sc-ui-search-panel ui-mainsel-hotel">
 												<div class="uis-input">
-													<input type="text" class="input-base ipu-search" placeholder=" 도시, 호텔명을 검색하거나 아래 주요도시에서 선택하세요." autocomplete="off"><!-- #32511 수정(placeholder 한칸 띄기) -->
+													<input type="text" class="input-base ipu-search" placeholder=" 도시, 호텔명을 검색하거나 아래 주요도시에서 선택하세요." autocomplete="off">
 												</div>						
 												<table class="uis-mainsel-table">
 													<caption>주요도시 선택 리스트</caption>
@@ -1099,7 +1106,7 @@ function menuChange(idx){
 																	<li><a href="#" data-city="런던">런던</a></li> 
 																	<li><a href="#" data-city="프라하">프라하</a></li> 
 																	<li><a href="#" data-city="피렌체">피렌체</a></li> 
-																	<li><a href="#" data-city="바로셀로나">바로셀로나</a></li> 
+																	<li><a href="#" data-city="바르셀로나">바르셀로나</a></li> 
 																	<li><a href="#" data-city="밀라노">밀라노</a></li> 
 																	<li><a href="#" data-city="베니스">베니스</a></li> 
 																	<li><a href="#" data-city="부다페스트">부다페스트</a></li> 
@@ -1114,8 +1121,8 @@ function menuChange(idx){
 																	<li><a href="#" data-city="뉴욕">뉴욕</a></li> 
 																	<li><a href="#" data-city="샌프란시스코">샌프란시스코</a></li> 
 																	<li><a href="#" data-city="시카고">시카고</a></li> 
-																	<li><a href="#" data-city="로스엔젤레스">로스엔젤레스</a></li> 
-																	<li><a href="#" data-city="벤쿠버">벤쿠버</a></li> 
+																	<li><a href="#" data-city="로스앤젤레스">로스앤젤레스</a></li> 
+																	<li><a href="#" data-city="밴쿠버">밴쿠버</a></li> 
 																	<li><a href="#" data-city="토론토">토론토</a></li> 
 																</ul>
 															</td>
@@ -1212,7 +1219,7 @@ function menuChange(idx){
 											<!-- 국내 주요도시 리스트 -->
 											<div class="sc-ui-search-panel ui-mainsel-hotel">
 												<div class="uis-input">
-													<input type="text" class="input-base ipu-search" placeholder=" 도시, 호텔명을 검색하거나 아래 주요도시에서 선택하세요." autocomplete="off"><!-- #32511 수정(placeholder 한칸 띄기) -->
+													<input type="text" class="input-base ipu-search" placeholder=" 도시, 호텔명을 검색하거나 아래 주요도시에서 선택하세요." autocomplete="off">
 												</div>
 												<div class="uis-list">
 													<ul class="list o-customscrollbar">
@@ -1401,7 +1408,7 @@ function menuChange(idx){
 
 								<!-- 자유여행 -->
 								<div class="hss-inner-cont sc-free" id="SC-FREE">
-									<!-- 지역별 에어텔(#32433) -->
+									<!-- 지역별 에어텔 수정(#32433) -->
 									<div class="sc-search-box o-airtel on">
 										<div class="w-qsb-cont">
 											<div class="qsb-cont-box">												
@@ -1474,9 +1481,9 @@ function menuChange(idx){
 										</div>
 										<!-- //select3 상품/종류 -->
 									</div>
-									<!-- //지역별 에어텔(#32433) -->
+									<!-- //지역별 에어텔 수정(#32433) -->
 									
-									<!-- 프리미엄 에어텔(#32433) -->
+									<!-- 프리미엄 에어텔 추가(#32433) -->
 									<div class="sc-search-box o-airtelpremium">
 										<div class="w-qsb-cont">
 											<div class="qsb-cont-box">												
@@ -1524,7 +1531,7 @@ function menuChange(idx){
 										</div>
 										<!-- //select2 국가/상세 -->
 									</div>
-									<!-- //프리미엄 에어텔(#32433) -->
+									<!-- //프리미엄 에어텔 추가(#32433) -->
 									
 									<!-- 자유여행 최근검색 -->
 									<div class="hss-recently-search">
@@ -1597,7 +1604,7 @@ function menuChange(idx){
 											<!-- 대여도시 리스트 -->
 											<div class="sc-ui-search-panel ui-mainsel-freetour">
 												<div class="uis-input">
-													<input type="text" class="input-base ipu-search" placeholder=" 도시명을 검색하거나 아래 주요도시에서 선택하세요." autocomplete="off"><!-- #32511 수정(placeholder 한칸 띄기) -->
+													<input type="text" class="input-base ipu-search" placeholder=" 도시명을 검색하거나 아래 주요도시에서 선택하세요." autocomplete="off">
 													<span class="opt-txt">대여장소를 선택하여 주세요.</span>
 												</div>						
 												<table class="uis-mainsel-table">
@@ -1627,14 +1634,14 @@ function menuChange(idx){
 																    <li><a href="#" data-city="하와이(코나)">하와이(코나)</a></li> 
 																    <li><a href="#" data-city="하와이(힐로)">하와이(힐로)</a></li> 
 																    <li><a href="#" data-city="하와이(카우아이)">하와이(카우아이)</a></li> 
-																    <li><a href="#" data-city="로스엔젤레스">로스엔젤레스</a></li> 
+																    <li><a href="#" data-city="로스앤젤레스">로스앤젤레스</a></li> 
 																    <li><a href="#" data-city="샌프란시스코">샌프란시스코</a></li> 
 																    <li><a href="#" data-city="라스베가스">라스베가스</a></li> 
 																    <li><a href="#" data-city="뉴욕(JFK)">뉴욕(JFK)</a></li> 
 																    <li><a href="#" data-city="시애틀">시애틀</a></li> 
 																    <li><a href="#" data-city="애틀란타">애틀란타</a></li> 
 																    <li><a href="#" data-city="댈러스">댈러스</a></li> 
-																    <li><a href="#" data-city="벤쿠버">벤쿠버</a></li> 
+																    <li><a href="#" data-city="밴쿠버">밴쿠버</a></li> 
 																    <li><a href="#" data-city="캘거리">캘거리</a></li> 
 																    <li><a href="#" data-city="토론토">토론토</a></li> 
 																</ul>
@@ -2025,14 +2032,14 @@ function menuChange(idx){
 																    <li><a href="#">하와이(코나)</a></li> 
 																    <li><a href="#">하와이(힐로)</a></li> 
 																    <li><a href="#">하와이(카우아이)</a></li> 
-																    <li><a href="#">로스엔젤레스</a></li> 
+																    <li><a href="#">로스앤젤레스</a></li> 
 																    <li><a href="#">샌프란시스코</a></li> 
 																    <li><a href="#">라스베가스</a></li> 
 																    <li><a href="#">뉴욕(JFK)</a></li> 
 																    <li><a href="#">시애틀</a></li> 
 																    <li><a href="#">애틀란타</a></li> 
 																    <li><a href="#">댈러스</a></li> 
-																    <li><a href="#">벤쿠버</a></li> 
+																    <li><a href="#">밴쿠버</a></li> 
 																    <li><a href="#">캘거리</a></li> 
 																    <li><a href="#">토론토</a></li> 
 																</ul>

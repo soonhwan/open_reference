@@ -932,6 +932,17 @@ function comSearchAir(){
 				addTextToMD($('.sc-air .o-multiway .uis-datepicker'));
 			}
 			
+			//여정1 표시된경우 이전날짜 비활성화 처리(#32956)
+			if(_mdDateArr[0] != ''){
+				if(_mdDateIdx == 0){
+					$('.sc-air .o-multiway .uis-datepicker').datepicker( "option", "minDate", '0');
+				}
+				else{
+					$('.sc-air .o-multiway .uis-datepicker').datepicker( "option", "minDate", _mdDateArr[0]);
+					addTextToMD($('.sc-air .o-multiway .uis-datepicker'));
+				}
+			
+			}
 		}
 		
 		e.preventDefault();
@@ -1159,6 +1170,8 @@ function comSearchAir(){
 		
 		//텍스트 삽입
 		addTextToMD($('.sc-air .o-multiway .uis-datepicker'));
+		
+		
 	}
 	
 	//다구간 - 텍스트 삽입

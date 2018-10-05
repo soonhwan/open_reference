@@ -1573,7 +1573,7 @@ function setBannerMulti(obj, autorolling, dtime, items, circulation) {
 var repositionThisPop = function(id){
 
 	var winheight = Math.max(document.documentElement.clientHeight, window.innerHeight || 0),
-		winwidth = Math.max(document.documentElement.clientHeight, window.innerHeight || 0),
+		winwidth = Math.max(document.documentElement.clientWidth, window.innerWidth || 0),
 		posy = "50%",
 		posx = "50%",
 		$this =$("#" + id),
@@ -2830,6 +2830,26 @@ var initToolTip = function(){
 	help.live("mouseout",function(event){
 		$("#icoToolTipBox").hide().find("p").empty();
 	});
+	
+	//33147
+	if($('.result_air .cont_air .name-air').length > 0){
+		$('.result_air .cont_air .name-air').live("mouseenter",function(event){
+			var $this = $(this),       
+			cls,
+			width = $this.outerWidth() / 2;
+			offset = $this.offset(),
+			offsetLeft = offset.left,
+			offsetTop = offset.top - 44;
+			var tip = $this.text();
+			if(tip != undefined && tip.length > 5){			
+				$("#icoToolTipBox p").html(tip);
+				$("#icoToolTipBox").css("left",offsetLeft).css("top",offsetTop).show();
+			}
+		});
+		$('.result_air .cont_air .name-air').live("mouseleave",function(event){
+			$("#icoToolTipBox").hide().find("p").empty();
+		});
+	}
 };
 
 
@@ -4142,6 +4162,7 @@ function GetURLParameter(sParam){
 			var fmStop = defaults.fmStop;
 			var contWid = defaults.contWid;
 			
+			if(defaults.fmStop.length <= 0){ fmStop = null; }			
 			$this.css({'top':fmTop+'px','maring-right':-(innerleft+$this.width())+'px'});
 			innerleft = contWid/2 + fmLeft;
 

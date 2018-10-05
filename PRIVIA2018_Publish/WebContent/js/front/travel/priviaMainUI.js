@@ -154,7 +154,7 @@ var iosCheck = function(){
 var repositionThisPop = function(id){
 
 	var winheight = Math.max(document.documentElement.clientHeight, window.innerHeight || 0),
-		winwidth = Math.max(document.documentElement.clientHeight, window.innerHeight || 0),
+		winwidth = Math.max(document.documentElement.clientWidth, window.innerWidth || 0),
 		posy = "50%",
 		posx = "50%",
 		$this =$("#" + id),
@@ -542,5 +542,99 @@ $(function(){
         $('body').append('<div id="pu-notice-origin" style="width:1200px;position:absolute;top:0;left:50%;margin-left:-600px"></div>');
         $('#pu-notice-origin').html(mainnotipop);
     }
+	
+	//메인 전용 스크립트
+	if($('.w-content-sec.ws-main-sec').length > 0){		
+		//메인 추천 프로모션
+		var mainSlickSettings, rlcLeftMain, rlcLeftSub1, rlcLeftSub2, rlcRightMain, rlcRightsub1, rlcRightsub2, mSlickPrevBtn, mSlickNextBtn, mSlickCrt, slickOpt = 'slickNext', slickMotionEnd = false, speedMSlick = 50;
+		//기본셋팅
+		mainSlickSettings = {
+			swipe: false, //모바일에서 swipe false
+			touchMove: false, //모바일에서 터치 false
+			draggable: false,
+			arrows:false,
+			dots: false,
+			pauseOnHover: false,
+			pauseOnFocus: false,
+			speed: 500
+		};
+
+		//main left
+		rlcLeftMain = $('.rlc-left .rlc-list-main .list').on('init', function(event, slick){
+			slick.slickSetOption({
+				autoplay: true,
+				autoplaySpeed: 15000
+			});
+		}).slick(mainSlickSettings).on('beforeChange', function(event, slick, currentSlide, nextSlide){
+			setTimeout(function(){rlcLeftSub1.slick(slickOpt);},speedMSlick);
+		});
+
+		//main right
+		rlcRightMain = $('.rlc-right .rlc-list-main .list').on('init', function(event, slick){
+			slick.slickSetOption({
+				dots: true,
+				appendDots: $('.rlc-right .rlc-list-main .c-slick-dots'),
+			}, true);
+		}).slick(mainSlickSettings).on('beforeChange', function(event, slick, currentSlide, nextSlide){
+			setTimeout(function(){rlcRightsub1.slick(slickOpt);},speedMSlick);
+		});
+
+		//main sub
+		rlcLeftSub1 = $('.rlc-left .rlc-ls-left .list').slick(mainSlickSettings).on('beforeChange', function(event, slick, currentSlide, nextSlide){
+			setTimeout(function(){rlcLeftSub2.slick(slickOpt);},speedMSlick);
+		});
+		rlcLeftSub2 = $('.rlc-left .rlc-ls-right .list').slick(mainSlickSettings).on('beforeChange', function(event, slick, currentSlide, nextSlide){
+			setTimeout(function(){rlcRightMain.slick(slickOpt);},speedMSlick);
+		});
+		rlcRightsub1 = $('.rlc-right .rlc-ls-left .list').slick(mainSlickSettings).on('beforeChange', function(event, slick, currentSlide, nextSlide){
+			setTimeout(function(){rlcRightsub2.slick(slickOpt);},speedMSlick);
+		});
+		rlcRightsub2 = $('.rlc-right .rlc-ls-right .list').slick(mainSlickSettings).on('afterChange', function(event, slick, currentSlide, nextSlide){
+			slickOpt = 'slickNext';
+			slickMotionEnd = false;
+		});
+
+		//메인 slick 컨트롤
+		mSlickPrevBtn =  $('.s-rec-promotion .cb-crt .bb-prev button');
+		mSlickNextBtn = $('.s-rec-promotion .cb-crt .bb-next button');
+		mSlickCrt = $('.rlc-right .rlc-list-main .b-slick-crt');
+		//이전
+		mSlickPrevBtn.on('click', function(e){
+			mainSlickMotion('slickPrev');
+			e.preventDefault();
+		});
+		//다음
+		mSlickNextBtn.on('click', function(e){
+			mainSlickMotion('slickNext');
+			e.preventDefault();
+		});
+		//autoplay control
+		mSlickCrt.on('click', function(){
+			if(!slickMotionEnd){
+				if($(this).hasClass('on')){
+					//mainSlickMotion('slickPause');
+					rlcLeftMain.slick('slickPause');
+					$(this).removeClass('on');
+					$(this).find('.txt').text('자동재생 버튼');
+				}
+				else{
+					//mainSlickMotion('slickPlay');	
+					rlcLeftMain.slick('slickPlay');
+					$(this).addClass('on');
+					$(this).find('.txt').text('일시정지 버튼');
+				}
+			}
+		});
+		//slick opt
+		function mainSlickMotion(opt){
+			if(slickMotionEnd == false){
+				slickMotionEnd = true;
+				slickOpt = opt;
+				rlcLeftMain.slick(slickOpt);
+			}
+		}
+		// slick dots disable click
+		$('.s-rec-promotion .rlc-list-main .slick-dots button').on('click', function(e){e.stopPropagation();}); 
+	}
 });
 
