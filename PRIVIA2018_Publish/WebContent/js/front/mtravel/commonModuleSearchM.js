@@ -479,7 +479,8 @@ var pvmSearch = window.pvmSearch || (function(){
 									
 			//+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ 컨트롤 event
 			//하단 검색 박스 설정
-			$(document).on('click', '.sc-search-tab .list-tab [data-tab]', function(e){
+			//$(document).on('click', '.sc-search-tab .list-tab [data-tab]', function(e){
+			$('.sc-search-tab .list-tab [data-tab]').on('click', function(e){ //중복 이벤트 방지(#32956)
 				var _this = $(this);
 				var type = $(this).data('tab');
 				
@@ -538,12 +539,11 @@ var pvmSearch = window.pvmSearch || (function(){
 						if(_mdDateArr[0] != ''){
 							if(_mdDateIdx == 0){
 								$('.ui-page-active .ot-multiway .uis-datepicker').datepicker( "option", "minDate", '0');
-								addTextToMD($('.ui-page-active .ot-multiway .uis-datepicker'));
 							}
 							else{
 								$('.ui-page-active .ot-multiway .uis-datepicker').datepicker( "option", "minDate", _mdDateArr[0]);
-								addTextToMD($('.ui-page-active .ot-multiway .uis-datepicker'));
 							}
+							addTextToMD($('.ui-page-active .ot-multiway .uis-datepicker'));
 						}						
 					}
 					else if($('.ui-page-active .uis-datepicker .ui-state-active').length > 0){
@@ -1011,7 +1011,6 @@ var pvmSearch = window.pvmSearch || (function(){
 
 				//console.log('e _mdDateArr = ', _mdDateArr);
 			}
-			
 						
 			//event 바인딩
 			pvmFrontScript.comSearchEvtBind($('.ui-page-active .w-search-lp'));

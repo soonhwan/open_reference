@@ -1853,7 +1853,7 @@ var pvmFrontScript = window.pvmFrontScript || (function(){
 						}
 					}
 					else{
-						result = [true, "dp-highlight"];
+						result = [true, "dp-highlight", $.datepicker.formatDate('yy/mm/dd', date1)];
 					}
 				}
 				else if(date2){
