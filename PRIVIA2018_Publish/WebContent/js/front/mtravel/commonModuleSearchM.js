@@ -1080,21 +1080,18 @@ var pvmSearch = window.pvmSearch || (function(){
 			//여행지 click
 			$('.sc-hotel .places-exit [data-panel="mainsel"]').on('click', function(e){
 				pvmSearch.setHotelData('mainsel-exit');
-				pvmSearch.changePage('hotel-lpu.html');
 				e.preventDefault();
 			});		
 			
 			//여행날짜
 			$('.sc-hotel  [data-panel="calendar"]').on('click', function(e){
 				pvmSearch.setHotelData('calendar');
-				pvmSearch.changePage('hotel-lpu.html');
 				e.preventDefault();
 			});
 			
 			//객실
 			$('.sc-hotel  [data-panel="capacity"]').on('click', function(e){
 				pvmSearch.setHotelData('capacity');
-				pvmSearch.changePage('hotel-lpu.html');
 				e.preventDefault();
 			});	
 			
@@ -1130,6 +1127,8 @@ var pvmSearch = window.pvmSearch || (function(){
 			}
 			
 			searchData = tempData;
+			
+			pvmSearch.changePage('hotel-lpu.html');
 		},
 		comSearchHotelLpu: function(){
 			var $currentCity = null; // 도시,호텔 영역 저장
