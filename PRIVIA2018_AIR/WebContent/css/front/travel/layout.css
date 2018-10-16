@@ -1,0 +1,545 @@
+@charset "utf-8";
+
+html {background:#fff;} /* white.css 적용 대상자 */
+/* Layout */
+#skipnav {/*position:absolute; top:-400px; left:0;*/}
+#skipnav a {position:absolute; top:-400px; left:0; display:block; width:100%; padding:10px 0; border-bottom:1px solid #d2d2d2; background:#fff; text-align:center}
+#skipnav a:hover, #skipnav a:focus, #skipnav a:active {position:static}
+#wrap {position:relative; width:1260px; margin:0 auto;}
+#header {height:100px; z-index:100; position:relative;}
+#header h1 {position:absolute; top:54px;left:50%; margin-left:-98px}
+
+
+#content {width:950px; padding-top:30px; *zoom:1;min-height:400px;position: relative;}
+#content:after {content:""; display:block; clear:both;}
+#content > h2 {height:25px; margin-bottom:30px;}
+#content > h2 .help {vertical-align:bottom; margin-left:5px;}
+#content h2 .sub_tit, #content h3 .sub_tit {vertical-align:bottom; margin-left:10px;}
+#content h2 .help_text {vertical-align:bottom;}
+#content h2 a.sub_btn {display:inline-block; vertical-align:bottom; margin-bottom:-3px;}
+#footer {position:relative; clear:both; width:950px; margin:50px 0 60px; padding-top:13px; border-top:1px solid #dedede;}
+#footer .logo {position:absolute; top:28px; right:0;}
+/* header */
+#header .gnb_btn {display:block; position:absolute; top:50px; left:0; cursor:pointer; width:115px; height:30px; text-indent:-9999px; background:url(/images/front/shop/btn/btn_nav_all.gif) left top no-repeat;}
+#header .gnb_btn.on {background-position:left -30px;}
+#header .search_btn {display:block;position:absolute; top:51px; left:120px;  width:28px; height:28px !important; text-indent:-9999px; background:url(/images/front/travel/common/ico_search.png) 0 0 no-repeat;}
+#header .search_btn.on {background-position:0 -28px;}
+.gnb_nav {z-index:100}
+/* 20131017 gnb 수정 */
+.gnb_nav .gnb {overflow:visible; position:absolute; left:0; top:-9999px; background:url(/images/front/travel/common/bg_gnb_new.png); border:1px solid #666; width:154px; height:100px}
+.gnb_nav .gnb ul {border:1px solid #585858; background:#585858; width:154px; padding:0 0 9px 0; position:absolute; left:-1px; top:-1px}
+.gnb_nav .gnb ul li,
+.gnb_nav .gnb ul li a,
+.gnb_nav .gnb ul li img {vertical-align:top; line-height:0}
+.gnb_nav .gnb ul li a {display:block; height:21px; padding:11px 0 0 11px}
+.gnb_nav .gnb ul li {position:relative; width:154px}
+.gnb_nav .gnb ul ul {display:none; position:absolute; padding:9px 0; left:154px; top:-10px; background:#fff}
+.gnb_nav .gnb ul ul.exception {display:block; position:static; border:0 none}
+.gnb_nav .gnb ul a:hover,
+.gnb_nav .gnb ul a:active,
+.gnb_nav .gnb ul a:focus {background:#666}
+.gnb_nav .gnb ul a.hover,
+.gnb_nav .gnb ul a.active {background:#666 url(/images/front/travel/common/ico_gnb_depth1.png) right center no-repeat}
+.gnb_nav .gnb ul ul a:hover,
+.gnb_nav .gnb ul ul a:active,
+.gnb_nav .gnb ul ul a:focus {background:#f0f0f0}
+.gnb_nav .gnb ul ul a.hover,
+.gnb_nav .gnb ul ul a.active {background:#f0f0f0 url(/images/front/travel/common/ico_gnb_depth2.png) right center no-repeat}
+.gnb_nav .gnb .hidden_menu_guide {position:absolute; z-index:-1; left:0; top:-1000px; width:0; height:0; text-indent:-9999px}
+.gnb_nav .gnb ul ul a.sub_main {padding-top:10px; border-bottom:1px solid #666;}
+
+
+/* header 2016 */
+#wrap-new{position:relative; width:100%}
+#header-new{height:180px;z-index:102;position:relative;background:url(/images/front/travel/deco_line_header.gif) repeat-x 0 130px}
+#header-new h1{position:absolute; top:54px;left:50%; margin-left:-98px}
+.header-inner{width:950px;position:relative;margin:0 auto;z-index:2} 
+.header-inner .header-banner{padding-top:10px;width:240px;min-height: 110px;}
+/* .header-inner .header-banner a{display:block;width:240px;height:110px} */
+.header-inner .header-banner .roll-banner{width:240px;height:110px;overflow:hidden;position:relative;min-height:110px;margin-top:0px}
+.header-inner .header-banner .roll-banner li{float:left;width:240px;height:110px}
+.header-inner .header-banner .roll-banner li a{width:100%;height:100%;display:block}
+.header-inner .header-banner .roll-banner li a img{width:100%;height:100%}
+.header-inner .header-banner .roll-banner .roll_btn{position:absolute; top:93px;left:13px}
+.header-inner .header-banner .roll-banner .roll_btn em{display:inline-block; float:left; width:9px; height:9px; margin-right:4px; text-indent:-9999px; cursor:pointer; background:url(/images/front/travel/sprite_controller2.png) no-repeat;}
+.header-inner .header-banner .roll-banner .roll_btn em.on{background-position:0 -9px; cursor:default}
+.header-inner .header-banner .roll-banner .btn_move{display:block; position:absolute; top:92px; left:0px;width:9px; height:11px; z-index:1; text-indent:-9999px; cursor:pointer; background:url(/images/front/travel/sprite_controller2.png) no-repeat 0 -30px}
+.header-inner .header-banner .roll-banner .btn_play{background:url(/images/front/travel/sprite_controller2.png) no-repeat 0 -20px}
+
+.gnb-sub-wrap{position:absolute;z-index:1;height:49px;width:100%;bottom:-50px;background:#f8f8f8;display:none;border-bottom:1px solid #333}
+#header-new.gnb-open{margin-bottom:50px;}
+/* content, footer 전부 margin:auto 값 처리해야됨 */
+#nav-wrap{position:absolute;top:130px;left:0px;width:100%;z-index:3}
+#nav-wrap .nav-pos{width:900px;margin:0 auto;position:relative;padding-left:50px;z-index:2}
+.btn-total-nav{display:block;width:50px;height:50px;background:url(/images/front/travel/btn_total_search.gif) no-repeat 0 0;overflow:hidden;text-indent:-9999px;position:absolute;top:0px;left:50%;margin-left:-475px;z-index:3}
+.btn-total-nav.ov{background-position:0 -50px}
+.btn-total-nav.on{background-position:0 -100px}
+.total-nav-layer{z-index:3;position:absolute;top:50px;left:0;border-bottom:1px solid #000;background-color:white;width:100%;display:none}
+.total-nav-layer-inner{width:948px;height:595px;margin:0 auto;overflow:hidden;border-left:1px solid #e2e2e2;border-right:1px solid #e2e2e2}
+.total-nav-list{width:956px;overflow:hidden}
+.total-nav-list > li{float:left;height:277px;width:142px;border-right:1px solid #d5d5d5;border-bottom:1px solid #d5d5d5;padding:20px 0 0 16px}
+.total-nav-list > li.mypage,
+.total-nav-list > li.about,
+.total-nav-list > li.picks,
+.total-nav-list > li.shopping{/*height:79px*/}
+.total-nav-list h3{margin-bottom:15px}
+.total-nav-list h3 a{background:url(/images/front/travel/deco_totalnav.gif) no-repeat 0 0;text-indent:-9999px;height:15px;width:140px;display:block}
+.total-nav-list li.hotel h3 a{background-position:0 -20px}
+.total-nav-list li.airtel h3 a{background-position:0 -40px}
+.total-nav-list li.dprs h3 a{background-position:0 -60px}
+.total-nav-list li.pkg h3 a{background-position:0 -80px}
+.total-nav-list li.domestic h3 a{background-position:0 -320px}
+.total-nav-list li.promotion h3 a{background-position:0 -100px}
+.total-nav-list li.rsv h3 a{background-position:0 -120px}
+.total-nav-list li.benefit h3 a{background-position:0 -140px}
+.total-nav-list li.payment h3 a{background-position:0 -160px}
+.total-nav-list li.customer h3 a{background-position:0 -180px}
+.total-nav-list li.mypage h3 a{background-position:0 -200px}
+.total-nav-list li.about h3 a{background-position:0 -220px}
+.total-nav-list li.picks h3 a{background-position:0 -260px}
+.total-nav-list li.shopping h3 a{background-position:0 -300px}
+.total-nav-list > li.about h3 a,
+.total-nav-list > li.picks h3 a,
+.total-nav-list > li.shopping h3 a{height:35px}
+.total-nav-list > li li{margin-bottom:10px}
+.total-nav-list a:hover{text-decoration:underline}
+.total-nav-sub-list{float:left;width:140px;margin-right:20px}
+.quickSearch-wrap{float:left;width:50px;height:50px;position:relative}
+.btn-quickSearch{display:block;width:50px;height:50px;background:url(/images/front/travel/btn_quickSearch.gif) no-repeat 0 0}
+.btn-quickSearch.on{background-position:0 -50px}
+#quickSearch-holder{position:absolute;left:0;top:49px;display:none;}
+
+
+#gnb-nav{height:50px;float:left}
+#gnb-nav > li{float:left;margin-right:-1px;z-index:0;}
+#gnb-nav > li.ov{z-index:1}
+#gnb-nav > li#gnb-item-promotion{position:absolute;top:0px;right:1px;}
+#gnb-nav > li > a{border:1px solid transparent;display:block;height:31px;padding-top:17px;overflow:hidden;background:url(/images/front/travel/deco_line_1x15_e2e2.gif) no-repeat -1px center;}
+	.ie8 #gnb-nav > li > a{background:url(/images/front/travel/deco_line_1x15_e2e2.gif) no-repeat 0 center;}
+#gnb-nav > li.ov > a{border:1px solid #000;background:none}
+#gnb-nav > li > a span{background:url(/images/front/travel/deco_gnb.gif) no-repeat -1px 0;text-indent:-9999px;display:block;width:100%;height:16px;cursor:pointer}
+#gnb-nav > li.ov + li > a{background-image:none}
+
+#gnb-nav > li:first-child a{background:none}
+#gnb-nav > li#gnb-item-air      {width:88px;}
+#gnb-nav > li#gnb-item-hotel    {width:88px}
+#gnb-nav > li#gnb-item-airtel   {width:116px}
+#gnb-nav > li#gnb-item-dprs     {width:157px}
+#gnb-nav > li#gnb-item-pkg      {width:120px}
+#gnb-nav > li#gnb-item-domestic {width:116px;}
+#gnb-nav > li#gnb-item-promotion{width:120px;}
+
+#gnb-nav > li#gnb-item-promotion > a{height:31px;border:1px solid #e2e2e2;background:none}
+#gnb-nav > li#gnb-item-promotion.ov > a{border-color:#000}
+
+#gnb-nav > li#gnb-item-air       span{background-position:center 0px}
+#gnb-nav > li#gnb-item-hotel     span{background-position:center -40px}
+#gnb-nav > li#gnb-item-airtel    span{background-position:center -80px}
+#gnb-nav > li#gnb-item-dprs      span{background-position:center -120px}
+#gnb-nav > li#gnb-item-pkg       span{background-position:center -160px}
+#gnb-nav > li#gnb-item-domestic  span{background-position:center -200px}
+#gnb-nav > li#gnb-item-promotion span{background-position:center -280px}
+
+#gnb-nav > li#gnb-item-air.on       span{background-position:center -16px}
+#gnb-nav > li#gnb-item-hotel.on     span{background-position:center -56px}
+#gnb-nav > li#gnb-item-airtel.on    span{background-position:center -96px}
+#gnb-nav > li#gnb-item-dprs.on      span{background-position:center -136px}
+#gnb-nav > li#gnb-item-pkg.on       span{background-position:center -176px}
+#gnb-nav > li#gnb-item-domestic.on  span{background-position:center -216px}
+#gnb-nav > li#gnb-item-promotion.on span{background-position:center -296px}
+
+#gnb-nav .gnb-sub{position:absolute;width:955px;left:0;display:none} /* #20748 서브메뉴 공간이 좁아서 width 5px 늘림 */
+#gnb-nav > li.ov .gnb-sub{display:block}
+
+.gnb-open #gnb-nav > li.on .gnb-sub{display:block}
+#gnb-nav .gnb-sub li{display:inline-block;}
+	.ie7 #gnb-nav .gnb-sub li{float:left}
+#gnb-nav .gnb-sub li a{font-weight:bold;font-size:14px;line-height:50px;display:inline-block;height:49px;overflow:hidden;padding:0 20px 0 21px;background:url(/images/front/travel/deco_line_1x15_e2e2.gif) no-repeat 0 center;}
+#gnb-nav .gnb-sub li:first-child a{padding-left:0;background:none}
+#gnb-nav .gnb-sub li#pgk-sitemap-toggle{position:absolute}
+#gnb-nav .gnb-sub li#pgk-sitemap-toggle a{padding-left:0}
+#gnb-nav > li#gnb-item-promotion .gnb-sub{text-align:right;left:auto;right:1px}
+
+.total-nav-list > li a:hover,
+#gnb-nav .gnb-sub a:hover{text-decoration: underline}
+
+/* #5249 수정 */
+.util{overflow:hidden;position:absolute;top:50px;right:-7px}
+.util li{float:left;padding:9px 7px;background:url(/images/front/travel/common/bar_1x9_dedede.gif) no-repeat left center;color:#424242;font-size:11px;color:#424242;letter-spacing:-1px}
+.util li:first-child{background:0 none}
+.util li a{font-size:11px;color:#424242;letter-spacing:-1px}
+.util li.logout{background:0 none;margin-left:-2px;padding-left:0}
+.load_guide {position:absolute; top:8px; right:0;}
+
+/* 9359 서비스 섹션메인 바로가기 추가 */
+.golink-service{position:absolute;top:50px;left:127px;height:30px;}
+#header .search_btn + .golink-service{left:158px}
+.golink-service a{display:inline-block;position:relative;width:30px;height:30px;text-indent:0;background:0 none;margin:0}
+.golink-service a > em{display:inline-block;overflow:hidden;width:30px;height:30px;text-indent:-9999px;background:url(/images/front/travel/common/ico_service.gif) no-repeat}
+.golink-service a:after{display:none;position:absolute;top:-28px;left:50%;padding:5px 0 4px;letter-spacing:-1px;-ms-filter:"alpha(opacity=80)";filter:alpha(opacity=80);opacity:0.8;text-align:center;background-color:#000;color:#f1f1f1;font-size:11px;}
+.golink-service a:before{display:none;content:'';width:0;height:0;border:4px solid transparent;border-top-color:black;-ms-filter:"alpha(opacity=80)";filter:alpha(opacity=80);opacity:0.8;position:absolute;left:11px;top:-6px;top:-8px\9}
+.golink-service a:hover:after,
+.golink-service a:hover:before{display:block}
+.golink-service .icon-air > em{background-position:0 0}
+.golink-service .icon-htl > em{background-position:-33px 0}
+.golink-service .icon-free > em{background-position:-66px 0}
+.golink-service .icon-dprs > em{background-position:-99px 0}
+.golink-service .icon-tour > em{background-position:-132px 0}
+.golink-service .icon-pkg > em{background-position:-165px 0}
+.golink-service .icon-air:after{content:'항공 메인 바로가기';width:100px;margin-left:-50px}
+.golink-service .icon-htl:after{content:'호텔 메인 바로가기';width:100px;margin-left:-50px}
+.golink-service .icon-free:after{content:'자유여행 메인 바로가기';width:120px;margin-left:-60px}
+.golink-service .icon-dprs:after{content:'자유여행만들기 메인 바로가기';width:150px;margin-left:-75px}
+.golink-service .icon-tour:after{content:'투어/렌터카 바로가기';width:110px;margin-left:-55px}
+.golink-service .icon-pkg:after{content:'해외패키지 메인 바로가기';width:130px;margin-left:-65px}
+
+
+
+/* footer */
+.page_top {position:absolute; top:-70px; right:-29px; display:none !important}
+.fnb {*zoom:1;}
+.fnb:after {content:""; display:block; clear:both;}
+.fnb li {float:left; margin-right:7px; padding-right:12px; line-height:9px; background:url(/images/front/travel/common/bul_707070.png) right top no-repeat;}
+.fnb li.last {background:none;}
+.copyright {margin-top:15px; margin-bottom:10px;}
+.copyright p {margin-bottom:6px;}
+ul.quick_serv {position:absolute; right:0; bottom:28px}
+ul.quick_serv li,
+ul.quick_serv li a {float:left}
+ul.quick_serv li {margin-left:3px}
+#footer .mark_inicis {position:absolute; top:56px; left: 832px;}
+/* my travel */
+.my_travel {position:fixed; bottom:0; left:50%; margin-left:-485px; padding:10px 10px 0; background:url(/images/front/travel/common/bg_travel.png) no-repeat; /*z-index:5;*/ z-index:800}
+.my_travel .my_head {position:relative; width:950px; height:38px;}
+.my_travel .my_head .btn_fold {display:inline-block; width:38px; height:38px; text-indent:-9999px; border-right:1px solid #6e7175; background:url(/images/front/travel/common/ico_travel.png) 0 0 no-repeat;}
+*:first-child+html .my_travel .my_head .btn_fold {font-size:0; text-indent:0; line-height:0} /* display:inline-block + text-indent 버그 픽스(ie7) */
+.my_travel .my_head .btn_fold.closed {background-position:-40px 0;}
+.my_travel .my_head .tit {display:inline-block; position:absolute; top:9px; left:49px;}
+.my_travel .my_head .bnt_help {position:absolute; top:10px; left:165px; width:19px; height:19px;}
+.my_travel .my_head .hot_spot {position:absolute; top:10px; *top:6px; left:207px; width: 523px; text-align: center;}
+.my_travel .my_head .hot_spot .pick_menu {display:inline-block; *display:inline; position:relative; vertical-align:middle;}
+.my_travel .my_head .hot_spot .pick_menu ul {position:absolute; left:-48px; bottom:28px; border:1px solid #4c4d51;}
+.my_travel .my_head .hot_spot .pick_menu ul li a {display:block; width:112px; height:20px; padding-left:8px; padding-top:7px; background:#fff; text-align:left}
+.my_travel .my_head .hot_spot .pick_menu ul li a img {filter: alpha(opacity=48); opacity:0.48; -moz-opacity:0.48;}
+.my_travel .my_head .hot_spot .pick_menu ul li a:hover,
+.my_travel .my_head .hot_spot .pick_menu ul li a:focus {background:#e2e2e2;}
+.my_travel .my_head .hot_spot .pick_menu ul li a:hover img,
+.my_travel .my_head .hot_spot .pick_menu ul li a:focus img {filter: alpha(opacity=100); opacity:1; -moz-opacity:1;}
+.my_travel .my_head .hot_spot .pick_menu .bot {position:absolute; left:9px; bottom:23px; display:inline-block; width:9px; height:6px; background:url(/images/front/travel/common/bg_mytravel_menu.png) no-repeat;}
+.my_travel .my_head .total {display:inline-block; position:absolute; top:0; right:15px; text-align:right;}
+.my_travel .my_head .total .items {margin-top:22px; color:#fff; font:16px "맑은 고딕", "맑은고딕", Malgun Gothic, dotum;;}
+.my_travel .my_head .total .items_img {margin:0 0 4px 3px;}
+.my_travel .my_head .total .won {display:inline-block; width:119px; margin:4px 0; color:#fff; line-height:26px; font:20px "맑은 고딕", "맑은고딕", Malgun Gothic, dotum;;}
+.my_travel .my_head .total .won_img {margin:0 0 5px 2px;}
+.my_travel .my_list {position:relative; overflow:hidden; *width:950px; height:0; background:#717479; *zoom:1;}
+.my_travel .my_list:after {content:""; display:block; clear:both;}
+.my_travel .my_list .pro_list {padding:15px 0 0 38px; *zoom:1;}
+.my_travel .my_list .pro_list:after {content:""; display:block; clear:both;}
+.my_travel .my_list .prev {position:absolute; top:50px; left:14px; width:9px; height:13px; text-indent:-9999px; background:url(/images/front/travel/common/ico_travel.png) -120px -15px no-repeat;}
+.my_travel .my_list .next {position:absolute; top:50px; right:117px; width:9px; height:13px; text-indent:-9999px; background:url(/images/front/travel/common/ico_travel.png) -150px -15px no-repeat;}
+.my_travel .my_list .pro_list .list_hidden {position:relative; overflow:hidden; width:772px;}
+.my_travel .my_list .pro_list .list_hidden .pro_list_target {*zoom:1}
+.my_travel .my_list .pro_list .list_hidden .pro_list_target:after {content:""; display:block; clear:both;}
+.my_travel .my_list .pro_list .list_hidden .cate_air, .my_travel .my_list .pro_list .list_hidden .cate_hotel, 
+.my_travel .my_list .pro_list .list_hidden .cate_airtel, .my_travel .my_list .pro_list .list_hidden .cate_pick {float:left;}
+.my_travel .my_list .pro_list .empty {margin-top:37px; text-align:center;}
+.my_travel .my_list .pro_list .product {position:relative; float:left; width:190px; height:83px; margin-right:4px; background:url(/images/front/travel/common/ico_travel.png) 0 -170px no-repeat;}
+.my_travel .my_list .pro_list .product .txt_empty {margin-top:10px; color:#e1e1e1; font-weight:bold; text-align:center;}
+.my_travel .my_list .pro_list .product .ico {position:absolute; top:0; left:0; display:inline-block; width:35px; height:82px; text-indent:-9999px; background:url(/images/front/travel/common/ico_travel.png) no-repeat;}
+.my_travel .my_list .pro_list .product .ico.air {background-position:0 -280px}
+.my_travel .my_list .pro_list .product .ico.hotel {background-position:-45px -280px}
+.my_travel .my_list .pro_list .product .ico.airTel {background-position:-90px -280px}
+.my_travel .my_list .pro_list .product .ico.Culture {background-position:-135px -280px}
+.my_travel .my_list .pro_list .product .ico.FB {background-position:-180px -280px}
+.my_travel .my_list .pro_list .product .ico.Stay {background-position:-225px -280px}
+.my_travel .my_list .pro_list .product .ico.Shopping {background-position:-270px -280px}
+.my_travel .my_list .pro_list .product .ico.del {position:absolute; top:10px; left:164px; width:19px; height:19px; background-position:5px -45px; z-index:1}
+.my_travel .my_list .pro_list .product .transparencyBtn {position:absolute; display:inline-block; width:162px; height:82px; cursor:pointer; background:url(/images/front/travel/common/blank.png);}
+.my_travel .my_list .pro_list .product .state {position:absolute; top:55px; right:7px;}
+.my_travel .my_list .pro_list .product .state a {display:block; width:51px; height:19px; text-indent:-9999px; background:url(/images/front/travel/common/ico_travel.png) no-repeat;}
+.my_travel .my_list .pro_list .product .state .rev_bofore {background-position:0 -120px;}
+.my_travel .my_list .pro_list .product .state .rev_call {background-position:-60px -120px;}
+.my_travel .my_list .pro_list .product .state .rev_complete {background-position:-120px -120px;}
+.my_travel .my_list .pro_list .product .state .pay_before {background-position:-180px -120px;}
+.my_travel .my_list .pro_list .product .state .pay_complete {background-position:-240px -120px;}
+.my_travel .my_list .pro_list .product .info {margin:14px 0 0 41px; overflow:hidden; color:#666; line-height:18px;}
+.my_travel .my_list .pro_list .product .info .date {display:block; font-size:11px; color:#999; width:140px; }
+.my_travel .my_list .pro_list .product .info strong {display:block; overflow:hidden; width:140px; height:18px; margin:5px 0;}
+.my_travel .my_list .pro_list .product .info strong .arrow {font-size:11px;}
+.my_travel .my_list .btn {position:absolute; top:15px; right:10px;}
+.my_travel .my_list .btn li {margin-bottom:2px;}
+.my_travel .my_list .btn li a.reserv { display:inline-block; width:92px; height:40px; background:url(/images/front/travel/common/btn_mytravel.gif) -92px 0px no-repeat; cursor:default;}
+.my_travel .my_list .btn li a.make { display:inline-block; width:92px; height:40px; background:url(/images/front/travel/common/btn_mytravel.gif) -92px -40px no-repeat; cursor:default;}
+.my_travel .my_list .btn li a.reserv.on { background-position:0px 0px; cursor:pointer;}
+.my_travel .my_list .btn li a.make.on { background-position:0px -40px; cursor:pointer;}
+
+/* DPRS C2 : 자유여행 상품 만들기
+----------------------------------------------------------------------------------------*/
+/* layout */
+.layout-3grid{width:950px;margin:0 auto;position:relative}
+.layout-3grid .layout-left{width:120px;float:left;position:relative;z-index:0}
+/*
+.layout-3grid .layout-center{width:630px;float:left;margin:0 20px;position:relative;z-index:1}
+*/
+/* c2 레이아웃 2grid로 변경 */
+.layout-3grid .layout-center{width:770px;float:left;margin:0 20px 0 0;position:relative;z-index:1}
+
+.layout-3grid .layout-right{width:160px;float:left;position:relative;z-index:0}
+.nav-menu li{margin-bottom:10px}
+.nav-menu li:last-child{margin-bottom:10px}
+.c2-right-btn{position:relative}
+.btn-box{
+	filter:none;
+	display:block;
+	width:120px;
+	padding:12px 16px 13px 24px;
+	background:#2a2a2a url(/images/front/travel/search/box-title-bg.png) no-repeat 10px 14px;
+}
+.btn-box.btn-wf{
+	filter:none;
+	color:white !important;
+	background:#2a2a2a url(/images/front/travel/search/box-title-bg.png) no-repeat 10px 14px;
+	border:0 none;
+	font-size:14px;
+	text-align:left;
+}
+.btn-box .btn-wf{
+	filter:none;
+	color:white !important;
+	background:#2a2a2a;
+	border:0 none;
+	font-size:14px;
+	text-align:left;
+}
+.btn-box .btn-wf:hover,
+.btn-box.btn-wf:hover,
+.btn-box .btn-wf:focus,
+.btn-box.btn-wf:focus{
+	background-color:#2a2a2a;
+    -webkit-transition:all 0.5s;
+}
+.btn-box .sub-copy{
+	position:absolute;
+	top:13px;
+	left:80px;
+	font-weight:bold;
+	color:white;
+}
+	.ie9 .btn-box .sub-copy{top:14px}
+	.ie8 .btn-box .sub-copy{top:15px}
+	.ie7 .btn-box .sub-copy{top:15px}
+.btn-box:hover{color:white}
+.layout-right .empty{
+	background:url(/images/front/travel/search/choose-product-bg.gif) no-repeat center 72px;
+	padding:136px 0px 77px;
+	line-height:1.4;
+}
+.layout-right .box-fill-gray{
+	padding:8px 10px;
+}
+.layout-right .box-fill-gray .cate-total{
+	margin-top:4px;
+	font-weight:bold;
+}
+.p-list{
+	padding:6px 10px;
+}
+.p-list *{
+	vertical-align:middle;
+}
+.p-list li{
+	margin-bottom:4px;
+	overflow:hidden;
+}
+.p-list li .p-name{
+	margin-top:2px;
+	width:120px;
+}
+.p-list li:last-child{
+	margin-bottom:0;
+}
+.total-pay-expect{
+	margin-top:0 !important;
+}
+.total-pay-expect .p-list{
+	padding:14px 10px;
+}
+.total-pay-expect .total-result{
+	margin:23px 0 12px;
+}
+.total-pay-expect .total-result .fl{
+	margin-top:4px;
+}
+/* c2 common */
+.black-box{
+	background: #454545;
+	background: url(data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiA/Pgo8c3ZnIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyIgd2lkdGg9IjEwMCUiIGhlaWdodD0iMTAwJSIgdmlld0JveD0iMCAwIDEgMSIgcHJlc2VydmVBc3BlY3RSYXRpbz0ibm9uZSI+CiAgPGxpbmVhckdyYWRpZW50IGlkPSJncmFkLXVjZ2ctZ2VuZXJhdGVkIiBncmFkaWVudFVuaXRzPSJ1c2VyU3BhY2VPblVzZSIgeDE9IjAlIiB5MT0iMCUiIHgyPSIwJSIgeTI9IjEwMCUiPgogICAgPHN0b3Agb2Zmc2V0PSIwJSIgc3RvcC1jb2xvcj0iIzQ1NDU0NSIgc3RvcC1vcGFjaXR5PSIxIi8+CiAgICA8c3RvcCBvZmZzZXQ9IjEwMCUiIHN0b3AtY29sb3I9IiMxODE4MTgiIHN0b3Atb3BhY2l0eT0iMSIvPgogIDwvbGluZWFyR3JhZGllbnQ+CiAgPHJlY3QgeD0iMCIgeT0iMCIgd2lkdGg9IjEiIGhlaWdodD0iMSIgZmlsbD0idXJsKCNncmFkLXVjZ2ctZ2VuZXJhdGVkKSIgLz4KPC9zdmc+);
+	background: -moz-linear-gradient(top, #454545 0%, #181818 100%);
+	background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#454545), color-stop(100%,#181818));
+	background: -webkit-linear-gradient(top, #454545 0%,#181818 100%);
+	background: -o-linear-gradient(top, #454545 0%,#181818 100%);
+	background: -ms-linear-gradient(top, #454545 0%,#181818 100%);
+	background: linear-gradient(to bottom, #454545 0%,#181818 100%);
+	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#454545', endColorstr='#181818',GradientType=0 );	
+}
+.c2-research{position:absolute;right:0;top:30px}
+
+/* PKG : 패키지
+----------------------------------------------------------------------------------------*/
+/* layout */
+.l-logo{position:absolute;top:54px;left:50%; margin-left:-106px !important}
+.l-total-nav-open{position:absolute;width:80px;display:inline-block;letter-spacing:-1px;top:0px;height:50px;line-height: 50px;left:50%;margin-left:250px;cursor:pointer;font-size:14px;font-weight:bold;background:none;text-indent:0px;z-index:0;}
+.l-total-nav-open:hover{text-decoration:underline}
+.l-total-nav-open.on{background:none;border-bottom: none}
+.l-total-nav-open i{position:absolute;right: 0;top: 18px;vertical-align:middle;margin-left:5px;display:inline-block;width:13px;height:13px;background:url(/images/front/travel/main/gnb-text-plus-minus.gif) no-repeat left 0px}
+.l-total-nav-open.on i{background-position:right center}
+.l-total-nav-layer{width:100%;position:absolute;top:49px;left:0;display:none;z-index:11;border-top:1px solid #e2e2e2;border-bottom:1px solid #000;border-left:0 none;border-right:0 none;background-color:white;margin-left:0px}
+.l-total-nav-list{width:948px;margin:0 auto;border-left:1px solid #d5d5d5;border-right:1px solid #d5d5d5}
+.l-total-nav-list td{vertical-align:top;border-right:1px solid #d5d5d5;border-bottom:1px solid #d5d5d5;padding:15px 0 10px 16px}
+.l-total-nav-list td:last-child{border-right:0 none}
+.l-total-nav-list tr:last-child td{border-bottom:0 none}
+.l-total-nav-list td .ymhb{font-size:15px;color:#444;margin-bottom:15px}
+.l-total-nav-list td ul li{margin-bottom:8px}
+.l-total-nav-sub-list{float:left;width:140px;margin-right:20px}
+.btn-total-nav-layer{position:absolute;bottom:20px;left:50%;cursor:pointer;margin-left:430px}
+	.ie7 .btn-total-nav-layer{width:24px;height:24px}
+
+.l-util{position:absolute;top:50px;right:0px}
+/* 인풋박스 들어오면 변경 .l-util.add-search{top:5px} */
+.l-util.add-search{top:50px}
+.l-util-menu li{float:left;padding:9px 7px;background:url(/images/front/travel/deco_line_1x9_dedede.gif) no-repeat left center;color:#424242;font-size:11px;color:#424242;letter-spacing:-1px}
+.l-util-menu li:first-child{background:0 none}
+.l-util-menu li a{font-size:11px;color:#424242;letter-spacing:-1px}
+.l-util-menu li.logout{background:0 none;margin-left:-2px;padding-left:0}
+.l-search{position:absolute;top:45px;right:0;}
+.l-search input.text{background:none}
+.icon-search{position:absolute;top:0;right:0;display:inline-block;width:28px;height:28px;border:0 none;background:url(/images/front/travel/btn_total_search.png) no-repeat 0 0;cursor:pointer}
+.l-nav-icon{position:absolute;top:50px;left:120px !important;}
+
+.l-gnb{position:relative;height:49px;background:#f8f8f8;border-bottom:1px solid #000;margin-bottom:21px;padding-bottom:0;margin-top:60px}
+	.ie7 .l-gnb{margin-top:0px;top:60px}
+.l-gnb.on{border-bottom:1px solid #d5d5d5}
+.l-gnb-menu{width:950px;margin:0 auto;}
+.l-gnb-menu li{display:inline-block;float:none;padding:0;margin-top:0}
+.ie7 .l-gnb-menu li{float:left}
+.l-gnb-menu li a{letter-spacing:-1px;width:auto !important;text-indent:0;font-weight:bold;font-size:14px;line-height:50px;display:inline-block;height:49px;overflow:hidden;padding:0 15px 0 16px;background:url(/images/front/travel/deco_line_1x15_e2e2.gif) no-repeat 0 center !important;}
+.l-gnb-menu li:first-child a{padding-left:0;background:none !important}
+.l-gnb-menu li.PGR008 a{background-position: center 0;width:70px}
+.l-gnb-menu li.PGR009 a{background-position: center -40px;width:66px}
+.l-gnb-menu li.PGR011 a{background-position: center -80px;width:30px}
+.l-gnb-menu li.PGR010 a{background-position: center -120px;width:61px}
+.l-gnb-menu li.PGR012 a{background-position: center -160px;width:30px}
+.l-gnb-menu li.PGR013 a{background-position: center -200px;width:80px}
+.l-gnb-menu li.THEMA a{background-position: center -240px;width:59px}
+.l-gnb-menu li.PGR014 a{background-position: center -280px;width:61px}
+
+.l-gnb-menu li.PGR008.on a{background-position: center -17px}
+.l-gnb-menu li.PGR009.on a{background-position: center -57px}
+.l-gnb-menu li.PGR011.on a{background-position: center -97px}
+.l-gnb-menu li.PGR010.on a{background-position: center -137px}
+.l-gnb-menu li.PGR012.on a{background-position: center -177px}
+.l-gnb-menu li.PGR013.on a{background-position: center -217px}
+.l-gnb-menu li.THEMA.on a{background-position: center -257px}
+.l-gnb-menu li.PGR014.on a{background-position: center -297px}
+
+.l-gnb-menu li a.ymhb-menu{font-size:14px}
+.l-gnb-menu li a.ymhb-menu span{font-weight:bold}
+.l-gnb-menu li a.ymhb-menu span.on{color:red}
+.l-gnb-menu li:first-child.sale{background-position:0 0;}
+/* .l-gnb-menu li.sale{background:url(/images/front/travel/package/badge-sale.png) no-repeat center 0} */
+.l-gnb-menu li:first-child{padding-left:0}
+.l-gnb-menu li:last-child{padding-right:0}
+.l-gnb-sub{width:100%;position:absolute;top:49px;left:0;border-bottom:1px solid #000;background-color:white;z-index:10;display:none;border-top:1px solid #e2e2e2}
+.l-gnb-sub .sub-menu-wrap{width:950px;margin:0 auto}
+.l-gnb-sub .sub-menu-wrap:after{content:""; display:block; clear:both;}
+.l-gnb-sub .sub-menu{float:left;width:140px;height:359px;border-right:1px solid #d5d5d5;overflow:auto;padding-right:10px}
+.l-gnb-sub .sub-menu ul{padding-top:20px}
+.l-gnb-sub .sub-menu li{margin-bottom:12px;}
+.l-gnb-sub .sub-menu li a.on{color:#e93a84;font-weight:bold;}
+.l-gnb-sub .sub-menu.dep2{width:138px;padding-left:10px;} 
+.l-gnb-sub .sub-menu.theme{width:308px}
+.l-gnb-sub .best-package{width:620px;float:left;margin:20px 0 0 20px;display:inline;}
+.l-gnb-sub .best-package .content-title{margin-top:10px;}
+.l-gnb-menu li a:hover{text-decoration:underline}
+.l-gnb-menu li.on a{color:#e93a84;}
+
+.p-name-wrap {max-height: 56px;overflow: hidden;} /*패키지 서브메뉴의 베스트패키지의 설명문구 4줄 나오는 경우가 있어 3줄까지로만 스타일로 제어 */
+.l-gnb-sub .sub-menu li{margin:0}
+.l-gnb-sub .sub-menu li a{display:block;padding:6px 10px}
+.l-gnb-sub .sub-menu li a.on{background:#f2f2f2}
+
+.l-detail-search{width:950px;margin:0 auto;padding-top:16px}
+.l-detail-search .selectbox-lg,
+.l-detail-search .cal-lg{margin-right:5px;}
+.l-detail-search .help-text{margin-top:12px;float:right}
+#pkg-search-radio{width:291px;font-size:14px;padding-top:10px;margin-left:9px;}
+#pkg-search-radio *{vertical-align:middle;}
+#pkg-search-radio .price,
+#pkg-search-radio label{margin-right:9px;}
+#pkg-search-radio .ui-button-text{margin-top:1px;}
+#pkg-search-checkbox{width:260px;font-size:14px;padding-top:10px;margin-left:20px;}
+#pkg-search-checkbox *{vertical-align:middle;}
+#pkg-search-checkbox label{margin-right:9px;}
+#pkg-search-checkbox .ui-button-text{margin-top:1px;}
+#header.pkg-header{height:auto;padding-top:106px;}
+.pkg-header.pkg-logo{margin-left:-106px}
+.pkg-p-search{width:100px;height:49px;padding-left:16px;padding-right:14px;line-height:50px;background:none;position:absolute;top:0;left:50%;text-indent:0;cursor:pointer;margin-left:345px;font-size:14px;color:#ee217c;font-weight:bold;background:url(/images/front/travel/deco_line_1x15_e2e2.gif) no-repeat 0 center}
+.pkg-p-search.on{background:url(/images/front/travel/deco_line_1x15_e2e2.gif) no-repeat 0 center}
+.pkg-p-search i{position:absolute;right: 0;top: 18px;vertical-align:middle;margin-left:5px;display:inline-block;width:13px;height:13px;background:url(/images/front/travel/main/gnb-text-plus-minus2.gif) no-repeat left 0px}
+.pkg-p-search.on i{background-position:right 0}
+.pkg-p-search:hover{color:#ee217c}
+
+/* 국내여행 gnb*/
+.l-gnb.domestic-gnb .l-gnb-menu{position:absolute;top:0px;right:50%;width:auto;margin:0;margin-right:-387px}
+
+/* 확장형 layout */
+#wrap.wide-wrap{width:100%;}
+#header.wide-header{width:100%;height:auto;}
+#header.wide-header .l-gnb{border-bottom:0 none}
+	.ie7 #header.wide-header .l-gnb{z-index:10}
+#header.wide-header .l-gnb-sub{top:64px;border-top:2px solid #d5d5d5}
+#header.wide-header .l-header{width:950px;margin:0 auto;position:relative;height:106px}
+	.ie7 #header.wide-header .l-header{z-index:11}
+#content.wide-content{width:950px;margin:0 auto}
+	.ie7 #content.wide-content{margin-bottom:50px}
+#footer-new.wide-footer{width:950px;margin:50px auto 60px}
+
+#btn-top{position:fixed;bottom:50px;left:50%;margin-left:495px;display:none;z-index:1000}
+#btn-top.wide{margin-left:830px}
+
+/* footer 시스템텍스트버전 */
+.footer-banner{width:100%;text-align:center;border-top:1px solid #dedede;margin-bottom:-30px;margin-top:30px}
+#footer-new {position:relative;clear:both;width:100%;margin:30px auto 60px;border-top:1px solid #dedede;font-size:11px;white-space:nowrap}
+#footer-new .footer-banner{width:100%;text-align:center;border-bottom:1px solid #dedede;border-top:0 none;margin-bottom:0px;margin-top:0px}
+#footer-new .footer-inner{width:950px;margin:30px auto 0;}
+#footer-new *{color:#333}
+#footer-new .footer-inner > p{margin-bottom:17px}
+#footer-new .footer-inner > p > strong{font-size:12px}
+#footer-new .footer-inner > p > strong a {font-weight: bold;}
+#footer-new .footer-inner > p > strong a:hover {text-decoration: underline;}
+
+/*
+
+#footer-new {position:relative;clear:both;width:950px;margin:50px 0 60px;padding-top:15px;border-top:1px solid #dedede;font-size:11px;white-space:nowrap}
+#footer-new *{color:#333}
+#footer-new > p{margin-bottom:17px}
+#footer-new > p > strong{font-size:12px}
+#footer-new > p > strong a {font-weight: bold;}
+#footer-new > p > strong a:hover {text-decoration: underline;}
+*/
+
+
+#footer-new .fnb-new,
+#footer-new .fnb-new a{font-size:12px}
+#footer-new .fnb-new a:hover{text-decoration:underline}
+#footer-new address{line-height:1.5}
+#footer-new address a{text-decoration:underline}
+#footer-new .copyright-new{font-family:arial;font-size:10px;margin-top:2px;margin-bottom:20px}
+#footer-new .partnership-new{line-height:1.5;font-weight:bold;color:#787878}
+#footer-new .quick_serv {position:absolute; right:0; top:14px}
+#footer-new .quick_serv li,
+#footer-new .quick_serv li a {float:left}
+#footer-new .quick_serv li {margin-left:3px}
+
+/* 23826 */
+.l-gnb-menu li.URGENCY a {color: #e93a84;}

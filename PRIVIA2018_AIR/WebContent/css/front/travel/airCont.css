@@ -1,0 +1,65 @@
+@charset "utf-8";
+
+@import url("hotelCont.css");
+
+/* 수정 */
+.o-search-result .o-bg-air .hs-search-menu {display: block;}
+.htp-top-sec {background-color: #288ecc;}
+.htp-top-sec .htp-dates, .htp-top-sec .htp-capacity{border-left:0;}
+.htp-top-sec .htp-places {position:relative;float:left;width:465px;height:60px;} 
+.htp-top-sec .htp-dates {position:relative;float:left;width:355px;height:60px;}
+.htp-top-sec .htp-capacity {position:relative;float:left;width:380px;height:60px;}
+.sch-set-accomm .filter-list>li h4 {display: inline-block;}
+/* 수정 및 추가 */
+.sch-set-accomm .filter-list>li:first-child {padding-top: 0;}
+.htp-top-sec .label .lbr-st4 span {color: #fff;border:1px solid #fff;min-width: 62px;}
+.sch-set-accomm .filter-list .filter-item .area-right {position: absolute;top:0;right: 0;text-align: right;font-size:14px;color: #000;}
+.sch-set-accomm .mCustomScrollBox {overflow: visible;}
+.sch-set-accomm .mCSB_container {overflow: visible;}
+.sch-set-accomm .filter-list>li .help-tooltip {vertical-align: top;}
+.sch-set-accomm .filter-list>li .help-tooltip.heltt-st2 .over {width: 15px;height: 15px;}
+.sch-set-accomm .filter-list>li .help-tooltip.heltt-st2 .over:before {width: 15px;height: 15px;line-height: 15px;}
+.sch-set-accomm .filter-list .filter-item.fi-bsel-st:after {content:'';display:block;clear:both;}
+.sch-set-accomm .filter-list .filter-item.fi-bsel-st > li {float: left;width: 61px;margin-top: 0;margin-left: -1px;}
+.sch-set-accomm .filter-list .filter-item.fi-bsel-st > li:first-child {margin-left: 0;width: 60px;}
+.sch-set-accomm .filter-list .filter-item.fi-bsel-st > li:first-child .chk-st4 label {border-radius: 4px 0 0 4px;}
+.sch-set-accomm .filter-list .filter-item.fi-bsel-st > li:last-child .chk-st4 label {border-radius: 0 4px 4px 0;}
+.htp-res-wrap .htp-listr-noti {font-size:12px;color: #000;}
+
+/* 추가 */
+.c-point4{color:#2d80e1 !important}
+/* 타이틀 */
+.htp-lise-tit {font-size: 22px;font-family:"NotoSansKR" !important;font-weight: 400;}
+/* checkbox4 */ 
+.chk-st4 {width: 100%;}
+.chk-st4 label {display: block;padding: 4px 5px;color: #000;border:1px solid #e2e2e2;z-index: 0;}
+.chk-st4 label .txt {display: block;text-align: center;padding: 5px 0;position: relative;font-size:14px;color: #000;}
+.chk-st4 label .txt + .txt:after {content: '';display: block;height: 1px;width: 6px;background-color: #ababab;position: absolute;top: 1px;left: 50%;margin-left: -3px;}
+.chk-st4 label.on {border:1px solid #000;z-index: 1;}
+/* 항공사 가격 테이블 */
+.htp-table-airline {margin-top: 20px;padding-bottom: 20px;border-bottom: 1px solid #e2e2e2;}
+.htp-table-airline:after {content:'';display:block;clear:both;}
+.htp-table-airline .htp-ta-tit {float: left;padding-top: 57px;}
+.htp-table-airline .htp-ta-tit li {font-size: 12px;color: #000;margin-top: 5px;}
+.htp-table-airline .thp-ta-list {float: right;padding: 0 20px;}
+.htp-table-airline .thp-ta-list .list {width: 980px;}
+.htp-table-airline .thp-ta-list .list:after {content:'';display:block;clear:both;}
+.htp-table-airline .thp-ta-list .o-box {float: left;width: 140px;}
+.htp-table-airline .thp-ta-list .logo-airline {text-align: center;}
+.htp-table-airline .thp-ta-list .logo-airline .logo img {width: 30px;}
+.htp-table-airline .thp-ta-list .logo-airline .lgo-name {font-size:14px;color: #000;margin-top: 5px;}
+.htp-table-airline .thp-ta-list .list-price {text-align: center;margin-top: 15px;}
+.htp-table-airline .thp-ta-list .list-price > li {font-size:14px;color: #000;margin-top: 5px;position: relative;}
+.htp-table-airline .thp-ta-list .list-price .num {font-weight: bold;display: inline-block;min-height: 18px;color: #000;}
+.htp-table-airline .thp-ta-list .list-price .no-num {font-size: 0;text-indent: -9999px;overflow: hidden;display: block;min-height: 18px;}
+.htp-table-airline .thp-ta-list .list-price .no-num:after {content: '';display: block;width: 6px;height: 1px;background-color: #999;color: #000;position: absolute;left: 50%;margin-left: -3px;top: 10px;}
+.htp-table-airline .thp-ta-list .all {position: relative;}
+.htp-table-airline .thp-ta-list .all:after {content: '';display: block;width: 100%;height: 3px;background-color: #e93a84;position: absolute;bottom: -21px;left: 0;}
+
+/* 항공선택 진행 가이드 */
+.htp-listr-header {position: relative;}
+.htp-listr-guide {margin-bottom: 35px;}
+.htp-listr-guide .txt {position: relative;min-height:20px;padding-left: 26px;font-size:13px;color: #000;}
+
+
+
