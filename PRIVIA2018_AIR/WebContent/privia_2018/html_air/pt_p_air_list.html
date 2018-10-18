@@ -20,7 +20,7 @@
 <script type="text/javascript" src="/js/front/travel/jquery-ui.js"></script>
 <script type="text/javascript" src="/js/front/travel/jquery.mCustomScrollbar.concat.min.js"></script>
 <script type="text/javascript" src="/js/front/travel/slick.min.js"></script>
-<script type="text/javascript" src="/js/front/travel/jquery.animateNumber.js"></script>
+<!--<script type="text/javascript" src="/js/front/travel/jquery.animateNumber.js"></script>-->
 <script type="text/javascript" src="/js/front/travel/fakeselect.js"></script>
 <script type="text/javascript" src="/js/front/travel/commonModuleUI.js"></script>
 <script type="text/javascript" src="/js/utils.js"></script>
@@ -30,7 +30,7 @@
 
 $(function(){
 
-  $('html, body').addClass('no_scroll');
+  /*$('html, body').addClass('no_scroll');
   var $htpTop = $('.htp-top-sec');
   var $htpList = $('.htp-list-sec').find('.htp-res-list');
   var htpInitNum = 10;
@@ -52,17 +52,17 @@ $(function(){
   }
 
   var listJSON = null;
-  var listDOM = null;
+  var listDOM = null;*/
 
-  $('.htp-gage-wrap .txt em').animateNumber({number:100}, 5000);
+  /*$('.htp-gage-wrap .txt em').animateNumber({number:100}, 5000);
   $('.htp-gage-wrap .gage .active').animate({width: '100%'}, 5000, function(){
     setTimeout(function(){
       $('.htp-gage-wrap').fadeOut(300);
     }, 300);
   });
-
+*/
   // 로딩 테스트 2초
-  setTimeout(function(){
+  /*setTimeout(function(){
     $.ajax({
       url: './data.js',
       success: function(data){
@@ -198,52 +198,11 @@ $(function(){
         }, 500);
       }
     });
-  });
+  });*/
 
-  $('.htp-res-list').on('click', '.help-tooltip.wish', function(e){
-    e.preventDefault();
-    $(this).toggleClass('on');
-    if($(this).hasClass('on')){
-      $('.ui-skyScraper .sky-wish a').addClass('on');
-      setTimeout(function(){
-        $('.ui-skyScraper .sky-wish a').removeClass('on');
-      }, 3000);
-    }
-  });
-
-  $('.htp-top-sec .date-select').on('click', function(e){
-    e.preventDefault();
-    e.stopPropagation();
-    $('.htp-top-sec .htp-dates a, .sc-search-box .qsb-cont.qsb-dates .qsb-area').trigger('click');
-  });
-
-  $('.htp-res-list').on('click', 'li', function(e){
-    if($('body').hasClass('gmap-fix-mode')){
-      e.preventDefault();
-      var id = $('.htp-res-list li').index(this);
-      $('.htp-res-list li').removeClass('on');
-      $('.price-tooltip, .price-cont').removeClass('on');
-      $(this).addClass('on');
-      $('.price-tooltip').eq(id).addClass('on');
-      $('.price-cont').eq(id).addClass('on');
-      $('.htp-res-inner').mCustomScrollbar("scrollTo", $('.htp-res-list li').eq(id));
-    }
-  });
-  $('.price-tooltip').on('click', function(e){
-    e.preventDefault();
-    if($('body').hasClass('gmap-fix-mode')){
-      var id = $('.price-tooltip').index(this);
-      $('.htp-res-list li').removeClass('on');
-      $('.price-tooltip, .price-cont').removeClass('on');
-      $(this).addClass('on');
-      $('.htp-res-list').find('li').eq(id).addClass('on');
-      $('.price-cont').eq(id).addClass('on');
-      $('.htp-res-inner').mCustomScrollbar("scrollTo", $('.htp-res-list li').eq(id));
-    }
-  });
 
   //skyScraper
-  $('.ui-skyScraper').skyScraper({fmTop :304});
+  $('.ui-skyScraper').skyScraper({fmTop :311});
 });
 </script>
 </head>
@@ -1093,13 +1052,17 @@ $(function(){
 	<div id="content-sec">
 		<div class="w-content-sec attach">
 			<!-- 검색 조건 -->
-			<div class="htp-top-sec">
+			<div class="htp-top-sec trip-type-shuttle">
 				<div class="ly-inner">
 					<div class="htp-places">
 						<a href="#">
 							<p class="label"><span class="label-base lbr-st4"><span>왕복</span></span></p>
-							<p class="result">인천/김포(SEL)</p>
-							<p class="result">뉴욕(전체)(NYC)</p>
+							<div class="air-info">
+								<span class="txt">인천/김포(SEL)</span>
+								<span class="txt">오사카(OSA)</span>
+								<span class="txt">뉴욕(전체)(NYC)</span>
+								<span class="txt">인천/김포(SEL)</span>
+							</div>
 						</a>
 					</div>
 					<div class="htp-dates">
@@ -1120,7 +1083,7 @@ $(function(){
 					<div class="htp-capacity">
 						<a href="#">
 							<p class="label">인원, 좌석등급</p>
-							<p class="result">성인1, 아동1, 일반석</p>
+							<p class="result">성인1, 아동1, 프리미엄 이코노미</p>
 							<span class="ico-search"></span>
 						</a>
 					</div>
@@ -1129,7 +1092,7 @@ $(function(){
 			</div>
 			<!-- //검색 조건 -->
 			
-			<!-- 매트릭스 -->
+			<!-- 항공사별 가격 테이블 -->
 			<div class="htp-table-airline">
 		  		<div class="ly-inner">
 					<div class="htp-ta-tit">
@@ -1139,17 +1102,17 @@ $(function(){
 							<li>마일리지 공제 좌석승급</li>
 						</ul>
 					</div>
-					<div class="thp-ta-list">
+					<div class="htp-ta-list">
 						<ul class="list">
 							<li class="o-box all">
 								<div class="logo-airline">
-									<div class="logo"><img src="//static.priviatravel.com/images/front/travel/contents/logo-air/KE.png" alt="KE"></div>
+									<div class="logo"><img src="//static.priviatravel.com/images/front/travel/contents/logo-air/D.png" alt="D"></div>
 									<div class="lgo-name">전체 항공사</div>
 								</div>
 								<ul class="list-price">
-									<li><a href="#"><span class="num c-point4">281,500원</span></a></li>
-									<li><a href="#"><span class="num">281,500원</span></a></li>
-									<li><a href="#"><span class="num">281,500원</span></a></li>
+									<li><a href="#"><strong class="num final-low">281,500원</strong></a></li>
+									<li><a href="#"><strong class="num">600,000원</strong></a></li>
+									<li><a href="#"><strong class="num">400,000원</strong></a></li>
 								</ul>
 							</li>
 							<li class="o-box">
@@ -1158,82 +1121,110 @@ $(function(){
 									<div class="lgo-name">대한항공</div>
 								</div>
 								<ul class="list-price">
-									<li><a href="#"><span class="num">281,500원</span></a></li>
-									<li><span class="no-num">가격이 없습니다.</span></li>
+									<li><a href="#"><strong class="num">359,500원</strong></a></li>
+									<li><span class="no-num">가격이 없습니다.</span></li><!-- 좌석이 없는 경우 -->
+									<li><a href="#"><span class="num">1,000,000원</span></a></li><!-- 일반가격 경우 -->
+								</ul>
+							</li>
+							<li class="o-box">
+								<div class="logo-airline">
+									<div class="logo"><img src="//static.priviatravel.com/images/front/travel/contents/logo-air/DOM_OZ.png" alt="DOM_OZ"></div>
+									<div class="lgo-name">아시아나항공</div>
+								</div>
+								<ul class="list-price">
+									<li><a href="#"><strong class="num">359,700원</strong></a></li>
+									<li><a href="#"><span class="num">1,000,000원</span></a></li>
 									<li><span class="no-num">가격이 없습니다.</span></li>
 								</ul>
 							</li>
 							<li class="o-box">
 								<div class="logo-airline">
-									<div class="logo"><img src="//static.priviatravel.com/images/front/travel/contents/logo-air/KE.png" alt="KE"></div>
-									<div class="lgo-name">대한항공</div>
+									<div class="logo"><img src="//static.priviatravel.com/images/front/travel/contents/logo-air/MU.png" alt="MU"></div>
+									<div class="lgo-name">중국동방항공</div>
 								</div>
 								<ul class="list-price">
-									<li><a href="#"><span class="num">281,500원</span></a></li>
-									<li><a href="#"><span class="num">281,500원</span></a></li>
-									<li><span class="no-num">가격이 없습니다.</span></li>
-								</ul>
-							</li>
-							<li class="o-box">
-								<div class="logo-airline">
-									<div class="logo"><img src="//static.priviatravel.com/images/front/travel/contents/logo-air/KE.png" alt="KE"></div>
-									<div class="lgo-name">대한항공</div>
-								</div>
-								<ul class="list-price">
-									<li><a href="#"><span class="num">281,500원</span></a></li>
-									<li><a href="#"><span class="num">281,500원</span></a></li>
-									<li><span class="no-num">가격이 없습니다.</span></li>
-								</ul>
-							</li>
-							<li class="o-box">
-								<div class="logo-airline">
-									<div class="logo"><img src="//static.priviatravel.com/images/front/travel/contents/logo-air/KE.png" alt="KE"></div>
-									<div class="lgo-name">대한항공</div>
-								</div>
-								<ul class="list-price">
-									<li><a href="#"><span class="num">281,500원</span></a></li>
+									<li><a href="#"><strong class="num">291,500원</strong></a></li>
 									<li><a href="#"><span class="num">281,500원</span></a></li>
 									<li><span class="no-num">가격이 없습니다.</span></li>
 								</ul>
 							</li>
 							<li class="o-box">
 								<div class="logo-airline">
-									<div class="logo"><img src="//static.priviatravel.com/images/front/travel/contents/logo-air/KE.png" alt="KE"></div>
-									<div class="lgo-name">대한항공</div>
+									<div class="logo"><img src="//static.priviatravel.com/images/front/travel/contents/logo-air/7C.png" alt="7C"></div>
+									<div class="lgo-name">제주항공</div>
 								</div>
 								<ul class="list-price">
-									<li><a href="#"><span class="num">281,500원</span></a></li>
-									<li><a href="#"><span class="num">281,500원</span></a></li>
+									<li><a href="#"><strong class="num">359,500원</strong></a></li>
+									<li><span class="no-num">가격이 없습니다.</span></li>
 									<li><span class="no-num">가격이 없습니다.</span></li>
 								</ul>
 							</li>
 							<li class="o-box">
 								<div class="logo-airline">
-									<div class="logo"><img src="//static.priviatravel.com/images/front/travel/contents/logo-air/KE.png" alt="KE"></div>
-									<div class="lgo-name">대한항공</div>
+									<div class="logo"><img src="//static.priviatravel.com/images/front/travel/contents/logo-air/RS.png" alt="RS"></div>
+									<div class="lgo-name">에어서울</div>
 								</div>
 								<ul class="list-price">
-									<li><a href="#"><span class="num">281,500원</span></a></li>
-									<li><a href="#"><span class="num">281,500원</span></a></li>
+									<li><a href="#"><strong class="num final-low">281,500원</strong></a></li>
+									<li><span class="no-num">가격이 없습니다.</span></li>
+									<li><span class="no-num">가격이 없습니다.</span></li>
+								</ul>
+							</li>
+							<li class="o-box">
+								<div class="logo-airline">
+									<div class="logo"><img src="//static.priviatravel.com/images/front/travel/contents/logo-air/DOM_LJ.png" alt="DOM_LJ"></div>
+									<div class="lgo-name">진에어</div>
+								</div>
+								<ul class="list-price">
+									<li><a href="#"><strong class="num">297,500원</strong></a></li>
+									<li><span class="no-num">가격이 없습니다.</span></li>
 									<li><span class="no-num">가격이 없습니다.</span></li>
 								</ul>
 							</li>
 						</ul>
-						
+						<span class="btn-prev"><button><span class="a11y">이전</span></button></span>
+						<span class="btn-next"><button><span class="a11y">다음</span></button></span>
 					</div>		  			
 		  		</div>
 			</div>
-			<!-- //매트릭스 -->
+			<!-- //항공사별 가격 테이블 -->
 			
 			<div class="htp-list-sec">
 				<div class="ly-inner">
-					<!-- 선택한 항공편 -->	
+					<!-- 항공선택 진행 현황 -->
+					<div class="htp-air-step">
+						<ul>
+							<li class="step-list"><!-- loop -->
+								<ul class="list">
+									<li><span class="label">가는편</span>08월 28일(화)</li>
+									<li>10:35 ~ 13:57+1</li>
+									<li>인천(ICN) – 뉴욕(JFK)</li>
+									<li>대한항공</li>
+									<li>직항</li>
+									<li>14시간 20분<a href="#" class="btn-detail">상세여정</a></li>
+								</ul>
+							</li><!-- //loop -->
+							<li class="step-list"><!-- loop -->
+								<ul class="list">
+									<li><span class="label">가는편</span>08월 28일(화)</li>
+									<li>10:35 ~ 13:57+1</li>
+									<li>인천(ICN) – 뉴욕(JFK)</li>
+									<li>대한항공</li>
+									<li>직항</li>
+									<li>14시간 20분<a href="#" class="btn-detail">상세여정</a></li>
+								</ul>
+							</li><!-- //loop -->
+						</ul>
+						<span class="btn-base bb-st6 btn-select"><a href="#">다시선택</a></span>
+					</div>
+					<!-- //항공선택 진행 현황 -->
 					
-					<!-- //선택한 항공편 -->	
+					<!-- 항공편 타이틀 정보 -->	
+				    <div class="htp-lise-tit">8월 28일 뉴욕(전체) 가는 편</div>
+					<!-- //항공편 타이틀 정보 -->	
 				
 					<!-- 필터 -->
 				 	<div class="htp-listl">
-					 	<div class="htp-lise-tit">가는편 선택</div>
 						<div class="sch-set-accomm __loading">
 							<div class="sch-set-inner">
 								<div class="tit-wrap">
@@ -1500,7 +1491,7 @@ $(function(){
 											<dl>
 												<dt>
 													<h4>운임 조건</h4>
-													<span class="help-tooltip heltt-st2">
+													<span class="help-tooltip heltt-st2 small">
 														<span class="over">?</span>
 														<span class="cont" style="width:170px">
 															<span class="heltt-tit">성인</span>
@@ -1578,14 +1569,7 @@ $(function(){
 					<!-- 검색결과 리스트 -->
 					<div class="htp-listr">
 						<div class="htp-res-wrap">
-							<div class="htp-res-inner">
-								<!-- 항공선택 진행 가이드 -->
-								<div class="htp-listr-guide">
-									<div class="txt">뉴욕(전체), 08월 28일 가는 편을 선택해주세요.</div>
-									<div class="progress"></div>
-								</div>
-								<!-- //항공선택 진행 가이드 -->
-								
+							<div class="htp-res-inner">								
 								<!-- 리스트 헤더 -->
 								<div class="htp-listr-header">
 									<div class="htp-listr-noti">
@@ -1593,280 +1577,864 @@ $(function(){
 									</div>
                                 	<div class="res-filter">
 										<p class="tit">정렬 기준</p>
-										<select class="select-base sel-st2" style="width:100px;">
-											<option value="1" checked>추천순</option>
-											<option value="2">요금순</option>
-											<option value="3">성급순</option>
-											<option value="4">평가순</option>
-										</select>
-										<select class="select-base sel-st2" style="width:100px;">
-											<option value="1" checked>가격순</option>
-											<option value="2">1</option>
-											<option value="3">2</option>
-											<option value="4">3</option>
-										</select>
-										<select class="select-base sel-st2" style="width:100px;">
-											<option value="1" checked>소요시간</option>
-											<option value="2">1</option>
-											<option value="3">2</option>
-											<option value="4">3</option>
-										</select>
-										<select class="select-base sel-st2" style="width:100px;">
-											<option value="1" checked>출발시간</option>
-											<option value="2">1</option>
-											<option value="3">2</option>
-											<option value="4">3</option>
-										</select>
+										<span class="chk-base chk-st5">
+                                            <input type="checkbox" id="rangeType1" class="a11y">
+                                            <label for="rangeType1" class="label-base"><strong>추천순</strong></label>
+                                        </span>
+                                        <span class="chk-base chk-st5">
+                                            <input type="checkbox" id="rangeType2" class="a11y">
+                                            <label for="rangeType2" class="label-base"><strong>가격순</strong></label>
+                                        </span>
+                                        <span class="chk-base chk-st5">
+                                            <input type="checkbox" id="rangeType3" class="a11y">
+                                            <label for="rangeType3" class="label-base"><strong>소요시간</strong></label>
+                                        </span>
+                                        <span class="chk-base chk-st5">
+                                            <input type="checkbox" id="rangeType4" class="a11y">
+                                            <label for="rangeType4" class="label-base"><strong>출발시간</strong></label>
+                                        </span>
+                                        <span class="chk-base chk-st5">
+                                            <input type="checkbox" id="rangeType5" class="a11y">
+                                            <label for="rangeType5" class="label-base"><strong>도착시간</strong></label>
+                                        </span>
+                                        
 									</div><!-- //res-filter -->
 						        </div>
 								<!-- //리스트 헤더 -->
 								
 								<!-- 리스트 -->
-								<ul class="htp-res-list">
-									<li>
-										<div class="inset">
-											<dl><dt class="htp-list-thumb">
-													<div class="thumb-slider"></div>
-												</dt>
-												<dd class="htp-list-con">
-													<div class="htp-list-conl">
-														<div class="htp-tit-kr"></div>
-														<div class="htp-tit-en"></div>
-														<div class="htp-other-info"></div>
-														<div class="htp-lower"></div>
-													</div>
-													<div class="htp-list-conr">
-														<div class="htp-price">
-															<div class="tp1"></div>
-															<div class="tp2"></div>
-															<div class="tp3"></div>
-														</div>
-														<div class="htp-btn"></div>
-													</div>
-												</dd>
-											</dl>
+								<ul class="htp-res-list-air">
+									<li class="item-recommend"><!-- loop(추천) -->
+										<div class="tit-list">
+											<span class="txt">추천 항공편</span>
+											<span class="help-tooltip heltt-st2 small">
+                                                <span class="over">?</span>
+                                                <span class="cont" style="width:170px">
+                                                    <span class="heltt-tit">성인</span>
+                                                    <dl class="heltt-exp-box">
+                                                        <dt>국제선</dt>
+                                                        <dd>탑승일 기준 만 12세 이상</dd>
+                                                    </dl>
+                                                    <dl class="heltt-exp-box">
+                                                        <dt>국내선</dt>
+                                                        <dd>탑승일 기준 만 13세 이상</dd>
+                                                    </dl>
+                                                </span>
+                                            </span>
 										</div>
-									</li>
-									<li>
-										<div class="inset">
-											<dl><dt class="htp-list-thumb">
-													<div class="thumb-slider"></div>
-												</dt>
-												<dd class="htp-list-con">
-													<div class="htp-list-conl">
-														<div class="htp-tit-kr"></div>
-														<div class="htp-tit-en"></div>
-														<div class="htp-other-info"></div>
-														<div class="htp-lower"></div>
+										<div class="inset"><!-- inset -->
+											<div class="hl-airline-benefit">
+												<span class="label-base lbr-st1 l-best"><span>BEST SALE</span></span>
+												<span class="label-base lbr-st1 l-mobile"><span>모바일특가</span></span>
+											</div>
+											<div class="inset-cell">
+												<div class="htla-airline">
+													<div class="hl-airline-logo">
+                                                    	<img src="//static.priviatravel.com/images/front/travel/contents/logo-air/DOM_OZ.png" alt="DOM_OZ">
+                                                    	<span class="name">아시아나항공</span>
+												    </div>
+													<div class="hl-airline-info">
+														<span class="txt">공동운항</span>
+														<span class="help-tooltip heltt-st2 small">
+															<span class="over">?</span>
+															<span class="cont" style="width:170px">
+																<span class="heltt-tit">성인</span>
+																<dl class="heltt-exp-box">
+																	<dt>국제선</dt>
+																	<dd>탑승일 기준 만 12세 이상</dd>
+																</dl>
+																<dl class="heltt-exp-box">
+																	<dt>국내선</dt>
+																	<dd>탑승일 기준 만 13세 이상</dd>
+																</dl>
+															</span>
+														</span>
 													</div>
-													<div class="htp-list-conr">
-														<div class="htp-price">
-															<div class="tp1"></div>
-															<div class="tp2"></div>
-															<div class="tp3"></div>
-														</div>
-														<div class="htp-btn"></div>
+												</div>
+											</div>
+											<div class="inset-cell">
+												<div class="htla-route">
+													<div class="hl-route-time">
+												    	<div class="dep-time">
+												    		<span class="time">10:35</span>
+												    		<span class="txt">ICN T1</span>
+												    	</div>
+												    	<div class="info-time">
+												    		<span class="time-line"><span class="time2">16시간 22분</span></span>
+												    		<span class="txt">1회 경유 DTT</span>
+												    	</div>
+												    	<div class="arr-time">
+												    		<span class="time">23:15 <span class="gap">+1</span></span>
+												    		<span class="txt">LGA</span>
+												    	</div>
 													</div>
-												</dd>
-											</dl>
-										</div>
-									</li>
-									<li>
-										<div class="inset">
-											<dl><dt class="htp-list-thumb">
-													<div class="thumb-slider"></div>
-												</dt>
-												<dd class="htp-list-con">
-													<div class="htp-list-conl">
-														<div class="htp-tit-kr"></div>
-														<div class="htp-tit-en"></div>
-														<div class="htp-other-info"></div>
-														<div class="htp-lower"></div>
+													<div class="hl-route-info">
+												    	<span class="btn-base bb-st6"><a href="#">상세스케줄</a></span>
 													</div>
-													<div class="htp-list-conr">
-														<div class="htp-price">
-															<div class="tp1"></div>
-															<div class="tp2"></div>
-															<div class="tp3"></div>
-														</div>
-														<div class="htp-btn"></div>
+												</div>
+											</div>
+											<div class="inset-cell">
+												<div class="htla-info">
+													<div class="hl-info-benefit">
+														<span>마일리지 공제</span>
+														<span>좌석승급</span>
 													</div>
-												</dd>
-											</dl>
-										</div>
-									</li>
-									<li>
-										<div class="inset">
-											<dl><dt class="htp-list-thumb">
-													<div class="thumb-slider"></div>
-												</dt>
-												<dd class="htp-list-con">
-													<div class="htp-list-conl">
-														<div class="htp-tit-kr"></div>
-														<div class="htp-tit-en"></div>
-														<div class="htp-other-info"></div>
-														<div class="htp-lower"></div>
+                                  					<div class="hl-info-btn">
+														<span class="btn-base bb-st6"><a href="#">요금규정</a></span>
+                                  					</div>
+												</div>
+											</div>
+											<div class="inset-cell">
+												<div class="htla-pricelist">
+													<ul class="hl-pricelist-info">
+														<li>
+                                                        	<span class="txt">현대카드 <em>10%</em> 청구할인</span>
+                                                        	<span class="help-tooltip heltt-st2 small">
+																<span class="over">?</span>
+																<span class="cont" style="width:170px">
+																	<span class="heltt-tit">성인</span>
+																	<dl class="heltt-exp-box">
+																		<dt>국제선</dt>
+																		<dd>탑승일 기준 만 12세 이상</dd>
+																	</dl>
+																	<dl class="heltt-exp-box">
+																		<dt>국내선</dt>
+																		<dd>탑승일 기준 만 13세 이상</dd>
+																	</dl>
+																</span>
+															</span>
+                                                        	<strong class="price">876,909원</strong>
+														</li>
+														<li>
+                                                        	<span class="txt">현대카드 <em>7%</em> 청구할인</span>
+                                                        	<strong class="price">976,909원</strong>
+														</li>
+														<li class="special-price">
+                                                        	<span class="txt">PRIVIA 특가</span>
+                                                        	<span class="help-tooltip heltt-st2 small">
+																<span class="over">?</span>
+																<span class="cont" style="width:170px">
+																	<span class="heltt-tit">성인</span>
+																	<dl class="heltt-exp-box">
+																		<dt>국제선</dt>
+																		<dd>탑승일 기준 만 12세 이상</dd>
+																	</dl>
+																	<dl class="heltt-exp-box">
+																		<dt>국내선</dt>
+																		<dd>탑승일 기준 만 13세 이상</dd>
+																	</dl>
+																</span>
+															</span>
+                                                        	<strong class="price">1,876,909원</strong>
+														</li>
+													</ul>
+													<div class="hl-pricelist-btn">
+														<span class="btn-base bb-st3"><a href="#">선택<span class="able-sit">(잔여 5석)</span></a></span>
+                                  					</div>													
+												</div>
+											</div>
+										</div><!-- //inset -->
+                                        <div class="inset"><!-- inset -->
+											<div class="hl-airline-benefit">
+												<span class="label-base lbr-st1 l-best"><span>BEST SALE</span></span>
+												<span class="label-base lbr-st1 l-mobile"><span>모바일특가</span></span>
+											</div>
+											<div class="inset-cell">
+												<div class="htla-airline">
+													<div class="hl-airline-logo">
+                                                    	<img src="//static.priviatravel.com/images/front/travel/contents/logo-air/KE.png" alt="KE">
+                                                    	<span class="name">대한항공</span>
+												    </div>
+													<div class="hl-airline-info">
+														<span class="txt">공동운항</span>
+														<span class="help-tooltip heltt-st2 small">
+															<span class="over">?</span>
+															<span class="cont" style="width:170px">
+																<span class="heltt-tit">성인</span>
+																<dl class="heltt-exp-box">
+																	<dt>국제선</dt>
+																	<dd>탑승일 기준 만 12세 이상</dd>
+																</dl>
+																<dl class="heltt-exp-box">
+																	<dt>국내선</dt>
+																	<dd>탑승일 기준 만 13세 이상</dd>
+																</dl>
+															</span>
+														</span>
 													</div>
-													<div class="htp-list-conr">
-														<div class="htp-price">
-															<div class="tp1"></div>
-															<div class="tp2"></div>
-															<div class="tp3"></div>
-														</div>
-														<div class="htp-btn"></div>
+												</div>
+											</div>
+											<div class="inset-cell">
+												<div class="htla-route">
+													<div class="hl-route-time">
+												    	<div class="dep-time">
+												    		<span class="time">10:35</span>
+												    		<span class="txt">ICN T1</span>
+												    	</div>
+												    	<div class="info-time">
+												    		<span class="time-line"><span class="time2">16시간 22분</span></span>
+												    		<span class="txt">1회 경유 DTT</span>
+												    	</div>
+												    	<div class="arr-time">
+												    		<span class="time">23:15 <span class="gap">+1</span></span>
+												    		<span class="txt">LGA</span>
+												    	</div>
 													</div>
-												</dd>
-											</dl>
-										</div>
-									</li>
-									<li>
-										<div class="inset">
-											<dl><dt class="htp-list-thumb">
-													<div class="thumb-slider"></div>
-												</dt>
-												<dd class="htp-list-con">
-													<div class="htp-list-conl">
-														<div class="htp-tit-kr"></div>
-														<div class="htp-tit-en"></div>
-														<div class="htp-other-info"></div>
-														<div class="htp-lower"></div>
+													<div class="hl-route-info">
+												    	<span class="btn-base bb-st6"><a href="#">상세스케줄</a></span>
 													</div>
-													<div class="htp-list-conr">
-														<div class="htp-price">
-															<div class="tp1"></div>
-															<div class="tp2"></div>
-															<div class="tp3"></div>
-														</div>
-														<div class="htp-btn"></div>
+												</div>
+											</div>
+											<div class="inset-cell">
+												<div class="htla-info">
+													<div class="hl-info-benefit">
+														<span>마일리지 공제</span>
+														<span>좌석승급</span>
 													</div>
-												</dd>
-											</dl>
-										</div>
-									</li>
-									<li>
-										<div class="inset">
-											<dl><dt class="htp-list-thumb">
-													<div class="thumb-slider"></div>
-												</dt>
-												<dd class="htp-list-con">
-													<div class="htp-list-conl">
-														<div class="htp-tit-kr"></div>
-														<div class="htp-tit-en"></div>
-														<div class="htp-other-info"></div>
-														<div class="htp-lower"></div>
+                                  					<div class="hl-info-btn">
+														<span class="btn-base bb-st6"><a href="#">요금규정</a></span>
+                                  					</div>
+												</div>
+											</div>
+											<div class="inset-cell">
+												<div class="htla-pricelist">
+													<ul class="hl-pricelist-info">
+														<li>
+                                                        	<span class="txt">현대카드 <em>10%</em> 청구할인</span>
+                                                        	<span class="help-tooltip heltt-st2 small">
+																<span class="over">?</span>
+																<span class="cont" style="width:170px">
+																	<span class="heltt-tit">성인</span>
+																	<dl class="heltt-exp-box">
+																		<dt>국제선</dt>
+																		<dd>탑승일 기준 만 12세 이상</dd>
+																	</dl>
+																	<dl class="heltt-exp-box">
+																		<dt>국내선</dt>
+																		<dd>탑승일 기준 만 13세 이상</dd>
+																	</dl>
+																</span>
+															</span>
+                                                        	<strong class="price">876,909원</strong>
+														</li>
+														<li>
+                                                        	<span class="txt">현대카드 <em>7%</em> 청구할인</span>
+                                                        	<strong class="price">976,909원</strong>
+														</li>
+														<li class="special-price">
+                                                        	<span class="txt">PRIVIA 특가</span>
+                                                        	<span class="help-tooltip heltt-st2 small">
+																<span class="over">?</span>
+																<span class="cont" style="width:170px">
+																	<span class="heltt-tit">성인</span>
+																	<dl class="heltt-exp-box">
+																		<dt>국제선</dt>
+																		<dd>탑승일 기준 만 12세 이상</dd>
+																	</dl>
+																	<dl class="heltt-exp-box">
+																		<dt>국내선</dt>
+																		<dd>탑승일 기준 만 13세 이상</dd>
+																	</dl>
+																</span>
+															</span>
+                                                        	<strong class="price">1,876,909원</strong>
+														</li>
+													</ul>
+													<div class="hl-pricelist-btn">
+														<span class="btn-base bb-st3"><a href="#">선택<span class="able-sit">(잔여 5석)</span></a></span>
+                                  					</div>													
+												</div>
+											</div>
+										</div><!-- //inset -->
+									</li><!-- //loop(추천) -->
+									<li class="item-cross-banner"><!-- loop(크로스 배너) -->
+                                    	<div class="inset">
+                                        	<a class="#" href="http://www.priviatravel.com/main/hotel/" target="_blank"><img src="/images/front/travel/contents/dummy/cross-banner2.jpg" alt="항공권 카드별 7%, 10% 청구 할인 + 해외호텔 2% 추가 혜택"></a>
+                                    	</div>
+                                    </li><!-- //loop(크로스 배너) -->
+                                    <li><!-- loop -->
+										<div class="inset"><!-- inset -->
+											<div class="inset-cell">
+												<div class="htla-airline">
+													<div class="hl-airline-logo">
+                                                    	<img src="//static.priviatravel.com/images/front/travel/contents/logo-air/KE.png" alt="KE">
+                                                    	<span class="name">대한항공</span>
+												    </div>
+													<div class="hl-airline-info">
+														<span class="txt">공동운항</span>
+														<span class="help-tooltip heltt-st2 small">
+															<span class="over">?</span>
+															<span class="cont" style="width:170px">
+																<span class="heltt-tit">성인</span>
+																<dl class="heltt-exp-box">
+																	<dt>국제선</dt>
+																	<dd>탑승일 기준 만 12세 이상</dd>
+																</dl>
+																<dl class="heltt-exp-box">
+																	<dt>국내선</dt>
+																	<dd>탑승일 기준 만 13세 이상</dd>
+																</dl>
+															</span>
+														</span>
 													</div>
-													<div class="htp-list-conr">
-														<div class="htp-price">
-															<div class="tp1"></div>
-															<div class="tp2"></div>
-															<div class="tp3"></div>
-														</div>
-														<div class="htp-btn"></div>
+												</div>
+											</div>
+											<div class="inset-cell">
+												<div class="htla-route">
+													<div class="hl-route-time">
+												    	<div class="dep-time">
+												    		<span class="time">10:35</span>
+												    		<span class="txt">ICN T1</span>
+												    	</div>
+												    	<div class="info-time">
+												    		<span class="time-line"><span class="time2">16시간 22분</span></span>
+												    		<span class="txt">1회 경유 DTT</span>
+												    	</div>
+												    	<div class="arr-time">
+												    		<span class="time">23:15 <span class="gap">+1</span></span>
+												    		<span class="txt">LGA</span>
+												    	</div>
 													</div>
-												</dd>
-											</dl>
-										</div>
-									</li>
-									<li>
-										<div class="inset">
-											<dl><dt class="htp-list-thumb">
-													<div class="thumb-slider"></div>
-												</dt>
-												<dd class="htp-list-con">
-													<div class="htp-list-conl">
-														<div class="htp-tit-kr"></div>
-														<div class="htp-tit-en"></div>
-														<div class="htp-other-info"></div>
-														<div class="htp-lower"></div>
+													<div class="hl-route-info">
+												    	<span class="btn-base bb-st6"><a href="#">상세스케줄</a></span>
 													</div>
-													<div class="htp-list-conr">
-														<div class="htp-price">
-															<div class="tp1"></div>
-															<div class="tp2"></div>
-															<div class="tp3"></div>
-														</div>
-														<div class="htp-btn"></div>
+												</div>
+											</div>
+											<div class="inset-cell">
+												<div class="htla-info">
+													<div class="hl-info-benefit">
+														<span>마일리지 공제</span>
+														<span>좌석승급</span>
 													</div>
-												</dd>
-											</dl>
-										</div>
-									</li>
-									<li>
-										<div class="inset">
-											<dl><dt class="htp-list-thumb">
-													<div class="thumb-slider"></div>
-												</dt>
-												<dd class="htp-list-con">
-													<div class="htp-list-conl">
-														<div class="htp-tit-kr"></div>
-														<div class="htp-tit-en"></div>
-														<div class="htp-other-info"></div>
-														<div class="htp-lower"></div>
+												</div>
+											</div>
+											<div class="inset-cell">
+												<div class="htla-pricelist">
+													<ul class="hl-pricelist-info">
+														<li>
+                                                        	<span class="txt">현대카드 <em>10%</em> 청구할인</span>
+                                                        	<span class="help-tooltip heltt-st2 small">
+																<span class="over">?</span>
+																<span class="cont" style="width:170px">
+																	<span class="heltt-tit">성인</span>
+																	<dl class="heltt-exp-box">
+																		<dt>국제선</dt>
+																		<dd>탑승일 기준 만 12세 이상</dd>
+																	</dl>
+																	<dl class="heltt-exp-box">
+																		<dt>국내선</dt>
+																		<dd>탑승일 기준 만 13세 이상</dd>
+																	</dl>
+																</span>
+															</span>
+                                                        	<strong class="price">876,909원</strong>
+														</li>
+														<li>
+                                                        	<span class="txt">현대카드 <em>7%</em> 청구할인</span>
+                                                        	<strong class="price">976,909원</strong>
+														</li>
+														<li class="special-price">
+                                                        	<span class="txt">PRIVIA 특가</span>
+                                                        	<span class="help-tooltip heltt-st2 small">
+																<span class="over">?</span>
+																<span class="cont" style="width:170px">
+																	<span class="heltt-tit">성인</span>
+																	<dl class="heltt-exp-box">
+																		<dt>국제선</dt>
+																		<dd>탑승일 기준 만 12세 이상</dd>
+																	</dl>
+																	<dl class="heltt-exp-box">
+																		<dt>국내선</dt>
+																		<dd>탑승일 기준 만 13세 이상</dd>
+																	</dl>
+																</span>
+															</span>
+                                                        	<strong class="price">1,876,909원</strong>
+														</li>
+													</ul>
+													<div class="hl-pricelist-btn">
+														<span class="btn-base bb-st3"><a href="#">선택<span class="able-sit">(잔여 5석)</span></a></span>
+                                  					</div>
+												</div>
+											</div>
+										</div><!-- //inset -->
+									</li><!-- //loop -->
+									<li><!-- loop -->
+										<div class="inset"><!-- inset -->
+											<div class="inset-cell">
+												<div class="htla-airline">
+													<div class="hl-airline-logo">
+                                                    	<img src="//static.priviatravel.com/images/front/travel/contents/logo-air/KE.png" alt="KE">
+                                                    	<span class="name">대한항공</span>
+												    </div>
+												</div>
+											</div>
+											<div class="inset-cell">
+												<div class="htla-route">
+													<div class="hl-route-time">
+												    	<div class="dep-time">
+												    		<span class="time">10:35</span>
+												    		<span class="txt">ICN T1</span>
+												    	</div>
+												    	<div class="info-time">
+												    		<span class="time-line"><span class="time2">16시간 22분</span></span>
+												    		<span class="txt">1회 경유 DTT</span>
+												    	</div>
+												    	<div class="arr-time">
+												    		<span class="time">23:15 <span class="gap">+1</span></span>
+												    		<span class="txt">LGA</span>
+												    	</div>
 													</div>
-													<div class="htp-list-conr">
-														<div class="htp-price">
-															<div class="tp1"></div>
-															<div class="tp2"></div>
-															<div class="tp3"></div>
-														</div>
-														<div class="htp-btn"></div>
+													<div class="hl-route-info">
+												    	<span class="btn-base bb-st6"><a href="#">상세스케줄</a></span>
 													</div>
-												</dd>
-											</dl>
-										</div>
-									</li>
-									<li>
-										<div class="inset">
-											<dl><dt class="htp-list-thumb">
-													<div class="thumb-slider"></div>
-												</dt>
-												<dd class="htp-list-con">
-													<div class="htp-list-conl">
-														<div class="htp-tit-kr"></div>
-														<div class="htp-tit-en"></div>
-														<div class="htp-other-info"></div>
-														<div class="htp-lower"></div>
+												</div>
+											</div>
+											<div class="inset-cell">
+												<div class="htla-info">
+													<div class="hl-info-benefit">
+														<span>마일리지 공제</span>
+														<span>좌석승급</span>
 													</div>
-													<div class="htp-list-conr">
-														<div class="htp-price">
-															<div class="tp1"></div>
-															<div class="tp2"></div>
-															<div class="tp3"></div>
-														</div>
-														<div class="htp-btn"></div>
+												</div>
+											</div>
+											<div class="inset-cell">
+												<div class="htla-pricelist">
+													<ul class="hl-pricelist-info">
+														<li>
+                                                        	<span class="txt">현대카드 <em>10%</em> 청구할인</span>
+                                                        	<span class="help-tooltip heltt-st2 small">
+																<span class="over">?</span>
+																<span class="cont" style="width:170px">
+																	<span class="heltt-tit">성인</span>
+																	<dl class="heltt-exp-box">
+																		<dt>국제선</dt>
+																		<dd>탑승일 기준 만 12세 이상</dd>
+																	</dl>
+																	<dl class="heltt-exp-box">
+																		<dt>국내선</dt>
+																		<dd>탑승일 기준 만 13세 이상</dd>
+																	</dl>
+																</span>
+															</span>
+                                                        	<strong class="price">876,909원</strong>
+														</li>
+														<li>
+                                                        	<span class="txt">현대카드 <em>7%</em> 청구할인</span>
+                                                        	<strong class="price">976,909원</strong>
+														</li>
+														<li class="special-price">
+                                                        	<span class="txt">PRIVIA 특가</span>
+                                                        	<span class="help-tooltip heltt-st2 small">
+																<span class="over">?</span>
+																<span class="cont" style="width:170px">
+																	<span class="heltt-tit">성인</span>
+																	<dl class="heltt-exp-box">
+																		<dt>국제선</dt>
+																		<dd>탑승일 기준 만 12세 이상</dd>
+																	</dl>
+																	<dl class="heltt-exp-box">
+																		<dt>국내선</dt>
+																		<dd>탑승일 기준 만 13세 이상</dd>
+																	</dl>
+																</span>
+															</span>
+                                                        	<strong class="price">1,876,909원</strong>
+														</li>
+													</ul>
+													<div class="hl-pricelist-btn">
+														<span class="btn-base bb-st3"><a href="#">선택<span class="able-sit">(잔여 5석)</span></a></span>
+                                  					</div>
+												</div>
+											</div>
+										</div><!-- //inset -->
+									</li><!-- //loop -->
+									<li><!-- loop -->
+										<div class="inset"><!-- inset -->
+											<div class="hl-airline-benefit">
+												<span class="label-base lbr-st1 l-best"><span>BEST SALE</span></span>
+												<span class="label-base lbr-st1 l-mobile"><span>모바일특가</span></span>
+											</div>
+											<div class="inset-cell">
+												<div class="htla-airline">
+													<div class="hl-airline-logo">
+                                                    	<img src="//static.priviatravel.com/images/front/travel/contents/logo-air/KE.png" alt="KE">
+                                                    	<span class="name">대한항공</span>
+												    </div>
+												</div>
+											</div>
+											<div class="inset-cell">
+												<div class="htla-route">
+													<div class="hl-route-time">
+												    	<div class="dep-time">
+												    		<span class="time">10:35</span>
+												    		<span class="txt">ICN T1</span>
+												    	</div>
+												    	<div class="info-time">
+												    		<span class="time-line"><span class="time2">16시간 22분</span></span>
+												    		<span class="txt">1회 경유 DTT</span>
+												    	</div>
+												    	<div class="arr-time">
+												    		<span class="time">23:15 <span class="gap">+1</span></span>
+												    		<span class="txt">LGA</span>
+												    	</div>
 													</div>
-												</dd>
-											</dl>
-										</div>
-									</li>
-									<li>
-										<div class="inset">
-											<dl><dt class="htp-list-thumb">
-													<div class="thumb-slider"></div>
-												</dt>
-												<dd class="htp-list-con">
-													<div class="htp-list-conl">
-														<div class="htp-tit-kr"></div>
-														<div class="htp-tit-en"></div>
-														<div class="htp-other-info"></div>
-														<div class="htp-lower"></div>
+													<div class="hl-route-info">
+												    	<span class="btn-base bb-st6"><a href="#">상세스케줄</a></span>
 													</div>
-													<div class="htp-list-conr">
-														<div class="htp-price">
-															<div class="tp1"></div>
-															<div class="tp2"></div>
-															<div class="tp3"></div>
-														</div>
-														<div class="htp-btn"></div>
+												</div>
+											</div>
+											<div class="inset-cell">
+												<div class="htla-info">
+													<div class="hl-info-benefit">
+														<span>마일리지 공제</span>
+														<span>좌석승급</span>
 													</div>
-												</dd>
-											</dl>
-										</div>
-									</li>
+												</div>
+											</div>
+											<div class="inset-cell">
+												<div class="htla-pricelist">
+													<ul class="hl-pricelist-info">
+														<li>
+                                                        	<span class="txt">현대카드 <em>10%</em> 청구할인</span>
+                                                        	<span class="help-tooltip heltt-st2 small">
+																<span class="over">?</span>
+																<span class="cont" style="width:170px">
+																	<span class="heltt-tit">성인</span>
+																	<dl class="heltt-exp-box">
+																		<dt>국제선</dt>
+																		<dd>탑승일 기준 만 12세 이상</dd>
+																	</dl>
+																	<dl class="heltt-exp-box">
+																		<dt>국내선</dt>
+																		<dd>탑승일 기준 만 13세 이상</dd>
+																	</dl>
+																</span>
+															</span>
+                                                        	<strong class="price">876,909원</strong>
+														</li>
+														<li>
+                                                        	<span class="txt">현대카드 <em>7%</em> 청구할인</span>
+                                                        	<strong class="price">976,909원</strong>
+														</li>
+														<li class="special-price">
+                                                        	<span class="txt">PRIVIA 특가</span>
+                                                        	<span class="help-tooltip heltt-st2 small">
+																<span class="over">?</span>
+																<span class="cont" style="width:170px">
+																	<span class="heltt-tit">성인</span>
+																	<dl class="heltt-exp-box">
+																		<dt>국제선</dt>
+																		<dd>탑승일 기준 만 12세 이상</dd>
+																	</dl>
+																	<dl class="heltt-exp-box">
+																		<dt>국내선</dt>
+																		<dd>탑승일 기준 만 13세 이상</dd>
+																	</dl>
+																</span>
+															</span>
+                                                        	<strong class="price">1,876,909원</strong>
+														</li>
+													</ul>
+													<div class="hl-pricelist-btn">
+														<span class="btn-base bb-st3"><a href="#">선택<span class="able-sit">(잔여 5석)</span></a></span>
+                                  					</div>
+												</div>
+											</div>
+										</div><!-- //inset -->
+									</li><!-- //loop -->
+									<li><!-- loop -->
+										<div class="inset"><!-- inset -->
+											<div class="inset-cell">
+												<div class="htla-airline">
+													<div class="hl-airline-logo">
+                                                    	<img src="//static.priviatravel.com/images/front/travel/contents/logo-air/KE.png" alt="KE">
+                                                    	<span class="name">대한항공</span>
+												    </div>
+													<div class="hl-airline-info">
+														<span class="txt">공동운항</span>
+														<span class="help-tooltip heltt-st2 small">
+															<span class="over">?</span>
+															<span class="cont" style="width:170px">
+																<span class="heltt-tit">성인</span>
+																<dl class="heltt-exp-box">
+																	<dt>국제선</dt>
+																	<dd>탑승일 기준 만 12세 이상</dd>
+																</dl>
+																<dl class="heltt-exp-box">
+																	<dt>국내선</dt>
+																	<dd>탑승일 기준 만 13세 이상</dd>
+																</dl>
+															</span>
+														</span>
+													</div>
+												</div>
+											</div>
+											<div class="inset-cell">
+												<div class="htla-route">
+													<div class="hl-route-time">
+												    	<div class="dep-time">
+												    		<span class="time">10:35</span>
+												    		<span class="txt">ICN T1</span>
+												    	</div>
+												    	<div class="info-time">
+												    		<span class="time-line"><span class="time2">16시간 22분</span></span>
+												    		<span class="txt">1회 경유 DTT</span>
+												    	</div>
+												    	<div class="arr-time">
+												    		<span class="time">23:15 <span class="gap">+1</span></span>
+												    		<span class="txt">LGA</span>
+												    	</div>
+													</div>
+													<div class="hl-route-info">
+												    	<span class="btn-base bb-st6"><a href="#">상세스케줄</a></span>
+													</div>
+												</div>
+											</div>
+											<div class="inset-cell">
+												<div class="htla-info">
+													<div class="hl-info-benefit">
+														<span>마일리지 공제</span>
+														<span>좌석승급</span>
+													</div>
+												</div>
+											</div>
+											<div class="inset-cell">
+												<div class="htla-pricelist">
+													<ul class="hl-pricelist-info">
+														<li>
+                                                        	<span class="txt">현대카드 <em>10%</em> 청구할인</span>
+                                                        	<span class="help-tooltip heltt-st2 small">
+																<span class="over">?</span>
+																<span class="cont" style="width:170px">
+																	<span class="heltt-tit">성인</span>
+																	<dl class="heltt-exp-box">
+																		<dt>국제선</dt>
+																		<dd>탑승일 기준 만 12세 이상</dd>
+																	</dl>
+																	<dl class="heltt-exp-box">
+																		<dt>국내선</dt>
+																		<dd>탑승일 기준 만 13세 이상</dd>
+																	</dl>
+																</span>
+															</span>
+                                                        	<strong class="price">876,909원</strong>
+														</li>
+														<li>
+                                                        	<span class="txt">현대카드 <em>7%</em> 청구할인</span>
+                                                        	<strong class="price">976,909원</strong>
+														</li>
+														<li class="special-price">
+                                                        	<span class="txt">PRIVIA 특가</span>
+                                                        	<span class="help-tooltip heltt-st2 small">
+																<span class="over">?</span>
+																<span class="cont" style="width:170px">
+																	<span class="heltt-tit">성인</span>
+																	<dl class="heltt-exp-box">
+																		<dt>국제선</dt>
+																		<dd>탑승일 기준 만 12세 이상</dd>
+																	</dl>
+																	<dl class="heltt-exp-box">
+																		<dt>국내선</dt>
+																		<dd>탑승일 기준 만 13세 이상</dd>
+																	</dl>
+																</span>
+															</span>
+                                                        	<strong class="price">1,876,909원</strong>
+														</li>
+													</ul>
+													<div class="hl-pricelist-btn">
+														<span class="btn-base bb-st3"><a href="#">선택<span class="able-sit">(잔여 5석)</span></a></span>
+                                  					</div>
+												</div>
+											</div>
+										</div><!-- //inset -->
+									</li><!-- //loop -->
+									<li><!-- loop -->
+										<div class="inset"><!-- inset -->
+											<div class="inset-cell">
+												<div class="htla-airline">
+													<div class="hl-airline-logo">
+                                                    	<img src="//static.priviatravel.com/images/front/travel/contents/logo-air/KE.png" alt="KE">
+                                                    	<span class="name">대한항공</span>
+												    </div>
+												</div>
+											</div>
+											<div class="inset-cell">
+												<div class="htla-route">
+													<div class="hl-route-time">
+												    	<div class="dep-time">
+												    		<span class="time">10:35</span>
+												    		<span class="txt">ICN T1</span>
+												    	</div>
+												    	<div class="info-time">
+												    		<span class="time-line"><span class="time2">16시간 22분</span></span>
+												    		<span class="txt">1회 경유 DTT</span>
+												    	</div>
+												    	<div class="arr-time">
+												    		<span class="time">23:15 <span class="gap">+1</span></span>
+												    		<span class="txt">LGA</span>
+												    	</div>
+													</div>
+													<div class="hl-route-info">
+												    	<span class="btn-base bb-st6"><a href="#">상세스케줄</a></span>
+													</div>
+												</div>
+											</div>
+											<div class="inset-cell">
+												<div class="htla-info">
+													<div class="hl-info-benefit">
+														<span>마일리지 공제</span>
+														<span>좌석승급</span>
+													</div>
+												</div>
+											</div>
+											<div class="inset-cell">
+												<div class="htla-pricelist">
+													<ul class="hl-pricelist-info">
+														<li>
+                                                        	<span class="txt">현대카드 <em>10%</em> 청구할인</span>
+                                                        	<span class="help-tooltip heltt-st2 small">
+																<span class="over">?</span>
+																<span class="cont" style="width:170px">
+																	<span class="heltt-tit">성인</span>
+																	<dl class="heltt-exp-box">
+																		<dt>국제선</dt>
+																		<dd>탑승일 기준 만 12세 이상</dd>
+																	</dl>
+																	<dl class="heltt-exp-box">
+																		<dt>국내선</dt>
+																		<dd>탑승일 기준 만 13세 이상</dd>
+																	</dl>
+																</span>
+															</span>
+                                                        	<strong class="price">876,909원</strong>
+														</li>
+														<li>
+                                                        	<span class="txt">현대카드 <em>7%</em> 청구할인</span>
+                                                        	<strong class="price">976,909원</strong>
+														</li>
+														<li class="special-price">
+                                                        	<span class="txt">PRIVIA 특가</span>
+                                                        	<span class="help-tooltip heltt-st2 small">
+																<span class="over">?</span>
+																<span class="cont" style="width:170px">
+																	<span class="heltt-tit">성인</span>
+																	<dl class="heltt-exp-box">
+																		<dt>국제선</dt>
+																		<dd>탑승일 기준 만 12세 이상</dd>
+																	</dl>
+																	<dl class="heltt-exp-box">
+																		<dt>국내선</dt>
+																		<dd>탑승일 기준 만 13세 이상</dd>
+																	</dl>
+																</span>
+															</span>
+                                                        	<strong class="price">1,876,909원</strong>
+														</li>
+													</ul>
+													<div class="hl-pricelist-btn">
+														<span class="btn-base bb-st3"><a href="#">선택<span class="able-sit">(잔여 5석)</span></a></span>
+                                  					</div>
+												</div>
+											</div>
+										</div><!-- //inset -->
+									</li><!-- //loop -->
+									<li><!-- loop -->
+										<div class="inset"><!-- inset -->
+											<div class="hl-airline-benefit">
+												<span class="label-base lbr-st1 l-best"><span>BEST SALE</span></span>
+												<span class="label-base lbr-st1 l-mobile"><span>모바일특가</span></span>
+											</div>
+											<div class="inset-cell">
+												<div class="htla-airline">
+													<div class="hl-airline-logo">
+                                                    	<img src="//static.priviatravel.com/images/front/travel/contents/logo-air/KE.png" alt="KE">
+                                                    	<span class="name">대한항공</span>
+												    </div>
+												</div>
+											</div>
+											<div class="inset-cell">
+												<div class="htla-route">
+													<div class="hl-route-time">
+												    	<div class="dep-time">
+												    		<span class="time">10:35</span>
+												    		<span class="txt">ICN T1</span>
+												    	</div>
+												    	<div class="info-time">
+												    		<span class="time-line"><span class="time2">16시간 22분</span></span>
+												    		<span class="txt">1회 경유 DTT</span>
+												    	</div>
+												    	<div class="arr-time">
+												    		<span class="time">23:15 <span class="gap">+1</span></span>
+												    		<span class="txt">LGA</span>
+												    	</div>
+													</div>
+													<div class="hl-route-info">
+												    	<span class="btn-base bb-st6"><a href="#">상세스케줄</a></span>
+													</div>
+												</div>
+											</div>
+											<div class="inset-cell">
+												<div class="htla-info">
+													<div class="hl-info-benefit">
+														<span>마일리지 공제</span>
+														<span>좌석승급</span>
+													</div>
+												</div>
+											</div>
+											<div class="inset-cell">
+												<div class="htla-pricelist">
+													<ul class="hl-pricelist-info">
+														<li>
+                                                        	<span class="txt">현대카드 <em>10%</em> 청구할인</span>
+                                                        	<span class="help-tooltip heltt-st2 small">
+																<span class="over">?</span>
+																<span class="cont" style="width:170px">
+																	<span class="heltt-tit">성인</span>
+																	<dl class="heltt-exp-box">
+																		<dt>국제선</dt>
+																		<dd>탑승일 기준 만 12세 이상</dd>
+																	</dl>
+																	<dl class="heltt-exp-box">
+																		<dt>국내선</dt>
+																		<dd>탑승일 기준 만 13세 이상</dd>
+																	</dl>
+																</span>
+															</span>
+                                                        	<strong class="price">876,909원</strong>
+														</li>
+														<li>
+                                                        	<span class="txt">현대카드 <em>7%</em> 청구할인</span>
+                                                        	<strong class="price">976,909원</strong>
+														</li>
+														<li class="special-price">
+                                                        	<span class="txt">PRIVIA 특가</span>
+                                                        	<span class="help-tooltip heltt-st2 small">
+																<span class="over">?</span>
+																<span class="cont" style="width:170px">
+																	<span class="heltt-tit">성인</span>
+																	<dl class="heltt-exp-box">
+																		<dt>국제선</dt>
+																		<dd>탑승일 기준 만 12세 이상</dd>
+																	</dl>
+																	<dl class="heltt-exp-box">
+																		<dt>국내선</dt>
+																		<dd>탑승일 기준 만 13세 이상</dd>
+																	</dl>
+																</span>
+															</span>
+                                                        	<strong class="price">1,876,909원</strong>
+														</li>
+													</ul>
+													<div class="hl-pricelist-btn">
+														<span class="btn-base bb-st3"><a href="#">선택<span class="able-sit">(잔여 5석)</span></a></span>
+                                  					</div>
+												</div>
+											</div>
+										</div><!-- //inset -->
+									</li><!-- //loop -->
 								</ul>
-								<div class="htp-res-loading">
-									<p>더 많은 호텔을 검색중입니다.</p>
-								</div>
 								<!-- //리스트 -->
 							</div><!-- //htp-res-inner -->
 						</div><!-- //htp-res-wrap -->
@@ -1877,6 +2445,7 @@ $(function(){
 			<!-- //htp-list-sec -->
 		</div>
 		<!-- //w-content-sec -->
+		
 		<!-- ui-skyScraper -->
 		<div class="ui-skyScraper">
 			<div class="layout-right">
@@ -1892,6 +2461,7 @@ $(function(){
 		<!-- //ui-skyScraper -->
 	</div>
 	<!-- //#content -->
+	
 	<!-- #footer-sec -->
 	<div id="footer-sec">
 		<div class="w-footer-sec ly-inner">

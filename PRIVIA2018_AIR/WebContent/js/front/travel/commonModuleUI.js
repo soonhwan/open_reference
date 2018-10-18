@@ -112,7 +112,7 @@ $.datepicker.regional['ko'] = {
 					break;
 			}
 		}
-		return result;	
+		return result;
 	},
 	beforeShow: function(input, inst){
         if(checkMobile()){
@@ -170,17 +170,17 @@ var repositionThisPop = function(id){
 	if(winheight <= $this.height()){
 		posy = 50; //레이어 팝업 높이보다 창 높이가 작을 경우 레이어 팝업과 문서의 위아래 간격
 		mgt = 0;
-		$this.prev(".dimm").height(winheight);	
-	*/	
-		
+		$this.prev(".dimm").height(winheight);
+	*/
+
 	}else{
-		$this.prev(".dimm").height(winheight);	
+		$this.prev(".dimm").height(winheight);
 	}
 	if(frameLayer){
 		posy = 50;
 		mgt = 0;
 	}
-	
+
 	if($this.prev(".dimm").attr("call-one") != "true"){
 		$this.css({top : posy, left : posx, marginTop : mgt, marginLeft  : mgl+adjML, visibility : "visible"});
 		$this.prev(".dimm").attr("call-one","true");
@@ -207,7 +207,7 @@ var dimmLayerPop = function(id,opt,$elem,bool_dimmClose){
 	var timerDimm = id + "timerDimm";
 	var $this =$("#" + id),
 		closebtn = $this.find(".btn_close");
-	
+
 	//ESC키 바인드
 	var bindEscKey = function(obj,evt) {
 		if (evt.which == 27){
@@ -227,7 +227,7 @@ var dimmLayerPop = function(id,opt,$elem,bool_dimmClose){
 			var numberOfFocusableItems;
 			numberOfFocusableItems = focusableItems.length;
 			var focusedItemIndex;
-			focusedItemIndex = focusableItems.index(focusedItem);	
+			focusedItemIndex = focusableItems.index(focusedItem);
 			if (evt.shiftKey) {
 				if(focusedItemIndex==0){
 					focusableItems.get(numberOfFocusableItems-1).focus();
@@ -236,7 +236,7 @@ var dimmLayerPop = function(id,opt,$elem,bool_dimmClose){
 			} else {
 				if(focusedItemIndex==numberOfFocusableItems-1){
 					focusableItems.get(0).focus();
-					evt.preventDefault();				
+					evt.preventDefault();
 				}
 			}
 		}
@@ -252,12 +252,12 @@ var dimmLayerPop = function(id,opt,$elem,bool_dimmClose){
 		try{
 			$elem.focus();
 		}catch(e){
-		
+
 		}
-		/* 레이어수정 
+		/* 레이어수정
 		$('.layer_pop .content',parent.document).css('overflow','auto')
 		*/
-		
+
 		if($("body").hasClass("special_exp")){
 			$("body").addClass("special_exp_hidden");
 		}
@@ -272,7 +272,7 @@ var dimmLayerPop = function(id,opt,$elem,bool_dimmClose){
 		}
 		clearInterval(timerDimm);
 	};
-	
+
 	var openThisPop = function (){
 		if($("body").find(".modal_window:visible").length == 0){
 			$("body, html").addClass("no_scroll");
@@ -291,7 +291,7 @@ var dimmLayerPop = function(id,opt,$elem,bool_dimmClose){
 		var winheight = $(window).height();
 		var $thish = $($this).height();
 		var preDimm = $('.modal_window',parent.document).size();
-		
+
 		if(preDimm > 0){
 			$('.layer_pop .content',parent.document).css('overflow','hidden')
 		}
@@ -301,7 +301,7 @@ var dimmLayerPop = function(id,opt,$elem,bool_dimmClose){
 				$('.layer_pop .content',parent.document).find('iframe').css('height','100%')
 			}
 			else{
-				$this.find('.content').css({height:winheight-300,overflow:'auto'})	
+				$this.find('.content').css({height:winheight-300,overflow:'auto'})
 			}
 		}
 		*/
@@ -310,8 +310,8 @@ var dimmLayerPop = function(id,opt,$elem,bool_dimmClose){
 				$this.prev(".dimm").attr("call-one","");
 				repositionThisPop(id);
 		}).focus();
-		
-		
+
+
 		$this.children().one('load', function() {
 			repositionThisPop(id);
 		}).each(function() {
@@ -327,7 +327,7 @@ var dimmLayerPop = function(id,opt,$elem,bool_dimmClose){
 				//console.log(id + "리포지션 클리어 : 인터벌 안쪽")
 			}
 			//console.log(id);
-		},400); 
+		},400);
 	};
 	if(opt == 0){
 		frameLayer = false;
@@ -340,7 +340,7 @@ var dimmLayerPop = function(id,opt,$elem,bool_dimmClose){
 	else{
 		openThisPop();
 	}
-	
+
 	closebtn.click(function(){
 		//closeThisPop();
 		$this.prev(".dimm").trigger('click');
@@ -355,7 +355,7 @@ var dimmLayerPop = function(id,opt,$elem,bool_dimmClose){
 	$(window).resize(function(){
 		repositionThisPop(id);
 	});
-	
+
 	if(checkMobile == false){
 		//esc키 바인드
 		$this.keydown(function(event){
@@ -387,18 +387,18 @@ var checkMobile = function(){
 };
 
 /* ie 하위버전 대응을 위해 html에 class 삽입하기 */
-function lowIEVersion() {    
-	 var rv = -1; 
-	 var rv2 = -1; 
-	 if (navigator.appName == 'Microsoft Internet Explorer') {        
-		  var ua = navigator.userAgent;        
-		  var re = new RegExp("MSIE ([0-9]{1,}[\.0-9]{0,})");        
-		  if (re.exec(ua) != null){          
-			  rv = parseFloat(RegExp.$1);   
+function lowIEVersion() {
+	 var rv = -1;
+	 var rv2 = -1;
+	 if (navigator.appName == 'Microsoft Internet Explorer') {
+		  var ua = navigator.userAgent;
+		  var re = new RegExp("MSIE ([0-9]{1,}[\.0-9]{0,})");
+		  if (re.exec(ua) != null){
+			  rv = parseFloat(RegExp.$1);
 		 	  if(rv == 7){
 				var trident = navigator.userAgent.match(/Trident\/(\d)/i);
-				var re2 = new RegExp("([0-9]{1,}[\.0-9]{0,})");        
-				if (re2.exec(trident) != null){          
+				var re2 = new RegExp("([0-9]{1,}[\.0-9]{0,})");
+				if (re2.exec(trident) != null){
 			  		rv2 = parseFloat(RegExp.$1)
 					if(rv2 == 4){rv = 8}
 					else if(rv2 == 5){rv = 9}
@@ -406,9 +406,9 @@ function lowIEVersion() {
 			  	}
 			  }
 		 	  $('html').addClass('ie'+rv);
-		 }  
+		 }
 	}
-} 
+}
 
 /*
  * 함수명 : seoTitle
@@ -518,7 +518,7 @@ var preLoader = {
 		if(target != "body"){
 			$(target).css("position","inherit");
 		}
-		if($("body").find(".modal_window:visible").length == 0){	
+		if($("body").find(".modal_window:visible").length == 0){
 			$("body, html").removeClass("no_scroll");
 		}
 		//preLoaderTarget = '';
@@ -529,7 +529,7 @@ var preLoader = {
  * document ready시 실행함수모음
  */
 $(function(){
-	if(iosCheck() == false){$("html").addClass("no_ios_device");}  // ios check	
+	if(iosCheck() == false){$("html").addClass("no_ios_device");}  // ios check
 	if(checkMobile() == true){ 										//모바일 check
 		$("html").addClass("is_mobile");
         //기획전 iframe
@@ -542,7 +542,7 @@ $(function(){
 		}
 	}
 	lowIEVersion();												   //ie 버전체크
-	
+
 	// 메인 레이어팝업 위치 수정
     var mainnotipop;
     if($('.pu_notice').length > 0){
@@ -550,7 +550,7 @@ $(function(){
         $('body').append('<div id="pu-notice-origin" style="width:1200px;position:absolute;top:0;left:50%;margin-left:-600px"></div>');
         $('#pu-notice-origin').html(mainnotipop);
     }
-    
+
     if($('.lp-area').length > 0){
 		$('.lp-area').on('click', '.btn', function(e){
 			e.preventDefault();
@@ -566,7 +566,44 @@ $(function(){
 		});
 	}
 
-	var htpPage = $('.commonHeaderObject.o-search-result').length>0;
+    var useFilter = $('.sch-set-accomm').length>0; // 필터 사용 페이지
+    if(useFilter){
+        var $setAccom = $('.sch-set-accomm');
+        var $setAccomInner = $setAccom.find('.sch-set-inner');
+        var $accomPanel = $('.sch-set-accomm .filter-list dd');
+        var $activePanel;
+        $accomPanel.each(function(){
+            if(!$(this).hasClass('hotel-grade')) $(this).find('li:nth-child(5) ~ li').hide();
+        });
+        $accomPanel.find('a.more').on('click', function(e){
+            e.preventDefault();
+            if($(this).text() == "+ 자세히 보기"){
+                $(this).text("- 간단히 보기");
+                $(this).prev().children('li:nth-child(5) ~ li').stop().fadeIn(300);
+            }else{
+                $(this).text("+ 자세히 보기");
+                $(this).prev().children('li:nth-child(5) ~ li').hide();
+            }
+        });
+        $setAccom.find('.btn-deselect').on('click', function(e){
+            e.preventDefault();
+            $activePanel = $(this).closest('dt').next();
+            $activePanel.find('input').prop('checked', false);
+            $activePanel.find('.label-base').removeClass('on');
+        });
+		$setAccom.find('.btn-toggle-arrow').on('click', function(e){
+			e.preventDefault();
+			$activePanel = $(this).closest('dt').next();
+			if(!$(this).hasClass('on')){
+				$(this).addClass('on');
+				$activePanel.stop().slideUp(300);
+			}else{
+				$(this).removeClass('on');
+				$activePanel.slideDown(300);
+			}
+		});
+    }
+	var htpPage = $('.commonHeaderObject.o-search-result').length>0; // 호텔,항공 목록·상세 페이지
 	if(htpPage){
 		$('.w-header-gnb .b-open-search').hide();
 		$('.htp-top-sec .ly-inner a').on('click', function(e){
@@ -574,15 +611,17 @@ $(function(){
 			$('.w-header-gnb .b-open-search button').trigger('click');
 		});
 		var $htpListSection = $('.htp-list-sec');
-		var htpListPage = $htpListSection.length>0;
-		var htpDetailPage = $('.htp-detail-sec').length>0;
-		var $htpList = $htpListSection.find('.htp-res-list');
+		var htpListPage = $htpListSection.length>0; // 호텔,항공 목록 페이지
+        var $htpList = $('.htp-res-list').length>0; // 호텔 목록 페이지
+		var htpDetailPage = $('.htp-detail-sec').length>0; // 호텔 상세 페이지
+        var $htpListAir = $('.htp-res-list-air').length>0; // 항공 목록 페이지
+        var htpDetailPageAir = $('.htp-detail-air').length>0; // 항공 상세 페이지
 
 		var scTop;
 		var isTopFix = false;
 		var $htpTop = $('.htp-top-sec');
 		var htpTopPos = $htpTop.offset().top;
-
+        
 		if(htpListPage){
 			var _height = $htpTop.outerHeight();
 			var $htpClose = $htpTop.find('.btn-close');
@@ -595,103 +634,71 @@ $(function(){
 		}
 
 		if(htpListPage){
-			var $gmapWrap = $('.gmap-wrapper');
-			var $setAccom = $('.sch-set-accomm');
-			var $setAccomInner = $setAccom.find('.sch-set-inner');
-			var $setAccomToggle = $setAccom.find('.sch-set-toggle');
-			var $htpResInner = $('.htp-res-inner');
-			var $accomPanel = $('.sch-set-accomm .filter-list dd');
-			var $activePanel;
-			var isFilterFix = false;
-			$setAccomInner.mCustomScrollbar({theme:"minimal-dark"});
-			$htpResInner.mCustomScrollbar({theme:"minimal-dark"});
-			$('.gmap-view').on('click', function(e){
-				e.preventDefault();
-				setTimeout(function(){
-					$('body').addClass('gmap-fix-mode');
-					$htpTop.addClass('gmap-fix');
-					$setAccomInner.css('height', $(window).height()-60);
-					$htpResInner.css('height', $(window).height()-60);
-				}, 1000);
-				$gmapWrap.addClass('on');
-			});
-			$(window).on('resize', function(){
-				if($('body').hasClass('gmap-fix-mode')){
-					$setAccomInner.css('height', $(window).height()-60);
-					$htpResInner.css('height', $(window).height()-60);
-				}
-			});
-			$setAccomToggle.on('click', function(e){
-				e.preventDefault();
-				$setAccomToggle.toggleClass('on');
-				$setAccom.toggleClass('on');
-			});
-			$htpClose.on('click', function(e){
-				e.preventDefault();
-				$('body').removeClass('gmap-fix-mode');
-				$htpTop.removeClass('gmap-fix');
-				$gmapWrap.addClass('change');
-				$setAccomInner.css('height', 'inherit');
-				$htpResInner.css('height', 'inherit');
-				$setAccomToggle.removeClass('on');
-				$setAccom.removeClass('on');
-				setTimeout(function(){
-					$gmapWrap.removeClass('on change');
-				}, 1000);
-			});
-			$setAccom.find('.btn-toggle-arrow').on('click', function(e){
-				e.preventDefault();
-				$activePanel = $(this).closest('dt').next();
-				if(!$(this).hasClass('on')){
-					$(this).addClass('on');
-					$activePanel.stop().slideUp(300);
-				}else{
-					$(this).removeClass('on');
-					$activePanel.slideDown(300);
-				}
-			});
-			$accomPanel.each(function(){
-				if(!$(this).hasClass('hotel-grade')) $(this).find('li:nth-child(5) ~ li').hide();
-			});
-			$accomPanel.find('a.more').on('click', function(e){
-				e.preventDefault();
-				if($(this).text() == "+ 자세히 보기"){
-					$(this).text("- 간단히 보기");
-					$(this).prev().children('li:nth-child(5) ~ li').stop().fadeIn(300);
-				}else{
-					$(this).text("+ 자세히 보기");
-					$(this).prev().children('li:nth-child(5) ~ li').hide();
-				}
-			});
-			$setAccom.find('.btn-deselect').on('click', function(e){
-				e.preventDefault();
-				$activePanel = $(this).closest('dt').next();
-				$activePanel.find('input').prop('checked', false);
-				$activePanel.find('.label-base').removeClass('on');
-			});
+            if($htpList){
+                var $gmapWrap = $('.gmap-wrapper');    
+                var $htpResInner = $('.htp-res-inner');
+                var $setAccomToggle = $setAccom.find('.sch-set-toggle');
+                $setAccomInner.mCustomScrollbar({theme:"minimal-dark"});
+			    $htpResInner.mCustomScrollbar({theme:"minimal-dark"});
+                $('.gmap-view').on('click', function(e){
+                    e.preventDefault();
+                    setTimeout(function(){
+                        $('body').addClass('gmap-fix-mode');
+                        $htpTop.addClass('gmap-fix');
+                        $setAccomInner.css('height', $(window).height()-60);
+                        $htpResInner.css('height', $(window).height()-60);
+                    }, 1000);
+                    $gmapWrap.addClass('on');
+                });
+                $(window).on('resize', function(){
+                    if($('body').hasClass('gmap-fix-mode')){
+                        $setAccomInner.css('height', $(window).height()-60);
+                        $htpResInner.css('height', $(window).height()-60);
+                    }
+                });
+                $setAccomToggle.on('click', function(e){
+                    e.preventDefault();
+                    $setAccomToggle.toggleClass('on');
+                    $setAccom.toggleClass('on');
+                });
+                $htpClose.on('click', function(e){
+                    e.preventDefault();
+                    $('body').removeClass('gmap-fix-mode');
+                    $htpTop.removeClass('gmap-fix');
+                    $gmapWrap.addClass('change');
+                    $setAccomInner.css('height', 'inherit');
+                    $htpResInner.css('height', 'inherit');
+                    $setAccomToggle.removeClass('on');
+                    $setAccom.removeClass('on');
+                    setTimeout(function(){
+                        $gmapWrap.removeClass('on change');
+                    }, 1000);
+                });
+                
+            }	
 		}
 
 		if(htpDetailPage){
 			var htpVisSlick = $('.htp-vis').slick({
 				//autoplay: true,
-	      //autoplaySpeed: 3000,
+	            //autoplaySpeed: 3000,
 				arrows: false,
 				draggable: false,
-			  slidesToShow: 4,
-			  slidesToScroll: 1,
+			    slidesToShow: 4,
+			    slidesToScroll: 1,
 				variableWidth: true,
 				initialSlide: -1
 			});
 			var $htpVisPrev = $('.htp-vis-btn.prev');
 			var $htpVisNext = $('.htp-vis-btn.next');
 			$htpVisPrev.on('click', function(e){
-	      e.preventDefault();
-	      htpVisSlick.slick('slickPrev');
-	    });
-	    $htpVisNext.on('click', function(e){
-	      e.preventDefault();
-	      htpVisSlick.slick('slickNext');
-	    });
+              e.preventDefault();
+              htpVisSlick.slick('slickPrev');
+            });
+            $htpVisNext.on('click', function(e){
+              e.preventDefault();
+              htpVisSlick.slick('slickNext');
+            });
 			var $htpVis = $('.htp-vis-sec');
 			var $htpTab = $('.htp-detail-tab');
 			var $htpPanel = $('.htp-detail-panel');
@@ -718,14 +725,30 @@ $(function(){
 			if(htpDetailPage) direction = (scTop > lastTop && scTop > _height) ? "down" : "up";
 			if(htpTopPos < scTop && !isTopFix){
 				$htpTop.addClass('fix');
-				if(htpListPage) $htpListSection.addClass('on');
+				if(htpListPage){
+					if($htpListAir){
+						$('.htp-table-airline').addClass('on');
+					}
+					else{
+						$htpListSection.addClass('on');	
+					}
+				} 
 				if(htpDetailPage) $htpVis.addClass('on');
+				
 				isTopFix = true;
 			}
 			if(htpTopPos > scTop && isTopFix){
 				$htpTop.removeClass('fix');
-				if(htpListPage) $htpListSection.removeClass('on');
+				if(htpListPage) {
+					if($htpListAir){
+						$('.htp-table-airline').removeClass('on');
+					}
+					else {
+						$htpListSection.removeClass('on');
+					}	
+				}
 				if(htpDetailPage) $htpVis.removeClass('on');
+				
 				isTopFix = false;
 			}
 			if(htpDetailPage){
@@ -796,24 +819,11 @@ $(function(){
 				_top = htpContPos(_index)-_height + 20;
 				$('html, body').stop().animate({'scrollTop': _top}, _speed);
 			});
-			var relatedPro = $('.related-product .list-item-st1').slick({
-	      dots: false,
-	      infinite: false,
-	      arrows:false,
-	      variableWidth: true,
-	      slidesToShow: 4,
-	      slidesToScroll: 4,
-	    });
-	    var $relPrev = $('.related-product .bb-prev');
-	    var $relNext = $('.related-product .bb-next');
-	    $relPrev.on('click', function(e){
-	      e.preventDefault();
-	      relatedPro.slick('slickPrev');
-	    });
-	    $relNext.on('click', function(e){
-	      e.preventDefault();
-	      relatedPro.slick('slickNext');
-	    });
+            $('.tbl-list .room-type .room-cancel.before').on('click', '.btn-rule', function(e){
+              e.preventDefault();
+              $(this).parent().hide();
+              $(this).parent().next().fadeIn(300);
+            });
 			$('.tbl-list.faq').on('click', '.faq-before', function(){
 				if(!$(this).hasClass('on')){
 					$(this).siblings('.faq-before').removeClass('on');
@@ -825,7 +835,84 @@ $(function(){
 					$(this).next('.faq-after').find('td').hide();
 				}
 			});
+            $('.go-htp1st-sec').on('click', function(e){
+                e.preventDefault();
+                if($(this).hasClass('btn-popup')){
+                    $(this).closest('.popup-wrap').find('.btn_close').click();
+                    setTimeout(function(){
+                        $htpLi.eq(0).click();        
+                    }, 300);
+                }else{
+                    $htpLi.eq(0).click();
+                }
+            });
 		}
+	}
+    if($('.list-item-slick').length>0){
+        var listItemSlick = $('.list-item-slick .list-item-st1').slick({
+          dots: false,
+          infinite: true,
+          draggable: false,
+          arrows:false,
+          variableWidth: true,
+          slidesToShow: 4,
+          slidesToScroll: 4,
+        });
+        var $listSlickPrev = $('.list-item-slick .bb-prev');
+        var $listSlickNext = $('.list-item-slick .bb-next');
+        $listSlickPrev.on('click', function(e){
+          e.preventDefault();
+          listItemSlick.slick('slickPrev');
+        });
+        $listSlickNext.on('click', function(e){
+          e.preventDefault();
+          listItemSlick.slick('slickNext');
+        });
+    } 
+	if($('.htp-customscrollbar').length > 0){
+		$('.htp-customscrollbar').mCustomScrollbar({theme:"minimal-dark"});
+	}
+	if($('.ui-term-wrap').length > 0){
+		$('.ui-term-box .term-customscrollbar').mCustomScrollbar({theme:"minimal-dark"});
+		var $term = $('.ui-term-wrap');
+		var $termAll = $term.find('.chk-agree-all');
+		var $termTitle = $term.find('.ui-term-tit');
+		var $termEventListener = $termTitle.find('.tit, .arrow');
+		var totCount, chkCount;
+		$termAll.on('click', function(){
+			if($(this).find('label').hasClass('on')){
+				$termTitle.find('label').addClass('on');
+				$termTitle.find('input').prop('checked', true);
+			}else{
+				$termTitle.find('label').removeClass('on');
+				$termTitle.find('input').prop('checked', false);
+			}
+		});
+		$termEventListener.on('click', function(){
+            var $this = $(this).closest('dl');
+            if(!$this.find('dt').hasClass('on')){
+                $this.find('dt').addClass('on');
+                $this.find('dd').stop().slideDown(300);
+                if($this.closest('.ui-term-list').hasClass('other')){
+                    $this.parent().siblings().find('dt').removeClass('on');
+                    $this.parent().siblings().find('dd').stop().slideUp(300);
+                }
+            }else{
+                $this.find('dt').removeClass('on');
+                $this.find('dd').stop().slideUp(300);
+            }
+		});
+		$termTitle.find('.chk-base').on('click', function(){
+          totCount = $termTitle.find('label').length;
+          chkCount = $termTitle.find('label.on').length;
+          if(chkCount == totCount){
+            $termAll.find('label').addClass("on");
+            $termAll.find('input').prop("checked", true);
+          }else{
+            $termAll.find('label').removeClass("on");
+            $termAll.find('input').prop("checked", false);
+          }
+		});
 	}
 });
 

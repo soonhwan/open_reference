@@ -635,6 +635,6 @@ $(function(){
 		}
 		// slick dots disable click
 		$('.s-rec-promotion .rlc-list-main .slick-dots button').on('click', function(e){e.stopPropagation();}); 
-	}
+	}//.메인 전용 스크립트
 });
 

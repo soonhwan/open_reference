@@ -159,12 +159,18 @@
 					var c = parseInt($this.find('.ucn-num').text());
 					c--;
 					chkNnum(c);				
+					if($(this).closest('.uis-custom-number').hasClass('child')){
+						$(this).closest('.uis-capacity-number').next().find('li').eq(c).find('select').fakeselect('disable');
+					}
 					e.preventDefault();
 				});
 				//plus
 				$this.find('.b-plus button').on('click', function(e){
 					if($(this).closest('.ucn-disabled').length > 0){ return false; }
 					var c = parseInt($this.find('.ucn-num').text());
+                    if($(this).closest('.uis-custom-number').hasClass('child')){
+						$(this).closest('.uis-capacity-number').next().find('li').eq(c).find('select').fakeselect('enable');
+					}
 					c++;
 					chkNnum(c);				
 					e.preventDefault();
@@ -231,6 +237,7 @@ var pvFrontScript = window.pvFrontScript || (function(){
 			
 			//placeholder(공통 - IE9 이하 부터 실행)
 			_.find('.input-base').placeholder();
+            _.find('.text-base').placeholder();
 
 			//체크박스(공통)
 			_.find('.chk-base').customCheckbox();
@@ -1207,7 +1214,7 @@ var pvFrontScript = window.pvFrontScript || (function(){
 			}
 		},
 		mainContents: function(){
-			
+			//priviaMainUI.js 이관	
 		}
 	}	
 }());
