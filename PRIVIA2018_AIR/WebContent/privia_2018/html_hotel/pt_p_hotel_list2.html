@@ -159,7 +159,7 @@ $(function(){
         }else{
           $htpList.children('li').eq(cbNum-2).append('<a class="cross-banner" style="margin-top:20px;" href='+cbLink+' target="_blank"><img src='+cbImg+' alt='+cbAlt+' /></a>');
         }
-        console.log('init');
+        //console.log('init');
         $('.htp-res-list .thumb-slider').slick({
           draggable: false,
           slidesToShow: 1,
@@ -167,7 +167,7 @@ $(function(){
         });
       },
       complete: function(data){
-        console.log('ajax loading complete');
+        //console.log('ajax loading complete');
         if($.browser.msie && parseInt($.browser.version, 10) <= 8){
           $htpList.find('.skel-thumb').removeClass('skel-thumb');
           $htpList.find('.skel-wish').removeClass('skel-wish');
@@ -185,13 +185,11 @@ $(function(){
           var _eval = _li.find('.htp-other-info .grade').html();
           var _grade = _li.find('.htp-tit-kr .grade');
 
-          $('.price-cont').eq(id).append('<dl><dt></dt><dd></dd></dl>');
+          $('.price-cont').eq(id).append('<a href="pt_p_hotel_detail.html" target="_blank"><dl><dt></dt><dd></dd></dl></a>');
           $('.price-cont').eq(id).find('dt').append('<img src='+_imgSrc+' alt='+_imgAlt+' />');
           $('.price-cont').eq(id).find('dd').append('<p class="tit">'+_tit+'</p>');
           $('.price-cont').eq(id).find('dd').append('<div class="eval">'+_eval+'</div>');
           $('.price-cont').eq(id).find('dd').append(_grade);
-          $('.price-cont').eq(id).find('dd').find('.eval').append('<span class="txt">(' + $('.price-cont').eq(id).find('dd').find('.eval .txt').text() + ')</span>');
-          $('.price-cont').eq(id).find('dd').find('.eval').find('span.txt').eq(0).remove();
         });
       }
     });
@@ -236,6 +234,7 @@ $(function(){
   });
 
   $('.htp-res-list').on('click', '.help-tooltip.wish', function(e){
+    e.stopPropagation();
     e.preventDefault();
     $(this).toggleClass('on');
     if($(this).hasClass('on')){
@@ -903,29 +902,29 @@ $(function(){
 						<div class="gmap-wrapper">
 							<div id="gmapArea"></div>
 
-              <a href="#" class="price-tooltip" style="left:500px; top:200px;"><strong>238,700</strong>원</a>
-              <div class="price-cont" style="left:370px; top:250px;"></div>
+              <a href="#" class="price-tooltip no-date" style="left:500px; top:200px;"></a>
+              <div class="price-cont" style="left:350px; top:230px;"></div>
 
-              <a href="#" class="price-tooltip" style="left:500px; top:300px;"><strong>413,300</strong>원</a>
-              <div class="price-cont" style="left:370px; top:350px;"></div>
+              <a href="#" class="price-tooltip no-date" style="left:500px; top:300px;"></a>
+              <div class="price-cont" style="left:350px; top:330px;"></div>
 
-              <a href="#" class="price-tooltip" style="left:400px; top:500px;"><strong>321,700</strong>원</a>
-              <div class="price-cont" style="left:270px; top:550px;"></div>
+              <a href="#" class="price-tooltip no-date" style="left:400px; top:500px;"></a>
+              <div class="price-cont" style="left:250px; top:530px;"></div>
 
-              <a href="#" class="price-tooltip" style="left:500px; top:700px;"><strong>413,300</strong>원</a>
-              <div class="price-cont" style="left:370px; top:750px;"></div>
+              <a href="#" class="price-tooltip no-date" style="left:500px; top:700px;"></a>
+              <div class="price-cont" style="left:350px; top:730px;"></div>
 
-              <a href="#" class="price-tooltip" style="left:800px; top:200px;"><strong>413,300</strong>원</a>
-              \<div class="price-cont" style="left:670px; top:250px;"></div>
+              <a href="#" class="price-tooltip no-date" style="left:800px; top:200px;"></a>
+              \<div class="price-cont" style="left:650px; top:230px;"></div>
 
-              <a href="#" class="price-tooltip" style="left:900px; top:400px;"><strong>413,300</strong>원</a>
-              <div class="price-cont" style="left:770px; top:450px;"></div>
+              <a href="#" class="price-tooltip no-date" style="left:900px; top:400px;"></a>
+              <div class="price-cont" style="left:750px; top:430px;"></div>
 
-              <a href="#" class="price-tooltip" style="left:800px; top:600px;"><strong>413,300</strong>원</a>
-              <div class="price-cont" style="left:670px; top:650px;"></div>
+              <a href="#" class="price-tooltip no-date" style="left:800px; top:600px;"></a>
+              <div class="price-cont" style="left:650px; top:630px;"></div>
 
-              <a href="#" class="price-tooltip" style="left:900px; top:800px;"><strong>413,300</strong>원</a>
-              <div class="price-cont" style="left:770px; top:850px;"></div>
+              <a href="#" class="price-tooltip no-date" style="left:900px; top:800px;"></a>
+              <div class="price-cont" style="left:750px; top:830px;"></div>
 
 							<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCSQ52D13UwKZ7SntXHNKqBZMgsQgoWWD0&signed_in=true"></script>
 							<script>

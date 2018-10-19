@@ -159,7 +159,7 @@ $(function(){
         }else{
           $htpList.children('li').eq(cbNum-2).append('<a class="cross-banner" style="margin-top:20px;" href='+cbLink+' target="_blank"><img src='+cbImg+' alt='+cbAlt+' /></a>');
         }
-        console.log('init');
+        //console.log('init');
         $('.htp-res-list .thumb-slider').slick({
           draggable: false,
           slidesToShow: 1,
@@ -167,7 +167,7 @@ $(function(){
         });
       },
       complete: function(data){
-        console.log('ajax loading complete');
+        //console.log('ajax loading complete');
         if($.browser.msie && parseInt($.browser.version, 10) <= 8){
           $htpList.find('.skel-thumb').removeClass('skel-thumb');
           $htpList.find('.skel-wish').removeClass('skel-wish');
@@ -185,13 +185,11 @@ $(function(){
           var _eval = _li.find('.htp-other-info .grade').html();
           var _grade = _li.find('.htp-tit-kr .grade');
 
-          $('.price-cont').eq(id).append('<dl><dt></dt><dd></dd></dl>');
+          $('.price-cont').eq(id).append('<a href="pt_p_hotel_detail.html" target="_blank"><dl><dt></dt><dd></dd></dl></a>');
           $('.price-cont').eq(id).find('dt').append('<img src='+_imgSrc+' alt='+_imgAlt+' />');
           $('.price-cont').eq(id).find('dd').append('<p class="tit">'+_tit+'</p>');
           $('.price-cont').eq(id).find('dd').append('<div class="eval">'+_eval+'</div>');
           $('.price-cont').eq(id).find('dd').append(_grade);
-          $('.price-cont').eq(id).find('dd').find('.eval').append('<span class="txt">(' + $('.price-cont').eq(id).find('dd').find('.eval .txt').text() + ')</span>');
-          $('.price-cont').eq(id).find('dd').find('.eval').find('span.txt').eq(0).remove();
         });
       }
     });
@@ -200,7 +198,7 @@ $(function(){
   $(document).ajaxComplete(function(event, xhr, settings){
     var $htpLoading = $('.htp-res-loading');
     var loadFlag = true;
-    var dummyData = '<li class="normal"><div class="inset"><dl><dt class="htp-list-thumb"><div class="thumb-slider append"><div><img src="/images/front/travel/vis-size/vis-240x190-2.jpg" alt="test2"></div><div><img src="/images/front/travel/vis-size/vis-240x190.jpg" alt="test1"></div></div><a href="#" class="help-tooltip wish on"><span class="over"></span><span class="cont" style="width:190px">이곳을 관심숙소로 저장하시고<br>마이페이지에서 확인해 보세요.</span></a></dt><dd class="htp-list-con"><div class="htp-list-conl"><div class="htp-tit-kr"><p class="tit">추가되는 데이터</p><p class="grade">아주 좋음 4.5</p></div><div class="htp-tit-en"><p class="tit">Red Roof Inn Seattle Airport - SEATAC</p></div><div class="htp-other-info"><p class="grade"><span class="txt">4성급</span><span class="on"></span><span class="on"></span><span class="on"></span><span class="on"></span><span class="off"></span></p><p class="htp-loca">17, Avenue Kleber, Paris</p></div><div class="htp-lower"><p class="htp-facilities">무료와이파이, 무료주차, 다국어지원</p></div></div><div class="htp-list-conr"><div class="htp-badge"><span class="st1">PRIVIA 특가</span><span class="st2">현재인기</span></div><div class="htp-price"><div class="tp1"><p><span>3</span>박 최저가</p></div><div class="tp2"><p><strong>413,300</strong>원</p></div><div class="tp3"><p>1박 평균 <strong>137,767</strong>원</p></div></div><div class="htp-btn"><span class="btn-base bb-st3"><a href="http://www.nate.com" target="_blank">객실 선택</a></span></div></div></dd></dl></div></li>';
+    var dummyData = '<li><div class="inset"><dl><dt class="htp-list-thumb"><div class="thumb-slider append"><div><img src="/images/front/travel/vis-size/vis-240x190-2.jpg" alt="test2"></div><div><img src="/images/front/travel/vis-size/vis-240x190.jpg" alt="test1"></div></div><a href="#" class="help-tooltip wish on"><span class="over"></span><span class="cont" style="width:190px">이곳을 관심숙소로 저장하시고<br>마이페이지에서 확인해 보세요.</span></a></dt><dd class="htp-list-con"><div class="htp-list-conl"><div class="htp-tit-kr"><p class="tit">추가되는 데이터</p><p class="grade">아주 좋음 4.5</p></div><div class="htp-tit-en"><p class="tit">Red Roof Inn Seattle Airport - SEATAC</p></div><div class="htp-other-info"><p class="grade"><span class="txt">4성급</span><span class="on"></span><span class="on"></span><span class="on"></span><span class="on"></span><span class="off"></span></p><p class="htp-loca">17, Avenue Kleber, Paris</p></div><div class="htp-lower"><p class="htp-facilities">무료와이파이, 무료주차, 다국어지원</p></div></div><div class="htp-list-conr"><div class="htp-badge"><span class="st1">PRIVIA 특가</span><span class="st2">현재인기</span></div><div class="htp-price"><div class="tp1"><p><span>3</span>박 최저가</p></div><div class="tp2"><p><strong>413,300</strong>원</p></div><div class="tp3"><p>1박 평균 <strong>137,767</strong>원</p></div></div><div class="htp-btn"><span class="btn-base bb-st3"><a href="http://www.nate.com" target="_blank">객실 선택</a></span></div></div></dd></dl></div></li>';
 
     $(window).on('scroll', function(){
       var scToBottom = ($(window).scrollTop() >= $(document).height()-$(window).height()-$htpList.children('li').outerHeight()*2);
@@ -236,6 +234,7 @@ $(function(){
   });
 
   $('.htp-res-list').on('click', '.help-tooltip.wish', function(e){
+    e.stopPropagation();
     e.preventDefault();
     $(this).toggleClass('on');
     if($(this).hasClass('on')){

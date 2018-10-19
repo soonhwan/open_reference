@@ -4,6 +4,26 @@
 
 
 /* --------- 공통 */
+.bb-st3.bc-mgt a, .bb-st3.bc-mgt button, .bb-st3.bc-mgt input {background-color: #e93a84;}
+.bb-st3.bc-mgt a:hover, .bb-st3.bc-mgt button:hover, .bb-st3.bc-mgt input:hover {background-color: #970038;}
+
+.help-tooltip.heltt-st2 .cont {padding: 13px 18px;line-height: 22px;}
+.help-tooltip.heltt-st2.left .cont{left: auto;right: 32px;text-outline: -18px;}
+.help-tooltip.heltt-st2.left .cont:after {
+  left:auto;right: -8px;
+  border-top: 8px solid transparent;
+  border-bottom: 8px solid transparent;
+  border-left: 8px solid #000;
+  border-right: 0;
+}
+.help-tooltip.heltt-st2.up .cont{left:-150px;top:35px;}
+.help-tooltip.heltt-st2.up .cont:after {
+  left:50%;top:auto;bottom: -8px;margin-left:-4px;
+  border-left:8px solid transparent;
+  border-right:8px solid transparent;
+  border-top:8px solid #000;
+  border-bottom:0;
+}
 /* btn - 일반버튼6 */
 .bb-st6 a, .bb-st6 button, .bb-st6 input {font-size:12px;color: #fff;min-width: 60px;padding: 2px 8px 4px 8px;background-color: #565656;border-radius: 3px;}
 .bb-st6.short a, .bb-st6.short button, .bb-st6.short input {padding:9px 15px 11px 15px;}
@@ -16,15 +36,39 @@
 .chk-st4 label .txt + .txt:after {content: '';display: block;height: 1px;width: 6px;background-color: #ababab;position: absolute;top: 1px;left: 50%;margin-left: -3px;}
 .chk-st4 label.on {border:1px solid #000;z-index: 1;}
 
-/* checkbox5 */ 
-.chk-st5 label {height: 25px;padding-right: 32px;font-size:14px;color: #000;}
-.chk-st5 label:before {content: '';display: block;width: 25px;height: 25px;background: url(/images/front/travel/contents/icon-common-sec.png) -195px -344px no-repeat;position: absolute;top: 0;right: 0;}
-.chk-st5 input[type="checkbox"]:checked ~ label:before {background-position: -225px -344px;}
-.chk-st5 label.on:before {background-position: -225px -344px;}
-.chk-st5 label strong {vertical-align: middle;}
+/* skel */
+.htp-res-list-air.skel {}
+
+.htp-res-list .htp-list-con .skel{background-size:600px;animation:shine-line 2s infinite ease-out;min-height:18px;}
+.htp-res-list .htp-list-con :empty{background-size:600px;animation:shine-line 2s infinite ease-out;min-height:18px;}
+.htp-res-list .htp-list-con .skel *,
+.htp-res-list .skel-badge,
+.htp-res-list .skel-wish{position: absolute;display:none !important;}
+.htp-res-list .htp-list-thumb .skel-thumb *{opacity:0;filter:alpha(opacity=0);}
+.htp-res-list .thumb-slider.skel-thumb{background:#e2e2e2 url(/images/front/travel/contents/skel-thumb.png) 0 0 no-repeat;border-right:1px solid #e2e2e2;}
+.htp-res-list .thumb-slider:empty{background:#e2e2e2 url(/images/front/travel/contents/skel-thumb.png) 0 0 no-repeat;border-right:1px solid #e2e2e2;}
+.htp-res-list .htp-tit-kr.skel{background-image:linear-gradient(90deg,#e5e5e5 0px,rgba(0, 0, 0, 0.1) 40px,#e5e5e5 80px);background-color:#e5e5e5;width:378px;}
+.htp-res-list .htp-tit-kr:empty{background-image:linear-gradient(90deg,#e5e5e5 0px,rgba(0, 0, 0, 0.1) 40px,#e5e5e5 80px);background-color:#e5e5e5;width:378px;}
+.htp-res-list .htp-tit-en.skel{margin-top:8px;background-image:linear-gradient(90deg,#e5e5e5 0px,rgba(0, 0, 0, 0.1) 40px,#e5e5e5 80px);background-color:#e5e5e5;width:207px;}
+.htp-res-list .htp-tit-en:empty{margin-top:8px;background-image:linear-gradient(90deg,#e5e5e5 0px,rgba(0, 0, 0, 0.1) 40px,#e5e5e5 80px);background-color:#e5e5e5;width:207px;}
+.htp-res-list .htp-other-info.skel{margin-top:4px;background-image:linear-gradient(90deg,#e5e5e5 0px,rgba(0, 0, 0, 0.1) 40px,#e5e5e5 80px);background-color:#e5e5e5;width:250px;}
+.htp-res-list .htp-other-info:empty{margin-top:4px;background-image:linear-gradient(90deg,#e5e5e5 0px,rgba(0, 0, 0, 0.1) 40px,#e5e5e5 80px);background-color:#e5e5e5;width:250px;}
+.htp-res-list .htp-lower.skel{background-image:linear-gradient(90deg,#e5e5e5 0px,rgba(0, 0, 0, 0.1) 40px,#e5e5e5 80px);background-color:#e5e5e5;width:267px;}
+.htp-res-list .htp-lower:empty{background-image:linear-gradient(90deg,#e5e5e5 0px,rgba(0, 0, 0, 0.1) 40px,#e5e5e5 80px);background-color:#e5e5e5;width:267px;}
+
+.htp-res-list .htp-price .tp1.skel{background-image:linear-gradient(90deg,#e5e5e5 0px,rgba(0, 0, 0, 0.1) 40px,#e5e5e5 80px);background-color:#e5e5e5;width:110px;float:right;margin-top:20px;}
+.htp-res-list .htp-price .tp1:empty{background-image:linear-gradient(90deg,#e5e5e5 0px,rgba(0, 0, 0, 0.1) 40px,#e5e5e5 80px);background-color:#e5e5e5;width:110px;float:right;margin-top:20px;}
+.htp-res-list .htp-price .tp2.skel{background-image:linear-gradient(90deg,#e5e5e5 0px,rgba(0, 0, 0, 0.1) 40px,#e5e5e5 80px);background-color:#e5e5e5;width:110px;float:right;margin-top:7px;}
+.htp-res-list .htp-price .tp2:empty{background-image:linear-gradient(90deg,#e5e5e5 0px,rgba(0, 0, 0, 0.1) 40px,#e5e5e5 80px);background-color:#e5e5e5;width:110px;float:right;margin-top:7px;}
+.htp-res-list .htp-price .tp3.skel{background-image:linear-gradient(90deg,#e5e5e5 0px,rgba(0, 0, 0, 0.1) 40px,#e5e5e5 80px);background-color:#e5e5e5;width:110px;float:right;margin-top:7px;}
+.htp-res-list .htp-price .tp3:empty{background-image:linear-gradient(90deg,#e5e5e5 0px,rgba(0, 0, 0, 0.1) 40px,#e5e5e5 80px);background-color:#e5e5e5;width:110px;float:right;margin-top:7px;}
+.htp-res-list .htp-btn.skel{background-image:linear-gradient(90deg,#e5e5e5 0px,rgba(0, 0, 0, 0.1) 40px,#e5e5e5 80px);background-color:#e5e5e5;width:180px;height:40px;float:right;margin-top:11px;}
+.htp-res-list .htp-btn:empty{background-image:linear-gradient(90deg,#e5e5e5 0px,rgba(0, 0, 0, 0.1) 40px,#e5e5e5 80px);background-color:#e5e5e5;width:180px;height:40px;float:right;margin-top:11px;}
+
 
 /* 검색 조건 */
 .o-search-result .o-bg-air .hs-search-menu {display: block;}
+.o-search-result .hs-search-cont {margin-top: 20px;}
 .htp-top-sec {background-color: #288ecc;}
 .htp-top-sec .htp-dates, .htp-top-sec .htp-capacity{border-left:0;}
 .htp-top-sec .htp-dates:before, .htp-top-sec .htp-capacity:before {content: '';height: 100%;width: 1px;background-color: #fff;position: absolute;left: 0;top: 0;opacity: 0.2;}
@@ -39,26 +83,30 @@
 .htp-top-sec .label .lbr-st4 span {color: #fff;border:1px solid #fff;min-width: 62px;}
 
 /* 항공사 가격 테이블 */
-.htp-table-airline {padding-top: 20px;padding-bottom: 20px;border-bottom: 1px solid #e2e2e2;}
+.htp-table-airline {padding-top: 20px;border-bottom: 1px solid #e2e2e2;}
+.htp-table-airline * {outline: none;}
 .htp-table-airline.on{padding-top:80px;}
 .htp-table-airline:after {content:'';display:block;clear:both;}
 .htp-table-airline .htp-ta-tit {float: left;padding-top: 65px;}
 .htp-table-airline .htp-ta-tit li {font-size: 12px;color: #010101;margin-top: 5px;}
-.htp-table-airline .htp-ta-list {float: right;padding: 0 20px;position: relative;}
+.htp-table-airline .htp-ta-list {float: right;padding: 0 20px;position: relative;height: 150px;overflow: hidden;}
 .htp-table-airline .htp-ta-list .list {width: 980px;}
 .htp-table-airline .htp-ta-list .list:after {content:'';display:block;clear:both;}
-.htp-table-airline .htp-ta-list .o-box {float: left;width: 140px;}
+.htp-table-airline .htp-ta-list .o-box {float: left;width: 140px;margin-bottom: 20px;}
 .htp-table-airline .htp-ta-list .logo-airline {text-align: center;}
-.htp-table-airline .htp-ta-list .logo-airline .logo img {width: 30px;}
+.htp-table-airline .htp-ta-list .logo-airline .logo {text-align: center;}
+.htp-table-airline .htp-ta-list .logo-airline .logo img {display: inline-block;width: 30px;}
 .htp-table-airline .htp-ta-list .logo-airline .lgo-name {font-size: 12px;color: #010101;margin-top: 10px;}
 .htp-table-airline .htp-ta-list .list-price {text-align: center;margin-top: 20px;}
 .htp-table-airline .htp-ta-list .list-price > li {font-size:14px;color: #000;margin-top: 5px;position: relative;}
 .htp-table-airline .htp-ta-list .list-price .final-low {color:#2d80e1 !important}
 .htp-table-airline .htp-ta-list .list-price .num {display: inline-block;min-height: 18px;font-size:14px;color: #000;}
+.htp-table-airline .htp-ta-list .list-price .on .num {color: #e93a84 !important;}
 .htp-table-airline .htp-ta-list .list-price .no-num {font-size: 0;text-indent: -9999px;overflow: hidden;display: block;min-height: 18px;}
 .htp-table-airline .htp-ta-list .list-price .no-num:after {content: '';display: block;width: 6px;height: 1px;background-color: #999;color: #000;position: absolute;left: 50%;margin-left: -3px;top: 10px;}
-.htp-table-airline .htp-ta-list .all {position: relative;}
-.htp-table-airline .htp-ta-list .all:after {content: '';display: block;width: 100%;height: 3px;background-color: #e93a84;position: absolute;bottom: -21px;left: 0;}
+.htp-table-airline .htp-ta-list .o-box {position: relative;}
+.htp-table-airline .htp-ta-list .o-box:after {content: '';display: block;width: 100%;height: 3px;background-color: #e93a84;position: absolute;bottom: -20px;left: 0;opacity: 0;transition: opacity 0.3s;}
+.htp-table-airline .htp-ta-list .o-box.on:after {opacity: 1;}
 .htp-table-airline .htp-ta-list .btn-prev,
 .htp-table-airline .htp-ta-list .btn-next {display: block;width:20px;height: 130px;position:absolute;top: 0;}
 .htp-table-airline .htp-ta-list .btn-prev button,
@@ -79,17 +127,26 @@
 .htp-air-step .step-list .list li:first-child {padding-left: 0;}
 .htp-air-step .step-list .list li:first-child:before {display: none;}
 .htp-air-step .step-list .list:after {content: '';display: block;clear: both;}
-.htp-air-step .step-list .list .label {display: inline-block;vertical-align: middle;position: relative;font-size:12px;font-weight: bold;text-align: center;border: 1px solid #aaa;border-radius: 12px;padding: 1px 10px 3px 10px;min-width: 42px;margin-right: 15px;}
+.htp-air-step .step-list .list .label {display: inline-block;vertical-align: middle;position: relative;font-size:12px;font-weight: bold;text-align: center;border: 1px solid #aaa;border-radius: 12px;padding: 1px 10px 3px 10px;min-width: 58px;margin-right: 15px;}
 .htp-air-step .step-list .list .btn-detail {display: inline-block;margin-left: 12px;color: #666;border-bottom: 1px solid #aaa;padding-bottom: 2px;}
 .htp-air-step .btn-select {position: absolute;top: 50%;right: 30px;margin-top: -10px;}
 
 /* 항공편 타이틀 정보 */
 .htp-lise-tit {font-size: 24px;font-family:"NotoSansKR" !important;font-weight: 400;margin-bottom: 30px;}
+.htp-lise-tit .mtit {margin-right: 10px;padding-right: 10px;position: relative;}
+.htp-lise-tit .mtit:before {content: '';display: block;width: 1px;height: 19px;background-color: #aaa;position: absolute;top: 8px;right: 0;}
 
 /* 리스트 헤더 */
-.htp-res-wrap .res-filter .tit {letter-spacing: -1px}
+.htp-res-wrap .res-filter .tit {letter-spacing: -1px;}
 .htp-res-wrap .htp-listr-noti {font-size:12px;color: #000;letter-spacing: -1px;}
-.htp-res-wrap .res-filter .chk-st5 {margin-left: 25px;}
+.htp-res-wrap .chk-filter-list {display: inline-block;text-align: right;}
+.htp-res-wrap .chk-filter-list li {display: inline-block;margin-left: 22px;}
+.htp-res-wrap .chk-filter-list li a {display: inline-block;vertical-align: top;height: 25px;padding-right: 32px;font-size:14px;color: #000;font-weight: bold;position: relative;}
+.htp-res-wrap .chk-filter-list li a:before {content: '';display: block;width: 25px;height: 25px;background: url(/images/front/travel/contents/icon-common-sec.png) -225px -344px no-repeat;position: absolute;top: -2px;right: 0;}
+.htp-res-wrap .chk-filter-list li a.low:before {background-position: -315px -344px;}
+.htp-res-wrap .chk-filter-list li a.high:before {background-position: -285px -344px;}
+.htp-res-wrap .chk-filter-list .chk-rec:before {background-position: -195px -344px;}
+.htp-res-wrap .chk-filter-list .chk-rec.low:before {background-position: -255px -344px;}
 
 /* 필터 */
 .sch-set-accomm {margin-top: 0;}
@@ -124,29 +181,37 @@
 .htp-res-list-air .htla-info {width: 103px;padding-top:57px;background: url(/images/front/travel/contents/bg-dashed-v.png) 0 0 repeat-y;}
 .htp-res-list-air .htla-pricelist {width: 321px;background: url(/images/front/travel/contents/bg-dashed-v.png) 0 0 repeat-y;}
 
-.htp-res-list-air .hl-airline-benefit {position: absolute;width: 440px;top: 20px;left: 20px;letter-spacing:-0.5px;}
+.htp-res-list-air .hl-airline-benefit {position: absolute;width: 440px;top: 18px;left: 20px;letter-spacing:-0.5px;}
 .htp-res-list-air .hl-airline-benefit .lbr-st1 + .lbr-st1 {margin-left: 5px;}
 .htp-res-list-air .hl-airline-benefit .l-best span {color: #ee2a74;border: 1px solid #ee2a74;}
 .htp-res-list-air .hl-airline-benefit .l-mobile span {color: #2d80e1;border: 1px solid #2d80e1;}
 
 .htp-res-list-air .inset-cell .hl-airline-logo {text-align: center;}
 .htp-res-list-air .inset-cell .hl-airline-logo img {width: 30px;}
-.htp-res-list-air .inset-cell .hl-airline-logo .name {display: block;font-size: 14px;color: #010101;padding-top: 5px;}
+.htp-res-list-air .inset-cell .hl-airline-logo .name {display: block;font-size: 12px;color: #010101;padding-top: 5px;letter-spacing: -1px;}
 .htp-res-list-air .inset-cell .hl-airline-info {text-align: center;width: 100%;position: absolute;bottom: 24px;}
-.htp-res-list-air .inset-cell .hl-airline-info .txt {font-size:14px;/*color: #2a7cc8;*/vertical-align: top;}
-.htp-res-list-air .inset-cell .hl-airline-info .help-tooltip .cont {text-align: left;}
+.htp-res-list-air .inset-cell .hl-airline-info .txt {font-size:12px;vertical-align: top;}
+.htp-res-list-air .inset-cell .hl-airline-info .help-tooltip {vertical-align: baseline;}
+.htp-res-list-air .inset-cell .hl-airline-info .help-tooltip .cont {width: 200px;text-align: left;}
 
-.htp-res-list-air .inset-cell .hl-route-time > div {display: inline-block;}
+.htp-res-list-air .inset-cell .hl-route-time > div {display: inline-block;vertical-align: top;}
 .htp-res-list-air .inset-cell .hl-route-time .dep-time {width: 54px;}
 .htp-res-list-air .inset-cell .hl-route-time .arr-time {width: 54px;}
 .htp-res-list-air .inset-cell .hl-route-time .info-time {margin: 0 17px;width: 160px;}
-.htp-res-list-air .inset-cell .hl-route-time .txt {display: block;font-size: 14px;color: #000;text-align: center;}
+.htp-res-list-air .inset-cell .hl-route-time .info-time .txt {margin-top: 10px;font-size: 12px;}
+.htp-res-list-air .inset-cell .hl-route-time .txt {display: block;font-size: 12px;color: #000;text-align: center;}
 .htp-res-list-air .inset-cell .hl-route-time .time {display: block;font-size: 20px;color: #000;font-family:"NotoSansKR" !important;font-weight: 600;position: relative;}
 .htp-res-list-air .inset-cell .hl-route-time .time .gap {display: block;position: absolute;top: 4px;right: -17px;font-size: 12px;color: #000;}
-.htp-res-list-air .inset-cell .hl-route-time .time-line {display: block;text-align: center;position: relative;top:-3px;background: url(/images/front/travel/contents/bg-dashed-h.png) 0 9px repeat-x;}
+.htp-res-list-air .inset-cell .hl-route-time .time-line {display: block;text-align: center;position: relative;top:6px;background: url(/images/front/travel/contents/bg-dashed-h.png) 0 9px repeat-x;}
 .htp-res-list-air .inset-cell .hl-route-time .time-line .time2 {display: inline-block;font-size: 12px;color: #666;text-align: center;padding: 1px 7px 2px 7px;border: 1px solid #e2e2e2;border-radius: 11px;background-color: #fff;}
 .htp-res-list-air .inset-cell .hl-route-info {position: absolute;bottom: 20px;width: 100%;height: 22px;text-align: right;}
 .htp-res-list-air .inset-cell .hl-route-info .bb-st6 {/*position: absolute;top: 0;right: 30px;*/margin-right: 30px;}
+.htp-res-list-air .inset-cell .hl-route-time .help-tooltip  {position: absolute;}
+.htp-res-list-air .inset-cell .hl-route-time .help-tooltip .cont {top:12px;}
+.htp-res-list-air .inset-cell .hl-route-time .dep-time .help-tooltip .cont {width: 134px;left: -49px;text-align: center;}
+.htp-res-list-air .inset-cell .hl-route-time .info-time .help-tooltip .cont {width: 224px;left: -39px;}
+.htp-res-list-air .inset-cell .hl-route-time .arr-time .help-tooltip .cont {width: 134px;left: -47px;text-align: center;}
+.htp-res-list-air .inset-cell .hl-route-time .txt:hover + .help-tooltip .cont {opacity: 1;visibility: visible;}
 
 .htp-res-list-air .inset-cell .hl-info-benefit {text-align: center;}
 .htp-res-list-air .inset-cell .hl-info-benefit > span {display: block;font-size: 12px;color: #000;}
@@ -159,14 +224,30 @@
 .htp-res-list-air .inset-cell .hl-pricelist-info .txt {font-size: 14px;color: #000;vertical-align: middle;letter-spacing: -1px;}
 .htp-res-list-air .inset-cell .hl-pricelist-info .txt em {color: #2a7cc8;}
 .htp-res-list-air .inset-cell .hl-pricelist-info .price {font-size:16px;color: #000;font-family:"NotoSansKR" !important;position: absolute;top: -4px;right: 0;}
-.htp-res-list-air .inset-cell .hl-pricelist-info .special-price {margin-top: 11px;}
-.htp-res-list-air .inset-cell .hl-pricelist-btn {position: absolute;width: 88%;bottom: 20px;}
-.htp-res-list-air .inset-cell .hl-pricelist-btn .bb-st3 {width: 100%;}
-.htp-res-list-air .inset-cell .hl-pricelist-btn .able-sit {position: absolute;top: 10px;right: 20px;text-align: right;font-size: 12px;}
+/*.htp-res-list-air .inset-cell .hl-pricelist-info .privia-price {margin-top: 11px;}*/
+.htp-res-list-air .inset-cell .hl-pricelist-info .help-tooltip .cont {width: 320px;left: -162px;top:-127px;}
+.htp-res-list-air .inset-cell .hl-pricelist-info .help-tooltip .cont:after {margin-left: 1px;}
+.htp-res-list-air .inset-cell .hl-pricelist-info .privia-price .help-tooltip .cont {width: 408px;left: -207px;top: 35px;}
+.htp-res-list-air .inset-cell .hl-pricelist-btn {position: absolute;width: 88%;bottom: 20px;text-align: right;}
+.htp-res-list-air .inset-cell .hl-pricelist-btn .btn-select {width: 120px;}
+.htp-res-list-air .inset-cell .hl-pricelist-btn .btn-res {width: 120px;}
+.htp-res-list-air .inset-cell .hl-pricelist-btn .able-sit {position: absolute;top: 10px;left: 0;font-size: 14px;color: #ee2a74;}
 
+/* 툴팁 - 총요금 */
+.show-total-price {position: absolute;top: 0;right: 0;}
+.show-total-price .area-over {display: block;position: absolute;width: 108px;height: 100px;top: 0;right: 20px;background-color: transparent;}
+.show-total-price .area-over:hover + .help-tooltip .cont {opacity: 1;visibility: visible;}
+.show-total-price .help-tooltip .cont {width: 540px;right: 318px !important;top:-12px;}
+.show-total-price .help-tooltip .cont:after {top:75px;}
+.tbl-total-price {width: 100%;}
+.tbl-total-price th, .tbl-total-price td {font-size: 12px;color: #fff;padding: 3px 0;}
+.tbl-total-price td {text-align: right;}
+.txt-total-price {font-size: 13px;color: #fff;font-weight: bold;text-align: right;border-top: 1px dotted #5a5a5a;margin-top: 6px;padding-top: 4px;}
+.txt-total-price .txt {margin-right: 25px;}
 
-
-
+/* 로딩 */
+.htp-res-loading{margin-top:48px;text-align:center;display:block;}
+.htp-res-loading p{display:inline-block;padding-left:68px;font-size:14px;color:#000000;background:url(/images/front/travel/contents/list-loading.gif) 0 0 no-repeat;}
 
 
 

@@ -26,6 +26,11 @@
 <script type="text/javascript" src="/js/front/travel/commonModule.js"></script>
 <script>
 $(function(){
+	$('.htp-top-sec .date-select').on('click', function(e){
+    e.preventDefault();
+    e.stopPropagation();
+    $('.htp-top-sec .htp-dates a, .sc-search-box .qsb-cont.qsb-dates .qsb-area').trigger('click');
+  });
 	$('.htp-detail-top .btn-wish').on('click', function(e){
 		e.preventDefault();
 		$(this).toggleClass('on');
@@ -636,14 +641,13 @@ $(function(){
 					</div>
 					<div class="htp-dates">
             <!-- 숙박날짜가 없을 경우 -->
-            <!--
             <a href="#">
               <p class="label">숙박날짜</p>
 							<div class="result date-select">숙박날짜 선택</div>
 						</a>
-            -->
 
             <!-- 숙박날짜가 있을 경우 -->
+						<!--
             <a href="#">
 							<p class="label">숙박날짜</p>
 							<div class="result">
@@ -652,6 +656,7 @@ $(function(){
 								<span class="result-days">3박</span>
 							</div>
 						</a>
+						-->
 
 					</div>
 					<div class="htp-capacity">
@@ -720,6 +725,7 @@ $(function(){
 							<p class="htp-facilities"><span>주요편의시설</span>무료와이파이, 무료주차, 다국어지원</p>
 
 							<!-- 숙박날짜가 있을 경우 -->
+							<!--
 							<div class="htp-rb-utils">
 								<p class="txt">3박 최저가</p>
 								<p class="price"><em>413,300</em> 원</p>
@@ -761,16 +767,15 @@ $(function(){
 									<span class="btn-base bb-st3 long"><a href="#" class="go-htp1st-sec">객실 선택</a></span>
 								</div>
 							</div>
+							-->
 							<!-- //숙박날짜가 있을 경우 -->
 
 							<!-- 숙박날짜가 없을 경우 -->
-							<!--
 							<div class="htp-rb-utils">
 								<div class="btns">
 									<span class="btn-base bb-st3 long"><a href="#">요금 확인</a></span>
 								</div>
 							</div>
-							-->
 							<!-- //숙박날짜가 없을 경우 -->
 						</div>
 						<div class="htp-badge">
@@ -1366,7 +1371,7 @@ $(function(){
 					<!-- 관련상품 -->
 					<div class="htp-detail-cont">
 						<div class="ly-inner">
-							<div class="list-item-slick">
+							<div class="related-product">
 								<ul class="list-item-st1 ui-tab-cont">
 	                <li>
 										<a href="#">
@@ -2031,15 +2036,15 @@ $(function(){
 			</div>
 			<div class="gmap">
 				<div id="gmapArea"></div>
-				<a href="#" class="price-tooltip" style="left:500px; top:200px;"><strong>238,700</strong>원</a>
+				<a href="#" class="price-tooltip no-date" style="left:500px; top:200px;"></a>
 				<div class="price-cont" style="left:370px; top:75px;">
 					<dl><dt><img src="/images/front/travel/vis-size/vis-240x190.jpg" alt="test"></dt><dd><p class="tit">1레드 루프 인 시애틀 공항 - 씨택</p><div class="eval"><span class="on"></span><span class="on"></span><span class="on"></span><span class="on"></span><span class="off"></span><span class="txt">(4성급)</span></div><p class="grade">아주 좋음 4.5</p></dd></dl>
 				</div>
-				<a href="#" class="price-tooltip" style="left:500px; top:300px;"><strong>413,300</strong>원</a>
+				<a href="#" class="price-tooltip no-date" style="left:500px; top:300px;"></a>
 				<div class="price-cont" style="left:370px; top:175px;">
 					<dl><dt><img src="/images/front/travel/vis-size/vis-240x190-2.jpg" alt="test"></dt><dd><p class="tit">2그린 톨토이즈 호스텔 시애틀 - 아메리카스 베스트 밸류 에어포트 인</p><div class="eval"><span class="on"></span><span class="on"></span><span class="on"></span><span class="on"></span><span class="on"></span><span class="txt">(5성급)</span></div><p class="grade">아주 좋음 4.5</p></dd></dl>
 				</div>
-				<a href="#" class="price-tooltip" style="left:400px; top:400px;"><strong>321,700</strong>원</a>
+				<a href="#" class="price-tooltip no-date" style="left:400px; top:400px;"></a>
 				<div class="price-cont" style="left:270px; top:275px;">
 					<dl><dt><img src="/images/front/travel/vis-size/vis-240x190-3.jpg" alt="test"></dt><dd><p class="tit">3레드 루프 인 시애틀 공항 - 씨택</p><div class="eval"><span class="on"></span><span class="on"></span><span class="on"></span><span class="off"></span><span class="off"></span><span class="txt">(3성급)</span></div><p class="grade">아주 좋음 4.5</p></dd></dl>
 				</div>
