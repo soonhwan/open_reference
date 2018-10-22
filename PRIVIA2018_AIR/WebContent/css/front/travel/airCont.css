@@ -36,36 +36,6 @@
 .chk-st4 label .txt + .txt:after {content: '';display: block;height: 1px;width: 6px;background-color: #ababab;position: absolute;top: 1px;left: 50%;margin-left: -3px;}
 .chk-st4 label.on {border:1px solid #000;z-index: 1;}
 
-/* skel */
-.htp-res-list-air.skel {}
-
-.htp-res-list .htp-list-con .skel{background-size:600px;animation:shine-line 2s infinite ease-out;min-height:18px;}
-.htp-res-list .htp-list-con :empty{background-size:600px;animation:shine-line 2s infinite ease-out;min-height:18px;}
-.htp-res-list .htp-list-con .skel *,
-.htp-res-list .skel-badge,
-.htp-res-list .skel-wish{position: absolute;display:none !important;}
-.htp-res-list .htp-list-thumb .skel-thumb *{opacity:0;filter:alpha(opacity=0);}
-.htp-res-list .thumb-slider.skel-thumb{background:#e2e2e2 url(/images/front/travel/contents/skel-thumb.png) 0 0 no-repeat;border-right:1px solid #e2e2e2;}
-.htp-res-list .thumb-slider:empty{background:#e2e2e2 url(/images/front/travel/contents/skel-thumb.png) 0 0 no-repeat;border-right:1px solid #e2e2e2;}
-.htp-res-list .htp-tit-kr.skel{background-image:linear-gradient(90deg,#e5e5e5 0px,rgba(0, 0, 0, 0.1) 40px,#e5e5e5 80px);background-color:#e5e5e5;width:378px;}
-.htp-res-list .htp-tit-kr:empty{background-image:linear-gradient(90deg,#e5e5e5 0px,rgba(0, 0, 0, 0.1) 40px,#e5e5e5 80px);background-color:#e5e5e5;width:378px;}
-.htp-res-list .htp-tit-en.skel{margin-top:8px;background-image:linear-gradient(90deg,#e5e5e5 0px,rgba(0, 0, 0, 0.1) 40px,#e5e5e5 80px);background-color:#e5e5e5;width:207px;}
-.htp-res-list .htp-tit-en:empty{margin-top:8px;background-image:linear-gradient(90deg,#e5e5e5 0px,rgba(0, 0, 0, 0.1) 40px,#e5e5e5 80px);background-color:#e5e5e5;width:207px;}
-.htp-res-list .htp-other-info.skel{margin-top:4px;background-image:linear-gradient(90deg,#e5e5e5 0px,rgba(0, 0, 0, 0.1) 40px,#e5e5e5 80px);background-color:#e5e5e5;width:250px;}
-.htp-res-list .htp-other-info:empty{margin-top:4px;background-image:linear-gradient(90deg,#e5e5e5 0px,rgba(0, 0, 0, 0.1) 40px,#e5e5e5 80px);background-color:#e5e5e5;width:250px;}
-.htp-res-list .htp-lower.skel{background-image:linear-gradient(90deg,#e5e5e5 0px,rgba(0, 0, 0, 0.1) 40px,#e5e5e5 80px);background-color:#e5e5e5;width:267px;}
-.htp-res-list .htp-lower:empty{background-image:linear-gradient(90deg,#e5e5e5 0px,rgba(0, 0, 0, 0.1) 40px,#e5e5e5 80px);background-color:#e5e5e5;width:267px;}
-
-.htp-res-list .htp-price .tp1.skel{background-image:linear-gradient(90deg,#e5e5e5 0px,rgba(0, 0, 0, 0.1) 40px,#e5e5e5 80px);background-color:#e5e5e5;width:110px;float:right;margin-top:20px;}
-.htp-res-list .htp-price .tp1:empty{background-image:linear-gradient(90deg,#e5e5e5 0px,rgba(0, 0, 0, 0.1) 40px,#e5e5e5 80px);background-color:#e5e5e5;width:110px;float:right;margin-top:20px;}
-.htp-res-list .htp-price .tp2.skel{background-image:linear-gradient(90deg,#e5e5e5 0px,rgba(0, 0, 0, 0.1) 40px,#e5e5e5 80px);background-color:#e5e5e5;width:110px;float:right;margin-top:7px;}
-.htp-res-list .htp-price .tp2:empty{background-image:linear-gradient(90deg,#e5e5e5 0px,rgba(0, 0, 0, 0.1) 40px,#e5e5e5 80px);background-color:#e5e5e5;width:110px;float:right;margin-top:7px;}
-.htp-res-list .htp-price .tp3.skel{background-image:linear-gradient(90deg,#e5e5e5 0px,rgba(0, 0, 0, 0.1) 40px,#e5e5e5 80px);background-color:#e5e5e5;width:110px;float:right;margin-top:7px;}
-.htp-res-list .htp-price .tp3:empty{background-image:linear-gradient(90deg,#e5e5e5 0px,rgba(0, 0, 0, 0.1) 40px,#e5e5e5 80px);background-color:#e5e5e5;width:110px;float:right;margin-top:7px;}
-.htp-res-list .htp-btn.skel{background-image:linear-gradient(90deg,#e5e5e5 0px,rgba(0, 0, 0, 0.1) 40px,#e5e5e5 80px);background-color:#e5e5e5;width:180px;height:40px;float:right;margin-top:11px;}
-.htp-res-list .htp-btn:empty{background-image:linear-gradient(90deg,#e5e5e5 0px,rgba(0, 0, 0, 0.1) 40px,#e5e5e5 80px);background-color:#e5e5e5;width:180px;height:40px;float:right;margin-top:11px;}
-
-
 /* 검색 조건 */
 .o-search-result .o-bg-air .hs-search-menu {display: block;}
 .o-search-result .hs-search-cont {margin-top: 20px;}
@@ -116,6 +86,7 @@
 .htp-table-airline .htp-ta-list .btn-prev {left: 0;}
 .htp-table-airline .htp-ta-list .btn-next {right: 0;}
 .htp-table-airline .htp-ta-list .btn-next button:after {background-position: -180px -355px;left: auto;right: 0;}
+.htp-table-airline .htp-ta-list .slick-disabled {opacity: 0.2;}
 
 /* 항공선택 진행 현황 */
 .htp-list-sec {min-height: 1000px;}
@@ -162,7 +133,8 @@
 .sch-set-accomm .filter-list .filter-item.fi-bsel-st > li:last-child .chk-st4 label {border-radius: 0 4px 4px 0;}
 
 /* 검색결과 리스트 */
-.htp-res-wrap .htp-res-list-air {margin-top:20px;}
+.htp-res-list-air {margin-top:20px;display: none;}
+.htp-res-list-air.loaded-list {display: block;}
 .htp-res-list-air .help-tooltip .over:before {background-color: #b9b9b9;}
 .htp-res-list-air > li {margin-top:20px;}
 .htp-res-list-air > li:first-child {margin-top:0;}
@@ -245,12 +217,29 @@
 .txt-total-price {font-size: 13px;color: #fff;font-weight: bold;text-align: right;border-top: 1px dotted #5a5a5a;margin-top: 6px;padding-top: 4px;}
 .txt-total-price .txt {margin-right: 25px;}
 
-/* 로딩 */
-.htp-res-loading{margin-top:48px;text-align:center;display:block;}
-.htp-res-loading p{display:inline-block;padding-left:68px;font-size:14px;color:#000000;background:url(/images/front/travel/contents/list-loading.gif) 0 0 no-repeat;}
+/* air list skeleton */
+.hrla-skeleton {margin-top:20px;}
+.hrla-skeleton.loaded-hide {display: none;}
+.hrla-skeleton > li {margin-top:20px;}
+.hrla-skeleton > li:first-child {margin-top:0;}
+.hrla-skeleton > li .inset {padding: 0 2px;border:1px solid #e2e2e2;border-radius:5px;position: relative;white-space: nowrap;letter-spacing: -1em;background-color: #fff;}
+.hrla-skeleton .inset-cell {display: inline-block;letter-spacing: 0;white-space: normal;vertical-align: middle;position: relative;padding: 2px 0;}
+.hrla-skeleton .inset-cell > div {position: relative;height: 159px;}
+.hrla-skeleton .htla-airline {width: 140px;padding-top:57px;}
+.hrla-skeleton .htla-route {width: 350px;padding-top:58px;}
+.hrla-skeleton .htla-info {width: 103px;padding-top:58px;background: url(/images/front/travel/contents/bg-dashed-v.png) 0 0 repeat-y;}
+.hrla-skeleton .htla-pricelist {width: 321px;background: url(/images/front/travel/contents/bg-dashed-v.png) 0 0 repeat-y;}
+.hrla-skeleton .inset-cell .hl-airline-logo {width: 60px;height: 50px;margin: 0 auto;background: url(/images/front/travel/contents/skel-thumb-small.png) 0 0 no-repeat;}
+.hrla-skeleton .inset-cell .hl-route-time {width: 90%;height: 28px;margin: 0 auto;background-color: #cccccc;}
+.hrla-skeleton .inset-cell .hl-route-info {width: 80%;height: 18px;margin: 5px auto 0 auto;background-color: #eaeaea;}
+.hrla-skeleton .inset-cell .hl-info-benefit {text-align: center;}
+.hrla-skeleton .inset-cell .hl-info-benefit > span {display: block;width: 80%;height: 18px;margin: 0 auto;background-color: #eaeaea;}
+.hrla-skeleton .inset-cell .hl-info-benefit > span + span {width: 70%;height: 18px;margin: 0 auto;margin-top: 5px;}
+.hrla-skeleton .inset-cell .htla-pricelist {padding: 15px 20px 20px 20px;}
+.hrla-skeleton .inset-cell .hl-pricelist-info li {position: relative;margin-top: 5px;text-align: right;}
+.hrla-skeleton .inset-cell .hl-pricelist-info li:first-child {margin-top: 0;}
+.hrla-skeleton .inset-cell .hl-pricelist-info .price {display: inline-block;width: 40%;height: 18px;background-color: #aaa;}
+.hrla-skeleton .inset-cell .hl-pricelist-info .privia-price .price {width: 50%;background-color: #ccc;}
+.hrla-skeleton .inset-cell .hl-pricelist-btn {position: absolute;width: 88%;height: 40px;bottom: 20px;background-color: #aaa;}
 
-
-
-
-
-
+/*.skel-bg-ccc {animation:shine-line 2s infinite ease-out;background-image:linear-gradient(90deg,#cccccc 0px,rgba(0, 0, 0, 0.1) 40px,#cccccc 80px);background-color:#cccccc;}*/

@@ -29,75 +29,116 @@
 <script>
 
 $(function(){
+	var loadTestTime = 2000;
+	
+	//검색 리스트 검색중 데모
+	setTimeout(function(){
+		$('.htp-list-dimm').hide(); //화면조작방지 삭제
+		$('.sch-set-accomm').removeClass('loading'); //필터 skeleton 삭제
+		$('.hrla-skeleton').addClass('loaded-hide'); //검색결과 리스트 skeleton 삭제
 
-  //실시간 항공 조회
-  $('.htp-gage-wrap .txt em').animateNumber({number:100}, 2000);
-  $('.htp-gage-wrap .gage .active').animate({width: '100%'}, 2000, function(){
-    setTimeout(function(){
-      $('.htp-gage-wrap').fadeOut(300);
-    }, 300);
-  });  
+		//검색이 완료되면 리스트 활성화
+		$('.htp-res-list-air').addClass('loaded-list'); 
+		
+		//리스트 하단에 도달시 데이터 더보기
+		var $htpList = $('.htp-list-sec').find('.htp-res-list-air');
+		var $htpLoading = $('.htp-res-loading');
+		var loadFlag = true;
+		var dummyData = '<li><div class="inset"><div class="inset-cell"><div class="htla-airline"><div class="hl-airline-logo"><img src="//static.priviatravel.com/images/front/travel/contents/logo-air/KE.png"alt="KE"><span class="name">대한항공</span></div><div class="hl-airline-info"><span class="txt">공동운항</span><span class="help-tooltip heltt-st2 small"><span class="over">?</span><span class="cont">[AA]-[BB]구간실제OOOO탑승<br/>[CC]-[DD]구간실제OOOOO탑승</span></span></div></div></div><div class="inset-cell"><div class="htla-route"><div class="hl-route-time"><div class="dep-time"><span class="time">10:35</span><span class="txt">ICN T1</span><span class="help-tooltip heltt-st2 small down"><span class="cont">인천/터미널1</span></span></div><div class="info-time"><span class="time-line"><span class="time2">16시간22분</span></span><span class="txt">2회경유DTT,LAX</span><span class="help-tooltip heltt-st2 small down"><span class="cont">디트로이트에서환승2시간30분<br/>로스앤젤레스에서환승3시간</span></span></div><div class="arr-time"><span class="time">23:15<span class="gap">+1</span></span><span class="txt">LGA</span><span class="help-tooltip heltt-st2 small down"><span class="cont">인천/터미널1</span></span></div></div><div class="hl-route-info"><span class="btn-base bb-st6"><a href="#">상세스케줄</a></span></div></div></div><div class="inset-cell"><div class="htla-info"><div class="hl-info-benefit"><span>마일리지공제</span><span>좌석승급</span></div></div></div><div class="inset-cell"><div class="htla-pricelist"><ul class="hl-pricelist-info"><li><span class="txt">현대카드<em>10%</em>청구할인</span><span class="help-tooltip heltt-st2 small up"><span class="over">?</span><span class="cont">현대카드청구할인은카드별할인율이(7%/10%)상이하며,전월실적충족시연간한도1천만원내에서적용됩니다.현대카드Chameleon은설정한카드에따라혜택및할인금액상이하게적용됩니다.</span></span><strong class="price">876,909원</strong></li><li><span class="txt">현대카드<em>7%</em>청구할인</span><strong class="price">976,909원</strong></li><li class="privia-price"><span class="txt">PRIVIA특가</span><span class="help-tooltip heltt-st2 small down"><span class="over">?</span><span class="cont"><strong>현대카드청구할인미적용회원및*다른결제수단으로구매시</strong>적용됩니다.<br/>(*다른결제수단이란?현대카드가아닌기타신용카드,현금)현대카드청구할인과중복적용되지않습니다.</span></span><strong class="price">1,876,909원</strong></li></ul><div class="show-total-price"><span class="area-over"><span class="a11y">총요금자세히보기</span></span><span class="help-tooltip heltt-st2 small left"><span class="cont"><table class="tbl-total-price"><colgroup><caption>총요금자세히보기</caption><col width="25%"><col width="25%"><col width="25%"><col width="25%"></colgroup><tbody><tr><td colspan="2"><strong>[성인]1,000,000원</strong>X2</td><td><strong>[아동]1,000,000원</strong>X1</td><td><strong>[유아]1,000,000원</strong>X2</td></tr><tr><th>항공권료</th><td>800,000원</td><td>800,000원</td><td>800,000원</td></tr><tr><th>유류할증료</th><td>100,000원</td><td>100,000원</td><td>100,000원</td></tr><tr><th>제세공과금</th><td>50,000원</td><td>50,000원</td><td>50,000원</td></tr><tr><th>발권대행료</th><td>30,000원</td><td>30,000원</td><td>30,000원</td></tr></tbody></table><div class="txt-total-price"><span class="txt">총요금</span>5,000,000원</div></span></span></div><div class="hl-pricelist-btn"><span class="btn-base bb-st3 btn-select"><a href="#">선택</a></span></div></div></div></div></li>';
 
-  //skyScraper
-  $('.ui-skyScraper').skyScraper({fmTop :311});
-  
-  //정렬기준 check
-  if($('.chk-filter-list').length > 0){
-      var oldFilChk = null;
-      $('.chk-filter-list li a').on('click', function(e){
-          var $this = $(this);
+		$(window).on('scroll', function(){
+			var scToBottom = ($(window).scrollTop() >= $(document).height()-$(window).height()-$htpList.children('li').outerHeight()*2);
+			if(scToBottom && loadFlag){
+				loadFlag = false;
+				$htpLoading.show();
+				setTimeout(function(){
+					$htpList.append(dummyData); // 더보기 dummy data
+					$htpList.append(dummyData);
+					$htpList.append(dummyData);
+					$htpList.append(dummyData);
+					$htpList.append(dummyData);
 
-          if(oldFilChk != null && oldFilChk != this){
-              $(oldFilChk).removeClass('low high');
-              oldFilChk = null;
-          }
+					$htpLoading.hide();
 
-          if($this.hasClass('low')){
-              $this.removeClass('low');
-              if(!$this.hasClass('chk-rec')){
-                  $this.addClass('high');
-              }
-          }
-          else{
-              if($this.hasClass('high')){
-                  $this.removeClass('high');
-              }
-              else{
-                  $this.addClass('low');
-              }
-          }
+					// 더 이상 불러올 데이터가 없을 때, 작동되는 스크립트
+					// if(){
+					//   $htpLoading.remove();
+					//   return false;
+					// }
+					loadFlag= true;
+				}, 500);
+			}
+		});
+	}, loadTestTime);
 
-          oldFilChk = this;
-          e.preventDefault();
-      });
-  }
-  
-  //항공사별 가격 테이블 slick
-  if($('.htp-table-airline').length > 0){
-	  //슬라이드
-	  $('.htp-table-airline .htp-ta-list .list').slick({
-		  slidesToShow: 7,
-		  slidesToScroll: 2,
-		  prevArrow: $('.htp-table-airline .btn-prev button'),
-		  nextArrow: $('.htp-table-airline .btn-next button'),
-		  speed: 500,
-		  infinite: false
-	  });
+	//실시간 항공 조회
+	$('.htp-gage-wrap .txt em').animateNumber({number:100}, loadTestTime);
+	$('.htp-gage-wrap .gage .active').animate({width: '100%'}, loadTestTime, function(){
+		setTimeout(function(){
+			$('.htp-gage-wrap').fadeOut(300);
+		}, loadTestTime/2);
+	});  
+	
+	//skyScraper
+	$('.ui-skyScraper').skyScraper({fmTop :311});
 
-	  //가격 click
-	  $('.htp-table-airline .list-price li a').on('click', function(e){
-		  if($('.htp-table-airline .list-price li .on').length > 0){
-			  $('.htp-table-airline .list-price li .on').removeClass('on');
-		  }
-		  $(this).addClass('on');
+	//정렬기준 check
+	if($('.chk-filter-list').length > 0){
+		var oldFilChk = null;
+		$('.chk-filter-list li a').on('click', function(e){
+			var $this = $(this);
 
-		  if($('.htp-table-airline .htp-ta-list .o-box.on').length > 0){
-			  $('.htp-table-airline .htp-ta-list .o-box.on').removeClass('on');
-		  }
-		  $(this).closest('.o-box').addClass('on');
-		  e.preventDefault();
-	  });
-  }
+			if(oldFilChk != null && oldFilChk != this){
+				$(oldFilChk).removeClass('low high');
+				oldFilChk = null;
+			}
+
+			if($this.hasClass('low')){
+				$this.removeClass('low');
+				if(!$this.hasClass('chk-rec')){
+					$this.addClass('high');
+				}
+			}
+			else{
+				if($this.hasClass('high')){
+					$this.removeClass('high');
+				}
+				else{
+					$this.addClass('low');
+				}
+			}
+
+			oldFilChk = this;
+			e.preventDefault();
+		});
+	}
+
+	//항공사별 가격 테이블 관련
+	if($('.htp-table-airline').length > 0){
+		//슬라이드 
+		$('.htp-table-airline .htp-ta-list .list').slick({
+			slidesToShow: 7,
+			slidesToScroll: 2,
+			prevArrow: $('.htp-table-airline .btn-prev button'),
+			nextArrow: $('.htp-table-airline .btn-next button'),
+			speed: 500,
+			infinite: false
+		});
+
+		//가격 click
+		$('.htp-table-airline .list-price li a').on('click', function(e){
+			if($('.htp-table-airline .list-price li .on').length > 0){
+				$('.htp-table-airline .list-price li .on').removeClass('on');
+			}
+			$(this).addClass('on');
+
+			if($('.htp-table-airline .htp-ta-list .o-box.on').length > 0){
+				$('.htp-table-airline .htp-ta-list .o-box.on').removeClass('on');
+			}
+			$(this).closest('.o-box').addClass('on');
+			e.preventDefault();
+		});
+	}
 });
 </script>
 </head>
@@ -266,8 +307,8 @@ $(function(){
 							</div>
 							<div class="hu-user privia"><span>qwwiueoeuorsdfkdjflgdfjkljlarjt님</span></div>
 							<!--<div class="hu-user naver"><span>sddfsdfoeuorsdfkdjflgdfjkljlarjt님</span></div> 
-						<div class="hu-user facebook"><span>sddfsdfoeuorsdfkdjflgdfjkljlarjt님</span></div> 
-						<div class="hu-user twitter"><span>sddfsdfoeuorsdfkdjflgdfjkljlarjt님</span></div> -->
+					<div class="hu-user facebook"><span>sddfsdfoeuorsdfkdjflgdfjkljlarjt님</span></div> 
+					<div class="hu-user twitter"><span>sddfsdfoeuorsdfkdjflgdfjkljlarjt님</span></div> -->
 							<ul id="nav-util" class="nav-util">
 								<li><a href="#">로그아웃</a></li>
 								<!--<li><a href="#">로그인</a></li>-->
@@ -924,7 +965,7 @@ $(function(){
 	<!-- //.commonHeaderObject -->
 	<script>
 		setActiveSearch(QUICK_CODE_AIR, GNB_CODE_AIR, HEADER_TYPE_QUICK);
-	</script>
+</script>
 	<!-- //통합헤더 -->
 
 	<!-- #mobile-promotion-sec(항공 - 항공 노출, 호텔 - 호텔 노출, 나머지 - 항공 노출) -->
@@ -947,7 +988,8 @@ $(function(){
 	<div id="content-sec">
 		<div class="w-content-sec attach">
 			<!-- 검색 조건 -->
-			<div class="htp-top-sec trip-type-shuttle"><!-- 왕복인 경우 클래스 추가(trip-type-shuttle), 편도, 다구간은 기본 디자인 -->
+			<div class="htp-top-sec trip-type-shuttle">
+				<!-- 왕복인 경우 클래스 추가(trip-type-shuttle), 편도, 다구간은 기본 디자인 -->
 				<div class="ly-inner">
 					<div class="htp-places">
 						<a href="#">
@@ -955,19 +997,19 @@ $(function(){
 							<div class="air-info">
 								<span class="txt">인천/김포(SEL)</span>
 								<span class="txt">오사카(OSA)</span>
-								
+
 								<!-- 다구간인경우 목적지 추가 -->
 								<!--<span class="txt">뉴욕(전체)(NYC)</span>
-								<span class="txt">인천/김포(SEL)</span>-->
+							<span class="txt">인천/김포(SEL)</span>-->
 							</div>
 						</a>
 					</div>
 					<div class="htp-dates">
 						<!-- 여행날짜가 없을 경우 -->
-                        <!--<a href="#">
-							<p class="label">여행날짜</p>
-							<div class="result date-select">여행날짜 선택</div>
-						</a>-->
+						<!--<a href="#">
+						<p class="label">여행날짜</p>
+						<div class="result date-select">여행날짜 선택</div>
+					</a>-->
 						<!-- 여행날짜가 있을 경우 -->
 						<a href="#">
 							<p class="label">여행날짜</p>
@@ -988,10 +1030,10 @@ $(function(){
 				<a href="#" class="btn-close">close</a>
 			</div>
 			<!-- //검색 조건 -->
-			
+
 			<!-- 항공사별 가격 테이블 -->
 			<div class="htp-table-airline">
-		  		<div class="ly-inner">
+				<div class="ly-inner">
 					<div class="htp-ta-tit">
 						<ul>
 							<li>좌석확정 최저가</li>
@@ -1147,18 +1189,21 @@ $(function(){
 						</ul>
 						<span class="btn-prev"><button><span class="a11y">이전</span></button></span>
 						<span class="btn-next"><button><span class="a11y">다음</span></button></span>
-					</div>		  			
-		  		</div>
+					</div>
+				</div>
 			</div>
 			<!-- //항공사별 가격 테이블 -->
-			
+
 			<div class="htp-list-sec">
 				<div class="ly-inner">
-					<div class="htp-list-dimm"></div>
+					<!-- 로딩중 화면 조작 금지용 -->
+					<div class="htp-list-dimm"><span class="a11y">항공 요금 및 스케줄 검색 중입니다. 잠시만 기다려주세요.</span></div>
+
 					<!-- 항공선택 진행 현황 -->
 					<div class="htp-air-step">
 						<ul>
-							<li class="step-list"><!-- loop -->
+							<li class="step-list">
+								<!-- loop -->
 								<ul class="list">
 									<li><span class="label">가는편</span>08월 28일(화)</li>
 									<li>10:35 ~ 13:57+1</li>
@@ -1168,7 +1213,8 @@ $(function(){
 									<li>14시간 20분<a href="#" class="btn-detail">상세여정</a></li>
 								</ul>
 							</li><!-- //loop -->
-							<li class="step-list"><!-- loop -->
+							<li class="step-list">
+								<!-- loop -->
 								<ul class="list">
 									<li><span class="label">여정2</span>08월 28일(화)</li>
 									<li>10:35 ~ 13:57+1</li>
@@ -1182,17 +1228,17 @@ $(function(){
 						<span class="btn-base bb-st6 btn-select"><a href="#">다시선택</a></span>
 					</div>
 					<!-- //항공선택 진행 현황 -->
-					
-					<!-- 항공편 타이틀 정보 -->	
-				    <div class="htp-lise-tit">8월 28일 뉴욕(전체) 가는 편</div>
-				    
-				    <!-- 다구간인 경우 -->
-				    <!--<div class="htp-lise-tit"><span class="mtit">여정2</span>8월 28일 뉴욕(전체) 가는 편</div>-->
-					<!-- //항공편 타이틀 정보 -->	
-				
+
+					<!-- 항공편 타이틀 정보 -->
+					<div class="htp-lise-tit">8월 28일 뉴욕(전체) 가는 편</div>
+
+					<!-- 다구간인 경우 -->
+					<!--<div class="htp-lise-tit"><span class="mtit">여정2</span>8월 28일 뉴욕(전체) 가는 편</div>-->
+					<!-- //항공편 타이틀 정보 -->
+
 					<!-- 필터 -->
-				 	<div class="htp-listl">
-						<div class="sch-set-accomm __loading">
+					<div class="htp-listl">
+						<div class="sch-set-accomm loading">
 							<div class="sch-set-inner">
 								<div class="tit-wrap">
 									<h3>결과내 검색</h3>
@@ -1526,22 +1572,22 @@ $(function(){
 						<!-- //sch-set-accomm -->
 					</div>
 					<!-- //필터 -->
-					
+
 					<!-- 검색결과 리스트 -->
 					<div class="htp-listr">
 						<div class="htp-res-wrap">
-							<div class="htp-res-inner">								
+							<div class="htp-res-inner">
 								<div class="htp-gage-wrap">
 									<p class="txt"><span><em>0</em>%</span> 잠시만 기다려 주세요. 실시간 항공 요금을 조회하고 있습니다.</p>
 									<p class="gage"><span class="active"></span></p>
 								</div>
-								
+
 								<!-- 리스트 헤더 -->
 								<div class="htp-listr-header">
 									<div class="htp-listr-noti">
 										검색된 리스트는 <strong>1인 기준 요금</strong>입니다.<br />(유류할증료, 제세공과금, 발권대행료 포함된 총 요금)
 									</div>
-                                	<div class="res-filter">
+									<div class="res-filter">
 										<p class="tit">정렬 기준</p>
 										<ul class="chk-filter-list">
 											<li><a href="#" class="chk-rec">추천순</a></li>
@@ -1551,23 +1597,25 @@ $(function(){
 											<li><a href="#">도착시간</a></li>
 										</ul>
 									</div><!-- //res-filter -->
-						        </div>
+								</div>
 								<!-- //리스트 헤더 -->
-								
+
 								<!-- 리스트 -->
 								<ul class="htp-res-list-air">
-									<li class="item-recommend"><!-- loop(추천) -->
+									<li class="item-recommend">
+										<!-- loop(추천) -->
 										<div class="tit-list">
 											<span class="txt">추천 항공편</span>
 											<span class="help-tooltip heltt-st2 small">
-                                                <span class="over">?</span>
-                                                <span class="cont" style="width:300px">
-                                                    현대카드 PRIVIA 항공에서 <br />
+												<span class="over">?</span>
+												<span class="cont" style="width:300px">
+													현대카드 PRIVIA 항공에서 <br />
 													가격, 소요시간, 경유 등을 고려한 추천 항공편입니다.
-                                                </span>
-                                            </span>
+												</span>
+											</span>
 										</div>
-										<div class="inset"><!-- inset -->
+										<div class="inset">
+											<!-- inset -->
 											<div class="hl-airline-benefit">
 												<span class="label-base lbr-st1 l-best"><span>BEST SALE</span></span>
 												<span class="label-base lbr-st1 l-mobile"><span>모바일특가</span></span>
@@ -1575,9 +1623,9 @@ $(function(){
 											<div class="inset-cell">
 												<div class="htla-airline">
 													<div class="hl-airline-logo">
-                                                    	<img src="//static.priviatravel.com/images/front/travel/contents/logo-air/DOM_OZ.png" alt="DOM_OZ">
-                                                    	<span class="name">아시아나항공</span>
-												    </div>
+														<img src="//static.priviatravel.com/images/front/travel/contents/logo-air/DOM_OZ.png" alt="DOM_OZ">
+														<span class="name">아시아나항공</span>
+													</div>
 													<div class="hl-airline-info">
 														<span class="txt">공동운항</span>
 														<span class="help-tooltip heltt-st2 small">
@@ -1593,30 +1641,30 @@ $(function(){
 											<div class="inset-cell">
 												<div class="htla-route">
 													<div class="hl-route-time">
-												    	<div class="dep-time">
-												    		<span class="time">10:35</span>
-												    		<span class="txt">ICN T1</span>
-												    		<span class="help-tooltip heltt-st2 small down">
+														<div class="dep-time">
+															<span class="time">10:35</span>
+															<span class="txt">ICN T1</span>
+															<span class="help-tooltip heltt-st2 small down">
 																<span class="cont">
 																	인천 / 터미널 1
 																</span>
 															</span>
-												    	</div>
-												    	<div class="info-time">
-												    		<span class="time-line"><span class="time2">16시간 22분</span></span>
-												    	</div>
-												    	<div class="arr-time">
-												    		<span class="time">23:15 <span class="gap">+1</span></span>
-												    		<span class="txt">LGA</span>
-												    		<span class="help-tooltip heltt-st2 small down">
+														</div>
+														<div class="info-time">
+															<span class="time-line"><span class="time2">16시간 22분</span></span>
+														</div>
+														<div class="arr-time">
+															<span class="time">23:15 <span class="gap">+1</span></span>
+															<span class="txt">LGA</span>
+															<span class="help-tooltip heltt-st2 small down">
 																<span class="cont">
 																	인천 / 터미널 1
 																</span>
 															</span>
-												    	</div>
+														</div>
 													</div>
 													<div class="hl-route-info">
-												    	<span class="btn-base bb-st6"><a href="#">상세스케줄</a></span>
+														<span class="btn-base bb-st6"><a href="#">상세스케줄</a></span>
 													</div>
 												</div>
 											</div>
@@ -1626,51 +1674,54 @@ $(function(){
 														<span>마일리지 공제</span>
 														<span>좌석승급</span>
 													</div>
-                                  					<div class="hl-info-btn">
+													<div class="hl-info-btn">
 														<span class="btn-base bb-st6"><a href="#">요금규정</a></span>
-                                  					</div>
+													</div>
 												</div>
 											</div>
 											<div class="inset-cell">
 												<div class="htla-pricelist">
 													<ul class="hl-pricelist-info">
 														<li>
-                                                        	<span class="txt">현대카드 <em>10%</em> 청구 할인</span>
-                                                        	<span class="help-tooltip heltt-st2 small up">
+															<span class="txt">현대카드 <em>10%</em> 청구 할인</span>
+															<span class="help-tooltip heltt-st2 small up">
 																<span class="over">?</span>
 																<span class="cont">
-																	현대카드 청구 할인은 카드별 할인율이(7%/10%) 
-																	상이하며, 전월실적 충족 시 연간한도 1천만원 내에서 적용됩니다. 
-																	현대카드 Chameleon은 설정한 카드에 따라 혜택 및 
+																	현대카드 청구 할인은 카드별 할인율이(7%/10%)
+																	상이하며, 전월실적 충족 시 연간한도 1천만원 내에서 적용됩니다.
+																	현대카드 Chameleon은 설정한 카드에 따라 혜택 및
 																	할인금액 상이하게 적용됩니다.
 																</span>
 															</span>
-                                                        	<strong class="price">876,909원</strong>
+															<strong class="price">876,909원</strong>
 														</li>
 														<li>
-                                                        	<span class="txt">현대카드 <em>7%</em> 청구 할인</span>
-                                                        	<strong class="price">976,909원</strong>
+															<span class="txt">현대카드 <em>7%</em> 청구 할인</span>
+															<strong class="price">976,909원</strong>
 														</li>
 														<li class="privia-price">
-                                                        	<span class="txt">PRIVIA 특가</span>
-                                                        	<span class="help-tooltip heltt-st2 small down">
+															<span class="txt">PRIVIA 특가</span>
+															<span class="help-tooltip heltt-st2 small down">
 																<span class="over">?</span>
 																<span class="cont">
 																	<strong>현대카드 청구 할인 미적용 회원 및 *다른 결제수단으로 구매 시</strong>적용됩니다.<br />
 																	(* 다른 결제수단이란? 현대카드가 아닌 기타 신용카드, 현금) 현대카드 청구 할인과 중복 적용되지 않습니다.
 																</span>
 															</span>
-                                                        	<strong class="price">1,876,909원</strong>
+															<strong class="price">1,876,909원</strong>
 														</li>
 													</ul>
 													<div class="show-total-price">
-                                                    	<span class="area-over"><span class="a11y">총 요금 자세히 보기</span></span>
+														<span class="area-over"><span class="a11y">총 요금 자세히 보기</span></span>
 														<span class="help-tooltip heltt-st2 small left">
 															<span class="cont">
 																<table class="tbl-total-price">
 																	<colgroup>
 																		<caption>총 요금 자세히 보기</caption>
-																		<col width="25%"><col width="25%"><col width="25%"><col width="25%">
+																		<col width="25%">
+																		<col width="25%">
+																		<col width="25%">
+																		<col width="25%">
 																	</colgroup>
 																	<tbody>
 																		<tr>
@@ -1707,15 +1758,16 @@ $(function(){
 																<div class="txt-total-price"><span class="txt">총 요금</span>5,000,000원</div>
 															</span>
 														</span>
-													</div>													
+													</div>
 													<div class="hl-pricelist-btn">
 														<span class="able-sit">잔여 5석</span>
-                                 						<span class="btn-base bb-st3 btn-select"><a href="#">선택</a></span>
-                                  					</div>													
+														<span class="btn-base bb-st3 btn-select"><a href="#">선택</a></span>
+													</div>
 												</div>
 											</div>
 										</div><!-- //inset -->
-                                        <div class="inset"><!-- inset -->
+										<div class="inset">
+											<!-- inset -->
 											<div class="hl-airline-benefit">
 												<span class="label-base lbr-st1 l-best"><span>BEST SALE</span></span>
 												<span class="label-base lbr-st1 l-mobile"><span>모바일특가</span></span>
@@ -1723,9 +1775,9 @@ $(function(){
 											<div class="inset-cell">
 												<div class="htla-airline">
 													<div class="hl-airline-logo">
-                                                    	<img src="//static.priviatravel.com/images/front/travel/contents/logo-air/KE.png" alt="KE">
-                                                    	<span class="name">대한항공</span>
-												    </div>
+														<img src="//static.priviatravel.com/images/front/travel/contents/logo-air/KE.png" alt="KE">
+														<span class="name">대한항공</span>
+													</div>
 													<div class="hl-airline-info">
 														<span class="txt">공동운항</span>
 														<span class="help-tooltip heltt-st2 small">
@@ -1741,37 +1793,37 @@ $(function(){
 											<div class="inset-cell">
 												<div class="htla-route">
 													<div class="hl-route-time">
-												    	<div class="dep-time">
-												    		<span class="time">10:35</span>
-												    		<span class="txt">ICN T1</span>
-												    		<span class="help-tooltip heltt-st2 small down">
+														<div class="dep-time">
+															<span class="time">10:35</span>
+															<span class="txt">ICN T1</span>
+															<span class="help-tooltip heltt-st2 small down">
 																<span class="cont">
 																	인천 / 터미널 1
 																</span>
 															</span>
-												    	</div>
-												    	<div class="info-time">
-												    		<span class="time-line"><span class="time2">16시간 22분</span></span>
-												    		<span class="txt">1회 경유 DTT</span>
-												    		<span class="help-tooltip heltt-st2 small down">
+														</div>
+														<div class="info-time">
+															<span class="time-line"><span class="time2">16시간 22분</span></span>
+															<span class="txt">1회 경유 DTT</span>
+															<span class="help-tooltip heltt-st2 small down">
 																<span class="cont">
 																	디트로이트에서 환승 2시간 30분<br />
 																	로스앤젤레스에서 환승 3시간
 																</span>
 															</span>
-												    	</div>
-												    	<div class="arr-time">
-												    		<span class="time">23:15 <span class="gap">+1</span></span>
-												    		<span class="txt">LGA</span>
-												    		<span class="help-tooltip heltt-st2 small down">
+														</div>
+														<div class="arr-time">
+															<span class="time">23:15 <span class="gap">+1</span></span>
+															<span class="txt">LGA</span>
+															<span class="help-tooltip heltt-st2 small down">
 																<span class="cont">
 																	인천 / 터미널 1
 																</span>
 															</span>
-												    	</div>
+														</div>
 													</div>
 													<div class="hl-route-info">
-												    	<span class="btn-base bb-st6"><a href="#">상세스케줄</a></span>
+														<span class="btn-base bb-st6"><a href="#">상세스케줄</a></span>
 													</div>
 												</div>
 											</div>
@@ -1781,51 +1833,54 @@ $(function(){
 														<span>마일리지 공제</span>
 														<span>좌석승급</span>
 													</div>
-                                  					<div class="hl-info-btn">
+													<div class="hl-info-btn">
 														<span class="btn-base bb-st6"><a href="#">요금규정</a></span>
-                                  					</div>
+													</div>
 												</div>
 											</div>
 											<div class="inset-cell">
 												<div class="htla-pricelist">
 													<ul class="hl-pricelist-info">
 														<li>
-                                                        	<span class="txt">현대카드 <em>10%</em> 청구 할인</span>
-                                                        	<span class="help-tooltip heltt-st2 small up">
+															<span class="txt">현대카드 <em>10%</em> 청구 할인</span>
+															<span class="help-tooltip heltt-st2 small up">
 																<span class="over">?</span>
 																<span class="cont">
-																	현대카드 청구 할인은 카드별 할인율이(7%/10%) 
-																	상이하며, 전월실적 충족 시 연간한도 1천만원 내에서 적용됩니다. 
-																	현대카드 Chameleon은 설정한 카드에 따라 혜택 및 
+																	현대카드 청구 할인은 카드별 할인율이(7%/10%)
+																	상이하며, 전월실적 충족 시 연간한도 1천만원 내에서 적용됩니다.
+																	현대카드 Chameleon은 설정한 카드에 따라 혜택 및
 																	할인금액 상이하게 적용됩니다.
 																</span>
 															</span>
-                                                        	<strong class="price">876,909원</strong>
+															<strong class="price">876,909원</strong>
 														</li>
 														<li>
-                                                        	<span class="txt">현대카드 <em>7%</em> 청구 할인</span>
-                                                        	<strong class="price">976,909원</strong>
+															<span class="txt">현대카드 <em>7%</em> 청구 할인</span>
+															<strong class="price">976,909원</strong>
 														</li>
 														<li class="privia-price">
-                                                        	<span class="txt">PRIVIA 특가</span>
-                                                        	<span class="help-tooltip heltt-st2 small down">
+															<span class="txt">PRIVIA 특가</span>
+															<span class="help-tooltip heltt-st2 small down">
 																<span class="over">?</span>
 																<span class="cont">
 																	<strong>현대카드 청구 할인 미적용 회원 및 *다른 결제수단으로 구매 시</strong>적용됩니다.<br />
 																	(* 다른 결제수단이란? 현대카드가 아닌 기타 신용카드, 현금) 현대카드 청구 할인과 중복 적용되지 않습니다.
 																</span>
 															</span>
-                                                        	<strong class="price">1,876,909원</strong>
+															<strong class="price">1,876,909원</strong>
 														</li>
 													</ul>
 													<div class="show-total-price">
-                                                    	<span class="area-over"><span class="a11y">총 요금 자세히 보기</span></span>
+														<span class="area-over"><span class="a11y">총 요금 자세히 보기</span></span>
 														<span class="help-tooltip heltt-st2 small left">
 															<span class="cont">
 																<table class="tbl-total-price">
 																	<colgroup>
 																		<caption>총 요금 자세히 보기</caption>
-																		<col width="25%"><col width="25%"><col width="25%"><col width="25%">
+																		<col width="25%">
+																		<col width="25%">
+																		<col width="25%">
+																		<col width="25%">
 																	</colgroup>
 																	<tbody>
 																		<tr>
@@ -1865,25 +1920,28 @@ $(function(){
 													</div>
 													<div class="hl-pricelist-btn">
 														<span class="able-sit">잔여 5석</span>
-                                 						<span class="btn-base bb-st3 btn-select"><a href="#">선택</a></span>
-                                  					</div>													
+														<span class="btn-base bb-st3 btn-select"><a href="#">선택</a></span>
+													</div>
 												</div>
 											</div>
 										</div><!-- //inset -->
 									</li><!-- //loop(추천) -->
-									<li class="item-cross-banner"><!-- loop(크로스 배너) -->
-                                    	<div class="inset">
-                                        	<a class="#" href="http://www.priviatravel.com/main/hotel/" target="_blank"><img src="/images/front/travel/contents/dummy/cross-banner2.jpg" alt="항공권 카드별 7%, 10% 청구 할인 + 해외호텔 2% 추가 혜택"></a>
-                                    	</div>
-                                    </li><!-- //loop(크로스 배너) -->
-                                    <li><!-- loop -->
-										<div class="inset"><!-- inset -->
+									<li class="item-cross-banner">
+										<!-- loop(크로스 배너) -->
+										<div class="inset">
+											<a class="#" href="http://www.priviatravel.com/main/hotel/" target="_blank"><img src="/images/front/travel/contents/dummy/cross-banner2.jpg" alt="항공권 카드별 7%, 10% 청구 할인 + 해외호텔 2% 추가 혜택"></a>
+										</div>
+									</li><!-- //loop(크로스 배너) -->
+									<li>
+										<!-- loop -->
+										<div class="inset">
+											<!-- inset -->
 											<div class="inset-cell">
 												<div class="htla-airline">
 													<div class="hl-airline-logo">
-                                                    	<img src="//static.priviatravel.com/images/front/travel/contents/logo-air/KE.png" alt="KE">
-                                                    	<span class="name">대한항공</span>
-												    </div>
+														<img src="//static.priviatravel.com/images/front/travel/contents/logo-air/KE.png" alt="KE">
+														<span class="name">대한항공</span>
+													</div>
 													<div class="hl-airline-info">
 														<span class="txt">공동운항</span>
 														<span class="help-tooltip heltt-st2 small">
@@ -1899,37 +1957,37 @@ $(function(){
 											<div class="inset-cell">
 												<div class="htla-route">
 													<div class="hl-route-time">
-												    	<div class="dep-time">
-												    		<span class="time">10:35</span>
-												    		<span class="txt">ICN T1</span>
-												    		<span class="help-tooltip heltt-st2 small down">
+														<div class="dep-time">
+															<span class="time">10:35</span>
+															<span class="txt">ICN T1</span>
+															<span class="help-tooltip heltt-st2 small down">
 																<span class="cont">
 																	인천 / 터미널 1
 																</span>
 															</span>
-												    	</div>
-												    	<div class="info-time">
-												    		<span class="time-line"><span class="time2">16시간 22분</span></span>
-												    		<span class="txt">2회 경유 DTT, LAX</span>
-												    		<span class="help-tooltip heltt-st2 small down">
+														</div>
+														<div class="info-time">
+															<span class="time-line"><span class="time2">16시간 22분</span></span>
+															<span class="txt">2회 경유 DTT, LAX</span>
+															<span class="help-tooltip heltt-st2 small down">
 																<span class="cont">
 																	디트로이트에서 환승 2시간 30분<br />
 																	로스앤젤레스에서 환승 3시간
 																</span>
 															</span>
-												    	</div>
-												    	<div class="arr-time">
-												    		<span class="time">23:15 <span class="gap">+1</span></span>
-												    		<span class="txt">LGA</span>
-												    		<span class="help-tooltip heltt-st2 small down">
+														</div>
+														<div class="arr-time">
+															<span class="time">23:15 <span class="gap">+1</span></span>
+															<span class="txt">LGA</span>
+															<span class="help-tooltip heltt-st2 small down">
 																<span class="cont">
 																	인천 / 터미널 1
 																</span>
 															</span>
-												    	</div>
+														</div>
 													</div>
 													<div class="hl-route-info">
-												    	<span class="btn-base bb-st6"><a href="#">상세스케줄</a></span>
+														<span class="btn-base bb-st6"><a href="#">상세스케줄</a></span>
 													</div>
 												</div>
 											</div>
@@ -1945,42 +2003,45 @@ $(function(){
 												<div class="htla-pricelist">
 													<ul class="hl-pricelist-info">
 														<li>
-                                                        	<span class="txt">현대카드 <em>10%</em> 청구 할인</span>
-                                                        	<span class="help-tooltip heltt-st2 small up">
+															<span class="txt">현대카드 <em>10%</em> 청구 할인</span>
+															<span class="help-tooltip heltt-st2 small up">
 																<span class="over">?</span>
 																<span class="cont">
-																	현대카드 청구 할인은 카드별 할인율이(7%/10%) 
-																	상이하며, 전월실적 충족 시 연간한도 1천만원 내에서 적용됩니다. 
-																	현대카드 Chameleon은 설정한 카드에 따라 혜택 및 
+																	현대카드 청구 할인은 카드별 할인율이(7%/10%)
+																	상이하며, 전월실적 충족 시 연간한도 1천만원 내에서 적용됩니다.
+																	현대카드 Chameleon은 설정한 카드에 따라 혜택 및
 																	할인금액 상이하게 적용됩니다.
 																</span>
 															</span>
-                                                        	<strong class="price">876,909원</strong>
+															<strong class="price">876,909원</strong>
 														</li>
 														<li>
-                                                        	<span class="txt">현대카드 <em>7%</em> 청구 할인</span>
-                                                        	<strong class="price">976,909원</strong>
+															<span class="txt">현대카드 <em>7%</em> 청구 할인</span>
+															<strong class="price">976,909원</strong>
 														</li>
 														<li class="privia-price">
-                                                        	<span class="txt">PRIVIA 특가</span>
-                                                        	<span class="help-tooltip heltt-st2 small down">
+															<span class="txt">PRIVIA 특가</span>
+															<span class="help-tooltip heltt-st2 small down">
 																<span class="over">?</span>
 																<span class="cont">
 																	<strong>현대카드 청구 할인 미적용 회원 및 *다른 결제수단으로 구매 시</strong>적용됩니다.<br />
 																	(* 다른 결제수단이란? 현대카드가 아닌 기타 신용카드, 현금) 현대카드 청구 할인과 중복 적용되지 않습니다.
 																</span>
 															</span>
-                                                        	<strong class="price">1,876,909원</strong>
+															<strong class="price">1,876,909원</strong>
 														</li>
 													</ul>
 													<div class="show-total-price">
-                                                    	<span class="area-over"><span class="a11y">총 요금 자세히 보기</span></span>
+														<span class="area-over"><span class="a11y">총 요금 자세히 보기</span></span>
 														<span class="help-tooltip heltt-st2 small left">
 															<span class="cont">
 																<table class="tbl-total-price">
 																	<colgroup>
 																		<caption>총 요금 자세히 보기</caption>
-																		<col width="25%"><col width="25%"><col width="25%"><col width="25%">
+																		<col width="25%">
+																		<col width="25%">
+																		<col width="25%">
+																		<col width="25%">
 																	</colgroup>
 																	<tbody>
 																		<tr>
@@ -2019,56 +2080,58 @@ $(function(){
 														</span>
 													</div>
 													<div class="hl-pricelist-btn">
-                                 						<span class="btn-base bb-st3 btn-select"><a href="#">선택</a></span>
-                                  					</div>	
+														<span class="btn-base bb-st3 btn-select"><a href="#">선택</a></span>
+													</div>
 												</div>
 											</div>
 										</div><!-- //inset -->
 									</li><!-- //loop -->
-									<li><!-- loop -->
-										<div class="inset"><!-- inset -->
+									<li>
+										<!-- loop -->
+										<div class="inset">
+											<!-- inset -->
 											<div class="inset-cell">
 												<div class="htla-airline">
 													<div class="hl-airline-logo">
-                                                    	<img src="//static.priviatravel.com/images/front/travel/contents/logo-air/D.png" alt="D">
-                                                    	<span class="name">캄보디아앙코르항공</span>
-												    </div>
+														<img src="//static.priviatravel.com/images/front/travel/contents/logo-air/D.png" alt="D">
+														<span class="name">캄보디아앙코르항공</span>
+													</div>
 												</div>
 											</div>
 											<div class="inset-cell">
 												<div class="htla-route">
 													<div class="hl-route-time">
-												    	<div class="dep-time">
-												    		<span class="time">10:35</span>
-												    		<span class="txt">ICN T1</span>
-												    		<span class="help-tooltip heltt-st2 small down">
+														<div class="dep-time">
+															<span class="time">10:35</span>
+															<span class="txt">ICN T1</span>
+															<span class="help-tooltip heltt-st2 small down">
 																<span class="cont">
 																	인천 / 터미널 1
 																</span>
 															</span>
-												    	</div>
-												    	<div class="info-time">
-												    		<span class="time-line"><span class="time2">16시간 22분</span></span>
-												    		<span class="txt">1회 경유 DTT</span>
-												    		<span class="help-tooltip heltt-st2 small down">
+														</div>
+														<div class="info-time">
+															<span class="time-line"><span class="time2">16시간 22분</span></span>
+															<span class="txt">1회 경유 DTT</span>
+															<span class="help-tooltip heltt-st2 small down">
 																<span class="cont">
 																	디트로이트에서 환승 2시간 30분<br />
 																	로스앤젤레스에서 환승 3시간
 																</span>
 															</span>
-												    	</div>
-												    	<div class="arr-time">
-												    		<span class="time">23:15 <span class="gap">+1</span></span>
-												    		<span class="txt">LGA</span>
-												    		<span class="help-tooltip heltt-st2 small down">
+														</div>
+														<div class="arr-time">
+															<span class="time">23:15 <span class="gap">+1</span></span>
+															<span class="txt">LGA</span>
+															<span class="help-tooltip heltt-st2 small down">
 																<span class="cont">
 																	인천 / 터미널 1
 																</span>
 															</span>
-												    	</div>
+														</div>
 													</div>
 													<div class="hl-route-info">
-												    	<span class="btn-base bb-st6"><a href="#">상세스케줄</a></span>
+														<span class="btn-base bb-st6"><a href="#">상세스케줄</a></span>
 													</div>
 												</div>
 											</div>
@@ -2084,42 +2147,45 @@ $(function(){
 												<div class="htla-pricelist">
 													<ul class="hl-pricelist-info">
 														<li>
-                                                        	<span class="txt">현대카드 <em>10%</em> 청구 할인</span>
-                                                        	<span class="help-tooltip heltt-st2 small up">
+															<span class="txt">현대카드 <em>10%</em> 청구 할인</span>
+															<span class="help-tooltip heltt-st2 small up">
 																<span class="over">?</span>
 																<span class="cont">
-																	현대카드 청구 할인은 카드별 할인율이(7%/10%) 
-																	상이하며, 전월실적 충족 시 연간한도 1천만원 내에서 적용됩니다. 
-																	현대카드 Chameleon은 설정한 카드에 따라 혜택 및 
+																	현대카드 청구 할인은 카드별 할인율이(7%/10%)
+																	상이하며, 전월실적 충족 시 연간한도 1천만원 내에서 적용됩니다.
+																	현대카드 Chameleon은 설정한 카드에 따라 혜택 및
 																	할인금액 상이하게 적용됩니다.
 																</span>
 															</span>
-                                                        	<strong class="price">876,909원</strong>
+															<strong class="price">876,909원</strong>
 														</li>
 														<li>
-                                                        	<span class="txt">현대카드 <em>7%</em> 청구 할인</span>
-                                                        	<strong class="price">976,909원</strong>
+															<span class="txt">현대카드 <em>7%</em> 청구 할인</span>
+															<strong class="price">976,909원</strong>
 														</li>
 														<li class="privia-price">
-                                                        	<span class="txt">PRIVIA 특가</span>
-                                                        	<span class="help-tooltip heltt-st2 small down">
+															<span class="txt">PRIVIA 특가</span>
+															<span class="help-tooltip heltt-st2 small down">
 																<span class="over">?</span>
 																<span class="cont">
 																	<strong>현대카드 청구 할인 미적용 회원 및 *다른 결제수단으로 구매 시</strong>적용됩니다.<br />
 																	(* 다른 결제수단이란? 현대카드가 아닌 기타 신용카드, 현금) 현대카드 청구 할인과 중복 적용되지 않습니다.
 																</span>
 															</span>
-                                                        	<strong class="price">1,876,909원</strong>
+															<strong class="price">1,876,909원</strong>
 														</li>
 													</ul>
 													<div class="show-total-price">
-                                                    	<span class="area-over"><span class="a11y">총 요금 자세히 보기</span></span>
+														<span class="area-over"><span class="a11y">총 요금 자세히 보기</span></span>
 														<span class="help-tooltip heltt-st2 small left">
 															<span class="cont">
 																<table class="tbl-total-price">
 																	<colgroup>
 																		<caption>총 요금 자세히 보기</caption>
-																		<col width="25%"><col width="25%"><col width="25%"><col width="25%">
+																		<col width="25%">
+																		<col width="25%">
+																		<col width="25%">
+																		<col width="25%">
 																	</colgroup>
 																	<tbody>
 																		<tr>
@@ -2159,14 +2225,16 @@ $(function(){
 													</div>
 													<div class="hl-pricelist-btn">
 														<span class="able-sit">잔여 5석</span>
-                                 						<span class="btn-base bb-st3 btn-select"><a href="#">선택</a></span>
-                                  					</div>	
+														<span class="btn-base bb-st3 btn-select"><a href="#">선택</a></span>
+													</div>
 												</div>
 											</div>
 										</div><!-- //inset -->
 									</li><!-- //loop -->
-									<li><!-- loop -->
-										<div class="inset"><!-- inset -->
+									<li>
+										<!-- loop -->
+										<div class="inset">
+											<!-- inset -->
 											<div class="hl-airline-benefit">
 												<span class="label-base lbr-st1 l-best"><span>BEST SALE</span></span>
 												<span class="label-base lbr-st1 l-mobile"><span>모바일특가</span></span>
@@ -2174,38 +2242,38 @@ $(function(){
 											<div class="inset-cell">
 												<div class="htla-airline">
 													<div class="hl-airline-logo">
-                                                    	<img src="//static.priviatravel.com/images/front/travel/contents/logo-air/KE.png" alt="KE">
-                                                    	<span class="name">대한항공</span>
-												    </div>
+														<img src="//static.priviatravel.com/images/front/travel/contents/logo-air/KE.png" alt="KE">
+														<span class="name">대한항공</span>
+													</div>
 												</div>
 											</div>
 											<div class="inset-cell">
 												<div class="htla-route">
 													<div class="hl-route-time">
-												    	<div class="dep-time">
-												    		<span class="time">10:35</span>
-												    		<span class="txt">ICN T1</span>
-												    		<span class="help-tooltip heltt-st2 small down">
+														<div class="dep-time">
+															<span class="time">10:35</span>
+															<span class="txt">ICN T1</span>
+															<span class="help-tooltip heltt-st2 small down">
 																<span class="cont">
 																	인천 / 터미널 1
 																</span>
 															</span>
-												    	</div>
-												    	<div class="info-time">
-												    		<span class="time-line"><span class="time2">16시간 22분</span></span>
-												    	</div>
-												    	<div class="arr-time">
-												    		<span class="time">23:15 <span class="gap">+1</span></span>
-												    		<span class="txt">LGA</span>
-												    		<span class="help-tooltip heltt-st2 small down">
+														</div>
+														<div class="info-time">
+															<span class="time-line"><span class="time2">16시간 22분</span></span>
+														</div>
+														<div class="arr-time">
+															<span class="time">23:15 <span class="gap">+1</span></span>
+															<span class="txt">LGA</span>
+															<span class="help-tooltip heltt-st2 small down">
 																<span class="cont">
 																	인천 / 터미널 1
 																</span>
 															</span>
-												    	</div>
+														</div>
 													</div>
 													<div class="hl-route-info">
-												    	<span class="btn-base bb-st6"><a href="#">상세스케줄</a></span>
+														<span class="btn-base bb-st6"><a href="#">상세스케줄</a></span>
 													</div>
 												</div>
 											</div>
@@ -2221,42 +2289,45 @@ $(function(){
 												<div class="htla-pricelist">
 													<ul class="hl-pricelist-info">
 														<li>
-                                                        	<span class="txt">현대카드 <em>10%</em> 청구 할인</span>
-                                                        	<span class="help-tooltip heltt-st2 small up">
+															<span class="txt">현대카드 <em>10%</em> 청구 할인</span>
+															<span class="help-tooltip heltt-st2 small up">
 																<span class="over">?</span>
 																<span class="cont">
-																	현대카드 청구 할인은 카드별 할인율이(7%/10%) 
-																	상이하며, 전월실적 충족 시 연간한도 1천만원 내에서 적용됩니다. 
-																	현대카드 Chameleon은 설정한 카드에 따라 혜택 및 
+																	현대카드 청구 할인은 카드별 할인율이(7%/10%)
+																	상이하며, 전월실적 충족 시 연간한도 1천만원 내에서 적용됩니다.
+																	현대카드 Chameleon은 설정한 카드에 따라 혜택 및
 																	할인금액 상이하게 적용됩니다.
 																</span>
 															</span>
-                                                        	<strong class="price">876,909원</strong>
+															<strong class="price">876,909원</strong>
 														</li>
 														<li>
-                                                        	<span class="txt">현대카드 <em>7%</em> 청구 할인</span>
-                                                        	<strong class="price">976,909원</strong>
+															<span class="txt">현대카드 <em>7%</em> 청구 할인</span>
+															<strong class="price">976,909원</strong>
 														</li>
 														<li class="privia-price">
-                                                        	<span class="txt">PRIVIA 특가</span>
-                                                        	<span class="help-tooltip heltt-st2 small down">
+															<span class="txt">PRIVIA 특가</span>
+															<span class="help-tooltip heltt-st2 small down">
 																<span class="over">?</span>
 																<span class="cont">
 																	<strong>현대카드 청구 할인 미적용 회원 및 *다른 결제수단으로 구매 시</strong>적용됩니다.<br />
 																	(* 다른 결제수단이란? 현대카드가 아닌 기타 신용카드, 현금) 현대카드 청구 할인과 중복 적용되지 않습니다.
 																</span>
 															</span>
-                                                        	<strong class="price">1,876,909원</strong>
+															<strong class="price">1,876,909원</strong>
 														</li>
 													</ul>
 													<div class="show-total-price">
-                                                    	<span class="area-over"><span class="a11y">총 요금 자세히 보기</span></span>
+														<span class="area-over"><span class="a11y">총 요금 자세히 보기</span></span>
 														<span class="help-tooltip heltt-st2 small left">
 															<span class="cont">
 																<table class="tbl-total-price">
 																	<colgroup>
 																		<caption>총 요금 자세히 보기</caption>
-																		<col width="25%"><col width="25%"><col width="25%"><col width="25%">
+																		<col width="25%">
+																		<col width="25%">
+																		<col width="25%">
+																		<col width="25%">
 																	</colgroup>
 																	<tbody>
 																		<tr>
@@ -2295,20 +2366,22 @@ $(function(){
 														</span>
 													</div>
 													<div class="hl-pricelist-btn">
-                                 						<span class="btn-base bb-st3 btn-select"><a href="#">선택</a></span>
-                                  					</div>	
+														<span class="btn-base bb-st3 btn-select"><a href="#">선택</a></span>
+													</div>
 												</div>
 											</div>
 										</div><!-- //inset -->
 									</li><!-- //loop -->
-									<li><!-- loop -->
-										<div class="inset"><!-- inset -->
+									<li>
+										<!-- loop -->
+										<div class="inset">
+											<!-- inset -->
 											<div class="inset-cell">
 												<div class="htla-airline">
 													<div class="hl-airline-logo">
-                                                    	<img src="//static.priviatravel.com/images/front/travel/contents/logo-air/KE.png" alt="KE">
-                                                    	<span class="name">대한항공</span>
-												    </div>
+														<img src="//static.priviatravel.com/images/front/travel/contents/logo-air/KE.png" alt="KE">
+														<span class="name">대한항공</span>
+													</div>
 													<div class="hl-airline-info">
 														<span class="txt">공동운항</span>
 														<span class="help-tooltip heltt-st2 small">
@@ -2324,30 +2397,30 @@ $(function(){
 											<div class="inset-cell">
 												<div class="htla-route">
 													<div class="hl-route-time">
-												    	<div class="dep-time">
-												    		<span class="time">10:35</span>
-												    		<span class="txt">ICN T1</span>
-												    		<span class="help-tooltip heltt-st2 small down">
+														<div class="dep-time">
+															<span class="time">10:35</span>
+															<span class="txt">ICN T1</span>
+															<span class="help-tooltip heltt-st2 small down">
 																<span class="cont">
 																	인천 / 터미널 1
 																</span>
 															</span>
-												    	</div>
-												    	<div class="info-time">
-												    		<span class="time-line"><span class="time2">16시간 22분</span></span>
-												    	</div>
-												    	<div class="arr-time">
-												    		<span class="time">23:15 <span class="gap">+1</span></span>
-												    		<span class="txt">LGA</span>
-												    		<span class="help-tooltip heltt-st2 small down">
+														</div>
+														<div class="info-time">
+															<span class="time-line"><span class="time2">16시간 22분</span></span>
+														</div>
+														<div class="arr-time">
+															<span class="time">23:15 <span class="gap">+1</span></span>
+															<span class="txt">LGA</span>
+															<span class="help-tooltip heltt-st2 small down">
 																<span class="cont">
 																	인천 / 터미널 1
 																</span>
 															</span>
-												    	</div>
+														</div>
 													</div>
 													<div class="hl-route-info">
-												    	<span class="btn-base bb-st6"><a href="#">상세스케줄</a></span>
+														<span class="btn-base bb-st6"><a href="#">상세스케줄</a></span>
 													</div>
 												</div>
 											</div>
@@ -2359,49 +2432,52 @@ $(function(){
 													</div>
 													<div class="hl-info-btn">
 														<span class="btn-base bb-st6"><a href="#">요금규정</a></span>
-                                  					</div>
+													</div>
 												</div>
 											</div>
 											<div class="inset-cell">
 												<div class="htla-pricelist">
 													<ul class="hl-pricelist-info">
 														<li>
-                                                        	<span class="txt">현대카드 <em>10%</em> 청구 할인</span>
-                                                        	<span class="help-tooltip heltt-st2 small up">
+															<span class="txt">현대카드 <em>10%</em> 청구 할인</span>
+															<span class="help-tooltip heltt-st2 small up">
 																<span class="over">?</span>
 																<span class="cont">
-																	현대카드 청구 할인은 카드별 할인율이(7%/10%) 
-																	상이하며, 전월실적 충족 시 연간한도 1천만원 내에서 적용됩니다. 
-																	현대카드 Chameleon은 설정한 카드에 따라 혜택 및 
+																	현대카드 청구 할인은 카드별 할인율이(7%/10%)
+																	상이하며, 전월실적 충족 시 연간한도 1천만원 내에서 적용됩니다.
+																	현대카드 Chameleon은 설정한 카드에 따라 혜택 및
 																	할인금액 상이하게 적용됩니다.
 																</span>
 															</span>
-                                                        	<strong class="price">876,909원</strong>
+															<strong class="price">876,909원</strong>
 														</li>
 														<li>
-                                                        	<span class="txt">현대카드 <em>7%</em> 청구 할인</span>
-                                                        	<strong class="price">976,909원</strong>
+															<span class="txt">현대카드 <em>7%</em> 청구 할인</span>
+															<strong class="price">976,909원</strong>
 														</li>
 														<li class="privia-price">
-                                                        	<span class="txt">PRIVIA 특가</span>
-                                                        	<span class="help-tooltip heltt-st2 small down">
+															<span class="txt">PRIVIA 특가</span>
+															<span class="help-tooltip heltt-st2 small down">
 																<span class="over">?</span>
 																<span class="cont">
 																	<strong>현대카드 청구 할인 미적용 회원 및 *다른 결제수단으로 구매 시</strong>적용됩니다.<br />
 																	(* 다른 결제수단이란? 현대카드가 아닌 기타 신용카드, 현금) 현대카드 청구 할인과 중복 적용되지 않습니다.
 																</span>
 															</span>
-                                                        	<strong class="price">1,876,909원</strong>
+															<strong class="price">1,876,909원</strong>
 														</li>
 													</ul>
 													<div class="show-total-price">
-                                                    	<span class="area-over"><span class="a11y">총 요금 자세히 보기</span></span>
+														<span class="area-over"><span class="a11y">총 요금 자세히 보기</span></span>
 														<span class="help-tooltip heltt-st2 small left">
 															<span class="cont">
 																<table class="tbl-total-price">
 																	<colgroup>
 																		<caption>총 요금 자세히 보기</caption>
-																		<col width="25%"><col width="25%"><col width="25%"><col width="25%">
+																		<col width="25%">
+																		<col width="25%">
+																		<col width="25%">
+																		<col width="25%">
 																	</colgroup>
 																	<tbody>
 																		<tr>
@@ -2441,56 +2517,58 @@ $(function(){
 													</div>
 													<div class="hl-pricelist-btn">
 														<span class="able-sit">잔여 5석</span>
-                                 						<span class="btn-base bb-st3 btn-select"><a href="#">선택</a></span>
-                                  					</div>	
+														<span class="btn-base bb-st3 btn-select"><a href="#">선택</a></span>
+													</div>
 												</div>
 											</div>
 										</div><!-- //inset -->
 									</li><!-- //loop -->
-									<li><!-- loop -->
-										<div class="inset"><!-- inset -->
+									<li>
+										<!-- loop -->
+										<div class="inset">
+											<!-- inset -->
 											<div class="inset-cell">
 												<div class="htla-airline">
 													<div class="hl-airline-logo">
-                                                    	<img src="//static.priviatravel.com/images/front/travel/contents/logo-air/KE.png" alt="KE">
-                                                    	<span class="name">대한항공</span>
-												    </div>
+														<img src="//static.priviatravel.com/images/front/travel/contents/logo-air/KE.png" alt="KE">
+														<span class="name">대한항공</span>
+													</div>
 												</div>
 											</div>
 											<div class="inset-cell">
 												<div class="htla-route">
 													<div class="hl-route-time">
-												    	<div class="dep-time">
-												    		<span class="time">10:35</span>
-												    		<span class="txt">ICN T1</span>
-												    		<span class="help-tooltip heltt-st2 small down">
+														<div class="dep-time">
+															<span class="time">10:35</span>
+															<span class="txt">ICN T1</span>
+															<span class="help-tooltip heltt-st2 small down">
 																<span class="cont">
 																	인천 / 터미널 1
 																</span>
 															</span>
-												    	</div>
-												    	<div class="info-time">
-												    		<span class="time-line"><span class="time2">16시간 22분</span></span>
-												    		<span class="txt">1회 경유 DTT</span>
-												    		<span class="help-tooltip heltt-st2 small down">
+														</div>
+														<div class="info-time">
+															<span class="time-line"><span class="time2">16시간 22분</span></span>
+															<span class="txt">1회 경유 DTT</span>
+															<span class="help-tooltip heltt-st2 small down">
 																<span class="cont">
 																	디트로이트에서 환승 2시간 30분<br />
 																	로스앤젤레스에서 환승 3시간
 																</span>
 															</span>
-												    	</div>
-												    	<div class="arr-time">
-												    		<span class="time">23:15 <span class="gap">+1</span></span>
-												    		<span class="txt">LGA</span>
-												    		<span class="help-tooltip heltt-st2 small down">
+														</div>
+														<div class="arr-time">
+															<span class="time">23:15 <span class="gap">+1</span></span>
+															<span class="txt">LGA</span>
+															<span class="help-tooltip heltt-st2 small down">
 																<span class="cont">
 																	인천 / 터미널 1
 																</span>
 															</span>
-												    	</div>
+														</div>
 													</div>
 													<div class="hl-route-info">
-												    	<span class="btn-base bb-st6"><a href="#">상세스케줄</a></span>
+														<span class="btn-base bb-st6"><a href="#">상세스케줄</a></span>
 													</div>
 												</div>
 											</div>
@@ -2506,42 +2584,45 @@ $(function(){
 												<div class="htla-pricelist">
 													<ul class="hl-pricelist-info">
 														<li>
-                                                        	<span class="txt">현대카드 <em>10%</em> 청구 할인</span>
-                                                        	<span class="help-tooltip heltt-st2 small up">
+															<span class="txt">현대카드 <em>10%</em> 청구 할인</span>
+															<span class="help-tooltip heltt-st2 small up">
 																<span class="over">?</span>
 																<span class="cont">
-																	현대카드 청구 할인은 카드별 할인율이(7%/10%) 
-																	상이하며, 전월실적 충족 시 연간한도 1천만원 내에서 적용됩니다. 
-																	현대카드 Chameleon은 설정한 카드에 따라 혜택 및 
+																	현대카드 청구 할인은 카드별 할인율이(7%/10%)
+																	상이하며, 전월실적 충족 시 연간한도 1천만원 내에서 적용됩니다.
+																	현대카드 Chameleon은 설정한 카드에 따라 혜택 및
 																	할인금액 상이하게 적용됩니다.
 																</span>
 															</span>
-                                                        	<strong class="price">876,909원</strong>
+															<strong class="price">876,909원</strong>
 														</li>
 														<li>
-                                                        	<span class="txt">현대카드 <em>7%</em> 청구 할인</span>
-                                                        	<strong class="price">976,909원</strong>
+															<span class="txt">현대카드 <em>7%</em> 청구 할인</span>
+															<strong class="price">976,909원</strong>
 														</li>
 														<li class="privia-price">
-                                                        	<span class="txt">PRIVIA 특가</span>
-                                                        	<span class="help-tooltip heltt-st2 small down">
+															<span class="txt">PRIVIA 특가</span>
+															<span class="help-tooltip heltt-st2 small down">
 																<span class="over">?</span>
 																<span class="cont">
 																	<strong>현대카드 청구 할인 미적용 회원 및 *다른 결제수단으로 구매 시</strong>적용됩니다.<br />
 																	(* 다른 결제수단이란? 현대카드가 아닌 기타 신용카드, 현금) 현대카드 청구 할인과 중복 적용되지 않습니다.
 																</span>
 															</span>
-                                                        	<strong class="price">1,876,909원</strong>
+															<strong class="price">1,876,909원</strong>
 														</li>
 													</ul>
 													<div class="show-total-price">
-                                                    	<span class="area-over"><span class="a11y">총 요금 자세히 보기</span></span>
+														<span class="area-over"><span class="a11y">총 요금 자세히 보기</span></span>
 														<span class="help-tooltip heltt-st2 small left">
 															<span class="cont">
 																<table class="tbl-total-price">
 																	<colgroup>
 																		<caption>총 요금 자세히 보기</caption>
-																		<col width="25%"><col width="25%"><col width="25%"><col width="25%">
+																		<col width="25%">
+																		<col width="25%">
+																		<col width="25%">
+																		<col width="25%">
 																	</colgroup>
 																	<tbody>
 																		<tr>
@@ -2581,14 +2662,16 @@ $(function(){
 													</div>
 													<div class="hl-pricelist-btn">
 														<span class="able-sit">잔여 5석</span>
-                                 						<span class="btn-base bb-st3 bc-mgt btn-res"><a href="#">예약</a></span>
-                                  					</div>
+														<span class="btn-base bb-st3 bc-mgt btn-res"><a href="#">예약</a></span>
+													</div>
 												</div>
 											</div>
 										</div><!-- //inset -->
 									</li><!-- //loop -->
-									<li><!-- loop -->
-										<div class="inset"><!-- inset -->
+									<li>
+										<!-- loop -->
+										<div class="inset">
+											<!-- inset -->
 											<div class="hl-airline-benefit">
 												<span class="label-base lbr-st1 l-best"><span>BEST SALE</span></span>
 												<span class="label-base lbr-st1 l-mobile"><span>모바일특가</span></span>
@@ -2596,45 +2679,45 @@ $(function(){
 											<div class="inset-cell">
 												<div class="htla-airline">
 													<div class="hl-airline-logo">
-                                                    	<img src="//static.priviatravel.com/images/front/travel/contents/logo-air/KE.png" alt="KE">
-                                                    	<span class="name">대한항공</span>
-												    </div>
+														<img src="//static.priviatravel.com/images/front/travel/contents/logo-air/KE.png" alt="KE">
+														<span class="name">대한항공</span>
+													</div>
 												</div>
 											</div>
 											<div class="inset-cell">
 												<div class="htla-route">
 													<div class="hl-route-time">
-												    	<div class="dep-time">
-												    		<span class="time">10:35</span>
-												    		<span class="txt">ICN T1</span>
-												    		<span class="help-tooltip heltt-st2 small down">
+														<div class="dep-time">
+															<span class="time">10:35</span>
+															<span class="txt">ICN T1</span>
+															<span class="help-tooltip heltt-st2 small down">
 																<span class="cont">
 																	인천 / 터미널 1
 																</span>
 															</span>
-												    	</div>
-												    	<div class="info-time">
-												    		<span class="time-line"><span class="time2">16시간 22분</span></span>
-												    		<span class="txt">1회 경유 DTT</span>
-												    		<span class="help-tooltip heltt-st2 small down">
+														</div>
+														<div class="info-time">
+															<span class="time-line"><span class="time2">16시간 22분</span></span>
+															<span class="txt">1회 경유 DTT</span>
+															<span class="help-tooltip heltt-st2 small down">
 																<span class="cont">
 																	디트로이트에서 환승 2시간 30분<br />
 																	로스앤젤레스에서 환승 3시간
 																</span>
 															</span>
-												    	</div>
-												    	<div class="arr-time">
-												    		<span class="time">23:15 <span class="gap">+1</span></span>
-												    		<span class="txt">LGA</span>
-												    		<span class="help-tooltip heltt-st2 small down">
+														</div>
+														<div class="arr-time">
+															<span class="time">23:15 <span class="gap">+1</span></span>
+															<span class="txt">LGA</span>
+															<span class="help-tooltip heltt-st2 small down">
 																<span class="cont">
 																	인천 / 터미널 1
 																</span>
 															</span>
-												    	</div>
+														</div>
 													</div>
 													<div class="hl-route-info">
-												    	<span class="btn-base bb-st6"><a href="#">상세스케줄</a></span>
+														<span class="btn-base bb-st6"><a href="#">상세스케줄</a></span>
 													</div>
 												</div>
 											</div>
@@ -2650,42 +2733,45 @@ $(function(){
 												<div class="htla-pricelist">
 													<ul class="hl-pricelist-info">
 														<li>
-                                                        	<span class="txt">현대카드 <em>10%</em> 청구 할인</span>
-                                                        	<span class="help-tooltip heltt-st2 small up">
+															<span class="txt">현대카드 <em>10%</em> 청구 할인</span>
+															<span class="help-tooltip heltt-st2 small up">
 																<span class="over">?</span>
 																<span class="cont">
-																	현대카드 청구 할인은 카드별 할인율이(7%/10%) 
-																	상이하며, 전월실적 충족 시 연간한도 1천만원 내에서 적용됩니다. 
-																	현대카드 Chameleon은 설정한 카드에 따라 혜택 및 
+																	현대카드 청구 할인은 카드별 할인율이(7%/10%)
+																	상이하며, 전월실적 충족 시 연간한도 1천만원 내에서 적용됩니다.
+																	현대카드 Chameleon은 설정한 카드에 따라 혜택 및
 																	할인금액 상이하게 적용됩니다.
 																</span>
 															</span>
-                                                        	<strong class="price">876,909원</strong>
+															<strong class="price">876,909원</strong>
 														</li>
 														<li>
-                                                        	<span class="txt">현대카드 <em>7%</em> 청구 할인</span>
-                                                        	<strong class="price">976,909원</strong>
+															<span class="txt">현대카드 <em>7%</em> 청구 할인</span>
+															<strong class="price">976,909원</strong>
 														</li>
 														<li class="privia-price">
-                                                        	<span class="txt">PRIVIA 특가</span>
-                                                        	<span class="help-tooltip heltt-st2 small down">
+															<span class="txt">PRIVIA 특가</span>
+															<span class="help-tooltip heltt-st2 small down">
 																<span class="over">?</span>
 																<span class="cont">
 																	<strong>현대카드 청구 할인 미적용 회원 및 *다른 결제수단으로 구매 시</strong>적용됩니다.<br />
 																	(* 다른 결제수단이란? 현대카드가 아닌 기타 신용카드, 현금) 현대카드 청구 할인과 중복 적용되지 않습니다.
 																</span>
 															</span>
-                                                        	<strong class="price">1,876,909원</strong>
+															<strong class="price">1,876,909원</strong>
 														</li>
 													</ul>
 													<div class="show-total-price">
-                                                    	<span class="area-over"><span class="a11y">총 요금 자세히 보기</span></span>
+														<span class="area-over"><span class="a11y">총 요금 자세히 보기</span></span>
 														<span class="help-tooltip heltt-st2 small left">
 															<span class="cont">
 																<table class="tbl-total-price">
 																	<colgroup>
 																		<caption>총 요금 자세히 보기</caption>
-																		<col width="25%"><col width="25%"><col width="25%"><col width="25%">
+																		<col width="25%">
+																		<col width="25%">
+																		<col width="25%">
+																		<col width="25%">
 																	</colgroup>
 																	<tbody>
 																		<tr>
@@ -2725,59 +2811,61 @@ $(function(){
 													</div>
 													<div class="hl-pricelist-btn">
 														<span class="able-sit">잔여 5석</span>
-                                 						<span class="btn-base bb-st3 bc-mgt btn-res"><a href="#">예약</a></span>
-                                  					</div>
+														<span class="btn-base bb-st3 bc-mgt btn-res"><a href="#">예약</a></span>
+													</div>
 												</div>
 											</div>
 										</div><!-- //inset -->
 									</li><!-- //loop -->
-									<li><!-- loop -->
-										<div class="inset"><!-- inset -->
+									<li>
+										<!-- loop -->
+										<div class="inset">
+											<!-- inset -->
 											<div class="hl-airline-benefit">
 												<span class="label-base lbr-st1 l-best"><span>BEST SALE</span></span>
 											</div>
 											<div class="inset-cell">
 												<div class="htla-airline">
 													<div class="hl-airline-logo">
-                                                    	<img src="//static.priviatravel.com/images/front/travel/contents/logo-air/KE.png" alt="KE">
-                                                    	<span class="name">대한항공</span>
-												    </div>
+														<img src="//static.priviatravel.com/images/front/travel/contents/logo-air/KE.png" alt="KE">
+														<span class="name">대한항공</span>
+													</div>
 												</div>
 											</div>
 											<div class="inset-cell">
 												<div class="htla-route">
 													<div class="hl-route-time">
-												    	<div class="dep-time">
-												    		<span class="time">10:35</span>
-												    		<span class="txt">ICN T1</span>
-												    		<span class="help-tooltip heltt-st2 small down">
+														<div class="dep-time">
+															<span class="time">10:35</span>
+															<span class="txt">ICN T1</span>
+															<span class="help-tooltip heltt-st2 small down">
 																<span class="cont">
 																	인천 / 터미널 1
 																</span>
 															</span>
-												    	</div>
-												    	<div class="info-time">
-												    		<span class="time-line"><span class="time2">16시간 22분</span></span>
-												    		<span class="txt">1회 경유 DTT</span>
-												    		<span class="help-tooltip heltt-st2 small down">
+														</div>
+														<div class="info-time">
+															<span class="time-line"><span class="time2">16시간 22분</span></span>
+															<span class="txt">1회 경유 DTT</span>
+															<span class="help-tooltip heltt-st2 small down">
 																<span class="cont">
 																	디트로이트에서 환승 2시간 30분<br />
 																	로스앤젤레스에서 환승 3시간
 																</span>
 															</span>
-												    	</div>
-												    	<div class="arr-time">
-												    		<span class="time">23:15 <span class="gap">+1</span></span>
-												    		<span class="txt">LGA</span>
-												    		<span class="help-tooltip heltt-st2 small down">
+														</div>
+														<div class="arr-time">
+															<span class="time">23:15 <span class="gap">+1</span></span>
+															<span class="txt">LGA</span>
+															<span class="help-tooltip heltt-st2 small down">
 																<span class="cont">
 																	인천 / 터미널 1
 																</span>
 															</span>
-												    	</div>
+														</div>
 													</div>
 													<div class="hl-route-info">
-												    	<span class="btn-base bb-st6"><a href="#">상세스케줄</a></span>
+														<span class="btn-base bb-st6"><a href="#">상세스케줄</a></span>
 													</div>
 												</div>
 											</div>
@@ -2789,49 +2877,52 @@ $(function(){
 													</div>
 													<div class="hl-info-btn">
 														<span class="btn-base bb-st6"><a href="#">요금규정</a></span>
-                                  					</div>
+													</div>
 												</div>
 											</div>
 											<div class="inset-cell">
 												<div class="htla-pricelist">
 													<ul class="hl-pricelist-info">
 														<li>
-                                                        	<span class="txt">현대카드 <em>10%</em> 청구 할인</span>
-                                                        	<span class="help-tooltip heltt-st2 small up">
+															<span class="txt">현대카드 <em>10%</em> 청구 할인</span>
+															<span class="help-tooltip heltt-st2 small up">
 																<span class="over">?</span>
 																<span class="cont">
-																	현대카드 청구 할인은 카드별 할인율이(7%/10%) 
-																	상이하며, 전월실적 충족 시 연간한도 1천만원 내에서 적용됩니다. 
-																	현대카드 Chameleon은 설정한 카드에 따라 혜택 및 
+																	현대카드 청구 할인은 카드별 할인율이(7%/10%)
+																	상이하며, 전월실적 충족 시 연간한도 1천만원 내에서 적용됩니다.
+																	현대카드 Chameleon은 설정한 카드에 따라 혜택 및
 																	할인금액 상이하게 적용됩니다.
 																</span>
 															</span>
-                                                        	<strong class="price">876,909원</strong>
+															<strong class="price">876,909원</strong>
 														</li>
 														<li>
-                                                        	<span class="txt">현대카드 <em>7%</em> 청구 할인</span>
-                                                        	<strong class="price">976,909원</strong>
+															<span class="txt">현대카드 <em>7%</em> 청구 할인</span>
+															<strong class="price">976,909원</strong>
 														</li>
 														<li class="privia-price">
-                                                        	<span class="txt">PRIVIA 특가</span>
-                                                        	<span class="help-tooltip heltt-st2 small down">
+															<span class="txt">PRIVIA 특가</span>
+															<span class="help-tooltip heltt-st2 small down">
 																<span class="over">?</span>
 																<span class="cont">
 																	<strong>현대카드 청구 할인 미적용 회원 및 *다른 결제수단으로 구매 시</strong>적용됩니다.<br />
 																	(* 다른 결제수단이란? 현대카드가 아닌 기타 신용카드, 현금) 현대카드 청구 할인과 중복 적용되지 않습니다.
 																</span>
 															</span>
-                                                        	<strong class="price">1,876,909원</strong>
+															<strong class="price">1,876,909원</strong>
 														</li>
 													</ul>
 													<div class="show-total-price">
-                                                    	<span class="area-over"><span class="a11y">총 요금 자세히 보기</span></span>
+														<span class="area-over"><span class="a11y">총 요금 자세히 보기</span></span>
 														<span class="help-tooltip heltt-st2 small left">
 															<span class="cont">
 																<table class="tbl-total-price">
 																	<colgroup>
 																		<caption>총 요금 자세히 보기</caption>
-																		<col width="25%"><col width="25%"><col width="25%"><col width="25%">
+																		<col width="25%">
+																		<col width="25%">
+																		<col width="25%">
+																		<col width="25%">
 																	</colgroup>
 																	<tbody>
 																		<tr>
@@ -2870,17 +2961,354 @@ $(function(){
 														</span>
 													</div>
 													<div class="hl-pricelist-btn">
-                                 						<span class="btn-base bb-st3 bc-mgt btn-res"><a href="#">예약</a></span>
-                                  					</div>
+														<span class="btn-base bb-st3 bc-mgt btn-res"><a href="#">예약</a></span>
+													</div>
 												</div>
 											</div>
 										</div><!-- //inset -->
 									</li><!-- //loop -->
 								</ul>
 								<!-- //리스트 -->
-								
-								<div class="htp-res-loading"><p>더 많은 항공을 검색중입니다.</p></div>
-								
+
+								<div class="htp-res-loading">
+									<p>더 많은 항공을 검색중입니다.</p>
+								</div>
+
+								<!-- skeleton loading -->
+								<ul class="hrla-skeleton">
+									<li>
+										<div class="inset">
+											<div class="inset-cell">
+												<div class="htla-airline">
+													<div class="hl-airline-logo"></div>
+												</div>
+											</div>
+											<div class="inset-cell">
+												<div class="htla-route">
+													<div class="hl-route-time skel-bg-ccc"></div>
+													<div class="hl-route-info"></div>
+												</div>
+											</div>
+											<div class="inset-cell">
+												<div class="htla-info">
+													<div class="hl-info-benefit">
+														<span></span>
+														<span></span>
+													</div>
+												</div>
+											</div>
+											<div class="inset-cell">
+												<div class="htla-pricelist">
+													<ul class="hl-pricelist-info">
+														<li><strong class="price"></strong></li>
+														<li><strong class="price"></strong></li>
+														<li class="privia-price"><strong class="price"></strong></li>
+													</ul>
+													<div class="hl-pricelist-btn"></div>
+												</div>
+											</div>
+										</div>
+									</li>
+									<li>
+										<div class="inset">
+											<div class="inset-cell">
+												<div class="htla-airline">
+													<div class="hl-airline-logo"></div>
+												</div>
+											</div>
+											<div class="inset-cell">
+												<div class="htla-route">
+													<div class="hl-route-time skel-bg-ccc"></div>
+													<div class="hl-route-info"></div>
+												</div>
+											</div>
+											<div class="inset-cell">
+												<div class="htla-info">
+													<div class="hl-info-benefit">
+														<span></span>
+														<span></span>
+													</div>
+												</div>
+											</div>
+											<div class="inset-cell">
+												<div class="htla-pricelist">
+													<ul class="hl-pricelist-info">
+														<li><strong class="price"></strong></li>
+														<li><strong class="price"></strong></li>
+														<li class="privia-price"><strong class="price"></strong></li>
+													</ul>
+													<div class="hl-pricelist-btn"></div>
+												</div>
+											</div>
+										</div>
+									</li>
+									<li>
+										<div class="inset">
+											<div class="inset-cell">
+												<div class="htla-airline">
+													<div class="hl-airline-logo"></div>
+												</div>
+											</div>
+											<div class="inset-cell">
+												<div class="htla-route">
+													<div class="hl-route-time skel-bg-ccc"></div>
+													<div class="hl-route-info"></div>
+												</div>
+											</div>
+											<div class="inset-cell">
+												<div class="htla-info">
+													<div class="hl-info-benefit">
+														<span></span>
+														<span></span>
+													</div>
+												</div>
+											</div>
+											<div class="inset-cell">
+												<div class="htla-pricelist">
+													<ul class="hl-pricelist-info">
+														<li><strong class="price"></strong></li>
+														<li><strong class="price"></strong></li>
+														<li class="privia-price"><strong class="price"></strong></li>
+													</ul>
+													<div class="hl-pricelist-btn"></div>
+												</div>
+											</div>
+										</div>
+									</li>
+									<li>
+										<div class="inset">
+											<div class="inset-cell">
+												<div class="htla-airline">
+													<div class="hl-airline-logo"></div>
+												</div>
+											</div>
+											<div class="inset-cell">
+												<div class="htla-route">
+													<div class="hl-route-time skel-bg-ccc"></div>
+													<div class="hl-route-info"></div>
+												</div>
+											</div>
+											<div class="inset-cell">
+												<div class="htla-info">
+													<div class="hl-info-benefit">
+														<span></span>
+														<span></span>
+													</div>
+												</div>
+											</div>
+											<div class="inset-cell">
+												<div class="htla-pricelist">
+													<ul class="hl-pricelist-info">
+														<li><strong class="price"></strong></li>
+														<li><strong class="price"></strong></li>
+														<li class="privia-price"><strong class="price"></strong></li>
+													</ul>
+													<div class="hl-pricelist-btn"></div>
+												</div>
+											</div>
+										</div>
+									</li>
+									<li>
+										<div class="inset">
+											<div class="inset-cell">
+												<div class="htla-airline">
+													<div class="hl-airline-logo"></div>
+												</div>
+											</div>
+											<div class="inset-cell">
+												<div class="htla-route">
+													<div class="hl-route-time skel-bg-ccc"></div>
+													<div class="hl-route-info"></div>
+												</div>
+											</div>
+											<div class="inset-cell">
+												<div class="htla-info">
+													<div class="hl-info-benefit">
+														<span></span>
+														<span></span>
+													</div>
+												</div>
+											</div>
+											<div class="inset-cell">
+												<div class="htla-pricelist">
+													<ul class="hl-pricelist-info">
+														<li><strong class="price"></strong></li>
+														<li><strong class="price"></strong></li>
+														<li class="privia-price"><strong class="price"></strong></li>
+													</ul>
+													<div class="hl-pricelist-btn"></div>
+												</div>
+											</div>
+										</div>
+									</li>
+									<li>
+										<div class="inset">
+											<div class="inset-cell">
+												<div class="htla-airline">
+													<div class="hl-airline-logo"></div>
+												</div>
+											</div>
+											<div class="inset-cell">
+												<div class="htla-route">
+													<div class="hl-route-time skel-bg-ccc"></div>
+													<div class="hl-route-info"></div>
+												</div>
+											</div>
+											<div class="inset-cell">
+												<div class="htla-info">
+													<div class="hl-info-benefit">
+														<span></span>
+														<span></span>
+													</div>
+												</div>
+											</div>
+											<div class="inset-cell">
+												<div class="htla-pricelist">
+													<ul class="hl-pricelist-info">
+														<li><strong class="price"></strong></li>
+														<li><strong class="price"></strong></li>
+														<li class="privia-price"><strong class="price"></strong></li>
+													</ul>
+													<div class="hl-pricelist-btn"></div>
+												</div>
+											</div>
+										</div>
+									</li>
+									<li>
+										<div class="inset">
+											<div class="inset-cell">
+												<div class="htla-airline">
+													<div class="hl-airline-logo"></div>
+												</div>
+											</div>
+											<div class="inset-cell">
+												<div class="htla-route">
+													<div class="hl-route-time skel-bg-ccc"></div>
+													<div class="hl-route-info"></div>
+												</div>
+											</div>
+											<div class="inset-cell">
+												<div class="htla-info">
+													<div class="hl-info-benefit">
+														<span></span>
+														<span></span>
+													</div>
+												</div>
+											</div>
+											<div class="inset-cell">
+												<div class="htla-pricelist">
+													<ul class="hl-pricelist-info">
+														<li><strong class="price"></strong></li>
+														<li><strong class="price"></strong></li>
+														<li class="privia-price"><strong class="price"></strong></li>
+													</ul>
+													<div class="hl-pricelist-btn"></div>
+												</div>
+											</div>
+										</div>
+									</li>
+									<li>
+										<div class="inset">
+											<div class="inset-cell">
+												<div class="htla-airline">
+													<div class="hl-airline-logo"></div>
+												</div>
+											</div>
+											<div class="inset-cell">
+												<div class="htla-route">
+													<div class="hl-route-time skel-bg-ccc"></div>
+													<div class="hl-route-info"></div>
+												</div>
+											</div>
+											<div class="inset-cell">
+												<div class="htla-info">
+													<div class="hl-info-benefit">
+														<span></span>
+														<span></span>
+													</div>
+												</div>
+											</div>
+											<div class="inset-cell">
+												<div class="htla-pricelist">
+													<ul class="hl-pricelist-info">
+														<li><strong class="price"></strong></li>
+														<li><strong class="price"></strong></li>
+														<li class="privia-price"><strong class="price"></strong></li>
+													</ul>
+													<div class="hl-pricelist-btn"></div>
+												</div>
+											</div>
+										</div>
+									</li>
+									<li>
+										<div class="inset">
+											<div class="inset-cell">
+												<div class="htla-airline">
+													<div class="hl-airline-logo"></div>
+												</div>
+											</div>
+											<div class="inset-cell">
+												<div class="htla-route">
+													<div class="hl-route-time skel-bg-ccc"></div>
+													<div class="hl-route-info"></div>
+												</div>
+											</div>
+											<div class="inset-cell">
+												<div class="htla-info">
+													<div class="hl-info-benefit">
+														<span></span>
+														<span></span>
+													</div>
+												</div>
+											</div>
+											<div class="inset-cell">
+												<div class="htla-pricelist">
+													<ul class="hl-pricelist-info">
+														<li><strong class="price"></strong></li>
+														<li><strong class="price"></strong></li>
+														<li class="privia-price"><strong class="price"></strong></li>
+													</ul>
+													<div class="hl-pricelist-btn"></div>
+												</div>
+											</div>
+										</div>
+									</li>
+									<li>
+										<div class="inset">
+											<div class="inset-cell">
+												<div class="htla-airline">
+													<div class="hl-airline-logo"></div>
+												</div>
+											</div>
+											<div class="inset-cell">
+												<div class="htla-route">
+													<div class="hl-route-time skel-bg-ccc"></div>
+													<div class="hl-route-info"></div>
+												</div>
+											</div>
+											<div class="inset-cell">
+												<div class="htla-info">
+													<div class="hl-info-benefit">
+														<span></span>
+														<span></span>
+													</div>
+												</div>
+											</div>
+											<div class="inset-cell">
+												<div class="htla-pricelist">
+													<ul class="hl-pricelist-info">
+														<li><strong class="price"></strong></li>
+														<li><strong class="price"></strong></li>
+														<li class="privia-price"><strong class="price"></strong></li>
+													</ul>
+													<div class="hl-pricelist-btn"></div>
+												</div>
+											</div>
+										</div>
+									</li>
+								</ul>
+								<!-- //skeleton loading -->
+
 							</div><!-- //htp-res-inner -->
 						</div><!-- //htp-res-wrap -->
 					</div>
@@ -2890,7 +3318,7 @@ $(function(){
 			<!-- //htp-list-sec -->
 		</div>
 		<!-- //w-content-sec -->
-		
+
 		<!-- ui-skyScraper -->
 		<div class="ui-skyScraper">
 			<div class="layout-right">
@@ -2906,7 +3334,7 @@ $(function(){
 		<!-- //ui-skyScraper -->
 	</div>
 	<!-- //#content -->
-	
+
 	<!-- #footer-sec -->
 	<div id="footer-sec">
 		<div class="w-footer-sec ly-inner">
