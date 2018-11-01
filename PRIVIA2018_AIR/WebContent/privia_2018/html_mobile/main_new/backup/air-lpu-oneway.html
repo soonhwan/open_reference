@@ -1,0 +1,321 @@
+<!doctype html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=no" />
+<meta name="format-detection" content="telephone=no" />
+<title>무제 문서</title>
+<link rel="shortcut icon" type="image/x-icon" href="//tmstatic.priviatravel.com/images/front/mtravel/common/favicon.ico" />
+<link rel="apple-touch-icon-precomposed" sizes="152x152" href="//tmstatic.priviatravel.com/images/front/mtravel/common/apple-touch-icon-152.png" />
+<link type="text/css" rel="stylesheet" href="/css/front/mtravel/jquery.mobile.1.4.2.css" />
+<link type="text/css" rel="stylesheet" href="/css/front/mtravel/jquery-ui.min.css" /> <!-- 프비 리뉴얼 css(jquery-ui 관련) -->
+<link type="text/css" rel="stylesheet" href="/css/front/mtravel/swiper.min.css" /> <!-- 프비 리뉴얼 css(슬라이드 관련) -->
+<link type="text/css" rel="stylesheet" href="/css/front/mtravel/jquery.mCustomScrollbar.min.css" />
+<link type="text/css" rel="stylesheet" href="/css/front/mtravel/base.css" />
+<link type="text/css" rel="stylesheet" href="/css/front/mtravel/common.css" />
+<link type="text/css" rel="stylesheet" href="/css/front/mtravel/contents.css" />
+<link type="text/css" rel="stylesheet" href="/css/front/mtravel/promotion.css" /> <!-- 기획전 페이지에 필요한 css -->
+<link type="text/css" rel="stylesheet" href="/css/front/mtravel/commonModuleM.css" /> <!-- 프비 리뉴얼 css -->
+
+<script type="text/javascript" src="/js/front/mtravel/jquery-1.8.3.min.js"></script>
+<script type="text/javascript" src="/js/front/mtravel/jquery-ui.min.js"></script><!-- 프비 리뉴얼 js(jquery-ui) -->
+<script type="text/javascript" src="/js/front/mtravel/init.js"></script>
+<script type="text/javascript" src="/js/front/mtravel/jquery.mobile-1.4.2.js"></script>
+<script type="text/javascript" src="/js/front/mtravel/jquery.mCustomScrollbar.concat.min.js"></script>
+<script type="text/javascript" src="/js/front/mtravel/main_datepicker.js"></script> <!-- 캘린더 운영 버전 -->
+<!--<script type="text/javascript" src="/js/front/mtravel/main_datepicker_dev.js"></script>--> <!-- 캘린더 테스트 버전 -->
+<script type="text/javascript" src="/js/front/mtravel/swipe.js"></script> <!-- 기존 슬라이드 관련 js -->
+<script type="text/javascript" src="/js/front/mtravel/swiper.min.js"></script> <!-- 프비 리뉴얼 js(슬라이드 관련) -->
+<!--<script type="text/javascript" src="/js/front/mtravel/commonUI.js"></script>--> <!-- commonUI 운영 버전 -->
+<script type="text/javascript" src="/js/front/mtravel/commonUI-dev.js"></script> <!-- commonUI 테스트 버전 -->
+<script type="text/javascript" src="/js/front/mtravel/commonModuleM.js"></script> <!-- 프비 리뉴얼 js -->
+<script type="text/javascript" src="/js/front/mtravel/commonModuleSearchM.js"></script> <!-- 프비 리뉴얼 js(가이드버전) -->
+<script type="text/javascript" src="/js/utils.js"></script>
+</head>
+
+<body>
+
+<!-- page -->
+<div data-role="page" class="o-bg-air"><!-- 검색섹션 배경색 -->
+    
+    <!-- header-sec -->
+    <div class="header-sec">
+        <header class="w-header-sec">
+            <h2 class="whs-title">출발 도시 선택</h2>
+            <div class="ly-left">
+                <a href="#" class="b-back" data-rel="back" data-direction="reverse"><span class="a11y">이전 페이지로 가기</span></a>
+                <a href="#" class="b-close" data-rel="back"><span class="a11y">페이지 닫기</span></a>
+            </div>
+        </header>
+    </div>
+    <!-- //header-sec -->
+           
+    <!-- content-sec -->
+    <div class="content-sec">
+        <section class="w-content-sec">
+            <div class="w-search-lp ot-oneway">
+                <!-- 검색 탭 -->
+                <div class="sc-search-tab">
+                    <div class="sst-inner">
+                        <ul class="list-tab">
+                            <li>
+                                <ul class="li-col2 slt-places">
+                                    <li>
+                                       <a href="#" class="slt-area" data-tab="mainsel">
+                                            <span class="slt-input on">ICN</span>
+                                        </a>                                    
+                                    </li>
+                                    <li>
+                                        <a href="#" class="slt-area on" data-tab="mainsel">
+                                            <span class="slt-input">도착</span>
+                                        </a>
+                                    </li>
+                                </ul>
+                            </li>
+                            <li>
+                                <a href="#" class="slt-area" data-tab="calendar">
+                                    <span class="slt-chkin slt-input" data-day="">출발일</span>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="#" class="slt-area" data-tab="capacity">
+                                    <span class="slt-input">성인1,일반석</span>
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+                <!-- //검색 탭 -->
+            
+                <!-- 검색 box 영역 -->
+                <div class="sc-search-area">
+                    <div class="list-ssa">
+                        <div class="ssa-ui-box uis-mainsel on">
+                            <div class="uis-input isVal">
+                                <input type="keyword" placeholder="어디서 출발 하시나요?" class="input-base inp-search">
+                                <span class="btn-base b-clear"><button type="button"><span class="a11y">검색어 지우기</span></button></span>
+                            </div>
+                            <div class="w-uis-sec">
+                                <div class="uis-sec">
+                                    <p class="tit">최근 검색지</p>
+                                    <ul class="list uis-list recently">
+                                        <li>
+                                            <a href="#">
+                                                <span class="name">인천</span>
+                                                <span class="name-det">대한민국, 인천국제공항</span>
+                                                <span class="code">ICN</span>
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a href="#">
+                                                <span class="name">김포</span>
+                                                <span class="name-det">대한민국, 김포국제공항</span>
+                                                <span class="code">GMP</span>
+                                            </a>
+                                        </li>
+                                    </ul>
+                                </div> 
+                                <div class="uis-sec">
+                                    <p class="tit">추천 공항</p>
+                                    <ul class="list uis-list recommend">
+                                        <li class="on">
+                                            <a href="#" class="tit-rec">국내</a>
+                                            <ul class="list-sub">
+                                                <li>
+                                                    <a href="#">
+                                                        <span class="name">인천</span>
+                                                        <span class="name-det">대한민국, 인천국제공항</span>
+                                                        <span class="code">ICN</span>
+                                                    </a>
+                                                </li>
+                                                <li>
+                                                    <a href="#">
+                                                        <span class="name">김포</span>
+                                                        <span class="name-det">대한민국, 김포국제공항</span>
+                                                        <span class="code">GMP</span>
+                                                    </a>
+                                                </li>
+                                                <li>
+                                                    <a href="#">
+                                                        <span class="name">부산</span>
+                                                        <span class="name-det">대한민국, 부산공항</span>
+                                                        <span class="code">PUS</span>
+                                                    </a>
+                                                </li>
+                                                <li>
+                                                    <a href="#">
+                                                        <span class="name">제주</span>
+                                                        <span class="name-det">대한민국, 제주공항</span>
+                                                        <span class="code">CJU</span>
+                                                    </a>
+                                                </li>
+                                            </ul>
+                                        </li>
+                                        <li>
+                                            <a href="#" class="tit-rec">홍콩/중국</a>
+                                            <ul class="list-sub">
+                                                <li>
+                                                    <a href="#">
+                                                        <span class="name">인천</span>
+                                                        <span class="name-det">대한민국, 인천국제공항</span>
+                                                        <span class="code">ICN</span>
+                                                    </a>
+                                                </li>
+                                            </ul>
+                                        </li>
+                                    </ul>
+                                </div> 
+                                <div class="uis-sec">
+                                    <p class="tit">검색결과</p>
+                                    <ul class="list uis-list result">
+                                        <li>
+                                            <a href="#">
+                                                <span class="name">서울</span>
+                                                <span class="name-det">대한민국, 모든공항</span>
+                                                <span class="code">SEL</span>
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a href="#">
+                                                <span class="name">인천</span>
+                                                <span class="name-det">대한민국, 인천국제공항</span>
+                                                <span class="code">ICN</span>
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a href="#">
+                                                <span class="name">김포</span>
+                                                <span class="name-det">대한민국, 김포제공항</span>
+                                                <span class="code">GMP</span>
+                                            </a>
+                                        </li>
+                                    </ul>
+                                </div>                                  
+                            </div>
+                        </div>
+                        <div class="ssa-ui-box uis-calendar">
+                            <div class="uis-datepicker-weekend">
+                                <div class="udw-inner">
+                                    <ul>
+                                        <li>일</li>
+                                        <li>월</li>
+                                        <li>화</li>
+                                        <li>수</li>
+                                        <li>목</li>
+                                        <li>금</li>
+                                        <li>토</li>
+                                    </ul>
+                                </div>
+                            </div>
+                            <div class="uis-datepicker"></div>
+                        </div>
+                        <div class="ssa-ui-box uis-capacity">
+                            <div class="w-uis-sec">
+                                <div class="uis-sec">
+                                    <p class="tit">인원</p>
+                                    <ul class="list uis-capacity-number">
+                                        <li>
+                                            <span>
+                                                <span class="name">성인</span>
+                                                <span class="name-det">
+                                                    <span class="exp-int">만 12세 이상</span>
+                                                    <span class="exp-dom">만 13세 이상</span>
+                                                </span>
+                                            </span>
+                                            <div class="uis-custom-number">
+                                                <span class="btn-base ucn-crt b-minus on">
+                                                    <button type="button" data-type="adt-minus"><span class="a11y">빼기</span></button>
+                                                </span>
+                                                <span class="ucn-num num-adt">1</span>
+                                                <span class="btn-base ucn-crt b-plus on">
+                                                    <button type="button" data-type="adt-plus"><span class="a11y">더하기</span></button>
+                                                </span>
+                                            </div>
+                                        </li>
+                                        <li>
+                                            <span>
+                                                <span class="name">아동</span>
+                                                <span class="name-det">
+                                                    <span class="exp-int">만 12세 미만</span>
+                                                    <span class="exp-dom">만 13세 미만</span>
+                                                </span>
+                                            </span>
+                                            <div class="uis-custom-number">
+                                                <span class="btn-base ucn-crt b-minus">
+                                                    <button type="button" data-type="chd-minus"><span class="a11y">빼기</span></button>
+                                                </span>
+                                                <span class="ucn-num num-chd">0</span>
+                                                <span class="btn-base ucn-crt b-plus">
+                                                    <button type="button" data-type="chd-plus"><span class="a11y">더하기</span></button>
+                                                </span>
+                                            </div>
+                                        </li>
+                                        <li>
+                                            <span>
+                                                <span class="name">유아</span>
+                                                <span class="name-det">만 24개월 미만</span>
+                                            </span>
+                                            <div class="uis-custom-number">
+                                                <span class="btn-base ucn-crt b-minus">
+                                                    <button type="button" data-type="inf-minus"><span class="a11y">빼기</span></button>
+                                                </span>
+                                                <span class="ucn-num num-inf">0</span>
+                                                <span class="btn-base ucn-crt b-plus">
+                                                    <button type="button" data-type="inf-plus"><span class="a11y">더하기</span></button>
+                                                </span>
+                                            </div>
+                                        </li>
+                                    </ul>
+                                    <p class="uis-txt-area1">* 탑승객 나이는 탑승일 기준입니다.</p>
+                                </div>
+                                <div class="uis-sec">
+                                    <p class="tit">좌석등급</p>
+                                    <ul class="list uis-capacity-select">
+                                        <li>
+                                            <a href="#">
+                                                <span class="name">일반석</span>
+                                            </a>
+                                        </li>
+                                        <li class="on">
+                                            <a href="#">
+                                                <span class="name">프리미엄 이코노미</span>
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a href="#">
+                                                <span class="name">비즈니스석</span>
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a href="#">
+                                                <span class="name">일등석</span>
+                                            </a>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+                            <div class="btn-search">
+                                <span class="btn-base bb-st3"><button type="button" class="b-search">항공권 검색</button></span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- //검색 box 영역 -->
+            </div>
+        </section>
+    </div>
+    <!-- //content-sec -->
+    
+    <script type="text/javascript">
+    $(document).one('pageshow',function(e,data){      
+        pvmSearch.comSearchAirLpu();
+    });
+    </script>
+</div>
+<!-- //page -->
+
+
+
+    
+</body>
+</html>

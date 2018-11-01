@@ -1,0 +1,355 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=no" />
+<meta name="format-detection" content="telephone=no" />
+<title>PRIVIA 여행</title>
+<meta name="description" content=" "> 
+<meta property="og:title" content=" "> 
+<meta property="og:image" content="http://static.priviatravel.com/images/front/mtravel/common/mobile_17004159046.png"> 
+<meta property="og:description" content=" ">
+<link rel="shortcut icon" type="image/x-icon" href="//static.priviatravel.com/images/front/mtravel/common/favicon.ico" />
+<link rel="apple-touch-icon-precomposed" sizes="152x152" href="//static.priviatravel.com/images/front/mtravel/common/apple-touch-icon-152.png" />
+<link type="text/css" rel="stylesheet" href="/css/front/mtravel/jquery.mobile.1.4.2.css" />
+<link type="text/css" rel="stylesheet" href="/css/front/mtravel/jquery-ui.min.css" />
+<link type="text/css" rel="stylesheet" href="/css/front/mtravel/swiper.min.css" />
+<link type="text/css" rel="stylesheet" href="/css/front/mtravel/base.css" />
+<link type="text/css" rel="stylesheet" href="/css/front/mtravel/common.css" />
+<link type="text/css" rel="stylesheet" href="/css/front/mtravel/contents.css" />
+<script type="text/javascript" src="/js/front/mtravel/jquery-1.8.3.min.js"></script>
+<script type="text/javascript" src="/js/front/mtravel/jquery-ui.min.js"></script>
+<script type="text/javascript" src="/js/front/mtravel/init.js"></script>
+<script type="text/javascript" src="/js/front/mtravel/jquery.mobile-1.4.2.js"></script>
+<script type="text/javascript" src="/js/front/mtravel/swiper.min.js"></script>
+<script type="text/javascript" src="/js/front/mtravel/commonModuleSearchM.js"></script> <!-- headerManager 가이드 버전 실제로는 반영 되지 않음 -->
+<script type="text/javascript" src="/js/front/mtravel/commonUI.js"></script>
+<script type="text/javascript" src="/js/utils.js"></script>
+</head>
+
+<body>
+
+<!-- page -->
+<div data-role="page">
+    
+    <!-- header-sec -->
+    <div class="header-sec">
+        <header class="w-header-sec">
+            <h2 class="whs-title">여행지 검색</h2>
+            <div class="ly-left">
+                <a href="#" class="b-back" data-rel="back" data-direction="reverse"><span class="a11y">이전 페이지로 가기</span></a>
+                <a href="#" class="b-close" data-rel="back"><span class="a11y">페이지 닫기</span></a>
+            </div>
+        </header>
+    </div>
+    <!-- //header-sec -->
+           
+    <!-- content-sec -->
+    <div class="content-sec">
+        <section class="w-content-sec">
+            <div class="w-search-lp o-bg-hotel">
+                <!-- 검색 탭 -->
+                <div class="sc-search-tab">
+                    <div class="sst-inner">
+                        <ul class="list-tab">
+                            <li class="slt-places">
+                                <a href="#" class="slt-area" data-tab="mainsel">
+                                    <span class="slt-input" data-city="">도시, 호텔명</span>
+                                </a>
+                            </li>
+                            <li class="slt-dates">
+                                <a href="#" class="slt-area" data-tab="calendar">
+                                    <span class="slt-chkin slt-input" data-day="">숙박날짜</span>
+                                    <span class="slt-chkout slt-input" data-day=""></span>
+                                </a>
+                            </li>
+                            <li class="slt-capacity">
+                                <a href="#" class="slt-area" data-tab="capacity">
+                                    <span class="slt-input">객실타입</span>
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+                <!-- //검색 탭 -->
+            
+                <!-- 검색 box 영역 -->
+                <div class="sc-search-area">
+                    <div class="list-ssa">
+                        <div class="ssa-ui-box uis-mainsel">
+                            <div class="uis-input">
+                                <input type="text" placeholder="어디로 가시나요?" class="input-base inp-search"><!-- #32907 수정 -->
+                                <span class="inp-exp">도시, 호텔명 모두 검색 가능</span>
+                                <span class="btn-base b-clear"><button type="button"><span class="a11y">검색어 지우기</span></button></span>
+                            </div>
+                            <div class="w-uis-sec">
+                                <div class="uis-sec">
+                                    <p class="tit">추천 도시</p>
+                                    <ul class="list uis-list recommend">
+                                        <li>
+                                            <a href="#" class="tit-rec">아시아</a>
+                                            <div class="w-list-sub">
+                                                <ul class="list-sub li-col2">
+                                                    <li><a href="#"><span class="name">다낭</span></a></li>
+                                                    <li><a href="#"><span class="name">싱가포르</span></a></li>
+                                                    <li><a href="#"><span class="name">방콕</span></a></li>
+                                                    <li><a href="#"><span class="name">세부</span></a></li>
+                                                    <li><a href="#"><span class="name">코타키나발루</span></a></li>
+                                                    <li><a href="#"><span class="name">발리</span></a></li>
+                                                    <li><a href="#"><span class="name">푸켓</span></a></li>
+                                                    <li><a href="#"><span class="name">마닐라</span></a></li>
+                                                    <li><a href="#"><span class="name">파타야</span></a></li>
+                                                    <li><a href="#"><span class="name">보라카이</span></a></li>
+                                                    <li><a href="#"><span class="name">나트랑</span></a></li>
+                                                    <li><a href="#"><span class="name">호이안</span></a></li>
+                                                    <li><a href="#"><span class="name">호치민</span></a></li>
+                                                    <li><a href="#"><span class="name">하노이</span></a></li>
+                                                    <li><a href="#"><span class="name">쿠알라룸푸르</span></a></li>
+                                                </ul>
+                                            </div>
+                                        </li>
+                                        <li>
+                                            <a href="#" class="tit-rec">홍콩/중국</a>
+                                            <div class="w-list-sub">
+                                                <ul class="list-sub li-col2">
+                                                    <li><a href="#"><span class="name">홍콩</span></a></li>
+                                                    <li><a href="#"><span class="name">타이페이</span></a></li>
+                                                    <li><a href="#"><span class="name">마카오</span></a></li>
+                                                    <li><a href="#"><span class="name">상해</span></a></li>
+                                                    <li><a href="#"><span class="name">북경</span></a></li>
+                                                    <li><a href="#"><span class="name">청도</span></a></li>
+                                                    <li><a href="#"><span class="name">광저우</span></a></li>
+                                                </ul>
+                                            </div>
+                                        </li>
+                                        <li>
+                                            <a href="#" class="tit-rec">일본</a>
+                                            <div class="w-list-sub">
+                                                <ul class="list-sub li-col2">
+                                                    <li><a href="#"><span class="name">오키나와</span></a></li>
+                                                    <li><a href="#"><span class="name">오사카</span></a></li>
+                                                    <li><a href="#"><span class="name">도쿄</span></a></li>
+                                                    <li><a href="#"><span class="name">후쿠오카</span></a></li>
+                                                    <li><a href="#"><span class="name">삿포로</span></a></li>
+                                                    <li><a href="#"><span class="name">교토</span></a></li>
+                                                    <li><a href="#"><span class="name">유후인</span></a></li>
+                                                    <li><a href="#"><span class="name">나고야</span></a></li>
+                                                    <li><a href="#"><span class="name">노보리베츠</span></a></li>
+                                                </ul>
+                                            </div>
+                                        </li>
+                                        <li>
+                                            <a href="#" class="tit-rec">남태평양</a>
+                                            <div class="w-list-sub">
+                                                <ul class="list-sub li-col2">
+                                                    <li><a href="#"><span class="name">괌</span></a></li>
+                                                    <li><a href="#"><span class="name">사이판</span></a></li>
+                                                    <li><a href="#"><span class="name">시드니</span></a></li>
+                                                    <li><a href="#"><span class="name">멜버른</span></a></li>
+                                                </ul>
+                                            </div>
+                                        </li>
+                                        <li>
+                                            <a href="#" class="tit-rec">유럽</a>
+                                            <div class="w-list-sub">
+                                                <ul class="list-sub li-col2">
+                                                    <li><a href="#"><span class="name">파리</span></a></li>
+                                                    <li><a href="#"><span class="name">로마</span></a></li>
+                                                    <li><a href="#"><span class="name">런던</span></a></li>
+                                                    <li><a href="#"><span class="name">프라하</span></a></li>
+                                                    <li><a href="#"><span class="name">피렌체</span></a></li>
+                                                    <li><a href="#"><span class="name">바르셀로나</span></a></li>
+                                                    <li><a href="#"><span class="name">밀라노</span></a></li>
+                                                    <li><a href="#"><span class="name">베니스</span></a></li>
+                                                    <li><a href="#"><span class="name">부다페스트</span></a></li>
+                                                    <li><a href="#"><span class="name">비앤나</span></a></li>
+                                                </ul>
+                                            </div>
+                                        </li>
+                                        <li>
+                                            <a href="#" class="tit-rec">미주/캐나다</a>
+                                            <div class="w-list-sub">
+                                                <ul class="list-sub li-col2">
+                                                    <li><a href="#"><span class="name">호놀룰루</span></a></li>
+                                                    <li><a href="#"><span class="name">마우이</span></a></li>
+                                                    <li><a href="#"><span class="name">라스베가스</span></a></li>
+                                                    <li><a href="#"><span class="name">뉴욕</span></a></li>
+                                                    <li><a href="#"><span class="name">샌프란시스코</span></a></li>
+                                                    <li><a href="#"><span class="name">시카고</span></a></li>
+                                                    <li><a href="#"><span class="name">로스앤젤레스</span></a></li>
+                                                    <li><a href="#"><span class="name">밴쿠버</span></a></li>
+                                                    <li><a href="#"><span class="name">토론토</span></a></li>
+                                                </ul>
+                                            </div>
+                                        </li>
+                                    </ul>
+                                </div> 
+                                <div class="uis-sec">
+                                    <p class="tit">추천 도시</p>
+                                    <ul class="list uis-list recommend">
+                                        <li><a href="#"><span class="name">제주도 전체</span></a></li>
+                                        <li><a href="#"><span class="name">서울특별시 전체</span></a></li>
+                                        <li><a href="#"><span class="name">부산광역시 전체</span></a></li>
+                                        <li><a href="#"><span class="name">인천광역시 전체</span></a></li>
+                                        <li><a href="#"><span class="name">광주광역시 전체</span></a></li>
+                                        <li><a href="#"><span class="name">대구광역시 전체</span></a></li>
+                                        <li><a href="#"><span class="name">대전광역시 전체</span></a></li>
+                                        <li><a href="#"><span class="name">울산광역시 전체</span></a></li>
+                                        <li><a href="#"><span class="name">강원도 전체</span></a></li>
+                                        <li><a href="#"><span class="name">경기도 전체</span></a></li>
+                                        <li><a href="#"><span class="name">경상남도 전체</span></a></li>
+                                        <li><a href="#"><span class="name">경상북도 전체</span></a></li>
+                                        <li><a href="#"><span class="name">전라남도 전체</span></a></li>
+                                        <li><a href="#"><span class="name">전라북도 전체</span></a></li>
+                                        <li><a href="#"><span class="name">충청남도 전체</span></a></li>
+                                        <li><a href="#"><span class="name">충청북도 전체</span></a></li>
+                                    </ul>
+                                </div> 
+                                <div class="uis-sec">
+                                    <p class="tit">검색결과</p>
+                                    <ul class="list uis-list result">
+                                        <li>
+                                            <a href="#">
+                                                <span class="label-base lbr-st1"><span>HOTEL</span></span>
+                                                <span class="name">파리, 프랑스 (PARIS, FRANCE)</span>
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a href="#">
+                                                <span class="label-base lbr-st1"><span>HOTEL</span></span>
+                                                <span class="name">파리 샤를드골 공항(CDG), 프랑스</span>
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a href="#">
+                                                <span class="label-base lbr-st1"><span>CITY</span></span>
+                                                <span class="name">파리(TN), 미국</span>
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a href="#">
+                                                <span class="label-base lbr-st1"><span>HOTEL</span></span>
+                                                <span class="name">모던 다운타운 오아시스 알로하 스위트, 코타키나발루, 말레이시아</span>
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a href="#">
+                                                <span class="label-base lbr-st1"><span>HOTEL</span></span>
+                                                <span class="name">부산, 해운대구</span>
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a href="#">
+                                                <span class="label-base lbr-st1"><span>HOTEL</span></span>
+                                                <span class="name">부산, 해운대구 파라다이스 호텔 파라딩스 리조트</span>
+                                            </a>
+                                        </li>
+                                    </ul>
+                                </div>                                  
+                            </div>
+                        </div>
+                        <div class="ssa-ui-box uis-calendar">
+                            <div class="uis-datepicker-weekend">
+                                <div class="udw-inner">
+                                    <ul>
+                                        <li>일</li>
+                                        <li>월</li>
+                                        <li>화</li>
+                                        <li>수</li>
+                                        <li>목</li>
+                                        <li>금</li>
+                                        <li>토</li>
+                                    </ul>
+                                </div>
+                            </div>
+                            <div class="uis-datepicker"></div>
+                        </div>
+                        <div class="ssa-ui-box uis-capacity">
+                            <div class="w-uis-sec">
+                                <div class="uis-sec">
+                                    <p class="tit">객실 타입</p>
+                                    <ul class="list uis-capacity-number">
+                                        <li>
+                                            <span>
+                                                <span class="name">1인실</span>
+                                            </span>
+                                            <div class="uis-custom-number" data-ucn='{"type":"room1","min":0,"max":3}'>
+                                                <span class="btn-base ucn-crt b-minus on">
+                                                    <button type="button" data-type="room1-minus"><span class="a11y">빼기</span></button>
+                                                </span>
+                                                <span class="ucn-num num-room1">0</span>
+                                                <span class="btn-base ucn-crt b-plus on">
+                                                    <button type="button" data-type="room1-plus"><span class="a11y">더하기</span></button>
+                                                </span>
+                                            </div>
+                                        </li>
+                                        <li>
+                                            <span>
+                                                <span class="name">2인실 (더블요청)</span>
+                                            </span>
+                                            <div class="uis-custom-number" data-ucn='{"type":"room2d","min":0,"max":3}'>
+                                                <span class="btn-base ucn-crt b-minus">
+                                                    <button type="button" data-type="room2d-minus"><span class="a11y">빼기</span></button>
+                                                </span>
+                                                <span class="ucn-num num-room2d">0</span>
+                                                <span class="btn-base ucn-crt b-plus">
+                                                    <button type="button" data-type="room2d-plus"><span class="a11y">더하기</span></button>
+                                                </span>
+                                            </div>
+                                        </li>
+                                        <li>
+                                            <span>
+                                                <span class="name">2인실 (트윈요청)</span>
+                                            </span>
+                                            <div class="uis-custom-number" data-ucn='{"type":"room2t","min":0,"max":3}'>
+                                                <span class="btn-base ucn-crt b-minus">
+                                                    <button type="button" data-type="room2t-minus"><span class="a11y">빼기</span></button>
+                                                </span>
+                                                <span class="ucn-num num-room2t">0</span>
+                                                <span class="btn-base ucn-crt b-plus">
+                                                    <button type="button" data-type="room2t-plus"><span class="a11y">더하기</span></button>
+                                                </span>
+                                            </div>
+                                        </li>
+                                        <li>
+                                            <span>
+                                                <span class="name">3인실</span>
+                                            </span>
+                                            <div class="uis-custom-number" data-ucn='{"type":"room3","min":0,"max":3}'>
+                                                <span class="btn-base ucn-crt b-minus">
+                                                    <button type="button" data-type="room3-minus"><span class="a11y">빼기</span></button>
+                                                </span>
+                                                <span class="ucn-num num-room3">0</span>
+                                                <span class="btn-base ucn-crt b-plus">
+                                                    <button type="button" data-type="room3-plus"><span class="a11y">더하기</span></button>
+                                                </span>
+                                            </div>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+                            <div class="btn-search">
+                                <span class="btn-base bb-st3"><button type="button" class="b-search">호텔 검색</button></span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- //검색 box 영역 -->
+            </div>
+        </section>
+    </div>
+    <!-- //content-sec -->
+    
+    <script type="text/javascript">
+    $(document).one('pageshow',function(e,data){      
+        pvmSearch.comSearchHotelLpu();
+    });
+    </script>
+</div>
+<!-- //page -->
+
+
+
+    
+</body>
+</html>

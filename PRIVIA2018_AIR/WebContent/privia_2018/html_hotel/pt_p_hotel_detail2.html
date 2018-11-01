@@ -295,12 +295,13 @@ $(function(){
 														</span>
 													</a>
 												</div>
-												<div class="qsb-cont qsb-capacity">
-													<a href="#" class="qsb-area" data-panel="capacity" data-panel-name="global-ui-capacity">
+                        <div class="qsb-cont qsb-room">
+													<a href="#" class="qsb-area on" data-panel="room" data-panel-name="global-ui-room">
 														<span class="qsb-label">인원, 객실 수</span>
-														<span class="qsb-input" data-room1="0" data-room2d="0" data-room2t="0" data-room3="0">
-															<span class="type-room">1인실</span>
-															<span><em class="total-num">0</em>개</span>
+                            <span class="qsb-input" data-room='2' data-room1='{"adult":2,"child":3,"age":[2,3,4]}' data-room2='{"adult":2,"child":1,"age":[8]}' data-room3='{"adult":0,"child":0,"age":[]}'>
+															<span class="type-room">성인</span><span><em class="total-num">4</em></span>,
+                              <span class="type-room">아동</span><span><em class="total-num">4</em></span>,
+                              <span class="type-room">객실</span><span><em class="total-num">2</em></span>
 														</span>
 													</a>
 												</div>
@@ -440,35 +441,35 @@ $(function(){
 												<div class="uis-list uis-list-auto">
 													<ul class="list o-customscrollbar">
 														<li class="no-list">검색 결과가 없습니다.</li>
-														<li>
-															<a href="#" data-city="파리, 프랑스(PARIS, FRANCE)">
-																<span class="label-base lbr-st1"><span>CITY</span></span>
-																<span class="name-det">파리, 프랑스(PARIS, FRANCE)</span>
+                            <li>
+															<a href="#" data-city="파리 (인근 지역 포함), 프랑스">
+																<span class="label-base htp-st"><span class="st1"></span></span>
+																<span class="name-det">파리 (인근 지역 포함), 프랑스</span>
 															</a>
 
 														</li>
 														<li>
-															<a href="#" data-city="프랑스 샤를드골 공항(CDG), 프랑스">
-																<span class="label-base lbr-st1"><span>CITY</span></span>
-																<span class="name-det">프랑스 샤를드골 공항(CDG), 프랑스</span>
+															<a href="#" data-city="에펠탑">
+																<span class="label-base htp-st"><span class="st2"></span></span>
+																<span class="name-det">에펠탑</span>
 															</a>
 														</li>
 														<li>
-															<a href="#" data-city="파리 오를리 공항, 프랑스">
-																<span class="label-base lbr-st1"><span>CITY</span></span>
-																<span class="name-det">파리 오를리 공항, 프랑스</span>
+															<a href="#" data-city="디자인 호텔 에펠, 오이스키르헨, 독일">
+																<span class="label-base htp-st"><span class="st3"></span></span>
+																<span class="name-det">디자인 호텔 에펠, 오이스키르헨, 독일</span>
 															</a>
 														</li>
 														<li>
-															<a href="#" data-city="파리(TN), 미국">
-																<span class="label-base lbr-st1"><span>CITY</span></span>
-																<span class="name-det">파리(TN), 미국</span>
+															<a href="#" data-city="뉴욕, 뉴욕, 미국 (JFK-존 F. 케네디 국제항공)">
+																<span class="label-base htp-st"><span class="st4"></span></span>
+																<span class="name-det">뉴욕, 뉴욕, 미국 (JFK-존 F. 케네디 국제항공)</span>
 															</a>
 														</li>
 														<li>
-															<a href="#" data-city="하얏트 리젠시 파리 에투알">
-																<span class="label-base lbr-st1"><span>HOTEL</span></span>
-																<span class="name-det">하얏트 리젠시 파리 에투알</span>
+															<a href="#" data-city="서울역, 서울, 한국">
+																<span class="label-base htp-st"><span class="st5"></span></span>
+																<span class="name-det">서울역, 서울, 한국</span>
 															</a>
 														</li>
 													</ul>
@@ -489,64 +490,312 @@ $(function(){
 									<!-- //해외 -->
 
 									<!-- 인원, 객실 수 -->
-									<div class="sc-ui-search-panel ui-capacity global-ui-capacity">
+                  <div class="sc-ui-search-panel ui-capacity global-ui-room">
 										<div class="uis-capacity">
-											<ul class="uis-capacity-number">
-												<li>
-													<div class="tit"><em>1인실</em></div>
-													<div class="uis-custom-number" data-ucn='{"type":"room1","min":0,"max":3}'>
-														<span class="btn-base ucn-crt b-minus">
-															<button type="button" data-type="room1-minus"><span class="a11y">빼기</span></button>
-														</span>
-														<span class="ucn-num num-room1">0</span>
-														<span class="btn-base ucn-crt b-plus">
-															<button type="button" data-type="room1-plus"><span class="a11y">더하기</span></button>
-														</span>
-													</div>
-												</li>
-												<li>
-													<div class="tit"><em>2인실</em> (더블요청)</div>
-													<div class="uis-custom-number" data-ucn='{"type":"room2d","min":0,"max":3}'>
-														<span class="btn-base ucn-crt b-minus">
-															<button type="button" data-type="room2d-minus"><span class="a11y">빼기</span></button>
-														</span>
-														<span class="ucn-num num-room2d">0</span>
-														<span class="btn-base ucn-crt b-plus">
-															<button type="button" data-type="room2d-plus"><span class="a11y">더하기</span></button>
-														</span>
-													</div>
-												</li>
-												<li>
-													<div class="tit"><em>2인실</em> (트윈요청)</div>
-													<div class="uis-custom-number" data-ucn='{"type":"room2t","min":0,"max":3}'>
-														<span class="btn-base ucn-crt b-minus">
-															<button type="button" data-type="room2t-plus"><span class="a11y">빼기</span></button>
-														</span>
-														<span class="ucn-num num-room2t">0</span>
-														<span class="btn-base ucn-crt b-plus">
-															<button type="button" data-type="room2t-plus"><span class="a11y">더하기</span></button>
-														</span>
-													</div>
-												</li>
-												<li>
-													<div class="tit"><em>3인실</em></div>
-													<div class="uis-custom-number" data-ucn='{"type":"room3","min":0,"max":3}'>
-														<span class="btn-base ucn-crt b-minus">
-															<button type="button" data-type="room3-plus"><span class="a11y">빼기</span></button>
-														</span>
-														<span class="ucn-num num-room3">0</span>
-														<span class="btn-base ucn-crt b-plus">
-															<button type="button" data-type="room3-plus"><span class="a11y">더하기</span></button>
-														</span>
-													</div>
-												</li>
-											</ul>
-											<div class="uis-opt-bottom">
-												<div class="uisob-right">
-													<span class="btn-base bb-st2 b-cancel"><a href="#">취소</a></span>
-													<span class="btn-base bb-st3 b-complete"><a href="#">완료</a></span>
-												</div>
-											</div>
+                      <ul class="ui-htp-room">
+                        <li class="room-item on">
+                          <dl>
+                            <dt>
+                              <a href="#" class="room-tab">객실<span class="room-num">1</span></a>
+                              <a href="#" class="room-arrow"></a>
+                            </dt>
+                            <dd>
+                              <ul class="uis-capacity-number">
+        												<li>
+        													<div class="tit"><em>성인</em></div>
+        													<div class="uis-custom-number adult" data-ucn='{"type":"adult1","min":1,"max":10}'>
+        														<span class="btn-base ucn-crt b-minus">
+        															<button type="button" data-type="room1-minus"><span class="a11y">빼기</span></button>
+        														</span>
+        														<span class="ucn-num num-adult num-adult1">0</span>
+        														<span class="btn-base ucn-crt b-plus">
+        															<button type="button" data-type="room1-plus"><span class="a11y">더하기</span></button>
+        														</span>
+        													</div>
+        												</li>
+        												<li>
+                                  <div class="tit">
+                                    <em>아동</em> (만2세 ~ 11세)
+                                    <span class="help-tooltip heltt-st2 small">
+        															<span class="over">?</span>
+        															<span class="cont" style="width:170px">
+        																<span class="heltt-tit">아동</span>
+        																<dl class="heltt-exp-box">
+        																	<dt>국제선</dt>
+        																	<dd>탑승일 기준 만 2세 ~ 12세 미만</dd>
+        																</dl>
+        																<dl class="heltt-exp-box">
+        																	<dt>국내선</dt>
+        																	<dd>탑승일 기준 만 2세 ~ 13세 미만</dd>
+        																</dl>
+        															</span>
+        														</span>
+                                  </div>
+        													<div class="uis-custom-number child" data-ucn='{"type":"child1","min":0,"max":3}'>
+        														<span class="btn-base ucn-crt b-minus">
+        															<button type="button" data-type="room2d-minus"><span class="a11y">빼기</span></button>
+        														</span>
+        														<span class="ucn-num num-child num-child1">0</span>
+        														<span class="btn-base ucn-crt b-plus">
+        															<button type="button" data-type="room2d-plus"><span class="a11y">더하기</span></button>
+        														</span>
+        													</div>
+        												</li>
+        											</ul>
+                              <ul class="uis-set-selectbox">
+    														<li>
+    															<select class="select-base">
+    																<option value="">나이</option>
+    																<option value="2">만 2세</option>
+    																<option value="3">만 3세</option>
+    																<option value="4">만 4세</option>
+    																<option value="5">만 5세</option>
+    																<option value="6">만 6세</option>
+    																<option value="7">만 7세</option>
+    																<option value="8">만 8세</option>
+    																<option value="9">만 9세</option>
+    																<option value="10">만 10세</option>
+    																<option value="11">만 11세</option>
+    															</select>
+    														</li>
+    														<li>
+    															<select class="select-base">
+    																<option value="">나이</option>
+                                    <option value="2">만 2세</option>
+    																<option value="3">만 3세</option>
+    																<option value="4">만 4세</option>
+    																<option value="5">만 5세</option>
+    																<option value="6">만 6세</option>
+    																<option value="7">만 7세</option>
+    																<option value="8">만 8세</option>
+    																<option value="9">만 9세</option>
+    																<option value="10">만 10세</option>
+    																<option value="11">만 11세</option>
+    															</select>
+    														</li>
+    														<li>
+    															<select class="select-base">
+    																<option value="">나이</option>
+                                    <option value="2">만 2세</option>
+    																<option value="3">만 3세</option>
+    																<option value="4">만 4세</option>
+    																<option value="5">만 5세</option>
+    																<option value="6">만 6세</option>
+    																<option value="7">만 7세</option>
+    																<option value="8">만 8세</option>
+    																<option value="9">만 9세</option>
+    																<option value="10">만 10세</option>
+    																<option value="11">만 11세</option>
+    															</select>
+    														</li>
+    													</ul>
+                            </dd>
+                          </dl>
+                        </li>
+                        <li class="room-item disabled">
+                          <dl>
+                            <dt>
+                              <a href="#" class="room-tab">객실<span class="room-num">2</span></a>
+                              <span class="btn-base bb-st2 b-remove"><a href="#">객실삭제</a></span>
+                              <a href="#" class="room-arrow"></a>
+                            </dt>
+                            <dd>
+                              <ul class="uis-capacity-number">
+        												<li>
+        													<div class="tit"><em>성인</em></div>
+        													<div class="uis-custom-number adult" data-ucn='{"type":"adult2","min":1,"max":10}'>
+        														<span class="btn-base ucn-crt b-minus">
+        															<button type="button" data-type="room1-minus"><span class="a11y">빼기</span></button>
+        														</span>
+        														<span class="ucn-num num-adult num-adult2">0</span>
+        														<span class="btn-base ucn-crt b-plus">
+        															<button type="button" data-type="room1-plus"><span class="a11y">더하기</span></button>
+        														</span>
+        													</div>
+        												</li>
+        												<li>
+        													<div class="tit">
+                                    <em>아동</em> (만2세 ~ 11세)
+                                    <span class="help-tooltip heltt-st2 small">
+        															<span class="over">?</span>
+        															<span class="cont" style="width:170px">
+        																<span class="heltt-tit">아동</span>
+        																<dl class="heltt-exp-box">
+        																	<dt>국제선</dt>
+        																	<dd>탑승일 기준 만 2세 ~ 12세 미만</dd>
+        																</dl>
+        																<dl class="heltt-exp-box">
+        																	<dt>국내선</dt>
+        																	<dd>탑승일 기준 만 2세 ~ 13세 미만</dd>
+        																</dl>
+        															</span>
+        														</span>
+                                  </div>
+        													<div class="uis-custom-number child" data-ucn='{"type":"child2","min":0,"max":3}'>
+        														<span class="btn-base ucn-crt b-minus">
+        															<button type="button" data-type="room2d-minus"><span class="a11y">빼기</span></button>
+        														</span>
+        														<span class="ucn-num num-child num-child2">0</span>
+        														<span class="btn-base ucn-crt b-plus">
+        															<button type="button" data-type="room2d-plus"><span class="a11y">더하기</span></button>
+        														</span>
+        													</div>
+        												</li>
+        											</ul>
+                              <ul class="uis-set-selectbox">
+    														<li>
+    															<select class="select-base">
+    																<option value="">나이</option>
+    																<option value="2">만 2세</option>
+    																<option value="3">만 3세</option>
+    																<option value="4">만 4세</option>
+    																<option value="5">만 5세</option>
+    																<option value="6">만 6세</option>
+    																<option value="7">만 7세</option>
+    																<option value="8">만 8세</option>
+    																<option value="9">만 9세</option>
+    																<option value="10">만 10세</option>
+    																<option value="11">만 11세</option>
+    															</select>
+    														</li>
+    														<li>
+    															<select class="select-base">
+    																<option value="">나이</option>
+                                    <option value="2">만 2세</option>
+    																<option value="3">만 3세</option>
+    																<option value="4">만 4세</option>
+    																<option value="5">만 5세</option>
+    																<option value="6">만 6세</option>
+    																<option value="7">만 7세</option>
+    																<option value="8">만 8세</option>
+    																<option value="9">만 9세</option>
+    																<option value="10">만 10세</option>
+    																<option value="11">만 11세</option>
+    															</select>
+    														</li>
+    														<li>
+    															<select class="select-base">
+    																<option value="">나이</option>
+                                    <option value="2">만 2세</option>
+    																<option value="3">만 3세</option>
+    																<option value="4">만 4세</option>
+    																<option value="5">만 5세</option>
+    																<option value="6">만 6세</option>
+    																<option value="7">만 7세</option>
+    																<option value="8">만 8세</option>
+    																<option value="9">만 9세</option>
+    																<option value="10">만 10세</option>
+    																<option value="11">만 11세</option>
+    															</select>
+    														</li>
+    													</ul>
+                            </dd>
+                          </dl>
+                        </li>
+                        <li class="room-item disabled">
+                          <dl>
+                            <dt>
+                              <a href="#" class="room-tab">객실<span class="room-num">3</span></a>
+                              <span class="btn-base bb-st2 b-remove"><a href="#">객실삭제</a></span>
+                              <a href="#" class="room-arrow"></a>
+                            </dt>
+                            <dd>
+                              <ul class="uis-capacity-number">
+        												<li>
+        													<div class="tit"><em>성인</em></div>
+        													<div class="uis-custom-number adult" data-ucn='{"type":"adult3","min":1,"max":10}'>
+        														<span class="btn-base ucn-crt b-minus">
+        															<button type="button" data-type="room1-minus"><span class="a11y">빼기</span></button>
+        														</span>
+        														<span class="ucn-num num-adult num-adult3">0</span>
+        														<span class="btn-base ucn-crt b-plus">
+        															<button type="button" data-type="room1-plus"><span class="a11y">더하기</span></button>
+        														</span>
+        													</div>
+        												</li>
+        												<li>
+                                  <div class="tit">
+                                    <em>아동</em> (만2세 ~ 11세)
+                                    <span class="help-tooltip heltt-st2 small">
+        															<span class="over">?</span>
+        															<span class="cont" style="width:170px">
+        																<span class="heltt-tit">아동</span>
+        																<dl class="heltt-exp-box">
+        																	<dt>국제선</dt>
+        																	<dd>탑승일 기준 만 2세 ~ 12세 미만</dd>
+        																</dl>
+        																<dl class="heltt-exp-box">
+        																	<dt>국내선</dt>
+        																	<dd>탑승일 기준 만 2세 ~ 13세 미만</dd>
+        																</dl>
+        															</span>
+        														</span>
+                                  </div>
+        													<div class="uis-custom-number child" data-ucn='{"type":"child3","min":0,"max":3}'>
+        														<span class="btn-base ucn-crt b-minus">
+        															<button type="button" data-type="room2d-minus"><span class="a11y">빼기</span></button>
+        														</span>
+        														<span class="ucn-num num-child num-child3">0</span>
+        														<span class="btn-base ucn-crt b-plus">
+        															<button type="button" data-type="room2d-plus"><span class="a11y">더하기</span></button>
+        														</span>
+        													</div>
+        												</li>
+        											</ul>
+                              <ul class="uis-set-selectbox">
+    														<li>
+    															<select class="select-base">
+    																<option value="">나이</option>
+    																<option value="2">만 2세</option>
+    																<option value="3">만 3세</option>
+    																<option value="4">만 4세</option>
+    																<option value="5">만 5세</option>
+    																<option value="6">만 6세</option>
+    																<option value="7">만 7세</option>
+    																<option value="8">만 8세</option>
+    																<option value="9">만 9세</option>
+    																<option value="10">만 10세</option>
+    																<option value="11">만 11세</option>
+    															</select>
+    														</li>
+    														<li>
+    															<select class="select-base">
+    																<option value="">나이</option>
+                                    <option value="2">만 2세</option>
+    																<option value="3">만 3세</option>
+    																<option value="4">만 4세</option>
+    																<option value="5">만 5세</option>
+    																<option value="6">만 6세</option>
+    																<option value="7">만 7세</option>
+    																<option value="8">만 8세</option>
+    																<option value="9">만 9세</option>
+    																<option value="10">만 10세</option>
+    																<option value="11">만 11세</option>
+    															</select>
+    														</li>
+    														<li>
+    															<select class="select-base">
+    																<option value="">나이</option>
+                                    <option value="2">만 2세</option>
+    																<option value="3">만 3세</option>
+    																<option value="4">만 4세</option>
+    																<option value="5">만 5세</option>
+    																<option value="6">만 6세</option>
+    																<option value="7">만 7세</option>
+    																<option value="8">만 8세</option>
+    																<option value="9">만 9세</option>
+    																<option value="10">만 10세</option>
+    																<option value="11">만 11세</option>
+    															</select>
+    														</li>
+    													</ul>
+                            </dd>
+                          </dl>
+                        </li>
+                      </ul>
+                      <div class="b-addroom-wrap">
+                        <span class="btn-base bb-st2 b-addroom"><a href="#">객실추가</a></span>
+                      </div>
 										</div>
 									</div>
 									<!-- //인원, 객실 수 -->
@@ -662,7 +911,7 @@ $(function(){
 					<div class="htp-capacity">
 						<a href="#">
 							<p class="label">인원, 객실 수</p>
-							<p class="result">객실2, 성인1인, 아동1인</p>
+							<p class="result">성인2, 아동0, 객실1</p>
 							<span class="ico-search"></span>
 						</a>
 					</div>
@@ -1371,13 +1620,14 @@ $(function(){
 					<!-- 관련상품 -->
 					<div class="htp-detail-cont">
 						<div class="ly-inner">
-							<div class="related-product">
+							<h2 class="c-tit-sec"><span>관련상품</span></h2>
+							<div class="list-item-slick">
 								<ul class="list-item-st1 ui-tab-cont">
 	                <li>
 										<a href="#">
 		                  <span class="vis"><img src="/images/front/travel/vis-size/vis-277x170.jpg" alt="&nbsp;"></span>
 		                  <span class="info-box">
-												<span class="label-base lbr-st1"><span>5성급</span></span>
+												<span class="label-base lbr-st1"><span>5성급 <i class="star">★★★★★</i></span></span>
 												<span class="grade">아주 좋음 4.5</span>
 		                    <span class="tit kr">1그린 톨토이즈 호스텔 시애틀 - 아메리카스 베스트 밸류 에어포트인</span>
 												<span class="tit en">The Royal Pacific Hotel &amp; Towers</span>
@@ -1388,7 +1638,7 @@ $(function(){
 										<a href="#">
 		                  <span class="vis"><img src="/images/front/travel/vis-size/vis-277x170-2.jpg" alt="&nbsp;"></span>
 		                  <span class="info-box">
-												<span class="label-base lbr-st1"><span>5성급</span></span>
+												<span class="label-base lbr-st1"><span>5성급 <i class="star">★★★★★</i></span></span>
 												<span class="grade">아주 좋음 4.5</span>
 		                    <span class="tit kr">2그린 톨토이즈 호스텔 시애틀 - 아메리카스 베스트 밸류 에어포트인</span>
 												<span class="tit en">The Royal Pacific Hotel &amp; Towers</span>
@@ -1399,7 +1649,7 @@ $(function(){
 										<a href="#">
 		                  <span class="vis"><img src="/images/front/travel/vis-size/vis-277x170-3.jpg" alt="&nbsp;"></span>
 		                  <span class="info-box">
-												<span class="label-base lbr-st1"><span>5성급</span></span>
+												<span class="label-base lbr-st1"><span>5성급 <i class="star">★★★★★</i></span></span>
 												<span class="grade">아주 좋음 4.5</span>
 		                    <span class="tit kr">3그린 톨토이즈 호스텔 시애틀 - 아메리카스 베스트 밸류 에어포트인</span>
 												<span class="tit en">The Royal Pacific Hotel &amp; Towers</span>
@@ -1410,7 +1660,7 @@ $(function(){
 										<a href="#">
 		                  <span class="vis"><img src="/images/front/travel/vis-size/vis-277x170.jpg" alt="&nbsp;"></span>
 		                  <span class="info-box">
-												<span class="label-base lbr-st1"><span>5성급</span></span>
+												<span class="label-base lbr-st1"><span>5성급 <i class="star">★★★★★</i></span></span>
 												<span class="grade">아주 좋음 4.5</span>
 		                    <span class="tit kr">4그린 톨토이즈 호스텔 시애틀 - 아메리카스 베스트 밸류 에어포트인</span>
 												<span class="tit en">The Royal Pacific Hotel &amp; Towers</span>
@@ -1421,7 +1671,7 @@ $(function(){
 										<a href="#">
 		                  <span class="vis"><img src="/images/front/travel/vis-size/vis-277x170-2.jpg" alt="&nbsp;"></span>
 		                  <span class="info-box">
-												<span class="label-base lbr-st1"><span>5성급</span></span>
+												<span class="label-base lbr-st1"><span>5성급 <i class="star">★★★★★</i></span></span>
 												<span class="grade">아주 좋음 4.5</span>
 		                    <span class="tit kr">5그린 톨토이즈 호스텔 시애틀 - 아메리카스 베스트 밸류 에어포트인</span>
 												<span class="tit en">The Royal Pacific Hotel &amp; Towers</span>
@@ -1432,7 +1682,7 @@ $(function(){
 										<a href="#">
 		                  <span class="vis"><img src="/images/front/travel/vis-size/vis-277x170-3.jpg" alt="&nbsp;"></span>
 		                  <span class="info-box">
-												<span class="label-base lbr-st1"><span>5성급</span></span>
+												<span class="label-base lbr-st1"><span>5성급 <i class="star">★★★★★</i></span></span>
 												<span class="grade">아주 좋음 4.5</span>
 		                    <span class="tit kr">6그린 톨토이즈 호스텔 시애틀 - 아메리카스 베스트 밸류 에어포트인</span>
 												<span class="tit en">The Royal Pacific Hotel &amp; Towers</span>
@@ -1443,7 +1693,7 @@ $(function(){
 										<a href="#">
 		                  <span class="vis"><img src="/images/front/travel/vis-size/vis-277x170.jpg" alt="&nbsp;"></span>
 		                  <span class="info-box">
-												<span class="label-base lbr-st1"><span>5성급</span></span>
+												<span class="label-base lbr-st1"><span>5성급 <i class="star">★★★★★</i></span></span>
 												<span class="grade">아주 좋음 4.5</span>
 		                    <span class="tit kr">7그린 톨토이즈 호스텔 시애틀 - 아메리카스 베스트 밸류 에어포트인</span>
 												<span class="tit en">The Royal Pacific Hotel &amp; Towers</span>
@@ -1454,7 +1704,7 @@ $(function(){
 										<a href="#">
 		                  <span class="vis"><img src="/images/front/travel/vis-size/vis-277x170-2.jpg" alt="&nbsp;"></span>
 		                  <span class="info-box">
-												<span class="label-base lbr-st1"><span>5성급</span></span>
+												<span class="label-base lbr-st1"><span>5성급 <i class="star">★★★★★</i></span></span>
 												<span class="grade">아주 좋음 4.5</span>
 		                    <span class="tit kr">8그린 톨토이즈 호스텔 시애틀 - 아메리카스 베스트 밸류 에어포트인</span>
 												<span class="tit en">The Royal Pacific Hotel &amp; Towers</span>
@@ -1465,7 +1715,7 @@ $(function(){
 										<a href="#">
 		                  <span class="vis"><img src="/images/front/travel/vis-size/vis-277x170-3.jpg" alt="&nbsp;"></span>
 		                  <span class="info-box">
-												<span class="label-base lbr-st1"><span>5성급</span></span>
+												<span class="label-base lbr-st1"><span>5성급 <i class="star">★★★★★</i></span></span>
 												<span class="grade">아주 좋음 4.5</span>
 		                    <span class="tit kr">9그린 톨토이즈 호스텔 시애틀 - 아메리카스 베스트 밸류 에어포트인</span>
 												<span class="tit en">The Royal Pacific Hotel &amp; Towers</span>
@@ -1476,7 +1726,7 @@ $(function(){
 										<a href="#">
 		                  <span class="vis"><img src="/images/front/travel/vis-size/vis-277x170.jpg" alt="&nbsp;"></span>
 		                  <span class="info-box">
-												<span class="label-base lbr-st1"><span>5성급</span></span>
+												<span class="label-base lbr-st1"><span>5성급 <i class="star">★★★★★</i></span></span>
 												<span class="grade">아주 좋음 4.5</span>
 		                    <span class="tit kr">10그린 톨토이즈 호스텔 시애틀 - 아메리카스 베스트 밸류 에어포트인</span>
 												<span class="tit en">The Royal Pacific Hotel &amp; Towers</span>
@@ -1487,7 +1737,7 @@ $(function(){
 										<a href="#">
 		                  <span class="vis"><img src="/images/front/travel/vis-size/vis-277x170.jpg" alt="&nbsp;"></span>
 		                  <span class="info-box">
-												<span class="label-base lbr-st1"><span>5성급</span></span>
+												<span class="label-base lbr-st1"><span>5성급 <i class="star">★★★★★</i></span></span>
 												<span class="grade">아주 좋음 4.5</span>
 		                    <span class="tit kr">11그린 톨토이즈 호스텔 시애틀 - 아메리카스 베스트 밸류 에어포트인</span>
 												<span class="tit en">The Royal Pacific Hotel &amp; Towers</span>
@@ -1498,7 +1748,7 @@ $(function(){
 										<a href="#">
 		                  <span class="vis"><img src="/images/front/travel/vis-size/vis-277x170.jpg" alt="&nbsp;"></span>
 		                  <span class="info-box">
-												<span class="label-base lbr-st1"><span>5성급</span></span>
+												<span class="label-base lbr-st1"><span>5성급 <i class="star">★★★★★</i></span></span>
 												<span class="grade">아주 좋음 4.5</span>
 		                    <span class="tit kr">12그린 톨토이즈 호스텔 시애틀 - 아메리카스 베스트 밸류 에어포트인</span>
 												<span class="tit en">The Royal Pacific Hotel &amp; Towers</span>
@@ -1638,7 +1888,9 @@ $(function(){
 								<div class="pg-eval-wrap">
 									<div class="pg-inner">
 										<div class="pg-total">
-											<h3>총 평가</h3>
+											<div class="c-tit-page-detail">
+												<h4 class="title">총 평가</h4>
+											</div>
 											<div class="total-score"><em>4.5</em>/5점</div>
 											<p class="pg-txt">
 												<span class="txt1">아주 좋음</span>
@@ -1646,7 +1898,9 @@ $(function(){
 											</p>
 										</div>
 										<div class="pg-depart">
-											<h3>항목별 평가</h3>
+											<div class="c-tit-page-detail">
+												<h4 class="title">항목별 평가</h4>
+											</div>
 											<div class="pgd-wrap">
 												<ul class="pgd-list left">
 													<li>
@@ -1719,7 +1973,9 @@ $(function(){
 							</div>
 							<!-- //qna-info-box -->
 							<div class="qna-tit-wrap">
-								<h3>문의내역 (2건)</h3>
+								<div class="c-tit-page-detail">
+									<h4 class="title">문의내역 (2건)</h4>
+								</div>
 								<div class="search-wrap">
 									<input type="text" name="" id="" class="search-bar input-base">
 									<span class="btn-base bb-st3"><a href="#">검색</a></span>
@@ -1895,7 +2151,7 @@ $(function(){
 							<div class="paging-wrap">
 								<a href="#" class="btn first">처음</a>
 								<a href="#" class="btn prev">이전</a>
-								<a href="#" class="num">1</a>
+								<a href="#" class="num on">1</a>
 								<a href="#" class="num">2</a>
 								<a href="#" class="num">3</a>
 								<a href="#" class="num">4</a>
@@ -1907,7 +2163,7 @@ $(function(){
 								<a href="#" class="num">10</a>
 								<a href="#" class="btn next">다음</a>
 								<a href="#" class="btn last">마지막</a>
-								<span class="btn-base bb-st5"><a href="#">문의하기</a></span>
+								<span class="btn-base bb-st3"><button type="button">문의하기</button></span>
 							</div>
 						</div>
 					</div>
@@ -2038,15 +2294,15 @@ $(function(){
 				<div id="gmapArea"></div>
 				<a href="#" class="price-tooltip no-date" style="left:500px; top:200px;"></a>
 				<div class="price-cont" style="left:370px; top:75px;">
-					<dl><dt><img src="/images/front/travel/vis-size/vis-240x190.jpg" alt="test"></dt><dd><p class="tit">1레드 루프 인 시애틀 공항 - 씨택</p><div class="eval"><span class="on"></span><span class="on"></span><span class="on"></span><span class="on"></span><span class="off"></span><span class="txt">(4성급)</span></div><p class="grade">아주 좋음 4.5</p></dd></dl>
+					<dl><dt><img src="/images/front/travel/vis-size/vis-240x190.jpg" alt="test"></dt><dd><p class="tit">1레드 루프 인 시애틀 공항 - 씨택</p><div class="eval"><span class="txt">4성급</span><span class="on"></span><span class="on"></span><span class="on"></span><span class="on"></span><span class="off"></span></div><p class="grade">아주 좋음 4.5</p></dd></dl>
 				</div>
 				<a href="#" class="price-tooltip no-date" style="left:500px; top:300px;"></a>
 				<div class="price-cont" style="left:370px; top:175px;">
-					<dl><dt><img src="/images/front/travel/vis-size/vis-240x190-2.jpg" alt="test"></dt><dd><p class="tit">2그린 톨토이즈 호스텔 시애틀 - 아메리카스 베스트 밸류 에어포트 인</p><div class="eval"><span class="on"></span><span class="on"></span><span class="on"></span><span class="on"></span><span class="on"></span><span class="txt">(5성급)</span></div><p class="grade">아주 좋음 4.5</p></dd></dl>
+					<dl><dt><img src="/images/front/travel/vis-size/vis-240x190-2.jpg" alt="test"></dt><dd><p class="tit">2그린 톨토이즈 호스텔 시애틀 - 아메리카스 베스트 밸류 에어포트 인</p><div class="eval"><span class="txt">5성급</span><span class="on"></span><span class="on"></span><span class="on"></span><span class="on"></span><span class="on"></span></div><p class="grade">아주 좋음 4.5</p></dd></dl>
 				</div>
 				<a href="#" class="price-tooltip no-date" style="left:400px; top:400px;"></a>
 				<div class="price-cont" style="left:270px; top:275px;">
-					<dl><dt><img src="/images/front/travel/vis-size/vis-240x190-3.jpg" alt="test"></dt><dd><p class="tit">3레드 루프 인 시애틀 공항 - 씨택</p><div class="eval"><span class="on"></span><span class="on"></span><span class="on"></span><span class="off"></span><span class="off"></span><span class="txt">(3성급)</span></div><p class="grade">아주 좋음 4.5</p></dd></dl>
+					<dl><dt><img src="/images/front/travel/vis-size/vis-240x190-3.jpg" alt="test"></dt><dd><p class="tit">3레드 루프 인 시애틀 공항 - 씨택</p><div class="eval"><span class="txt">3성급</span><span class="on"></span><span class="on"></span><span class="on"></span><span class="off"></span><span class="off"></span></div><p class="grade">아주 좋음 4.5</p></dd></dl>
 				</div>
 				<script>
 				function initialize() {

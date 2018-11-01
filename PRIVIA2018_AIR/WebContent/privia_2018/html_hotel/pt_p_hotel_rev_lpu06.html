@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="utf-8" />
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<title>PRIVIA 여행</title>
+<meta name="description" content=" ">
+<meta property="og:title" content=" ">
+<meta property="og:image" content="http://static.priviatravel.com/images/front/mtravel/common/mobile_17004159046.png">
+<meta property="og:description" content=" ">
+<link rel="shortcut icon" type="image/x-icon" href="//static.priviatravel.com/images/front/travel/favicon.ico">
+<link type="text/css" rel="stylesheet" href="/css/front/travel/reset.css">
+<link type="text/css" rel="stylesheet" href="/css/front/travel/commonModule.css" />
+<link type="text/css" rel="stylesheet" href="/css/front/travel/hotelCont.css">
+<link type="text/css" rel="stylesheet" href="/css/front/travel/jquery.mCustomScrollbar.min.css">
+<script type="text/javascript" src="/js/front/config.js"></script>
+<script type="text/javascript" src="/js/front/travel/jquery-1.8.3.min.js"></script>
+<script type="text/javascript" src="/js/front/travel/jquery-ui.js"></script>
+<script type="text/javascript" src="/js/front/travel/jquery.mCustomScrollbar.concat.min.js"></script>
+<script type="text/javascript" src="/js/front/travel/slick.min.js"></script>
+<script type="text/javascript" src="/js/front/travel/fakeselect.js"></script>
+<script type="text/javascript" src="/js/utils.js"></script>
+<!--<script type="text/javascript" src="http://twww.priviatravel.com/share/headerManager"></script>-->
+<script type="text/javascript" src="/js/front/travel/commonModuleHeader.js"></script> <!-- headerManager 가이드 버전 실제로는 반영 되지 않음 -->
+<script type="text/javascript" src="/js/front/travel/commonModule.js"></script>
+<script type="text/javascript" src="/js/front/travel/commonModuleUI.js"></script>
+</head>
+
+<body style="background:#ccc;">
+
+	<!-- popup -->
+	<div id="popupArea19031" class="popup-wrap" style="width:860px;">
+    <!-- header -->
+    <div class="heading">
+      <h2 class="noto">예약취소</h2>
+      <a href="#" class="btn_close">닫기</a>
+    </div>
+    <!-- //header -->
+    <!-- content -->
+    <div class="content">
+      <div class="inner">
+				<h3>예약정보</h3>
+				<table summary="예약정보 요약" class="tbl-list ptb-short">
+            <caption>예약번호, 호텔, 객실유형/객실수, 체크인/체크아웃에 대한 테이블</caption>
+            <colgroup>
+                <col width="25%">
+                <col width="25%">
+                <col width="25%">
+                <col width="25%">
+            </colgroup>
+            <thead>
+                <tr>
+                    <th scope="col">예약번호</th>
+                    <th scope="col">호텔</th>
+                    <th scope="col">객실유형/객실수</th>
+                    <th scope="col">체크인/체크아웃</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td class="center">T1800XXXXXXX</td>
+                    <td class="center">[파리] 노보텔 파리 상트르 <br>투르 에펠</td>
+                    <td class="center">Suite, 1 King Bed <br>with Sofa bed / 2개</td>
+                    <td class="center">2018-12-28 / 2018-12-31</td>
+                </tr>
+            </tbody>
+        </table>
+				<h3>취소하시려는 이유를 선택해주세요.</h3>
+				<div class="ui-box">
+					<ul class="rc-radio-list">
+						<li>
+							<span class="radio-base radio-st2">
+								<input type="radio" id="reason-cancel-1" name="reason-cancel" class="a11y" checked>
+								<label for="reason-cancel-1" class="label-base">여행일정이 취소된 경우</label>
+							</span>
+						</li>
+						<li>
+							<span class="radio-base radio-st2">
+								<input type="radio" id="reason-cancel-2" name="reason-cancel" class="a11y">
+								<label for="reason-cancel-2" class="label-base">더 저렴한 요금을 검색</label>
+							</span>
+						</li>
+						<li>
+							<span class="radio-base radio-st2">
+								<input type="radio" id="reason-cancel-3" name="reason-cancel" class="a11y">
+								<label for="reason-cancel-3" class="label-base">상담원 불친절</label>
+							</span>
+						</li>
+						<li>
+							<span class="radio-base radio-st2">
+								<input type="radio" id="reason-cancel-4" name="reason-cancel" class="a11y">
+								<label for="reason-cancel-4" class="label-base">사이트 이용불편</label>
+							</span>
+						</li>
+						<li>
+							<span class="radio-base radio-st2">
+								<input type="radio" id="reason-cancel-5" name="reason-cancel" class="a11y">
+								<label for="reason-cancel-5" class="label-base">이중예약으로 취소</label>
+							</span>
+						</li>
+						<li class="etc">
+							<span class="radio-base radio-st2">
+								<input type="radio" id="reason-cancel-6" name="reason-cancel" class="a11y">
+								<label for="reason-cancel-6" class="label-base">기타</label>
+							</span>
+							<input type="text" class="input-base" disabled>
+						</li>
+					</ul>
+				</div><!-- //ui-box -->
+				<div class="rc-info-box">
+					<p>지금 취소하시면 무료취소가 가능합니다. <a href="#">상세규정보기</a></p>
+				</div><!-- //rc-info-box -->
+				<div class="rc-info-box" style="margin-top:10px;">
+					<span class="chk-base chk-st3">
+						<input type="checkbox" id="chk-agree" class="a11y" checked>
+						<label for="chk-agree" class="label-base">상기 안내사항을 확인하였으며 동의합니다.</label>
+					</span>
+				</div>
+				<div class="ui-btns-wrap" style="margin-top:20px;">
+					<div class="ui-btns right">
+						<span class="btn-base bb-st3"><a href="#">취소요청</a></span>
+					</div>
+				</div>
+      </div>
+    </div>
+		<!-- //content -->
+  </div>
+	<!-- //popup -->
+
+</body>
+</html>

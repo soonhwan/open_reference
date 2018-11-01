@@ -562,6 +562,39 @@ var pvFrontScript = window.pvFrontScript || (function(){
 
 			return result;	
 		},
+        beforeShowDayThreeMark: function(date, $date1, $date2, $date3){
+			/* 설명   : 통합검색 - 날짜 세 개 선택 스타일 구현
+			   사용처 : jQuery UI datepicker : beforeShowDay 내부 */
+			
+			var result = pvFrontScript.jqdHolidayMark(date);
+			
+			//날짜 마크
+			var date1 = $date1;
+			var date2 = $date2;
+			var date3 = $date3;
+            
+            if(date1){
+                if(date.getTime() == date1.getTime()){
+                    result = [true, "dp-highlight"];
+                }else if(date2){ 
+                  if(date.getTime() == date2.getTime()){
+                    result = [true, "dp-highlight"];
+                  }
+                }                
+            }
+            if(date2){
+              if(date.getTime() == date2.getTime()){
+                 result = [true, "dp-highlight"];
+              }
+            }
+            if(date3){
+              if(date.getTime() == date3.getTime()){
+                 result = [true, "dp-highlight"];
+              }
+            }
+						
+			return result;
+		},
 		comSearchEvtBind: function($section){
 			/* 설명   : 통합검색 - 섹션별 필요한 이벤트 제공
 			   사용처 : 통합헤더 섹션별 UI Event 필요시 호출 */
@@ -862,12 +895,12 @@ var pvFrontScript = window.pvFrontScript || (function(){
 						}
 					}
 					
-					//해외패키지인경우
-					if($('.w-header-gnb .nav-gnb #n-gnb-pkg.on').length > 0){
+					//해외패키지인경우 #33289 주석처리
+					/*if($('.w-header-gnb .nav-gnb #n-gnb-pkg.on').length > 0){
 						$('.w-nav-gsub-ly').addClass('fixed-ngs-ly');
 						$('.w-nav-gsub-ly').hide();
 						$('.w-nav-gsub-ly').fadeIn('fast');
-					}
+					}*/
 
 					isFix = true;
 				}
@@ -907,10 +940,10 @@ var pvFrontScript = window.pvFrontScript || (function(){
 						}
 					}
 					
-					//해외패키지인경우
-					if($('.w-nav-gsub-ly.fixed-ngs-ly').length > 0){
+					//해외패키지인경우 #33289 주석처리
+					/*if($('.w-nav-gsub-ly.fixed-ngs-ly').length > 0){
 						$('.w-nav-gsub-ly.fixed-ngs-ly').removeClass('fixed-ngs-ly');
-					}
+					}*/
 
 					isFix = false;
 					isHs = false;
@@ -932,6 +965,7 @@ var pvFrontScript = window.pvFrontScript || (function(){
                 
                 //항공,호텔 스크롤시 헤더 처리
                 if($CHO.hasClass('o-search-result')){
+                    if($('.global-ui-room').hasClass('on')) return false;
                     if($('.w-header-search').css('display')=='block'){
                         $('.w-header-gnb .b-open-search button').trigger('click');
                     }
@@ -1057,8 +1091,8 @@ var pvFrontScript = window.pvFrontScript || (function(){
 
 			//헤더 퀵모드 검색버튼 click
 			if($('.w-header-gnb .b-open-search').length > 0){
-				//퀵모드 검색버튼 숨김, 기획전 롤링 숨김(해외패키지, 국내여행)
-				if($('.w-header-gnb .nav-gnb #n-gnb-pkg.on, .w-header-gnb .nav-gnb #n-gnb-domestic.on').length > 0){
+				//퀵모드 검색버튼 숨김, 기획전 롤링 숨김(국내여행) #33289 수정
+				if($('.w-header-gnb .nav-gnb #n-gnb-domestic.on').length > 0){
 					$('.commonHeaderObject .o-CHO-inner').addClass('no-header-search');
 					$('.w-header-gnb .b-open-search').addClass('hide'); 
 				}
@@ -1191,6 +1225,25 @@ var pvFrontScript = window.pvFrontScript || (function(){
 					});
 				}
 			}	
+                  
+            //기획전 롤링
+			if($('.promotion-cont .list').length > 0){
+				$('.promotion-cont .srpc-left .list').slick({
+					draggable: false,
+					arrows:false,
+					dots: false,
+					pauseOnHover: true,
+					autoplaySpeed: 500
+				});	
+                $('.promotion-cont .srpc-right .list').slick({
+                    draggable: false,
+                    arrows:false,
+                    dots: false,
+                    pauseOnHover: true,
+                    autoplaySpeed: 500
+                });	
+			}
+         
 			
 			//기획전 앵커이동
 			if($(".pb-container .tab-area, .promotion-wrap").length > 0){
@@ -1211,7 +1264,31 @@ var pvFrontScript = window.pvFrontScript || (function(){
 
 					}							
 				});
-			}
+			}            
+         
+           //투어&액티비티 배너 타이틀
+           if($('.list-item-freetour').length > 0){
+               $('.list-item-freetour li').on('mouseenter', function(){
+                   if($('.tit-over span', this).height() > 30){
+                       $('.tit-over', this).next().addClass('srpc-hide');
+                   }
+               });
+               $('.list-item-freetour li').on('mouseleave',function(){
+                   if($('.tit-over', this).next().hasClass('srpc-hide')){
+                       $('.tit-over', this).next().removeClass('srpc-hide');
+                   }
+               });
+           }
+         
+          //자유여행 도시별 Best Deal
+          if($('.list-item-free').length > 0){
+               $('.list-item-free li').on('mouseenter', function(){
+                 $(this).find('.hover-content').addClass('active');
+               });
+               $('.list-item-free li').on('mouseleave', function(){
+                $(this).find('.hover-content').removeClass('active');
+               });
+			}         
 		},
 		mainContents: function(){
 			//priviaMainUI.js 이관	

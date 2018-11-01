@@ -1087,3 +1087,7 @@ table.reserv-info td{line-height:1.8 !important;}
 .tb-notice-editor2{width:440px;}
 .ie9 #tb-ctrl label{display:inline-block;padding-top:3px;margin-left:5px;}
 .ie7 #tb-ctrl button{display:inline-block;margin-left:3px;}
+
+/* #33289 button */ 
+button {overflow:visible; width:auto; cursor:pointer; background:transparent;}
+button::-moz-focus-inner {padding:0; border:0;}

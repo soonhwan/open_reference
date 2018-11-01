@@ -1,4 +1,18 @@
 /*
+* 함수명 : commify
+* 설명   : 천단위 콤마생성
+* 사용법 : commify(number)
+*/
+function commify(n) {
+	var reg = /(^[+-]?\d+)(\d{3})/;// 정규식
+	n += '';// 숫자를 문자열로 변환
+
+	while (reg.test(n))
+    n = n.replace(reg, '$1' + ',' + '$2');
+    return n;
+}
+
+/*
  * 함수명   : lazyLoad
  * 설명     : 서브프로모션(중배너,카드형배너), 쿠폰 프로모션의 이미지가 화면(뷰포트)에 등장하기 전 200px전에 로드시작
  * 실행위치 : document.ready 구문 내
@@ -542,6 +556,7 @@ $(function(){
 		}
 	}
 	lowIEVersion();												   //ie 버전체크
+    pvFrontComponent();
 
 	// 메인 레이어팝업 위치 수정
     var mainnotipop;
@@ -550,21 +565,6 @@ $(function(){
         $('body').append('<div id="pu-notice-origin" style="width:1200px;position:absolute;top:0;left:50%;margin-left:-600px"></div>');
         $('#pu-notice-origin').html(mainnotipop);
     }
-
-    if($('.lp-area').length > 0){
-		$('.lp-area').on('click', '.btn', function(e){
-			e.preventDefault();
-			$('.lp-area .lp-cont').css('z-index', 1);
-			$(this).parent().find('.lp-cont').css('z-index', 2);
-			$(this).parent().find('.lp-cont').show();
-		});
-		$('.lp-cont').on('click', '.btn-close', function(e){
-			e.preventDefault();
-			$(this).parent().css('z-index', 1);
-			$(this).parent().hide();
-			if($(this).parent().hasClass('room-tbl-session')) $('.room-tbl-dimm').hide();
-		});
-	}
 
     var useFilter = $('.sch-set-accomm').length>0; // 필터 사용 페이지
     if(useFilter){
@@ -591,17 +591,17 @@ $(function(){
             $activePanel.find('input').prop('checked', false);
             $activePanel.find('.label-base').removeClass('on');
         });
-		$setAccom.find('.btn-toggle-arrow').on('click', function(e){
-			e.preventDefault();
-			$activePanel = $(this).closest('dt').next();
-			if(!$(this).hasClass('on')){
-				$(this).addClass('on');
-				$activePanel.stop().slideUp(300);
-			}else{
-				$(this).removeClass('on');
-				$activePanel.slideDown(300);
-			}
-		});
+        $setAccom.find('.btn-toggle-arrow').on('click', function(e){
+            e.preventDefault();
+            $activePanel = $(this).closest('dt').next();
+            if(!$(this).hasClass('on')){
+                $(this).addClass('on');
+                $activePanel.stop().slideUp(300);
+            }else{
+                $(this).removeClass('on');
+                $activePanel.slideDown(300);
+            }
+        });
     }
 	var htpPage = $('.commonHeaderObject.o-search-result').length>0; // 호텔,항공 목록·상세 페이지
 	if(htpPage){
@@ -613,9 +613,8 @@ $(function(){
 		var $htpListSection = $('.htp-list-sec');
 		var htpListPage = $htpListSection.length>0; // 호텔,항공 목록 페이지
         var $htpList = $('.htp-res-list').length>0; // 호텔 목록 페이지
+		var $htpListAir = $('.htp-res-list-air').length>0; // 항공 목록 페이지
 		var htpDetailPage = $('.htp-detail-sec').length>0; // 호텔 상세 페이지
-        var $htpListAir = $('.htp-res-list-air').length>0; // 항공 목록 페이지
-        var htpDetailPageAir = $('.htp-detail-air').length>0; // 항공 상세 페이지
 
 		var scTop;
 		var isTopFix = false;
@@ -674,8 +673,7 @@ $(function(){
                         $gmapWrap.removeClass('on change');
                     }, 1000);
                 });
-                
-            }	
+            }		
 		}
 
 		if(htpDetailPage){
@@ -734,7 +732,6 @@ $(function(){
 					}
 				} 
 				if(htpDetailPage) $htpVis.addClass('on');
-				
 				isTopFix = true;
 			}
 			if(htpTopPos > scTop && isTopFix){
@@ -748,7 +745,6 @@ $(function(){
 					}	
 				}
 				if(htpDetailPage) $htpVis.removeClass('on');
-				
 				isTopFix = false;
 			}
 			if(htpDetailPage){
@@ -848,31 +844,33 @@ $(function(){
             });
 		}
 	}
-    if($('.list-item-slick').length>0){
-        var listItemSlick = $('.list-item-slick .list-item-st1').slick({
-          dots: false,
-          infinite: true,
-          draggable: false,
-          arrows:false,
-          variableWidth: true,
-          slidesToShow: 4,
-          slidesToScroll: 4,
-        });
-        var $listSlickPrev = $('.list-item-slick .bb-prev');
-        var $listSlickNext = $('.list-item-slick .bb-next');
-        $listSlickPrev.on('click', function(e){
-          e.preventDefault();
-          listItemSlick.slick('slickPrev');
-        });
-        $listSlickNext.on('click', function(e){
-          e.preventDefault();
-          listItemSlick.slick('slickNext');
-        });
-    } 
-	if($('.htp-customscrollbar').length > 0){
-		$('.htp-customscrollbar').mCustomScrollbar({theme:"minimal-dark"});
+});
+
+/*
+ * 함수명 : pvFrontComponent
+ * 설명   : 공통 컴포넌트 기능별 정의
+ * 작성   : 퍼블리싱 파트
+ * 가이드 : http://pstatic.priviatravel.com/privia_2018/html_main/guide.html
+ */
+var pvFrontComponent = function(){
+    if($('.lp-area').length>0){
+		$('.lp-area').on('click', '.btn', function(e){
+			e.preventDefault();
+			$('.lp-area .lp-cont').css('z-index', 1);
+			$(this).parent().find('.lp-cont').css('z-index', 2);
+			$(this).parent().find('.lp-cont').show();
+		});
+		$('.lp-cont').on('click', '.btn-close', function(e){
+			e.preventDefault();
+			$(this).parent().css('z-index', 1);
+			$(this).parent().hide();
+			if($(this).parent().hasClass('room-tbl-session')) $('.room-tbl-dimm').hide();
+		});
 	}
-	if($('.ui-term-wrap').length > 0){
+    if($('.ui-customscrollbar').length>0){
+		$('.ui-customscrollbar').mCustomScrollbar({theme:"minimal-dark"});
+	}
+	if($('.ui-term-wrap').length>0){
 		$('.ui-term-box .term-customscrollbar').mCustomScrollbar({theme:"minimal-dark"});
 		var $term = $('.ui-term-wrap');
 		var $termAll = $term.find('.chk-agree-all');
@@ -914,7 +912,89 @@ $(function(){
           }
 		});
 	}
-});
+    if($('.list-item-slick').length>0){
+        $('.list-item-slick').each(function(i){
+			$('.list-item-slick').eq(i).addClass('opt'+i);
+			//상황별 슬라이드 변수
+			var listOneScroll = $(this).find('.slide-single').length>0; //하나씩만 롤링
+			var listOneBanner = $(this).hasClass('list-one-banner'); //배너 한 개 노출
+            if($(this).find('.b-slick-crt').length>0){
+                var slickOpt = {
+                    dots: true,	
+                    appendDots: $(this).find('.c-slick-dots'),
+                    infinite: true,
+                    draggable: false,
+                    arrows:false,
+                    variableWidth: true,
+                    slidesToShow: 4,
+                    slidesToScroll: 4,
+                    autoplaySpeed: 10000,
+                    autoplay: true
+                }
+                $(this).find('.list-item-st1').on('init', function(event, slick){
+                    pvFrontScript.utilSlickCrt($('.list-item-slick.opt'+i+' .b-slick-crt'), slick);
+                });
+				if(listOneBanner){
+					var slickOpt = {
+						dots: true,	
+						appendDots: $(this).find('.c-slick-dots'),
+						infinite: true,
+						draggable: false,
+						arrows:false,
+						variableWidth: true,
+						slidesToShow: 1,
+						slidesToScroll: 1,
+						autoplaySpeed: 10000,
+						autoplay: true
+					}
+				}
+            }else{
+                var slickOpt = {
+                    dots: false,
+                    infinite: true,
+                    draggable: false,
+                    arrows:false,
+                    variableWidth: true,
+                    slidesToShow: 4,
+                    slidesToScroll: 4
+                }
+            }
+			if(listOneScroll){
+                $(this).find('.list-item-st1').on('init', function(event, slick){
+                    slick.slickSetOption({
+                        slidesToScroll: 1,
+						autoplay: true,
+						autoplaySpeed: 10000
+                    });    
+                });
+			}
+            var listItemSlick = $(this).find('.list-item-st1').slick(slickOpt);
+			if(!listOneBanner){
+				$(this).find('.bb-prev').on('click', function(e){
+					e.preventDefault();
+					listItemSlick.slick('slickPrev');
+				});
+				$(this).find('.bb-next').on('click', function(e){
+					e.preventDefault();
+					listItemSlick.slick('slickNext');
+				});
+			}
+        });
+    }
+    if($('.rc-radio-list').length>0){
+        $('.rc-radio-list li.etc').find('input[type="radio"]').on('click', function(){
+            if($(this).is(":checked") == true){
+               $(this).closest('li.etc').find('.input-base').attr("disabled", false);
+                $(this).closest('li.etc').find('.input-base').focus();
+            }
+        });
+        $('.rc-radio-list li.etc').siblings('li').find('input[type="radio"]').on('click', function(){
+            if($(this).closest('ul').find('li.etc .input-base').is(":checked") == false){
+                $(this).closest('ul').find('li.etc .input-base').attr("disabled", true);
+            }
+        });
+    }
+};
 
 /*
  * 함수명 : skyScraper

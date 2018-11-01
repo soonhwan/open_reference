@@ -1,4 +1,18 @@
 /*
+* 함수명 : commify
+* 설명   : 천단위 콤마생성
+* 사용법 : commify(number)
+*/
+function commify(n) {
+	var reg = /(^[+-]?\d+)(\d{3})/;// 정규식
+	n += '';// 숫자를 문자열로 변환
+
+	while (reg.test(n))
+    n = n.replace(reg, '$1' + ',' + '$2');
+    return n;
+}
+
+/*
  * 함수명   : lazyLoad
  * 설명     : 서브프로모션(중배너,카드형배너), 쿠폰 프로모션의 이미지가 화면(뷰포트)에 등장하기 전 200px전에 로드시작
  * 실행위치 : document.ready 구문 내

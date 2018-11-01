@@ -435,13 +435,14 @@ var navData = {
 			setActiveSearch(QUICK_CODE_AIR, GNB_CODE_AIR, HEADER_TYPE_SECTION); //섹션메인 버전(항공메인)
 			setActiveSearch(QUICK_CODE_HOTEL, GNB_CODE_HOTEL, HEADER_TYPE_SECTION); //섹션메인 버전(호텔메인)
 			setActiveSearch(QUICK_CODE_AIR, GNB_CODE_AIR, HEADER_TYPE_QUICK); // 퀵버전(항공 검색결과)
-			setActiveSearch(null, GNB_CODE_PACKAGE, HEADER_TYPE_QUICK); // 퀵버전(해외패키지)
+			setActiveSearch(QUICK_CODE_PACKAGE, GNB_CODE_PACKAGE, HEADER_TYPE_SECTION); // 섹션메인 버전(해외패키지)
         </script>
 **********************************************************************/
 var QUICK_CODE_AIR = "AIR";
 var QUICK_CODE_HOTEL = "HOTEL";
 var QUICK_CODE_FREE = "FREE";
 var QUICK_CODE_DPRS_ITEM = "DPRS_ITEM";
+var QUICK_CODE_PACKAGE = "PACKAGE";
 
 var GNB_CODE_AIR = "AIR";
 var GNB_CODE_HOTEL = "HOTEL";
@@ -518,6 +519,10 @@ function showSearchTap(searchCode){
 			$('.hs-search-menu .hss-menu [data-tabmain="freetour"]').trigger('click');
 			//$('.hs-search-menu .hss-menu [data-tabsub="rentv"]').trigger('click');
 			break;
+		case QUICK_CODE_PACKAGE:
+			$('#header-sec').addClass('o-search-package');
+			$('.hs-search-menu .hss-menu [data-tabmain="package"]').trigger('click');
+			break;
 		default :
 			$('#header-sec').addClass('o-search-all');
 			$('.hs-search-menu .hss-menu [data-tabmain="air"]').trigger('click');
@@ -527,7 +532,7 @@ function showSearchTap(searchCode){
 
 
 //로컬 전용 입니다!
-var _isCallAir = false, _isCallHotel = false, _isCallFree = false, _isCallFreetour = false;
+var _isCallAir = false, _isCallHotel = false, _isCallFree = false, _isCallFreetour = false,  _isCallPackage = false;
 
 //검색 공통(tab 메뉴)
 function comSearchEvent(){
@@ -580,6 +585,10 @@ function comSearchEvent(){
                     //quickUrl = "//dairtel.priviatravel.com/dprsItemQuickSearch.lts";
                     quickContainer = $('#SC-FREETOUR');
                     break;
+				case "package" : 
+                    //quickUrl = "//dpackage.priviatravel.com/pkgRenewal/";
+                    quickContainer = $('#SC-PACKAGE');
+                    break;
             }
 			
 			if(quickContainer){
@@ -602,6 +611,11 @@ function comSearchEvent(){
 					case "freetour" : 
 						if(comSearchFreetour && !_isCallFreetour){
 							comSearchFreetour(); _isCallFreetour = true;	
+						} 
+						break;
+					case "package" : 
+						if(comSearchPackage && !_isCallPackage){
+							comSearchPackage(); _isCallPackage = true;	
 						} 
 						break;
 				}
@@ -1461,6 +1475,136 @@ function comSearchHotel(){
 		pvFrontScript.docuMoudownTrigger();
 		e.preventDefault();
 	});
+    
+    //인원, 객실 수 팝업
+	$('.sc-hotel [data-panel="room"]').on('click', function(e){
+		//room 저장
+		$currenCapacity = $(this);
+
+		//position
+		pvFrontScript.panelPosition({
+			target: $currenCapacity,
+			area: 'hotel-room'
+		});
+
+		//초기세팅 값 가져오기
+		var roomArr = [];
+		var roomObj = $currenCapacity.find('[data-room]').data();
+		var roomCnt = $currenCapacity.find('[data-room]').data('room');
+
+		for(var i in roomObj){
+			if(typeof roomObj[i] == 'object'){
+				roomArr.push(roomObj[i]);
+			}
+		}
+
+		//셋팅
+		$('.sc-hotel .uis-custom-number-adult1').uisCustomNumber({num: roomArr[0].adult});
+		$('.sc-hotel .uis-custom-number-adult2').uisCustomNumber({num: roomArr[1].adult});
+		$('.sc-hotel .uis-custom-number-adult3').uisCustomNumber({num: roomArr[2].adult});
+		$('.sc-hotel .uis-custom-number-child1').uisCustomNumber({num: roomArr[0].child});
+		$('.sc-hotel .uis-custom-number-child2').uisCustomNumber({num: roomArr[1].child});
+		$('.sc-hotel .uis-custom-number-child3').uisCustomNumber({num: roomArr[2].child});
+
+		$('.global-ui-room .uis-set-selectbox li').find('select').fakeselect('disable');
+		for(i in roomArr){
+			if(i > 0){
+				if(roomArr[i].adult > 1){
+					$('.global-ui-room .room-item').eq(i).removeClass('disabled');
+				}
+			}
+			var ageNum = roomArr[i].age.length;
+			if(ageNum > 0){
+				for(var j=0; j<ageNum; j++){
+					$('.global-ui-room .room-item').eq(i).find('.uis-set-selectbox li').eq(j).find('select').fakeselect('enable');
+					$('.global-ui-room .room-item').eq(i).find('.uis-set-selectbox li').eq(j).find('select').find('option[value='+roomArr[i].age[j]+']').prop("selected",true);
+					$('.global-ui-room .room-item').eq(i).find('.uis-set-selectbox li').eq(j).find('strong').text($('.global-ui-room .room-item').eq(i).find('.uis-set-selectbox li').eq(j).find('select').find('option:selected').text());
+				}
+			}else{
+				$('.global-ui-room .room-item').eq(i).find('.uis-set-selectbox').hide();
+			}
+		}
+		if(roomCnt == 1){
+			$('.sc-hotel .global-ui-room .b-addroom-wrap').show();
+			$('.sc-hotel .global-ui-room .ui-htp-room').addClass('on');
+		}else if(roomCnt == 2){
+			$('.sc-hotel .global-ui-room .b-addroom-wrap').show();
+			$('.sc-hotel .global-ui-room .ui-htp-room').addClass('on');
+		}else{
+			$('.sc-hotel .global-ui-room .b-addroom-wrap').hide();
+			$('.sc-hotel .global-ui-room .ui-htp-room').removeClass('on');
+		}
+		e.preventDefault();
+	});
+
+	//객실 추가
+	$('.sc-hotel .global-ui-room .b-addroom a').on('click', function(e){
+		var roomObj = $currenCapacity.find('[data-room]').data();
+		var roomCnt = $currenCapacity.find('[data-room]').data('room');
+		roomCnt = roomCnt+1;
+		$currenCapacity.find('[data-room]').data('room', roomCnt);
+		$('.global-ui-room .room-item').eq(roomCnt-1).find('.uis-custom-number.adult').uisCustomNumber({num: 2});
+		if(roomCnt == 2){
+			$('.global-ui-room .room-item').eq(1).removeClass('disabled');
+			$('.global-ui-room .room-item').eq(2).addClass('disabled');
+		}else if(roomCnt == 3){
+			$('.global-ui-room .room-item').removeClass('disabled');
+			$('.sc-hotel .global-ui-room .b-addroom-wrap').hide();
+			$('.sc-hotel .global-ui-room .ui-htp-room').removeClass('on');
+		}
+		setRoom();
+		e.preventDefault();
+	});
+
+	//객실 삭제
+	$('.sc-hotel .global-ui-room .b-remove').on('click', function(e){
+		var roomObj = $currenCapacity.find('[data-room]').data();
+		var roomCnt = $currenCapacity.find('[data-room]').data('room');
+		roomCnt = roomCnt-1;
+		$currenCapacity.find('[data-room]').data('room', roomCnt);
+		var roomNum = parseInt($(this).siblings('.room-tab').find('.room-num').text());
+		var totalNum = $('.global-ui-room .room-item').not('.disabled').length;
+		$('.global-ui-room .room-item').eq(roomNum-1).find('.uis-custom-number.adult').uisCustomNumber({num: 0});
+		$('.global-ui-room .room-item').eq(roomNum-1).find('.uis-custom-number.child').uisCustomNumber({num: 0});
+		$('.global-ui-room .room-item').eq(roomNum-1).find('.uis-set-selectbox li').each(function(){
+			$(this).find('select').fakeselect('disable');
+			$(this).find('option:eq(0)').prop("selected", true);
+			$(this).find('strong').text( $(this).find('select').find('option:selected').text() );
+		});
+		if(roomNum < totalNum){
+			$('.global-ui-room .room-item').eq(roomNum-1).insertAfter($('.global-ui-room .room-item').eq(totalNum-1));
+			$('.global-ui-room .room-item').each(function(i){
+				$(this).find('.room-num').text(i+1);
+			});
+		}
+		if($(this).closest('li.room-item').hasClass('on')){
+			$(this).closest('li.room-item').removeClass('on');
+			$(this).closest('li.room-item').prev().addClass('on');
+		}
+		$(this).closest('li.room-item').addClass('disabled');
+		if($('.global-ui-room .b-addroom-wrap').css('display')=='none'){
+			$('.global-ui-room .b-addroom-wrap').show();
+			$('.sc-hotel .global-ui-room .ui-htp-room').addClass('on');
+		}
+		setRoom();
+		e.preventDefault();
+	});
+
+	//객실 선택
+	$('.sc-hotel .global-ui-room .room-tab, .sc-hotel .global-ui-room .room-arrow').on('click', function(e){
+		if(!$(this).closest('.room-item').hasClass('on')){
+			$(this).closest('.room-item').addClass('on');
+			$(this).closest('.room-item').siblings('.room-item').removeClass('on');
+		}else{
+			$(this).closest('.room-item').removeClass('on');
+		}
+        e.preventDefault();
+	});
+
+	//아동 나이 선택
+	$('.sc-hotel .global-ui-room .select-base').on('change', function(){
+		setRoom();
+	});
 	
 	//+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ 캘린더
 	//캘린더 팝업
@@ -1640,6 +1784,100 @@ function comSearchHotel(){
 		var type = $(this).data('type').split('-')[0];
 		var action = $(this).data('type').split('-')[1];
 		setCapacity(type, action);
+		e.preventDefault();
+	});
+    
+    //인원, 객실 수 컨트롤 함수
+    function setRoom(){
+		var adultCnt1 = parseInt($('.global-ui-room .room-item').eq(0).find('.num-adult').text()); // 성인 1
+		var adultCnt2 = parseInt($('.global-ui-room .room-item').eq(1).find('.num-adult').text()); // 성인 2
+		var adultCnt3 = parseInt($('.global-ui-room .room-item').eq(2).find('.num-adult').text()); // 성인 3
+		var childCnt1 = parseInt($('.global-ui-room .room-item').eq(0).find('.num-child').text()); // 아동 1
+		var childCnt2 = parseInt($('.global-ui-room .room-item').eq(1).find('.num-child').text()); // 아동 2
+		var childCnt3 = parseInt($('.global-ui-room .room-item').eq(2).find('.num-child').text()); // 아동 3
+		var roomCnt = $currenCapacity.find('[data-room]').data('room');
+
+		var roomArr = [], ageArr = [], totArr = [];
+		var ageNum = 0;
+
+		for(var i=0; i<roomCnt; i++){
+			ageNum = $('.global-ui-room .room-item').eq(i).find('.select-title:not(.disabled)').length;
+			ageArr.push(ageNum);
+		}
+
+		for(i in ageArr){
+			totArr[i] = [];
+			for(var j=0; j<ageArr[i]; j++){
+				var result = Number($('.global-ui-room .room-item').eq(i).find('.uis-set-selectbox li').eq(j).find('option:selected').val());
+				result = (result == 0) ? 0 : result;
+				totArr[i].push(result);
+			}
+		}
+
+		if($('.global-ui-room .room-item').eq(1).hasClass('disabled')){
+			if(adultCnt2 == 1) adultCnt2 = 0;
+		}
+		if($('.global-ui-room .room-item').eq(2).hasClass('disabled')){
+			if(adultCnt3 == 1) adultCnt3 = 0;
+		}
+
+		$currenCapacity.find('[data-room]').data('room1', {'adult': adultCnt1, 'child': childCnt1, 'age': totArr[0]});
+		$currenCapacity.find('[data-room]').data('room2', {'adult': adultCnt2, 'child': childCnt2, 'age': totArr[1]});
+		$currenCapacity.find('[data-room]').data('room3', {'adult': adultCnt3, 'child': childCnt3, 'age': totArr[2]});
+		$currenCapacity.find('[data-room]').data('room', roomCnt);
+
+		for(i in totArr){
+			if(totArr[i].length == 0){
+				$('.global-ui-room .room-item').eq(i).find('.uis-set-selectbox').hide();
+				$('.global-ui-room .room-item').eq(i).find('.uis-set-selectbox li').each(function(){
+					$(this).find('select').fakeselect('disable');
+					$(this).find('option:eq(0)').prop("selected", true);
+					$(this).find('strong').text( $(this).find('select').find('option:selected').text() );
+				});
+			}else{
+				$('.global-ui-room .room-item').eq(i).find('.uis-set-selectbox').show();
+			}
+		}
+
+		var txt = '';
+		if(adultCnt1 > 0 || adultCnt2 > 0 || adultCnt3 > 0){
+			roomArr.push('<span class="type-room">성인</span><span><em class="total-num">'+(adultCnt1+adultCnt2+adultCnt3)+'</em></span>');
+		}
+
+		if(childCnt1 > 0 || childCnt2 > 0 || childCnt3 > 0){
+			roomArr.push('<span class="type-room">아동</span><span><em class="total-num">'+(childCnt1+childCnt2+childCnt3)+'</em></span>');
+		}
+
+		if(roomCnt > 0){
+			roomArr.push('<span class="type-room">객실</span><span><em class="total-num">'+roomCnt+'</em></span>');
+		}
+
+		for(var i in roomArr){
+			if(i > 0){
+				txt += ', ';
+			}
+			txt += roomArr[i];
+		}
+
+		if(txt == ''){
+			if($currenCapacity.hasClass('on')){
+				$currenCapacity.removeClass('on');
+			}
+		}
+		else{
+			if(!$currenCapacity.hasClass('on')){
+				$currenCapacity.addClass('on');
+			}
+		}
+
+		$currenCapacity.find('.qsb-input').empty();
+		$currenCapacity.find('.qsb-input').html(txt);
+		console.log('가져오기 = ', $currenCapacity.find('[data-room]').data());
+	}
+    $('.sc-hotel .global-ui-room .uis-custom-number .ucn-crt button').on('click', function(e){
+		var type = $(this).data('type').split('-')[0];
+		var action = $(this).data('type').split('-')[1];
+		setRoom();
 		e.preventDefault();
 	});
 }
@@ -2281,6 +2519,459 @@ function comSearchFreetour(){
 	pvFrontScript.comSearchRecently($('.sc-freetour'));
 }
 //..검색 - 투액 관련
+
+//검색 - 해외패키지 관련
+function comSearchPackage(){
+	var $currentSelect = null; // select 저장
+	var $currentCity = null; // 목적지영역 저장
+	//+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ 인기지역
+	//인기지역 셋팅	
+	//select click 팝업
+	$('.sc-package [data-panel="select"]').on('click', function(e){
+		//places 저장
+		$currentSelect = $(this);
+		
+		//position
+		pvFrontScript.panelPosition({
+			target: $currentSelect,
+			area: 'panel-sel'
+		});
+		
+		e.preventDefault();
+	});
+		
+	//select list click
+	$(document).on('click', '.sc-package .ui-select-list .uis-list .list li a', function(e){
+		var v = $(this).text();
+		
+		//select list input
+		if(!$currentSelect.hasClass('on')){
+			$currentSelect.addClass('on');   
+		}
+		$currentSelect.find('.qsb-input').text(v);
+		
+		pvFrontScript.docuMoudownTrigger();
+		e.preventDefault();
+	});
+		
+	//+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ 캘린더
+	//캘린더 팝업
+	$('.sc-package [data-panel="calendar"]').on('click', function(e){
+		//position
+		pvFrontScript.panelPosition({
+			target: $(this)
+		});
+		e.preventDefault();
+	});
+	
+	//캘린더 datepicker - 인기지역 여행날짜
+	$('.sc-package .o-hotitem .uis-datepicker').datepicker({
+		minDate: '0',
+		maxDate: '+365',
+		dayNamesMin: ['일', '월', '화', '수', '목', '금', '토'],
+		dateFormat: 'yy/mm/dd',
+		beforeShowDay: function(date) {
+			var date1 = $.datepicker.parseDate($(this).datepicker('option', 'dateFormat'), $('.sc-package .o-hotitem .qsb-d1').data('day'));
+			var date2 = $.datepicker.parseDate($(this).datepicker('option', 'dateFormat'), $('.sc-package .o-hotitem .qsb-d2').data('day'));
+			var date3 = $.datepicker.parseDate($(this).datepicker('option', 'dateFormat'), $('.sc-package .o-hotitem .qsb-d3').data('day'));
+			return pvFrontScript.beforeShowDayThreeMark(date, date1, date2, date3);
+		},
+		onSelect: function(dateText, inst) {
+			var status = "";
+			var date1 = $.datepicker.parseDate($(this).datepicker('option', 'dateFormat'), $('.sc-package .o-hotitem .qsb-d1').data('day'));
+			var date2 = $.datepicker.parseDate($(this).datepicker('option', 'dateFormat'), $('.sc-package .o-hotitem .qsb-d2').data('day'));
+			var date3 = $.datepicker.parseDate($(this).datepicker('option', 'dateFormat'), $('.sc-package .o-hotitem .qsb-d3').data('day'));
+			var selectedDate = $.datepicker.parseDate($(this).datepicker('option', 'dateFormat'), dateText);
+			var txtDay = pvFrontScript.onSelectTxtDay($(this), dateText);	
+						
+			if(!date1 && !date2 && !date3){
+				$('.sc-package .o-hotitem .qsb-dates .qsb-area').addClass('on');
+				$('.sc-package .o-hotitem .qsb-d1').data('day',dateText);
+				$('.sc-package .o-hotitem .qsb-d1 .day').html(txtDay); 
+			}else if(date1 && !date2 && !date3){ 
+				if(selectedDate.getTime() == date1.getTime()){
+					$('.sc-package .o-hotitem .qsb-d1').data('day','');
+				  	$('.sc-package .o-hotitem .qsb-d1 .day').html('');
+				}else{	
+					$('.sc-package .o-hotitem .qsb-d2').data('day',dateText);
+					$('.sc-package .o-hotitem .qsb-d2 .day').html(txtDay);	
+					// 정렬
+					if(date1.getTime() > selectedDate.getTime()){
+						$('.sc-package .o-hotitem .qsb-d2').data('day', $('.sc-package .o-hotitem .qsb-d1').data('day'));
+						$('.sc-package .o-hotitem .qsb-d2 .day').html($('.sc-package .o-hotitem .qsb-d1 .day').html());
+						$('.sc-package .o-hotitem .qsb-d1').data('day', dateText);
+						$('.sc-package .o-hotitem .qsb-d1 .day').html(txtDay);
+					}
+				}				
+			}else if(date1 && date2 && !date3){ 
+				if(selectedDate.getTime() == date1.getTime()){
+					$('.sc-package .o-hotitem .qsb-d1').data('day','');
+				  	$('.sc-package .o-hotitem .qsb-d1 .day').html('');
+                    status = "change";
+					if(date2 != ''){
+						$('.sc-package .o-hotitem .qsb-d1').data('day', $('.sc-package .o-hotitem .qsb-d2').data('day'));
+						$('.sc-package .o-hotitem .qsb-d1 .day').html($('.sc-package .o-hotitem .qsb-d2 .day').html());
+						$('.sc-package .o-hotitem .qsb-d2').data('day','');
+						$('.sc-package .o-hotitem .qsb-d2 .day').html('');
+					}
+				}else if(selectedDate.getTime() == date2.getTime()){
+					$('.sc-package .o-hotitem .qsb-d2').data('day','');
+				  	$('.sc-package .o-hotitem .qsb-d2 .day').html('');
+				}else{ 
+					$('.sc-package .o-hotitem .qsb-d3').data('day',dateText);
+					$('.sc-package .o-hotitem .qsb-d3 .day').html(txtDay);
+					// 정렬
+					if(selectedDate.getTime() < date1.getTime()){ 
+						$('.sc-package .o-hotitem .qsb-d3').data('day', $('.sc-package .o-hotitem .qsb-d2').data('day'));
+						$('.sc-package .o-hotitem .qsb-d3 .day').html($('.sc-package .o-hotitem .qsb-d2 .day').html());
+						$('.sc-package .o-hotitem .qsb-d2').data('day', $('.sc-package .o-hotitem .qsb-d1').data('day'));
+						$('.sc-package .o-hotitem .qsb-d2 .day').html($('.sc-package .o-hotitem .qsb-d1 .day').html());
+						$('.sc-package .o-hotitem .qsb-d1').data('day', dateText);
+						$('.sc-package .o-hotitem .qsb-d1 .day').html(txtDay);
+					}else if(selectedDate.getTime() > date2.getTime()){ 
+						$('.sc-package .o-hotitem .qsb-d3').data('day', dateText);
+						$('.sc-package .o-hotitem .qsb-d3 .day').html(txtDay);
+					}else{ 
+						$('.sc-package .o-hotitem .qsb-d3').data('day', $('.sc-package .o-hotitem .qsb-d2').data('day'));
+						$('.sc-package .o-hotitem .qsb-d3 .day').html($('.sc-package .o-hotitem .qsb-d2 .day').html());
+						$('.sc-package .o-hotitem .qsb-d2').data('day', dateText);
+						$('.sc-package .o-hotitem .qsb-d2 .day').html(txtDay);
+					}
+				}
+				// 정렬
+				if(date2.getTime() > selectedDate.getTime() && status == null){ 
+					$('.sc-package .o-hotitem .qsb-d3').data('day', $('.sc-package .o-hotitem .qsb-d2').data('day'));
+					$('.sc-package .o-hotitem .qsb-d3 .day').html($('.sc-package .o-hotitem .qsb-d2 .day').html());
+					$('.sc-package .o-hotitem .qsb-d2').data('day', dateText);
+					$('.sc-package .o-hotitem .qsb-d2 .day').html(txtDay); 
+				}
+			}else if(date1 && date2 && date3){
+				if(selectedDate.getTime() == date1.getTime()){ 
+					$('.sc-package .o-hotitem .qsb-d1').data('day','');
+				  	$('.sc-package .o-hotitem .qsb-d1 .day').html('');
+					if(date2 != ''){
+						$('.sc-package .o-hotitem .qsb-d1').data('day', $('.sc-package .o-hotitem .qsb-d2').data('day'));
+						$('.sc-package .o-hotitem .qsb-d1 .day').html($('.sc-package .o-hotitem .qsb-d2 .day').html());
+						$('.sc-package .o-hotitem .qsb-d2').data('day','');
+						$('.sc-package .o-hotitem .qsb-d2 .day').html('');
+						$('.sc-package .o-hotitem .qsb-d2').data('day', $('.sc-package .o-hotitem .qsb-d3').data('day'));
+						$('.sc-package .o-hotitem .qsb-d2 .day').html($('.sc-package .o-hotitem .qsb-d3 .day').html());
+						$('.sc-package .o-hotitem .qsb-d3').data('day','');
+						$('.sc-package .o-hotitem .qsb-d3 .day').html('');
+						//정렬
+						if(date1.getTime() > selectedDate.getTime()){
+							$('.sc-package .o-hotitem .qsb-d3').data('day', $('.sc-package .o-hotitem .qsb-d1').data('day'));
+							$('.sc-package .o-hotitem .qsb-d3 .day').html($('.sc-package .o-hotitem .qsb-d1 .day').html());
+							$('.sc-package .o-hotitem .qsb-d1').data('day', dateText);
+							$('.sc-package .o-hotitem .qsb-d1 .day').html(txtDay);
+						}
+					}
+				}else if(selectedDate.getTime() == date2.getTime()){
+					$('.sc-package .o-hotitem .qsb-d2').data('day','');
+					$('.sc-package .o-hotitem .qsb-d2 .day').html('');
+					if(date3 != ''){
+						$('.sc-package .o-hotitem .qsb-d2').data('day', $('.sc-package .o-hotitem .qsb-d3').data('day'));
+						$('.sc-package .o-hotitem .qsb-d2 .day').html($('.sc-package .o-hotitem .qsb-d3 .day').html());
+						$('.sc-package .o-hotitem .qsb-d3').data('day','');
+						$('.sc-package .o-hotitem .qsb-d3 .day').html('');
+					}
+				}
+			  	else{
+					if(selectedDate.getTime() == date3.getTime()){
+						$('.sc-package .o-hotitem .qsb-d3').data('day','');
+				  		$('.sc-package .o-hotitem .qsb-d3 .day').html('');
+					}else if(selectedDate.getTime() != date1.getTime() && selectedDate.getTime() != date2.getTime() && selectedDate.getTime() != date3.getTime()){
+						alert("출발일은 최대 3개까지 선택할 수 있습니다.");
+						return false;
+					}
+				}				
+			}	
+			
+			if($('.sc-package .o-hotitem .qsb-d2 .day').html() == ''){
+			   $('.sc-package .o-hotitem .qsb-d2 .day').parent().find('i').hide();
+		   	}else{
+				$('.sc-package .o-hotitem .qsb-d2 .day').parent().find('i').show();
+			}
+			if($('.sc-package .o-hotitem .qsb-d3 .day').html() == ''){
+			   $('.sc-package .o-hotitem .qsb-d3 .day').parent().find('i').hide();
+		   	}else{
+				$('.sc-package .o-hotitem .qsb-d3 .day').parent().find('i').show();
+			}
+			
+			if($('.o-hotitem .ui-datepicker-calendar').css("visibility","hidden") && $('.sc-package .o-hotitem .day').text() == ''){
+				$('.sc-package .o-hotitem .qsb-dates .qsb-area').removeClass('on');
+			}
+		}
+	});
+	
+	//캘린더 datepicker - 전체지역 여행날짜
+	$('.sc-package .o-allarea .uis-datepicker').datepicker({
+		minDate: '0',
+		maxDate: '+365',
+		dayNamesMin: ['일', '월', '화', '수', '목', '금', '토'],
+		dateFormat: 'yy/mm/dd',
+		beforeShowDay: function(date) {
+			var date1 = $.datepicker.parseDate($(this).datepicker('option', 'dateFormat'), $('.sc-package .o-allarea .qsb-d1').data('day'));
+			var date2 = $.datepicker.parseDate($(this).datepicker('option', 'dateFormat'), $('.sc-package .o-allarea .qsb-d2').data('day'));
+			var date3 = $.datepicker.parseDate($(this).datepicker('option', 'dateFormat'), $('.sc-package .o-allarea .qsb-d3').data('day'));
+			return pvFrontScript.beforeShowDayThreeMark(date, date1, date2, date3);
+		},
+		onSelect: function(dateText, inst) {
+			var status = "";
+			var date1 = $.datepicker.parseDate($(this).datepicker('option', 'dateFormat'), $('.sc-package .o-allarea .qsb-d1').data('day'));
+			var date2 = $.datepicker.parseDate($(this).datepicker('option', 'dateFormat'), $('.sc-package .o-allarea .qsb-d2').data('day'));
+			var date3 = $.datepicker.parseDate($(this).datepicker('option', 'dateFormat'), $('.sc-package .o-allarea .qsb-d3').data('day'));
+			var selectedDate = $.datepicker.parseDate($(this).datepicker('option', 'dateFormat'), dateText);
+			var txtDay = pvFrontScript.onSelectTxtDay($(this), dateText);	
+						
+			if(!date1 && !date2 && !date3){
+				$('.sc-package .o-allarea .qsb-dates .qsb-area').addClass('on');
+				$('.sc-package .o-allarea .qsb-d1').data('day',dateText);
+				$('.sc-package .o-allarea .qsb-d1 .day').html(txtDay); 
+			}else if(date1 && !date2 && !date3){ 
+				if(selectedDate.getTime() == date1.getTime()){
+					$('.sc-package .o-allarea .qsb-d1').data('day','');
+				  	$('.sc-package .o-allarea .qsb-d1 .day').html('');
+				}else{	
+					$('.sc-package .o-allarea .qsb-d2').data('day',dateText);
+					$('.sc-package .o-allarea .qsb-d2 .day').html(txtDay);	
+					// 정렬
+					if(date1.getTime() > selectedDate.getTime()){
+						$('.sc-package .o-allarea  .qsb-d2').data('day', $('.sc-package .o-allarea  .qsb-d1').data('day'));
+						$('.sc-package .o-allarea .qsb-d2 .day').html($('.sc-package .o-allarea .qsb-d1 .day').html());
+						$('.sc-package .o-allarea .qsb-d1').data('day', dateText);
+						$('.sc-package .o-allarea .qsb-d1 .day').html(txtDay);
+					}
+				}				
+			}else if(date1 && date2 && !date3){ 
+				if(selectedDate.getTime() == date1.getTime()){
+					$('.sc-package .o-allarea .qsb-d1').data('day','');
+				  	$('.sc-package .o-allarea .qsb-d1 .day').html('');
+                    status = "change";
+					if(date2 != ''){
+						$('.sc-package .o-allarea .qsb-d1').data('day', $('.sc-package .o-allarea .qsb-d2').data('day'));
+						$('.sc-package .o-allarea .qsb-d1 .day').html($('.sc-package .o-allarea .qsb-d2 .day').html());
+						$('.sc-package .o-allarea .qsb-d2').data('day','');
+						$('.sc-package .o-allarea .qsb-d2 .day').html('');
+					}
+				}else if(selectedDate.getTime() == date2.getTime()){
+					$('.sc-package .o-allarea .qsb-d2').data('day','');
+				  	$('.sc-package .o-allarea .qsb-d2 .day').html('');
+				}else{ 
+					$('.sc-package .o-allarea .qsb-d3').data('day',dateText);
+					$('.sc-package .o-allarea .qsb-d3 .day').html(txtDay);
+					if(selectedDate.getTime() < date1.getTime()){ 
+						$('.sc-package .o-allarea .qsb-d3').data('day', $('.sc-package .o-allarea .qsb-d2').data('day'));
+						$('.sc-package .o-allarea .qsb-d3 .day').html($('.sc-package .o-allarea .qsb-d2 .day').html());
+						$('.sc-package .o-allarea .qsb-d2').data('day', $('.sc-package .o-allarea .qsb-d1').data('day'));
+						$('.sc-package .o-allarea .qsb-d2 .day').html($('.sc-package .o-allarea .qsb-d1 .day').html());
+						$('.sc-package .o-allarea .qsb-d1').data('day', dateText);
+						$('.sc-package .o-allarea .qsb-d1 .day').html(txtDay);
+					}else if(selectedDate.getTime() > date2.getTime()){ 
+						$('.sc-package .o-allarea .qsb-d3').data('day', dateText);
+						$('.sc-package .o-allarea .qsb-d3 .day').html(txtDay);
+					}else{ 
+						$('.sc-package .o-allarea .qsb-d3').data('day', $('.sc-package .o-allarea .qsb-d2').data('day'));
+						$('.sc-package .o-allarea .qsb-d3 .day').html($('.sc-package .o-allarea .qsb-d2 .day').html());
+						$('.sc-package .o-allarea .qsb-d2').data('day', dateText);
+						$('.sc-package .o-allarea .qsb-d2 .day').html(txtDay);
+					}
+				}
+				// 정렬
+				if(date2.getTime() > selectedDate.getTime() && status == null){ 
+					$('.sc-package .o-allarea .qsb-d3').data('day', $('.sc-package .o-allarea .qsb-d2').data('day'));
+					$('.sc-package .o-allarea .qsb-d3 .day').html($('.sc-package .o-allarea .qsb-d2 .day').html());
+					$('.sc-package .o-allarea .qsb-d2').data('day', dateText);
+					$('.sc-package .o-allarea .qsb-d2 .day').html(txtDay); 
+				}
+			}else if(date1 && date2 && date3){
+				if(selectedDate.getTime() == date1.getTime()){ 
+					$('.sc-package .o-allarea .qsb-d1').data('day','');
+				  	$('.sc-package .o-allarea .qsb-d1 .day').html('');
+					if(date2 != ''){
+						$('.sc-package .o-allarea .qsb-d1').data('day', $('.sc-package .o-allarea .qsb-d2').data('day'));
+						$('.sc-package .o-allarea .qsb-d1 .day').html($('.sc-package .o-allarea .qsb-d2 .day').html());
+						$('.sc-package .o-allarea .qsb-d2').data('day','');
+						$('.sc-package .o-allarea .qsb-d2 .day').html('');
+						$('.sc-package .o-allarea .qsb-d2').data('day', $('.sc-package .o-allarea .qsb-d3').data('day'));
+						$('.sc-package .o-allarea .qsb-d2 .day').html($('.sc-package .o-allarea .qsb-d3 .day').html());
+						$('.sc-package .o-allarea .qsb-d3').data('day','');
+						$('.sc-package .o-allarea .qsb-d3 .day').html('');
+						//정렬
+						if(date1.getTime() > selectedDate.getTime()){
+							$('.sc-package .o-allarea .qsb-d3').data('day', $('.sc-package .o-allarea .qsb-d1').data('day'));
+							$('.sc-package .o-allarea .qsb-d3 .day').html($('.sc-package .o-allarea .qsb-d1 .day').html());
+							$('.sc-package .o-allarea .qsb-d1').data('day', dateText);
+							$('.sc-package .o-allarea .qsb-d1 .day').html(txtDay);
+						}
+					}
+				}else if(selectedDate.getTime() == date2.getTime()){
+					$('.sc-package .o-allarea .qsb-d2').data('day','');
+					$('.sc-package .o-allarea .qsb-d2 .day').html('');
+					if(date3 != ''){
+						$('.sc-package .o-allarea .qsb-d2').data('day', $('.sc-package .o-allarea .qsb-d3').data('day'));
+						$('.sc-package .o-allarea .qsb-d2 .day').html($('.sc-package .o-allarea .qsb-d3 .day').html());
+						$('.sc-package .o-allarea .qsb-d3').data('day','');
+						$('.sc-package .o-allarea .qsb-d3 .day').html('');
+					}
+				}
+			  	else{
+					if(selectedDate.getTime() == date3.getTime()){
+						$('.sc-package .o-allarea .qsb-d3').data('day','');
+				  		$('.sc-package .o-allarea .qsb-d3 .day').html('');
+					}else if(selectedDate.getTime() != date1.getTime() && selectedDate.getTime() != date2.getTime() && selectedDate.getTime() != date3.getTime()){
+						alert("출발일은 최대 3개까지 선택할 수 있습니다.");
+						return false;
+					}
+				}				
+			}		
+			
+			if($('.sc-package .o-allarea .qsb-d2 .day').html() == ''){
+			   $('.sc-package .o-allarea .qsb-d2 .day').parent().find('i').hide();
+		   	}else{
+				$('.sc-package .o-allarea .qsb-d2 .day').parent().find('i').show();
+			}
+			if($('.sc-package .o-allarea .qsb-d3 .day').html() == ''){
+			   $('.sc-package .o-allarea .qsb-d3 .day').parent().find('i').hide();
+		   	}else{
+				$('.sc-package .o-allarea .qsb-d3 .day').parent().find('i').show();
+			}
+			
+			if($('.o-allarea .ui-datepicker-calendar').css("visibility","hidden") && $('.sc-package .o-allarea .day').text() == ''){
+				$('.sc-package .o-allarea .qsb-dates .qsb-area').removeClass('on');
+			}
+		}
+	});
+	
+	//캘린더 인기지역 날짜선택 완료 click
+	$('.sc-package .o-hotitem .ui-date-calendar .b-complete a').on('click', function(e){
+		pvFrontScript.docuMoudownTrigger();
+		e.preventDefault();
+	});
+	
+	//캘린더 전체지역 날짜선택 완료 click
+	$('.sc-package .o-allarea .ui-date-calendar .b-complete a').on('click', function(e){
+		pvFrontScript.docuMoudownTrigger();
+		e.preventDefault();
+	});
+	
+	
+	//캘린더 datepicker - 전체지역 여행날짜
+	$('.sc-package .o-allarea .uis-datepicker').datepicker({
+		
+	});
+	
+	//캘린더 전체지역 날짜선택 완료 click
+	$('.sc-package .o-allarea .ui-date-calendar .b-complete a').on('click', function(e){
+		pvFrontScript.docuMoudownTrigger();
+		e.preventDefault();
+	});
+	
+	
+	//+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ 지역
+	//도시셋팅
+	function setPackageCity(city){
+		//도시가 선택됨 표시
+		if(!$currentCity.hasClass('on')){
+			$currentCity.addClass('on');   
+		}
+
+		//도시 텍스트 적용
+		$currentCity.find('.city').text(city);
+		pvFrontScript.docuMoudownTrigger();
+	}
+		
+	//목적지 팝업
+	$('.sc-package [data-panel="mainsel"]').on('click', function(e){
+		var panelName = $(this).data('panel-name');
+
+		//places 저장
+		$currentCity = $(this);
+		
+		//position
+		pvFrontScript.panelPosition({
+			target: $currentCity,
+			area: 'package-mainsel'
+		});
+		
+		//기존 검색리스트 삭제
+		if($('.'+panelName).hasClass('ui-search-auto')){
+		   $('.'+panelName).removeClass('ui-search-auto');
+		}
+		
+		//목적지가 있으면 팝업 인풋에 내용 표시
+		/*if($currentCity.hasClass('on')){
+			var city = $currentCity.find('.city').text();
+			$('.'+panelName).find('.ipu-search').val(city);
+		}
+		else{
+			$('.'+panelName).find('.ipu-search').val('');
+			// #32511 검색영역 포커스
+			setTimeout(function(){
+				$('.'+panelName).find('.ipu-search').focus(); 
+			}, 100);
+		}*/
+		$('.'+panelName).find('.ipu-search').val('');
+		setTimeout(function(){
+			$('.'+panelName).find('.ipu-search').focus(); 
+		}, 100);
+		e.preventDefault();
+	});
+	
+	//주요도시 리스트, 자동완성 리스트 click
+	$(document).on('click', '.ui-mainsel-package .list a', function(e){
+		var city = $(this).data('city'); //도시 이름(임시)
+		
+		//도시 input
+		$(this).closest('.ui-mainsel-package').find('.uis-input .ipu-search').val(city);
+				
+		//도시 셋팅
+		setPackageCity(city);
+		e.preventDefault();
+	});
+		
+	//도시 검색하기(자동완성) keydown
+	$('.ui-mainsel-package .uis-input .ipu-search').on('keydown', function(){
+		if(!$(this).closest('.ui-mainsel-package').hasClass('ui-search-auto') && $(this).val('')){
+			//add auto
+			$(this).closest('.ui-mainsel-package').addClass('ui-search-auto');
+			$(this).closest('.ui-mainsel-package .ipu-search').removeClass('placeholder'); //IE9
+		}
+	});
+	
+	//도시 검색하기 focus
+	$('.ui-mainsel-package .uis-input .ipu-search').on('focus', function(){
+		$(this).val('');
+	});
+	
+	//도시 검색하기 blur
+	$('.ui-mainsel-package .uis-input .ipu-search').on('blur', function(){
+		$(this).val($currentCity.find('.city').text());
+	});
+	
+	//+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ 코드
+	//상품코드
+	var $focusCode = $("#code");
+	$focusCode.focus(function(){
+		$(this).next("label").hide();
+	});
+	$focusCode.focusout(function(){
+		if ($(this).val()) {
+			$(this).next("label").hide();
+		} else {
+			$(this).next("label").show();
+		}
+	});	
+	
+	
+	
+	//event 바인딩
+	pvFrontScript.comSearchEvtBind($('.sc-package'));
+	
+	//최근검색 존재하면 event 셋팅
+	pvFrontScript.comSearchRecently($('.sc-package'));
+}
+//..검색 - 해외패키지 관련
 
 
 //검색, 헤더 초기화
