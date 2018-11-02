@@ -288,21 +288,21 @@
 .schedule-detail .schd-header .schdh-time {position: absolute;top: 0;right: 0;}
 .schedule-detail .schd-cont {margin-top: 20px;border-top: 1px solid #000;}
 .schedule-detail .schdc-if {border-bottom: 1px solid #e3e3e3;position: relative;padding: 16px 0 20px 0;font-size: 14px;color: #000;}
-.schedule-detail .schdc-if .air-logo {display: inline-block;vertical-align: middle;}
-.schedule-detail .schdc-if .air-logo img {width: 30px;display: inline-block;vertical-align: middle;}
+.schedule-detail .schdc-if .air-logo {display: inline-block;vertical-align: middle;padding-left: 40px;max-width: 500px}
+.schedule-detail .schdc-if .air-logo img {width: 30px;display: inline-block;vertical-align: middle;margin-left: -40px;}
 .schedule-detail .schdc-if .air-logo .airline {display: inline-block;vertical-align: middle;padding-left: 3px;}
 .schedule-detail .schdc-if .seat {display: inline-block;vertical-align: middle;position: absolute;top: 19px;right: 0;}
 .schedule-detail .schdc-if .airline-shar {display: inline-block;vertical-align: middle;color: #aaaaaa;}
 .schedule-detail .schdc-det {padding: 30px 0 20px 0;position: relative;}
 .schedule-detail .ui-box .dtxt-list {margin-top: 0;}
 .schedule-detail .schdc-det .service {border: 1px solid #e2e2e2;border-radius: 5px;background-color: #fff;position: absolute;top: 30px;right: 0;padding: 0 10px;}
-.schedule-detail .schdc-det .service:before {content: '';display: block;width: 0;height: 0;position: absolute; left: -9px;top: 11px;
+.schedule-detail .schdc-det .service:before {content: '';display: block;width: 0;height: 0;position: absolute; left: -9px;top: 12px;
  border-top: 8px solid transparent;
  border-bottom: 8px solid transparent;
  border-right: 8px solid #eee;
  border-left: 0;
 }
-.schedule-detail .schdc-det .service:after {content: '';display: block;width: 0;height: 0;position: absolute; left: -7px;top: 11px;
+.schedule-detail .schdc-det .service:after {content: '';display: block;width: 0;height: 0;position: absolute; left: -7px;top: 12px;
  border-top: 8px solid transparent;
  border-bottom: 8px solid transparent;
  border-right: 8px solid #fff;
