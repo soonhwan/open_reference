@@ -28,6 +28,7 @@
 <script type="text/javascript" src="/js/front/travel/commonModuleHeader.js"></script> <!-- 프비 리뉴얼 js(가이드버전) -->
 <script type="text/javascript" src="/js/front/travel/slick.min.js"></script> <!-- 프비 리뉴얼 js -->
 <script type="text/javascript" src="/js/front/travel/commonModule.js"></script> <!-- 프비 리뉴얼 js -->
+<script type="text/javascript" src="/js/front/travel/commonModuleUI.js"></script> <!-- 프비 리뉴얼 js -->
 </head>
 
 <body>
@@ -274,6 +275,17 @@
 									</ul>
 								</div>	
 								<!-- //투어&액티비티 -->
+								
+								<!-- 해외패키지 -->
+								<div class="hss-menu hss-package">
+									<h3 class="hss-main"><a href="#" data-tabmain="package">해외패키지</a></h3>
+									<ul class="hss-sub">
+										<li><span class="btn-base bbr-st2 b-hotitem"><a href="#" data-tabsub="hotitem">인기지역</a></span></li>
+										<li><span class="btn-base bbr-st2 b-allarea"><a href="#" data-tabsub="allarea">전체지역</a></span></li>
+										<li><span class="btn-base bbr-st2 b-productcode"><a href="#" data-tabsub="productcode">상품코드</a></span></li>
+									</ul>
+								</div>	
+								<!-- //해외패키지 -->
 							</div> 
 							<!-- //검색 메뉴 -->
 
@@ -2460,6 +2472,365 @@
 									<!-- //투어&액티비티 최근검색 -->
 								</div>
 								<!-- //투어&액티비티 -->
+								
+								<!-- 해외패키지 -->
+								<div class="hss-inner-cont sc-package" id="SC-PACKAGE">
+								    <!-- 인기지역 -->
+                                    <div class="sc-search-box o-hotitem on">
+                                        <div class="w-qsb-cont">
+                                            <div class="qsb-cont-box">
+                                                <div class="qsb-cont qsb-select">
+                                                    <a href="#" class="qsb-area" data-panel="select" data-panel-name="o-sel-hotitem">
+                                                        <span class="qsb-label">인기지역</span>
+                                                        <span class="qsb-input"></span>
+                                                    </a>
+                                                </div>
+                                                <div class="qsb-cont qsb-dates">
+													<a href="#" class="qsb-area" data-panel="calendar" data-panel-name="ui-date-calendar">
+														<span class="qsb-label">출발날짜</span>
+														<span class="qsb-input">
+															<span class="qsb-d1" data-day=""><span class="day"></span></span>
+															<span class="qsb-d2" data-day=""><i>, </i><span class="day"></span></span>
+															<span class="qsb-d3" data-day=""><i>, </i><span class="day"></span></span>
+														</span>
+													</a>
+												</div>
+                                                <div class="qsb-cont qsb-btn-search">
+                                                    <button type="button" class="b-search">검색</button>
+                                                </div>
+                                            </div>
+
+                                            <!-- 인기지역 리스트 -->
+                                            <div class="sc-ui-search-panel ui-select-list o-sel-hotitem">
+                                                <div class="hotitem-txt">PRIVIA의 해외패키지 상품 중 최근 2년 동안 가장 인기가 많은 지역입니다.</div>
+                                                <div class="uis-list uis-list-2col">
+                                                    <ul class="list">
+                                                        <li><a href="#" data-option="">1. 다낭</a></li>
+                                                        <li><a href="#" data-option="">7. 사이판</a></li>
+                                                        <li><a href="#" data-option="">2. 오사카</a></li>
+                                                        <li><a href="#" data-option="">8. 세부</a></li>
+                                                        <li><a href="#" data-option="">3. 괌</a></li>
+                                                        <li><a href="#" data-option="">9. 보라카이</a></li>
+                                                        <li><a href="#" data-option="">4. 방콕</a></li>
+                                                        <li><a href="#" data-option="">10. 코타키나발루</a></li>
+                                                        <li><a href="#" data-option="">5. 푸켓</a></li>
+                                                        <li><a href="#" data-option="">11. 오키나와</a></li>
+                                                        <li><a href="#" data-option="">6. 타이페이</a></li>
+                                                        <li><a href="#" data-option="">12. 홍콩</a></li>
+                                                    </ul>
+                                                </div>
+                                            </div>
+                                            <!-- //인기지역 리스트 -->
+                                            
+                                            <!-- 인기지역 캘린더 -->
+                                            <div class="sc-ui-search-panel ui-date-calendar">
+												<div class="uis-input udc-label">
+													<span class="uis-date-partner">
+														<span class="txt-title">제휴사 선택</span>	
+														<span class="chk-partner">
+															<span class="chk-base chk-st2">
+																<input type="checkbox" id="mode" class="a11y">
+																<label for="mode-1" class="label-base on">모두투어</label> 
+															</span>
+															<span class="chk-base chk-st2">
+																<input type="checkbox" id="hana" class="a11y" checked>
+																<label for="hana" class="label-base on">하나투어</label> 
+															</span>
+															<span class="chk-base chk-st2">
+																<input type="checkbox" id="hanjin" class="a11y">
+																<label for="hanjin" class="label-base on">한진관광</label> 
+															</span>
+															<span class="chk-base chk-st2">
+																<input type="checkbox" id="lotte" class="a11y">
+																<label for="lotte" class="label-base on">롯데관광</label> 
+															</span>
+															<span class="chk-base chk-st2">
+																<input type="checkbox" id="vgood" class="a11y">
+																<label for="vgood" class="label-base on">참좋은여행</label> 
+															</span>
+														</span>
+													</span>
+												</div>
+												<div class="uis-calendar">
+													<div class="uis-datepicker">
+														<div class="chk-able">
+															<span class="chk-base chk-st2">
+																<input type="checkbox" id="depart1" class="a11y">
+																<label for="depart1" class="label-base on">출발가능 상품만</label> 
+																<span class="help-tooltip heltt-st2">
+																	<span class="over">?</span>
+																	<span class="cont" style="width:440px">최소 출발 인원 이상 예약이 되어 있는 상품으로 예약과 동시에 출발이 가능합니다.<br>단, 출발인원 및 항공,호텔 실시간 상황에 따라 예약 상태가 변경 될 수 있으니<br>상담 시 확인해 주세요.
+																	</span>
+																</span>
+															</span>
+														</div>
+													</div>
+												</div> 
+												<div class="uis-opt-bottom">
+													<div class="uisob-right">
+														<span class="btn-base bb-st3 b-complete"><a href="#">완료</a></span>
+													</div>
+												</div>
+											</div>
+                                            <!-- //인기지역 캘린더 -->
+                                            
+                                        </div>
+                                    </div>
+								    <!-- //인기지역 -->
+								    
+								    <!-- 전체지역 -->
+                                    <div class="sc-search-box o-allarea">
+                                        <div class="w-qsb-cont">
+                                            <div class="qsb-cont-box">
+                                                <div class="qsb-cont qsb-places">
+													<div class="places-exit">
+														<a href="#" class="qsb-area" data-panel="mainsel" data-panel-name="ui-mainsel-package">
+															<span class="qsb-label">여행도시</span>
+															<span class="qsb-input"><span class="city"></span></span>
+														</a>
+													</div>
+												</div>
+												<div class="qsb-cont qsb-dates">
+													<a href="#" class="qsb-area" data-panel="calendar" data-panel-name="ui-date-calendar">
+														<span class="qsb-label">출발날짜</span>
+														<span class="qsb-input">
+															<span class="qsb-d1" data-day=""><span class="day"></span></span>
+															<span class="qsb-d2" data-day=""><i>, </i><span class="day"></span></span>
+															<span class="qsb-d3" data-day=""><i>, </i><span class="day"></span></span>
+														</span>
+													</a>
+												</div>
+												<div class="qsb-cont qsb-btn-search">
+													<button type="button" class="b-search">검색</button>
+												</div>
+                                            </div>
+                                            
+                                            <!-- 전체지역 리스트 -->
+                                            <div class="sc-ui-search-panel ui-mainsel-package">
+												<div class="uis-input">
+													<input type="text" class="input-base ipu-search" placeholder=" 도시명을 검색하거나 아래 주요지역에서 선택하세요." autocomplete="off">
+												</div>						
+												<table class="uis-mainsel-table">
+													<caption>주요지역 선택 리스트</caption>
+													<colgroup>
+														<col width="16.66666666666667%">
+														<col width="16.66666666666667%">
+														<col width="16.66666666666667%">
+														<col width="16.66666666666667%">
+														<col width="16.66666666666667%">
+														<col width="16.66666666666667%">
+													</colgroup>
+													<tbody>
+														<tr>
+															<th>동남아시아</th>
+															<th>홍콩/중국</th>
+															<th>일본</th>
+															<th>남태평양</th>
+															<th>유럽</th>
+															<th>미주/하와이</th>
+														</tr>
+														<tr>
+															<td>
+																<ul class="list">
+																	<li><a href="#" data-city="태국">태국</a></li> 
+																	<li><a href="#" data-city="필리핀">필리핀</a></li> 
+																	<li><a href="#" data-city="베트남">베트남</a></li> 
+																	<li><a href="#" data-city="캄보디아">캄보디아</a></li> 
+																	<li><a href="#" data-city="말레이시아">말레이시아</a></li> 
+																	<li><a href="#" data-city="인도네시아">인도네시아</a></li> 
+																	<li><a href="#" data-city="싱가포르">싱가포르</a></li> 
+																	<li><a href="#" data-city="미얀마/라오스">미얀마/라오스</a></li> 
+																	<li><a href="#" data-city="인도">인도</a></li> 
+																	<li><a href="#" data-city="몰디브/기타">몰디브/기타</a></li> 
+																</ul>
+															</td>
+															<td>
+
+																<ul class="list">
+																	<li><a href="#" data-city="홍콩/마카오/심천">홍콩/마카오/심천</a></li> 
+																	<li><a href="#" data-city="대만">대만</a></li> 
+																	<li><a href="#" data-city="중국">중국</a></li> 
+																	<li><a href="#" data-city="몽골/티벳/기타지역">몽골/티벳/기타지역</a></li> 
+																</ul>
+															</td>
+															<td>
+																<ul class="list">
+																	<li><a href="#" data-city="큐슈">큐슈</a></li> 
+																	<li><a href="#" data-city="오사카">오사카</a></li> 
+																	<li><a href="#" data-city="동경">동경</a></li> 
+																	<li><a href="#" data-city="북해도">북해도</a></li> 
+																	<li><a href="#" data-city="오키나와">오키나와</a></li> 
+																	<li><a href="#" data-city="기타지역">기타지역</a></li> 
+																</ul>
+															</td>
+															<td>
+																<ul class="list">
+																	<li><a href="#" data-city="괌">괌</a></li> 
+																	<li><a href="#" data-city="사이판">사이판</a></li> 
+																	<li><a href="#" data-city="팔라우">팔라우</a></li> 
+																	<li><a href="#" data-city="호주">호주</a></li> 
+																	<li><a href="#" data-city="뉴질랜드">뉴질랜드</a></li> 
+																	<li><a href="#" data-city="피지">피지</a></li> 
+																	<li><a href="#" data-city="뉴칼레도니아/타히티">뉴칼레도니아/타히티</a></li> 
+																</ul>
+															</td>
+															<td>
+																<ul class="list">
+																	<li><a href="#" data-city="서유럽">서유럽</a></li> 
+																	<li><a href="#" data-city="동유럽">동유럽</a></li> 
+																	<li><a href="#" data-city="터키/그리스/지중해">터키/그리스/지중해</a></li> 
+																	<li><a href="#" data-city="스페인/포르투갈">스페인/포르투갈</a></li> 
+																	<li><a href="#" data-city="북유럽/러시아">북유럽/러시아</a></li> 
+																	<li><a href="#" data-city="발칸">발칸</a></li> 
+																	<li><a href="#" data-city="두바이/아프리카">두바이/아프리카</a></li> 
+																</ul>
+															</td>
+															<td>
+																<ul class="list">
+																	<li><a href="#" data-city="하와이">하와이</a></li> 
+																	<li><a href="#" data-city="미국 동부">미국 동부</a></li> 
+																	<li><a href="#" data-city="미국 서부">미국 서부</a></li> 
+																	<li><a href="#" data-city="기타지역">기타지역</a></li> 
+																	<li><a href="#" data-city="캐나다">캐나다</a></li> 
+																	<li><a href="#" data-city="중남미">중남미</a></li> 
+																</ul>
+															</td>
+														</tr>
+													</tbody>
+												</table>
+												<div class="uis-list uis-list-auto">
+													<ul class="list o-customscrollbar">
+														<li class="no-list">검색 결과가 없습니다.</li>
+														<li>
+															<a href="#" data-city="태국, 방콕">
+																<span class="label-base lbr-st1"></span>
+																<span class="name-det">태국, 방콕</span>
+															</a>
+															
+														</li>
+														<li>
+															<a href="#" data-city="태국, 푸켓">
+																<span class="label-base lbr-st1"></span>
+																<span class="name-det">태국, 푸켓</span>
+															</a>
+														</li>
+														<li>
+															<a href="#" data-city="태국, 파타야">
+																<span class="label-base lbr-st1"></span>
+																<span class="name-det">태국, 파타야</span>
+															</a>
+														</li>
+														<li>
+															<a href="#" data-city="태국, 치앙마이">
+																<span class="label-base lbr-st1"></span>
+																<span class="name-det">태국, 치앙마이</span>
+															</a>
+														</li>
+														<li>
+															<a href="#" data-city="태국, 크라비">
+																<span class="label-base lbr-st1"></span>
+																<span class="name-det">태국, 크라비</span>
+															</a>
+														</li>
+													</ul>
+												</div>
+												<a href="#" class="b-scb-close"><span class="a11y">닫기</span></a>
+											</div>
+                                            <!-- //전체지역 리스트 -->
+                                            
+                                            <!-- 전체지역 캘린터 -->
+                                            <div class="sc-ui-search-panel ui-date-calendar">
+												<div class="uis-input udc-label">
+													<span class="uis-date-partner">
+														<span class="txt-title">제휴사 선택</span>	
+														<span class="chk-partner">
+															<span class="chk-base chk-st2">
+																<input type="checkbox" id="p-mode" class="a11y">
+																<label for="p-mode" class="label-base on">모두투어</label> 
+															</span>
+															<span class="chk-base chk-st2">
+																<input type="checkbox" id="p-hana" class="a11y" checked>
+																<label for="p-hana" class="label-base on">하나투어</label> 
+															</span>
+															<span class="chk-base chk-st2">
+																<input type="checkbox" id="p-hanjin" class="a11y">
+																<label for="p-hanjin" class="label-base on">한진관광</label> 
+															</span>
+															<span class="chk-base chk-st2">
+																<input type="checkbox" id="p-lotte" class="a11y">
+																<label for="p-lotte" class="label-base on">롯데관광</label> 
+															</span>
+															<span class="chk-base chk-st2">
+																<input type="checkbox" id="p-vgood" class="a11y">
+																<label for="p-vgood" class="label-base on">참좋은여행</label> 
+															</span>
+														</span>
+													</span>
+												</div>
+												<div class="uis-calendar">
+													<div class="uis-datepicker">
+														<div class="chk-able">
+															<span class="chk-base chk-st2">
+																<input type="checkbox" id="depart2" class="a11y">
+																<label for="depart2" class="label-base on">출발가능 상품만</label> 
+																<span class="help-tooltip heltt-st2">
+																	<span class="over">?</span>
+																	<span class="cont" style="width:440px">최소 출발 인원 이상 예약이 되어 있는 상품으로 예약과 동시에 출발이 가능합니다.<br>단, 출발인원 및 항공,호텔 실시간 상황에 따라 예약 상태가 변경 될 수 있으니<br>상담 시 확인해 주세요.
+																	</span>
+																</span>
+															</span>
+														</div>
+													</div>
+												</div> 
+												<div class="uis-opt-bottom">
+													<div class="uisob-right">
+														<span class="btn-base bb-st3 b-complete"><a href="#">완료</a></span>
+													</div>
+												</div>
+											</div>
+                                            <!-- //전체지역 캘린터 -->
+                                        </div>
+                                    </div>
+								    <!-- //전체지역 -->
+								    
+								    <!-- 상품코드 -->
+								    <div class="sc-search-box o-productcode">
+                                        <div class="w-qsb-cont">
+                                            <div class="qsb-cont-box">  
+                                            	<div class="qsb-cont qsb-text">
+                                                    <input type="text" id="code" name="code">
+													<label for="code">코드검색<i>제휴사에서 제공하는 상품코드를 입력하여 검색하는 방법</i></label>
+                                                </div>
+                                            	<div class="qsb-cont qsb-select">
+                                                    <a href="#" class="qsb-area" data-panel="select" data-panel-name="o-sel-productcode">
+                                                        <span class="qsb-label">제휴사 전체</span>
+                                                        <span class="qsb-input"></span>
+                                                    </a>
+                                                </div>
+												<div class="qsb-cont qsb-btn-search">
+													<button type="button" class="b-search">검색</button>
+												</div>
+                                            </div>
+                                            
+                                            <!-- 제휴사 리스트 -->
+                                            <div class="sc-ui-search-panel ui-select-list o-sel-productcode">
+												<div class="uis-list">
+													<ul class="list">
+														<li><a href="#" data-option="">제휴사 전체</a></li>
+														<li><a href="#" data-option="">모두투어</a></li>
+														<li><a href="#" data-option="">하나투어</a></li>
+														<li><a href="#" data-option="">롯데관광</a></li>
+														<li><a href="#" data-option="">한진관광</a></li>
+														<li><a href="#" data-option="">참좋은여행</a></li>
+													</ul>
+												</div>
+											</div>
+                                            <!-- //제휴사 리스트 -->
+                                        </div>
+                                    </div>
+								    <!-- //상품코드 -->
+								<!-- //해외패키지 -->
+							</div>
 							</div>
 							<!-- //검색 섹션 -->
 
@@ -2507,25 +2878,33 @@
 	</div>
 	<!-- //#mobile-promotion-sec -->
 
-	<div id="content">
-		<h2>
-			<a href="/main/hotel/"><img src="/images/front/travel/section/h2_hotel.png" alt="호텔"></a>
-			<img class="sub_tit" src="/images/front/travel/section/h2_hotel_s.png" alt="즐거운 여행의 시작 PRIVIA호텔">
-			<ul class="set-promotion-sns">
-				<li><a href="#" class="btn-pro-face">페이스북 공유하기</a></li>
-				<li><a href="#" class="btn-pro-twitter">트위터 공유하기</a></li>
-			</ul>
-		</h2>
+	<!-- #content -->
+	<div id="content-sec">
+		<div class="w-content-sec">
+			<div class="s-best-promotion-cont ly-inner promotion-cont">
+				<h2 class="c-tit-sec"><span>항공 프로모션</span>
+					<ul class="set-promotion-sns">
+						<li><a href="#" class="btn-pro-face">페이스북 공유하기</a></li>
+						<li><a href="#" class="btn-pro-twitter">트위터 공유하기</a></li>
+					</ul>
+				</h2>
+				<div class="pro-title-area">
+					<div class="title">the Purple Travel / Flight Voucher</div>
+					<div class="date">예약기간 : 2018-09-17 ~ 2018-10-16</div>
+				</div>
 				
-		<iframe id="ifrmEventContent" name="eventContent" src="eventContent.html" width="100%" height="100%" frameborder="0" scrolling="no" title="이벤트 내용"></iframe>
-
-		<ul class="set-promotion-sns-f" id="bottom">
-			<li><a href="#bottom" class="btn-pro-face">Facebook으로 PRIVIA여행 정보를 공유하세요</a></li>
-			<li><a href="#bottom" class="btn-pro-twitter">Twitter으로 PRIVIA여행 정보를 공유하세요</a></li>
-		</ul>
-
-		<div id="btn-top"><a href="#"><img src="/images/front/travel/btn_top.gif" alt="Top 바로가기"></a></div>
+				<iframe id="ifrmEventContent" name="eventContent" src="eventContent.html" width="100%" height="100%" frameborder="0" scrolling="no" title="이벤트 내용"></iframe>
+				
+				<ul class="set-promotion-sns-f" id="bottom">
+					<li><a href="#bottom" class="btn-pro-face">Facebook으로 PRIVIA여행 정보를 공유하세요</a></li>
+					<li><a href="#bottom" class="btn-pro-twitter">Twitter으로 PRIVIA여행 정보를 공유하세요</a></li>
+				</ul>
+				
+				<div id="btn-top"><a href="#"><img src="/images/front/travel/btn_top.gif" alt="Top 바로가기"></a></div>				
+			</div>
+		</div>
 	</div>
+	<!-- //#content -->
 		
 	<!-- #footer-sec -->
 	<div id="footer-sec">

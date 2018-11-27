@@ -1,0 +1,1130 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<meta http-equiv="Pragma" content="no-cache" />
+<meta http-equiv="Expires" content="-1" />
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<title>PRIVIA 호텔</title>
+<meta name="description" content="PRIVIA 호텔은 전 세계 10만개 이상의 호텔 요금을 실시간으로 비교 검색이 가능하며, 100여 개 호텔과의 직접 제휴를 통한 합리적인 요금과 특전을 제공해드립니다."/>
+<meta property="og:title" content="PRIVIA 호텔"/>
+<meta property="og:description" content="PRIVIA 호텔은 전 세계 10만개 이상의 호텔 요금을 실시간으로 비교 검색이 가능하며, 100여 개 호텔과의 직접 제휴를 통한 합리적인 요금과 특전을 제공해드립니다."/>
+<link rel="shortcut icon" type="image/x-icon" href="//static.priviatravel.com/images/front/travel/favicon.ico" />
+<link type="text/css" rel="stylesheet" href="/css/front/travel/reset.css">
+<link type="text/css" rel="stylesheet" href="/css/front/travel/commonModule.css" />
+<link type="text/css" rel="stylesheet" href="/css/front/travel/hotelCont.css">
+<link rel="stylesheet" type="text/css" href="/css/front/travel/jquery.mCustomScrollbar.min.css">
+<script type="text/javascript" src="/js/front/config.js"></script>
+<script type="text/javascript" src="/js/front/travel/jquery-1.8.3.min.js"></script>
+<script type="text/javascript" src="/js/front/travel/jquery-ui.js"></script>
+<script type="text/javascript" src="/js/front/travel/jquery.mCustomScrollbar.concat.min.js"></script>
+<script type="text/javascript" src="/js/front/travel/slick.min.js"></script>
+<script type="text/javascript" src="/js/front/travel/fakeselect.js"></script>
+<script type="text/javascript" src="/js/front/travel/commonModuleUI.js"></script>
+<script type="text/javascript" src="/js/utils.js"></script>
+<script type="text/javascript" src="/js/front/travel/commonModuleHeader.js"></script> <!-- headerManager 가이드 버전 실제로는 반영 되지 않음 -->
+<script type="text/javascript" src="/js/front/travel/commonModule.js"></script>
+<script>
+$(function(){
+	$('.htp-detail-top .btn-wish').on('click', function(e){
+		e.preventDefault();
+		$(this).toggleClass('on');
+		if($(this).hasClass('on')){
+			var wishText = $(this).find('.cont2');
+      wishText.addClass('on');
+      setTimeout(function(){
+				wishText.removeClass('on');
+      }, 3000);
+    }
+	});
+	$('.popup-wrap .gmap-info-inner').mCustomScrollbar({theme:"minimal-dark"});
+	$('.popup-wrap .gmap-info-toggle').on('click', function(e){
+		e.preventDefault();
+		$(this).toggleClass('on');
+		$('.popup-wrap .gmap-info').toggleClass('on');
+	});
+	$('.popup-wrap .price-tooltip').on('click', function(e){
+    e.preventDefault();
+    var id = $('.popup-wrap .price-tooltip').index(this);
+    $('.popup-wrap .price-tooltip,.popup-wrap .price-cont').removeClass('on');
+    $(this).addClass('on');
+    $('.popup-wrap .price-cont').eq(id).addClass('on');
+  });
+});
+</script>
+</head>
+
+<body>
+
+<!-- #skipnav -->
+<div id="skipnav">
+	<a href="#nav-gnb">주메뉴 바로가기</a>
+	<a href="#content">본문영역 바로가기</a>
+	<a href="#footer-sec">하단영역 바로가기</a>
+</div>
+<!-- //#skipnav -->
+
+<div id="wrap">
+	<!--
+	.commonHeaderObject : 헤더 타입 클래스 change(o-CHO- : full(기본), section(섹션), quick(퀵버전), header-sec-fixed(헤더 fixed), o-search-result(항공, 호텔)
+	.commonHeaderObject : 상황별 추가 클래스 cn-main(호텔, 국가메인) > cn-city(호텔, 국가메인, 도시)
+	 -->
+	<div class="commonHeaderObject cn-main">
+		<!-- .o-CHO-inner : 헤더 inner (header-sec-fixed(헤더 fixed), no-header-fixed(fixed 모드 사용안함) -->
+		<div class="o-CHO-inner no-header-fixed">
+			<!-- #top-area-sec(상단리본) -->
+			<div id="top-area-sec">
+				<div class="top-area-sec">
+					<div class="w-tas-promotion ly-inner">
+						<h2 class="a11y">섹션별 프로모션 영역</h2>
+						<div class="w-tasp-list">
+							<ul class="tasp-list">
+								<li>
+									<a href="#">
+										<span class="tasp-tit">
+											<span class="label">현대카드 PRIVIA 여행</span>
+											<span class="tit">롯데인터넷면세점<br />적립금 프로모션</span>
+										</span>
+									</a>
+									<div class="tasp-detail">
+										<dl>
+											<dt>혜택 :</dt>
+											<dd>해외항공권, 해외호텔,<br />해외자유여행, 해외패키지,<br />투어&amp;액티비티 상품 구매 시<br /><em>롯데인터넷면세점 적립금 $10</em> 증정</dd>
+											<dt>기간 :</dt>
+											<dd>2018.04.01 ~ 2018.12.31</dd>
+										</dl>
+										<span class="btn-base bbr-st1 b-tasp-more"><a href="#">자세히보기</a></span>
+									</div>
+								</li>
+								<li>
+									<a href="#">
+										<span class="tasp-tit">
+											<span class="label">항공</span>
+											<span class="tit">5월, 국제선<br />SPECIAL EVENT</span>
+										</span>
+									</a>
+									<div class="tasp-detail">
+										<dl>
+											<dt>특별 혜택:</dt>
+											<dd>미국/캐나다/유럽 항공권 예약 시<br /><em>5/3/2만원 할인 쿠폰</em>제공</dd>
+											<dt>기본 혜택 :</dt>
+											<dd>카드별 <em>7%, 10%</em> 청구 할인<br />+ 2 ~ 3개월 무이자할부</dd>
+											<dt>이벤트 기간 :</dt>
+											<dd>~ 2018. 05. 15 (오후 5시까지)</dd>
+										</dl>
+										<span class="btn-base bbr-st1 b-tasp-more"><a href="#">자세히보기</a></span>
+									</div>
+								</li>
+								<li>
+									<a href="#">
+										<span class="tasp-tit">
+											<span class="label">호텔</span>
+											<span class="tit">제주 호텔 예약하면<br />렌터카 무료</span>
+										</span>
+									</a>
+									<div class="tasp-detail">
+										<dl>
+											<dt>특별 혜택:</dt>
+											<dd>추천호텔 <em>2박</em> 이상 시<br /><em>렌터카 48시간 무료</em></dd>
+											<dt>기본 혜택 :</dt>
+											<dd><em>3%</em> 즉시 할인<br />+ <em>10%</em> M포인트 사용 + 무이자할부</dd>
+											<dt>이벤트 기간 :</dt>
+											<dd>2018. 04. 13 ~ 06. 30</dd>
+										</dl>
+										<span class="btn-base bbr-st1 b-tasp-more"><a href="#">자세히보기</a></span>
+									</div>
+								</li>
+								<li>
+									<a href="#">
+										<span class="tasp-tit">
+											<span class="label">자유여행</span>
+											<span class="tit">하반기 조기 예약<br />할인 쿠폰 이벤트</span>
+										</span>
+									</a>
+									<div class="tasp-detail">
+										<dl>
+											<dt>특별 혜택:</dt>
+											<dd>7 ~ 12월 출발 자유여행 상품 예약 시,<br /><em>3/5/10만원 할인 쿠폰</em> 제공</dd>
+											<dt>기본 혜택 :</dt>
+											<dd>7% 할인 + 10% M포인트 사용<br />+ 2 ~ 5개월 무이자 할부</dd>
+											<dt>이벤트 기간 :</dt>
+											<dd>~ 2018. 06. 29 (오후 5시까지)</dd>
+										</dl>
+										<span class="btn-base bbr-st1 b-tasp-more"><a href="#">자세히보기</a></span>
+									</div>
+								</li>
+								<li>
+									<a href="#">
+										<span class="tasp-tit">
+											<span class="label">투어&amp;액티비티</span>
+											<span class="tit">방콕 공항픽업 <br />만원의행복 프로모션</span>
+										</span>
+									</a>
+									<div class="tasp-detail">
+										<dl>
+											<dt>특별 혜택:</dt>
+											<dd>방콕 현지투어/입장권 상품 중<br />2개 이상 예약 시 공항픽업 1만원에<br />이용 가능</dd>
+											<dt>기본 혜택 :</dt>
+											<dd>항공, 자유여행 예약 시 <em>2%</em> 추가 할인</dd>
+											<dt>이벤트 기간 :</dt>
+											<dd>~ 2018. 06. 30</dd>
+										</dl>
+										<span class="btn-base bbr-st1 b-tasp-more"><a href="#">자세히보기</a></span>
+									</div>
+								</li>
+								<li>
+									<a href="#">
+										<span class="tasp-tit">
+											<span class="label">해외패키지</span>
+											<span class="tit">한진관광 전세기<br />특별 혜택 제공</span>
+										</span>
+									</a>
+									<div class="tasp-detail">
+										<dl>
+											<dt>특별 혜택:</dt>
+											<dd>신라 아이파크 면세점<br /><em>모바일 적립금 2만원</em> 증정</dd>
+											<dt>기본 혜택 :</dt>
+											<dd><em>３ ~ 7%</em> 즉시 할인 <br />+ <em>5%</em> M포인트 사용 + 무이자할부</dd>
+											<dt>대상 :</dt>
+											<dd>한진관광 유럽 전세기 상품 예약 회원</dd>
+										</dl>
+										<span class="btn-base bbr-st1 b-tasp-more"><a href="#">자세히보기</a></span>
+									</div>
+								</li>
+							</ul>
+						</div>
+					</div>
+				</div>
+			</div>
+			<!-- //#top-area-sec(상단리본) -->
+
+			<!-- #header-sec : 검색섹션 타입 클래스 change(o-search- : all(기본), air, hotel, free, freetour) -->
+			<div id="header-sec">
+				<!-- .header-sec : 배경타입 클래스 change(o-bg- : air, hotel, free, freetour) -->
+				<div class="header-sec">
+					<div class="w-header-util">
+						<div class="ly-inner">
+							<div class="hu-control">
+								<span class="txt">주요 프로모션 및 안내 보기</span>
+								<span class="b-crt bc-close"><a href="#"><span class="a11y txt">상단리본 닫기 버튼</span></a></span>
+								<span class="b-crt bc-open"><a href="#"><span class="a11y txt">상단리본 열기 버튼</span></a></span>
+							</div>
+							<div class="hu-notice">
+								<h2 class="a11y">유틸메뉴 영역</h2>
+								<ul class="list">
+									<li class="point"><strong>중요</strong><a href="#">2018년 3월 국제선 유류할증료 안내</a></li>
+									<li><a href="#">2018년 5월 국제선 유류할증료 안내</a></li>
+									<li><a href="#">진에어 국내선 시스템 점검 안내</a></li>
+									<li><a href="#">제주항공 국내선 환불 수수료 변경 안내</a></li>
+									<li><a href="#">인천국제공항 제2여객터미널 개장으로 인천국제공항 제2여객터미널 개장으로</a></li>
+								</ul>
+							</div>
+							<div class="hu-user privia"><span>qwwiueoeuorsdfkdjflgdfjkljlarjt님</span></div>
+							<!--<div class="hu-user naver"><span>sddfsdfoeuorsdfkdjflgdfjkljlarjt님</span></div>
+							<div class="hu-user facebook"><span>sddfsdfoeuorsdfkdjflgdfjkljlarjt님</span></div>
+							<div class="hu-user twitter"><span>sddfsdfoeuorsdfkdjflgdfjkljlarjt님</span></div> -->
+							<ul id="nav-util" class="nav-util">
+								<li><a href="#">로그아웃</a></li>
+								<!--<li><a href="#">로그인</a></li>-->
+								<li><a href="#">마이페이지</a></li>
+								<li class="on"><a href="#">나의 혜택</a></li>
+								<li><a href="#">고객센터</a></li>
+							</ul>
+						</div>
+					</div>
+					<div class="w-header-gnb">
+						<div class="ly-inner">
+							<h1 class="h-logo"><a href="#"><span class="a11y">현대카드 PRIVIA 여행</span></a></h1>
+							<h2 class="a11y">GNB 영역</h2>
+							<span class="btn-base b-open-search"><button type="button"><span class="a11y">검색영역 열기</span></button></span>
+							<ul id="nav-gnb" class="nav-gnb">
+								<li id="n-gnb-air"><a href="#"><span class="txt">항공</span></a></li>
+								<li id="n-gnb-hotel"><a href="#"><span class="txt">호텔</span></a></li>
+								<li id="n-gnb-free"><a href="#"><span class="txt">자유여행</span></a></li>
+								<li id="n-gnb-freetour"><a href="#"><span class="txt">투어&amp;액티비티</span></a></li>
+								<li id="n-gnb-pkg"><a href="#"><span class="txt">해외패키지</span></a></li>
+								<li id="n-gnb-domestic"><a href="#"><span class="txt">국내여행</span></a></li>
+								<li id="n-gnb-promotion"><a href="#"><span class="txt">기획전</span></a></li>
+								<li class="b-total-nav">
+									<a href="#"><span class="a11y">전체메뉴</span></a>
+									<div class="w-nav-gnb-total">
+										<ul class="nav-gnb-total"></ul>
+									</div>
+								</li>
+							</ul>
+						</div>
+					</div>
+					<div class="w-header-search" style="background:url(/images/front/travel/contents/dummy/cn_main_france.jpg) 50% 0 no-repeat;">
+						<div class="s-sitemap-sec">
+							<div class="ly-inner">
+								<a href="#none" class="home">HOME</a>
+								<a href="#none">프랑스</a>
+							</div>
+						</div>
+						<div class="ly-inner">
+							<h2 class="a11y">검색 영역</h2>
+							<!-- 검색 메뉴 -->
+							<div class="hs-search-menu">
+								<div class="hss-menu hss-hotel">
+									<h3 class="hss-cn-tit"><a href="#" data-tabmain="hotel">프랑스</a></h3>
+									<p class="hss-cn-con">프랑스의 숙소를 찾으시나요? 날짜를 입력하시고 원하는 숙소를 찾아보세요.</p>
+								</div>
+							</div>
+							<!-- //검색 메뉴 -->
+
+							<!-- 검색 섹션 -->
+							<div class="hs-search-cont">
+								<!-- 호텔 -->
+								<div class="hss-inner-cont sc-hotel" id="SC-HOTEL">
+									<!-- 해외 -->
+									<div class="sc-search-box o-inth on">
+										<div class="w-qsb-cont">
+											<div class="qsb-cont-box">
+												<div class="qsb-cont qsb-places">
+													<div class="places-exit">
+														<a href="#" class="qsb-area" data-panel="mainsel" data-panel-name="ui-mainsel-hotel">
+															<span class="qsb-label">여행지, 숙소명, 관광명소</span>
+															<span class="qsb-input"><span class="city"></span></span>
+														</a>
+													</div>
+												</div>
+												<div class="qsb-cont qsb-dates">
+													<a href="#" class="qsb-area" data-panel="calendar" data-panel-name="ui-date-calendar">
+														<span class="qsb-label">숙박 날짜</span>
+														<span class="qsb-input">
+															<span class="qsb-chkin" data-day=""></span>
+															<span class="qsb-chkout" data-day=""></span>
+															<span class="qsb-result-days"><em class="qsb-c"><span class="num"></span>박</em></span>
+														</span>
+													</a>
+												</div>
+                        <div class="qsb-cont qsb-room">
+													<a href="#" class="qsb-area on" data-panel="room" data-panel-name="global-ui-room">
+														<span class="qsb-label">인원, 객실 수</span>
+                            <span class="qsb-input" data-room='2' data-room1='{"adult":2,"child":3,"age":[2,3,4]}' data-room2='{"adult":2,"child":1,"age":[8]}' data-room3='{"adult":0,"child":0,"age":[]}'>
+															<span class="type-room">성인</span><span><em class="total-num">4</em></span>,
+                              <span class="type-room">아동</span><span><em class="total-num">4</em></span>,
+                              <span class="type-room">객실</span><span><em class="total-num">2</em></span>
+														</span>
+													</a>
+												</div>
+												<div class="qsb-cont qsb-btn-search">
+													<button type="button" class="b-search">검색</button>
+												</div>
+											</div>
+
+											<!-- 해외 주요도시 리스트 -->
+											<div class="sc-ui-search-panel ui-mainsel-hotel">
+												<div class="uis-input">
+													<input type="text" class="input-base ipu-search" placeholder=" 여행지, 호텔명, 관광명소를 검색하거나 아래 주요도시에서 선택해주세요." autocomplete="off"><!-- #32511 수정(placeholder 한칸 띄기) -->
+												</div>
+												<table class="uis-mainsel-table">
+													<caption>주요도시 선택 리스트</caption>
+													<colgroup>
+														<col width="14.28571428571429%">
+														<col width="14.28571428571429%">
+														<col width="14.28571428571429%">
+														<col width="14.28571428571429%">
+														<col width="14.28571428571429%">
+														<col width="14.28571428571429%">
+														<col width="14.28571428571429%">
+													</colgroup>
+													<tbody>
+														<tr>
+															<th>아시아</th>
+															<th>홍콩/중국</th>
+															<th>일본</th>
+															<th>남태평양</th>
+															<th>유럽</th>
+															<th>미주/캐나다</th>
+                              <th>국내</th>
+														</tr>
+														<tr>
+															<td>
+																<ul class="list">
+																	<li><a href="#" data-city="다낭">다낭</a></li>
+																	<li><a href="#" data-city="싱가포르">싱가포르</a></li>
+																	<li><a href="#" data-city="방콕">방콕</a></li>
+																	<li><a href="#" data-city="세부">세부</a></li>
+																	<li><a href="#" data-city="코타키나발루">코타키나발루</a></li>
+																	<li><a href="#" data-city="발리">발리</a></li>
+																	<li><a href="#" data-city="푸켓">푸켓</a></li>
+																	<li><a href="#" data-city="마닐라">마닐라</a></li>
+																	<li><a href="#" data-city="파타야">파타야</a></li>
+																	<li><a href="#" data-city="보라카이">보라카이</a></li>
+																	<li><a href="#" data-city="나트랑">나트랑</a></li>
+																	<li><a href="#" data-city="호이안">호이안</a></li>
+																	<li><a href="#" data-city="호치민">호치민</a></li>
+																	<li><a href="#" data-city="하노이">하노이</a></li>
+																	<li><a href="#" data-city="쿠알라룸푸르">쿠알라룸푸르</a></li>
+																</ul>
+															</td>
+															<td>
+
+																<ul class="list">
+																	<li><a href="#" data-city="홍콩">홍콩</a></li>
+																	<li><a href="#" data-city="타이페이">타이페이</a></li>
+																	<li><a href="#" data-city="마카오">마카오</a></li>
+																	<li><a href="#" data-city="상해">상해</a></li>
+																	<li><a href="#" data-city="북경">북경</a></li>
+																	<li><a href="#" data-city="청도">청도</a></li>
+																	<li><a href="#" data-city="광저우">광저우</a></li>
+																</ul>
+															</td>
+															<td>
+																<ul class="list">
+																	<li><a href="#" data-city="오키나와">오키나와</a></li>
+																	<li><a href="#" data-city="오사카">오사카</a></li>
+																	<li><a href="#" data-city="도쿄">도쿄</a></li>
+																	<li><a href="#" data-city="후쿠오카">후쿠오카</a></li>
+																	<li><a href="#" data-city="삿포로">삿포로</a></li>
+																	<li><a href="#" data-city="교토">교토</a></li>
+																	<li><a href="#" data-city="유후인">유후인</a></li>
+																	<li><a href="#" data-city="나고야">나고야</a></li>
+																	<li><a href="#" data-city="노보리베츠">노보리베츠</a></li>
+																</ul>
+															</td>
+															<td>
+																<ul class="list">
+																	<li><a href="#" data-city="괌">괌</a></li>
+																	<li><a href="#" data-city="사이판">사이판</a></li>
+																	<li><a href="#" data-city="시드니">시드니</a></li>
+																	<li><a href="#" data-city="멜버른">멜버른</a></li>
+																</ul>
+															</td>
+															<td>
+																<ul class="list">
+																	<li><a href="#" data-city="파리">파리</a></li>
+																	<li><a href="#" data-city="로마">로마</a></li>
+																	<li><a href="#" data-city="런던">런던</a></li>
+																	<li><a href="#" data-city="프라하">프라하</a></li>
+																	<li><a href="#" data-city="피렌체">피렌체</a></li>
+																	<li><a href="#" data-city="바로셀로나">바로셀로나</a></li>
+																	<li><a href="#" data-city="밀라노">밀라노</a></li>
+																	<li><a href="#" data-city="베니스">베니스</a></li>
+																	<li><a href="#" data-city="부다페스트">부다페스트</a></li>
+																	<li><a href="#" data-city="비엔나">비엔나</a></li>
+																</ul>
+															</td>
+															<td>
+																<ul class="list">
+																	<li><a href="#" data-city="호놀룰루">호놀룰루</a></li>
+																	<li><a href="#" data-city="마우이">마우이</a></li>
+																	<li><a href="#" data-city="라스베가스">라스베가스</a></li>
+																	<li><a href="#" data-city="뉴욕">뉴욕</a></li>
+																	<li><a href="#" data-city="샌프란시스코">샌프란시스코</a></li>
+																	<li><a href="#" data-city="시카고">시카고</a></li>
+																	<li><a href="#" data-city="로스엔젤레스">로스엔젤레스</a></li>
+																	<li><a href="#" data-city="벤쿠버">벤쿠버</a></li>
+																	<li><a href="#" data-city="토론토">토론토</a></li>
+																</ul>
+															</td>
+                              <td>
+																<ul class="list">
+																	<li><a href="#" data-city="제주도 전체">제주도 전체</a></li>
+																	<li><a href="#" data-city="서울특별시 전체">서울특별시 전체</a></li>
+																	<li><a href="#" data-city="부산광역시 전체">부산광역시 전체</a></li>
+																	<li><a href="#" data-city="인천광역시 전체">인천광역시 전체</a></li>
+																	<li><a href="#" data-city="광주광역시 전체">광주광역시 전체</a></li>
+																	<li><a href="#" data-city="대구광역시 전체">대구광역시 전체</a></li>
+																	<li><a href="#" data-city="대전광역시 전체">대전광역시 전체</a></li>
+																	<li><a href="#" data-city="울산광역시 전체">울산광역시 전체</a></li>
+																	<li><a href="#" data-city="강원도 전체">강원도 전체</a></li>
+																	<li><a href="#" data-city="경기도 전체">경기도 전체</a></li>
+																	<li><a href="#" data-city="경상남도 전체">경상남도 전체</a></li>
+																	<li><a href="#" data-city="경상북도 전체">경상북도 전체</a></li>
+																	<li><a href="#" data-city="전라남도 전체">전라남도 전체</a></li>
+																	<li><a href="#" data-city="충청남도 전체">충청남도 전체</a></li>
+																	<li><a href="#" data-city="충청북도 전체">충청북도 전체</a></li>
+																</ul>
+															</td>
+														</tr>
+													</tbody>
+												</table>
+												<div class="uis-list uis-list-auto">
+													<ul class="list o-customscrollbar">
+														<li class="no-list">검색 결과가 없습니다.</li>
+                            <li>
+															<a href="#" data-city="파리 (인근 지역 포함), 프랑스">
+																<span class="label-base htp-st"><span class="st1"></span></span>
+																<span class="name-det">파리 (인근 지역 포함), 프랑스</span>
+															</a>
+
+														</li>
+														<li>
+															<a href="#" data-city="에펠탑">
+																<span class="label-base htp-st"><span class="st2"></span></span>
+																<span class="name-det">에펠탑</span>
+															</a>
+														</li>
+														<li>
+															<a href="#" data-city="디자인 호텔 에펠, 오이스키르헨, 독일">
+																<span class="label-base htp-st"><span class="st3"></span></span>
+																<span class="name-det">디자인 호텔 에펠, 오이스키르헨, 독일</span>
+															</a>
+														</li>
+														<li>
+															<a href="#" data-city="뉴욕, 뉴욕, 미국 (JFK-존 F. 케네디 국제항공)">
+																<span class="label-base htp-st"><span class="st4"></span></span>
+																<span class="name-det">뉴욕, 뉴욕, 미국 (JFK-존 F. 케네디 국제항공)</span>
+															</a>
+														</li>
+														<li>
+															<a href="#" data-city="서울역, 서울, 한국">
+																<span class="label-base htp-st"><span class="st5"></span></span>
+																<span class="name-det">서울역, 서울, 한국</span>
+															</a>
+														</li>
+													</ul>
+												</div>
+												<a href="#" class="b-scb-close"><span class="a11y">닫기</span></a>
+											</div>
+											<!-- //해외 주요도시 리스트 -->
+
+											<!-- 캘린더 해외 -->
+											<div class="sc-ui-search-panel ui-date-calendar">
+												<div class="uis-calendar">
+													<div class="uis-datepicker"></div>
+												</div>
+											</div>
+											<!-- //캘린더 해외 -->
+										</div>
+									</div>
+									<!-- //해외 -->
+
+									<!-- 인원, 객실 수 -->
+                  <div class="sc-ui-search-panel ui-capacity global-ui-room">
+										<div class="uis-capacity">
+                      <ul class="ui-htp-room">
+                        <li class="room-item on">
+                          <dl>
+                            <dt>
+                              <a href="#" class="room-tab">객실<span class="room-num">1</span></a>
+                              <a href="#" class="room-arrow"></a>
+                            </dt>
+                            <dd>
+                              <ul class="uis-capacity-number">
+        												<li>
+        													<div class="tit"><em>성인</em></div>
+        													<div class="uis-custom-number adult" data-ucn='{"type":"adult1","min":1,"max":10}'>
+        														<span class="btn-base ucn-crt b-minus">
+        															<button type="button" data-type="room1-minus"><span class="a11y">빼기</span></button>
+        														</span>
+        														<span class="ucn-num num-adult num-adult1">0</span>
+        														<span class="btn-base ucn-crt b-plus">
+        															<button type="button" data-type="room1-plus"><span class="a11y">더하기</span></button>
+        														</span>
+        													</div>
+        												</li>
+        												<li>
+                                  <div class="tit">
+                                    <em>아동</em> (만2세 ~ 11세)
+                                    <span class="help-tooltip heltt-st2 small">
+        															<span class="over">?</span>
+        															<span class="cont" style="width:170px">
+        																<span class="heltt-tit">아동</span>
+        																<dl class="heltt-exp-box">
+        																	<dt>국제선</dt>
+        																	<dd>탑승일 기준 만 2세 ~ 12세 미만</dd>
+        																</dl>
+        																<dl class="heltt-exp-box">
+        																	<dt>국내선</dt>
+        																	<dd>탑승일 기준 만 2세 ~ 13세 미만</dd>
+        																</dl>
+        															</span>
+        														</span>
+                                  </div>
+        													<div class="uis-custom-number child" data-ucn='{"type":"child1","min":0,"max":3}'>
+        														<span class="btn-base ucn-crt b-minus">
+        															<button type="button" data-type="room2d-minus"><span class="a11y">빼기</span></button>
+        														</span>
+        														<span class="ucn-num num-child num-child1">0</span>
+        														<span class="btn-base ucn-crt b-plus">
+        															<button type="button" data-type="room2d-plus"><span class="a11y">더하기</span></button>
+        														</span>
+        													</div>
+        												</li>
+        											</ul>
+                              <ul class="uis-set-selectbox">
+    														<li>
+    															<select class="select-base">
+    																<option value="">나이</option>
+    																<option value="2">만 2세</option>
+    																<option value="3">만 3세</option>
+    																<option value="4">만 4세</option>
+    																<option value="5">만 5세</option>
+    																<option value="6">만 6세</option>
+    																<option value="7">만 7세</option>
+    																<option value="8">만 8세</option>
+    																<option value="9">만 9세</option>
+    																<option value="10">만 10세</option>
+    																<option value="11">만 11세</option>
+    															</select>
+    														</li>
+    														<li>
+    															<select class="select-base">
+    																<option value="">나이</option>
+                                    <option value="2">만 2세</option>
+    																<option value="3">만 3세</option>
+    																<option value="4">만 4세</option>
+    																<option value="5">만 5세</option>
+    																<option value="6">만 6세</option>
+    																<option value="7">만 7세</option>
+    																<option value="8">만 8세</option>
+    																<option value="9">만 9세</option>
+    																<option value="10">만 10세</option>
+    																<option value="11">만 11세</option>
+    															</select>
+    														</li>
+    														<li>
+    															<select class="select-base">
+    																<option value="">나이</option>
+                                    <option value="2">만 2세</option>
+    																<option value="3">만 3세</option>
+    																<option value="4">만 4세</option>
+    																<option value="5">만 5세</option>
+    																<option value="6">만 6세</option>
+    																<option value="7">만 7세</option>
+    																<option value="8">만 8세</option>
+    																<option value="9">만 9세</option>
+    																<option value="10">만 10세</option>
+    																<option value="11">만 11세</option>
+    															</select>
+    														</li>
+    													</ul>
+                            </dd>
+                          </dl>
+                        </li>
+                        <li class="room-item disabled">
+                          <dl>
+                            <dt>
+                              <a href="#" class="room-tab">객실<span class="room-num">2</span></a>
+                              <span class="btn-base bb-st2 b-remove"><a href="#">객실삭제</a></span>
+                              <a href="#" class="room-arrow"></a>
+                            </dt>
+                            <dd>
+                              <ul class="uis-capacity-number">
+        												<li>
+        													<div class="tit"><em>성인</em></div>
+        													<div class="uis-custom-number adult" data-ucn='{"type":"adult2","min":1,"max":10}'>
+        														<span class="btn-base ucn-crt b-minus">
+        															<button type="button" data-type="room1-minus"><span class="a11y">빼기</span></button>
+        														</span>
+        														<span class="ucn-num num-adult num-adult2">0</span>
+        														<span class="btn-base ucn-crt b-plus">
+        															<button type="button" data-type="room1-plus"><span class="a11y">더하기</span></button>
+        														</span>
+        													</div>
+        												</li>
+        												<li>
+        													<div class="tit">
+                                    <em>아동</em> (만2세 ~ 11세)
+                                    <span class="help-tooltip heltt-st2 small">
+        															<span class="over">?</span>
+        															<span class="cont" style="width:170px">
+        																<span class="heltt-tit">아동</span>
+        																<dl class="heltt-exp-box">
+        																	<dt>국제선</dt>
+        																	<dd>탑승일 기준 만 2세 ~ 12세 미만</dd>
+        																</dl>
+        																<dl class="heltt-exp-box">
+        																	<dt>국내선</dt>
+        																	<dd>탑승일 기준 만 2세 ~ 13세 미만</dd>
+        																</dl>
+        															</span>
+        														</span>
+                                  </div>
+        													<div class="uis-custom-number child" data-ucn='{"type":"child2","min":0,"max":3}'>
+        														<span class="btn-base ucn-crt b-minus">
+        															<button type="button" data-type="room2d-minus"><span class="a11y">빼기</span></button>
+        														</span>
+        														<span class="ucn-num num-child num-child2">0</span>
+        														<span class="btn-base ucn-crt b-plus">
+        															<button type="button" data-type="room2d-plus"><span class="a11y">더하기</span></button>
+        														</span>
+        													</div>
+        												</li>
+        											</ul>
+                              <ul class="uis-set-selectbox">
+    														<li>
+    															<select class="select-base">
+    																<option value="">나이</option>
+    																<option value="2">만 2세</option>
+    																<option value="3">만 3세</option>
+    																<option value="4">만 4세</option>
+    																<option value="5">만 5세</option>
+    																<option value="6">만 6세</option>
+    																<option value="7">만 7세</option>
+    																<option value="8">만 8세</option>
+    																<option value="9">만 9세</option>
+    																<option value="10">만 10세</option>
+    																<option value="11">만 11세</option>
+    															</select>
+    														</li>
+    														<li>
+    															<select class="select-base">
+    																<option value="">나이</option>
+                                    <option value="2">만 2세</option>
+    																<option value="3">만 3세</option>
+    																<option value="4">만 4세</option>
+    																<option value="5">만 5세</option>
+    																<option value="6">만 6세</option>
+    																<option value="7">만 7세</option>
+    																<option value="8">만 8세</option>
+    																<option value="9">만 9세</option>
+    																<option value="10">만 10세</option>
+    																<option value="11">만 11세</option>
+    															</select>
+    														</li>
+    														<li>
+    															<select class="select-base">
+    																<option value="">나이</option>
+                                    <option value="2">만 2세</option>
+    																<option value="3">만 3세</option>
+    																<option value="4">만 4세</option>
+    																<option value="5">만 5세</option>
+    																<option value="6">만 6세</option>
+    																<option value="7">만 7세</option>
+    																<option value="8">만 8세</option>
+    																<option value="9">만 9세</option>
+    																<option value="10">만 10세</option>
+    																<option value="11">만 11세</option>
+    															</select>
+    														</li>
+    													</ul>
+                            </dd>
+                          </dl>
+                        </li>
+                        <li class="room-item disabled">
+                          <dl>
+                            <dt>
+                              <a href="#" class="room-tab">객실<span class="room-num">3</span></a>
+                              <span class="btn-base bb-st2 b-remove"><a href="#">객실삭제</a></span>
+                              <a href="#" class="room-arrow"></a>
+                            </dt>
+                            <dd>
+                              <ul class="uis-capacity-number">
+        												<li>
+        													<div class="tit"><em>성인</em></div>
+        													<div class="uis-custom-number adult" data-ucn='{"type":"adult3","min":1,"max":10}'>
+        														<span class="btn-base ucn-crt b-minus">
+        															<button type="button" data-type="room1-minus"><span class="a11y">빼기</span></button>
+        														</span>
+        														<span class="ucn-num num-adult num-adult3">0</span>
+        														<span class="btn-base ucn-crt b-plus">
+        															<button type="button" data-type="room1-plus"><span class="a11y">더하기</span></button>
+        														</span>
+        													</div>
+        												</li>
+        												<li>
+                                  <div class="tit">
+                                    <em>아동</em> (만2세 ~ 11세)
+                                    <span class="help-tooltip heltt-st2 small">
+        															<span class="over">?</span>
+        															<span class="cont" style="width:170px">
+        																<span class="heltt-tit">아동</span>
+        																<dl class="heltt-exp-box">
+        																	<dt>국제선</dt>
+        																	<dd>탑승일 기준 만 2세 ~ 12세 미만</dd>
+        																</dl>
+        																<dl class="heltt-exp-box">
+        																	<dt>국내선</dt>
+        																	<dd>탑승일 기준 만 2세 ~ 13세 미만</dd>
+        																</dl>
+        															</span>
+        														</span>
+                                  </div>
+        													<div class="uis-custom-number child" data-ucn='{"type":"child3","min":0,"max":3}'>
+        														<span class="btn-base ucn-crt b-minus">
+        															<button type="button" data-type="room2d-minus"><span class="a11y">빼기</span></button>
+        														</span>
+        														<span class="ucn-num num-child num-child3">0</span>
+        														<span class="btn-base ucn-crt b-plus">
+        															<button type="button" data-type="room2d-plus"><span class="a11y">더하기</span></button>
+        														</span>
+        													</div>
+        												</li>
+        											</ul>
+                              <ul class="uis-set-selectbox">
+    														<li>
+    															<select class="select-base">
+    																<option value="">나이</option>
+    																<option value="2">만 2세</option>
+    																<option value="3">만 3세</option>
+    																<option value="4">만 4세</option>
+    																<option value="5">만 5세</option>
+    																<option value="6">만 6세</option>
+    																<option value="7">만 7세</option>
+    																<option value="8">만 8세</option>
+    																<option value="9">만 9세</option>
+    																<option value="10">만 10세</option>
+    																<option value="11">만 11세</option>
+    															</select>
+    														</li>
+    														<li>
+    															<select class="select-base">
+    																<option value="">나이</option>
+                                    <option value="2">만 2세</option>
+    																<option value="3">만 3세</option>
+    																<option value="4">만 4세</option>
+    																<option value="5">만 5세</option>
+    																<option value="6">만 6세</option>
+    																<option value="7">만 7세</option>
+    																<option value="8">만 8세</option>
+    																<option value="9">만 9세</option>
+    																<option value="10">만 10세</option>
+    																<option value="11">만 11세</option>
+    															</select>
+    														</li>
+    														<li>
+    															<select class="select-base">
+    																<option value="">나이</option>
+                                    <option value="2">만 2세</option>
+    																<option value="3">만 3세</option>
+    																<option value="4">만 4세</option>
+    																<option value="5">만 5세</option>
+    																<option value="6">만 6세</option>
+    																<option value="7">만 7세</option>
+    																<option value="8">만 8세</option>
+    																<option value="9">만 9세</option>
+    																<option value="10">만 10세</option>
+    																<option value="11">만 11세</option>
+    															</select>
+    														</li>
+    													</ul>
+                            </dd>
+                          </dl>
+                        </li>
+                      </ul>
+                      <div class="b-addroom-wrap">
+                        <span class="btn-base bb-st2 b-addroom"><a href="#">객실추가</a></span>
+                      </div>
+										</div>
+									</div>
+									<!-- //인원, 객실 수 -->
+                  <a href="#" class="hss-search-close">검색닫기</a>
+								</div>
+								<!-- //호텔 -->
+							</div>
+							<!-- //검색 섹션 -->
+						</div>
+					</div>
+				</div>
+				<!-- //.header-sec -->
+			</div>
+			<!-- //#header-sec -->
+		</div>
+	</div>
+	<!-- //.commonHeaderObject -->
+	<script>
+		setActiveSearch(QUICK_CODE_HOTEL, GNB_CODE_HOTEL, HEADER_TYPE_QUICK);
+	</script>
+	<!-- //통합헤더 -->
+
+	<!-- #mobile-promotion-sec(항공 - 항공 노출, 호텔 - 호텔 노출, 나머지 - 항공 노출) -->
+	<div id="mobile-promotion-sec">
+		<div class="w-mobile-promotion">
+			<a href="#" class="b-open">
+				<span class="txt c-point2"><span class="a11y">모바일 혜택</span></span> <!-- #31266-2 수정 -->
+			</a>
+			<div class="fpromo-box">
+				<div class="cont">
+					<p><img src="/images/front/travel/contents/img-quick-air-layer-290x450.png" alt="현대카드 PRIVIA 여행 특별 프로모션"></p>
+				</div>
+				<a href="#" class="b-close"><span class="a11y">프로모션 닫기 버튼</span></a>
+			</div>
+		</div>
+	</div>
+	<!-- //#mobile-promotion-sec -->
+
+	<!-- #content -->
+	<div id="content-sec">
+		<div class="w-content-sec attach">
+			<div class="s-rec-area-cont rac-city ly-inner">
+				<h2 class="c-tit-sec"><span><strong>프랑스</strong> 주요도시</span></h2>
+				<ul class="list-item-st3">
+					<li>
+						<a href="#">
+							<span class="vis"><img src="/images/front/travel/contents/dummy/france/cn_main_img1.jpg" alt="&nbsp;"></span>
+							<span class="info-box">
+								<span class="tit">파리</span>
+								<span class="info"><em>3600</em>개의 숙소</span>
+							</span>
+						</a>
+					</li>
+					<li>
+						<a href="#">
+							<span class="vis"><img src="/images/front/travel/contents/dummy/france/cn_main_img2.jpg" alt="&nbsp;"></span>
+							<span class="info-box">
+								<span class="tit">리옹</span>
+								<span class="info"><em>487</em>개의 숙소</span>
+							</span>
+						</a>
+					</li>
+					<li>
+						<a href="#">
+							<span class="vis"><img src="/images/front/travel/contents/dummy/france/cn_main_img3.jpg" alt="&nbsp;"></span>
+							<span class="info-box">
+								<span class="tit">니스</span>
+								<span class="info"><em>5911</em>개의 숙소</span>
+							</span>
+						</a>
+					</li>
+					<li>
+						<a href="#">
+							<span class="vis"><img src="/images/front/travel/contents/dummy/france/cn_main_img4.jpg" alt="&nbsp;"></span>
+							<span class="info-box">
+								<span class="tit">안시</span>
+								<span class="info"><em>210</em>개의 숙소</span>
+							</span>
+						</a>
+					</li>
+					<li>
+						<a href="#">
+							<span class="vis"><img src="/images/front/travel/contents/dummy/france/cn_main_img5.jpg" alt="&nbsp;"></span>
+							<span class="info-box">
+								<span class="tit">마르세유</span>
+								<span class="info"><em>1125</em>개의 숙소</span>
+							</span>
+						</a>
+					</li>
+					<li>
+						<a href="#">
+							<span class="vis"><img src="/images/front/travel/contents/dummy/france/cn_main_img6.jpg" alt="&nbsp;"></span>
+							<span class="info-box">
+								<span class="tit">아를</span>
+								<span class="info"><em>779</em>개의 숙소</span>
+							</span>
+						</a>
+					</li>
+				</ul>
+			</div>
+			<div class="s-best-promotion-cont ly-inner">
+				<h2 class="c-tit-sec"><span><strong>프랑스</strong> 인기호텔</span></h2>
+				<h3 class="c-tit-loca">파리</h3>
+				<ul class="list-item-st1 htp-list">
+					<li>
+						<a href="#">
+              <span class="vis"><img src="//static.priviatravel.com/UPLOAD/2018/08/24/75813/6416ed59-9a14-4b1a-8aa1-d1202ac121ae" alt="&nbsp;"></span>
+              <span class="info-box">
+								<span class="label-base lbr-st1"><span>5성급 <i class="star">★★★★★</i></span></span>
+								<span class="grade">아주 좋음 4.5</span>
+                <span class="tit kr"><span><span>1그린 톨토이즈 호스텔 시애틀 - 아메리카스 베스트 밸류 에어포트인</span></span></span>
+								<span class="tit en">The Royal Pacific Hotel &amp; TowersThe Royal Pacific Hotel &amp; TowersThe Royal Pacific Hotel &amp; Towers</span>
+              </span>
+						</a>
+          </li>
+					<li>
+						<a href="#">
+              <span class="vis"><img src="//static.priviatravel.com/UPLOAD/2018/09/20/75809/1a022568-6e59-4f80-b247-c1f485531cd0" alt="&nbsp;"></span>
+              <span class="info-box">
+								<span class="label-base lbr-st1"><span>5성급 <i class="star">★★★★★</i></span></span>
+								<span class="grade">아주 좋음 4.5</span>
+                <span class="tit kr"><span>1그린 톨토이즈 호스텔 시애틀 - 아메리카스 베스트 밸류 에어포트인</span></span>
+								<span class="tit en">The Royal Pacific Hotel &amp; Towers</span>
+              </span>
+						</a>
+          </li>
+					<li>
+						<a href="#">
+              <span class="vis"><img src="//static.priviatravel.com/UPLOAD/2018/08/27/75922/15913524-ec95-43b6-a53c-33352bb51783" alt="&nbsp;"></span>
+              <span class="info-box">
+								<span class="label-base lbr-st1"><span>5성급 <i class="star">★★★★★</i></span></span>
+								<span class="grade">아주 좋음 4.5</span>
+                <span class="tit kr"><span>1그린 톨토이즈 호스텔 시애틀 - 아메리카스 베스트 밸류 에어포트인</span></span>
+								<span class="tit en">The Royal Pacific Hotel &amp; Towers</span>
+              </span>
+						</a>
+          </li>
+					<li>
+						<a href="#">
+              <span class="vis"><img src="//static.priviatravel.com/UPLOAD/2018/09/20/75812/e3aa2881-b34d-45b4-862d-734987df5580" alt="&nbsp;"></span>
+              <span class="info-box">
+								<span class="label-base lbr-st1"><span>5성급 <i class="star">★★★★★</i></span></span>
+								<span class="grade">아주 좋음 4.5</span>
+                <span class="tit kr"><span>1그린 톨토이즈 호스텔 시애틀 - 아메리카스 베스트 밸류 에어포트인</span></span>
+								<span class="tit en">The Royal Pacific Hotel &amp; Towers</span>
+              </span>
+						</a>
+          </li>
+				</ul>
+				<h3 class="c-tit-loca">리옹</h3>
+				<ul class="list-item-st1 htp-list">
+					<li>
+						<a href="#">
+              <span class="vis"><img src="//static.priviatravel.com/UPLOAD/2018/08/24/75813/6416ed59-9a14-4b1a-8aa1-d1202ac121ae" alt="&nbsp;"></span>
+              <span class="info-box">
+								<span class="label-base lbr-st1"><span>5성급 <i class="star">★★★★★</i></span></span>
+								<span class="grade">아주 좋음 4.5</span>
+                <span class="tit kr"><span>1그린 톨토이즈 호스텔 시애틀 - 아메리카스 베스트 밸류 에어포트인</span></span>
+								<span class="tit en">The Royal Pacific Hotel &amp; Towers</span>
+              </span>
+						</a>
+          </li>
+					<li>
+						<a href="#">
+              <span class="vis"><img src="//static.priviatravel.com/UPLOAD/2018/08/24/75813/6416ed59-9a14-4b1a-8aa1-d1202ac121ae" alt="&nbsp;"></span>
+              <span class="info-box">
+								<span class="label-base lbr-st1"><span>5성급 <i class="star">★★★★★</i></span></span>
+								<span class="grade">아주 좋음 4.5</span>
+                <span class="tit kr"><span><span>1그린 톨토이즈 호스텔 시애틀 - 아메리카스 베스트 밸류 에어포트인</span></span></span>
+								<span class="tit en">The Royal Pacific Hotel &amp; Towers</span>
+              </span>
+						</a>
+          </li>
+					<li>
+						<a href="#">
+              <span class="vis"><img src="//static.priviatravel.com/UPLOAD/2018/08/24/75813/6416ed59-9a14-4b1a-8aa1-d1202ac121ae" alt="&nbsp;"></span>
+              <span class="info-box">
+								<span class="label-base lbr-st1"><span>5성급 <i class="star">★★★★★</i></span></span>
+								<span class="grade">아주 좋음 4.5</span>
+                <span class="tit kr"><span>1그린 톨토이즈 호스텔 시애틀 - 아메리카스 베스트 밸류 에어포트인</span></span>
+								<span class="tit en">The Royal Pacific Hotel &amp; Towers</span>
+              </span>
+						</a>
+          </li>
+					<li>
+						<a href="#">
+              <span class="vis"><img src="//static.priviatravel.com/UPLOAD/2018/08/24/75813/6416ed59-9a14-4b1a-8aa1-d1202ac121ae" alt="&nbsp;"></span>
+              <span class="info-box">
+								<span class="label-base lbr-st1"><span>5성급 <i class="star">★★★★★</i></span></span>
+								<span class="grade">아주 좋음 4.5</span>
+                <span class="tit kr"><span>1그린 톨토이즈 호스텔 시애틀 - 아메리카스 베스트 밸류 에어포트인</span></span>
+								<span class="tit en">The Royal Pacific Hotel &amp; Towers</span>
+              </span>
+						</a>
+          </li>
+				</ul>
+				<h3 class="c-tit-loca">파리</h3>
+				<ul class="list-item-st1 htp-list">
+					<li>
+						<a href="#">
+              <span class="vis"><img src="//static.priviatravel.com/UPLOAD/2018/08/24/75813/6416ed59-9a14-4b1a-8aa1-d1202ac121ae" alt="&nbsp;"></span>
+              <span class="info-box">
+								<span class="label-base lbr-st1"><span>5성급 <i class="star">★★★★★</i></span></span>
+								<span class="grade">아주 좋음 4.5</span>
+                <span class="tit kr"><span>1그린 톨토이즈 호스텔 시애틀 - 아메리카스 베스트 밸류 에어포트인</span></span>
+								<span class="tit en">The Royal Pacific Hotel &amp; Towers</span>
+              </span>
+						</a>
+          </li>
+					<li>
+						<a href="#">
+              <span class="vis"><img src="//static.priviatravel.com/UPLOAD/2018/08/24/75813/6416ed59-9a14-4b1a-8aa1-d1202ac121ae" alt="&nbsp;"></span>
+              <span class="info-box">
+								<span class="label-base lbr-st1"><span>5성급 <i class="star">★★★★★</i></span></span>
+								<span class="grade">아주 좋음 4.5</span>
+                <span class="tit kr"><span>1그린 톨토이즈 호스텔 시애틀 - 아메리카스 베스트 밸류 에어포트인</span></span>
+								<span class="tit en">The Royal Pacific Hotel &amp; Towers</span>
+              </span>
+						</a>
+          </li>
+					<li>
+						<a href="#">
+              <span class="vis"><img src="//static.priviatravel.com/UPLOAD/2018/08/24/75813/6416ed59-9a14-4b1a-8aa1-d1202ac121ae" alt="&nbsp;"></span>
+              <span class="info-box">
+								<span class="label-base lbr-st1"><span>5성급 <i class="star">★★★★★</i></span></span>
+								<span class="grade">아주 좋음 4.5</span>
+                <span class="tit kr"><span>1그린 톨토이즈 호스텔 시애틀 - 아메리카스 베스트 밸류 에어포트인</span></span>
+								<span class="tit en">The Royal Pacific Hotel &amp; Towers</span>
+              </span>
+						</a>
+          </li>
+					<li>
+						<a href="#">
+              <span class="vis"><img src="//static.priviatravel.com/UPLOAD/2018/08/24/75813/6416ed59-9a14-4b1a-8aa1-d1202ac121ae" alt="&nbsp;"></span>
+              <span class="info-box">
+								<span class="label-base lbr-st1"><span>5성급 <i class="star">★★★★★</i></span></span>
+								<span class="grade">아주 좋음 4.5</span>
+                <span class="tit kr"><span>1그린 톨토이즈 호스텔 시애틀 - 아메리카스 베스트 밸류 에어포트인</span></span>
+								<span class="tit en">The Royal Pacific Hotel &amp; Towers</span>
+              </span>
+						</a>
+          </li>
+				</ul>
+				<h3 class="c-tit-loca">리옹</h3>
+				<ul class="list-item-st1 htp-list">
+					<li>
+						<a href="#">
+              <span class="vis"><img src="//static.priviatravel.com/UPLOAD/2018/08/24/75813/6416ed59-9a14-4b1a-8aa1-d1202ac121ae" alt="&nbsp;"></span>
+              <span class="info-box">
+								<span class="label-base lbr-st1"><span>5성급 <i class="star">★★★★★</i></span></span>
+								<span class="grade">아주 좋음 4.5</span>
+                <span class="tit kr"><span>1그린 톨토이즈 호스텔 시애틀 - 아메리카스 베스트 밸류 에어포트인</span></span>
+								<span class="tit en">The Royal Pacific Hotel &amp; Towers</span>
+              </span>
+						</a>
+          </li>
+					<li>
+						<a href="#">
+              <span class="vis"><img src="//static.priviatravel.com/UPLOAD/2018/08/24/75813/6416ed59-9a14-4b1a-8aa1-d1202ac121ae" alt="&nbsp;"></span>
+              <span class="info-box">
+								<span class="label-base lbr-st1"><span>5성급 <i class="star">★★★★★</i></span></span>
+								<span class="grade">아주 좋음 4.5</span>
+                <span class="tit kr"><span>1그린 톨토이즈 호스텔 시애틀 - 아메리카스 베스트 밸류 에어포트인</span></span>
+								<span class="tit en">The Royal Pacific Hotel &amp; Towers</span>
+              </span>
+						</a>
+          </li>
+					<li>
+						<a href="#">
+              <span class="vis"><img src="//static.priviatravel.com/UPLOAD/2018/08/24/75813/6416ed59-9a14-4b1a-8aa1-d1202ac121ae" alt="&nbsp;"></span>
+              <span class="info-box">
+								<span class="label-base lbr-st1"><span>5성급 <i class="star">★★★★★</i></span></span>
+								<span class="grade">아주 좋음 4.5</span>
+                <span class="tit kr"><span>1그린 톨토이즈 호스텔 시애틀 - 아메리카스 베스트 밸류 에어포트인</span></span>
+								<span class="tit en">The Royal Pacific Hotel &amp; Towers</span>
+              </span>
+						</a>
+          </li>
+					<li>
+						<a href="#">
+              <span class="vis"><img src="//static.priviatravel.com/UPLOAD/2018/08/24/75813/6416ed59-9a14-4b1a-8aa1-d1202ac121ae" alt="&nbsp;"></span>
+              <span class="info-box">
+								<span class="label-base lbr-st1"><span>5성급 <i class="star">★★★★★</i></span></span>
+								<span class="grade">아주 좋음 4.5</span>
+                <span class="tit kr"><span>1그린 톨토이즈 호스텔 시애틀 - 아메리카스 베스트 밸류 에어포트인</span></span>
+								<span class="tit en">The Royal Pacific Hotel &amp; Towers</span>
+              </span>
+						</a>
+          </li>
+				</ul>
+        <div class="htp-sinfo air">
+          <p class="txt">항공권 동시구매 후 호텔 예약 시 추가 2% 할인 혜택을 받으세요 <a href="#">현대카드 PRIVIA  항공 예약하기</a></p>
+          <a href="#" class="btn-close">close</a>
+        </div>
+			</div>
+		</div>
+		<!-- //w-content-sec -->
+	</div>
+	<!-- //#content -->
+
+	<!-- #footer-sec -->
+	<div id="footer-sec">
+		<div class="w-footer-sec ly-inner">
+			<p class="fts-call"><a href="/customer/main/counselMain#infoCall">고객센터 대표번호 <em>1588-0360</em> (해외 82-2-6911-8300)</a></p>
+			<ul class="nav-fnb">
+				<li><a href="/etc/aboutPriviaTab">ABOUT PRIVIA 여행</a></li>
+				<li><a href="/etc/siteMap">사이트맵</a></li>
+				<li><a href="/etc/conditionPrivia">이용약관</a></li>
+				<li><a href="/etc/conditionOutKorea">국외여행약관</a></li>
+				<li><a href="/etc/conditionInKorea">국내여행약관</a></li>
+				<li><a href="/etc/personalInfoCtrlNew"><strong>개인정보처리방침</strong></a></li>
+				<li><a href="/etc/jobConsignNewInfo">업무위탁현황</a>	</li>
+			</ul>
+			<ul class="fts-info">
+				<li>서울특별시 중구 청계천로 100 시그니쳐 타워 서관 16층</li>
+				<li>㈜타이드스퀘어 대표이사 윤민</li>
+				<li>사업자등록번호 124-86-86370 <a href="http://www.ftc.go.kr/info/bizinfo/communicationView.jsp?apv_perm_no=2015301013030200788&amp;area1=&amp;area2=&amp;currpage=1&amp;searchKey=04&amp;searchVal=1248686370&amp;stdate=&amp;enddate=" target="_blank"><em>사업자정보확인</em></a></li>
+				<li>관광사업자번호 제 2015-000033호</li>
+				<li class="line-down">통신판매업신고번호 제 2015-서울중구-0788호</li>
+				<li class="line-down"><small>COPYRIGHT (c) TIDESQUARE CO. LTD. ALL RIGHTS RESERVED. SPONSORED BY HYUNDAI CARD</small></li>
+			</ul>
+			<p class="fts-partnership">현대카드는 현대카드 PRIVIA 여행사이트의 스폰서로서 ㈜타이드스퀘어와 파트너십을 맺고 있습니다. <br />현대카드 PRIVIA 여행사이트는 ㈜타이드스퀘어가 운영하는 여행사이트이며, 여행서비스 전반에 대한 의무와 책임은 ㈜타이드스퀘어에 있습니다.</p>
+		</div>
+	</div>
+	<!-- //#footer-sec -->
+</div>
+
+</body>
+</html>

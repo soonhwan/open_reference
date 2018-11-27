@@ -856,7 +856,7 @@
 	<div id="content-sec">
 		<div class="w-content-sec">
 			<div class="htp-book-sec ly-inner">
-				<h2 class="c-tit-sec"><span>호텔 예약/결제내역</span></h2>
+				<h2 class="c-tit-sec"><span>호텔 예약</span></h2>
 				<div class="htp-book-top">
 					<div class="htp-tit-area">
 						<p class="tit kr">[파리] 로열 퍼시픽 호텔 앤드 타워</p>
@@ -913,7 +913,8 @@
 									<th scope="col">객실수</th>
 									<th scope="col">예약상태</th>
 									<th scope="col">포함사항</th>
-									<th scope="col" colspan="2">무료취소기한</th>
+									<th scope="col">무료취소기한</th>
+									<th scope="col"></th>
 								</tr>
 							</thead>
 							<tbody>
@@ -922,7 +923,7 @@
 									<td class="center">2개</td>
 									<td class="center">확정</td>
 									<td class="center">조식포함<br>(Breakfast Buffet)</td>
-									<td class="center">2018/08/23<br>17:00 까지</td>
+									<td class="center free-cancel">2018/08/23<br>17:00 까지</td>
 									<td>
 										<span class="btn-base bb-st5 short"><a href="#">상세규정</a></span>
 									</td>
@@ -960,16 +961,16 @@
 							<h3 class="title">예약자정보</h3>
 						</div>
 						<p class="imp-txt"><span>*</span> 필수입력사항</p>
-						<table summary="예약자정보 요약" class="tbl-list ptb-short">
+						<table summary="예약자정보 요약" class="tbl-list ptb-short2">
 							<caption>이름, 연락처, 이메일에 대한 테이블</caption>
 							<colgroup>
-								<col width="33.333%">
-								<col width="33.333%">
+								<col width="280">
+								<col width="475">
 								<col width="*">
 							</colgroup>
 							<thead>
 								<tr>
-									<th scope="col"><span class="imp">*</span>이름</th>
+									<th scope="col"><span class="imp">*</span>이름(아이디)</th>
 									<th scope="col"><span class="imp">*</span>연락처</th>
 									<th scope="col"><span class="imp">*</span>이메일</th>
 								</tr>
@@ -981,8 +982,8 @@
 									</td>
 									<td class="center">
 										<div class="input-wrap">
-											<span>휴대폰</span>
-											<input type="text" class="input-base tp1 w280" placeholder="-없이 숫자만 입력">
+											<span class="unit">휴대폰</span>
+											<input type="text" class="input-base tp1 w180" placeholder="-없이 숫자만 입력">
 										</div>
 									</td>
 									<td class="center">
@@ -1264,30 +1265,62 @@
 							<input type="checkbox" id="maximum-benefit" class="a11y" checked>
 							<label for="maximum-benefit" class="label-base on">최대 혜택/할인 적용</label>
 						</span>
-						<table summary="혜택 및 할인적용 요약" class="tbl-list2">
-							<caption>할인 내용에 대한 테이블</caption>
+						<table summary="혜택 및 할인적용 요약" class="tbl-list2 payment">
+							<caption>객실요금, 혜택 및 할인, 추가요금, 최종결제요금에 대한 테이블</caption>
 							<colgroup>
-								<col width="136" />
+								<col width="144" />
 								<col width="*" />
-								<col width="194" />
+								<col width="180" />
+								<col width="185" />
 							</colgroup>
 							<tbody>
 								<tr>
-									<th scope="row" class="center">할인</th>
 									<td>
-										<ul class="benefit-list">
-											<li>
-												<span class="tit2">현대카드 결제 시 5% 할인</span>
-												<div class="input-wrap">
-													<input type="text" class="input-base price st2" value="0">
-													<span class="btn-base bb-st3"><a href="#" style="min-width:inherit;">적용</a></span>
-													<span class="btn-base bb-st5"><a href="#" style="min-width:inherit;">취소</a></span>
-												</div>
-											</li>
-										</ul>
+										<div class="pay-info">
+											<p class="tit">객실요금</p>
+											<p class="price"><em>3,000,000</em>원</p>
+										</div>
 									</td>
-									<td class="right">
-										<p class="result-price"><em>285,000</em> 원</p>
+									<td>
+										<div class="payment-inner">
+											<span class="ico minus"></span>
+											<ul class="benefit-list">
+												<li>
+													<span class="tit">현대카드 결제 시 5% 할인</span>
+													<span class="apply-sec">
+														<span class="chk-base chk-st3">
+															<input type="checkbox" id="benefit-ck3" class="a11y" checked>
+															<label for="benefit-ck3" class="label-base">적용</label>
+														</span>
+													</span>
+													<input type="text" class="input-base tp1 price" value="15,000">
+													<span class="unit">원</span>
+												</li>
+											</ul>
+											<div class="pay-info benefit">
+												<p class="tit">혜택 및 할인</p>
+												<p class="price"><em>15,000</em>원</p>
+											</div>
+										</div>
+									</td>
+									<td>
+										<div class="payment-inner">
+											<span class="ico plus"></span>
+											<div class="pay-info">
+												<p class="tit">추가요금</p>
+												<p class="price"><em>0</em>원</p>
+											</div>
+										</div>
+									</td>
+									<td>
+										<div class="payment-inner">
+											<span class="ico equal"></span>
+											<div class="pay-info total">
+												<p class="tit">최종결제요금</p>
+												<p class="price"><em>285,000</em>원</p>
+												<p class="info">(M포인트 적용예상금액 256,500원)</p>
+											</div>
+										</div>
 									</td>
 								</tr>
 							</tbody>
@@ -1298,7 +1331,7 @@
 						<div class="c-tit-page-cont">
 							<h3 class="title">결제정보</h3>
 						</div>
-						<div class="payment-info-box">
+						<!-- <div class="payment-info-box">
 							<ul>
 								<li class="room">
 									<dl class="price-detail">
@@ -1329,7 +1362,7 @@
 									<p class="info">(M포인트 적용예상금액 256,500원)</p>
 								</li>
 							</ul>
-						</div>
+						</div> -->
 						<table summary="결제정보 요약" class="tbl-list ptb-short">
                 <caption>카드종류, 현대카드 M포인트, 결제안내에 대한 테이블</caption>
                 <colgroup>
@@ -1579,7 +1612,7 @@
 								<label for="last-payment-agree" class="label-base on">결제할 상품의 상품명, 상품가격, 예약일시, 취소규정을 확인하였으며, 결제에 동의하시겠습니까? (전자상거래법 제8조 2항)</label>
 							</span>
 							<div class="book-tail-btn">
-								<span class="btn-base bb-st3 big"><a href="#"><em>266,000</em>원 결제하기</a></span>
+								<span class="btn-base bb-st3 big bc-red"><a href="#"><em>266,000</em>원 결제하기</a></span>
 							</div>
 						</div><!-- //book-tail-info -->
 					</div><!-- //book-detail-area -->

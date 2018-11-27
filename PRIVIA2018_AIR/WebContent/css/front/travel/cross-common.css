@@ -387,6 +387,7 @@ h2.svc-title{font-weight:normal;font-family:'ymhb',sans-serif;font-size:24px;col
 .list-new td.empty-pd{padding:0;border-bottom:0 none}
 .list-new td.empty-pd .list-new{border-top:0 none}
 .list-new td.empty-pd .list-new td{border-left:0 none}
+.list-new .is-chk {background-color: #e6e8ec;}
 .list-new2{width:100%;table-layout:fixed;border-collapse:separate;color:#333;text-align:center;border-top:1px solid #333}
 	.ie7 .list-new2{border-collapse:collapse}
 .list-new2 thead th{padding:7px 0 6px;border-bottom:1px solid #333;line-height:18px;font-weight:bold}
@@ -601,7 +602,8 @@ box-shadow: 2px 2px 1px 0px rgba(0, 0, 0, 0.1);
 .product-view-new:after{content:'';display:block;clear:both}
 .product-view-new .p-img{float:left;width:570px;min-height:200px;}
 .product-view-new .p-img img{max-width:100%;}
-.product-view-new .p-detail{float:right;width:360px;border-top: 1px solid #333;padding-top: 15px;height:359px;overflow-y:auto;}
+.product-view-new .p-detail{float:right;width:360px;border-top: 1px solid #333;padding-top: 15px;}
+.product-view-new.airtel-product .p-detail{float:right;width:360px;border-top: 1px solid #333;padding-top: 15px;height:359px;overflow-y:auto;}
 .product-view-new .thumb_img .zoom_img{position:relative;width:570px;height:375px;padding:0;margin:0;font-size:0;text-align:center;line-height:0;vertical-align:top}
 .product-view-new .thumb_img .imgZoom{position:relative;width:570px;height:375px;overflow:hidden;font-size:0 !important;line-height:0;padding:0;margin:0;letter-spacing:-1px}
 .product-view-new .p-info{width:100%;overflow:hidden}
@@ -2485,3 +2487,68 @@ hr.line{border-top:1px solid #e2e2e2;border-bottom:0 none;margin:30px 0}
 .product-hyundai-benefit .cont-wr .inner{padding:20px 30px;}
 .product-hyundai-benefit .tit{margin-bottom:12px;font-size:12px;color:#000;font-weight:bold;}
 .product-hyundai-benefit .text-list-md li{margin-bottom:0;letter-spacing:-.5px;}
+
+/* 32742 */
+.btn-sf.research-dprs{position:absolute;right:0;top:30px;height:17px;line-height:17px;font-size:14px;padding:11px 17px 10px 38px;}
+.btn-sf.research-dprs:before{position: absolute;left:17px;top:10px;content:"";display:block;width:16px;height:17px;background:url(/images/front/travel/btn_search_w.png) 0 0 no-repeat;}
+
+/* 33726 */
+.freedirect-detail .search-pos .btn-res-method{position: absolute;right:1px;top:-10px;display:block;padding:8px 20px 8px 20px;background: #747474;font-size:12px;color:#fff;transition:right .3s, top .3s;}
+.freedirect-detail .search-pos.fixed .btn-res-method{right:90px;top:-5px;}
+.freedirect-detail .reserve-method{border:1px solid #e2e2e2;padding-top:30px;}
+.freedirect-detail .reserve-method .top-info{position:relative;padding-left:140px;margin:0 20px;}
+.freedirect-detail .reserve-method .top-info .tit{position: absolute;left:0;top:0;font-size:12px;font-weight:bold;color:#333;}
+.freedirect-detail .reserve-method .top-info  strong{margin-bottom:6px;display:block;}
+.freedirect-detail .reserve-method .method-list{margin:112px auto 0;width:928px;}
+.freedirect-detail .reserve-method .method-list li{position: relative;}
+.freedirect-detail .reserve-method .method-list .step2{margin-top:201px;}
+.freedirect-detail .reserve-method .method-list .step3{margin-top:122px;}
+.freedirect-detail .reserve-method .method-list .step4{margin-top:76px;}
+.freedirect-detail .reserve-method .method-list .step5{margin-top:127px;}
+.freedirect-detail .reserve-method .method-list .step6{margin-top:194px;padding-bottom:105px;}
+.freedirect-detail .reserve-method .method-list .center-line{background: #f7f7f7;margin-top:137px;padding:10px 0;text-align:center;width:948px;position: relative; right:10px;color:#000000;font-weight:bold;}
+.freedirect-detail .reserve-method .method-list li dl{position: absolute;}
+.freedirect-detail .reserve-method .method-list li dl dt{position: relative;padding-left:22px;font-size:12px;font-weight:bold;color:#000;line-height:17px;}
+.freedirect-detail .reserve-method .method-list li dl dt span{position: absolute;left:0;top:0;display:block;width:17px;height:17px;border-radius:50%;background:#000;font-size:12px;color:#fff;text-align:center;font-weight:bold;line-height:17px;}
+.freedirect-detail .reserve-method .method-list li dl dd{margin-top:9px;padding-left:22px;line-height:20px;font-size:12px;}
+.freedirect-detail .reserve-method .method-list li dl.exp1{left:36px;top:-56px;}
+.freedirect-detail .reserve-method .method-list li dl.exp2{left:671px;top:472px;}
+.freedirect-detail .reserve-method .method-list li dl.exp3{left:9px;top:434px;}
+.freedirect-detail .reserve-method .method-list li dl.exp4{right:7px;top:477px;}
+.freedirect-detail .reserve-method .method-list li dl.exp5{left:588px;top:533px;}
+.freedirect-detail .reserve-method .method-list li dl.exp6{left:407px;top:470px;}
+.freedirect-detail .reserve-method .method-list li dl.exp7{left:573px;top:-101px;}
+.freedirect-detail .reserve-method .method-list li dl.exp8{left:492px;bottom:30px;}
+.freedirect-detail .reserve-method .method-list li .mgt-txt{position:absolute;font-size:12px;color:#e5489a;font-weight:bold;}
+.freedirect-detail .reserve-method .method-list li.step2 .mgt-txt{right:145px;bottom:-25px;}
+.freedirect-detail .reserve-method .method-info{padding:30px 160px;background: #f7f7f7;}
+.freedirect-detail .reserve-method .method-info li{position: relative;padding-left:16px;font-size:12px;color:#333;line-height:20px;}
+.freedirect-detail .reserve-method .method-info li span{position: absolute;left:0;top:0;line-height:20px;}
+.freedirect-detail .reserve-method .method-info p{margin-top:25px;font-size:12px;font-weight:bold;color:#333;}
+.freedirect-detail .res-preparation>li{margin-top:20px;}
+.freedirect-detail .res-preparation>li:first-child{margin-top:0;}
+.freedirect-detail .res-preparation ul li{position: relative;padding-left:10px;}
+.freedirect-detail .res-preparation ul li:first-child{margin-bottom:3px;}
+.freedirect-detail .res-preparation ul li:first-child,
+.freedirect-detail .res-preparation ul li.front{padding-left:0;}
+.freedirect-detail .res-preparation ul li span{position: absolute;left:0;top:0;}
+.freedirect-detail .res-preparation ul li strong.mgt{color:#ec2075;}
+.view-new.resm tbody tr th{padding:30px 0;}
+.view-new.resm tbody tr td{padding-top:30px;padding-bottom:30px;}
+
+/* 34149 */
+.exist_select_chk th{position: relative;background: #f5f5f5;z-index:1;}
+.exist_select_chk th span.tit {font-weight: bold;position: relative;display: inline-block;/*margin-top: 26px;*/z-index:10;}
+.exist_select_chk th span.tit > a {display: inline-block;padding-right: 15px;font-weight: bold;background: url(/images/front/travel/search/airline_new_arrow.gif) 100% 3px no-repeat;color: #000;}
+.exist_select_chk th span.tit:hover > a {background-position: 100% -15px;}
+.exist_select_chk .select_multiple {position: absolute;top:0;left:0;background-color: #fff;border-right: 1px solid #666;border-left: 1px solid #666;display: none;}
+.exist_select_chk .select_multiple .option_list {position: relative;margin-top: 33px;margin-left: -1px;border: 1px solid #666;text-align: left;padding: 10px;background-color: #fff;z-index: 10;}
+.exist_select_chk .select_multiple .option_list li {margin-top: 10px;}
+.exist_select_chk .select_multiple .option_list li:first-child {margin-top: 0;}
+.exist_select_chk .select_multiple .option_list li label {margin-left: 7px;}
+.exist_select_chk .select_multiple.sm1 {width: 169px;}
+.exist_select_chk .select_multiple.sm1 .option_list {width: 149px;}
+
+.exist_select_chk th.on span.tit a {background-position: 100% -35px;}
+.exist_select_chk th.on .select_multiple {display: block;}
+.exist_select_chk th.on .help-text {display: none;}

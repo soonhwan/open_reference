@@ -5,6 +5,128 @@
  */
 !function(a){"function"==typeof define&&define.amd?define(["jquery"],a):a("object"==typeof module&&module.exports?require("jquery"):jQuery)}(function(a){function b(b){var c={},d=/^jQuery\d+$/;return a.each(b.attributes,function(a,b){b.specified&&!d.test(b.name)&&(c[b.name]=b.value)}),c}function c(b,c){var d=this,f=a(this);if(d.value===f.attr(h?"placeholder-x":"placeholder")&&f.hasClass(n.customClass))if(d.value="",f.removeClass(n.customClass),f.data("placeholder-password")){if(f=f.hide().nextAll('input[type="password"]:first').show().attr("id",f.removeAttr("id").data("placeholder-id")),b===!0)return f[0].value=c,c;f.focus()}else d==e()&&d.select()}function d(d){var e,f=this,g=a(this),i=f.id;if(!d||"blur"!==d.type||!g.hasClass(n.customClass))if(""===f.value){if("password"===f.type){if(!g.data("placeholder-textinput")){try{e=g.clone().prop({type:"text"})}catch(j){e=a("<input>").attr(a.extend(b(this),{type:"text"}))}e.removeAttr("name").data({"placeholder-enabled":!0,"placeholder-password":g,"placeholder-id":i}).bind("focus.placeholder",c),g.data({"placeholder-textinput":e,"placeholder-id":i}).before(e)}f.value="",g=g.removeAttr("id").hide().prevAll('input[type="text"]:first').attr("id",g.data("placeholder-id")).show()}else{var k=g.data("placeholder-password");k&&(k[0].value="",g.attr("id",g.data("placeholder-id")).show().nextAll('input[type="password"]:last').hide().removeAttr("id"))}g.addClass(n.customClass),g[0].value=g.attr(h?"placeholder-x":"placeholder")}else g.removeClass(n.customClass)}function e(){try{return document.activeElement}catch(a){}}var f,g,h=!1,i="[object OperaMini]"===Object.prototype.toString.call(window.operamini),j="placeholder"in document.createElement("input")&&!i&&!h,k="placeholder"in document.createElement("textarea")&&!i&&!h,l=a.valHooks,m=a.propHooks,n={};j&&k?(g=a.fn.placeholder=function(){return this},g.input=!0,g.textarea=!0):(g=a.fn.placeholder=function(b){var e={customClass:"placeholder"};return n=a.extend({},e,b),this.filter((j?"textarea":":input")+"["+(h?"placeholder-x":"placeholder")+"]").not("."+n.customClass).not(":radio, :checkbox, [type=hidden]").bind({"focus.placeholder":c,"blur.placeholder":d}).data("placeholder-enabled",!0).trigger("blur.placeholder")},g.input=j,g.textarea=k,f={get:function(b){var c=a(b),d=c.data("placeholder-password");return d?d[0].value:c.data("placeholder-enabled")&&c.hasClass(n.customClass)?"":b.value},set:function(b,f){var g,h,i=a(b);return""!==f&&(g=i.data("placeholder-textinput"),h=i.data("placeholder-password"),g?(c.call(g[0],!0,f)||(b.value=f),g[0].value=f):h&&(c.call(b,!0,f)||(h[0].value=f),b.value=f)),i.data("placeholder-enabled")?(""===f?(b.value=f,b!=e()&&d.call(b)):(i.hasClass(n.customClass)&&c.call(b),b.value=f),i):(b.value=f,i)}},j||(l.input=f,m.value=f),k||(l.textarea=f,m.value=f),a(function(){a(document).delegate("form","submit.placeholder",function(){var b=a("."+n.customClass,this).each(function(){c.call(this,!0,"")});setTimeout(function(){b.each(d)},10)})}),a(window).bind("beforeunload.placeholder",function(){var b=!0;try{"javascript:void(0)"===document.activeElement.toString()&&(b=!1)}catch(c){}b&&a("."+n.customClass).each(function(){this.value=""})}))});
 
+/*!
+ * jquery.tooltip.js 0.0.1 - https://github.com/yckart/jquery.tooltip.js
+ * The tooltip to use, ready for mobile!
+ *
+ * Copyright (c) 2013 Yannick Albert (http://yckart.com)
+ * Licensed under the MIT license (http://www.opensource.org/licenses/mit-license.php).
+ * 2013/02/09
+*/
+(function ($, window, document) {
+    'use strict';
+
+    var pluginName = 'tooltip',
+        defaults = {
+            fade: false,
+            fallback: '',
+            align: 'autoTop',
+            html: false,
+            attr: 'title',
+            trigger: {
+                show: 'ontouchend' in document ? 'touchstart' : 'mouseenter',
+                hide: 'ontouchend' in document ? 'touchend' : 'mouseleave'
+            },
+            delay: {
+                show: 0,
+                hide: 0
+            }
+        };
+
+    function Plugin(el, options) {
+
+        options = $.extend({}, defaults, options);
+
+        var elem = $(el),
+            timeout;
+
+        elem.on('custom-tooltip:show ' + options.trigger.show, function(){
+            $.data(this, 'cancel.custom-tooltip', true);
+
+            var tip = $.data(this, 'active.custom-tooltip');
+			var $selector = $(this).attr('class');
+            if (!tip) {
+                tip = $('<div class="custom-tooltip"><div class="custom-tooltip-inner"/></div>').css({position:'absolute', zIndex:100000});
+                $.data(this, 'active.custom-tooltip', tip);
+            }
+
+            if (elem.attr('title') || typeof (elem.attr('original-title')) !== 'string') {
+                elem.attr('original-title', elem.attr('title') || '').removeAttr('title');
+            }
+
+            var title;
+            if (typeof options.attr === 'string') {
+                title = elem.attr(options.attr === 'title' ? 'original-title' : options.attr);
+            } else if (typeof options.attr == 'function') {
+                title = options.attr.call(this);
+            }
+			
+            tip.find('.custom-tooltip-inner')[options.html ? 'html' : 'text'](title || options.fallback);
+
+            var pos = $.extend({}, elem.offset(), {width: this.offsetWidth, height: this.offsetHeight});
+
+            tip[0].className = 'custom-tooltip';
+            tip.remove().css({
+                top: 0,
+                left: 0,
+                opacity: 0
+            }).appendTo(document.body);
+			tip.addClass($selector);
+
+            var actualWidth = tip[0].offsetWidth,
+                actualHeight = tip[0].offsetHeight,
+                dir = options.align === 'autoTop' ?
+                      pos.top > ($(document).scrollTop() + $(window).height() / 2) ? 't' : 'b' :
+                      pos.left > ($(document).scrollLeft() + $(window).width() / 2) ? 'l' : 'r';
+
+            switch (options.align.charAt(0) === 'a' ? dir : options.align.charAt(0)) {
+                case 'b':
+                    tip.css({top: pos.top + pos.height, left: pos.left + pos.width / 2 - actualWidth / 2}).addClass('custom-tooltip-bottom');
+                    break;
+                case 't':
+                    tip.css({top: pos.top - actualHeight, left: pos.left + pos.width / 2 - actualWidth / 2}).addClass('custom-tooltip-top');
+                    break;
+                case 'l':
+                    tip.css({top: pos.top + pos.height / 2 - actualHeight / 2, left: pos.left - actualWidth}).addClass('custom-tooltip-left');
+                    break;
+                case 'r':
+                    tip.css({top: pos.top + pos.height / 2 - actualHeight / 2, left: pos.left + pos.width}).addClass('custom-tooltip-right');
+                    break;
+            }
+
+            clearTimeout(timeout);
+            tip.stop().delay(options.delay.show).fadeTo(options.fade ? options.fade.duration : 0, options.fade.opacity || 0.8, options.fade.complete);
+        });
+
+        elem.on('custom-tooltip:hide ' + options.trigger.hide, function(){
+            $.data(this, 'cancel.custom-tooltip', false);
+            var self = this;
+            timeout = setTimeout(function () {
+                if ($.data(self, 'cancel.custom-tooltip')) return;
+                var tip = $.data(self, 'active.custom-tooltip');
+                if (options.fade) {
+                    tip.stop().fadeTo(options.fade.duration, 0, function () {
+                        tip.remove();
+                        if(options.fade.complete) options.fade.complete(true);
+                    });
+                } else {
+                    tip.remove();
+                }
+            }, options.delay.hide);
+        });
+
+    }
+
+    $.fn[pluginName] = function (options) {
+        return this.each(function () {
+            if (!$.data(this, "plugin_" + pluginName)) {
+                $.data(this, "plugin_" + pluginName, new Plugin(this, options));
+            }
+        });
+    };
+
+}(jQuery, window, document));
+
 /*
  * 설명   : jQuery 메서드 모음
  * 사용처 : document.ready 구문에 실행함수 탑재
@@ -1092,7 +1214,8 @@ var pvFrontScript = window.pvFrontScript || (function(){
 			//헤더 퀵모드 검색버튼 click
 			if($('.w-header-gnb .b-open-search').length > 0){
 				//퀵모드 검색버튼 숨김, 기획전 롤링 숨김(국내여행) #33289 수정
-				if($('.w-header-gnb .nav-gnb #n-gnb-domestic.on').length > 0){
+				//if($('.w-header-gnb .nav-gnb #n-gnb-domestic.on').length > 0){
+				if($('.w-header-gnb .nav-gnb #n-gnb-pkg.on, .w-header-gnb .nav-gnb #n-gnb-domestic.on').length > 0){
 					$('.commonHeaderObject .o-CHO-inner').addClass('no-header-search');
 					$('.w-header-gnb .b-open-search').addClass('hide'); 
 				}
@@ -1227,23 +1350,29 @@ var pvFrontScript = window.pvFrontScript || (function(){
 			}	
                   
             //기획전 롤링
-			if($('.promotion-cont .list').length > 0){
-				$('.promotion-cont .srpc-left .list').slick({
-					draggable: false,
-					arrows:false,
-					dots: false,
-					pauseOnHover: true,
-					autoplaySpeed: 500
-				});	
-                $('.promotion-cont .srpc-right .list').slick({
-                    draggable: false,
-                    arrows:false,
-                    dots: false,
-                    pauseOnHover: true,
-                    autoplaySpeed: 500
-                });	
-			}
-         
+             if($('.promotion-cont .list-promotion-slick').length > 0){
+               $('.promotion-cont .list-promotion-slick').each(function(i){
+                 $('.list-promotion-slick').eq(i).addClass('opt' + i);
+                 if($(this).find('.b-slick-crt').length>0){
+                     var slickOpt = {
+                       dots: true,	
+                       appendDots: $(this).find('.c-slick-dots'),
+                       infinite: true,
+                       draggable: false,
+                       arrows:false,
+                       variableWidth: true,
+                       slidesToShow: 1,
+                       slidesToScroll: 1,
+                       autoplaySpeed: 10000,
+                       autoplay: true
+                     }
+                     $(this).find('.list-prom').on('init', function(event, slick){
+                         pvFrontScript.utilSlickCrt($('.list-promotion-slick.opt'+i+' .b-slick-crt'), slick);
+                     }).slick(slickOpt);
+                   }
+                 });
+              }
+             
 			
 			//기획전 앵커이동
 			if($(".pb-container .tab-area, .promotion-wrap").length > 0){
@@ -1279,6 +1408,34 @@ var pvFrontScript = window.pvFrontScript || (function(){
                    }
                });
            }
+            
+           //투어&액티비티 배너 타이틀
+           if($('.list-item-freetour').length > 0){
+               $('.list-item-freetour li').on('mouseenter', function(){
+                   if($('.tit-over span', this).height() > 30){
+                       $('.tit-over', this).next().addClass('srpc-hide');
+                   }
+               });
+               $('.list-item-freetour li').on('mouseleave',function(){
+                   if($('.tit-over', this).next().hasClass('srpc-hide')){
+                       $('.tit-over', this).next().removeClass('srpc-hide');
+                   }
+               });
+           }
+            
+           //SEO메인(해외) 배너 타이틀
+           if($('.list-item-st1.htp-list').length > 0){
+               $('.list-item-st1.htp-list li').on('mouseenter', function(){
+                   if($(this).find('.tit.kr span').height() > 30){
+                       $(this).find('.info-box').addClass('active');
+                   }
+               });
+               $('.list-item-st1.htp-list li').on('mouseleave',function(){
+                   if($(this).find('.info-box').hasClass('active')){
+                       $(this).find('.info-box').removeClass('active');
+                   }
+               });
+           }
          
           //자유여행 도시별 Best Deal
           if($('.list-item-free').length > 0){
@@ -1288,7 +1445,18 @@ var pvFrontScript = window.pvFrontScript || (function(){
                $('.list-item-free li').on('mouseleave', function(){
                 $(this).find('.hover-content').removeClass('active');
                });
-			}         
+			}
+         
+         //기획전 리스트 간격
+         if($('.promotion-cont .promotion-list').length > 0){
+           $('.promotion-cont .promotion-list').each(function(){
+             $('li', this).each(function(i){
+                if(i%4==0){ 
+                  $(this).addClass('row');
+                }
+              });            
+           });    
+         }                   
 		},
 		mainContents: function(){
 			//priviaMainUI.js 이관	

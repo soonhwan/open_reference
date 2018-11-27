@@ -29,18 +29,7 @@
 <script>
 
 $(function(){
-	//상세 스케줄 click
-	$('.schedule-info .sch-cell .htla-detail .btn').on('click', function(e){
-		if(!$(this).hasClass('on')){
-			$(this).addClass('on');
-			$(this).closest('.sch-box').find('.schedule-detail').slideDown('fast');
-		}
-		else{
-			$(this).closest('.sch-box').find('.schedule-detail').slideUp('fast');
-			$(this).removeClass('on');
-		}
-		e.preventDefault();
-	})
+	
 });
 </script>
 </head>
@@ -899,7 +888,7 @@ $(function(){
 							<span class="txt">나리타(NRT)</span>
 							<span class="txt">홍콩(HKG)</span>
 						</div>
-						<div class="msg-comp"><strong>왕복</strong> 항공권 예약이 완료되었습니다.</div>
+						<div class="msg-comp"><strong>왕복</strong> 항공권 <strong>예약</strong>이 완료되었습니다.</div>
 						<div class="msg-move">마이페이지로 이동중입니다.</div>
 					</div>
 					<div class="cbb-cont">
@@ -929,7 +918,7 @@ $(function(){
 							<span class="txt">나리타(NRT)</span>
 							<span class="txt">홍콩(HKG)</span>
 						</div>
-						<div class="msg-comp"><strong>편도</strong> 항공권 예약이 완료되었습니다.</div>
+						<div class="msg-comp"><strong>편도</strong> 항공권 <strong>예약</strong>이 완료되었습니다.</div>
 						<div class="msg-move">마이페이지로 이동중입니다.</div>
 					</div>
 					<div class="cbb-cont">
@@ -960,7 +949,7 @@ $(function(){
 							<span class="txt">리우데자네이루(GIG)</span>
 							<span class="txt2">외 3개의</span>
 						</div>
-						<div class="msg-comp"><strong>다구간</strong> 항공권 예약이 완료되었습니다.</div>
+						<div class="msg-comp"><strong>다구간</strong> 항공권 <strong>예약</strong>이 완료되었습니다.</div>
 						<div class="msg-move">마이페이지로 이동중입니다.</div>
 					</div>
 					<div class="cbb-cont">

@@ -290,6 +290,7 @@ var dimmLayerPop = function(id,opt,$elem,bool_dimmClose){
 	var openThisPop = function (){
 		if($("body").find(".modal_window:visible").length == 0){
 			$("body, html").addClass("no_scroll");
+            if($this.find('.gal-item-slick').length>0) $this.find('.gal-item-slick').resize(); //팝업에 갤러리 slick이 있을 경우
 		}
 		if($("body").hasClass("special_exp")){
 			$("body").removeClass("special_exp_hidden");
@@ -421,7 +422,16 @@ function lowIEVersion() {
 			  }
 		 	  $('html').addClass('ie'+rv);
 		 }
-	}
+	} else if(navigator.appName == "Netscape"){                       
+		/// in IE 11 the navigator.appVersion says 'trident'
+		/// in Edge the navigator.appVersion does not say trident
+		if(navigator.appVersion.indexOf('Trident') === -1){ 
+			rv = 12; 
+		} else {
+			rv = 11;	
+			$('html').addClass('ie'+rv);
+		} 
+    }    
 }
 
 /*
@@ -613,8 +623,9 @@ $(function(){
 		var $htpListSection = $('.htp-list-sec');
 		var htpListPage = $htpListSection.length>0; // 호텔,항공 목록 페이지
         var $htpList = $('.htp-res-list').length>0; // 호텔 목록 페이지
-		var $htpListAir = $('.htp-res-list-air').length>0; // 항공 목록 페이지
 		var htpDetailPage = $('.htp-detail-sec').length>0; // 호텔 상세 페이지
+		var $htpListAir = $('.htp-res-list-air').length>0; // 항공 목록 페이지(국제선)
+		var $htpListDAir = $('.htp-res-list-dair').length>0; // 항공 목록 페이지(국내선)
 
 		var scTop;
 		var isTopFix = false;
@@ -724,26 +735,34 @@ $(function(){
 			if(htpTopPos < scTop && !isTopFix){
 				$htpTop.addClass('fix');
 				if(htpListPage){
-					if($htpListAir){
-						$('.htp-table-airline').addClass('on');
-					}
-					else{
-						$htpListSection.addClass('on');	
-					}
+					$htpListSection.addClass('on');	
 				} 
+				
+				//항공
+				if($htpListAir){
+					$('.htp-table-airline').addClass('on');
+				}
+				else if($htpListDAir){
+					$('.htp-top-noti').addClass('on');
+				}
+				
 				if(htpDetailPage) $htpVis.addClass('on');
 				isTopFix = true;
 			}
 			if(htpTopPos > scTop && isTopFix){
 				$htpTop.removeClass('fix');
 				if(htpListPage) {
-					if($htpListAir){
-						$('.htp-table-airline').removeClass('on');
-					}
-					else {
-						$htpListSection.removeClass('on');
-					}	
+					$htpListSection.removeClass('on');
 				}
+				
+				//항공
+				if($htpListAir){
+					$('.htp-table-airline').removeClass('on');
+				}
+				else if($htpListDAir){
+					$('.htp-top-noti').removeClass('on');
+				}
+				
 				if(htpDetailPage) $htpVis.removeClass('on');
 				isTopFix = false;
 			}
@@ -803,11 +822,6 @@ $(function(){
 			}
 		});
 
-		$('.htp-sinfo .btn-close').on('click', function(e){
-			e.preventDefault();
-			$(this).closest('.htp-sinfo').hide();
-		});
-
 		if(htpDetailPage){
 			$htpLi.on('click', function(e){
 				e.preventDefault();
@@ -815,11 +829,6 @@ $(function(){
 				_top = htpContPos(_index)-_height + 20;
 				$('html, body').stop().animate({'scrollTop': _top}, _speed);
 			});
-            $('.tbl-list .room-type .room-cancel.before').on('click', '.btn-rule', function(e){
-              e.preventDefault();
-              $(this).parent().hide();
-              $(this).parent().next().fadeIn(300);
-            });
 			$('.tbl-list.faq').on('click', '.faq-before', function(){
 				if(!$(this).hasClass('on')){
 					$(this).siblings('.faq-before').removeClass('on');
@@ -844,6 +853,12 @@ $(function(){
             });
 		}
 	}
+    if($('.htp-sinfo').length>0){
+        $('.htp-sinfo .btn-close').on('click', function(e){
+			e.preventDefault();
+			$(this).closest('.htp-sinfo').hide();
+		});
+    }	
 });
 
 /*
@@ -918,6 +933,7 @@ var pvFrontComponent = function(){
 			//상황별 슬라이드 변수
 			var listOneScroll = $(this).find('.slide-single').length>0; //하나씩만 롤링
 			var listOneBanner = $(this).hasClass('list-one-banner'); //배너 한 개 노출
+            var listCtMain = $(this).find('.list-item-res').length>0; //국가 메인, 도시
             if($(this).find('.b-slick-crt').length>0){
                 var slickOpt = {
                     dots: true,	
@@ -949,15 +965,28 @@ var pvFrontComponent = function(){
 					}
 				}
             }else{
-                var slickOpt = {
-                    dots: false,
-                    infinite: true,
-                    draggable: false,
-                    arrows:false,
-                    variableWidth: true,
-                    slidesToShow: 4,
-                    slidesToScroll: 4
+                if(listCtMain){
+                    var slickOpt = {
+                        dots: false,
+                        infinite: true,
+                        draggable: false,
+                        arrows:false,
+                        variableWidth: true,
+                        slidesToShow: 3,
+                        slidesToScroll: 3
+                    }
+                }else{
+                    var slickOpt = {
+                        dots: false,
+                        infinite: true,
+                        draggable: false,
+                        arrows:false,
+                        variableWidth: true,
+                        slidesToShow: 4,
+                        slidesToScroll: 4
+                    }
                 }
+                
             }
 			if(listOneScroll){
                 $(this).find('.list-item-st1').on('init', function(event, slick){
@@ -968,7 +997,12 @@ var pvFrontComponent = function(){
                     });    
                 });
 			}
-            var listItemSlick = $(this).find('.list-item-st1').slick(slickOpt);
+            if(listCtMain){
+                var listItemSlick = $(this).find('.list-item-res').slick(slickOpt);
+            }else{
+                var listItemSlick = $(this).find('.list-item-st1').slick(slickOpt);    
+            }
+            
 			if(!listOneBanner){
 				$(this).find('.bb-prev').on('click', function(e){
 					e.preventDefault();
@@ -979,6 +1013,46 @@ var pvFrontComponent = function(){
 					listItemSlick.slick('slickNext');
 				});
 			}
+        }); 
+        $('.list-item-st1 li').on('mouseenter', function(){
+           if($('.tit-over span', this).height() > 30){
+               $('.tit-over', this).next().addClass('srpc-hide');
+           }
+        });
+        $('.list-item-st1 li').on('mouseleave',function(){
+           if($('.tit-over', this).next().hasClass('srpc-hide')){
+               $('.tit-over', this).next().removeClass('srpc-hide');
+           }
+        });
+    }
+    if($('.gal-item-slick').length>0){
+        $('.gal-item-slick').each(function(){
+            $(this).find('.gal-slick').slick({
+                draggable: false,
+                slidesToShow: 1,
+                slidesToScroll: 1,
+                arrows: false,
+                fade: true,
+                asNavFor: $(this).find('.gal-nav')
+            });
+            var galItemNav = $(this).find('.gal-nav').slick({
+                draggable: false,
+                slidesToShow: 4,
+                slidesToScroll: 1,
+                swipeToSlide: true,
+                asNavFor: $(this).find('.gal-slick'),
+                dots: false,
+                arrows: false,
+                focusOnSelect: true
+            });
+            $(this).find('.bb-prev').on('click', function(e){
+                e.preventDefault();
+                galItemNav.slick('slickPrev');
+            });
+            $(this).find('.bb-next').on('click', function(e){
+                e.preventDefault();
+                galItemNav.slick('slickNext');
+            });
         });
     }
     if($('.rc-radio-list').length>0){

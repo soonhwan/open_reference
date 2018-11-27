@@ -853,7 +853,7 @@
 	<div id="content-sec">
 		<div class="w-content-sec">
 			<div class="htp-book-sec ly-inner">
-				<h2 class="c-tit-sec"><span>호텔 예약/결제내역</span></h2>
+				<h2 class="c-tit-sec"><span>호텔 예약</span></h2>
 				<div class="htp-book-top">
 					<div class="htp-tit-area">
 						<p class="tit kr">[파리] 로열 퍼시픽 호텔 앤드 타워</p>
@@ -910,7 +910,8 @@
 									<th scope="col">객실수</th>
 									<th scope="col">예약상태</th>
 									<th scope="col">포함사항</th>
-									<th scope="col" colspan="2">무료취소기한</th>
+									<th scope="col">무료취소기한</th>
+									<th scope="col"></th>
 								</tr>
 							</thead>
 							<tbody>
@@ -919,7 +920,7 @@
 									<td class="center">2개</td>
 									<td class="center">확정</td>
 									<td class="center">조식포함<br>(Breakfast Buffet)</td>
-									<td class="center">2018/08/23<br>17:00 까지</td>
+									<td class="center free-cancel">2018/08/23<br>17:00 까지</td>
 									<td>
 										<span class="btn-base bb-st5 short"><a href="#">상세규정</a></span>
 									</td>
@@ -956,29 +957,47 @@
 						<div class="c-tit-page-cont">
 							<h3 class="title">예약자정보</h3>
 						</div>
-						<span class="btn-base bb-st5 change-reserve"><a href="#">예약자정보 변경</a></span>
+						<p class="imp-txt"><span>*</span> 필수입력사항</p>
 						<table summary="예약자정보 요약" class="tbl-list ptb-short">
 							<caption>이름, 연락처, 이메일에 대한 테이블</caption>
 							<colgroup>
-								<col width="33.333%">
-								<col width="33.333%">
+								<col width="280">
+								<col width="475">
 								<col width="*">
 							</colgroup>
 							<thead>
 								<tr>
-									<th scope="col">이름(아이디)</th>
-									<th scope="col">연락처</th>
-									<th scope="col">이메일</th>
+									<th scope="col"><span class="imp">*</span>이름(아이디)</th>
+									<th scope="col"><span class="imp">*</span>연락처</th>
+									<th scope="col"><span class="imp">*</span>이메일</th>
 								</tr>
 							</thead>
 							<tbody>
 								<tr>
 									<td class="center">김수진(sujinkim)</td>
-									<td class="center">010-1234-5678</td>
-									<td class="center">sjkim@tidesquare.com</td>
+									<td class="center">
+										<div class="input-wrap">
+											<span class="unit">휴대폰</span>
+											<input type="text" class="input-base tp1 w180" value="010-3012-1021" placeholder="01012345678">
+										</div>
+									</td>
+									<td class="center">
+										<div class="input-wrap">
+											<input type="text" class="input-base tp1 w110" value="sjkim">
+											<span class="unit">@</span>
+											<input type="text" class="input-base tp1 w140" value="tidesquare.com">
+											<select class="select-base" style="width:134px">
+												<option value="1" checked>직접입력</option>
+												<option value="2">2</option>
+												<option value="3">3</option>
+												<option value="4">4</option>
+											</select>
+		                </div>
+									</td>
 								</tr>
 							</tbody>
 						</table>
+						<p class="sm-info">※ 예약진행상황 및 정보전달을 위하여 정확한 연락처 및 이메일 정보를 입력해주시기 바랍니다.</p>
 					</div><!-- //book-detail-area -->
 
 					<div class="book-detail-area">
@@ -1019,7 +1038,7 @@
 											<div class="input-area">
 												<input type="text" class="input-base tp1 w110 err" placeholder="예) HONG">
 												<input type="text" class="input-base tp1 w140 err" placeholder="예) GILDONG">
-												<p class="feedback"><span>영문명을 입력해주세요.</span></p>
+												<p class="feedback"><span>영문성을 입력해주세요.</span></p>
 											</div>
 											<span class="name-tit"><em>*</em> 연락처</span>
 											<div class="input-area">
@@ -1079,8 +1098,8 @@
 										<div class="input-wrap">
 											<span class="th-title">성인1</span>
 											<span class="chk-base chk-st3 th-chk">
-												<input type="checkbox" id="same-booker2" class="a11y" checked>
-												<label for="same-booker2" class="label-base on">예약자와동일</label>
+												<input type="checkbox" id="same-booker2" class="a11y">
+												<label for="same-booker2" class="label-base">예약자와동일</label>
 											</span>
 										</div>
 									</th>
@@ -1088,13 +1107,15 @@
 										<div class="input-wrap">
 											<span class="name-tit"><em>*</em> 한글명</span>
 											<div class="input-area">
-												<input type="text" class="input-base tp1 w130" placeholder="예) 홍길동">
+												<input type="text" class="input-base tp1 w130" placeholder="예) 홍길동" value="성연욱">
 												<span class="btn-base bb-st5 short"><button type="button">여행자선택</button></span>
 											</div>
 											<span class="name-tit"><em>*</em> 영문명</span>
 											<div class="input-area">
-												<input type="text" class="input-base tp1 w110" placeholder="예) HONG">
-												<input type="text" class="input-base tp1 w140" placeholder="예) GILDONG">
+												<input type="text" class="input-base tp1 w110 err" placeholder="예) HONG" value="SUNG">
+												<input type="text" class="input-base tp1 w140 err" placeholder="예) GILDONG">
+												<p class="feedback"><span>영문성을 입력해주세요.</span></p>
+												<p class="feedback"><span style="margin-left:100px;">영문 이름을 입력해주세요.</span></p>
 											</div>
 											<span class="name-tit"><em>*</em> 연락처</span>
 											<div class="input-area">
@@ -1102,7 +1123,7 @@
 													<option value="1" checked>휴대폰</option>
 													<option value="2">유선</option>
 												</select>
-												<input type="text" class="input-base tp1 w170" placeholder="- 없이 숫자만 입력">
+												<input type="text" class="input-base tp1 w170" placeholder="- 없이 숫자만 입력" value="01043210987">
 											</div>
 										</div>
 									</td>
@@ -1266,7 +1287,7 @@
 													<span class="apply-sec">
 														<span class="btn-base bb-st3 short"><a href="#">조회/적용</a></span>
 													</span>
-													<input type="text" class="input-base price" value="0" disabled>
+													<input type="text" class="input-base tp1 price" value="0" disabled>
 													<span class="unit">원</span>
 												</li>
 												<li>
@@ -1274,7 +1295,7 @@
 													<span class="apply-sec">
 														<span class="btn-base bb-st3 short"><a href="#">조회/적용</a></span>
 													</span>
-													<input type="text" class="input-base price" value="0" disabled>
+													<input type="text" class="input-base tp1 price" value="0" disabled>
 													<span class="unit">원</span>
 												</li>
 												<li>
@@ -1282,7 +1303,7 @@
 													<span class="apply-sec">
 														<span class="btn-base bb-st3 short"><a href="#">조회/적용</a></span>
 													</span>
-													<input type="text" class="input-base price" value="1,000,000">
+													<input type="text" class="input-base tp1 price" value="1,000,000">
 													<span class="unit">원</span>
 												</li>
 												<li>
@@ -1293,7 +1314,7 @@
 															<label for="benefit-ck1" class="label-base">적용</label>
 														</span>
 													</span>
-													<input type="text" class="input-base price" value="0" disabled>
+													<input type="text" class="input-base tp1 price" value="0" disabled>
 													<span class="unit">원</span>
 												</li>
 												<li>
@@ -1304,7 +1325,7 @@
 															<label for="benefit-ck2" class="label-base">적용</label>
 														</span>
 													</span>
-													<input type="text" class="input-base price" value="0" disabled>
+													<input type="text" class="input-base tp1 price" value="0" disabled>
 													<span class="unit">원</span>
 												</li>
 												<li>
@@ -1315,7 +1336,7 @@
 															<label for="benefit-ck3" class="label-base">적용</label>
 														</span>
 													</span>
-													<input type="text" class="input-base price" value="14,000">
+													<input type="text" class="input-base tp1 price" value="14,000">
 													<span class="unit">원</span>
 												</li>
 												<li>
@@ -1326,7 +1347,7 @@
 															<label for="benefit-ck3" class="label-base">적용</label>
 														</span>
 													</span>
-													<input type="text" class="input-base price" value="0" disabled>
+													<input type="text" class="input-base tp1 price" value="0" disabled>
 													<span class="unit">원</span>
 												</li>
 											</ul>
@@ -1557,7 +1578,7 @@
 								<label for="last-payment-agree" class="label-base on">결제할 상품의 상품명, 상품가격, 예약일시, 취소규정을 확인하였으며, 결제에 동의하시겠습니까? (전자상거래법 제8조 2항)</label>
 							</span>
 							<div class="book-tail-btn">
-								<span class="btn-base bb-st3 big"><a href="#"><em>266,000</em>원 결제하기</a></span>
+								<span class="btn-base bb-st3 big bc-red"><a href="#"><em>266,000</em>원 결제하기</a></span>
 							</div>
 						</div><!-- //book-tail-info -->
 					</div><!-- //book-detail-area -->

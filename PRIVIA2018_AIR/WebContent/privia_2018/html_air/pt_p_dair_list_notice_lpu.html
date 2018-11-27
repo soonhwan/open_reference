@@ -1,0 +1,488 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="utf-8" />
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<title>PRIVIA 여행</title>
+<meta name="description" content=" ">
+<meta property="og:title" content=" ">
+<meta property="og:image" content="http://static.priviatravel.com/images/front/mtravel/common/mobile_17004159046.png">
+<meta property="og:description" content=" ">
+<link rel="shortcut icon" type="image/x-icon" href="//static.priviatravel.com/images/front/travel/favicon.ico">
+<link type="text/css" rel="stylesheet" href="/css/front/travel/reset.css">
+<link type="text/css" rel="stylesheet" href="/css/front/travel/commonModule.css" />
+<link type="text/css" rel="stylesheet" href="/css/front/travel/airCont.css">
+<link type="text/css" rel="stylesheet" href="/css/front/travel/jquery.mCustomScrollbar.min.css">
+<script type="text/javascript" src="/js/front/config.js"></script>
+<script type="text/javascript" src="/js/front/travel/jquery-1.8.3.min.js"></script>
+<script type="text/javascript" src="/js/front/travel/jquery-ui.js"></script>
+<script type="text/javascript" src="/js/front/travel/jquery.mCustomScrollbar.concat.min.js"></script>
+<script type="text/javascript" src="/js/front/travel/slick.min.js"></script>
+<script type="text/javascript" src="/js/front/travel/fakeselect.js"></script>
+<script type="text/javascript" src="/js/utils.js"></script>
+<!--<script type="text/javascript" src="http://twww.priviatravel.com/share/headerManager"></script>-->
+<script type="text/javascript" src="/js/front/travel/commonModuleHeader.js"></script> <!-- headerManager 가이드 버전 실제로는 반영 되지 않음 -->
+<script type="text/javascript" src="/js/front/travel/commonModule.js"></script>
+<script type="text/javascript" src="/js/front/travel/commonModuleUI.js"></script>
+</head>
+
+<body style="background:#ccc;">
+
+	<!-- popup -->
+	<div id="" class="popup-wrap" style="width:800px;">
+    <!-- header -->
+    <div class="heading">
+      <h2 class="noto">예약 전 안내사항</h2>
+      <a href="#" class="btn_close">닫기</a>
+    </div>
+    <!-- //header -->
+    <!-- content -->
+    <div class="content">
+		<div class="inner">
+			
+			<!-- 대한항공 -->
+			<table class="tbl-list">
+				<caption>구간별 항공사, 좌석구분, 일정, 환불 규정 등 예약 전 안내 사항</caption>
+				<colgroup>
+					<col width="160"><col>
+				</colgroup>
+				<thead>
+					<tr>
+						<th scope="col">&nbsp;</th>
+						<th scope="col">김포 → 제주</th>
+					</tr>
+				</thead>
+				<tbody>
+					<tr>
+						<th scope="row" class="tlp30">항공사</th>
+						<td>대한항공</td>
+					</tr>
+					<tr>
+						<th scope="row" class="tlp30">좌석구분</th>
+						<td>
+							<span class="c-point1">일반석 특가</span><br />
+							<span class="c-point1">일반석 할인</span><br />
+							<span class="c-point1">일반석</span><br />
+							<span class="c-point1">플러스석</span><br />
+							<span class="c-point1">비즈니스석</span>
+						</td>
+					</tr>
+					<tr>
+						<th scope="row" class="tlp30">일정 변경</th>
+						<td>
+							취소 후 재예약, 취소 수수료 부과 <br /><!-- 특가, 할인 -->
+							차액 결제 또는 환불 후 변경 가능하며 변경 수수료 미부과 <!-- 그 외 -->
+						</td>
+					</tr>
+					<tr>
+						<th scope="row" class="tlp30">마일리지 적립</th>
+						<td>
+							불가<br /><!-- 특가 -->
+							가능 (할인율에 따라 적립 불가할 수 있음)<br /><!-- 할인 -->
+							가능 <!-- 그 외 -->
+						</td>
+					</tr>
+					<tr>
+						<th scope="row" class="tlp30">환불 규정</th>
+						<td>
+							<!-- 전 좌석 --> 
+							예약 후 다음 날 ~ 출발 30분 전 : 1,000원<br />
+							출발 30분 이내 및 이후 : 9,000원
+						</td>
+					</tr>
+					<tr>
+						<th scope="row" class="tlp30">수하물 규정</th>
+						<td>
+							위탁 수하물 30kg<br /><!-- 프레스티지 -->
+							위탁 수하물 20kg<br /><!-- 그 외 -->
+							초과 수하물 kg당 2,000원<!-- 전 좌석 -->
+						</td>
+					</tr>
+					<tr>
+						<th scope="row" class="tlp30">기타</th>
+						<td></td>
+					</tr>
+				</tbody>
+ 			</table>
+ 			<br /> <!-- //대한항공 -->
+ 			
+ 			<!-- 아시아나항공 -->
+			<table class="tbl-list">
+				<caption>구간별 항공사, 좌석구분, 일정, 환불 규정 등 예약 전 안내 사항</caption>
+				<colgroup>
+					<col width="160"><col>
+				</colgroup>
+				<thead>
+					<tr>
+						<th scope="col">&nbsp;</th>
+						<th scope="col">김포 → 제주</th>
+					</tr>
+				</thead>
+				<tbody>
+					<tr>
+						<th scope="row" class="tlp30">항공사</th>
+						<td>아시아나항공 <span class="c-point3">(에어부산 공동운항)</span></td>
+					</tr>
+					<tr>
+						<th scope="row" class="tlp30">좌석구분</th>
+						<td>
+							<span class="c-point1">일반석 특가</span><br />
+							<span class="c-point1">일반석 할인</span><br />
+							<span class="c-point1">일반석</span>
+						</td>
+					</tr>
+					<tr>
+						<th scope="row" class="tlp30">일정 변경</th>
+						<td>
+							<!-- 전 좌석 -->
+							동일 요금, 구간으로만 변경 가능하며 변경 시 취소, 환불 후 재결제
+						</td>
+					</tr>
+					<tr>
+						<th scope="row" class="tlp30">마일리지 적립</th>
+						<td>
+							불가<br /><!-- 특가 -->
+							가능 (할인율에 따라 적립 불가할 수 있음)<br /><!-- 할인 -->
+							가능 <!--그 외-->
+						</td>
+					</tr>
+					<tr>
+						<th scope="row" class="tlp30">환불 규정</th>
+						<td>
+							예약 후 다음 날 ~ 출발 30분 전 : 8,000원<br /><!-- 특가 --> 
+							예약 후 다음 날 ~ 출발 30분 전 : 5,000원<br /><!--  할인 -->
+							예약 후 다음 날 ~ 출발 30분 전 : 2,000원<br /><!--  일반 -->
+							출발 30분 이내 또는 이후 : 8,000원<!-- 전 좌석 -->
+						</td>
+					</tr>
+					<tr>
+						<th scope="row" class="tlp30">수하물 규정</th>
+						<td>
+							위탁 수하물 20kg<br /><!-- 전 좌석 -->
+							위탁 수하물 15kg<br /><!-- 에어부산 전 좌석 -->
+							초과 수하물 kg당 2,000원<!-- 전 좌석(에어부산 포함) -->
+						</td>
+					</tr>
+					<tr>
+						<th scope="row" class="tlp30">기타</th>
+						<td></td>
+					</tr>
+				</tbody>
+ 			</table>
+ 			<br /> <!-- //아시아나항공 -->
+ 			
+ 			<!-- 진에어 -->
+			<table class="tbl-list">
+				<caption>구간별 항공사, 좌석구분, 일정, 환불 규정 등 예약 전 안내 사항</caption>
+				<colgroup>
+					<col width="160"><col>
+				</colgroup>
+				<thead>
+					<tr>
+						<th scope="col">&nbsp;</th>
+						<th scope="col">김포 → 제주</th>
+					</tr>
+				</thead>
+				<tbody>
+					<tr>
+						<th scope="row" class="tlp30">항공사</th>
+						<td>진에어</td>
+					</tr>
+					<tr>
+						<th scope="row" class="tlp30">좌석구분</th>
+						<td>
+							<span class="c-point1">일반석 특가</span><br />
+							<span class="c-point1">일반석 할인</span><br />
+							<span class="c-point1">일반석</span>
+						</td>
+					</tr>
+					<tr>
+						<th scope="row" class="tlp30">일정 변경</th>
+						<td>
+							<span class="c-point1">불가</span><!-- 전 좌석 -->
+						</td>
+					</tr>
+					<tr>
+						<th scope="row" class="tlp30">마일리지 적립</th>
+						<td>
+							<!-- 전 요금 -->
+							1. 탑승 완료 후 출발일로부터 30일 이내에 진에어 홈페이지에서 예약번호 입력하여 수동 적립
+						</td>
+					</tr>
+					<tr>
+						<th scope="row" class="tlp30">환불 규정</th>
+						<td>
+							<!-- 특가 -->
+							예약 후 다음 날 ~ 출발 31일 전 : 3,000원<br />
+							출발 30일 ~ 15일 전 : 4,000원<br />
+							출발 14일 ~ 7일 전 : 6,000원<br />
+							출발 6일 ~ 2일 전 : 7,000원<br />
+							출발 1일 ~ 출발 30분 전 : 12,000원<br /><br />
+							<!-- 할인 -->
+							예약 후 다음 날 ~ 출발 31일 전 : 2,000원<br />
+							출발 30일 ~ 15일 전 : 3,000원<br />
+							출발 14일 ~ 7일 전 : 4,000원<br />
+							출발 6일 ~ 2일 전 : 5,000원<br />
+							출발 1일 ~ 출발 30분 전 : 10,000원<br /><br />
+							<!--일반--> 
+							예약 후 다음 날 ~ 출발 31일 전 : 1,000원<br />
+							출발 30일 ~ 15일 전 : 2,000원<br />
+							출발 14일 ~ 7일 전 : 3,000원<br />
+							출발 6일 ~ 2일 전 : 4,000원<br />
+							출발 1일 ~ 출발 30분 전 : 8,000원<br /><br />
+							<!-- 전 죄석-->
+							출발 30분 이내 ~ 출발 이후 : 14,000원
+						</td>
+					</tr>
+					<tr>
+						<th scope="row" class="tlp30">수하물 규정</th>
+						<td>
+							<!-- 전 죄석-->
+							위탁 수하물 15kg<br />
+							초과 수하물 kg당 2,000원
+						</td>
+					</tr>
+					<tr>
+						<th scope="row" class="tlp30">기타</th>
+						<td>
+							1. 제주도민, 재외 제주도민 운임 할인은 진에어 홈페이지에서만 적용되는 사항으로 당사에서 이용 불가<br />
+							2. 장애인 할인, 장애인 동반자(1-3급 장애인만 해당)는 공항이용로만 할인 가능
+						</td>
+					</tr>
+				</tbody>
+ 			</table>
+ 			<br /> <!-- //진에어 -->
+ 			 			
+ 			<!-- 제주항공 -->
+			<table class="tbl-list">
+				<caption>구간별 항공사, 좌석구분, 일정, 환불 규정 등 예약 전 안내 사항</caption>
+				<colgroup>
+					<col width="160"><col>
+				</colgroup>
+				<thead>
+					<tr>
+						<th scope="col">&nbsp;</th>
+						<th scope="col">김포 → 제주</th>
+					</tr>
+				</thead>
+				<tbody>
+					<tr>
+						<th scope="row" class="tlp30">항공사</th>
+						<td>제주항공</td>
+					</tr>
+					<tr>
+						<th scope="row" class="tlp30">좌석구분</th>
+						<td>
+							<span class="c-point1">일반석 특가</span><br />
+							<span class="c-point1">일반석 할인</span><br />
+							<span class="c-point1">일반석</span>
+						</td>
+					</tr>
+					<tr>
+						<th scope="row" class="tlp30">일정 변경</th>
+						<td>
+							<span class="c-point1">불가</span><!-- 전 좌석 -->
+						</td>
+					</tr>
+					<tr>
+						<th scope="row" class="tlp30">마일리지 적립</th>
+						<td>
+							<!-- 전 요금 -->
+							1. 출발 당일 제주항공 카운터에서 요청<br />
+							2. 탑승 완료 후 출발일로부터 30일 이내에 제주항공 홈페이지에서 예약번호 입력하여 수동 적립
+						</td>
+					</tr>
+					<tr>
+						<th scope="row" class="tlp30">환불 규정</th>
+						<td>
+							<!-- 전 좌석 -->
+							예약 후 다음 날 ~ 출발 61일 전 : 1,000원<br />
+							출발 60일 전 ~ 31일 전 : 2,000원<br />
+							출발 30일 전 ~ 15일 전 : 3,000원<br />
+							출발 14일 전 ~ 2일 전 : 5,000원<br />
+							출발 1일 전 : 10,000원<br />
+							출발 30분 전 : 12,000원<br />
+							출발 30분 이내 ~ 출발 이후 : 15,000원
+						</td>
+					</tr>
+					<tr>
+						<th scope="row" class="tlp30">수하물 규정</th>
+						<td>
+							<!-- 전 좌석 -->
+							위탁 수하물 15kg<br />
+							초과 수하물 kg당 2,000원
+						</td>
+					</tr>
+					<tr>
+						<th scope="row" class="tlp30">기타</th>
+						<td>
+							1. 당사에서 예약한 항공권 문의는 제주항공 예약센터로 문의 불가하며 주말/공휴일 상담 문의 시 서비스 수수료 1인 편도 5,000원 부과
+						</td>
+					</tr>
+				</tbody>
+ 			</table>
+ 			<br /> <!-- //제주항공 -->
+ 			
+ 			<!-- 이스타항공 -->
+			<table class="tbl-list">
+				<caption>구간별 항공사, 좌석구분, 일정, 환불 규정 등 예약 전 안내 사항</caption>
+				<colgroup>
+					<col width="160"><col>
+				</colgroup>
+				<thead>
+					<tr>
+						<th scope="col">&nbsp;</th>
+						<th scope="col">김포 → 제주</th>
+					</tr>
+				</thead>
+				<tbody>
+					<tr>
+						<th scope="row" class="tlp30">항공사</th>
+						<td>이스타항공</td>
+					</tr>
+					<tr>
+						<th scope="row" class="tlp30">좌석구분</th>
+						<td>
+							<span class="c-point1">일반석 특가</span><br />
+							<span class="c-point1">일반석 할인</span><br />
+							<span class="c-point1">일반석</span>
+						</td>
+					</tr>
+					<tr>
+						<th scope="row" class="tlp30">일정 변경</th>
+						<td>
+							<span class="c-point1">불가</span><!-- 전 좌석 -->
+						</td>
+					</tr>
+					<tr>
+						<th scope="row" class="tlp30">마일리지 적립</th>
+						<td>
+							
+						</td>
+					</tr>
+					<tr>
+						<th scope="row" class="tlp30">환불 규정</th>
+						<td>	
+							<!-- 특가, 할인 --> 
+							출발 45일 전 ~ 15일 전 : 3,000원<br />
+							출발 14일 전 ~ 8일 전 : 4,000원<br />
+							출발 7일 전 ~ 24시간 전 : 6,000원<br />
+							출발 24시간 이내 ~ 1시간 전 : 10,000원<br />
+							출발 1시간 이내 ~ 출발 이후 : 12,000원<br /><br />
+							<!--일반 -->
+							출발 45일 전 ~ 15일 전 : 2,000원<br />
+							출발 14일 전 ~ 8일 전 : 3,000원<br />
+							출발 7일 전 ~ 24시간 전 : 5,000원<br />
+							출발 24시간 이내 ~ 1시간 전 : 10,000원<br />
+							출발 1시간 이내 ~ 출발 이후 : 12,000원
+						</td>
+					</tr>
+					<tr>
+						<th scope="row" class="tlp30">수하물 규정</th>
+						<td>
+							유료 제공(초과 수하물 제공 정책에 준함)<br /><!--초특가-->
+							위탁 수하물 15kg<br /><!-- 그 외 -->
+							초과 수하물 kg당 2,000원<!-- 전 좌석 --> 
+						</td>
+					</tr>
+					<tr>
+						<th scope="row" class="tlp30">기타</th>
+						<td>
+							1. 당사에서 예약한 항공권 문의는 이스타항공 예약센터로 문의 불가하며 주말/공휴일 상담 문의 시 서비스 수수료 1인 편도 5,000원 부과
+						</td>
+					</tr>
+				</tbody>
+ 			</table>
+ 			<br /> <!-- //이스타항공 -->
+ 			
+ 			<!-- 왕복인 경우 예시 -->
+			<table class="tbl-list">
+				<caption>구간별 항공사, 좌석구분, 일정, 환불 규정 등 예약 전 안내 사항</caption>
+				<colgroup>
+					<col width="160"><col width="290"><col width="290">
+				</colgroup>
+				<thead>
+					<tr>
+						<th scope="col">&nbsp;</th>
+						<th scope="col">김포 → 제주</th>
+						<th scope="col">제주 → 김포</th>
+					</tr>
+				</thead>
+				<tbody>
+					<tr>
+						<th scope="row" class="tlp30">항공사</th>
+						<td>대한항공</td>
+						<td>아시아나항공 <span class="c-point3">(에어부산 공동운항)</span></td>
+					</tr>
+					<tr>
+						<th scope="row" class="tlp30">좌석구분</th>
+						<td><span class="c-point1">일반석 특가</span></td>
+						<td><span class="c-point1">일반석</span></td>
+					</tr>
+					<tr>
+						<th scope="row" class="tlp30">일정 변경</th>
+						<td>취소 후 재예약, 취소 수수료 부과</td>
+						<td>동일 요금, 구간으로만 변경 가능하며 변경 시 취소, 환불 후 재결제</td>
+					</tr>
+					<tr>
+						<th scope="row" class="tlp30">마일리지 적립</th>
+						<td>불가</td>
+						<td>가능</td>
+					</tr>
+					<tr>
+						<th scope="row" class="tlp30">환불 규정</th>
+						<td>
+							예약 후 다음 날 ~ 출발 30분 전 : 1,000원<br />
+							출발 30분 이내 및 이후 : 9,000원
+						</td>
+						<td>
+							예약 후 다음 날 ~ 출발 30분 전 : 2,000원<br />
+							출발 30분 이내 또는 이후 : 8,000원
+						</td>
+					</tr>
+					<tr>
+						<th scope="row" class="tlp30">수하물 규정</th>
+						<td>
+							위탁 수하물 20kg <br />
+							초과 수하물 kg당 2,000원
+						</td>
+						<td>
+							위탁 수하물 20kg <br />
+							초과 수하물 kg당 2,000원
+						</td>
+					</tr>
+					<tr>
+						<th scope="row" class="tlp30">기타</th>
+						<td></td>
+						<td></td>
+					</tr>
+				</tbody>
+ 			</table>
+    		<!-- //왕복인 경우 예시 -->
+    			     		     			     		     		
+    		<div class="cbox-st1 c-txta-center">
+    			<p class="con c-point3" style="margin-bottom: 5px;"><strong>선택한 [제주 → 김포] 구간의 실제 탑승은 에어부산 입니다.</strong></p>
+    			<p class="con2">운항 항공사로 항공권을 구매하는 경우와 항공운임이 상이할 수 있으니 재검색을 통해 요금 차이를 확인하시기 바랍니다.<br />
+				수하물은 공동운항 협정에 따라 탑승 항공사 또는 판매 항공사의 규정이 적용되므로 사전에 확인하여 주시기 바랍니다.</p>
+    		</div>
+    		     		
+			<div class="chk-center-wrap" style="margin-top:20px;">
+				<span class="chk-base chk-st3">
+					<input type="checkbox" id="chk-rating" class="a11y" checked="">
+					<label for="chk-rating" class="label-base">위 내용을 모두 확인하였습니다.</label>
+				</span>
+			</div>
+     		     		
+     		<div class="ui-btns-wrap" style="margin-top:20px;">
+				<div class="ui-btns center">
+					<span class="btn-base bb-st3 bc-mgt2 big"><a href="#">예약하기</a></span>
+				</div>
+			</div>
+		</div>
+    </div>
+		<!-- //content -->
+  </div>
+	<!-- //popup -->
+
+</body>
+</html>

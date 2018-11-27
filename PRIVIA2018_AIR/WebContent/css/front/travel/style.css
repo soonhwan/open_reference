@@ -2410,13 +2410,13 @@ background-image:url(/images/front/travel/common/ico_form.png);background-positi
 
 /* 제휴사 배너타입1 */
 .airline_banner_sc1 {margin-bottom: 10px;border: 5px solid #57b04b;background-color: #57b04b;}
-.airline_banner_sc1 > a {display: block;min-height: 100px;background: url(/images/front/travel/search/bg-banner-naver1.jpg) 100% 0 no-repeat;}
+.airline_banner_sc1 > a {display: block;min-height: 100px;background: url(/images/front/travel/search/bg-banner-naversc.jpg) 100% 0 no-repeat;}
 .airline_banner_sc1 > a > span {font-size:18px;color: #fff;font-family: "Malgun Gothic";display: inline-block;padding: 22px 0 0 25px;line-height: 1.5;}
-.airline_banner_sc1 > a > span em {font-family: inherit;color: #fff10a;}
+.airline_banner_sc1 > a > span em {font-family: inherit;color: #fff000;}
 .airline_banner_sc1 > a > .ymhb {font-size:20px;padding-top: 27px;}
 .airline_banner_sc1 > a > .ymhb span {display: block;padding-top: 8px;}
 .airline_banner_sc1.ab_sc1 {border: 5px solid #0eb0d5;background-color: #0eb0d5;}
-.airline_banner_sc1.ab_sc1 > a {background: url(/images/front/travel/search/bg-banner-sc1.jpg) 100% 0 no-repeat;}
+.airline_banner_sc1.ab_sc1 > a {background: url(/images/front/travel/search/bg-banner-naversc.jpg) 100% 0 no-repeat;}
 
 /* 제휴 타이틀 */
 .airline_partner_tit {border-bottom: 5px solid #0eb0d5;margin-bottom: 10px;}
