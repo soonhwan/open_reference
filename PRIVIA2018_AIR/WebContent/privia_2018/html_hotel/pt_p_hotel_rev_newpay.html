@@ -900,7 +900,7 @@
 
 				<div class="ui-btns-wrap" style="margin-top:20px;">
 					<div class="ui-btns right">
-						<span class="btn-base bb-st3"><a href="#" style="width:139px;">결제하기</a></span>
+						<span class="btn-base bb-st3"><a href="#" style="width:139px;">요금결제</a></span>
 						<span class="btn-base bb-st5"><a href="#" style="width:139px;">프린트하기</a></span>
 						<span class="btn-base bb-st5"><a href="#" style="width:139px;">예약취소</a></span>
 						<span class="btn-base bb-st5"><a href="#" style="width:139px;">예약목록보기</a></span>
@@ -1075,97 +1075,128 @@
 							<input type="checkbox" id="maximum-benefit" class="a11y" checked>
 							<label for="maximum-benefit" class="label-base on">최대 혜택/할인 적용</label>
 						</span>
-						<table summary="혜택 및 할인적용 요약" class="tbl-list2">
-							<caption>할인 내용에 대한 테이블</caption>
+						<table summary="혜택 및 할인적용 요약" class="tbl-list2 payment">
+							<caption>객실요금, 혜택 및 할인, 추가요금, 최종결제요금에 대한 테이블</caption>
 							<colgroup>
-								<col width="136" />
+								<col width="144" />
 								<col width="*" />
-								<col width="194" />
+								<col width="180" />
+								<col width="185" />
 							</colgroup>
 							<tbody>
 								<tr>
-									<th scope="row" class="center">혜택</th>
 									<td>
-										<ul class="benefit-list">
-											<li>
-												<span class="tit2">현대카드 결제 시 5% 할인</span>
-												<div class="input-wrap">
-													<input type="text" class="input-base tp1 price st2" value="0">
-													<span class="btn-base bb-st3"><a href="#" style="min-width:inherit;">적용</a></span>
-													<span class="btn-base bb-st5"><a href="#" style="min-width:inherit;">취소</a></span>
-												</div>
-											</li>
-											<li>
-												<span class="tit2">PRIVIA 이용권 (총 1장/금액)</span>
-												<div class="input-wrap">
-													<input type="text" class="input-base tp1 price st2" value="0">
-													<span class="btn-base bb-st3"><a href="#" style="min-width:inherit;">적용</a></span>
-													<span class="btn-base bb-st5"><a href="#" style="min-width:inherit;">취소</a></span>
-												</div>
-											</li>
-											<li>
-												<span class="tit2">PRIVIA 쿠폰 (총 1장)</span>
-												<div class="input-wrap">
-													<input type="text" class="input-base tp1 price st2" value="20,000">
-													<span class="btn-base bb-st3"><a href="#" style="min-width:inherit;">적용</a></span>
-													<span class="btn-base bb-st5"><a href="#" style="min-width:inherit;">취소</a></span>
-												</div>
-											</li>
-										</ul>
+										<div class="pay-info">
+											<p class="tit">객실요금</p>
+											<p class="price"><em>3,000,000</em>원</p>
+										</div>
 									</td>
-									<td class="right">
-										<p class="result-price"><em>280,000</em> 원</p>
-									</td>
-								</tr>
-								<tr>
-									<th scope="row" class="center">할인</th>
 									<td>
-										<ul class="benefit-list">
-											<li>
-												<span class="tit2">현대카드 패밀리 2% 할인</span>
-												<div class="input-wrap">
-													<input type="text" class="input-base tp1 price st2" value="0">
-													<span class="btn-base bb-st3"><a href="#" style="min-width:inherit;">적용</a></span>
-													<span class="btn-base bb-st5"><a href="#" style="min-width:inherit;">취소</a></span>
-												</div>
-											</li>
-											<li>
-												<span class="tit2">PRIVIA 기본 2% 할인</span>
-												<div class="input-wrap">
-													<input type="text" class="input-base tp1 price st2" value="0">
-													<span class="btn-base bb-st3"><a href="#" style="min-width:inherit;">적용</a></span>
-													<span class="btn-base bb-st5"><a href="#" style="min-width:inherit;">취소</a></span>
-												</div>
-											</li>
-											<li>
-												<span class="tit2">현대카드 결제 시 5% 할인</span>
-												<div class="input-wrap">
-													<input type="text" class="input-base tp1 price st2" value="14,000">
-													<span class="btn-base bb-st3"><a href="#" style="min-width:inherit;">적용</a></span>
-													<span class="btn-base bb-st5"><a href="#" style="min-width:inherit;">취소</a></span>
-												</div>
-											</li>
-											<li>
-												<span class="tit2">
-													항공권 동시구매 2% 추가할인
-													<span class="lp-area">
-					                    <a href="#" class="btn base lp1">안내</a>
-					                    <div class="lp-cont" style="left:45px;top:0;width:310px;">
-					                        <a href="#" class="btn-close">닫기</a>
-					                        <span>안내 라이트 팝업 내용 안내 라이트 팝업 내용 안내 라이트 팝업 내용 안내 라이트 팝업 내용 안내 라이트 팝업 내용 안내 라이트 팝업 내용 안내 라이트 팝업 내용</span>
-					                    </div>
-					                </span>
-												</span>
-												<div class="input-wrap">
-													<input type="text" class="input-base tp1 price st2" value="0">
-													<span class="btn-base bb-st3"><a href="#" style="min-width:inherit;">적용</a></span>
-													<span class="btn-base bb-st5"><a href="#" style="min-width:inherit;">취소</a></span>
-												</div>
-											</li>
-										</ul>
+										<div class="payment-inner">
+											<span class="ico minus"></span>
+											<ul class="benefit-list">
+												<li>
+													<span class="tit">현대카드 the Green Voucher (총 1장)</span>
+													<span class="apply-sec">
+														<span class="btn-base bb-st3 short"><a href="#">조회/적용</a></span>
+													</span>
+													<input type="text" class="input-base tp1 price" value="0" disabled>
+													<span class="unit">원</span>
+												</li>
+												<li>
+													<span class="tit">PRIVIA 이용권 (총 1장/금액)</span>
+													<span class="apply-sec">
+														<span class="btn-base bb-st3 short"><a href="#">조회/적용</a></span>
+													</span>
+													<input type="text" class="input-base tp1 price" value="0" disabled>
+													<span class="unit">원</span>
+												</li>
+												<li>
+													<span class="tit">PRIVIA 쿠폰 (총 1장)</span>
+													<span class="apply-sec">
+														<span class="btn-base bb-st3 short"><a href="#">조회/적용</a></span>
+													</span>
+													<input type="text" class="input-base tp1 price" value="1,000,000">
+													<span class="unit">원</span>
+												</li>
+												<li>
+													<span class="tit">현대카드 패밀리 2% 할인</span>
+													<span class="apply-sec">
+														<span class="chk-base chk-st3">
+															<input type="checkbox" id="benefit-ck1" class="a11y">
+															<label for="benefit-ck1" class="label-base">적용</label>
+														</span>
+													</span>
+													<input type="text" class="input-base tp1 price" value="0" disabled>
+													<span class="unit">원</span>
+												</li>
+												<li>
+													<span class="tit">PRIVIA 기본 2% 할인</span>
+													<span class="apply-sec">
+														<span class="chk-base chk-st3">
+															<input type="checkbox" id="benefit-ck2" class="a11y">
+															<label for="benefit-ck2" class="label-base">적용</label>
+														</span>
+													</span>
+													<input type="text" class="input-base tp1 price" value="0" disabled>
+													<span class="unit">원</span>
+												</li>
+												<li>
+													<span class="tit">현대카드 결제 시 5% 할인</span>
+													<span class="apply-sec">
+														<span class="chk-base chk-st3">
+															<input type="checkbox" id="benefit-ck3" class="a11y" checked>
+															<label for="benefit-ck3" class="label-base">적용</label>
+														</span>
+													</span>
+													<input type="text" class="input-base tp1 price" value="14,000">
+													<span class="unit">원</span>
+												</li>
+												<li>
+													<span class="tit">
+														항공권 동시구매 2% 추가할인
+														<span class="lp-area">
+						                    <a href="#" class="btn base lp1">안내</a>
+						                    <div class="lp-cont" style="left:45px;top:0;width:310px;">
+						                        <a href="#" class="btn-close">닫기</a>
+						                        <span>안내 라이트 팝업 내용 안내 라이트 팝업 내용 안내 라이트 팝업 내용 안내 라이트 팝업 내용 안내 라이트 팝업 내용 안내 라이트 팝업 내용 안내 라이트 팝업 내용</span>
+						                    </div>
+						                </span>
+													</span>
+													<span class="apply-sec">
+														<span class="chk-base chk-st3">
+															<input type="checkbox" id="benefit-ck3" class="a11y">
+															<label for="benefit-ck3" class="label-base">적용</label>
+														</span>
+													</span>
+													<input type="text" class="input-base tp1 price" value="0" disabled>
+													<span class="unit">원</span>
+												</li>
+											</ul>
+											<div class="pay-info benefit">
+												<p class="tit">혜택 및 할인</p>
+												<p class="price"><em>1,000,000</em>원</p>
+											</div>
+										</div>
 									</td>
-									<td class="right">
-										<p class="result-price"><em>266,000</em> 원</p>
+									<td>
+										<div class="payment-inner">
+											<span class="ico plus"></span>
+											<div class="pay-info">
+												<p class="tit">추가요금</p>
+												<p class="price"><em>1,000,000</em>원</p>
+											</div>
+										</div>
+									</td>
+									<td>
+										<div class="payment-inner">
+											<span class="ico equal"></span>
+											<div class="pay-info total">
+												<p class="tit">최종결제요금</p>
+												<p class="price"><em>9,999,000</em>원</p>
+												<p class="info">(M포인트 적용예상금액 239,400원)</p>
+											</div>
+										</div>
 									</td>
 								</tr>
 							</tbody>
@@ -1175,38 +1206,6 @@
 					<div class="book-detail-area">
 						<div class="c-tit-page-cont">
 							<h3 class="title">결제정보</h3>
-						</div>
-						<div class="payment-info-box">
-							<ul>
-								<li class="room">
-									<dl class="price-detail">
-										<dt>객실요금</dt>
-										<dd><em>300,000</em> 원</dd>
-									</dl>
-								</li>
-								<li class="benefit">
-									<span class="ico"></span>
-									<dl class="price-detail">
-										<dt>혜택/할인요금</dt>
-										<dd><em>34,000</em> 원</dd>
-									</dl>
-								</li>
-								<li class="add">
-									<span class="ico"></span>
-									<dl class="price-detail">
-										<dt>추가요금</dt>
-										<dd><em>16,000</em> 원</dd>
-									</dl>
-								</li>
-								<li class="total">
-									<span class="ico"></span>
-									<dl class="price-detail">
-										<dt>최종결제요금</dt>
-										<dd><em>282,000</em> 원</dd>
-									</dl>
-									<p class="info">(M포인트 적용예상금액 239,400원)</p>
-								</li>
-							</ul>
 						</div>
 						<table summary="결제정보 요약" class="tbl-list ptb-short">
                 <caption>카드종류, 현대카드 M포인트, 결제안내에 대한 테이블</caption>

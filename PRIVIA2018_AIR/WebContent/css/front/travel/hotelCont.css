@@ -192,7 +192,7 @@
 .htp-list-sec .gmap-wrapper.on{position:fixed;left:0;top:0;width:100%;height:100%;opacity:1;z-index:999;}
 .htp-list-sec .gmap-wrapper.change{opacity:0;}
 .htp-list-sec .gmap-wrapper #gmapArea{width:100%;height:100%;}
-.htp-list-sec .gmap-wrapper .price-tooltip{position:absolute;padding:10px 15px;font-size:12px;color:#000;background:#fff;border-radius:5px;border:1px solid #e2e2e2;transition:none;-webkit-transition:none;z-index:1;}
+.htp-list-sec .gmap-wrapper .price-tooltip{position:absolute;padding:5px 8px;font-size:12px;color:#000;background:#fff;border-radius:5px;border:1px solid #e2e2e2;transition:none;-webkit-transition:none;z-index:1;}
 .htp-list-sec .gmap-wrapper .price-tooltip em{font-family:"NotoSansKR" !important;font-size:16px;font-weight:bold;}
 .htp-list-sec .gmap-wrapper .price-tooltip:before,
 .htp-list-sec .gmap-wrapper .price-tooltip:after{position: absolute;left:50%;bottom:-8px;margin-left:-5px;content:"";display:block;
@@ -208,9 +208,9 @@ border-right:5px solid transparent;
 .htp-list-sec .gmap-wrapper .price-tooltip.no-date.on{background-position:-21px -88px;}
 .htp-list-sec .gmap-wrapper .price-tooltip.no-date:before,
 .htp-list-sec .gmap-wrapper .price-tooltip.no-date:after{display:none;}
-.htp-list-sec .gmap-wrapper .price-tooltip.wish{padding-left:40px;border:1px solid #e93b84;}
+.htp-list-sec .gmap-wrapper .price-tooltip.wish{padding-left:30px;border:1px solid #e93b84;}
 .htp-list-sec .gmap-wrapper .price-tooltip.wish:after{border-top:7px solid #e93b84;}
-.htp-list-sec .gmap-wrapper .price-tooltip.wish strong:before{content:"";display:block;width:19px;height:16px;position:absolute;left:16px;top:11px;background:url(/images/front/travel/contents/icon-common-sec.png) -127px -336px;}
+.htp-list-sec .gmap-wrapper .price-tooltip.wish strong:before{content:"";display:block;width:19px;height:16px;position:absolute;left:6px;top:6px;background:url(/images/front/travel/contents/icon-common-sec.png) -127px -336px;}
 .htp-list-sec .gmap-wrapper .price-cont{position:absolute;width:330px;border-radius:3px;z-index:2;display:none;}
 .htp-list-sec .gmap-wrapper .price-cont.on{display:block;}
 .htp-list-sec .gmap-wrapper .price-cont:after{content:"";display:block;clear:both;}
@@ -952,7 +952,7 @@ left:50%;top:-8px;margin-left:-4px;
 .list-item-st1.my-wish{position:relative;width:1230.5px;left:-15.25px;}
 .list-item-st1.my-wish li{position:relative;margin:0 15.25px 40px;}
 .list-item-st1.my-wish li .tit{margin-bottom:10px;font-size:18px;line-height:24px;height:72px;font-family:"NotoSansKR" !important;}
-.list-item-st1.my-wish li .info-box .grade{position:relative;float:right;display:inline-block;padding:2px 8px;vertical-align:top;background-color:#aaa;font-family:"NotoSansKR" !important;font-size:12px;letter-spacing:-1px;color: #fff;word-wrap:break-word;border-radius:3px;}
+.list-item-st1.my-wish li .info-box .grade{position: absolute;right:19px;top:35px;display:inline-block;padding:2px 8px;vertical-align:top;background-color:#aaa;font-family:"NotoSansKR" !important;font-size:12px;letter-spacing:-1px;color: #fff;word-wrap:break-word;border-radius:3px;}
 .list-item-st1.my-wish li .info-box .grade:after{content:'';display:block;width:0;height:0;border-left:12px solid transparent;border-right:0px solid transparent;border-top:12px solid #aaa;position: absolute;left:-8px;top: 0;}
 .list-item-st1.my-wish li .info-box .eval-wrap{display:block;width:100%;}
 .list-item-st1.my-wish li .info-box .eval-wrap:after{content:"";display:block;clear:both;}

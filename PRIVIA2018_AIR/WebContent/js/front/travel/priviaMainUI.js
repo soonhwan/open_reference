@@ -102,30 +102,7 @@ $.datepicker.regional['ko'] = {
 	currentText: '오늘',
 	numberOfMonths: 2,
 	beforeShowDay: function(date) {
-		var result;
-		var holiday = holidays[$.datepicker.formatDate("mmdd",date )];
-		if(!holiday){
-			holiday = holidays[$.datepicker.formatDate("yymmdd",date )];
-		}
-		var thisYear = $.datepicker.formatDate("yy", date);
-		if (holiday) {
-			if(thisYear == holiday.year || holiday.year == "") {
-				result =  [true, "date-holiday", holiday.title];
-			}
-		}
-		if(!result) {
-			switch (date.getDay()) {
-				case 0:
-					result = [true, "date-sunday"];
-					break;
-				case 6:
-					result = [true, "date-saturday"];
-					break;
-				default:
-					result = [true, ""];
-					break;
-			}
-		}
+		var result = pvFrontScript.jqdHolidayMark(date);
 		return result;	
 	},
 	beforeShow: function(input, inst){
@@ -556,8 +533,14 @@ $(function(){
         $('body').append('<div id="pu-notice-origin" style="width:1200px;position:absolute;top:0;left:50%;margin-left:-600px"></div>');
         $('#pu-notice-origin').html(mainnotipop);
     }
-	
-	//메인 전용 스크립트
+});
+
+/* ============================================================================================= */
+
+/*
+ * 메인 컨텐츠 전용 스크립트
+ */
+$(function(){
 	if($('.w-content-sec.ws-main-sec').length > 0){		
 		//메인 추천 프로모션
 		var mainSlickSettings, rlcLeftMain, rlcLeftSub1, rlcLeftSub2, rlcRightMain, rlcRightsub1, rlcRightsub2, mSlickPrevBtn, mSlickNextBtn, mSlickCrt, slickOpt = 'slickNext', slickMotionEnd = false, speedMSlick = 50;
@@ -649,6 +632,5 @@ $(function(){
 		}
 		// slick dots disable click
 		$('.s-rec-promotion .rlc-list-main .slick-dots button').on('click', function(e){e.stopPropagation();}); 
-	}//.메인 전용 스크립트
+	}
 });
-

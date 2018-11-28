@@ -102,30 +102,7 @@ $.datepicker.regional['ko'] = {
 	currentText: '오늘',
 	numberOfMonths: 2,
 	beforeShowDay: function(date) {
-		var result;
-		var holiday = holidays[$.datepicker.formatDate("mmdd",date )];
-		if(!holiday){
-			holiday = holidays[$.datepicker.formatDate("yymmdd",date )];
-		}
-		var thisYear = $.datepicker.formatDate("yy", date);
-		if (holiday) {
-			if(thisYear == holiday.year || holiday.year == "") {
-				result =  [true, "date-holiday", holiday.title];
-			}
-		}
-		if(!result) {
-			switch (date.getDay()) {
-				case 0:
-					result = [true, "date-sunday"];
-					break;
-				case 6:
-					result = [true, "date-saturday"];
-					break;
-				default:
-					result = [true, ""];
-					break;
-			}
-		}
+		var result = pvFrontScript.jqdHolidayMark(date);
 		return result;
 	},
 	beforeShow: function(input, inst){
@@ -566,7 +543,7 @@ $(function(){
 		}
 	}
 	lowIEVersion();												   //ie 버전체크
-    pvFrontComponent();
+    pvFrontComponent(); //공통 컴포넌트 기능별 정의
 
 	// 메인 레이어팝업 위치 수정
     var mainnotipop;
@@ -575,8 +552,311 @@ $(function(){
         $('body').append('<div id="pu-notice-origin" style="width:1200px;position:absolute;top:0;left:50%;margin-left:-600px"></div>');
         $('#pu-notice-origin').html(mainnotipop);
     }
+});
 
-    var useFilter = $('.sch-set-accomm').length>0; // 필터 사용 페이지
+/* ============================================================================================= */
+
+/*
+ * 함수명 : pvFrontComponent
+ * 설명   : 공통 컴포넌트 기능별 정의
+ * 작성   : 퍼블리싱 파트
+ * 가이드 : http://pstatic.priviatravel.com/privia_2018/html_main/guide.html
+ */
+var pvFrontComponent = function(){
+    if($('.lp-area').length>0){
+		$('.lp-area').on('click', '.btn', function(e){
+			e.preventDefault();
+			$('.lp-area .lp-cont').css('z-index', 1);
+			$(this).parent().find('.lp-cont').css('z-index', 2);
+			$(this).parent().find('.lp-cont').show();
+		});
+		$('.lp-cont').on('click', '.btn-close', function(e){
+			e.preventDefault();
+			$(this).parent().css('z-index', 1);
+			$(this).parent().hide();
+			if($(this).parent().hasClass('room-tbl-session')) $('.room-tbl-dimm').hide();
+		});
+	}
+    if($('.ui-customscrollbar').length>0){
+		$('.ui-customscrollbar').mCustomScrollbar({theme:"minimal-dark"});
+	}
+	if($('.ui-term-wrap').length>0){
+		$('.ui-term-box .term-customscrollbar').mCustomScrollbar({theme:"minimal-dark"});
+		var $term = $('.ui-term-wrap');
+		var $termAll = $term.find('.chk-agree-all');
+		var $termTitle = $term.find('.ui-term-tit');
+		var $termEventListener = $termTitle.find('.tit, .arrow');
+		var totCount, chkCount;
+		$termAll.on('click', function(){
+			if($(this).find('label').hasClass('on')){
+				$termTitle.find('label').addClass('on');
+				$termTitle.find('input').prop('checked', true);
+			}else{
+				$termTitle.find('label').removeClass('on');
+				$termTitle.find('input').prop('checked', false);
+			}
+		});
+		$termEventListener.on('click', function(){
+            var $this = $(this).closest('dl');
+            if(!$this.find('dt').hasClass('on')){
+                $this.find('dt').addClass('on');
+                $this.find('dd').stop().slideDown(300);
+                if($this.closest('.ui-term-list').hasClass('other')){
+                    $this.parent().siblings().find('dt').removeClass('on');
+                    $this.parent().siblings().find('dd').stop().slideUp(300);
+                }
+            }else{
+                $this.find('dt').removeClass('on');
+                $this.find('dd').stop().slideUp(300);
+            }
+		});
+		$termTitle.find('.chk-base').on('click', function(){
+          totCount = $termTitle.find('label').length;
+          chkCount = $termTitle.find('label.on').length;
+          if(chkCount == totCount){
+            $termAll.find('label').addClass("on");
+            $termAll.find('input').prop("checked", true);
+          }else{
+            $termAll.find('label').removeClass("on");
+            $termAll.find('input').prop("checked", false);
+          }
+		});
+	}
+    if($('.list-item-slick').length>0){
+        $('.list-item-slick').each(function(i){
+			$('.list-item-slick').eq(i).addClass('opt'+i);
+			//상황별 슬라이드 변수
+			var listOneScroll = $(this).find('.slide-single').length>0; //하나씩만 롤링
+			var listOneBanner = $(this).hasClass('list-one-banner'); //배너 한 개 노출
+            var listCtMain = $(this).find('.list-item-res').length>0; //국가 메인, 도시
+            if($(this).find('.b-slick-crt').length>0){
+                var slickOpt = {
+                    dots: true,	
+                    appendDots: $(this).find('.c-slick-dots'),
+                    infinite: true,
+                    draggable: false,
+                    arrows:false,
+                    variableWidth: true,
+                    slidesToShow: 4,
+                    slidesToScroll: 4,
+                    autoplaySpeed: 10000,
+                    autoplay: true
+                }
+                $(this).find('.list-item-st1').on('init', function(event, slick){
+                    pvFrontScript.utilSlickCrt($('.list-item-slick.opt'+i+' .b-slick-crt'), slick);
+                });
+				if(listOneBanner){
+					var slickOpt = {
+						dots: true,	
+						appendDots: $(this).find('.c-slick-dots'),
+						infinite: true,
+						draggable: false,
+						arrows:false,
+						variableWidth: true,
+						slidesToShow: 1,
+						slidesToScroll: 1,
+						autoplaySpeed: 10000,
+						autoplay: true
+					}
+				}
+            }else{
+                if(listCtMain){
+                    var slickOpt = {
+                        dots: false,
+                        infinite: true,
+                        draggable: false,
+                        arrows:false,
+                        variableWidth: true,
+                        slidesToShow: 3,
+                        slidesToScroll: 3
+                    }
+                }else{
+                    var slickOpt = {
+                        dots: false,
+                        infinite: true,
+                        draggable: false,
+                        arrows:false,
+                        variableWidth: true,
+                        slidesToShow: 4,
+                        slidesToScroll: 4
+                    }
+                }
+                
+            }
+			if(listOneScroll){
+                $(this).find('.list-item-st1').on('init', function(event, slick){
+                    slick.slickSetOption({
+                        slidesToScroll: 1,
+						autoplay: true,
+						autoplaySpeed: 10000
+                    });    
+                });
+			}
+            if(listCtMain){
+                var listItemSlick = $(this).find('.list-item-res').slick(slickOpt);
+            }else{
+                var listItemSlick = $(this).find('.list-item-st1').slick(slickOpt);    
+            }
+            
+			if(!listOneBanner){
+				$(this).find('.bb-prev').on('click', function(e){
+					e.preventDefault();
+					listItemSlick.slick('slickPrev');
+				});
+				$(this).find('.bb-next').on('click', function(e){
+					e.preventDefault();
+					listItemSlick.slick('slickNext');
+				});
+			}
+        }); 
+        $('.list-item-st1 li').on('mouseenter', function(){
+           if($('.tit-over span', this).height() > 30){
+               $('.tit-over', this).next().addClass('srpc-hide');
+           }
+        });
+        $('.list-item-st1 li').on('mouseleave',function(){
+           if($('.tit-over', this).next().hasClass('srpc-hide')){
+               $('.tit-over', this).next().removeClass('srpc-hide');
+           }
+        });
+    }
+    if($('.gal-item-slick').length>0){
+        $('.gal-item-slick').each(function(){
+            $(this).find('.gal-slick').slick({
+                draggable: false,
+                slidesToShow: 1,
+                slidesToScroll: 1,
+                arrows: false,
+                fade: true,
+                asNavFor: $(this).find('.gal-nav')
+            });
+            var galItemNav = $(this).find('.gal-nav').slick({
+                draggable: false,
+                slidesToShow: 4,
+                slidesToScroll: 1,
+                swipeToSlide: true,
+                asNavFor: $(this).find('.gal-slick'),
+                dots: false,
+                arrows: false,
+                focusOnSelect: true
+            });
+            $(this).find('.bb-prev').on('click', function(e){
+                e.preventDefault();
+                galItemNav.slick('slickPrev');
+            });
+            $(this).find('.bb-next').on('click', function(e){
+                e.preventDefault();
+                galItemNav.slick('slickNext');
+            });
+        });
+    }
+    if($('.rc-radio-list').length>0){
+        $('.rc-radio-list li.etc').find('input[type="radio"]').on('click', function(){
+            if($(this).is(":checked") == true){
+               $(this).closest('li.etc').find('.input-base').attr("disabled", false);
+                $(this).closest('li.etc').find('.input-base').focus();
+            }
+        });
+        $('.rc-radio-list li.etc').siblings('li').find('input[type="radio"]').on('click', function(){
+            if($(this).closest('ul').find('li.etc .input-base').is(":checked") == false){
+                $(this).closest('ul').find('li.etc .input-base').attr("disabled", true);
+            }
+        });
+    }
+	if($('.input-base.datepker-base').length>0){
+		$('.input-base.datepker-base').datepicker({
+			numberOfMonths: 1,
+			minDate: '0',
+			maxDate: '+365',
+			dayNamesMin: ['일', '월', '화', '수', '목', '금', '토'],
+			dateFormat: 'yy-mm-dd',
+			beforeShow: function(input, inst) {
+				inst.dpDiv.addClass('datepker-base');
+			}
+		});
+	}
+};
+
+
+/*
+ * 설명   : jQuery 메서드 모음
+ * 사용처 : document.ready 구문에 실행함수 탑재
+ */
+(function ($, window, document, undefined) {
+	//content 우측 플로팅 메뉴
+	$.fn.skyScraper = function(options){
+		var defaults = $.extend({
+			fmTop :140,
+			fmLeft :10,
+			fmFixTop :140,
+			contWid :1260,
+			fmStop : $('#footer-sec')
+		},options);
+
+		return this.each(function(){
+			var sc,winGap,winWid,innerleft,innerTop,fixedLeft;
+			var $this = $(this);
+			var inner = $this.find('.layout-right');
+			var fmTop = defaults.fmTop;
+			var fmLeft = defaults.fmLeft;
+			var fmFixTop = defaults.fmFixTop;
+			var fmStop = defaults.fmStop;
+			var contWid = defaults.contWid;
+
+			if(defaults.fmStop.length <= 0){ fmStop = null; }
+			$this.css({'top':fmTop+'px','maring-right':-(innerleft+$this.width())+'px'});
+			innerleft = contWid/2 + fmLeft;
+
+			function fmPos(ml, t){
+				inner.css({'margin-left':ml,'top':t});
+			}
+
+			function pos(){
+				innerTop = $this.offset().top - fmFixTop;
+				sc = $(window).scrollTop();
+				if(innerTop < sc){
+					if(fmStop != null){fmStop = defaults.fmStop.offset().top - defaults.fmStop.outerHeight(true) - inner.height()+240;}
+					if(fmStop < sc && fmStop != null){
+						$this.removeClass('fixed');
+						var t = fmStop-$this.offset().top+fmFixTop;
+						fmPos('',t+'px');
+					}
+					else{
+						$this.addClass('fixed');
+						if($('.is_mobile').length > 0){
+							fixedLeft = innerleft;
+						}
+						else{
+							winWid = $(window).width();
+							if(winWid < contWid){
+								winGap = contWid - winWid;
+							} else {
+								winGap = $('body').width() - winWid;
+							}
+							fixedLeft = innerleft - $(window).scrollLeft() + (winGap/2);
+						}
+						fmPos(fixedLeft+'px',fmFixTop+'px');
+						//console.log('winWid =', winWid, 'contWid =', contWid, 'winGap =', winGap, 'scrollLeft =', $(window).scrollLeft(), 'fixedLeft =',fixedLeft);
+					}
+				}
+				else {
+					$this.removeClass('fixed');
+					fmPos('','');
+				}
+			}
+
+			//스크롤
+			$(window).bind('scroll resize',pos);
+		});
+	}
+}(window.jQuery, window, document));
+
+
+/*
+ * 서브 컨텐츠 전용 스크립트(항공,호텔 관련)
+ */
+$(function(){
+	var useFilter = $('.sch-set-accomm').length>0; // 필터 사용 페이지
     if(useFilter){
         var $setAccom = $('.sch-set-accomm');
         var $setAccomInner = $setAccom.find('.sch-set-inner');
@@ -858,287 +1138,5 @@ $(function(){
 			e.preventDefault();
 			$(this).closest('.htp-sinfo').hide();
 		});
-    }	
+    }
 });
-
-/*
- * 함수명 : pvFrontComponent
- * 설명   : 공통 컴포넌트 기능별 정의
- * 작성   : 퍼블리싱 파트
- * 가이드 : http://pstatic.priviatravel.com/privia_2018/html_main/guide.html
- */
-var pvFrontComponent = function(){
-    if($('.lp-area').length>0){
-		$('.lp-area').on('click', '.btn', function(e){
-			e.preventDefault();
-			$('.lp-area .lp-cont').css('z-index', 1);
-			$(this).parent().find('.lp-cont').css('z-index', 2);
-			$(this).parent().find('.lp-cont').show();
-		});
-		$('.lp-cont').on('click', '.btn-close', function(e){
-			e.preventDefault();
-			$(this).parent().css('z-index', 1);
-			$(this).parent().hide();
-			if($(this).parent().hasClass('room-tbl-session')) $('.room-tbl-dimm').hide();
-		});
-	}
-    if($('.ui-customscrollbar').length>0){
-		$('.ui-customscrollbar').mCustomScrollbar({theme:"minimal-dark"});
-	}
-	if($('.ui-term-wrap').length>0){
-		$('.ui-term-box .term-customscrollbar').mCustomScrollbar({theme:"minimal-dark"});
-		var $term = $('.ui-term-wrap');
-		var $termAll = $term.find('.chk-agree-all');
-		var $termTitle = $term.find('.ui-term-tit');
-		var $termEventListener = $termTitle.find('.tit, .arrow');
-		var totCount, chkCount;
-		$termAll.on('click', function(){
-			if($(this).find('label').hasClass('on')){
-				$termTitle.find('label').addClass('on');
-				$termTitle.find('input').prop('checked', true);
-			}else{
-				$termTitle.find('label').removeClass('on');
-				$termTitle.find('input').prop('checked', false);
-			}
-		});
-		$termEventListener.on('click', function(){
-            var $this = $(this).closest('dl');
-            if(!$this.find('dt').hasClass('on')){
-                $this.find('dt').addClass('on');
-                $this.find('dd').stop().slideDown(300);
-                if($this.closest('.ui-term-list').hasClass('other')){
-                    $this.parent().siblings().find('dt').removeClass('on');
-                    $this.parent().siblings().find('dd').stop().slideUp(300);
-                }
-            }else{
-                $this.find('dt').removeClass('on');
-                $this.find('dd').stop().slideUp(300);
-            }
-		});
-		$termTitle.find('.chk-base').on('click', function(){
-          totCount = $termTitle.find('label').length;
-          chkCount = $termTitle.find('label.on').length;
-          if(chkCount == totCount){
-            $termAll.find('label').addClass("on");
-            $termAll.find('input').prop("checked", true);
-          }else{
-            $termAll.find('label').removeClass("on");
-            $termAll.find('input').prop("checked", false);
-          }
-		});
-	}
-    if($('.list-item-slick').length>0){
-        $('.list-item-slick').each(function(i){
-			$('.list-item-slick').eq(i).addClass('opt'+i);
-			//상황별 슬라이드 변수
-			var listOneScroll = $(this).find('.slide-single').length>0; //하나씩만 롤링
-			var listOneBanner = $(this).hasClass('list-one-banner'); //배너 한 개 노출
-            var listCtMain = $(this).find('.list-item-res').length>0; //국가 메인, 도시
-            if($(this).find('.b-slick-crt').length>0){
-                var slickOpt = {
-                    dots: true,	
-                    appendDots: $(this).find('.c-slick-dots'),
-                    infinite: true,
-                    draggable: false,
-                    arrows:false,
-                    variableWidth: true,
-                    slidesToShow: 4,
-                    slidesToScroll: 4,
-                    autoplaySpeed: 10000,
-                    autoplay: true
-                }
-                $(this).find('.list-item-st1').on('init', function(event, slick){
-                    pvFrontScript.utilSlickCrt($('.list-item-slick.opt'+i+' .b-slick-crt'), slick);
-                });
-				if(listOneBanner){
-					var slickOpt = {
-						dots: true,	
-						appendDots: $(this).find('.c-slick-dots'),
-						infinite: true,
-						draggable: false,
-						arrows:false,
-						variableWidth: true,
-						slidesToShow: 1,
-						slidesToScroll: 1,
-						autoplaySpeed: 10000,
-						autoplay: true
-					}
-				}
-            }else{
-                if(listCtMain){
-                    var slickOpt = {
-                        dots: false,
-                        infinite: true,
-                        draggable: false,
-                        arrows:false,
-                        variableWidth: true,
-                        slidesToShow: 3,
-                        slidesToScroll: 3
-                    }
-                }else{
-                    var slickOpt = {
-                        dots: false,
-                        infinite: true,
-                        draggable: false,
-                        arrows:false,
-                        variableWidth: true,
-                        slidesToShow: 4,
-                        slidesToScroll: 4
-                    }
-                }
-                
-            }
-			if(listOneScroll){
-                $(this).find('.list-item-st1').on('init', function(event, slick){
-                    slick.slickSetOption({
-                        slidesToScroll: 1,
-						autoplay: true,
-						autoplaySpeed: 10000
-                    });    
-                });
-			}
-            if(listCtMain){
-                var listItemSlick = $(this).find('.list-item-res').slick(slickOpt);
-            }else{
-                var listItemSlick = $(this).find('.list-item-st1').slick(slickOpt);    
-            }
-            
-			if(!listOneBanner){
-				$(this).find('.bb-prev').on('click', function(e){
-					e.preventDefault();
-					listItemSlick.slick('slickPrev');
-				});
-				$(this).find('.bb-next').on('click', function(e){
-					e.preventDefault();
-					listItemSlick.slick('slickNext');
-				});
-			}
-        }); 
-        $('.list-item-st1 li').on('mouseenter', function(){
-           if($('.tit-over span', this).height() > 30){
-               $('.tit-over', this).next().addClass('srpc-hide');
-           }
-        });
-        $('.list-item-st1 li').on('mouseleave',function(){
-           if($('.tit-over', this).next().hasClass('srpc-hide')){
-               $('.tit-over', this).next().removeClass('srpc-hide');
-           }
-        });
-    }
-    if($('.gal-item-slick').length>0){
-        $('.gal-item-slick').each(function(){
-            $(this).find('.gal-slick').slick({
-                draggable: false,
-                slidesToShow: 1,
-                slidesToScroll: 1,
-                arrows: false,
-                fade: true,
-                asNavFor: $(this).find('.gal-nav')
-            });
-            var galItemNav = $(this).find('.gal-nav').slick({
-                draggable: false,
-                slidesToShow: 4,
-                slidesToScroll: 1,
-                swipeToSlide: true,
-                asNavFor: $(this).find('.gal-slick'),
-                dots: false,
-                arrows: false,
-                focusOnSelect: true
-            });
-            $(this).find('.bb-prev').on('click', function(e){
-                e.preventDefault();
-                galItemNav.slick('slickPrev');
-            });
-            $(this).find('.bb-next').on('click', function(e){
-                e.preventDefault();
-                galItemNav.slick('slickNext');
-            });
-        });
-    }
-    if($('.rc-radio-list').length>0){
-        $('.rc-radio-list li.etc').find('input[type="radio"]').on('click', function(){
-            if($(this).is(":checked") == true){
-               $(this).closest('li.etc').find('.input-base').attr("disabled", false);
-                $(this).closest('li.etc').find('.input-base').focus();
-            }
-        });
-        $('.rc-radio-list li.etc').siblings('li').find('input[type="radio"]').on('click', function(){
-            if($(this).closest('ul').find('li.etc .input-base').is(":checked") == false){
-                $(this).closest('ul').find('li.etc .input-base').attr("disabled", true);
-            }
-        });
-    }
-};
-
-/*
- * 함수명 : skyScraper
- * 설명   : content 우측 플로팅 메뉴
- * 작성자 : 권순환
- */
-(function($){
-	$.fn.skyScraper = function(options){
-		var defaults = $.extend({
-			fmTop :140,
-			fmLeft :10,
-			fmFixTop :140,
-			contWid :1260,
-			fmStop : $('#footer-sec')
-		},options);
-
-		return this.each(function(){
-			var sc,winGap,winWid,innerleft,innerTop,fixedLeft;
-			var $this = $(this);
-			var inner = $this.find('.layout-right');
-			var fmTop = defaults.fmTop;
-			var fmLeft = defaults.fmLeft;
-			var fmFixTop = defaults.fmFixTop;
-			var fmStop = defaults.fmStop;
-			var contWid = defaults.contWid;
-
-			if(defaults.fmStop.length <= 0){ fmStop = null; }
-			$this.css({'top':fmTop+'px','maring-right':-(innerleft+$this.width())+'px'});
-			innerleft = contWid/2 + fmLeft;
-
-			function fmPos(ml, t){
-				inner.css({'margin-left':ml,'top':t});
-			}
-
-			function pos(){
-				innerTop = $this.offset().top - fmFixTop;
-				sc = $(window).scrollTop();
-				if(innerTop < sc){
-					if(fmStop != null){fmStop = defaults.fmStop.offset().top - defaults.fmStop.outerHeight(true) - inner.height()+240;}
-					if(fmStop < sc && fmStop != null){
-						$this.removeClass('fixed');
-						var t = fmStop-$this.offset().top+fmFixTop;
-						fmPos('',t+'px');
-					}
-					else{
-						$this.addClass('fixed');
-						if($('.is_mobile').length > 0){
-							fixedLeft = innerleft;
-						}
-						else{
-							winWid = $(window).width();
-							if(winWid < contWid){
-								winGap = contWid - winWid;
-							} else {
-								winGap = $('body').width() - winWid;
-							}
-							fixedLeft = innerleft - $(window).scrollLeft() + (winGap/2);
-						}
-						fmPos(fixedLeft+'px',fmFixTop+'px');
-						//console.log('winWid =', winWid, 'contWid =', contWid, 'winGap =', winGap, 'scrollLeft =', $(window).scrollLeft(), 'fixedLeft =',fixedLeft);
-					}
-				}
-				else {
-					$this.removeClass('fixed');
-					fmPos('','');
-				}
-			}
-
-			//스크롤
-			$(window).bind('scroll resize',pos);
-		});
-	}
-})(jQuery);

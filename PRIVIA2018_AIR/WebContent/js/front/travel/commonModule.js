@@ -114,7 +114,6 @@
                 }
             }, options.delay.hide);
         });
-
     }
 
     $.fn[pluginName] = function (options) {
@@ -124,13 +123,11 @@
             }
         });
     };
-
 }(jQuery, window, document));
 
 /*
  * 설명   : jQuery 메서드 모음
  * 사용처 : document.ready 구문에 실행함수 탑재
- * 작성자 : 권순환
  */
 (function ($, window, document, undefined) {
 	$.fn.customCheckbox = function(){
@@ -1457,9 +1454,6 @@ var pvFrontScript = window.pvFrontScript || (function(){
               });            
            });    
          }                   
-		},
-		mainContents: function(){
-			//priviaMainUI.js 이관	
 		}
 	}	
 }());

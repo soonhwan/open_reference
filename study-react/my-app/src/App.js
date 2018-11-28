@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import logo from './logo.svg';
 import './App.css';
+import './a.scss';
 import MyComponent from './MyComponent'; //컴포넌트 추가
 import Practice from './Practice'; //컴포넌트 추가
 import LifeCycleSample from './LifeCycleSample'; //컴포넌트 추가
@@ -28,7 +29,7 @@ class App extends Component {
   
     const text="안녕하세요";
     const condition = true;
-
+    
     return (
       <div>
         {/* JAX 주석표기 */}
@@ -41,7 +42,13 @@ class App extends Component {
         <Practice></Practice><br /><br /><br />
 
         <button onClick={this.handleClick}>랜덤 색상</button>
-        <LifeCycleSample color={this.state.color}/>
+        <LifeCycleSample color={this.state.color}/><br /><br /><br />
+
+        <div className="box">
+          아아아
+          <div className="ab">sds</div>
+          <div className="ac">gggg</div>
+        </div> 
       </div>
     );
   }

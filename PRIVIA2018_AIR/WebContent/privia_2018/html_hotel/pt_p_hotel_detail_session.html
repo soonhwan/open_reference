@@ -58,17 +58,17 @@ $(function(){
 
 	$('.room-tbl-cont .room-tbl-more').on('click', function(e){
 		var tblMoreNum = 10;
-		var tblDummy = '<tr><td class="room-type"><div class="room-type-cnt"><p class="tit">DOUBLE STANDARD</p></div><div class="room-cancel before"><a href="#" class="btn-rule">취소규정</a></div><div class="room-cancel after"><span class="txt st1">무료취소기한 2018월 12월 01일까지</span><a href="#" class="btn-rule">상세규정</a></div></td><td class="includes"><p>조식포함</p><div class="lp-area" style="width:40px;"><a href="#" class="btn base lp1">알림</a><div class="lp-cont" style="left: 50px; top: 0px; width: 310px; z-index: 1; display: none;"><a href="#" class="btn-close">닫기</a><span>공급사에서 응답 받은 텍스트(txt) 출력<br>공급사에서 응답 받은 텍스트(txt) 출력<br>공급사에서 응답 받은 텍스트(txt) 출력</span></div></div></td><td class="room-state">선택 후 확인</td><td class="total-price"><div class="total-price-cnt"><ul><li><p class="con">현대카드 <strong>5%</strong> 즉시할인</p><p class="price pr1"><em>974,339</em>원</p></li><li><p class="con">PRIVIA <strong>2%</strong> 즉시할인</p><p class="price pr3"><em>1,005,108</em>원</p></li><li><p class="con">일반요금</p><p class="price pr3"><em>1,205,108</em>원</p></li></ul></div></td><td class="room-btn"><span class="btn-base bb-st3"><a href="#">객실예약</a></span></td></tr>';
+		var tblDummy = '<tr><td class="room-type"><div class="room-type-cnt"><p class="tit">DOUBLE STANDARD</p></div><div class="room-cancel before"><a href="#" class="btn-rule">취소규정확인</a></div><div class="room-cancel after"><span class="txt st1">무료취소기한 2018월 12월 01일까지</span><a href="#" class="btn-rule">상세취소규정</a></div></td><td class="includes"><p>조식포함</p><div class="lp-area" style="width:40px;"><a href="#" class="btn base lp1">알림</a><div class="lp-cont" style="left: 50px; top: 0px; width: 310px; z-index: 1; display: none;"><a href="#" class="btn-close">닫기</a><span>공급사에서 응답 받은 텍스트(txt) 출력<br>공급사에서 응답 받은 텍스트(txt) 출력<br>공급사에서 응답 받은 텍스트(txt) 출력</span></div></div></td><td class="room-state">선택 후 확인</td><td class="total-price"><div class="total-price-cnt"><ul><li><p class="con">현대카드 <strong>5%</strong> 즉시할인</p><p class="price pr1"><em>974,339</em>원</p></li><li><p class="con">PRIVIA <strong>2%</strong> 즉시할인</p><p class="price pr3"><em>1,005,108</em>원</p></li><li><p class="con">일반요금</p><p class="price pr3"><em>1,205,108</em>원</p></li></ul></div></td><td class="room-btn"><span class="btn-base bb-st3"><a href="#">예약</a></span></td></tr>';
 		for(var i=0; i<tblMoreNum; i++){
 			$(this).prev().find('tbody').append(tblDummy);
 		}
 		e.preventDefault();
 	});
 	$('.room-tbl-cont .tbl-list').on('click', '.btn-rule', function(e){
-		if($(this).closest('.room-cancel.before').length>0){ //취소규정 버튼 클릭 시
+		if($(this).closest('.room-cancel.before').length>0){ //취소규정확인 버튼 클릭 시
 			$(this).parent().hide();
 	    $(this).parent().next().fadeIn(300);
-		}else{//상세규정 버튼 클릭 시
+		}else{//상세취소규정 버튼 클릭 시
 			dimmLayerPop('popupRuleCancel',1);
 		}
 		e.preventDefault();
@@ -1156,11 +1156,11 @@ $(function(){
 													<p class="tit">DOUBLE STANDARD</p>
 												</div>
 												<div class="room-cancel before">
-													<a href="#" class="btn-rule">취소규정</a>
+													<a href="#" class="btn-rule">취소규정확인</a>
 												</div>
 												<div class="room-cancel after">
 													<span class="txt st1">무료취소기한 2018월 12월 01일까지</span>
-													<a href="#" class="btn-rule">상세규정</a>
+													<a href="#" class="btn-rule">상세취소규정</a>
 												</div>
 											</td>
 											<td class="includes">
@@ -1202,11 +1202,11 @@ $(function(){
 													<p class="tit">Shangri La's Tanjung Aru Resort and Spa Shangri 더블 Tanjung Aru Resort and Spa</p>
 												</div>
 												<div class="room-cancel before">
-													<a href="#" class="btn-rule">취소규정</a>
+													<a href="#" class="btn-rule">취소규정확인</a>
 												</div>
 												<div class="room-cancel after">
 													<span class="txt st2">환불불가</span>
-													<a href="#" class="btn-rule">상세규정</a>
+													<a href="#" class="btn-rule">상세취소규정</a>
 												</div>
 											</td>
 											<td class="includes">
@@ -1248,11 +1248,11 @@ $(function(){
 													<p class="tit">DOUBLE STANDARD</p>
 												</div>
 												<div class="room-cancel before">
-													<a href="#" class="btn-rule">취소규정</a>
+													<a href="#" class="btn-rule">취소규정확인</a>
 												</div>
 												<div class="room-cancel after">
 													<span class="txt st1">무료취소기한 2018월 12월 01일까지</span>
-													<a href="#" class="btn-rule">상세규정</a>
+													<a href="#" class="btn-rule">상세취소규정</a>
 												</div>
 											</td>
 											<td class="includes">
@@ -1294,11 +1294,11 @@ $(function(){
 													<p class="tit">DOUBLE STANDARD</p>
 												</div>
 												<div class="room-cancel before">
-													<a href="#" class="btn-rule">취소규정</a>
+													<a href="#" class="btn-rule">취소규정확인</a>
 												</div>
 												<div class="room-cancel after">
 													<span class="txt st2">환불불가</span>
-													<a href="#" class="btn-rule">상세규정</a>
+													<a href="#" class="btn-rule">상세취소규정</a>
 												</div>
 											</td>
 											<td class="includes">
@@ -1340,11 +1340,11 @@ $(function(){
 													<p class="tit">DOUBLE STANDARD</p>
 												</div>
 												<div class="room-cancel before">
-													<a href="#" class="btn-rule">취소규정</a>
+													<a href="#" class="btn-rule">취소규정확인</a>
 												</div>
 												<div class="room-cancel after">
 													<span class="txt st2">환불불가</span>
-													<a href="#" class="btn-rule">상세규정</a>
+													<a href="#" class="btn-rule">상세취소규정</a>
 												</div>
 											</td>
 											<td class="includes">
@@ -2285,7 +2285,7 @@ $(function(){
 <div id="popupArea101" class="popup-wrap" style="display:none; width:1200px;">
 	<!-- header -->
 	<div class="heading">
-		<h2 class="noto">호텔 지도 보기</h2>
+		<h2 class="noto">숙소위치확인</h2>
 		<a href="#" class="btn_close">닫기</a>
 	</div>
 	<!-- //header -->

@@ -32,17 +32,9 @@ $(function(){
     genHTML(); 
     
     //툴팁 jquery 샘플 - https://github.com/yckart/jquery.tooltip.js
-    $('.ttip-sample1').tooltip({
-		align: 'bottom',
-		html: true,
-		fade: {
-			duration: 300,
-			opacity: 1
-		}
-	});
-    $('.ttip-sample2').tooltip({
-		align: 'bottom',
-		attr: 'data-tooltip',
+    //ex) http://tstatic.priviatravel.com/privia_2018/html_air/pt_p_dair_list.html
+    $('.ttip-help').tooltip({
+		align: 'autoTop',
 		html: true,
 		fade: {
 			duration: 300,
@@ -360,6 +352,10 @@ $(function(){
 		<div class="guide-box" id="checkbox3">
 			<h2 class="tit">checkbox 3</h2>
 			<div class="gb-inner">
+				<span class="chk-base chk-st3 no-txt">
+					<input type="checkbox" id="checkbox3-0" class="a11y">
+					<label for="checkbox3-0" class="label-base on"></label> 
+				</span>
 				<span class="chk-base chk-st3">
 					<input type="checkbox" id="checkbox3-1" class="a11y" checked>
 					<label for="checkbox3-1" class="label-base on">콤보할인1</label> 
@@ -554,6 +550,10 @@ $(function(){
 					<option value="13">13시</option>
 					<option value="14">14시</option>
 				</select>
+				<select class="select-base" style="width:140px" disabled>
+                    <option value="1" checked>한국</option>
+                    <option value="2">한국</option>
+                </select>
 			</div>
 		</div>
 		<div class="guide-box" id="tooltip">
@@ -618,16 +618,18 @@ $(function(){
 			<h2 class="tit">tooltip(jquery version)</h2>
             <div class="gb-inner o-bg-air">
                 <span class="help-tooltip heltt-st2 down">
-                    <span class="over ttip-sample1" title="툴팁 샘플 입니다.">?</span>
+                    <span class="over ttip-help" title="툴팁 샘플 입니다.">?</span>
                 </span> 
                 <br /><br />
-                <span class="ttip-sample2" data-tooltip='<strong>특가 요금은 마일리지 적립이 불가합니다.</strong>'>일반석</span>
+                <span class="ttip-help" title="<strong class='className'>특가 요금은 마일리지 적립이 불가합니다.</strong>">일반석</span>
             </div>
         </div>
 		<div class="guide-box" id="input">
 			<h2 class="tit">input</h2>
 			<div class="gb-inner o-bg-air">
-				<input type="text" class="input-base tp1 name-class" placeholder="IE8까지 지원">	
+				<input type="text" class="input-base tp1 name-class" placeholder="IE8까지 지원"><br /><br />
+				<input type="text" class="input-base tp1 w140" disabled>
+				<input type="text" class="input-base tp1 w160 datepker-base" readonly>
 			</div>
 		</div>
         <div class="guide-box" id="textarea">
@@ -778,6 +780,11 @@ $(function(){
                         <tr>
                             <td>홍길동(honggildong)</td>
                             <td>010-1234-5678</td>
+                            <td>honggildong@tidesquare.com</td>
+                        </tr>
+                        <tr>
+                            <td>홍길동(honggildong)</td>
+                            <td><span class="mk-hyphen"><span class="a11y">비회원은 연락처가 없습니다. 이런식으로 설명을 적는다.</span></span></td>
                             <td>honggildong@tidesquare.com</td>
                         </tr>
                     </tbody>

@@ -2,7 +2,6 @@
 
 @import url("hotelCont.css");
 
-.mk-hyphen {display: inline-block;vertical-align: middle;width: 7px;height: 1px;background-color: #aaa;}
 /*------------------------------------------------------------------------------------------
 ********************** 검색 결과 리스트 ************************
 ------------------------------------------------------------------------------------------*/
@@ -244,6 +243,7 @@
 .c-tit-page-cont .tpc-sub1 {font-size: 14px;display: inline-block;color: #2a7cc8;vertical-align: middle;margin: 7px 0 0 5px;}
 .hbooksec-air .help-tooltip.heltt-st2 .over:before {background-color: #b9b9b9;}
 .hbooksec-air .area-right-btn {position: absolute;right: 0;top: 8px;text-align: right;}
+.hbooksec-air .area-right-txt {position: absolute;right: 0;top: 33px;text-align: right;}
 .hbooksec-air .tip-enname {position: absolute;top: 30px;right: 125px;font-size:14px;color:#000;}
 .hbooksec-air .tip-enname .tit-txt {font-size:14px;color:#000;display: inline-block;vertical-align: top;}
 .hbooksec-air .tip-enname .help-tooltip {vertical-align: top;}
@@ -561,13 +561,16 @@
 .search-wrap .btn-base a{height:40px;min-width:inherit;}
 .search-wrap.sw-st2 {position: relative;right: auto;left: auto;margin-bottom: 30px;text-align: center;}
 
-/* 예약상세 - 여권 정보, 체류지 등록 */
-.hbooksec-bda-tblst1 .tbl-list .chk-st3 label {padding-left: 20px;}
-.hbooksec-bda-tblst1 .select-title.select-base.disabled {opacity: 0.7;}
-.hbooksec-bda-tblst1 .select-title.select-base.disabled strong {color: #666;}
-.hbooksec-bda-tblst1 .select-title.select-base.disabled:after {opacity: 0.3;}
-.hbooksec-bda-tblst1 .input-base.tp1[readonly] {border: 0;}
-.hbooksec-bda-tblst1 .area-right-txt {text-align: right;position: absolute;right: 0;top: 33px;}
+/* 항공사별 기내식 메뉴(lpu) */
+.air-list-meal li {border:1px solid #e2e2e2;padding-right:20px;}
+.air-list-meal li {margin-top: 20px;border-radius: 5px;}
+.air-list-meal li:first-child {margin-top: 0;}
+.air-list-meal li table {width: 100%;table-layout: fixed;margin-top: -1px;font-size:14px;}
+.air-list-meal li table th {text-align: center;}
+.air-list-meal li table th span {font-weight: bold;}
+.air-list-meal li table th img {margin-bottom: 12px;}
+.air-list-meal li table td {padding: 18px 0;border-top: 1px solid #e2e2e2;}
+.air-list-meal li table td strong {display: block;margin-bottom: 5px;}
 
 /*------------------------------------------------------------------------------------------
 ********************** 검색 결과 리스트(국내선) ************************
