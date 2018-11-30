@@ -523,7 +523,8 @@ body.gmap-fix-mode .htp-top-sec .htp-capacity .ico-search{right:100px;}
  .s-sitemap-sec a:hover{text-decoration:underline;}
 
 .htp-detail-top{position:relative;padding:60px 0;background:#eef1f6;z-index:5;}
-
+.htp-detail-sec .help-tooltip .over:before{background: #b9b9b9;}
+.htp-detail-sec .lp-area .btn.square:before{background: #b9b9b9;}
 .htp-detail-top .htp-tit-kr .tit{display:inline-block;font-family:"NotoSansKR" !important;font-size:30px;color:#000;max-width:840px;}
 .htp-detail-top .htp-tit-kr .grade{position:relative;margin:13px 0 0 10px;display:inline-block;padding:4px 8px;vertical-align:top;background-color:#aaa;font-family:"NotoSansKR" !important;font-size:12px;letter-spacing:-1px;color: #fff;word-wrap:break-word;border-radius:3px;}
 .htp-detail-top .htp-tit-kr .grade:after{content:'';display:block;width:0;height:0;border-left:12px solid transparent;border-right:0px solid transparent;border-top:12px solid #aaa;position: absolute;left:-8px;top: 0;}
@@ -836,7 +837,7 @@ left:50%;top:-8px;margin-left:-4px;
 .htp-book-sec .book-tail-box.st2{background:#f6eef0;}
 .htp-book-sec .book-tail-box div{font-size:14px;color:#000;line-height:24px;}
 .htp-book-sec .book-tail-box .chk-base{margin-top:20px;}
-.htp-book-sec .book-tail-box .chk-base label{font-family:"NotoSansKR" !important;font-size:16px;font-weight:700;color:#000;line-height:18px;}
+.htp-book-sec .book-tail-box .chk-base label{font-family:"NotoSansKR" !important;font-size:16px;font-weight:500;color:#000;line-height:18px;}
 .htp-book-sec .book-tail-info{margin-top:30px;text-align:center;}
 .htp-book-sec .book-tail-btn{margin-top:80px;}
 .htp-book-sec .sm-info{margin-top:20px;font-size:12px;color:#000;text-align:right;}
@@ -975,7 +976,7 @@ left:50%;top:-8px;margin-left:-4px;
 .htp-wish-no .btn-base{margin-top:30px;}
 
 .htp-cf-sec{width:100%;margin-top:30px;}
-.htp-cf-sec ul{width:100%;}
+.htp-cf-sec ul{width:1201px;}
 .htp-cf-sec ul:after{content:"";display:block;clear:both;}
 .htp-cf-sec li{position: relative;width:380px;height:150px;border:1px solid #e2e2e2;border-radius:5px;float:left;margin-left:30px;}
 .htp-cf-sec li:first-child{margin-left:0;}

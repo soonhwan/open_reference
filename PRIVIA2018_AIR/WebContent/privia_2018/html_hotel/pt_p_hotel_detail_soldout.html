@@ -55,38 +55,6 @@ $(function(){
     $(this).addClass('on');
     $('.popup-wrap .price-cont').eq(id).addClass('on');
   });
-
-	$('.room-tbl-cont .room-tbl-more').on('click', function(e){
-		var tblMoreNum = 10;
-		var tblDummy = '<tr><td class="room-type"><div class="room-type-cnt"><p class="tit">DOUBLE STANDARD</p></div><div class="room-cancel before"><a href="#" class="btn-rule">취소규정확인</a></div><div class="room-cancel after"><span class="txt st1">무료취소기한 2018월 12월 01일까지</span><a href="#" class="btn-rule">상세취소규정</a></div></td><td class="includes"><p>조식포함</p><div class="lp-area" style="width:40px;"><a href="#" class="btn base lp1">알림</a><div class="lp-cont" style="left: 50px; top: 0px; width: 310px; z-index: 1; display: none;"><a href="#" class="btn-close">닫기</a><span>공급사에서 응답 받은 텍스트(txt) 출력<br>공급사에서 응답 받은 텍스트(txt) 출력<br>공급사에서 응답 받은 텍스트(txt) 출력</span></div></div></td><td class="room-state">선택 후 확인</td><td class="total-price"><div class="total-price-cnt"><ul><li><p class="con">현대카드 <strong>5%</strong> 즉시할인</p><p class="price pr1"><em>974,339</em>원</p></li><li><p class="con">PRIVIA <strong>2%</strong> 즉시할인</p><p class="price pr3"><em>1,005,108</em>원</p></li><li><p class="con">일반요금</p><p class="price pr3"><em>1,205,108</em>원</p></li></ul></div></td><td class="room-btn"><span class="btn-base bb-st3"><a href="#">예약</a></span></td></tr>';
-		for(var i=0; i<tblMoreNum; i++){
-			$(this).prev().find('tbody').append(tblDummy);
-		}
-		e.preventDefault();
-	});
-	$('.room-tbl-cont .tbl-list').on('click', '.btn-rule', function(e){
-		if($(this).closest('.room-cancel.before').length>0){ //취소규정확인 버튼 클릭 시
-			$(this).parent().hide();
-	    $(this).parent().next().fadeIn(300);
-		}else{//상세취소규정 버튼 클릭 시
-			dimmLayerPop('popupRuleCancel',1);
-		}
-		e.preventDefault();
-  });
-  $('.room-tbl-cont .tbl-list').on('click', '.lp-area .btn', function(e){
-    e.preventDefault();
-    $('.lp-area .lp-cont').css('z-index', 1);
-    $('.lp-area .lp-cont').hide();
-    $(this).parent().find('.lp-cont').css('z-index', 2);
-    $(this).parent().find('.lp-cont').show();
-  });
-  $('.room-tbl-cont .tbl-list').on('click', '.lp-cont .btn-close', function(e){
-    e.preventDefault();
-    $(this).parent().css('z-index', 1);
-    $(this).parent().hide();
-    if($(this).parent().hasClass('room-tbl-session')) $('.room-tbl-dimm').hide();
-  });
-  $('.room-tbl-cont .tbl-list td .lp-cont span').mCustomScrollbar({theme:"minimal-dark"});
 	$('.htp-hotel-detail dd .more').on('click', function(e){
 		$(this).prev('.cont').removeClass('hidden');
 		$(this).hide();
@@ -927,13 +895,14 @@ $(function(){
 					</div>
 					<div class="htp-dates">
             <!-- 숙박날짜가 없을 경우 -->
-            <a href="#">
+						<!--
+						<a href="#">
               <p class="label">숙박날짜</p>
 							<div class="result date-select">숙박날짜 선택</div>
 						</a>
+						-->
 
             <!-- 숙박날짜가 있을 경우 -->
-						<!--
             <a href="#">
 							<p class="label">숙박날짜</p>
 							<div class="result">
@@ -942,7 +911,6 @@ $(function(){
 								<span class="result-days">3박</span>
 							</div>
 						</a>
-						-->
 
 					</div>
 					<div class="htp-capacity">
@@ -1059,7 +1027,7 @@ $(function(){
 							<!-- 숙박날짜가 없을 경우 -->
 							<div class="htp-rb-utils">
 								<div class="btns">
-									<span class="btn-base bb-st3 long"><a href="#">요금 확인</a></span>
+									<span class="btn-base bb-st3 long"><a href="#">요금확인</a></span>
 								</div>
 							</div>
 							<!-- //숙박날짜가 없을 경우 -->
@@ -1136,258 +1104,110 @@ $(function(){
 										</tr>
 									</thead>
 									<tbody>
-										<!-- 숙박날짜 미입력 시 -->
-										<!--
+										<!-- 검색결과가 없을 경우 -->
 										<tr>
 											<td colspan="5">
-												<div class="tbl-info stay">
+												<div class="tbl-info nodate">
 													<div class="tbl-inner">
-														<p class="txt">숙박날짜를 입력하시면 실시간 요금조회가 가능합니다. </p>
-														<a href="#none">숙박날짜 입력하기</a>
+														<p class="txt2"><span>안타깝네요! 현재 예약 가능한 객실이 없습니다.</span><br>다른 날짜로 검색해 보시거나, 아래 주변 호텔을 확인해보세요! </p>
 													</div>
 												</div>
-											</td>
-										</tr>
-										-->
-										<!-- //숙박날짜 미입력 시 -->
-										<tr>
-											<td class="room-type">
-												<div class="room-type-cnt">
-													<p class="tit">DOUBLE STANDARD</p>
-												</div>
-												<div class="room-cancel before">
-													<a href="#" class="btn-rule">취소규정확인</a>
-												</div>
-												<div class="room-cancel after">
-													<span class="txt st1">무료취소기한 2018월 12월 01일까지</span>
-													<a href="#" class="btn-rule">상세취소규정</a>
-												</div>
-											</td>
-											<td class="includes">
-												<p>조식포함</p>
-												<div class="lp-area" style="width:40px;">
-													<a href="#" class="btn base lp1">알림</a>
-													<div class="lp-cont" style="left:50px;top:0;width:310px;">
-														<a href="#" class="btn-close">닫기</a>
-														<span>공급사에서 응답 받은 텍스트(txt) 출력<br>공급사에서 응답 받은 텍스트(txt) 출력<br>공급사에서 응답 받은 텍스트(txt) 출력</span>
-													</div>
-												</div>
-											</td>
-											<td class="room-state">선택 후 확인</td>
-											<td class="total-price">
-												<div class="total-price-cnt">
+												<div class="htp-cf-sec">
 													<ul>
 														<li>
-															<p class="con">현대카드 <strong>5%</strong> 즉시할인</p>
-															<p class="price pr1"><em>974,339</em>원</p>
+															<a href="#">
+																<dl>
+																	<dt style='background:url(/images/front/travel/vis-size/vis-240x190-2.jpg) 50% 50% no-repeat;'></dt>
+																	<dd>
+																		<span class="tit">그린 톨토이즈 호스텔 시애틀 - 아메리카스 베스트 밸류 에</span>
+																		<span class="info-box">
+																			<span class="inf1">
+																				<span class="eval">
+																					<span class="txt">4성급</span>
+																					<span class="on"></span>
+																					<span class="on"></span>
+																					<span class="on"></span>
+																					<span class="on"></span>
+																					<span class="off"></span>
+																				</span>
+																			</span>
+																			<span class="inf2">
+																				<span>1박 평균</span>
+																				<span class="price"><em>413,300</em>원</span>
+																			</span>
+																			<span class="inf3">
+																				<span class="grade">아주 좋음 4.5</span>
+																			</span>
+																		</span>
+																	</dd>
+																</dl>
+															</a>
 														</li>
 														<li>
-															<p class="con">PRIVIA <strong>2%</strong> 즉시할인</p>
-															<p class="price pr3"><em>1,005,108</em>원</p>
+															<a href="#">
+																<dl>
+																	<dt style='background:url(/images/front/travel/vis-size/vis-240x190-2.jpg) 50% 50% no-repeat;'></dt>
+																	<dd>
+																		<span class="tit">그린 톨토이즈 호스텔 시애틀 - 아메리카스 베스트 밸류 에</span>
+																		<span class="info-box">
+																			<span class="inf1">
+																				<span class="eval">
+																					<span class="txt">4성급</span>
+																					<span class="on"></span>
+																					<span class="on"></span>
+																					<span class="on"></span>
+																					<span class="on"></span>
+																					<span class="off"></span>
+																				</span>
+																			</span>
+																			<span class="inf2">
+																				<span>1박 평균</span>
+																				<span class="price"><em>413,300</em>원</span>
+																			</span>
+																			<span class="inf3">
+																				<span class="grade">아주 좋음 4.5</span>
+																			</span>
+																		</span>
+																	</dd>
+																</dl>
+															</a>
 														</li>
 														<li>
-															<p class="con">일반요금</p>
-															<p class="price pr3"><em>1,205,108</em>원</p>
+															<a href="#">
+																<dl>
+																	<dt style='background:url(/images/front/travel/vis-size/vis-240x190-2.jpg) 50% 50% no-repeat;'></dt>
+																	<dd>
+																		<span class="tit">그린 톨토이즈 호스텔 시애틀 - 아메리카스 베스트 밸류 에</span>
+																		<span class="info-box">
+																			<span class="inf1">
+																				<span class="eval">
+																					<span class="txt">4성급</span>
+																					<span class="on"></span>
+																					<span class="on"></span>
+																					<span class="on"></span>
+																					<span class="on"></span>
+																					<span class="off"></span>
+																				</span>
+																			</span>
+																			<span class="inf2">
+																				<span>1박 평균</span>
+																				<span class="price"><em>413,300</em>원</span>
+																			</span>
+																			<span class="inf3">
+																				<span class="grade">아주 좋음 4.5</span>
+																			</span>
+																		</span>
+																	</dd>
+																</dl>
+															</a>
 														</li>
 													</ul>
-												</div>
-											</td>
-											<td class="room-btn">
-												<span class="btn-base bb-st3"><a href="#">객실 예약</a></span>
+												</div><!-- //htp-cf-wrap -->
 											</td>
 										</tr>
-										<tr>
-											<td class="room-type">
-												<div class="room-type-cnt">
-													<p class="tit">Shangri La's Tanjung Aru Resort and Spa Shangri 더블 Tanjung Aru Resort and Spa</p>
-												</div>
-												<div class="room-cancel before">
-													<a href="#" class="btn-rule">취소규정확인</a>
-												</div>
-												<div class="room-cancel after">
-													<span class="txt st2">환불불가</span>
-													<a href="#" class="btn-rule">상세취소규정</a>
-												</div>
-											</td>
-											<td class="includes">
-												<p>조식포함</p>
-												<div class="lp-area" style="width:40px;">
-													<a href="#" class="btn base lp1">알림</a>
-													<div class="lp-cont" style="left:50px;top:0;width:310px;">
-														<a href="#" class="btn-close">닫기</a>
-														<span>공급사에서 응답 받은 텍스트(txt) 출력<br>공급사에서 응답 받은 텍스트(txt) 출력<br>공급사에서 응답 받은 텍스트(txt) 출력</span>
-													</div>
-												</div>
-											</td>
-											<td class="room-state">선택 후 확인</td>
-											<td class="total-price">
-												<div class="total-price-cnt">
-													<ul>
-														<li>
-															<p class="con">현대카드 <strong>5%</strong> 즉시할인</p>
-															<p class="price pr1"><em>974,339</em>원</p>
-														</li>
-														<li>
-															<p class="con">PRIVIA <strong>2%</strong> 즉시할인</p>
-															<p class="price pr3"><em>1,005,108</em>원</p>
-														</li>
-														<li>
-															<p class="con">일반요금</p>
-															<p class="price pr3"><em>1,205,108</em>원</p>
-														</li>
-													</ul>
-												</div>
-											</td>
-											<td class="room-btn">
-												<span class="btn-base bb-st3"><a href="#">객실 예약</a></span>
-											</td>
-										</tr>
-										<tr>
-											<td class="room-type">
-												<div class="room-type-cnt">
-													<p class="tit">DOUBLE STANDARD</p>
-												</div>
-												<div class="room-cancel before">
-													<a href="#" class="btn-rule">취소규정확인</a>
-												</div>
-												<div class="room-cancel after">
-													<span class="txt st1">무료취소기한 2018월 12월 01일까지</span>
-													<a href="#" class="btn-rule">상세취소규정</a>
-												</div>
-											</td>
-											<td class="includes">
-												<p>조식포함</p>
-												<div class="lp-area" style="width:40px;">
-													<a href="#" class="btn base lp2">특전</a>
-													<div class="lp-cont" style="left:50px;top:0;width:310px;">
-														<a href="#" class="btn-close">닫기</a>
-														<span>공급사에서 응답 받은 텍스트(txt) 출력<br>공급사에서 응답 받은 텍스트(txt) 출력<br>공급사에서 응답 받은 텍스트(txt) 출력</span>
-													</div>
-												</div>
-											</td>
-											<td class="room-state">선택 후 확인</td>
-											<td class="total-price">
-												<div class="total-price-cnt">
-													<ul>
-														<li>
-															<p class="con">현대카드 <strong>5%</strong> 즉시할인</p>
-															<p class="price pr1"><em>974,339</em>원</p>
-														</li>
-														<li>
-															<p class="con">PRIVIA <strong>2%</strong> 즉시할인</p>
-															<p class="price pr3"><em>1,005,108</em>원</p>
-														</li>
-														<li>
-															<p class="con">일반요금</p>
-															<p class="price pr3"><em>1,205,108</em>원</p>
-														</li>
-													</ul>
-												</div>
-											</td>
-											<td class="room-btn">
-												<span class="btn-base bb-st3"><a href="#">객실 예약</a></span>
-											</td>
-										</tr>
-										<tr>
-											<td class="room-type">
-												<div class="room-type-cnt">
-													<p class="tit">DOUBLE STANDARD</p>
-												</div>
-												<div class="room-cancel before">
-													<a href="#" class="btn-rule">취소규정확인</a>
-												</div>
-												<div class="room-cancel after">
-													<span class="txt st2">환불불가</span>
-													<a href="#" class="btn-rule">상세취소규정</a>
-												</div>
-											</td>
-											<td class="includes">
-												<p>조식포함</p>
-												<div class="lp-area" style="width:40px;">
-													<a href="#" class="btn base lp1">알림</a>
-													<div class="lp-cont" style="left:50px;top:0;width:310px;">
-														<a href="#" class="btn-close">닫기</a>
-														<span>공급사에서 응답 받은 텍스트(txt) 출력<br>공급사에서 응답 받은 텍스트(txt) 출력<br>공급사에서 응답 받은 텍스트(txt) 출력</span>
-													</div>
-												</div>
-											</td>
-											<td class="room-state">선택 후 확인</td>
-											<td class="total-price">
-												<div class="total-price-cnt">
-													<ul>
-														<li>
-															<p class="con">현대카드 <strong>5%</strong> 즉시할인</p>
-															<p class="price pr1"><em>974,339</em>원</p>
-														</li>
-														<li>
-															<p class="con">PRIVIA <strong>2%</strong> 즉시할인</p>
-															<p class="price pr3"><em>1,005,108</em>원</p>
-														</li>
-														<li>
-															<p class="con">일반요금</p>
-															<p class="price pr3"><em>1,205,108</em>원</p>
-														</li>
-													</ul>
-												</div>
-											</td>
-											<td class="room-btn">
-												<span class="btn-base bb-st3"><a href="#">객실 예약</a></span>
-											</td>
-										</tr>
-										<tr>
-											<td class="room-type">
-												<div class="room-type-cnt">
-													<p class="tit">DOUBLE STANDARD</p>
-												</div>
-												<div class="room-cancel before">
-													<a href="#" class="btn-rule">취소규정확인</a>
-												</div>
-												<div class="room-cancel after">
-													<span class="txt st2">환불불가</span>
-													<a href="#" class="btn-rule">상세취소규정</a>
-												</div>
-											</td>
-											<td class="includes">
-												<p>조식포함</p>
-												<div class="lp-area" style="width:40px;">
-													<a href="#" class="btn base lp1">알림</a>
-													<div class="lp-cont" style="left:50px;top:0;width:310px;">
-														<a href="#" class="btn-close">닫기</a>
-														<span>공급사에서 응답 받은 텍스트(txt) 출력<br>공급사에서 응답 받은 텍스트(txt) 출력<br>공급사에서 응답 받은 텍스트(txt) 출력</span>
-													</div>
-												</div>
-											</td>
-											<td class="room-state">선택 후 확인</td>
-											<td class="total-price">
-												<div class="total-price-cnt">
-													<ul>
-														<li>
-															<p class="con">현대카드 <strong>5%</strong> 즉시할인</p>
-															<p class="price pr1"><em>974,339</em>원</p>
-														</li>
-														<li>
-															<p class="con">PRIVIA <strong>2%</strong> 즉시할인</p>
-															<p class="price pr3"><em>1,005,108</em>원</p>
-														</li>
-														<li>
-															<p class="con">일반요금</p>
-															<p class="price pr3"><em>1,205,108</em>원</p>
-														</li>
-													</ul>
-												</div>
-											</td>
-											<td class="room-btn">
-												<span class="btn-base bb-st3"><a href="#">객실 예약</a></span>
-											</td>
-										</tr>
+										<!-- //검색결과가 없을 경우 -->
 									</tbody>
 								</table>
-								<a href="#" class="room-tbl-more"><span>더보기</span></a>
-								<div class="room-tbl-dimm"></div>
-								<div class="lp-cont room-tbl-session" style="display:block;">
-									<a href="#" class="btn-close">닫기</a>
-									<p>시간이 경과하여 요금이 변경되었을 수 있습니다. <br>객실을 다시 조회해옵니다.</p>
-								</div>
 							</div>
 							<!-- //room-tbl-cont -->
 						</div>
@@ -2400,65 +2220,6 @@ $(function(){
 			</div>
 		</div>
 		<!-- //htp-gmap -->
-	</div>
-	<!-- //content -->
-</div>
-<!-- //popup-wrap -->
-
-<!-- popup-wrap -->
-<div id="popupRuleCancel" class="popup-wrap" style="width:510px; display:none;">
-	<!-- header -->
-	<div class="heading">
-		<h2 class="noto">취소 및 예약규정</h2>
-		<a href="#" class="btn_close">닫기</a>
-	</div>
-	<!-- //header -->
-	<!-- content -->
-	<div class="content">
-		<div class="inner">
-			<h3>취소 수수료</h3>
-			<table summary="취소 수수료 요약" class="tbl-list ptb-short">
-					<caption>취소 수수료 취소시점, 수수료 금액에 대한 테이블</caption>
-					<colgroup>
-							<col width="245">
-							<col width="*">
-					</colgroup>
-					<thead>
-							<tr>
-									<th scope="col">취소시점</th>
-									<th scope="col">수수료 금액</th>
-							</tr>
-					</thead>
-					<tbody>
-							<tr>
-									<td class="center">2018/08/03 17:00 까지</td>
-									<td class="center">없음</td>
-							</tr>
-							<tr>
-									<td class="center">2018/08/03 17:00 부터</td>
-									<td class="center">전액취소수수료</td>
-							</tr>
-					</tbody>
-			</table>
-			<h3>취소 및 예약규정</h3>
-			<div class="ui-box">
-				<div class="content">
-					<ul class="dtxt-list">
-						<li>무료취소기한 이전에 취소하시면 수수료 없이 전액 환불되며, 무료취소기한 <br>이후 취소 또는 변경 시 취소수수료가 적용되어 환불되지 않습니다.</li>
-						<li>Full-Guaranteed로 표시 된 예약에 대해서는 전 일정 취소 및 변경 불가인 <br>예약이므로 결제와 확정 이후 즉시 변경/취소/환불이 불가능한 상태가 됩니다.</li>
-						<li>취소요청은 고객센터 전화를 통해 평일 업무시간(09:00~18:00) 내 당일 기준으로 접수된 건만 처리되며, <strong>업무시간 이후 또는 공휴일에 접수된 취소요청은 다음 정상 영업일의 업무시작(09:00)과 동시에 접수된 것</strong>으로 간주하여 처리됩니다.</li>
-						<li>예약 시 안내된 취소시점은 현지 사정에 의해 변경될 수 있으며 이 경우 별도로 안내해 드립니다.</li>
-						<li>예약과 결제를 완료하였으나 해당 날짜에 체크인하지 않은 경우(NO-SHOW) 이용하지 않은 객실에 대해 환불되지 않습니다.</li>
-						<li>2박 이상의 예약을 하시고 별도의 연락 없이 첫째 날 NO-SHOW하신 경우 <br>나머지 날짜에 대한 예약도 자동으로 취소될 수 있으며 환불되지 않을 수 있습니다.</li>
-					</ul>
-				</div>
-			</div>
-			<div class="ui-btns-wrap" style="margin-top:20px;">
-				<div class="ui-btns right">
-					<span class="btn-base bb-st3"><a href="#">확인</a></span>
-				</div>
-			</div>
-		</div>
 	</div>
 	<!-- //content -->
 </div>

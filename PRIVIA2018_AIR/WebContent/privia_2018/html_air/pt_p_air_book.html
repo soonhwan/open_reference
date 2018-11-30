@@ -27,7 +27,6 @@
 <script type="text/javascript" src="/js/front/travel/commonModuleHeader.js"></script> <!-- headerManager 가이드 버전 실제로는 반영 되지 않음 -->
 <script type="text/javascript" src="/js/front/travel/commonModule.js"></script>
 <script>
-
 $(function(){
 	//상세 스케줄 click
 	$('.schedule-info .sch-cell .htla-detail .btn').on('click', function(e){
@@ -40,9 +39,10 @@ $(function(){
 			$(this).removeClass('on');
 		}
 		e.preventDefault();
-	})
+	});
 });
 </script>
+
 </head>
 
 <body>
@@ -1476,7 +1476,7 @@ $(function(){
 											<li class="normal">
 												<span class="price"><span class="num">2,681,350</span>원</span>
 											</li>
-											<li class="hdc1">
+											<li class="hdc1 u-own">
 												<span class="txt-lb">현대카드 <em>10%</em> 청구 할인</span>
 												<span class="price"><span class="num">1,581,350</span>원</span>
 											</li>

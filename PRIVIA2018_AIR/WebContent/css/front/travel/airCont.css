@@ -407,15 +407,16 @@
 .est-total-price-list .normal .num {font-size: 16px;text-decoration: line-through;}
 .est-total-price-list .normal .txt-lb {font-weight: bold;margin-left: -85px;}
 .est-total-price-list .normal .txt-lb .txt-lb-sub {font-size:12px;}
-.est-total-price-list .hdc1 * {font-weight: bold;}
-.est-total-price-list.etpl-nomember .hdc1 * {font-weight: normal;}
-.est-total-price-list.etpl-nomember .hdc1 .num,
-.est-total-price-list.etpl-nomember .hdc2 .num,
-.est-total-price-list.etpl-nomember .privia-price .num {font-weight: bold;}
+.est-total-price-list .list .u-own * {font-weight: bold;}
+.est-total-price-list.etpl-nomember .u-own *,
+.est-total-price-list.etpl-nomember .normal .num {font-weight: normal;}
+.est-total-price-list.etpl-nomember .num {font-weight: bold;}
+.est-total-price-list .etpl-tit .txt-lb {font-weight: bold;}
 /* 국내선 */
 .est-total-price-list.etpl-dair .normal .txt-lb {margin-left: 0;font-weight: normal;font-size:14px;}
 .est-total-price-list.etpl-dair .price .num {text-decoration: none;font-size: 20px;font-family:"NotoSansKR" !important;}
-.est-total-price-list.etpl-dair.etpl-nomember .num {font-weight: bold;}
+.est-total-price-list.etpl-nomember.etpl-dair .normal .num {font-weight: bold;}
+.hbooksec-res-check .est-total-price-list.etpl-dair .num {font-weight: bold;}
 /* //국내선 */
 
 /* 탑승객 정보 */
@@ -489,6 +490,7 @@
 
 /* 예약상세 - 항공 예약/결제 내역 */
 .hbooksec-res-check .ui-btns-wrap {margin-top: 20px;}
+.hbooksec-res-check .ui-btns-wrap .bb-st5 {width: 145px;letter-spacing: -1px;}
 .comp-book-box-det {border:1px solid #e2e2e2;border-radius: 5px;overflow: hidden;position: relative;}
 .comp-book-box-det .cbb-tit {background-color: #288ecc;padding: 37px 40px;position: relative;}
 .comp-book-box-det .air-info .label-base {margin-right: 5px;}

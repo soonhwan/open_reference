@@ -1098,114 +1098,24 @@ $(function(){
 											<th scope="col" colspan="2">
 												<span class="txt">총 요금(세금/봉사료 포함)</span>
 												<span class="lp-area">
-													<span class="btn square" onclick="dimmLayerPop('popupGuideFee'); return false;">?</span>
+													<span class="btn square small" onclick="dimmLayerPop('popupGuideFee'); return false;">?</span>
 												</span>
 											</th>
 										</tr>
 									</thead>
 									<tbody>
-										<!-- 검색결과가 없을 경우 -->
+										<!-- 숙박날짜 미입력 시 -->
 										<tr>
 											<td colspan="5">
-												<div class="tbl-info nodate">
+												<div class="tbl-info stay">
 													<div class="tbl-inner">
-														<p class="txt2"><span>안타깝네요! 현재 예약 가능한 객실이 없습니다.</span><br>다른 날짜로 검색해 보시거나, 아래 주변 호텔을 확인해보세요! </p>
+														<p class="txt">숙박날짜를 입력하시면 실시간 요금조회가 가능합니다. </p>
+														<a href="#none">숙박날짜 입력하기</a>
 													</div>
 												</div>
-												<div class="htp-cf-sec">
-													<ul>
-														<li>
-															<a href="#">
-																<dl>
-																	<dt style='background:url(/images/front/travel/vis-size/vis-240x190-2.jpg) 50% 50% no-repeat;'></dt>
-																	<dd>
-																		<span class="tit">그린 톨토이즈 호스텔 시애틀 - 아메리카스 베스트 밸류 에</span>
-																		<span class="info-box">
-																			<span class="inf1">
-																				<span class="eval">
-																					<span class="txt">4성급</span>
-																					<span class="on"></span>
-																					<span class="on"></span>
-																					<span class="on"></span>
-																					<span class="on"></span>
-																					<span class="off"></span>
-																				</span>
-																			</span>
-																			<span class="inf2">
-																				<span>1박 평균</span>
-																				<span class="price"><em>413,300</em>원</span>
-																			</span>
-																			<span class="inf3">
-																				<span class="grade">아주 좋음 4.5</span>
-																			</span>
-																		</span>
-																	</dd>
-																</dl>
-															</a>
-														</li>
-														<li>
-															<a href="#">
-																<dl>
-																	<dt style='background:url(/images/front/travel/vis-size/vis-240x190-2.jpg) 50% 50% no-repeat;'></dt>
-																	<dd>
-																		<span class="tit">그린 톨토이즈 호스텔 시애틀 - 아메리카스 베스트 밸류 에</span>
-																		<span class="info-box">
-																			<span class="inf1">
-																				<span class="eval">
-																					<span class="txt">4성급</span>
-																					<span class="on"></span>
-																					<span class="on"></span>
-																					<span class="on"></span>
-																					<span class="on"></span>
-																					<span class="off"></span>
-																				</span>
-																			</span>
-																			<span class="inf2">
-																				<span>1박 평균</span>
-																				<span class="price"><em>413,300</em>원</span>
-																			</span>
-																			<span class="inf3">
-																				<span class="grade">아주 좋음 4.5</span>
-																			</span>
-																		</span>
-																	</dd>
-																</dl>
-															</a>
-														</li>
-														<li>
-															<a href="#">
-																<dl>
-																	<dt style='background:url(/images/front/travel/vis-size/vis-240x190-2.jpg) 50% 50% no-repeat;'></dt>
-																	<dd>
-																		<span class="tit">그린 톨토이즈 호스텔 시애틀 - 아메리카스 베스트 밸류 에</span>
-																		<span class="info-box">
-																			<span class="inf1">
-																				<span class="eval">
-																					<span class="txt">4성급</span>
-																					<span class="on"></span>
-																					<span class="on"></span>
-																					<span class="on"></span>
-																					<span class="on"></span>
-																					<span class="off"></span>
-																				</span>
-																			</span>
-																			<span class="inf2">
-																				<span>1박 평균</span>
-																				<span class="price"><em>413,300</em>원</span>
-																			</span>
-																			<span class="inf3">
-																				<span class="grade">아주 좋음 4.5</span>
-																			</span>
-																		</span>
-																	</dd>
-																</dl>
-															</a>
-														</li>
-													</ul>
-												</div><!-- //htp-cf-wrap -->
 											</td>
 										</tr>
-										<!-- //검색결과가 없을 경우 -->
+										<!-- //숙박날짜 미입력 시 -->
 									</tbody>
 								</table>
 							</div>
@@ -2226,7 +2136,7 @@ $(function(){
 <!-- //popup-wrap -->
 
 <!-- popup-wrap -->
-<div id="popupGuideFee" class="popup-wrap" style="width:490px;">
+<div id="popupGuideFee" class="popup-wrap" style="width:490px; display:none;">
 	<!-- header -->
 	<div class="heading">
 		<h2 class="noto">PRIVIA/현대카드 할인요금</h2>

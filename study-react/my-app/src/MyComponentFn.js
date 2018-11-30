@@ -9,4 +9,4 @@ const MyComponentFn = () => {
   );
   };
   
-  export default MyComponentFn ; 
+  export default MyComponentFn; 
