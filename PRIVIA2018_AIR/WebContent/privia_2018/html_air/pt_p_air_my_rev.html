@@ -40,6 +40,13 @@ $(function(){
 		}
 		e.preventDefault();
 	});
+	
+	//규정 및 약관 호출
+	$('#airIntFare').load('/privia_2018/html_terms/airIntFare.html'); // 요금규정
+	$('#airIntBook').load('/privia_2018/html_terms/airIntBook.html'); // 예약관련
+	$('#airIntPay').load('/privia_2018/html_terms/airIntPay.html'); // 결제 및 환불
+	$('#airIntPassport').load('/privia_2018/html_terms/airIntPassport.html'); // 여권/비자 및 기타
+	$('#airIntLuggage').load('/privia_2018/html_terms/airIntLuggage.html'); // 수하물 규정
 });
 </script>
 
@@ -1606,57 +1613,16 @@ $(function(){
 							<ul class="ui-term-list other">
 								<li>
 									<dl>
-										<dt>
+										<dt class="on">
 											<div class="ui-term-tit">
 												<span class="tit">요금규정 (필수)</span>
 												<span class="arrow"></span>
 											</div>
 										</dt>
-										<dd>
+										<dd style="display: block;">
 											<div class="ui-term-box">
 												<div class="inner term-customscrollbar">
-													<div class="content">
-														<div class="reserv-area">
-															<table class="tbl-list ptb-short2 ptb-all-left">
-																<caption>예약규정 사항의 요금규정 리스트</caption>
-																<colgroup>
-																	<col width="140">
-																	<col>
-																</colgroup>
-																<tbody>
-																	<tr>
-																		<th scope="row" colspan="2">
-																			<span class="c-point1">각 규정 중 가장 제한적인 규정이 적용됩니다.</span>
-																		</th>
-																	</tr>
-																	<tr>
-																		<th scope="row">항공사</th>
-																		<td>제주항공</td>
-																	</tr>
-																	<tr>
-																		<th scope="row">운임조건</th>
-																		<td>제주항공</td>
-																	</tr>
-																	<tr>
-																		<th scope="row">요금확정여부</th>
-																		<td>성인</td>
-																	</tr>
-																	<tr>
-																		<th scope="row">유효기간</th>
-																		<td>확정요금</td>
-																	</tr>
-																	<tr>
-																		<th scope="row">카드사용여부</th>
-																		<td>12개월</td>
-																	</tr>
-																	<tr>
-																		<th scope="row">오픈가능여부</th>
-																		<td>불가</td>
-																	</tr>
-																</tbody>
-															</table>
-														</div>
-													</div>
+													<div class="content" id="airIntFare"></div>
 												</div>
 											</div>
 										</dd>
@@ -1673,7 +1639,7 @@ $(function(){
 										<dd>
 											<div class="ui-term-box">
 												<div class="inner term-customscrollbar">
-													<div class="content">약관텍스트 호출</div>
+													<div class="content" id="airIntBook"></div>
 												</div>
 											</div>
 										</dd>
@@ -1690,7 +1656,7 @@ $(function(){
 										<dd>
 											<div class="ui-term-box">
 												<div class="inner term-customscrollbar">
-													<div class="content">약관텍스트 호출</div>
+													<div class="content" id="airIntPay"></div>
 												</div>
 											</div>
 										</dd>
@@ -1707,7 +1673,7 @@ $(function(){
 										<dd>
 											<div class="ui-term-box">
 												<div class="inner term-customscrollbar">
-													<div class="content">약관텍스트 호출</div>
+													<div class="content" id="airIntPassport"></div>
 												</div>
 											</div>
 										</dd>
@@ -1724,7 +1690,7 @@ $(function(){
 										<dd>
 											<div class="ui-term-box">
 												<div class="inner term-customscrollbar">
-													<div class="content">약관텍스트 호출</div>
+													<div class="content" id="airIntLuggage"></div>
 												</div>
 											</div>
 										</dd>

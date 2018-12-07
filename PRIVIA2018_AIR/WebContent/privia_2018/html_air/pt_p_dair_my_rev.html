@@ -26,7 +26,19 @@
 <script type="text/javascript" src="/js/utils.js"></script>
 <script type="text/javascript" src="/js/front/travel/commonModuleHeader.js"></script> <!-- headerManager 가이드 버전 실제로는 반영 되지 않음 -->
 <script type="text/javascript" src="/js/front/travel/commonModule.js"></script>
-
+<script>
+$(function(){
+	//규정 및 약관 호출
+	$('#airGeneralruleAgree').load('/privia_2018/html_terms/airGeneralruleAgree.html'); // 일반 규정
+	$('#airRefundruleAgree').load('/privia_2018/html_terms/airRefundruleAgree.html'); // 환불 규정
+	$('#airLuggageruleAgree').load('/privia_2018/html_terms/airLuggageruleAgree.html'); // 수하물 규정
+	$('#agmtAgree').load('/privia_2018/html_terms/agmtAgree.html'); // 현대카드 PRIVIA 여행 이용약관
+	$('#airConditionsAgree').load('/privia_2018/html_terms/airConditionsAgree.html'); // 항공 이용약관
+	$('#commerceAgree').load('/privia_2018/html_terms/commerceAgree.html'); // 전자금융거래 이용약관
+	$('#indinfoAgree').load('/privia_2018/html_terms/indinfoAgree.html'); // 개인정보 수집·이용 동의
+	$('#indivInfoThirdFull').load('/privia_2018/html_terms/indivInfoThirdFull.html'); // 제 3자 개인정보 제공 동의
+});
+</script>
 </head>
 
 <body>
@@ -947,9 +959,31 @@
 							<div class="ui-btns right">
 								<span class="btn-base bb-st5"><a href="#">온라인 문의</a></span>
 								<span class="btn-base bb-st5"><a href="#">마일리지 등록</a></span>
+								<span class="lp-area">
+									<a href="#" class="btn base lp3">마일리지 등록m</a>
+									<div class="lp-cont lpc2" style="left:0;top:48px;width:440px;">
+										<div class="lpc-header">
+											<span class="tit">
+												<img src="/images/front/travel/contents/logo-air/DOM_7C.png" alt="제주항공" class="air-logo">
+												제주항공 마일리지 등록
+											</span>
+										</div>
+										<div class="lpc-cont">
+											<p class="con"><strong>여행사에서 발권한 예약은 여행사에서 마일리지 등록이 불가합니다. <br />아래와 같이 마일리지를 등록하세요.</strong></p>
+											<div class="con-wrap st2">
+												<ul class="dtxt-list">
+													<li>출발 당일 제주항공 카운터에서 요청합니다.</li>
+													<li>탑승 완료 후 출발일로부터 30일 이내에 제주항공 홈페이지에서 예약번호 <br />입력하여 수동 적립합니다.</li>
+												</ul>
+											</div>
+										</div>
+										<a href="#" class="btn-close">닫기</a>
+									</div>
+								</span>
+								
 								<span class="btn-base bb-st5"><a href="#">이메일 전송</a></span>
 								<span class="btn-base bb-st5"><a href="#">예약취소</a></span>
-								<span class="btn-base bb-st5"><a href="#">예약 목록</a></span>
+								<span class="btn-base bb-st5"><a href="https://www.priviatravel.com/mypage/index/reserve">예약 목록</a></span>
 							</div>
 						</div>
 					</div>				
@@ -1221,18 +1255,16 @@
 							<ul class="ui-term-list other">
 								<li>
 									<dl>
-										<dt>
+										<dt class="on">
 											<div class="ui-term-tit">
 												<span class="tit">일반 규정</span>
 												<span class="arrow"></span>
 											</div>
 										</dt>
-										<dd>
+										<dd style="display: block;">
 											<div class="ui-term-box">
 												<div class="inner term-customscrollbar">
-													<div class="content">
-														일반 규정
-													</div>
+													<div class="content" id="airGeneralruleAgree"></div>
 												</div>
 											</div>
 										</dd>
@@ -1249,7 +1281,7 @@
 										<dd>
 											<div class="ui-term-box">
 												<div class="inner term-customscrollbar">
-													<div class="content">환불 규정</div>
+													<div class="content" id="airRefundruleAgree"></div>
 												</div>
 											</div>
 										</dd>
@@ -1266,7 +1298,7 @@
 										<dd>
 											<div class="ui-term-box">
 												<div class="inner term-customscrollbar">
-													<div class="content">수하물 규정</div>
+													<div class="content" id="airLuggageruleAgree"></div>
 												</div>
 											</div>
 										</dd>
@@ -1283,7 +1315,7 @@
 										<dd>
 											<div class="ui-term-box">
 												<div class="inner term-customscrollbar">
-													<div class="content">현대카드 PRIVIA 여행 이용약관</div>
+													<div class="content" id="agmtAgree"></div>
 												</div>
 											</div>
 										</dd>
@@ -1300,7 +1332,7 @@
 										<dd>
 											<div class="ui-term-box">
 												<div class="inner term-customscrollbar">
-													<div class="content">항공 이용약관</div>
+													<div class="content" id="airConditionsAgree"></div>
 												</div>
 											</div>
 										</dd>
@@ -1317,7 +1349,7 @@
 										<dd>
 											<div class="ui-term-box">
 												<div class="inner term-customscrollbar">
-													<div class="content">전자금융거래 이용약관</div>
+													<div class="content" id="commerceAgree"></div>
 												</div>
 											</div>
 										</dd>
@@ -1334,7 +1366,7 @@
 										<dd>
 											<div class="ui-term-box">
 												<div class="inner term-customscrollbar">
-													<div class="content">개인정보 수집, 이용 동의</div>
+													<div class="content" id="indinfoAgree"></div>
 												</div>
 											</div>
 										</dd>
@@ -1351,7 +1383,7 @@
 										<dd>
 											<div class="ui-term-box">
 												<div class="inner term-customscrollbar">
-													<div class="content">제 3자 개인정보 제공 동의</div>
+													<div class="content" id="indivInfoThirdFull"></div>
 												</div>
 											</div>
 										</dd>

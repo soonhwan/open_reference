@@ -10,7 +10,7 @@
     "gradeStar": 4,
     "local": "17, Avenue Kleber, Paris",
     "facilities": "무료와이파이, 무료주차, 다국어지원",
-    "badge": ["PRIVIA 특가", "현재인기"],
+    "badge": ["최다판매", "프로모션"],
     "price1": 3,
     "price2": 238700,
     "link": "http://www.nate.com"
@@ -26,7 +26,7 @@
     "gradeStar": 5,
     "local": "17, Avenue Kleber, Paris",
     "facilities": "무료와이파이, 무료주차, 다국어지원",
-    "badge": ["예약수 높음", "신규호텔"],
+    "badge": ["현재인기", "NEW"],
     "price1": 2,
     "price2": 413300,
     "link": "http://www.naver.com"
@@ -43,7 +43,7 @@
     "gradeStar": 3,
     "local": "17, Avenue Kleber, Paris",
     "facilities": "무료와이파이, 무료주차, 다국어지원",
-    "badge": ["PRIVIA 특가1", "베스트셀러"],
+    "badge": ["최다판매", "프로모션"],
     "price1": 3,
     "price2": 321700,
     "link": "http://google.com"
@@ -59,7 +59,7 @@
     "gradeStar": 1,
     "local": "17, Avenue Kleber, Paris",
     "facilities": "무료와이파이, 무료주차, 다국어지원",
-    "badge": ["PRIVIA 특가", "베스트셀러"],
+    "badge": ["현재인기", "NEW"],
     "price1": 3,
     "price2": 413300,
     "link": "http://www.naver.com"
@@ -75,7 +75,7 @@
     "gradeStar": 2,
     "local": "17, Avenue Kleber, Paris",
     "facilities": "무료와이파이, 무료주차, 다국어지원",
-    "badge": ["PRIVIA 특가", "베스트셀러"],
+    "badge": ["최다판매", "프로모션"],
     "price1": 3,
     "price2": 413300,
     "link": "http://www.naver.com"
@@ -91,7 +91,7 @@
     "gradeStar": 3,
     "local": "17, Avenue Kleber, Paris",
     "facilities": "무료와이파이, 무료주차, 다국어지원",
-    "badge": ["PRIVIA 특가", "베스트셀러"],
+    "badge": ["현재인기", "NEW"],
     "price1": 3,
     "price2": 413300,
     "link": "http://www.naver.com"
@@ -107,7 +107,7 @@
     "gradeStar": 4,
     "local": "17, Avenue Kleber, Paris",
     "facilities": "무료와이파이, 무료주차, 다국어지원",
-    "badge": ["PRIVIA 특가", "베스트셀러"],
+    "badge": ["최다판매", "프로모션"],
     "price1": 3,
     "price2": 413300,
     "link": "http://www.naver.com"
@@ -123,7 +123,7 @@
     "gradeStar": 3,
     "local": "17, Avenue Kleber, Paris",
     "facilities": "무료와이파이, 무료주차, 다국어지원",
-    "badge": ["PRIVIA 특가", "베스트셀러"],
+    "badge": ["현재인기", "NEW"],
     "price1": 3,
     "price2": 413300,
     "link": "http://www.naver.com"
@@ -139,7 +139,7 @@
     "gradeStar": 2,
     "local": "17, Avenue Kleber, Paris",
     "facilities": "무료와이파이, 무료주차, 다국어지원",
-    "badge": ["PRIVIA 특가", "베스트셀러"],
+    "badge": ["최다판매", "프로모션"],
     "price1": 3,
     "price2": 413300,
     "link": "http://www.naver.com"
@@ -155,7 +155,7 @@
     "gradeStar": 2,
     "local": "17, Avenue Kleber, Paris",
     "facilities": "무료와이파이, 무료주차, 다국어지원",
-    "badge": ["PRIVIA 특가", "베스트셀러"],
+    "badge": ["현재인기", "NEW"],
     "price1": 3,
     "price2": 413300,
     "link": "http://www.naver.com"

@@ -1,4 +1,6 @@
 import React, { Component } from 'react';
+// import ReactCSSTransitionGroup from 'react-addons-css-transition-group';
+import { CSSTransitionGroup } from 'react-transition-group'
 
 class Practice extends  Component {
   /* es6 - map
@@ -79,7 +81,7 @@ class Practice extends  Component {
           <input type="text" placeholder="아무거나 입력하세요" 
             value={msg} name="msg" 
             onChange={this.handleChange} 
-            ref={(ref)=>this.inpMsg= ref}
+            ref={(ref)=>this.inpMsg = ref}
           />
           <button type="button" onClick={this.handleInt} >초기화</button>
           <button type="button" onClick={this.handleListAdd}>추가</button>
@@ -93,7 +95,41 @@ class Practice extends  Component {
           <button type="button" onClick={() => {this.setState({username:''})}}>초기화</button>
         </div>
 
-        <ul>{ls}</ul>
+        <ul>
+          {/* <CSSTransitionGroup
+            transitionName="exp"
+            transitionEnterTimeout={500}
+            transitionLeaveTimeout={300}>
+            
+            {ls}
+          </CSSTransitionGroup> */}
+
+          <CSSTransition
+              in={showValidationMessage}
+              timeout={300}
+              classNames="message"
+              unmountOnExit
+              onExited={() => {
+                this.setState({
+                  showValidationButton: true,
+                });
+              }}
+            >
+              {state => (
+                <HelpBlock>
+                  Your name rocks!
+                  <CSSTransition
+                    in={state === 'entered'}
+                    timeout={300}
+                    classNames="star"
+                    unmountOnExit
+                  >
+                    <div className="star">⭐</div>
+                  </CSSTransition>
+                </HelpBlock>
+              )}
+            </CSSTransition>
+        </ul>
       </div>
     );
   }

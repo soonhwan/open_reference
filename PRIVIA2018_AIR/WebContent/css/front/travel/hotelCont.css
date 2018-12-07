@@ -192,8 +192,9 @@
 .htp-list-sec .gmap-wrapper.on{position:fixed;left:0;top:0;width:100%;height:100%;opacity:1;z-index:999;}
 .htp-list-sec .gmap-wrapper.change{opacity:0;}
 .htp-list-sec .gmap-wrapper #gmapArea{width:100%;height:100%;}
-.htp-list-sec .gmap-wrapper .price-tooltip{position:absolute;padding:5px 8px;font-size:12px;color:#000;background:#fff;border-radius:5px;border:1px solid #e2e2e2;transition:none;-webkit-transition:none;z-index:1;}
+.htp-list-sec .gmap-wrapper .price-tooltip{position:absolute;padding:2px 7px 5px;font-size:12px;color:#000;background:#fff;border-radius:5px;border:1px solid #00b290;transition:none;-webkit-transition:none;z-index:1;line-height:1;}
 .htp-list-sec .gmap-wrapper .price-tooltip em{font-family:"NotoSansKR" !important;font-size:16px;font-weight:bold;}
+.htp-list-sec .gmap-wrapper .price-tooltip strong{font-size:14px;position: relative;top:1px;}
 .htp-list-sec .gmap-wrapper .price-tooltip:before,
 .htp-list-sec .gmap-wrapper .price-tooltip:after{position: absolute;left:50%;bottom:-8px;margin-left:-5px;content:"";display:block;
 width:0;height:0;
@@ -201,16 +202,21 @@ border-left:5px solid transparent;
 border-right:5px solid transparent;
 }
 .htp-list-sec .gmap-wrapper .price-tooltip:before{border-top:7px solid #fff;bottom:-7px;z-index:1;}
-.htp-list-sec .gmap-wrapper .price-tooltip:after{border-top:7px solid #e2e2e2;}
-.htp-list-sec .gmap-wrapper .price-tooltip.on{border:1px solid #000;}
-.htp-list-sec .gmap-wrapper .price-tooltip.on:after{border-top:7px solid #000;}
+.htp-list-sec .gmap-wrapper .price-tooltip:after{border-top:7px solid #00b290;}
+.htp-list-sec .gmap-wrapper .price-tooltip.on{background: #00b290;color:#fff;}
+.htp-list-sec .gmap-wrapper .price-tooltip.on:after{border-top:7px solid #00b290;}
+.htp-list-sec .gmap-wrapper .price-tooltip.on:before{border-top:7px solid #00b290;}
 .htp-list-sec .gmap-wrapper .price-tooltip.no-date{padding:0;border:0;border-radius:0;width:15px;height:21px;background:url(/images/front/travel/contents/icon-sub-sec.png) no-repeat;background-position:0 -88px;}
 .htp-list-sec .gmap-wrapper .price-tooltip.no-date.on{background-position:-21px -88px;}
 .htp-list-sec .gmap-wrapper .price-tooltip.no-date:before,
 .htp-list-sec .gmap-wrapper .price-tooltip.no-date:after{display:none;}
-.htp-list-sec .gmap-wrapper .price-tooltip.wish{padding-left:30px;border:1px solid #e93b84;}
+.htp-list-sec .gmap-wrapper .price-tooltip.wish{padding-left:25px;border:1px solid #e93b84;}
 .htp-list-sec .gmap-wrapper .price-tooltip.wish:after{border-top:7px solid #e93b84;}
-.htp-list-sec .gmap-wrapper .price-tooltip.wish strong:before{content:"";display:block;width:19px;height:16px;position:absolute;left:6px;top:6px;background:url(/images/front/travel/contents/icon-common-sec.png) -127px -336px;}
+.htp-list-sec .gmap-wrapper .price-tooltip.wish strong:before{content:"";display:block;width:13px;height:11px;position:absolute;left:-17px;top:5px;background:url(/images/front/travel/contents/icon-common-sec.png) -228px -313px;}
+.htp-list-sec .gmap-wrapper .price-tooltip.wish.on{background: #e93b84;color:#fff;}
+.htp-list-sec .gmap-wrapper .price-tooltip.wish.on:after{border-top:7px solid #e93b84;}
+.htp-list-sec .gmap-wrapper .price-tooltip.wish.on:before{border-top:7px solid #e93b84;}
+.htp-list-sec .gmap-wrapper .price-tooltip.wish.on strong:before{background:url(/images/front/travel/contents/icon-common-sec.png) -246px -313px;}
 .htp-list-sec .gmap-wrapper .price-cont{position:absolute;width:330px;border-radius:3px;z-index:2;display:none;}
 .htp-list-sec .gmap-wrapper .price-cont.on{display:block;}
 .htp-list-sec .gmap-wrapper .price-cont:after{content:"";display:block;clear:both;}
@@ -413,11 +419,12 @@ border-right:5px solid transparent;
 .htp-res-list .htp-list-conr{position:relative;float:right;width:198px;height:190px;padding:18px 20px 0 0;overflow:hidden;}
 
 .htp-res-list .htp-badge{font-size:0;text-align:right;}
-.htp-res-list .htp-badge span{display:inline-block;padding:3px 8px;border-radius:15px;font-size:12px;vertical-align:top;}
+.htp-res-list .htp-badge span.stip{display:inline-block;padding:3px 8px;border-radius:15px;font-size:12px;vertical-align:top;}
 .htp-res-list .htp-badge span.st1{color:#ee2a74;border:1px solid #ee2a74;}
 .htp-res-list .htp-badge span.st2{margin-left:7px;color:#2d80e1;border:1px solid #2d80e1;}
 .htp-res-list .htp-btn{position:absolute;left:0;bottom:27px;}
 .htp-res-list .btn-base.bb-st3 a{width:180px;padding:9px 0 11px;transition:none;-webkit-transition:none;}
+.custom-tooltip.stip{text-align:center;}
 
 .htp-res-list .htp-price{margin:10px 0;text-align:right;color:#000;}
 .htp-res-list .htp-price .tp1{font-size:12px;}
@@ -749,35 +756,6 @@ left:50%;top:-8px;margin-left:-4px;
 .htp-detail-cont .qna-tit-wrap .search-wrap{position:absolute;right:0;top:0;}
 .htp-detail-cont .qna-tit-wrap .search-wrap .search-bar{margin-right:7px;width:210px;height:40px;border:1px solid #cacdd4;border-radius:3px;padding:10px;font-size:14px;}
 .htp-detail-cont .qna-tit-wrap .search-wrap .btn-base a{height:40px;min-width:inherit;}
-
-/* 인원, 객실 수 */
-.sc-hotel .o-inth .qsb-room{width:29%;}
-.global-ui-room .ui-htp-room{position:relative;width:400px;}
-.global-ui-room .ui-htp-room .room-item{padding:0 30px;}
-.global-ui-room .ui-htp-room .room-item.disabled{display:none;}
-.global-ui-room .ui-htp-room .room-item>dl>dt{position:relative;border-bottom:1px solid #ededed;}
-.global-ui-room .ui-htp-room .room-item dt .room-tab{position:relative;display:inline-block;padding:20px 0;font-family:"NotoSansKR" !important;font-size:16px;font-weight:700;color:#000;line-height:38px;vertical-align:middle;}
-.global-ui-room .ui-htp-room .room-item dt .room-tab span{font-weight:700;}
-.global-ui-room .ui-htp-room .room-item dt .room-arrow{position:absolute;right:10px;top:36px;display:block;width:13px;height:8px;background-image:url(/images/front/travel/contents/icon-common-sec.png);background-position:-21px -156px;transition:background-position .3s;-webkit-transition:background-position .3s;}
-.global-ui-room .ui-htp-room .room-item dt .b-remove{margin-left:20px;display:none;}
-.global-ui-room .ui-htp-room .room-item>dl>dd{padding:20px 0;display:none;border-bottom:1px solid #ededed;}
-.global-ui-room .ui-htp-room .room-item.on>dl>dt{color:#ededed;}
-.global-ui-room .ui-htp-room .room-item.on>dl>dd{display:block;}
-.global-ui-room .ui-htp-room .room-item.on dt .room-tab{color:#ee2375;}
-.global-ui-room .ui-htp-room .room-item.on dt .room-arrow{background-position:-21px -146px;}
-.global-ui-room .ui-htp-room .room-item.on dt .b-remove{display:inline-block;}
-.global-ui-room .ui-htp-room .uis-set-selectbox{margin-top:20px;padding:10px;background:#eef1f6;border-radius:3px;}
-.global-ui-room .ui-htp-room .uis-set-selectbox li{width:98px;margin:4px;}
-.global-ui-room .ui-htp-room .select-base{width:100% !important;}
-.global-ui-room .ui-htp-room .room-item:last-child>dl>dt{border-bottom:0;}
-.global-ui-room .ui-htp-room .room-item:last-child.on>dl>dt{border-bottom:1px solid #ededed;}
-.global-ui-room .ui-htp-room .room-item:last-child.on>dl>dd{border-bottom:0;}
-.global-ui-room .b-addroom-wrap{padding:20px 30px;text-align:right;}
-.global-ui-room .b-addroom{width:133px;font-family:"NotoSansKR" !important;font-size:16px;color:#000;}
-.global-ui-room .uis-capacity-number{margin:0;}
-.global-ui-room .uis-capacity-number li{padding:0 0;margin:20px 0 0;}
-.global-ui-room .uis-capacity-number li:first-child{margin-top:0;}
-
 
 /*--------------------------------------------------------------------------------------------------------------
  *  hotel - 예약, 결제하기

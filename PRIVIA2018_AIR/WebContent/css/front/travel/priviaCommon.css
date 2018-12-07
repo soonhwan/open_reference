@@ -349,6 +349,7 @@
 .set-list-faq .lf-head > li {float: left;font-size: 12px;font-weight: bold;padding: 13px 0 11px 0;}
 .set-list-faq .lf-head:after{content:'';display:block;clear:both;}
 .set-list-faq .lf-list > li {border-bottom: 1px solid #e2e2e2;font-size: 12px;position: relative;}
+.set-list-faq .lf-list > li.import .wrap-lfc{background: #f5f5f5;}
 .set-list-faq .lf-list > li .wrap-lfc {width: 100%;overflow: hidden;position: relative;display: block;color: #333;}
 .set-list-faq .lf-list > li .wrap-lfc:before {content: '';display: block;width: 20px;height: 20px;overflow: hidden;position: absolute;top:50%;margin-top: -10px;right:10px;background: url(/images/front/travel/customer/icon-list-fold.png) 0 0 no-repeat;}
 .set-list-faq .lf-list > li .wrap-lfc > span {padding: 13px 0 11px 0;display: inline-block;vertical-align: middle;}

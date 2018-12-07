@@ -106,6 +106,7 @@ $(function(){
         var cbNum = 4, cbLink = 'http://www.priviatravel.com/main/air/',
             cbImg = '/images/front/travel/contents/dummy/cross-banner.jpg', cbAlt = '항공권 카드별 7%, 10% 청구 할인 + 해외호텔 2% 추가 혜택';
         var totalLen = listJSON.length;
+        var stip, stxt;
         for(var i=0; i<htpInitNum; i++){
           listDOM = $htpList.children('li').eq(i);
           var wish = listJSON[i].wish ? "on" : "";
@@ -142,7 +143,17 @@ $(function(){
 
           listDOM.find('.htp-list-conr').prepend('<div class="htp-badge"></div>');
           for(var j=0; j<badgeLen; j++){
-            listDOM.find('.htp-badge').append('<span class="st'+(j+1)+'">'+listJSON[i].badge[j]+'</span>');
+            if(listJSON[i].badge[j] == '최다판매'){
+              stxt = '최근 1달간 예약수가 많은 숙소';
+            }else if(listJSON[i].badge[j] == '프로모션'){
+              stxt = '현대카드 PRIVIA 특가/특전 제공 숙소';
+            }else if(listJSON[i].badge[j] == '현재인기'){
+              stxt = '최근 1달간 조회수가 많은 숙소';
+            }else if(listJSON[i].badge[j] == 'NEW'){
+              stxt = '2018년도에 오픈한<br>신규 호텔입니다.';
+            }
+            stip = "<span class='stip st"+(j+1)+"' title='<strong class=\"className\">"+stxt+"</strong>'>"+listJSON[i].badge[j]+"</span>";
+            listDOM.find('.htp-badge').append(stip);
           }
           if(isDate){
             listDOM.find('.htp-price .tp1').append('<p><span>'+listJSON[i].price1+'</span>박 최저가</p>');
@@ -165,6 +176,14 @@ $(function(){
           slidesToShow: 1,
           slidesToScroll: 1
         });
+        $('.htp-res-list .stip').tooltip({
+      		align: 'autoTop',
+      		html: true,
+      		fade: {
+      			duration: 300,
+      			opacity: 1
+      		}
+      	});
       },
       complete: function(data){
         //console.log('ajax loading complete');
@@ -198,7 +217,7 @@ $(function(){
   $(document).ajaxComplete(function(event, xhr, settings){
     var $htpLoading = $('.htp-res-loading');
     var loadFlag = true;
-    var dummyData = '<li><div class="inset"><dl><dt class="htp-list-thumb"><div class="thumb-slider append"><div><img src="/images/front/travel/vis-size/vis-240x190-2.jpg" alt="test2"></div><div><img src="/images/front/travel/vis-size/vis-240x190.jpg" alt="test1"></div></div><a href="#" class="help-tooltip wish on"><span class="over"></span><span class="cont" style="width:190px">이곳을 관심숙소로 저장하시고<br>마이페이지에서 확인해 보세요.</span></a></dt><dd class="htp-list-con"><div class="htp-list-conl"><div class="htp-tit-kr"><p class="tit">추가되는 데이터</p><p class="grade">아주 좋음 4.5</p></div><div class="htp-tit-en"><p class="tit">Red Roof Inn Seattle Airport - SEATAC</p></div><div class="htp-other-info"><p class="grade"><span class="txt">4성급</span><span class="on"></span><span class="on"></span><span class="on"></span><span class="on"></span><span class="off"></span></p><p class="htp-loca">17, Avenue Kleber, Paris</p></div><div class="htp-lower"><p class="htp-facilities">무료와이파이, 무료주차, 다국어지원</p></div></div><div class="htp-list-conr"><div class="htp-badge"><span class="st1">PRIVIA 특가</span><span class="st2">현재인기</span></div><div class="htp-price"><div class="tp1"><p><span>3</span>박 최저가</p></div><div class="tp2"><p><strong>413,300</strong>원</p></div><div class="tp3"><p>1박 평균 <strong>137,767</strong>원</p></div></div><div class="htp-btn"><span class="btn-base bb-st3"><a href="http://www.nate.com" target="_blank">객실선택</a></span></div></div></dd></dl></div></li>';
+    var dummyData = '<li><div class="inset"><dl><dt class="htp-list-thumb"><div class="thumb-slider append"><div><img src="/images/front/travel/vis-size/vis-240x190-2.jpg" alt="test2"></div><div><img src="/images/front/travel/vis-size/vis-240x190.jpg" alt="test1"></div></div><a href="#" class="help-tooltip wish on"><span class="over"></span><span class="cont" style="width:190px">이곳을 관심숙소로 저장하시고<br>마이페이지에서 확인해 보세요.</span></a></dt><dd class="htp-list-con"><div class="htp-list-conl"><div class="htp-tit-kr"><p class="tit">추가되는 데이터</p><p class="grade">아주 좋음 4.5</p></div><div class="htp-tit-en"><p class="tit">Red Roof Inn Seattle Airport - SEATAC</p></div><div class="htp-other-info"><p class="grade"><span class="txt">4성급</span><span class="on"></span><span class="on"></span><span class="on"></span><span class="on"></span><span class="off"></span></p><p class="htp-loca">17, Avenue Kleber, Paris</p></div><div class="htp-lower"><p class="htp-facilities">무료와이파이, 무료주차, 다국어지원</p></div></div><div class="htp-list-conr"><div class="htp-badge"><span class="stip append st1" title="<strong class=\'className\'>최근 1달간 조회수가 많은 숙소</strong>">현재인기</span><span class="stip append st2" title="<strong class=\'className\'>2018년도에 오픈한<br>신규 호텔입니다.</strong>">NEW</span></div><div class="htp-price"><div class="tp1"><p><span>3</span>박 최저가</p></div><div class="tp2"><p><strong>413,300</strong>원</p></div><div class="tp3"><p>1박 평균 <strong>137,767</strong>원</p></div></div><div class="htp-btn"><span class="btn-base bb-st3"><a href="http://www.nate.com" target="_blank">객실선택</a></span></div></div></dd></dl></div></li>';
 
     $(window).on('scroll', function(){
       var scToBottom = ($(window).scrollTop() >= $(document).height()-$(window).height()-$htpList.children('li').outerHeight()*2);
@@ -219,6 +238,15 @@ $(function(){
             slidesToScroll: 1,
           });
           $('.htp-res-list .thumb-slider.append').removeClass('append');
+          $('.htp-res-list .stip.append').tooltip({
+        		align: 'autoTop',
+        		html: true,
+        		fade: {
+        			duration: 300,
+        			opacity: 1
+        		}
+        	});
+          $('.htp-res-list .stip.append').removeClass('append');
 
           $htpLoading.hide();
 

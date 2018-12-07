@@ -46,7 +46,7 @@
             var tip = $.data(this, 'active.custom-tooltip');
 			var $selector = $(this).attr('class');
             if (!tip) {
-                tip = $('<div class="custom-tooltip"><div class="custom-tooltip-inner"/></div>').css({position:'absolute', zIndex:100000});
+                tip = $('<div class="custom-tooltip"><div class="custom-tooltip-inner"/></div>').css({position:'absolute', zIndex:45});
                 $.data(this, 'active.custom-tooltip', tip);
             }
 

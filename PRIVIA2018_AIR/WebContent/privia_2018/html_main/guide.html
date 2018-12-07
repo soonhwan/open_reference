@@ -21,34 +21,6 @@
 <script type="text/javascript" src="/js/front/travel/slick.min.js"></script>
 <script type="text/javascript" src="/js/front/travel/fakeselect.js"></script>
 <script type="text/javascript" src="/js/utils.js"></script>
-<script type="text/javascript" src="http://codemirror.net/lib/codemirror.js"></script>
-<script type="text/javascript" src="http://codemirror.net/mode/javascript/javascript.js"></script>
-<script type="text/javascript" src="http://codemirror.net/addon/selection/active-line.js"></script>
-<script type="text/javascript" src="http://codemirror.net/mode/xml/xml.js"></script>
-<script type="text/javascript" src="http://codemirror.net/addon/edit/matchbrackets.js"></script>
-<script type="text/javascript" src="http://codemirror.net/mode/htmlmixed/htmlmixed.js"></script>
-<script>
-$(function(){ 
-    genHTML(); 
-    
-    //툴팁 jquery 샘플 - https://github.com/yckart/jquery.tooltip.js
-    //ex) http://tstatic.priviatravel.com/privia_2018/html_air/pt_p_dair_list.html
-    $('.ttip-help').tooltip({
-		align: 'autoTop',
-		html: true,
-		fade: {
-			duration: 300,
-			opacity: 1
-		}
-	});
-});
-</script>
-<!--<script type="text/javascript" src="http://twww.priviatravel.com/share/headerManager"></script>-->
-<script type="text/javascript" src="/js/front/travel/commonModuleHeader.js"></script> <!-- headerManager 가이드 버전 실제로는 반영 되지 않음 -->
-<script type="text/javascript" src="/js/front/travel/commonModule.js"></script>
-<script type="text/javascript" src="/js/front/travel/commonModuleUI.js"></script> 
-<script type="text/javascript" src="https://cdn.jsdelivr.net/npm/vue"></script>
-
 <style>
     body{background: #eee;}
     .guide-sec{padding-bottom:150px;}
@@ -56,7 +28,7 @@ $(function(){
 	.guide-sec .tit {font-family:"NotoSansKR" !important;font-size:20px;margin-bottom: 10px;text-transform:uppercase;}
     .guide-sec .tit span {font-size:16px;text-transform:initial;}
     .guide-sec .guide-tit {margin-top:0;padding: 10px;border-bottom:2px solid #000;}
-	.guide-sec .guide-box {margin-top: 60px;padding: 10px;}
+	.guide-sec .guide-box {margin-top: 60px;padding: 10px;position: relative;}
 	.guide-sec .guide-box .gb-inner {padding: 10px;box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.4);background: #fff;border-radius:3px;}
     .guide-sec .guide-box .gb-inner.wide{position:relative;left:-20px;width:1220px;padding:10px;}
     .guide-sec .guide-box .gb-inner.half{width:50%;}
@@ -88,12 +60,14 @@ $(function(){
     .guide-menu .mCSB_container{width:100%;}
     .guide-menu .mCSB_scrollTools .mCSB_dragger .mCSB_dragger_bar{width:6px;}
     
-    .code-toggle{position:fixed;left:10px;top:10px;z-index:999;}
-    .code-toggle.short a{min-width:inherit;}
-    .code-toggle em{vertical-align:top;text-transform:uppercase;display:none;}
-    .code-toggle:hover em{display:inline-block;}
-    .guide-sec .htmlsrc{margin-top:10px;box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.4);background:#fff;border-radius:3px;}
-    .guide-sec .CodeMirror{height:auto;margin:0 0 20px;border:1px solid #d7d7d7;font-size:11px;font-family:'맑은 고딕','Malgun Gothic', sans-serif;z-index:0}
+    .code-btn{position:absolute;right:10px;top:5px;}
+    .gb-inner.half+.code-btn{right:600px;}
+    .gb-inner[style*="width:297px"]+.code-btn{right:820px;top:43px;}
+    .gb-inner[style*="width:740px"]+.code-btn{right:450px;}
+    .code-btn.short a{min-width:inherit;}
+    .code-btn em{vertical-align:top;text-transform:uppercase;display:none;}
+    .code-btn:hover em{display:inline-block;}
+    .guide-sec .CodeMirror{height:auto;margin:0 0 20px;font-size:11px;font-family:'맑은 고딕','Malgun Gothic', sans-serif;z-index:0;margin-top:10px;box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.4);border-radius:3px;}
     .guide-sec .CodeMirror *{line-height:1.6 !important}
 </style>
 </head>
@@ -622,6 +596,20 @@ $(function(){
                 </span> 
                 <br /><br />
                 <span class="ttip-help" title="<strong class='className'>특가 요금은 마일리지 적립이 불가합니다.</strong>">일반석</span>
+                <script>
+                //툴팁 jquery 샘플 - https://github.com/yckart/jquery.tooltip.js
+                //ex) http://tstatic.priviatravel.com/privia_2018/html_air/pt_p_dair_list.html
+                $(function(){
+                    $('.ttip-help').tooltip({
+                        align: 'autoTop',
+                        html: true,
+                        fade: {
+                            duration: 300,
+                            opacity: 1
+                        }
+                    });
+                });
+                </script>
             </div>
         </div>
 		<div class="guide-box" id="input">
@@ -2119,7 +2107,6 @@ $(function(){
                 </div>
             </div>
         </div>
-        <span class="btn-base bb-st3 short code-toggle"><a href="#">CODE <em>close</em></a></span>
         <div class="guide-menu">
             <h2>GUIDE MENU <span></span></h2>
             <div class="guide-sch">
@@ -2133,6 +2120,13 @@ $(function(){
 	</div>
 </div>
 
+<script type="text/javascript" src="https://cdn.jsdelivr.net/npm/vue"></script>
+<script type="text/javascript" src="http://codemirror.net/lib/codemirror.js"></script>
+<script type="text/javascript" src="http://codemirror.net/mode/javascript/javascript.js"></script>
+<script type="text/javascript" src="http://codemirror.net/addon/selection/active-line.js"></script>
+<script type="text/javascript" src="http://codemirror.net/mode/xml/xml.js"></script>
+<script type="text/javascript" src="http://codemirror.net/addon/edit/matchbrackets.js"></script>
+<script type="text/javascript" src="http://codemirror.net/mode/htmlmixed/htmlmixed.js"></script>
 <script type="text/javascript">
 new Vue({
     el: '.guide-menu',
@@ -2156,23 +2150,6 @@ new Vue({
         }
     }
 });
-    
-function genHTML(valArr){	
-    $('.gb-inner').each(function(i){
-        var temp = valArr || $(this).html();
-        var $src = $('<div class="htmlsrc" ></div>');
-        $(this).after($src);	
-        var myCodeMirror = CodeMirror($src[0], {
-            value: valArr ? temp[i] : temp,
-            mode: 'htmlmixed',
-            lineNumbers: !$(this).is('.inline'),
-            readOnly: true,
-            autoClearEmptyLines: false,
-            lineWrapping: true,
-            theme: 'monokai'
-        });
-    });
-}
 
 $(function(){
     var uiArr = [];
@@ -2184,23 +2161,18 @@ $(function(){
     var uiBoxPos = function(i){ return $uiBox.eq(i).offset().top };
     var _top, _idx;
     var _speed = 500;
+    var $gb = $('.guide-box');
+    var codeArr = [];
+    $gb.find('.gb-inner').each(function(i){
+        codeArr.push($('.gb-inner').eq(i).html());
+    });
+    
     $uiBox.each(function(){
         uiArr.push($(this).attr('id'));
     });
     for(i in uiArr){
         $uiList.append('<li><a href="#'+uiArr[i]+'">'+uiArr[i].toUpperCase()+'</a></li>');    
     }
-    $uiCodeBtn.on('click', function(e){
-       codeStatus = $(this).find('em');
-       if(codeStatus.text()=='close'){
-           $uiBox.find('.CodeMirror').hide();
-           codeStatus.text('open');
-       }else{
-           $uiBox.find('.CodeMirror').show();
-           codeStatus.text('close');
-       }
-       e.preventDefault();
-    });
     $uiMenu.find('h2 span').text('(총 '+uiArr.length+'개)');
     $uiMenu.draggable();
     $uiMenu.find('.btn-base a').on('click', function(e){
@@ -2240,9 +2212,31 @@ $(function(){
             $uiList.find('li').eq(uiArr.length-1).addClass('on');
         }
     });
+    
+    $gb.append('<span class="btn-base bb-st3 short code-btn"><a href="#">CODE</a></span>')
+    var $codeBtn = $gb.find('.code-btn');
+    $codeBtn.on('click', function(e){
+        e.preventDefault();
+        _idx = $codeBtn.index(this);
+        $(this).hide();
+        CodeMirror($gb.eq(_idx)[0], {
+            value: codeArr[_idx],
+            mode: 'htmlmixed',
+            lineNumbers: !$(this).is('.inline'),
+            readOnly: true,
+            autoClearEmptyLines: false,
+            lineWrapping: true,
+            theme: 'monokai'
+        });
+        _top = uiBoxPos(_idx)-50;
+        $('html, body').stop().animate({'scrollTop': _top}, 150); 
+    });
 });
 </script>
-
+<script type="text/javascript" src="/js/front/travel/commonModuleHeader.js"></script> <!-- headerManager 가이드 버전 실제로는 반영 되지 않음 -->
+<!--<script type="text/javascript" src="http://twww.priviatravel.com/share/headerManager"></script>-->
+<script type="text/javascript" src="/js/front/travel/commonModule.js"></script>
+<script type="text/javascript" src="/js/front/travel/commonModuleUI.js"></script>
 
 </body>
 </html>

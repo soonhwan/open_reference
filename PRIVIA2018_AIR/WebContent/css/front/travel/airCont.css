@@ -436,13 +436,12 @@
 .hbooksec-bda-passenger .freight-info li {margin-top: 10px;}
 .hbooksec-bda-passenger .freight-info li:first-child {margin-top: 0;}
 
-
-/* 예약규정 및 이용약관 */
+/* 국제선 예약규정 및 이용약관 */
 .hbooksec-air .ui-term-wrap .ui-term-box .inner {height: 330px;}
-.reserv-area .tbl-list th {border-top: 0;}
+.reserv-area-sec .tbl-list th {border-top: 0;}
 
 /* 요금규정(lpu) */
-.w-fare-rules .ui-customscrollbar {height: 600px;}
+.w-fare-rules .ui-customscrollbar {height: 600px;margin-top: 30px;}
 .w-fare-rules .ui-customscrollbar .mCSB_outside+.mCS-minimal-dark.mCSB_scrollTools_vertical, 
 .w-fare-rules .ui-customscrollbar .mCSB_outside+.mCS-minimal.mCSB_scrollTools_vertical {right: -10px;}
 
@@ -489,8 +488,10 @@
 .hdcd-bnn .btn-hdcd-more {display: block;position: absolute;top: 100px;left: 31px;}
 
 /* 예약상세 - 항공 예약/결제 내역 */
-.hbooksec-res-check .ui-btns-wrap {margin-top: 20px;}
+.hbooksec-res-check .ui-btns-wrap {margin-top: 20px;overflow: visible;}
+.hbooksec-res-check .ui-btns-wrap .ui-btns {overflow: visible;}
 .hbooksec-res-check .ui-btns-wrap .bb-st5 {width: 145px;letter-spacing: -1px;}
+.hbooksec-res-check .ui-btns-wrap .lp-area {float: left;margin-left: 10px;width: 145px;letter-spacing: -1px;}
 .comp-book-box-det {border:1px solid #e2e2e2;border-radius: 5px;overflow: hidden;position: relative;}
 .comp-book-box-det .cbb-tit {background-color: #288ecc;padding: 37px 40px;position: relative;}
 .comp-book-box-det .air-info .label-base {margin-right: 5px;}
@@ -619,7 +620,7 @@
 .ldl-fiter .list-ft .lft-item.seat .lft-pannel {width: 183px;}
 .ldl-fiter .list-ft .lft-item.etc .lft-btn .label {width: 147px;text-align: right;}
 .ldl-fiter .list-ft .lft-item.etc .lft-pannel {width: 147px;}
-.ldl-fiter .list-ft .lft-pannel {min-width: 100px;position: absolute;left: 0;top: 30px;border:1px solid #bdc0c6;background-color: #fff;border-radius: 5px;overflow: hidden;z-index: 10;opacity: 0;visibility: hidden;transition: opacity 0.3s;}
+.ldl-fiter .list-ft .lft-pannel {min-width: 100px;position: absolute;left: 0;top: 30px;border:1px solid #bdc0c6;background-color: #fff;border-radius: 5px;overflow: hidden;z-index: 50;opacity: 0;visibility: hidden;transition: opacity 0.3s;}
 .ldl-fiter .list-ft .lft-pannel.lftp-st1 ul {padding: 10px 20px;}
 .ldl-fiter .list-ft .lft-pannel.lftp-st1 li {margin: 10px 0;}
 .ldl-fiter .list-ft .lft-pannel.lftp-st2 a {display: block;font-size: 14px;color: #000;padding: 9px 14px 11px 14px;}
@@ -674,7 +675,7 @@
 .htp-res-list-dair .hl-pricelist-btn .label-base {font-size: 12px;padding-right: 27px;}
 .htp-res-list-dair .c-tooltip-seat {position: absolute;width: 100%;height: 100%;background-color: #fff;opacity: 0;filter: alpha(opacity=0);top: 0;left: 0;z-index: 1;}
 .htp-res-list-dair .c-tooltip-tblTotalPrice {position: absolute;width: 100%;height: 100%;background-color: #fff;opacity: 0;filter: alpha(opacity=0);top: 0;left: 0;z-index: 1;}
-.custom-tooltip.c-tooltip-seat {margin-top: -13px;margin-left: -5px;}
+.custom-tooltip.c-tooltip-seat {margin-top: -13px;}
 .custom-tooltip.c-tooltip-seat .custom-tooltip-inner {max-width: 250px;}
 .custom-tooltip.c-tooltip-tblTotalPrice {margin-top: -10px;margin-left: -10px;}
 .custom-tooltip.c-tooltip-tblTotalPrice .custom-tooltip-inner {width: 280px;}
@@ -740,7 +741,7 @@ html[class*="ie"] .ld-dair-select .ldds-est-price {padding-top: 14px;}
 .w-list-dair .ldair-noway {float: left;width: 450px;height: 794px;position: relative;margin-left: 20px;margin-top: 56px;border:1px solid #e2e2e2;border-radius: 5px 5px 0 0;text-align: center;padding-top: 340px;}
 html[class*="ie"] .w-list-dair .ldair-noway {margin-top: 55px;}
 .w-list-dair .ldair-noway .txt {display: inline-block;font-size:14px;line-height: 25px;color: #000;padding-top: 50px;position: relative;}
-.w-list-dair .ldair-noway .txt:before {content: '';display: block;width: 40px;height: 33px;background: url(/images/front/travel/contents/icon-common-sec.png) -228px -68px no-repeat;position: absolute;top: 0;left: 50%;margin-left: -20px;opacity: 0.2;}
+.w-list-dair .ldair-noway .txt:before {content: '';display: block;width: 40px;height: 33px;background: url(/images/front/travel/contents/icon-common-sec.png) -273px -68px no-repeat;position: absolute;top: 0;left: 50%;margin-left: -20px;opacity: 0.2;}
 
 /*------------------------------------------------------------------------------------------
 ********************** 항공 예약(국내선) ************************
@@ -772,18 +773,28 @@ html[class*="ie"] .w-list-dair .ldair-noway {margin-top: 55px;}
 .hbooksec-bda-paymentinfo .box-est-price + .box-est-price {margin-top: 30px;padding-top: 30px;border-top: 1px solid #e2e2e2;}
 .hbooksec-bda-paymentinfo .noti-hdcd {position: absolute;bottom: 33px;left: 850px;}
 .hbooksec-bda-paymentinfo .noti-hdcd .txt {font-size:14px;color: #000;display: inline-block;vertical-align: middle;}
-.hbooksec-bda-paymentinfo .noti-hdcd .help-tooltip .cont {width: 140px;left: -67px;top: -85px;}
+.hbooksec-bda-paymentinfo .noti-hdcd .help-tooltip .cont {width: 460px;left: -367px;top: -168px;}
+.hbooksec-bda-paymentinfo .noti-hdcd .help-tooltip .cont:after {margin-left: 136px;}
 
 /* 예약오류 */
 .cbox-alert {border:1px solid #e2e2e2;border-radius: 5px;text-align: center;}
-.alert-cont {padding: 118px 0;display: inline-block;text-align: center;}
-.alert-cont .txt1 {font-size:20px;color: #000;font-family:"NotoSansKR" !important;}
-.alert-cont .txt2 {font-size:14px;color: #000;margin-top: 7px;}
+.alert-cont {padding: 118px 0;display: inline-block;width: 100%;text-align: center;}
+.alert-cont .txt1, .alert-cont .txt1 * {font-size:20px;color: #000;font-family:"NotoSansKR" !important;}
+.alert-cont .txt2, .alert-cont .txt2 * {font-size:14px;color: #000;margin-top: 7px;}
 .alert-cont .btn {margin-top: 25px;}
 .alert-cont .btn .bb-st3 {width: 140px;}
 .alert-cont .mk-alert {position: relative;padding-top: 80px;}
 .alert-cont .mk-alert:before {content: '';display: block;width: 64px;height: 64px;background: url(/images/front/travel/contents/icon-common-sec.png) -305px 0px no-repeat;top: 0;left: 50%;margin-left: -32px;position: absolute;opacity: 0.2;}
+.alert-cont .ac-bottom {margin-top: 20px;padding-top: 20px;border-top: 1px solid #e2e2e2;}
+.alert-cont .airline-info {display: inline-block;vertical-align: bottom;}
+.alert-cont .airline-info .det {color:inherit;display: inline-block;vertical-align: middle;}
+.alert-cont strong .airline-info * {font-weight: bold;}
+.alert-cont .airline-info .arr {color:inherit;display: inline-block;vertical-align: middle;position: relative;margin-left: 18px;}
+.alert-cont .airline-info .arr:before {content: '';display: block;width: 16px;height: 7px;background: url(/images/front/travel/contents/icon-common-sec.png) -20px -211px no-repeat;position: absolute;top: 12px;left: -18px;}
+.alert-cont .txt2 .airline-info .arr:before {top: 7px;}
+.alert-cont .txt2 .airline-info.c-point1 .arr:before {top: 7px;background-position: -86px -217px;}
 
 .popup-wrap .cbox-alert {border: 0;}
 .popup-wrap .alert-cont {padding: 90px 0 70px 0;}
+.popup-wrap .alert-cont.acpd-st2 {padding: 40px 0 20px 0;}
 

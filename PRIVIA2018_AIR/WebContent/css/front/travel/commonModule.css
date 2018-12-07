@@ -48,10 +48,12 @@
 .c-point8{color:#da0000 !important}
 .c-point8-bold{color:#da0000 !important;font-weight:bold !important}
 .c-point9{color:#f30774 !important}
+.c-point10{color:#999 !important}
 /* 텍스트 */
 .c-txt-point1 {margin-left: -9px;padding-left: 9px;position: relative;}
 .c-txt-point1:before {content: '';display: block;width: 4px;height: 4px;background-color: #e93a84;position: absolute;top: 4px;left: 0;border-radius: 4px;}
 .c-txtd-through {text-decoration: line-through !important;}
+.c-txtd-underline {text-decoration: underline !important;}
 .c-txta-center {text-align: center !important;}
 .c-txt-tac {font-size:14px;color: #000;text-align: center;}
 .c-txt-tar {font-size:14px;color: #000;text-align: right;}
@@ -161,6 +163,7 @@
 .input-base.w180{width:180px;}
 .input-base.w200{width:200px;}
 .input-base.w235{width:235px;}
+.input-base.w250{width:250px;}
 .input-base.w280{width:280px;}
 .input-base.w300{width:300px;}
 .input-base.w350{width:350px;}
@@ -206,18 +209,19 @@
 .chk-base {transition: opacity 0.3s;display: inline-block;vertical-align: middle;}
 .chk-base.disabled {opacity: 0.4;pointer-events: none;}
 .chk-base label {display: inline-block;vertical-align: middle;position: relative;}
+html[class*="ie"] .chk-base label:before {top: 1px;}
 /* checkbox1 */
-.chk-st1 label {min-width:20px;height: 20px;padding-left: 30px;font-size:14px;color: #fff;}
+.chk-st1 label {min-width:20px;min-height: 20px;padding-left: 30px;font-size:14px;color: #fff;}
 .chk-st1 label:before {content: '';display: block;width: 20px;height: 20px;background: url(/images/front/travel/contents/icon-common-sec.png) 0px -235px no-repeat;position: absolute;top: 0;left: 0;}
 .chk-st1 input[type="checkbox"]:checked ~ label:before {background-position: -25px -235px;}
 .chk-st1 label.on:before {background-position: -25px -235px;}
 /* checkbox2 */
-.chk-st2 label {min-width:20px;height: 20px;padding-left: 30px;font-size:14px;color: #000;}
+.chk-st2 label {min-width:20px;min-height: 20px;padding-left: 30px;font-size:14px;color: #000;}
 .chk-st2 label:before {content: '';display: block;width: 20px;height: 20px;background: url(/images/front/travel/contents/icon-common-sec.png) 0px -260px no-repeat;position: absolute;top: 0;left: 0;}
 .chk-st2 input[type="checkbox"]:checked ~ label:before {background-position: -25px -260px;}
 .chk-st2 label.on:before {background-position: -25px -260px;}
 /* checkbox3 */
-.chk-st3 label {min-width:20px;height: 20px;padding-left: 30px;font-size:14px;color: #000;}
+.chk-st3 label {min-width:20px;min-height: 20px;padding-left: 30px;font-size:14px;color: #000;}
 .chk-st3 label:before {content: '';display: block;width: 20px;height: 20px;background: url(/images/front/travel/contents/icon-common-sec.png) 0px -260px no-repeat;position: absolute;top: 0;left: 0;}
 .chk-st3 input[type="checkbox"]:checked ~ label:before {background-position: -156px -279px;}
 .chk-st3 label.on:before {background-position: -157px -280px;}
@@ -244,12 +248,12 @@
 .radio-base.disabled {opacity: 0.4;pointer-events: none;}
 .radio-base label {display: inline-block;vertical-align: middle;position: relative;}
 /* radio1 */
-.radio-st1 label {min-width: 20px;height: 20px;padding-left: 30px;font-size:14px;color: #fff;}
+.radio-st1 label {min-width: 20px;min-height: 20px;padding-left: 30px;font-size:14px;color: #fff;}
 .radio-st1 label:before {content: '';display: block;width: 20px;height: 20px;background: url(/images/front/travel/contents/icon-common-sec.png) 0px -235px no-repeat;position: absolute;top: 0;left: 0;}
 .radio-st1 input[type="radio"]:checked ~ label:before {background-position: -25px -235px;}
 .radio-st1 label.on:before {background-position: -25px -235px;}
 /* radio2 */
-.radio-st2 label {min-width: 20px;height: 20px;padding-left: 30px;font-size:14px;color: #000;}
+.radio-st2 label {min-width: 20px;min-height: 20px;padding-left: 30px;font-size:14px;color: #000;}
 .radio-st2 label:before {content: '';display: block;width: 20px;height: 20px;background: url(/images/front/travel/contents/icon-common-sec.png) -48px -279px no-repeat;position: absolute;top: 0;left: 0;}
 .radio-st2 input[type="radio"]:checked ~ label:before {background-position: -72px -279px;}
 .radio-st2 label.on:before {background-position: -72px -279px;}
@@ -411,17 +415,17 @@ box-shadow: 0 3px 3px 0px rgba(0,0,0,0.1);
 	border-radius: 6px;
 	word-wrap: break-word;
 }
-.custom-tooltip-bottom {margin-top: 4px;margin-left: -3px;}
+.custom-tooltip-bottom {margin-top: 4px;}
 .custom-tooltip-bottom:before {
-	left:50%;top:1px;margin-left:-4px;
+	left:50%;top:1px;margin-left:-8px;
 	border-left:8px solid transparent;
 	border-right:8px solid transparent;
 	border-bottom:8px solid #000;
 	border-top:0;
 }
-.custom-tooltip-top {margin-top: -5px;margin-left: -3px;}
+.custom-tooltip-top {margin-top: -5px;}
 .custom-tooltip-top:before {
-	left:50%;bottom: 0;margin-left:-4px;
+	left:50%;bottom: 0;margin-left:-8px;
 	border-left:8px solid transparent;
 	border-right:8px solid transparent;
 	border-top:8px solid #000;
@@ -450,11 +454,22 @@ box-shadow: 0 3px 3px 0px rgba(0,0,0,0.1);
 .lp-cont .btn-close{position:absolute;right:20px;top:20px;display:block;width:13px;height:13px;background:url(/images/front/travel/contents/icon-common-sec.png) -41px -69px no-repeat;text-indent:-20000px;}
 .lp-cont p{font-size:14px;color:#000;line-height:24px;}
 .lp-cont .ctxt{text-align:center;}
+.lp-cont.lpc2 {padding:20px;}
+.lp-cont.lpc2 .lpc-header .air-logo {display: inline-block;vertical-align: middle;margin-right: 3px;width: 30px;margin-top: -3px;}
+.lp-cont.lpc2 .lpc-header .tit {display: inline-block;vertical-align: middle;color:#000; font-family:"NotoSansKR" !important; font-size:16px; font-weight:500;margin-bottom: 15px;}
+.lp-cont.lpc2 .btn-close {width:15px;height:15px;background-position: -199px -92px;}
+.lp-cont .con {margin-bottom:20px;font-size:14px;line-height:26px;color:#000;letter-spacing:-1px;}
+.lp-cont .con-wrap{padding:30px 0 20px;border-top:1px solid #e2e2e2;border-bottom:1px solid #e2e2e2;}
+.lp-cont .con-wrap{padding:20px 0 0;border-bottom:0;}
+.lp-cont .dtxt-list {margin-top: 0 !important;}
+
 .lp-area .btn.base{display:block;width:40px;height:22px;padding-top:2px;font-size:12px;color:#fff;text-align:center;border-radius:3px;transition:background .3s, color .3s;}
 .lp-area .btn.base.lp1{background:#565656;}
 .lp-area .btn.base.lp1:hover {background-color: #e93a84; color:#fff;}
 .lp-area .btn.base.lp2{background:#e93a84;}
 .lp-area .btn.base.lp2:hover{}
+.lp-area .btn.base.lp3{font-size:14px;color: #000;min-width: 90px;font-weight: 500px !important;padding: 9px 22px 11px 22px;background-color: #e0e0e0;border-radius: 3px;width: auto;height: auto;}
+.lp-area .btn.base.lp3:hover{background-color: #e93a84; color:#fff;}
 .lp-area .btn.square{display:inline-block;vertical-align:middle;width:19px;height:19px;cursor:pointer;position:relative;border-radius:3px;overflow:hidden;border:0;}
 .lp-area .btn.square:before{content:'?';display: block;width: 19px;height: 19px;text-align: center;line-height: 19px;font-size: 12px;color: #fff;font-family: "YouandiModernTB" !important;background-color: #565656;position: absolute;top: 0;left: 0;z-index: 0;}
 .lp-area .btn.small{width:16px;height:16px;}
@@ -747,7 +762,7 @@ table.tbl-list,table.tbl-list2, table.tbl-receipt{border-collapse:separate;}
 /*.popup-wrap *{font-family: "Malgun Gothic", "NotoSansKR", sans-serif;-moz-box-sizing:border-box;-webkit-box-sizing:border-box;box-sizing:border-box;}*/
 .popup-wrap .heading{position:relative;padding:30px;background:#fff;color: #fff;letter-spacing:-1px}
 .popup-wrap .heading .btn_close {position:absolute; top:31px; right:30px; display:inline-block; width:16px; height:16px; text-indent:-9999px; background-image:url(/images/front/travel/contents/icon-common-sec.png);background-position:-197px -71px;}
-.popup-wrap .heading h2 {color:#000; font-family:"NotoSansKR" !important; font-size:18px; font-weight:bold; line-height:1}
+.popup-wrap .heading h2 {color:#000; font-family:"NotoSansKR" !important; font-size:18px; font-weight:500; line-height:1}
 .popup-wrap .heading .air-logo {display: inline-block;vertical-align: top;margin-right: 5px;width: 30px;}
 .popup-wrap .content{font-size:14px;color:#000;line-height:24px;background:#fff;}
 .popup-wrap .content .inner{padding:0px 30px 30px;}
@@ -780,7 +795,7 @@ table.tbl-list,table.tbl-list2, table.tbl-receipt{border-collapse:separate;}
 .popup-wrap .ui-box.st2,.popup-wrap .ui-box.st3{padding:10px;}
 .popup-wrap .ui-box.st2 .ui-customscrollbar{padding:10px;height:175px;}
 .popup-wrap .ui-box.st3 .ui-customscrollbar{padding:10px;height:105px;}
-.popup-wrap .ui-box.st3 .svc-agreement{line-height:26px;}
+.popup-wrap .ui-box.st3 .svc-agreement-sec{line-height:26px;}
 .popup-wrap .ui-tab-menu .bbr-st3 a{min-width:inherit;}
 .popup-wrap .bb-st3.big a,.popup-wrap  .bb-st3.big button,.popup-wrap  .bb-st3.big input{padding:20px 40px;font-size:16px;line-height:1;}
 .popup-wrap .bb-st3.big em{line-height:1;}
@@ -859,27 +874,24 @@ table.tbl-list,table.tbl-list2, table.tbl-receipt{border-collapse:separate;}
 .ui-term-wrap .ui-term-list dt.on .ui-term-tit .arrow{background-position:-21px -146px;}
 .ui-term-wrap .ui-term-box{padding:10px;border:1px solid #e2e2e2;border-radius:5px;}
 .ui-term-wrap .ui-term-box .inner{padding:20px;height:215px;overflow:hidden;}
-.ui-term-wrap .ui-term-box .content,
-.ui-term-wrap .ui-term-box .svc-agreement,
-.ui-box .svc-agreement{font-size:14px;color:#000;line-height:1.6;}
 .ui-term-wrap .ui-term-box .term-customscrollbar .mCSB_scrollTools{opacity:1 !important;width:6px;height:98%;top:1%;}
 .ui-term-wrap .ui-term-box .term-customscrollbar .mCSB_container{width:100%;}
 .ui-term-wrap .ui-term-box .term-customscrollbar .mCSB_scrollTools .mCSB_dragger .mCSB_dragger_bar{width:6px;}
-.ui-term-wrap .ui-term-box .svc-agreement table.list,
-.ui-box .svc-agreement table.list{width:100%;table-layout:fixed;background-color:white}
-.ui-term-wrap .ui-term-box .svc-agreement table.list thead tr th,
-.ui-box .svc-agreement table.list thead tr th{border-top:1px solid #666; border-bottom:1px solid #666; text-align:center; padding:9px 0; background:#fff;}
-.ui-term-wrap .ui-term-box .svc-agreement table.list tbody tr td,
-.ui-box .svc-agreement table.list tbody tr td{border-bottom:1px solid #e2e2e2;}
-.ui-term-wrap .ui-term-box .svc-agreement table.list th strong,
-.ui-box .svc-agreement table.list th strong{margin:0}
-.ui-term-wrap .ui-term-box .svc-agreement table.list td p,
-.ui-box .svc-agreement table.list td p{line-height:1.5;padding:5px 0;}
-.ui-term-wrap .ui-term-box .svc-agreement table.list tbody tr td.line,
-.ui-box .svc-agreement table.list tbody tr td.line{border-right:1px solid #e2e2e2;}
-.ui-term-wrap .ui-term-box .svc-agreement table.list tbody tr td.al p,
-.ui-box .svc-agreement table.list tbody tr td.al p{padding:10px; text-align:left;}
 .ui-term-wrap .ui-term-box .dtxt-list{margin-top:0;}
+
+/* 규정 및 약관 서식 */
+.svc-agreement-sec {line-height:1.6;color:#636363;font-size:14px;}
+.svc-agreement-sec strong{display:inline-block;margin:0 0 5px;color:#333;position:static !important}
+.svc-agreement-sec table.list{width:100%;table-layout:fixed;background-color:white}
+.svc-agreement-sec table.list thead tr th {border-top:1px solid #666; border-bottom:1px solid #666; text-align:center; padding:9px 0; background:#fff;}
+.svc-agreement-sec table.list tbody tr td {border-bottom:1px solid #e2e2e2;}
+.svc-agreement-sec table.list th strong{margin:0}
+.svc-agreement-sec table.list td p{line-height:1.5;padding:5px 0;}
+.svc-agreement-sec table.list tbody tr td.line {border-right:1px solid #e2e2e2;}
+.svc-agreement-sec table.list tbody tr td.al p {padding-left:10px; text-align:left;}
+.svc-agreement-sec a{color:#333;display:inline-block;line-height:1.6}
+.svc-agreement-sec .consigment_list li{line-height:1.6}
+.svc-agreement-sec .undline{text-decoration:underline !important;}
 
 /* box type */
 .cbox-st1 {margin-top: 20px;padding: 15px;background-color: #eef1f6;border-radius: 6px;}
@@ -1143,6 +1155,34 @@ box-shadow: 3px 7px 22px 0px rgba(0,0,0,0.3);
 .sc-search-box .qsb-cont.qsb-text input{display:block;width:100%;margin-top:10px;font-size:18px;color:#999;font-family:"NotoSansKR" !important;font-weight:500;border:none;z-index:0;}
 .sc-search-box .qsb-cont.qsb-text label{position:absolute;top:33px;left:30px;font-size:18px;color:#999;font-family:"NotoSansKR" !important;font-weight:500;}
 .sc-search-box .qsb-cont.qsb-text label i{font-size:16px;font-weight:300;padding-left:10px;}
+
+/* 인원, 객실 수 */
+.sc-hotel .o-inth .qsb-room{width:29%;}
+.global-ui-room .ui-htp-room{position:relative;width:400px;}
+.global-ui-room .ui-htp-room .room-item{padding:0 30px;}
+.global-ui-room .ui-htp-room .room-item.disabled{display:none;}
+.global-ui-room .ui-htp-room .room-item>dl>dt{position:relative;border-bottom:1px solid #ededed;}
+.global-ui-room .ui-htp-room .room-item dt .room-tab{position:relative;display:inline-block;padding:20px 0;font-family:"NotoSansKR" !important;font-size:16px;font-weight:700;color:#000;line-height:38px;vertical-align:middle;}
+.global-ui-room .ui-htp-room .room-item dt .room-tab span{font-weight:700;}
+.global-ui-room .ui-htp-room .room-item dt .room-arrow{position:absolute;right:10px;top:36px;display:block;width:13px;height:8px;background-image:url(/images/front/travel/contents/icon-common-sec.png);background-position:-21px -156px;transition:background-position .3s;-webkit-transition:background-position .3s;}
+.global-ui-room .ui-htp-room .room-item dt .b-remove{margin-left:20px;display:none;}
+.global-ui-room .ui-htp-room .room-item>dl>dd{padding:20px 0;display:none;border-bottom:1px solid #ededed;}
+.global-ui-room .ui-htp-room .room-item.on>dl>dt{color:#ededed;}
+.global-ui-room .ui-htp-room .room-item.on>dl>dd{display:block;}
+.global-ui-room .ui-htp-room .room-item.on dt .room-tab{color:#ee2375;}
+.global-ui-room .ui-htp-room .room-item.on dt .room-arrow{background-position:-21px -146px;}
+.global-ui-room .ui-htp-room .room-item.on dt .b-remove{display:inline-block;}
+.global-ui-room .ui-htp-room .uis-set-selectbox{margin-top:20px;padding:10px;background:#eef1f6;border-radius:3px;}
+.global-ui-room .ui-htp-room .uis-set-selectbox li{width:98px;margin:4px;}
+.global-ui-room .ui-htp-room .select-base{width:100% !important;}
+.global-ui-room .ui-htp-room .room-item:last-child>dl>dt{border-bottom:0;}
+.global-ui-room .ui-htp-room .room-item:last-child.on>dl>dt{border-bottom:1px solid #ededed;}
+.global-ui-room .ui-htp-room .room-item:last-child.on>dl>dd{border-bottom:0;}
+.global-ui-room .b-addroom-wrap{padding:20px 30px;text-align:right;}
+.global-ui-room .b-addroom{width:133px;font-family:"NotoSansKR" !important;font-size:16px;color:#000;}
+.global-ui-room .uis-capacity-number{margin:0;}
+.global-ui-room .uis-capacity-number li{padding:0 0;margin:20px 0 0;}
+.global-ui-room .uis-capacity-number li:first-child{margin-top:0;}
 
 /* ------- 검색 UI 팝업 - 공통 */
 .sc-ui-search-panel {background-color: #fff;overflow: hidden;border-radius: 6px;z-index: 5;display: block;opacity: 0;position: absolute;visibility: hidden;transition: opacity 0.3s, visibility 0.3s;
@@ -1814,9 +1854,9 @@ box-shadow: 0px 5px 20px 0px rgba(0,0,0,0.1);
 .list-item-slick .list-item-st1 .grade, .list-item-st1.htp-list .grade{position:absolute;right:19px;top:35px;display:inline-block;padding:2px 8px;vertical-align:top;background-color:#aaa;font-family:"NotoSansKR" !important;font-size:12px;letter-spacing:-1px;color: #fff;word-wrap:break-word;border-radius:3px;}
 .list-item-slick .list-item-st1 .grade:after, .list-item-st1.htp-list .grade:after{content:'';display:block;width:0;height:0;border-left:12px solid transparent;border-right:0px solid transparent;border-top:12px solid #aaa;position: absolute;left:-8px;top: 0;}
 .list-multi-sec{border-bottom:1px solid #e2e2e2;}
-.list-multi-sec .list-item-st1.htp-list .info-box{height:auto;}
-.list-multi-sec .list-item-st1.htp-list .info-box .tit.en{left:0;bottom:0;right:initial;}
-.list-multi-sec .list-item-st1.htp-list .info-box .tit-area{position: relative;display:block;height:50px;}
+.list-multi-sec .list-item-st1.htp-list .info-box, .list-item-st1.htp-list.wprice .info-box{height:auto;}
+.list-multi-sec .list-item-st1.htp-list .info-box .tit.en, .list-item-st1.htp-list.wprice .info-box .tit.en{left:0;bottom:0;right:initial;}
+.list-multi-sec .list-item-st1.htp-list .info-box .tit-area, .list-item-st1.htp-list.wprice .info-box .tit-area{position: relative;display:block;height:50px;}
 .list-item-slick .bb-st4.bb-prev,
 .list-item-slick .bb-st4.bb-next{position:absolute;top:50%;margin-top:-10px;z-index:1;}
 .list-item-slick .bb-st4.bb-prev{left:-30px;}

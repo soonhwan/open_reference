@@ -1202,61 +1202,72 @@ $(function(){
 									<tr>
 										<th scope="row"><span class="imp">*</span> 결제 카드</th>
 										<td>
-											<div class="input-wrap">
-												<select class="select-base" style="width:160px;">
+											<div class="input-area">
+												<select class="select-base err" style="width:160px;">
 													<option value="1">선택</option>
 													<option value="2" selected>현대카드</option>
-													<option value="3">3</option>
-													<option value="4">4</option>
+													<option value="3">국민카드</option>
+													<option value="4">삼성카드</option>
 												</select>
-												<!-- 현대카드 선택시 노출 -->
-												<span class="btn-base bb-st5"><a href="#">현대카드 청구 할인 안내사항</a></span>
-												<!-- //현대카드 선택시 노출 -->
+												<p class="feedback"><span>결제 카드를 선택해주세요.</span></p>
 											</div>
+											<!-- 현대카드 선택시 노출 -->
+											<span class="btn-base bb-st5"><a href="http://www.priviatravel.com/customer/benefits/hcarddcServiceTab" target="_blank">현대카드 청구 할인 안내사항</a></span>
+											<!-- //현대카드 선택시 노출 -->
 										</td>
 									</tr>
 									<tr>
 										<th scope="row"><span class="imp">*</span> 카드 번호</th>
 										<td>
-											<div class="input-wrap">
-												<input type="text" class="input-base tp1 w100">
+											<div class="input-area">
+												<input type="text" class="input-base tp1 w100 err">
 												<span class="unit hyphen">-</span>
-												<input type="text" class="input-base tp1 w100">
+												<input type="text" class="input-base tp1 w100 err">
 												<span class="unit hyphen">-</span>
-												<input type="text" class="input-base tp1 w100">
+												<input type="text" class="input-base tp1 w100 err">
 												<span class="unit hyphen">-</span>
-												<input type="text" class="input-base tp1 w100">
+												<input type="text" class="input-base tp1 w100 err">
+												<p class="feedback"><span>카드 번호를 입력해주세요.</span></p>
+												<p class="feedback"><span>숫자만 입력 가능합니다.</span></p>
 											</div>
 										</td>
 									</tr>
 									<tr>
 										<th scope="row"><span class="imp">*</span> 유효기간</th>
 										<td>
-											<div class="input-wrap">
-												<input type="text" class="input-base tp1 w70" placeholder="월">
+											<div class="input-area">
+												<input type="text" class="input-base tp1 w70 err" placeholder="월">
 												<span class="unit">/</span>
-												<input type="text" class="input-base tp1 w70" placeholder="년">
+												<input type="text" class="input-base tp1 w70 err" placeholder="년">
+												<p class="feedback"><span>유효 기간을 입력해주세요.</span></p>
+												<p class="feedback"><span>숫자만 입력 가능합니다.</span></p>
 											</div>
 										</td>
 									</tr>
 									<tr>
 										<th scope="row"><span class="imp">*</span> 카드 비밀번호</th>
 										<td>
-											<div class="input-wrap">
-												<input type="text" class="input-base tp1 w70" placeholder="월">
+											<div class="input-area">
+												<input type="text" class="input-base tp1 w70 err" placeholder="월">
 												<span class="unit">* *</span>
+												<p class="feedback"><span>카드 비밀번호를 입력해주세요.</span></p>
+												<p class="feedback"><span>숫자만 입력 가능합니다.</span></p>
 											</div>
 										</td>
 									</tr>
 									<tr>
 										<th scope="row"><span class="imp">*</span> [김포 – 제주] 할부 기간</th>
 										<td>
-											<select class="select-base" style="width:160px;">
-												<option value="1" checked="">선택</option>
-												<option value="2">2</option>
-												<option value="3">3</option>
-												<option value="4">4</option>
-											</select>
+											<div class="input-area">
+												<select class="select-base err" style="width:160px;">
+													<option value="1" checked="">선택</option>
+													<option value="2">일시불</option>
+													<option value="3">2개월(무이자)</option>
+													<option value="4">3개월(무이자)</option>
+													<option value="4">4개월</option>
+												</select>	
+												<p class="feedback"><span>할부 기간을 선택해주세요.</span></p>
+											</div>
 										</td>
 									</tr>
 									<tr>
@@ -1265,11 +1276,23 @@ $(function(){
 									</tr>
 									<tr>
 										<th scope="row"><span class="imp">*</span> 카드 소유자 이름</th>
-										<td><input type="text" class="input-base tp1 w160" placeholder="예) 홍길동"></td>
+										<td>
+											<div class="input-area">
+												<input type="text" class="input-base tp1 w160 err" placeholder="예) 홍길동">
+												<p class="feedback"><span>카드 소유자 이름을 입력해주세요.</span></p>
+												<p class="feedback"><span>한글, 영문만 입력 가능합니다.</span></p>
+											</div>
+										</td>
 									</tr>
 									<tr>
 										<th scope="row"><span class="imp">*</span> 카드 소유자 생년월일</th>
-										<td><input type="text" class="input-base tp1 w160" placeholder="예) YYYYMMDD"></td>
+										<td>
+											<div class="input-area">
+												<input type="text" class="input-base tp1 w160 err" placeholder="예) YYYYMMDD">
+												<p class="feedback"><span>카드 소유자 생년월일을 입력해주세요.</span></p>
+												<p class="feedback"><span>숫자만 입력 가능합니다.</span></p>
+											</div>
+										</td>
 									</tr>
 								</tbody>
 							</table>
@@ -1350,7 +1373,10 @@ $(function(){
 								<span class="help-tooltip heltt-st2 small up">
 									<span class="over">?</span>
 									<span class="cont">
-										현대카드 청구 할인 요금은 무엇인가요?
+										<strong class="c-txtd-underline">현대카드 청구 할인 요금은 현대카드 청구 할인율을 적용한 예상 요금</strong>입니다.<br />
+										카드 대금 청구 시점에 할인이 적용되는 방식으로 결제 시 일반요금으로 승인이 되며 결제일에 따라 익월 또는 익익월 이용대금명세서에서 할인된 금액을 확인할 수 있습니다. <br />
+										현대카드 청구 할인은 카드별 할인율이(7%/10%) 상이하며, 전월실적 충족 시 연간한도 1천만원 내에서 적용됩니다. <br />
+										현대카드 Chameleon은 설정한 카드에 따라 혜택 및 할인금액 상이하게 적용됩니다.
 									</span>
 								</span>
 							</div>
@@ -1375,6 +1401,217 @@ $(function(){
 							</div>
 						</div>
 					</div>
+					
+					<!-- 팝업 호출 임시 버튼 -->
+					<div class="book-tail-btn">
+						<div class="ui-btns-wrap">
+							<div class="ui-btns center">
+								<span class="btn-base bb-st3"><a href="#" onclick="dimmLayerPop('popupArea002',1,null,1); return false;">출발편 발권대행료 결제</a></span>
+								<span class="btn-base bb-st3"><a href="#" onclick="dimmLayerPop('popupArea003',1,null,1); return false;">출발편 발권대행료 결제 지속적 실패</a></span>
+								<span class="btn-base bb-st3"><a href="#" onclick="dimmLayerPop('popupArea004',1,null,1); return false;">출발편 항공권료 Key-in 결제 케이스</a></span>
+								<span class="btn-base bb-st3"><a href="#" onclick="dimmLayerPop('popupArea005',1,null,1); return false;">출발편 항공권료 결제 지속적 실패</a></span>
+								<span class="btn-base bb-st3"><a href="#" onclick="dimmLayerPop('popupArea006',1,null,1); return false;">도착편 발권대행료 결제 지속적 실패</a></span>
+								<span class="btn-base bb-st3"><a href="#" onclick="dimmLayerPop('popupArea007',1,null,1); return false;">도착편 항공권료 결제 지속적 실패 </a></span>
+							</div>
+						</div>
+					</div>
+					<!-- //팝업 호출 임시 버튼 -->
+					
+					<!-- 출발편 발권대행료 결제 케이스 팝업 -->
+					<div id="popupArea002" class="popup-wrap" style="display:none; width:700px;">
+						<div class="content">
+							<div class="inner">
+								<div class="cbox-alert">
+									<div class="alert-cont acpd-st2">
+										<p class="txt1 mk-alert">
+											<span class="airline-info">
+												<span class="det">김포</span>
+												<span class="arr">제주</span>
+											</span>
+										</p>
+										<p class="txt1"><strong>발권대행료 결제 중입니다.</strong></p>
+										<div class="ac-bottom">
+											<p class="txt2 c-point1">새로고침 또는 뒤로가기를 할 경우 결제가 정상 진행되지 않습니다.</p>
+										</div>
+									</div>
+								</div>	
+							</div>
+						</div>
+					</div>
+					<!-- //출발편 발권대행료 결제 케이스 팝업 -->
+					
+					<!-- 출발편 발권대행료 결제 지속적 실패 케이스 팝업 -->
+					<div id="popupArea003" class="popup-wrap" style="display:none; width:700px;">
+						<div class="content">
+							<div class="inner">
+								<div class="cbox-alert">
+									<div class="alert-cont acpd-st2">
+										<p class="txt1 mk-alert">결제 시간 초과, 연결 실패 등으로</p>
+										<p class="txt1">
+											<strong>
+												<span class="airline-info">
+													<span class="det">김포</span>
+													<span class="arr">제주</span>
+												</span>
+												발권대행료 결제가 실패되었습니다.
+											</strong>
+										</p>
+										<div class="ac-bottom">
+											<p class="txt2 c-point1">결제하기 페이지로 이동합니다. 지속적인 결제 실패 시 고객센터로 문의해주세요.</p>
+										</div>
+										<div class="ui-btns-wrap" style="margin-top:20px;">
+											<div class="ui-btns center">
+												<span class="btn-base bb-st3"><a href="#">확인</a></span>
+											</div>
+										</div>
+									</div>
+								</div>	
+							</div>
+						</div>
+					</div>
+					<!-- //출발편 발권대행료 결제 지속적 실패 케이스 팝업 -->
+					
+					<!-- 출발편 항공권료 Key-in 결제 케이스 팝업 -->
+					<div id="popupArea004" class="popup-wrap" style="display:none; width:700px;">
+						<div class="content">
+							<div class="inner">
+								<div class="cbox-alert">
+									<div class="alert-cont acpd-st2">
+										<p class="txt1 mk-alert">
+											<span class="airline-info">
+												<span class="det">김포</span>
+												<span class="arr">제주</span>
+											</span>
+										</p>
+										<p class="txt1"><strong>항공권료 결제 중입니다.</strong></p>
+										<div class="ac-bottom">
+											<p class="txt2 c-point1">새로고침 또는 뒤로가기를 할 경우 예약이 정상 진행되지 않습니다.</p>
+										</div>
+									</div>
+								</div>	
+							</div>
+						</div>
+					</div>
+					<!-- //출발편 항공권료 Key-in 결제 케이스 팝업 -->
+					
+					<!-- 출발편 항공권료 결제 지속적 실패 케이스 팝업 -->
+					<div id="popupArea005" class="popup-wrap" style="display:none; width:700px;">
+						<div class="content">
+							<div class="inner">
+								<div class="cbox-alert">
+									<div class="alert-cont acpd-st2">
+										<p class="txt1 mk-alert">결제 시간 초과, 연결 실패 등으로</p>
+										<p class="txt1">
+											<strong>
+												<span class="airline-info">
+													<span class="det">김포</span>
+													<span class="arr">제주</span>
+												</span>
+												항공권료 결제가 실패되었습니다.
+											</strong>
+										</p>
+										<p class="txt1">이미 결제된 발권대행료는 승인 취소됩니다.</p>
+										<div class="ac-bottom">
+											<p class="txt2 c-point1">결제하기 페이지로 이동합니다. 지속적인 결제 실패 시 고객센터로 문의해주세요.</p>
+										</div>
+										<div class="ui-btns-wrap" style="margin-top:20px;">
+											<div class="ui-btns center">
+												<span class="btn-base bb-st3"><a href="#">확인</a></span>
+											</div>
+										</div>
+									</div>
+								</div>	
+							</div>
+						</div>
+					</div>
+					<!-- //출발편 항공권료 결제 지속적 실패 케이스 팝업 -->
+					
+					<!-- 도착편 발권대행료 결제 지속적 실패 케이스 팝업 -->
+					<div id="popupArea006" class="popup-wrap" style="display:none; width:700px;">
+						<div class="content">
+							<div class="inner">
+								<div class="cbox-alert">
+									<div class="alert-cont acpd-st2">
+										<p class="txt1 mk-alert">결제 시간 초과, 연결 실패 등으로</p>
+										<p class="txt1">
+											<strong>
+												<span class="airline-info">
+													<span class="det">제주</span>
+													<span class="arr">김포</span>
+												</span>
+												발권대행료 결제가 실패되었습니다.
+											</strong>
+										</p>
+										<div class="ac-bottom">
+											<p class="txt2">
+												<strong class="c-point1">
+													<span class="airline-info c-point1">
+														<span class="det">김포</span>
+														<span class="arr">제주</span>
+													</span>
+													결제 및 발권완료되어 마이페이지에서 예약내역 확인 가능합니다.</strong>
+												</p>
+											<p class="txt2 c-point1">결제하기 페이지로 이동합니다. 지속적인 결제 실패 시 고객센터로 문의해주세요.</p>
+										</div>
+										<div class="ui-btns-wrap" style="margin-top:20px;">
+											<div class="ui-btns center">
+												<span class="btn-base bb-st3"><a href="#">확인</a></span>
+											</div>
+										</div>
+									</div>
+								</div>	
+							</div>
+						</div>
+					</div>
+					<!-- //도착편 발권대행료 결제 지속적 실패 케이스 팝업 -->
+					
+					<!-- 도착편 항공권료 결제 지속적 실패 케이스 팝업 -->
+					<div id="popupArea007" class="popup-wrap" style="display:none; width:700px;">
+						<div class="content">
+							<div class="inner">
+								<div class="cbox-alert">
+									<div class="alert-cont acpd-st2">
+										<p class="txt1 mk-alert">결제 시간 초과, 연결 실패 등으로</p>
+										<p class="txt1">
+											<strong>
+												<span class="airline-info">
+													<span class="det">제주</span>
+													<span class="arr">김포</span>
+												</span>
+												발권대행료 결제가 실패되었습니다.
+											</strong>
+										</p>
+										<p class="txt1">
+											이미 결제된
+											<span class="airline-info">
+												<span class="det">제주</span>
+												<span class="arr">김포</span>
+											</span>
+											 발권대행료는 승인 취소됩니다.
+										</p>
+										<div class="ac-bottom">
+											<p class="txt2">
+												<strong class="c-point1">
+													<span class="airline-info c-point1">
+														<span class="det">김포</span>
+														<span class="arr">제주</span>
+													</span>
+													결제 및 발권완료되어 마이페이지에서 예약내역 확인 가능합니다.</strong>
+												</p>
+											<p class="txt2 c-point1">결제하기 페이지로 이동합니다. 지속적인 결제 실패 시 고객센터로 문의해주세요.</p>
+										</div>
+										<div class="ui-btns-wrap" style="margin-top:20px;">
+											<div class="ui-btns center">
+												<span class="btn-base bb-st3"><a href="#">확인</a></span>
+											</div>
+										</div>
+									</div>
+								</div>	
+							</div>
+						</div>
+					</div>
+					<!-- //도착편 항공권료 결제 지속적 실패 케이스 팝업 -->
+					
 				</div>				
 			</div>
 		</div>
