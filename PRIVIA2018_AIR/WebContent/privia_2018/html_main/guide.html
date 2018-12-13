@@ -210,6 +210,11 @@
                     <span class="btn-base bb-st3 big"><button type="button">bb-st3 - big</button></span>
                     <span class="btn-base bb-st5 big"><input type="button" value="bb-st5 - big"></span>
 				</div>
+				<div style="margin-top:10px;">
+                    <span class="btn-base bb-st2 big2"><a href="#">bb-st2 - big</a></span>
+                    <span class="btn-base bb-st3 big2"><button type="button">bb-st3 - big</button></span>
+                    <span class="btn-base bb-st5 big2"><input type="button" value="bb-st5 - big"></span>
+				</div>
 			</div>
 		</div>
 		<div class="guide-box" id="multi-button-left">
@@ -591,23 +596,23 @@
 		<div class="guide-box" id="tooltip-jquery">
 			<h2 class="tit">tooltip(jquery version)</h2>
             <div class="gb-inner o-bg-air">
-                <span class="help-tooltip heltt-st2 down">
-                    <span class="over ttip-help" title="툴팁 샘플 입니다.">?</span>
+                <style>
+                .custom-tooltip.cttip-customName {margin-top: -4px;} 
+                .custom-tooltip.cttip-customName.custom-tooltip-bottom {margin-top: 4px;} 
+                .custom-tooltip.cttip-customName .custom-tooltip-inner {max-width:150px;}
+                </style>
+                
+                   <span class="help-tooltip heltt-st2 down">
+                    <span class="over cttip-customName" title="툴팁 샘플 입니다.">?</span>
                 </span> 
                 <br /><br />
-                <span class="ttip-help" title="<strong class='className'>특가 요금은 마일리지 적립이 불가합니다.</strong>">일반석</span>
+                <span class="cttip-customName" title="<strong class='className'>특가 요금은 마일리지 적립이 불가합니다.</strong>">일반석</span>
+                
                 <script>
                 //툴팁 jquery 샘플 - https://github.com/yckart/jquery.tooltip.js
                 //ex) http://tstatic.priviatravel.com/privia_2018/html_air/pt_p_dair_list.html
                 $(function(){
-                    $('.ttip-help').tooltip({
-                        align: 'autoTop',
-                        html: true,
-                        fade: {
-                            duration: 300,
-                            opacity: 1
-                        }
-                    });
+                    $('.cttip-customName').tooltip();
                 });
                 </script>
             </div>

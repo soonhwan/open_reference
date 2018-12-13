@@ -18,10 +18,13 @@
 
     var pluginName = 'tooltip',
         defaults = {
-            fade: false,
+            fade: {
+				duration: 300,
+				opacity: 1
+			},
             fallback: '',
             align: 'autoTop',
-            html: false,
+            html: true,
             attr: 'title',
             trigger: {
                 show: 'ontouchend' in document ? 'touchstart' : 'mouseenter',

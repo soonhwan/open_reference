@@ -148,9 +148,9 @@ $(function(){
             }else if(listJSON[i].badge[j] == '프로모션'){
               stxt = '현대카드 PRIVIA 특가/특전 제공 숙소';
             }else if(listJSON[i].badge[j] == '현재인기'){
-              stxt = '최근 1달간 조회수가 많은 숙소';
+              stxt = '최근 1주일간 조회수가 높은 숙소';
             }else if(listJSON[i].badge[j] == 'NEW'){
-              stxt = '2018년도에 오픈한<br>신규 호텔입니다.';
+              stxt = '2018년도에 오픈한 신규 숙소';
             }
             stip = "<span class='stip st"+(j+1)+"' title='<strong class=\"className\">"+stxt+"</strong>'>"+listJSON[i].badge[j]+"</span>";
             listDOM.find('.htp-badge').append(stip);

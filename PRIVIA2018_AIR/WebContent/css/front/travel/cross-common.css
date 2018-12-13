@@ -2525,14 +2525,14 @@ hr.line{border-top:1px solid #e2e2e2;border-bottom:0 none;margin:30px 0}
 .freedirect-detail .reserve-method .method-info li{position: relative;padding-left:16px;font-size:12px;color:#333;line-height:20px;}
 .freedirect-detail .reserve-method .method-info li span{position: absolute;left:0;top:0;line-height:20px;}
 .freedirect-detail .reserve-method .method-info p{margin-top:25px;font-size:12px;font-weight:bold;color:#333;}
-.freedirect-detail .res-preparation>li{margin-top:20px;}
-.freedirect-detail .res-preparation>li:first-child{margin-top:0;}
-.freedirect-detail .res-preparation ul li{position: relative;padding-left:10px;}
-.freedirect-detail .res-preparation ul li:first-child{margin-bottom:3px;}
-.freedirect-detail .res-preparation ul li:first-child,
-.freedirect-detail .res-preparation ul li.front{padding-left:0;}
-.freedirect-detail .res-preparation ul li span{position: absolute;left:0;top:0;}
-.freedirect-detail .res-preparation ul li strong.mgt{color:#ec2075;}
+.res-preparation>li{margin-top:20px;}
+.res-preparation>li:first-child{margin-top:0;}
+.res-preparation ul li{position: relative;padding-left:10px;}
+.res-preparation ul li:first-child{margin-bottom:3px;}
+.res-preparation ul li:first-child,
+.res-preparation ul li.front{padding-left:0;}
+.res-preparation ul li span{position: absolute;left:0;top:0;}
+.res-preparation ul li strong.mgt{color:#ec2075;}
 .view-new.resm tbody tr th{padding:30px 0;}
 .view-new.resm tbody tr td{padding-top:30px;padding-bottom:30px;}
 

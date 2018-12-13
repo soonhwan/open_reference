@@ -1119,7 +1119,7 @@ $(function(){
 											<!-- 비회원인 경우 input 제공 -->
 											<input type="text" class="input-base tp1 w150 err" placeholder="예) 홍길동">
 											
-											<p class="feedback"><span>예약자명을 입력해주세요.</span></p>
+											<p class="feedback"><span>이름을 입력해주세요.</span></p>
 											<p class="feedback"><span>한글, 영문만 입력 가능합니다.</span></p>
 										</div>
 									</td>
@@ -1146,7 +1146,7 @@ $(function(){
 												<option value="4">4</option>
 											</select>
 	               					 		<p class="feedback"><span>이메일을 입력해주세요.</span></p>
-	               					 		<p class="feedback"><span>영문만 입력 가능합니다.</span></p>
+	               					 		<p class="feedback"><span>영문, 숫자, 특수 문자( - , _ )만 입력 가능합니다.</span></p>
 		               					 </div>
 									</td>
 								</tr>
@@ -1168,8 +1168,8 @@ $(function(){
 							<caption>탑승객 정보 리스트</caption>
 							<colgroup>
 								<col width="8%" />
-								<col width="7%" />
-								<col width="25%" />
+								<col width="9%" />
+								<col width="23%" />
 								<col width="11%" />
 								<col width="18%" />
 								<col />
@@ -1195,8 +1195,8 @@ $(function(){
 										<span class="btn-base bb-st5 short"><a href="#">선택</a></span>
 									</td>
 									<td class="center">
-										<input type="text" class="input-base tp1 w100" placeholder="예) 홍" value="김">
-										<input type="text" class="input-base tp1 w140" placeholder="예) 길동" value="성인">
+										<input type="text" class="input-base tp1 w100" placeholder="예) 홍/John" value="김">
+										<input type="text" class="input-base tp1 w140" placeholder="예) 길동/Doe" value="성인">
 									</td>
 									<td class="center">
 										<input type="text" class="input-base tp1 w130" placeholder="예) YYYYMMDD" value="1988-12-01">
@@ -1244,8 +1244,8 @@ $(function(){
 										<span class="btn-base bb-st5 short"><a href="#">선택</a></span>
 									</td>
 									<td class="center">
-										<input type="text" class="input-base tp1 w100" placeholder="예) 홍" value="">
-										<input type="text" class="input-base tp1 w140" placeholder="예) 길동" value="">
+										<input type="text" class="input-base tp1 w100" placeholder="예) 홍/John" value="">
+										<input type="text" class="input-base tp1 w140" placeholder="예) 길동/Doe" value="">
 									</td>
 									<td class="center">
 										<input type="text" class="input-base tp1 w130" placeholder="예) YYYYMMDD" value="">
@@ -1293,8 +1293,8 @@ $(function(){
 										<span class="btn-base bb-st5 short"><a href="#">선택</a></span>
 									</td>
 									<td class="center">
-										<input type="text" class="input-base tp1 w100" placeholder="예) 홍" value="">
-										<input type="text" class="input-base tp1 w140" placeholder="예) 길동" value="">
+										<input type="text" class="input-base tp1 w100" placeholder="예) 홍/John" value="">
+										<input type="text" class="input-base tp1 w140" placeholder="예) 길동/Doe" value="">
 									</td>
 									<td class="center">
 										<input type="text" class="input-base tp1 w130" placeholder="예) YYYYMMDD" value="">
@@ -1326,8 +1326,8 @@ $(function(){
 									</td>
 									<td class="center">
 										<div class="input-area">
-											<input type="text" class="input-base tp1 w100 err" placeholder="예) 홍" value="">
-											<input type="text" class="input-base tp1 w140 err" placeholder="예) 길동" value="">
+											<input type="text" class="input-base tp1 w100 err" placeholder="예) 홍/John" value="">
+											<input type="text" class="input-base tp1 w140 err" placeholder="예) 길동/Doe" value="">
 											<p class="feedback"><span>이름을 입력해주세요.</span></p>
 											<p class="feedback"><span>한글, 영문만 입력 가능합니다.</span></p>
 										</div>
@@ -1358,8 +1358,8 @@ $(function(){
 							</tbody>
 						</table>		
 						<ul class="dtxt-list">
-							<li>외국인은 여권상의 성, 이름으로 입력하시기 바랍니다.</li>
-							<li>항공사 할인 요금과 운임 할인(개인 신분 할인)은 중복 적용되지 않습니다.</li>
+							<li class="mgt">외국인은 여권 상 성, 이름으로 입력하시기 바랍니다.</li>
+							<li>항공사 특가/할인 요금과 운임 할인(개인 신분 할인)은 중복 적용되지 않습니다.</li>
 						</ul>		
 						<div class="book-tail-box st1" style="margin-top:40px;">
 							<div>예약 후 이름은 변경 불가하오니 탑승객의 성과 이름을 정확히 입력하여 주시기 바랍니다.</div>
@@ -1562,7 +1562,7 @@ $(function(){
 					<div class="book-tail-btn">
 						<div class="ui-btns-wrap">
 							<div class="ui-btns center">
-								<span class="btn-base bb-st3 big bc-mgt"><a href="#" onclick="dimmLayerPop('popupArea001',1,null,1); return false;">예약하기</a></span>
+								<span class="btn-base bb-st3 big2 bc-mgt"><a href="#" onclick="dimmLayerPop('popupArea001',1,null,1); return false;">예약하기</a></span>
 							</div>
 						</div>
 					</div>

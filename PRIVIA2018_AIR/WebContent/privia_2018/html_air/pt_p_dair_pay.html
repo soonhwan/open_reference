@@ -29,6 +29,11 @@
 <script>
 $(function(){
 	$('.ui-skyScraper').skyScraper({fmTop :210});
+	
+	//운임 할인 툴팁
+	$('.cttip-fareinfo').tooltip({
+		align: 'right'
+	});
 });
 </script>
 
@@ -992,10 +997,10 @@ $(function(){
 					</div>
 					<!-- //스케줄정보 -->
 					
-					<!-- 탑승객, 요금 정보 -->
+					<!-- 탑승객/요금 정보  -->
 					<div class="book-detail-area hbooksec-bda-fareinfo">
 						<div class="c-tit-page-cont">
-							<h3 class="title">탑승객, 요금 정보</h3>
+							<h3 class="title">탑승객/요금 정보 </h3>
 						</div>
 						<table class="tbl-list ptb-short2">
 							<caption>항공권료,유류할증료,공항이용료,발권대행료, 합계 요금 정보 입니다.</caption>
@@ -1027,10 +1032,7 @@ $(function(){
 									<td class="center">
 										<span class="c-point3">운임 할인</span>
 										<span class="help-tooltip heltt-st2 small">
-											<span class="over">?</span>
-											<span class="cont">
-												운임 할인
-											</span>
+											<span class="over cttip-fareinfo" title="국가유공자 및 유족 518 민주유공자 및 유족증소지자">?</span>
 										</span>
 									</td>
 									<td class="center">남자</td>
@@ -1090,7 +1092,7 @@ $(function(){
 							</div>
 						</div>
 					</div>
-					<!-- //탑승객, 요금 정보 -->
+					<!-- //탑승객/요금 정보  -->
 					
 					<!-- 국내 항공권 결제 안내사항 -->
 					<div class="book-detail-area">
@@ -1112,8 +1114,8 @@ $(function(){
 							<h3 class="title">발권대행료 결제 안내사항</h3>
 						</div>		
 						<ul class="dtxt-list">
-							<li class="mgt">내 항공권 결제 후 취소 시 발권대행료는 환불되지 않습니다.</li>
-							<li class="mgt">발권대행료는 항공료와 별도로 결제가 이루어집니다.</li>
+							<li class="mgt">국내 항공권 결제 후 취소 시 발권대행료는 환불되지 않습니다.</li>
+							<li class="mgt">발권대행료는 항공권료와 별도로 결제가 이루어집니다.</li>
 							<li>발권대행료는 현대카드 청구 할인 및 기타 할인이 적용되지 않습니다.</li>
 						</ul>			
 					</div>
@@ -1125,6 +1127,7 @@ $(function(){
 							<h3 class="title">환불 수수료 안내사항</h3>
 						</div>					
 						
+						<!-- 아시아나항공 -->
 						<div class="c-tit-page-table">
 							<h4 class="title"><img src="/images/front/travel/contents/logo-air/DOM_OZ.png" alt="아시아나항공" class="air-logo">아시아나항공</h4>
 						</div>					
@@ -1155,7 +1158,9 @@ $(function(){
 							</tbody>
 						</table>
 						<p class="c-txt-tar c-point1" style="margin-top: 15px;">환불 수수료는 예약 후 다음 날 1인 편도 기준 부과</p>
+						<!-- //아시아나항공 -->
 						
+						<!-- 대한항공 -->
 						<div class="c-tit-page-table">
 							<h4 class="title"><img src="/images/front/travel/contents/logo-air/DOM_KE.png" alt="대한항공" class="air-logo">대한항공</h4>
 						</div>					
@@ -1182,6 +1187,160 @@ $(function(){
 							</tbody>
 						</table>
 						<p class="c-txt-tar c-point1" style="margin-top: 15px;">환불 수수료는 예약 후 다음 날 1인 편도 기준 부과</p>
+						<!-- //대한항공 -->
+						
+						<!-- 진에어 -->
+						<div class="c-tit-page-table">
+							<h4 class="title"><img src="/images/front/travel/contents/logo-air/DOM_LJ.png" alt="진에어" class="air-logo">진에어</h4>
+						</div>	
+						<table class="tbl-list">
+							<caption>진에어 환불 규정</caption>
+							<colgroup>
+								<col width="40%"><col width="20%"><col width="20%"><col width="20%">
+							</colgroup>
+							<thead>
+								<tr>
+									<th scope="col">구분</th>
+									<th scope="col">특가 요금</th>
+									<th scope="col">할인 요금</th>
+									<th scope="col">일반 요금</th>
+								</tr>
+							</thead>
+							<tbody>
+								<tr>
+									<td class="center">예약 후 다음 날 ~ 출발 31일 전</td>
+									<td class="center">3,000원</td>
+									<td class="center">2,000원</td>
+									<td class="center">1,000원</td>
+								</tr>
+								<tr>
+									<td class="center">출발 30일 ~ 15일 전</td>
+									<td class="center">4,000원</td>
+									<td class="center">3,000원</td>
+									<td class="center">2,000원</td>
+								</tr>
+								<tr>
+									<td class="center">출발 14일 ~ 7일 전</td>
+									<td class="center">6,000원</td>
+									<td class="center">4,000원</td>
+									<td class="center">3,000원</td>
+								</tr>
+								<tr>
+									<td class="center">출발 6일 ~ 2일 전</td>
+									<td class="center">7,000원</td>
+									<td class="center">5,000원</td>
+									<td class="center">4,000원</td>
+								</tr>
+								<tr>
+									<td class="center">출발 1일 ~ 출발 30분 전</td>
+									<td class="center">12,000원</td>
+									<td class="center">10,000원</td>
+									<td class="center">8,000원</td>
+								</tr>
+								<tr>
+									<td class="center">출발 30분 이내 ~ 출발 이후</td>
+									<td class="center" colspan="3">14,000원</td>
+								</tr>
+							</tbody>
+						</table>
+						<p class="c-txt-tar c-point1" style="margin-top: 15px;">환불 수수료는 예약 후 다음 날 1인 편도 기준 부과</p>
+						<!-- //진에어 -->
+						
+						<!-- 제주항공 -->
+						<div class="c-tit-page-table">
+							<h4 class="title"><img src="/images/front/travel/contents/logo-air/DOM_7C.png" alt="제주항공" class="air-logo">제주항공</h4>
+						</div>	
+						<table class="tbl-list">
+							<caption>제주항공  환불 규정</caption>
+							<colgroup>
+								<col width="50%"><col width="50%">
+							</colgroup>
+							<thead>
+								<tr>
+									<th scope="col">구분</th>
+									<th scope="col">특가/할인/일반 요금</th>
+								</tr>
+							</thead>
+							<tbody>
+								<tr>
+									<td class="center">예약 후 다음 날 ~ 출발 61일 전</td>
+									<td class="center">1,000원</td>
+								</tr>
+								<tr>
+									<td class="center">출발 60일 전 ~ 31일 전</td>
+									<td class="center">2,000원</td>
+								</tr>
+								<tr>
+									<td class="center">출발 30일 전 ~ 15일 전</td>
+									<td class="center">3,000원</td>
+								</tr>
+								<tr>
+									<td class="center">출발 14일 전 ~ 2일 전</td>
+									<td class="center">5,000원</td>
+								</tr>
+								<tr>
+									<td class="center">출발 1일 전</td>
+									<td class="center">10,000원</td>
+								</tr>
+								<tr>
+									<td class="center">출발 30분 전</td>
+									<td class="center">12,000원</td>
+								</tr>
+								<tr>
+									<td class="center">출발 30분 이내 ~ 출발 이후</td>
+									<td class="center">15,000원</td>
+								</tr>
+							</tbody>
+						</table>
+						<p class="c-txt-tar c-point1" style="margin-top: 15px;">환불 수수료는 예약 후 다음 날 1인 편도 기준 부과</p>
+						<!-- //제주항공 -->
+						
+						<!-- 이스타항공 -->
+						<div class="c-tit-page-table">
+							<h4 class="title"><img src="/images/front/travel/contents/logo-air/ZE.png" alt="이스타항공" class="air-logo">이스타항공</h4>
+						</div>	
+						<table class="tbl-list">
+							<caption>이스타항공 환불 규정</caption>
+							<colgroup>
+								<col width="40%"><col width="30%"><col width="30%">
+							</colgroup>
+							<thead>
+								<tr>
+									<th scope="col">구분</th>
+									<th scope="col">특가/할인 요금</th>
+									<th scope="col">일반 요금</th>
+								</tr>
+							</thead>
+							<tbody>
+								<tr>
+									<td class="center">출발 45일 전 ~ 15일 전</td>
+									<td class="center">3,000원</td>
+									<td class="center">2,000원</td>
+								</tr>
+								<tr>
+									<td class="center">출발 14일 전 ~ 8일 전</td>
+									<td class="center">4,000원</td>
+									<td class="center">3,000원</td>
+								</tr>
+								<tr>
+									<td class="center">출발 7일 전 ~ 24시간 전</td>
+									<td class="center">6,000원</td>
+									<td class="center">5,000원</td>
+								</tr>
+								<tr>
+									<td class="center">출발 24시간 이내 ~ 1시간 전</td>
+									<td class="center">10,000원</td>
+									<td class="center">10,000원</td>
+								</tr>
+								<tr>
+									<td class="center">출발 1시간 이내 ~ 출발 이후</td>
+									<td class="center">12,000원</td>
+									<td class="center">12,000원</td>
+								</tr>
+							</tbody>
+						</table>
+						<p class="c-txt-tar c-point1" style="margin-top: 15px;">환불 수수료는 예약 후 다음 날 1인 편도 기준 부과</p>
+						<!-- //이스타항공 -->
 					</div>
 					<!-- //환불 수수료 안내사항 -->
 					
@@ -1193,7 +1352,7 @@ $(function(){
 						<p class="imp-txt"><span>*</span> 필수입력사항</p>
  						
  						<div class="w-pi-est-price">
- 							<table class="tbl-list2" style="margin-top:30px;">
+ 							<table class="tbl-list2">
 								<caption>결제카드, 카드번호, 유효기간, 카드 비밀번호 등 결제 정보 테이블 입니다.</caption>
 								<colgroup>
 									<col width="200"><col />
@@ -1202,18 +1361,20 @@ $(function(){
 									<tr>
 										<th scope="row"><span class="imp">*</span> 결제 카드</th>
 										<td>
-											<div class="input-area">
-												<select class="select-base err" style="width:160px;">
-													<option value="1">선택</option>
-													<option value="2" selected>현대카드</option>
-													<option value="3">국민카드</option>
-													<option value="4">삼성카드</option>
-												</select>
-												<p class="feedback"><span>결제 카드를 선택해주세요.</span></p>
+											<div class="input-wrap">
+												<div class="input-area">
+													<select class="select-base err" style="width:160px;">
+														<option value="1">선택</option>
+														<option value="2" selected>현대카드</option>
+														<option value="3">국민카드</option>
+														<option value="4">삼성카드</option>
+													</select>
+													<p class="feedback"><span>결제 카드를 선택해주세요.</span></p>
+												</div>
+												<!-- 현대카드 선택시 노출 -->
+												<span class="btn-base bb-st5"><a href="http://www.priviatravel.com/customer/benefits/hcarddcServiceTab" target="_blank">현대카드 청구 할인 안내사항</a></span>
+												<!-- //현대카드 선택시 노출 -->
 											</div>
-											<!-- 현대카드 선택시 노출 -->
-											<span class="btn-base bb-st5"><a href="http://www.priviatravel.com/customer/benefits/hcarddcServiceTab" target="_blank">현대카드 청구 할인 안내사항</a></span>
-											<!-- //현대카드 선택시 노출 -->
 										</td>
 									</tr>
 									<tr>
@@ -1233,7 +1394,7 @@ $(function(){
 										</td>
 									</tr>
 									<tr>
-										<th scope="row"><span class="imp">*</span> 유효기간</th>
+										<th scope="row"><span class="imp">*</span> 유효 기간</th>
 										<td>
 											<div class="input-area">
 												<input type="text" class="input-base tp1 w70 err" placeholder="월">
@@ -1248,7 +1409,7 @@ $(function(){
 										<th scope="row"><span class="imp">*</span> 카드 비밀번호</th>
 										<td>
 											<div class="input-area">
-												<input type="text" class="input-base tp1 w70 err" placeholder="월">
+												<input type="text" class="input-base tp1 w70 err" placeholder="">
 												<span class="unit">* *</span>
 												<p class="feedback"><span>카드 비밀번호를 입력해주세요.</span></p>
 												<p class="feedback"><span>숫자만 입력 가능합니다.</span></p>
@@ -1296,6 +1457,7 @@ $(function(){
 									</tr>
 								</tbody>
 							</table>
+							
 							<div class="pi-est-price">
 								<div class="box-est-price">
 									<div class="bep-tit">
@@ -1305,7 +1467,8 @@ $(function(){
 										</div>
 										<span class="tit">예상 총 요금</span>
 									</div>
-									<div class="est-total-price-list etpl-dair">
+									<!-- 비회원이고 현대카드 선택인경우 경우 클래스(etpl-nomember) 추가 -->
+									<div class="est-total-price-list etpl-dair etpl-nomember">
 										<ul class="list">
 											<li class="normal">
 												<span class="txt-lb">일반요금</span>
@@ -1332,6 +1495,7 @@ $(function(){
 										</div>
 										<span class="tit">예상 총 요금</span>
 									</div>
+									<!-- 회원이고 현대카드 선택인경우 -->
 									<div class="est-total-price-list etpl-dair">
 										<ul class="list">
 											<li class="normal">
@@ -1343,7 +1507,7 @@ $(function(){
 												<span class="txt-lb">현대카드 <em>7%</em> 청구 할인</span>
 												<span class="price"><span class="num">1,681,350</span>원</span>
 											</li>
-											<li class="hdc1">
+											<li class="hdc1 u-own">
 												<span class="txt-lb">현대카드 <em>10%</em> 청구 할인</span>
 												<span class="price"><span class="num">1,581,350</span>원</span>
 											</li>
@@ -1357,7 +1521,8 @@ $(function(){
 									<div class="bep-tit">
 										<span class="tit">예상 총 요금</span>
 									</div>
-									<div class="est-total-price-list etpl-dair">
+									<!-- 비회원이면서 기타카드 선택한 경우 클래스(etpl-nomember) 추가 -->
+									<div class="est-total-price-list etpl-dair etpl-nomember">
 										<ul class="list">
 											<li class="normal">
 												<span class="txt-lb">일반요금</span>
@@ -1382,7 +1547,7 @@ $(function(){
 							</div>
 						</div>
 						<ul class="dtxt-list">
-							<li class="mgt">항공권과 발권대행료 결제는 출발편, 도착편 별도로 이루어집니다.</li>
+							<li class="mgt">항공권료와 발권대행료 결제는 출발편, 도착편 별도로 이루어집니다.</li>
 						</ul>		
 						<div class="book-tail-box st1" style="margin-top:40px;">
 							<div>예약 정보, 안내사항, 환불 수수료 등을 모두 확인하였으며 결제에 동의하시겠습니까? (전자상거래법 제8조 2항)</div>
@@ -1397,7 +1562,7 @@ $(function(){
 					<div class="book-tail-btn">
 						<div class="ui-btns-wrap">
 							<div class="ui-btns center">
-								<span class="btn-base bb-st3 big bc-red"><a href="#">결제하기</a></span>
+								<span class="btn-base bb-st3 big2 bc-red"><a href="#">결제하기</a></span>
 							</div>
 						</div>
 					</div>

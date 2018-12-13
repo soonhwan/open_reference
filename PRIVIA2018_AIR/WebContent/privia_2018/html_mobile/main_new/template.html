@@ -30,6 +30,7 @@ var AIR_HTL_FLAG = "ETC";
 <script type="text/javascript" src="/js/front/mtravel/main_datepicker.js"></script> <!-- AS IS -->
 <script type="text/javascript" src="/js/front/mtravel/swipe.js"></script>  <!-- AS IS -->
 <script type="text/javascript" src="/js/front/mtravel/swiper.min.js"></script>
+<!--<script type="text/javascript" src="/js/front/mtravel/iscroll.min.js"></script>--> <!-- 신규 스크롤 관련 플러그인 -->
 <script type="text/javascript" src="/js/front/mtravel/commonModuleSearchM.js"></script> <!-- headerManager 가이드 버전 실제로는 반영 되지 않음 -->
 <script type="text/javascript" src="/js/front/mtravel/commonUI.js"></script>
 <script type="text/javascript" src="/js/utils.js"></script>
@@ -104,8 +105,8 @@ var AIR_HTL_FLAG = "ETC";
         checkCloseYn();
 
         //임시 미노출(실제로 운영에서 사용안함)
-        $('.ui-page-active').removeAttr('style');
-        $('.noti-layerpop').removeClass('show');
+        //$('.ui-page-active').removeAttr('style');
+        //$('.noti-layerpop').removeClass('show');
 
         //팝업 닫기버튼 클릭 시
         $('.noti-layerpop .close > a').on('click',function(){

@@ -252,11 +252,11 @@
 /* 스케줄 정보 */
 .schedule-info {letter-spacing: -1px;position: relative;} 
 .schedule-info .sch-header {background-color: #288ecc;padding: 23px 40px 25px 40px;position: relative;border: 1px solid #e2e2e2;border-bottom: 0;border-radius: 5px 5px 0 0;} 
-.schedule-info .sch-header .air-info .txt {font-size:16px;color:#fff;font-family:"NotoSansKR" !important;position: relative;}
+.schedule-info .sch-header .air-info .txt {font-size:16px;color:#fff;font-family:"NotoSansKR" !important;font-weight: 300;position: relative;}
 .schedule-info .sch-header .air-info .txt + .txt {padding-left: 33px;} 
 .schedule-info .sch-header .air-info .txt + .txt:before {content: '';display: block;width: 12px;height: 9px;overflow: hidden;background: url(/images/front/travel/contents/icon-common-sec.png) 0 -210px no-repeat;position: absolute;left: 10px;top: 9px;} 
 .schedule-info.trip-type-shuttle .sch-header .air-info .txt:before {background-position: 0 -198px;}
-.schedule-info .sch-header .air-capacity {font-size:16px;color:#fff;font-family:"NotoSansKR" !important;position: absolute;top: 24px;right: 40px;}
+.schedule-info .sch-header .air-capacity {font-size:16px;color:#fff;font-family:"NotoSansKR" !important;font-weight: 300;position: absolute;top: 24px;right: 40px;}
 /*.schedule-info .wrap-sch-box {border-top: 1px solid #e2e2e2;border-radius: 5px 5px 0 0;}*/
 .schedule-info .wrap-sch-box .sch-box {border: 1px solid #e2e2e2;border-top: 0;}
 .schedule-info .wrap-sch-box .sch-box:last-child,
@@ -284,14 +284,14 @@
 .schedule-info .sb-dair .sch-box .htla-total-time {width: 156px;padding-top:54px;font-size: 14px;color: #000;text-align: center;background: url(/images/front/travel/contents/bg-dashed-v.png) 0 0 repeat-y;}
 /* //국내선 */
 .schedule-info .sch-cell .htla-date .label {display: inline-block;vertical-align: middle;position: relative;font-size:12px;text-align: center;border: 1px solid #aaa;border-radius: 12px;padding: 1px 10px 3px 10px;min-width: 64px;margin-right: 16px;}
-.schedule-info .sch-cell .htla-date .date {display: inline-block;vertical-align: middle;position: relative;font-size:16px;color: #010101;font-weight: bold;font-family:"NotoSansKR" !important;}
+.schedule-info .sch-cell .htla-date .date {display: inline-block;vertical-align: middle;position: relative;font-size:16px;color: #010101;font-weight: 500;font-family:"NotoSansKR" !important;}
 
 .schedule-info .sch-cell .hl-airline-logo {text-align: center;}
 .schedule-info .sch-cell .hl-airline-logo img {width: 30px;}
 .schedule-info .sch-cell .hl-airline-logo .name {display: block;font-size: 14px;color: #010101;padding-top: 5px;letter-spacing: -1px;}
 .schedule-info .sch-cell .hl-airline-info {text-align: center;width: 100%;position: absolute;bottom: 12px;}
 .schedule-info .sb-dair .sch-cell .hl-airline-info {color: #2a7cc8;}
-.schedule-info .sch-cell .hl-airline-info .txt {font-size:14px;}
+.schedule-info .sch-cell .hl-airline-info .txt {font-size:14px;letter-spacing: -1px;}
 .schedule-info .sch-cell .hl-airline-info .help-tooltip {vertical-align: baseline;}
 .schedule-info .sch-cell .hl-airline-info .help-tooltip .cont {width: 200px;text-align: left;}
 
@@ -301,7 +301,7 @@
 .schedule-info .sch-cell .hl-route-time .info-time {margin: 0 17px;width: 160px;}
 .schedule-info .sch-cell .hl-route-time .info-time .txt {margin-top: 10px;font-size: 14px;}
 .schedule-info .sch-cell .hl-route-time .txt {display: block;font-size: 14px;color: #000;text-align: center;}
-.schedule-info .sch-cell .hl-route-time .time {display: block;font-size: 20px;color: #000;font-family:"NotoSansKR" !important;font-weight: 600;position: relative;}
+.schedule-info .sch-cell .hl-route-time .time {display: block;font-size: 20px;color: #000;font-family:"NotoSansKR" !important;font-weight: 500;position: relative;}
 .schedule-info .sch-cell .hl-route-time .time .gap {display: block;position: absolute;top: 4px;right: -17px;font-size: 12px;color: #000;}
 .schedule-info .sch-cell .hl-route-time .time-line {display: block;text-align: center;position: relative;top:6px;background: url(/images/front/travel/contents/bg-dashed-h.png) 0 9px repeat-x;}
 .schedule-info .sch-cell .hl-route-time .time-line .time2 {display: inline-block;font-size: 12px;color: #666;text-align: center;padding: 1px 7px 2px 7px;border: 1px solid #e2e2e2;border-radius: 11px;background-color: #fff;}
@@ -407,7 +407,9 @@
 .est-total-price-list .normal .num {font-size: 16px;text-decoration: line-through;}
 .est-total-price-list .normal .txt-lb {font-weight: bold;margin-left: -85px;}
 .est-total-price-list .normal .txt-lb .txt-lb-sub {font-size:12px;}
-.est-total-price-list .list .u-own * {font-weight: bold;}
+.est-total-price-list .list .u-own .txt-lb,
+.est-total-price-list .list .u-own .price *,
+.est-total-price-list .list .u-own .txt-lb * {font-weight: bold;}
 .est-total-price-list.etpl-nomember .u-own *,
 .est-total-price-list.etpl-nomember .normal .num {font-weight: normal;}
 .est-total-price-list.etpl-nomember .num {font-weight: bold;}
@@ -463,17 +465,20 @@
 .comp-book-box .cc-list {padding: 40px;}
 .comp-book-box .cc-list:after {content: '';display: block;clear: both;}
 .comp-book-box .cc-list li {float: left;margin-right: 70px;}
-.comp-book-box .cc-list .lbel {display: block;font-size: 14px;color: #666;}
+.comp-book-box .cc-list .lbel {display: block;font-size: 14px;color: #000;}
 .comp-book-box .cc-list .val {display: block;font-size: 20px;color: #000;margin-top: 4px;font-family:"NotoSansKR" !important;font-weight: bold;}
 .comp-book-box .cc-list .val .code {display: inline-block;font-size: 14px;color: #000;font-family:"NotoSansKR" !important;font-weight: bold;}
 .comp-book-box .cc-list-dair:after {content: '';display: block;clear: both;}
 .comp-book-box .cc-list-dair li {position: relative;padding: 40px;border-left: 1px solid #e2e2e2;}
 .comp-book-box .cc-list-dair li:first-child {border-left: 0;}
 .comp-book-box.trip-type-shuttle .cc-list-dair li {float: left;width: 50%;}
-.comp-book-box .cc-list-dair .lbel {display: block;font-size: 14px;color: #666;}
+/* 국내선 */
+.comp-book-box .cc-list-dair .lbel {display: block;font-size: 14px;color: #000;}
 .comp-book-box .cc-list-dair .val {display: block;font-size: 20px;color: #000;margin-top: 4px;font-family:"NotoSansKR" !important;font-weight: bold;}
 .comp-book-box .cc-list-dair .val .code {display: inline-block;font-size: 14px;color: #000;font-family:"NotoSansKR" !important;font-weight: bold;}
 .comp-book-box .cc-list-dair .bb-st5 {position: absolute;top: 47px;right: 40px;}
+.comp-item-cross-banner {margin-top: 40px;border-radius: 5px;overflow: hidden;}
+/* //국내선 */
 
 /* 현대카드 청구 할인 확인(lpu) */
 .hdcd-user-ok .dtxt-list {margin-top: 15px;}
@@ -489,9 +494,9 @@
 
 /* 예약상세 - 항공 예약/결제 내역 */
 .hbooksec-res-check .ui-btns-wrap {margin-top: 20px;overflow: visible;}
-.hbooksec-res-check .ui-btns-wrap .ui-btns {overflow: visible;}
-.hbooksec-res-check .ui-btns-wrap .bb-st5 {width: 145px;letter-spacing: -1px;}
-.hbooksec-res-check .ui-btns-wrap .lp-area {float: left;margin-left: 10px;width: 145px;letter-spacing: -1px;}
+.hbooksec-res-check .ui-btns-wrap .ui-btns {overflow: visible;height: 38px;}
+.hbooksec-res-check .ui-btns-wrap .bb-st5 {min-width: 145px;letter-spacing: -1px;}
+.hbooksec-res-check .ui-btns-wrap .lp-area {float: left;margin-left: 10px;min-width: 145px;letter-spacing: -1px;}
 .comp-book-box-det {border:1px solid #e2e2e2;border-radius: 5px;overflow: hidden;position: relative;}
 .comp-book-box-det .cbb-tit {background-color: #288ecc;padding: 37px 40px;position: relative;}
 .comp-book-box-det .air-info .label-base {margin-right: 5px;}
@@ -517,8 +522,7 @@
 .comp-book-box-det .progress .info-per .txt {display: inline-block;font-size:14px;color: #fff;margin-left: 3px;}
 .comp-book-box-det .cbb-cont {background-color: #fff;padding: 40px;position: relative;}
 .comp-book-box-det .cc-list {position: absolute;top: 38px;left: 40px;}
-.comp-book-box-det .cc-list li {}
-.comp-book-box-det .cc-list .lbel {display: inline-block;vertical-align: middle;font-size: 14px;color: #666;width: 80px;}
+.comp-book-box-det .cc-list .lbel {display: inline-block;vertical-align: middle;font-size: 14px;color: #000;width: 80px;}
 .comp-book-box-det .cc-list .val {display: inline-block;vertical-align: middle;font-size: 20px;color: #000;font-family:"NotoSansKR" !important;font-weight: bold;}
 .comp-book-box-det .cc-list .val .code {display: inline-block;font-size: 14px;color: #000;font-family:"NotoSansKR" !important;font-weight: bold;}
 
@@ -673,12 +677,14 @@
 .htp-res-list-dair .hl-pricelist-info .txt2:hover + .help-tooltip .cont {opacity: 1;visibility: visible;}
 .htp-res-list-dair .hl-pricelist-btn {text-align: right;margin-top: 5px;position: relative;z-index: 2;}
 .htp-res-list-dair .hl-pricelist-btn .label-base {font-size: 12px;padding-right: 27px;}
-.htp-res-list-dair .c-tooltip-seat {position: absolute;width: 100%;height: 100%;background-color: #fff;opacity: 0;filter: alpha(opacity=0);top: 0;left: 0;z-index: 1;}
-.htp-res-list-dair .c-tooltip-tblTotalPrice {position: absolute;width: 100%;height: 100%;background-color: #fff;opacity: 0;filter: alpha(opacity=0);top: 0;left: 0;z-index: 1;}
-.custom-tooltip.c-tooltip-seat {margin-top: -13px;}
-.custom-tooltip.c-tooltip-seat .custom-tooltip-inner {max-width: 250px;}
-.custom-tooltip.c-tooltip-tblTotalPrice {margin-top: -10px;margin-left: -10px;}
-.custom-tooltip.c-tooltip-tblTotalPrice .custom-tooltip-inner {width: 280px;}
+.htp-res-list-dair .cttip-seat {position: absolute;width: 100%;height: 100%;background-color: #fff;opacity: 0;filter: alpha(opacity=0);top: 0;left: 0;z-index: 1;}
+.htp-res-list-dair .cttip-tblTotalPrice {position: absolute;width: 100%;height: 100%;background-color: #fff;opacity: 0;filter: alpha(opacity=0);top: 0;left: 0;z-index: 1;}
+/* 국내선 좌석 툴팁 */
+.custom-tooltip.cttip-seat {margin-top: -13px;} 
+.custom-tooltip.cttip-seat .custom-tooltip-inner {max-width: 250px;}
+/* 국내선 예상 요금 툴팁 */
+.custom-tooltip.cttip-tblTotalPrice {margin-top: -10px;margin-left: -10px;}
+.custom-tooltip.cttip-tblTotalPrice .custom-tooltip-inner {width: 280px;}
 /* 국내선 선택현황 */
 .ld-dair-capacity {font-size:16px;color: #000;font-family:"NotoSansKR" !important;font-weight: 500;padding-bottom: 20px;border-bottom: 1px solid #000;}
 .ld-dair-select {margin-bottom: 20px;}
@@ -757,11 +763,13 @@ html[class*="ie"] .w-list-dair .ldair-noway {margin-top: 55px;}
 
 /* 결제하기 - 탑승객, 요금 정보 */
 .hbooksec-bda-fareinfo .help-tooltip {vertical-align: baseline;}
-.hbooksec-bda-fareinfo .help-tooltip .cont {width: 100px;}
+/*.hbooksec-bda-fareinfo .help-tooltip .cont {width: 310px;}*/
+/* 국내선 운임할인 툴팁  */
+.custom-tooltip.cttip-fareinfo .custom-tooltip-inner {max-width: 310px;}
 
 /* 결제하기 - 결제정보 */
 .hbooksec-bda-paymentinfo .w-pi-est-price {position: relative;overflow: hidden;}
-.hbooksec-bda-paymentinfo .pi-est-price {position: absolute;width: 390px;height: 100%;padding: 38px 40px;top: 31px;right: 0;background-color: #eef1f6;}
+.hbooksec-bda-paymentinfo .pi-est-price {position: absolute;width: 390px;height: 100%;padding: 38px 40px;top: 1px;right: 0;background-color: #eef1f6;}
 .hbooksec-bda-paymentinfo .est-total-price-list .price {margin-left: 35px;}
 .hbooksec-bda-paymentinfo .est-total-price-list .list {width: 100%;height: 95px;}
 .hbooksec-bda-paymentinfo .bep-tit {margin-bottom: 20px;}
@@ -793,8 +801,9 @@ html[class*="ie"] .w-list-dair .ldair-noway {margin-top: 55px;}
 .alert-cont .airline-info .arr:before {content: '';display: block;width: 16px;height: 7px;background: url(/images/front/travel/contents/icon-common-sec.png) -20px -211px no-repeat;position: absolute;top: 12px;left: -18px;}
 .alert-cont .txt2 .airline-info .arr:before {top: 7px;}
 .alert-cont .txt2 .airline-info.c-point1 .arr:before {top: 7px;background-position: -86px -217px;}
-
 .popup-wrap .cbox-alert {border: 0;}
 .popup-wrap .alert-cont {padding: 90px 0 70px 0;}
 .popup-wrap .alert-cont.acpd-st2 {padding: 40px 0 20px 0;}
 
+/* 예약 상세 - 결제 내역 */
+.hbooksec-bda-billinghistory .lbr-st1 {vertical-align: baseline;margin-right: 10px;margin-left: -55px;}

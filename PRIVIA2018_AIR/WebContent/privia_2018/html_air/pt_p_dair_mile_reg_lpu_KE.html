@@ -32,7 +32,7 @@
 	<div id="" class="popup-wrap" style="width:700px;">
     <!-- header -->
     <div class="heading">
-		<h2 class="noto"><img src="/images/front/travel/contents/logo-air/DOM_OZ.png" alt="아시아나항공" class="air-logo">아시아나항공 마일리지 등록</h2>
+    	<h2 class="noto"><img src="/images/front/travel/contents/logo-air/DOM_KE.png" alt="대한항공" class="air-logo">대한항공 마일리지 등록</h2>
 		<a href="#" class="btn_close">닫기</a>
     </div>
     <!-- //header -->
@@ -56,7 +56,13 @@
 				<tbody>
 					<tr>
 						<td class="center">홍길동</td>
-						<td class="center"><input type="text" class="input-base tp1 w250" placeholder="영문, 띄어쓰기 제외 예) 12345678"></td>
+						<td class="center">
+							<div class="input-area">
+								<input type="text" class="input-base tp1 w250 err" placeholder="영문, 띄어쓰기 제외 예) 12345678">
+								<p class="feedback"><span>마일리지 번호를 입력해주세요.</span></p>
+								<p class="feedback"><span>숫자만 입력 가능합니다.</span></p>
+							</div>
+						</td>
 						<td class="center">미등록</td>
 					</tr>
 					<tr>
@@ -78,12 +84,16 @@
 			</table>
 			
 			<ul class="dtxt-list" style="margin-top:20px;">
+				<!-- 필수 텍스트 -->
 				<li>마일리지 적립 또는 항공사 홈페이지 예약 조회를 원하는 경우 마일리지를 등록하세요.</li>
 				<li class="mgt">항공사 카운터에서 마일리지 등록 여부를 반드시 확인하세요.</li>
 				<li>탑승 전 Date(DD)전까지 마일리지 등록이 가능합니다.</li>
+				<!-- //필수 텍스트 -->
+				<!-- 분기 텍스트 -->
 				<li>유아는 마일리지 등록이 불가합니다.</li>
 				<li>할인 요금은 할인율에 따라 마일리지 적립이 불가할 수 있습니다.</li>
 				<li>특가 요금은 마일리지 적립이 불가합니다.</li>
+				<!-- //분기 텍스트 -->
 			</ul>
 			
 			<div class="ui-btns-wrap" style="margin-top:20px; padding-top:20px; border-top:1px solid #e2e2e2;">

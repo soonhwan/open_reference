@@ -1591,7 +1591,7 @@ function comSearchHotel(){
 	});
 
 	//객실 선택
-	$('.sc-hotel .global-ui-room .room-tab, .sc-hotel .global-ui-room .room-arrow').on('click', function(e){
+	$('.sc-hotel .global-ui-room .room-item dt').on('click', function(e){
 		if(!$(this).closest('.room-item').hasClass('on')){
 			$(this).closest('.room-item').addClass('on');
 			$(this).closest('.room-item').siblings('.room-item').removeClass('on');

@@ -142,7 +142,17 @@ $(function(){
 
           listDOM.find('.htp-list-conr').prepend('<div class="htp-badge"></div>');
           for(var j=0; j<badgeLen; j++){
-            listDOM.find('.htp-badge').append('<span class="st'+(j+1)+'">'+listJSON[i].badge[j]+'</span>');
+            if(listJSON[i].badge[j] == '최다판매'){
+              stxt = '최근 1달간 예약수가 많은 숙소';
+            }else if(listJSON[i].badge[j] == '프로모션'){
+              stxt = '현대카드 PRIVIA 특가/특전 제공 숙소';
+            }else if(listJSON[i].badge[j] == '현재인기'){
+              stxt = '최근 1주일간 조회수가 높은 숙소';
+            }else if(listJSON[i].badge[j] == 'NEW'){
+              stxt = '2018년도에 오픈한 신규 숙소';
+            }
+            stip = "<span class='stip st"+(j+1)+"' title='<strong class=\"className\">"+stxt+"</strong>'>"+listJSON[i].badge[j]+"</span>";
+            listDOM.find('.htp-badge').append(stip);
           }
           if(isDate){
             listDOM.find('.htp-price .tp1').append('<p><span>'+listJSON[i].price1+'</span>박 최저가</p>');
@@ -165,6 +175,14 @@ $(function(){
           slidesToShow: 1,
           slidesToScroll: 1
         });
+        $('.htp-res-list .stip').tooltip({
+      		align: 'autoTop',
+      		html: true,
+      		fade: {
+      			duration: 300,
+      			opacity: 1
+      		}
+      	});
       },
       complete: function(data){
         //console.log('ajax loading complete');

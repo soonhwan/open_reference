@@ -650,19 +650,22 @@ left:50%;top:-8px;margin-left:-4px;
 .htp-hotel-detail dd .fac-list{width:100%;}
 .htp-hotel-detail dd .fac-list:after{content:"";display:block;clear:both;}
 .htp-hotel-detail dd .fac-list li{float:left;}
-.htp-hotel-detail dd .fac-list.ico li{margin-left:25px;height:36px;background-image:url(/images/front/travel/contents/icon-sub-sec.png);text-indent:-20000px;font-size:0;}
+.htp-hotel-detail dd .fac-list.ico li{margin-left:20px;text-align:center;}
+.htp-hotel-detail dd .fac-list.ico li:before{content:"";width:30px;height:30px;display:block;background-image:url(/images/front/travel/contents/icon-sub-sec.png);margin:0 auto;}
 .htp-hotel-detail dd .fac-list.ico li:first-child{margin-left:0;}
-.htp-hotel-detail dd .fac-list.ico li.wifi{width:30px;background-position:0 0;}
-.htp-hotel-detail dd .fac-list.ico li.pool{width:35px;background-position:-34px 0;}
-.htp-hotel-detail dd .fac-list.ico li.room{width:32px;background-position:-74px 0;}
-.htp-hotel-detail dd .fac-list.ico li.rest{width:31px;background-position:-111px 0;}
-.htp-hotel-detail dd .fac-list.ico li.carw{width:35px;background-position:-146px 0;}
-.htp-hotel-detail dd .fac-list.ico li.park{width:18px;background-position:-186px 0;}
-.htp-hotel-detail dd .fac-list.ico li.time{width:34px;background-position:-208px 0;}
-.htp-hotel-detail dd .fac-list.ico li.serv{width:28px;background-position:-248px 0;}
-.htp-hotel-detail dd .fac-list.txt{margin-top:17px;width:600px;}
+.htp-hotel-detail dd .fac-list.ico li.wifi:before{background-position:0 -212px;}
+.htp-hotel-detail dd .fac-list.ico li.pool:before{background-position:-30px -212px;}
+.htp-hotel-detail dd .fac-list.ico li.beach:before{background-position:-60px -212px;}
+.htp-hotel-detail dd .fac-list.ico li.park:before{background-position:-90px -212px;}
+.htp-hotel-detail dd .fac-list.ico li.lang:before{background-position:-120px -212px;}
+.htp-hotel-detail dd .fac-list.ico li.child:before{background-position:-150px -212px;}
+.htp-hotel-detail dd .fac-list.ico li.hour24:before{background-position:-180px -212px;}
+.htp-hotel-detail dd .fac-list.ico li.rest:before{background-position:-210px -212px;}
+.htp-hotel-detail dd .fac-list.ico li span{margin-top:15px;display:block;padding-top:8px;}
+.htp-hotel-detail dd .fac-list.ico li span.line2{padding-top:0;}
+.htp-hotel-detail dd .fac-list.txt{margin-top:13px;width:600px;}
 .htp-hotel-detail dd .fac-list.txt li{position:relative;margin-top:17px;padding-left:12px;width:33.333%;font-size:14px;color:#000000;}
-.htp-hotel-detail dd .fac-list.txt li:before{position: absolute;left:0;top:9px;content:"";display:block;clear:both;width:2px;height:2px;background-image:url(/images/front/travel/contents/icon-common-sec.png);background-position:-216px -26px;}
+.htp-hotel-detail dd .fac-list.txt li:before{position: absolute;left:0;top:9px;content:"";display:block;clear:both;width:2px;height:2px;background: #000;}
 .htp-hotel-detail .hs-notice{margin-top:10px;padding:10px 20px;border:1px solid #e2e2e2;border-radius:3px;font-size:12px;color:#000;}
 .htp-hotel-detail li.last dt{border-bottom:1px solid #000;}
 .htp-hotel-detail li.last dd{border-bottom:1px solid #e2e2e2;}

@@ -24,6 +24,12 @@
 <script type="text/javascript" src="/js/front/travel/commonModuleHeader.js"></script> <!-- headerManager 가이드 버전 실제로는 반영 되지 않음 -->
 <script type="text/javascript" src="/js/front/travel/commonModule.js"></script>
 <script type="text/javascript" src="/js/front/travel/commonModuleUI.js"></script>
+<script>
+$(function(){
+	$('#indinfoAgree').load('/privia_2018/html_terms/indinfoAgree.html'); // 개인정보 수집·이용 동의
+});
+</script>
+
 </head>
 
 <body style="background:#ccc;">
@@ -129,15 +135,9 @@
 
 			<!-- 비회원인 경우 노출 -->
 			<h3>개인정보 수집·이용동의 (필수)</h3>
-			<div class="ui-box st3">
+			<div class="ui-box st4">
 				<div class="ui-customscrollbar">
-					<div class="content" id="indinfoAgree">
-						1. 개인정보의 수집 방법<br />
-						PRIVIA는 다음과 같은 방법으로 개인정보를 수집합니다.<br />
-						① 홈페이지, 서면양식, 전화, 팩스를 통한 회원가입, 상담게시판, 경품행사 응모, 배송 요청<br />
-						② 제휴사로부터의 제공<br />
-						③ 로그 분석 프로그램을 통한 생성정보 수집<br />
-					</div>
+					<div class="content" id="indinfoAgree"></div>
 				</div>
 			</div>
 			<div class="radio-center-wrap" style="margin-top:20px;padding-bottom:20px;border-bottom:1px solid #e2e2e2;">

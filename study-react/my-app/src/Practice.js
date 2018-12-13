@@ -62,7 +62,7 @@ class Practice extends  Component {
   removeFilter = (index) => {
     const { word } = this.state;
     this.setState({
-      word: word.filter((item,i) => i !== index)
+      word: word.filter((item,idx) => idx !== index)
     });
   } 
 

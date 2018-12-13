@@ -28,6 +28,11 @@
 <script type="text/javascript" src="/js/front/travel/commonModule.js"></script>
 <script>
 $(function(){
+	//운임 할인 툴팁
+	$('.cttip-fareinfo').tooltip({
+		align: 'right'
+	});
+	
 	//규정 및 약관 호출
 	$('#airGeneralruleAgree').load('/privia_2018/html_terms/airGeneralruleAgree.html'); // 일반 규정
 	$('#airRefundruleAgree').load('/privia_2018/html_terms/airRefundruleAgree.html'); // 환불 규정
@@ -893,10 +898,10 @@ $(function(){
 							<h3 class="title">항공 예약/결제 내역</h3>
 						</div>	
 						<!-- 왕복인 경우 클래스 추가(trip-type-shuttle) -->
-						<div class="comp-book-box-det trip-type-shuttle">
+						<div class="comp-book-box-det">
 							<div class="cbb-tit">
 								<div class="air-info">
-									<span class="label-base"><span>왕복</span></span>
+									<span class="label-base"><span>편도</span></span>
 									<span class="txt">김포(GMP)</span>
 									<span class="txt">제주(CJU)</span>
 								</div>
@@ -904,7 +909,7 @@ $(function(){
 								<div class="progress">
 									<p class="p-tit">진행상태</p>
 									<div class="p-state">
-										<strong class="state">예약완료</strong>
+										<strong class="state">발권완료</strong>
 									</div>
 									<ul class="info-per">
 										<li>
@@ -960,7 +965,7 @@ $(function(){
 								<span class="btn-base bb-st5"><a href="#">온라인 문의</a></span>
 								<span class="btn-base bb-st5"><a href="#">마일리지 등록</a></span>
 								<span class="lp-area">
-									<a href="#" class="btn base lp3">마일리지 등록m</a>
+									<a href="#" class="btn base lp3">마일리지 등록(7C)</a>
 									<div class="lp-cont lpc2" style="left:0;top:48px;width:440px;">
 										<div class="lpc-header">
 											<span class="tit">
@@ -969,7 +974,7 @@ $(function(){
 											</span>
 										</div>
 										<div class="lpc-cont">
-											<p class="con"><strong>여행사에서 발권한 예약은 여행사에서 마일리지 등록이 불가합니다. <br />아래와 같이 마일리지를 등록하세요.</strong></p>
+											<p class="con"><strong>여행사에서 발권한 예약은 여행사에서 마일리지 등록이 불가합니다. 아래와 같이 마일리지를 등록하세요.</strong></p>
 											<div class="con-wrap st2">
 												<ul class="dtxt-list">
 													<li>출발 당일 제주항공 카운터에서 요청합니다.</li>
@@ -980,7 +985,26 @@ $(function(){
 										<a href="#" class="btn-close">닫기</a>
 									</div>
 								</span>
-								
+								<span class="lp-area">
+									<a href="#" class="btn base lp3">마일리지 등록(LJ)</a>
+									<div class="lp-cont lpc2" style="left:0;top:48px;width:440px;">
+										<div class="lpc-header">
+											<span class="tit">
+												<img src="/images/front/travel/contents/logo-air/DOM_LJ.png" alt="진에어" class="air-logo">
+												진에어 마일리지 등록
+											</span>
+										</div>
+										<div class="lpc-cont">
+											<p class="con"><strong>여행사에서 발권한 예약은 여행사에서 마일리지 등록이 불가합니다. 아래와 같이 마일리지를 등록하세요.</strong></p>
+											<div class="con-wrap st2">
+												<ul class="dtxt-list">
+													<li>탑승 완료 후 출발일로부터 30일 이내에 진에어 홈페이지에서 예약번호 입력하여 수동 적립합니다.</li>
+												</ul>
+											</div>
+										</div>
+										<a href="#" class="btn-close">닫기</a>
+									</div>
+								</span>
 								<span class="btn-base bb-st5"><a href="#">이메일 전송</a></span>
 								<span class="btn-base bb-st5"><a href="#">예약취소</a></span>
 								<span class="btn-base bb-st5"><a href="https://www.priviatravel.com/mypage/index/reserve">예약 목록</a></span>
@@ -995,7 +1019,7 @@ $(function(){
 							<h3 class="title">스케줄정보</h3>
 						</div>		
 						<!-- 왕복인 경우 클래스 추가(trip-type-shuttle) -->				
-						<div class="schedule-info trip-type-shuttle">
+						<div class="schedule-info">
 							<!-- 헤더정보 -->
 							<div class="sch-header">
 								<div class="air-info">
@@ -1085,21 +1109,24 @@ $(function(){
 							</div>
 							<ul class="dtxt-list" style="margin-top: 25px;">
 								<li>공동운항 탑승수속은 <em class="c-point3">실제 탑승 항공사 카운터</em>이며, 수하물은 공동운항 협정에 따라 탑승 항공사 또는 판매 항공사 규정이 적용되므로 사전에 확인하여 주시기 바랍니다.</li>
-								<li>출발 361일~48시간 전까지(비즈니스석 출발 24시간 전) 당사 고객센터 또는 대한항공 홈페이지/고객센터(1588-2001)에서 좌석배정이 가능합니다. 단, 대한항공 홈페이지 이용 시 예약이 연동되어있어야 가능합니다.</li>
-								<li>출발 30일~48시간 전까지 당사 고객센터 또는 아시아나항공 고객센터(1588-8000)에서 좌석배정이 가능합니다. 단, 유아가 포함된 예약은 아시아나항공 고객센터에서 가능합니다.</li>
-								<li>출발 48시간~1시간 전까지 에어부산 홈페이지에서 좌석배정이 가능합니다.</li>
-								<li>출발 30일~2일 전까지 진에어 고객센터(1600-6200)에서 유료로 좌석배정이 가능합니다.</li>
+								
+								<!-- 분기 텍스트 -->
+								<li>출발 361일 ~ 48시간 전까지(비즈니스석 출발 24시간 전) 당사 고객센터 또는 대한항공 홈페이지/고객센터(1588-2001)에서 좌석배정이 가능합니다. 단, 대한항공 홈페이지 이용 시 예약이 연동되어있어야 가능합니다.</li>
+								<li>출발 30일 ~ 48시간 전까지 당사 고객센터 또는 아시아나항공 고객센터(1588-8000)에서 좌석배정이 가능합니다. 단, 유아가 포함된 예약은 아시아나항공 고객센터에서 가능합니다.</li>
+								<li>출발 48시간 ~ 1시간 전까지 에어부산 홈페이지에서 좌석배정이 가능합니다.</li>
+								<li>출발 30일 ~ 2일 전까지 진에어 고객센터(1600-6200)에서 유료로 좌석배정이 가능합니다.</li>
 								<li>제주항공 홈페이지에서 유료로 좌석배정이 가능합니다.</li>
+								<!-- //분기 텍스트 -->
 							</ul>
 							<!-- //스케줄 스케줄 -->
 						</div>
 					</div>
 					<!-- //스케줄정보 -->
 					
-					<!-- 탑승객, 요금 정보 -->
+					<!-- 탑승객/요금 정보 -->
 					<div class="book-detail-area hbooksec-bda-fareinfo">
 						<div class="c-tit-page-cont">
-							<h3 class="title">탑승객, 요금 정보</h3>
+							<h3 class="title">탑승객/요금 정보</h3>
 						</div>
 						<table class="tbl-list ptb-short2">
 							<caption>항공권료,유류할증료,공항이용료,발권대행료, 합계 요금 정보 입니다.</caption>
@@ -1131,10 +1158,7 @@ $(function(){
 									<td class="center">
 										<span class="c-point3">운임 할인</span>
 										<span class="help-tooltip heltt-st2 small">
-											<span class="over">?</span>
-											<span class="cont">
-												운임 할인
-											</span>
+											<span class="over cttip-fareinfo" title="국가유공자 및 유족 518 민주유공자 및 유족증소지자">?</span>
 										</span>
 									</td>
 									<td class="center">남자</td>
@@ -1174,7 +1198,7 @@ $(function(){
 									</div>
 									
 									<!-- 비회원인 경우 클래스(etpl-nomember) 추가 -->
-									<div class="est-total-price-list etpl-dair">
+									<div class="est-total-price-list etpl-dair etpl-nomember">
 										<ul class="list">
 											<li class="normal">
 												<span class="txt-lb">일반요금</span>
@@ -1184,7 +1208,7 @@ $(function(){
 												<span class="txt-lb">현대카드 <em>7%</em> 청구 할인</span>
 												<span class="price"><span class="num">1,681,350</span>원</span>
 											</li>
-											<li class="hdc1 u-own">
+											<li class="hdc1">
 												<span class="txt-lb">현대카드 <em>10%</em> 청구 할인</span>
 												<span class="price"><span class="num">1,581,350</span>원</span>
 											</li>
@@ -1194,10 +1218,10 @@ $(function(){
 							</div>
 						</div>
 					</div>
-					<!-- //탑승객, 요금 정보 -->
+					<!-- //탑승객/요금 정보 -->
 					
 					<!-- 결제 내역 -->
-					<div class="book-detail-area">
+					<div class="book-detail-area hbooksec-bda-billinghistory">
 						<div class="c-tit-page-cont">
 							<h3 class="title">결제 내역</h3>
 						</div>
@@ -1231,7 +1255,7 @@ $(function(){
 									<td class="center">발권대행료</td>
 									<td class="center">현대카드(1234-5678-****-****) / 3개월</td>
 									<td class="center">2018-12-31 12:00</td>
-									<td class="center">1,000,000원</td>
+									<td class="center"><span class="label-base lbr-st1"><span>취소</span></span>1,000,000원</td>
 									<td class="center"><span class="btn-base bb-st5"><a href="#">매출전표</a></span></td>
 								</tr>
 								<tr>
@@ -1255,13 +1279,13 @@ $(function(){
 							<ul class="ui-term-list other">
 								<li>
 									<dl>
-										<dt class="on">
+										<dt>
 											<div class="ui-term-tit">
 												<span class="tit">일반 규정</span>
 												<span class="arrow"></span>
 											</div>
 										</dt>
-										<dd style="display: block;">
+										<dd>
 											<div class="ui-term-box">
 												<div class="inner term-customscrollbar">
 													<div class="content" id="airGeneralruleAgree"></div>

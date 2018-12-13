@@ -56,22 +56,26 @@
 						<th scope="row"><span class="imp">*</span> 이메일</th>
 						<td>
 							<div class="input-wrap">
-								<input type="text" class="input-base tp1 w130">
-								<span class="unit">@</span>
-								<input type="text" class="input-base tp1 w140" value="Tidesquare.com">
-								<select class="select-base" style="width:130px;">
-									<option value="1" checked="">직접입력</option>
-									<option value="2">2</option>
-									<option value="3">3</option>
-									<option value="4">4</option>
-								</select>
+								<div class="input-area">
+									<input type="text" class="input-base tp1 w130 err">
+									<span class="unit">@</span>
+									<input type="text" class="input-base tp1 w140 err" value="Tidesquare.com">
+									<select class="select-base err" style="width:130px;">
+										<option value="1" checked="">직접입력</option>
+										<option value="2">2</option>
+										<option value="3">3</option>
+										<option value="4">4</option>
+									</select>
+									<p class="feedback"><span>이메일을 입력해주세요.</span></p>
+									<p class="feedback"><span>영문, 숫자, 특수 문자( - , _ )만 입력 가능합니다.</span></p>
+								</div>
 							</div>
 						</td>
 					</tr>
 				</tbody>
 			</table>
-			<h3>개인정보 수집·이용 동의</h3>
-			<div class="ui-box st3">
+			<h3>개인정보 수집, 이용 동의</h3>
+			<div class="ui-box st4">
 				<div class="ui-customscrollbar">
 					<div class="content" id="indinfoAgree"></div>
 				</div>
