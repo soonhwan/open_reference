@@ -1628,6 +1628,7 @@ box-shadow: 0px 5px 20px 0px rgba(0,0,0,0.1);
 /* 타이틀3 - 예약 페이지부분 */
 .c-tit-page-cont {margin-bottom: 40px;}
 .c-tit-page-cont .title {display: inline-block;font-size:24px;color: #000;font-family:"NotoSansKR" !important;font-weight: 400;vertical-align: middle;position: relative;}
+.c-tit-page-cont .title strong {font-size: 24px;color: #000;font-family: "NotoSansKR" !important;font-weight: 600;}
 /* 타이틀4 - 예약 페이지부분 */
 .c-tit-page-detail {margin:40px 0 30px;}
 .c-tit-page-detail .title {display:inline-block;font-family:"NotoSansKR" !important;font-size:16px;font-weight:700;color:#000;}

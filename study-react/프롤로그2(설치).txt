@@ -1,0 +1,41 @@
+visual studio code 설치
+
+
+node -v
+v10.13.0
+
+
+npm -v
+6.4.1
+
+
+yarn -v
+1.12.3
+
+
+yarn global add create-react-app
+-> 
+yarn 으로 전역적(내폴더 어디서든 사용하는 ) add 해라 create-react-app 이란걸
+이런 뜻입니다.
+create-react-app은 리액트를 사용할수 있게 환경셋팅을 해주는 cil 이며
+초반에 바로 react 로컬서버가 작동하게
+파일들을 다 만들어주는 도구라서
+저게 없으면
+노드로 로컬서버를 띄우고
+리엑트 관련 npm 들을 설치하고
+webpack을 설치해서
+저것들을 죄다 셋팅하고
+돌리는데 한 2일 걸려요
+
+->
+npm config set registry="http://registry.npmjs.org/"
+https로 가는 주소를
+http로 체인지 해서
+보안을 피해서 설치해볼게요
+
+
+설치 완료 후
+
+원하는 폴더안에 create-react-app my-app(생성폴더명)
+
+해주면 됨

@@ -238,7 +238,6 @@
 ********************** 항공 예약(국제선) ************************
 ------------------------------------------------------------------------------------------*/
 /* 공통수정 */
-.hbooksec-air .c-tit-page {margin-top: -10px;}
 .hbooksec-air .c-tit-page + .htp-book-detail {margin-top: -50px;}
 .c-tit-page-cont .tpc-sub1 {font-size: 14px;display: inline-block;color: #2a7cc8;vertical-align: middle;margin: 7px 0 0 5px;}
 .hbooksec-air .help-tooltip.heltt-st2 .over:before {background-color: #b9b9b9;}
@@ -252,7 +251,8 @@
 /* 스케줄 정보 */
 .schedule-info {letter-spacing: -1px;position: relative;} 
 .schedule-info .sch-header {background-color: #288ecc;padding: 23px 40px 25px 40px;position: relative;border: 1px solid #e2e2e2;border-bottom: 0;border-radius: 5px 5px 0 0;} 
-.schedule-info .sch-header .air-info .txt {font-size:16px;color:#fff;font-family:"NotoSansKR" !important;font-weight: 300;position: relative;}
+.schedule-info .sch-header .air-info {max-width: 970px;}
+.schedule-info .sch-header .air-info .txt {font-size:16px;color:#fff;font-family:"NotoSansKR" !important;font-weight: 300;position: relative;display: inline-block;}
 .schedule-info .sch-header .air-info .txt + .txt {padding-left: 33px;} 
 .schedule-info .sch-header .air-info .txt + .txt:before {content: '';display: block;width: 12px;height: 9px;overflow: hidden;background: url(/images/front/travel/contents/icon-common-sec.png) 0 -210px no-repeat;position: absolute;left: 10px;top: 9px;} 
 .schedule-info.trip-type-shuttle .sch-header .air-info .txt:before {background-position: 0 -198px;}
@@ -456,7 +456,7 @@
 .comp-book-box .air-info .txt2 {display: inline-block;font-size: 20px;color: #fff;margin-left: 5px;vertical-align: middle;}
 .comp-book-box.trip-type-shuttle .air-info .txt:before {background-position: -63px -198px;}
 .comp-book-box .msg-comp {display: inline-block;font-size: 20px;color: #fff;font-family:"NotoSansKR" !important;font-weight: 300;margin-top: 10px;position: relative;padding-bottom: 3px;}
-.comp-book-box .msg-comp strong {font-family:"NotoSansKR" !important;}
+.comp-book-box .msg-comp strong {font-family:"NotoSansKR" !important;font-weight: 500;}
 /*.comp-book-box .msg-comp:after {content: '';display: block;width: 100%;height: 1px;background-color: #fff;margin-top: -2px;}*/
 .comp-book-box .msg-capacity {font-size:16px;color: #fff;position: absolute;right: 40px;bottom: 40px;padding-left: 72px;}
 .comp-book-box .msg-move {font-size:16px;color: #fff;position: absolute;right: 40px;bottom: 40px;padding-left: 72px;}
@@ -466,16 +466,18 @@
 .comp-book-box .cc-list:after {content: '';display: block;clear: both;}
 .comp-book-box .cc-list li {float: left;margin-right: 70px;}
 .comp-book-box .cc-list .lbel {display: block;font-size: 14px;color: #000;}
-.comp-book-box .cc-list .val {display: block;font-size: 20px;color: #000;margin-top: 4px;font-family:"NotoSansKR" !important;font-weight: bold;}
-.comp-book-box .cc-list .val .code {display: inline-block;font-size: 14px;color: #000;font-family:"NotoSansKR" !important;font-weight: bold;}
+.comp-book-box .cc-list .val {display: block;font-size: 20px;color: #000;margin-top: 4px;font-family:"NotoSansKR" !important;font-weight: 500;}
+.comp-book-box .cc-list .val strong {font-size: 20px;color: #000;font-family:"NotoSansKR" !important;font-weight: 500;}
+.comp-book-box .cc-list .val .code {display: inline-block;font-size: 14px;color: #000;font-family:"NotoSansKR" !important;font-weight: 500;}
 .comp-book-box .cc-list-dair:after {content: '';display: block;clear: both;}
 .comp-book-box .cc-list-dair li {position: relative;padding: 40px;border-left: 1px solid #e2e2e2;}
 .comp-book-box .cc-list-dair li:first-child {border-left: 0;}
 .comp-book-box.trip-type-shuttle .cc-list-dair li {float: left;width: 50%;}
 /* 국내선 */
 .comp-book-box .cc-list-dair .lbel {display: block;font-size: 14px;color: #000;}
-.comp-book-box .cc-list-dair .val {display: block;font-size: 20px;color: #000;margin-top: 4px;font-family:"NotoSansKR" !important;font-weight: bold;}
-.comp-book-box .cc-list-dair .val .code {display: inline-block;font-size: 14px;color: #000;font-family:"NotoSansKR" !important;font-weight: bold;}
+.comp-book-box .cc-list-dair .val {display: block;font-size: 20px;color: #000;margin-top: 4px;font-family:"NotoSansKR" !important;font-weight: 500;}
+.comp-book-box .cc-list-dair .val strong {font-size: 20px;color: #000;font-family:"NotoSansKR" !important;font-weight: 500;}
+.comp-book-box .cc-list-dair .val .code {display: inline-block;font-size: 14px;color: #000;font-family:"NotoSansKR" !important;font-weight: 500;}
 .comp-book-box .cc-list-dair .bb-st5 {position: absolute;top: 47px;right: 40px;}
 .comp-item-cross-banner {margin-top: 40px;border-radius: 5px;overflow: hidden;}
 /* //국내선 */
@@ -486,15 +488,15 @@
 .hdcd-user-no .hdcdu-auth {position: relative;}
 .hdcd-user-no .hdcdu-auth .bb-st3 {position: absolute;right: 0;top: 9px;}
 .hdcd-user-no .hdcdu-appl {position: relative;}
-.hdcd-user-no .hdcdu-appl .tit {font-size: 16px;color: #000;font-family:"NotoSansKR" !important;font-weight: bold;margin-bottom: 10px;}
+.hdcd-user-no .hdcdu-appl .tit {font-size: 16px;color: #000;font-family:"NotoSansKR" !important;font-weight: 500;margin-bottom: 10px;}
 .hdcd-user-no .hdcdu-appl .con {margin-bottom: 0;}
 .hdcd-user-no .hdcdu-appl .bb-st5 {position: absolute;right: 20px;bottom: 27px;}
 .hdcd-bnn {position: relative;margin-top: 15px;}
 .hdcd-bnn .btn-hdcd-more {display: block;position: absolute;top: 100px;left: 31px;}
 
 /* 예약상세 - 항공 예약/결제 내역 */
-.hbooksec-res-check .ui-btns-wrap {margin-top: 20px;overflow: visible;}
-.hbooksec-res-check .ui-btns-wrap .ui-btns {overflow: visible;height: 38px;}
+.hbooksec-res-check .ui-btns-wrap {margin-top: 20px;overflow: visible;height: 38px;}
+.hbooksec-res-check .ui-btns-wrap .ui-btns {overflow: visible;}
 .hbooksec-res-check .ui-btns-wrap .bb-st5 {min-width: 145px;letter-spacing: -1px;}
 .hbooksec-res-check .ui-btns-wrap .lp-area {float: left;margin-left: 10px;min-width: 145px;letter-spacing: -1px;}
 .comp-book-box-det {border:1px solid #e2e2e2;border-radius: 5px;overflow: hidden;position: relative;}
@@ -507,7 +509,7 @@
 .comp-book-box-det .air-info .txt2 {display: inline-block;font-size: 20px;color: #fff;margin-left: 5px;}
 .comp-book-box-det.trip-type-shuttle .air-info .txt:before {background-position: -63px -198px;}
 .comp-book-box-det .msg-comp {display: inline-block;font-size: 20px;color: #fff;font-family:"NotoSansKR" !important;font-weight: 300;margin-top: 30px;position: relative;padding-bottom: 3px;}
-.comp-book-box-det .msg-comp strong {font-family:"NotoSansKR" !important;}
+.comp-book-box-det .msg-comp strong {font-family:"NotoSansKR" !important;font-weight: 500;}
 /*.comp-book-box-det .msg-comp:after {content: '';display: block;width: 100%;height: 1px;background-color: #fff;margin-top: -2px;}*/
 .comp-book-box-det .progress {position: absolute;right: 40px;top: 37px;text-align: right;}
 .comp-book-box-det .progress .p-tit {font-size: 14px;color: #fff;}
@@ -523,8 +525,9 @@
 .comp-book-box-det .cbb-cont {background-color: #fff;padding: 40px;position: relative;}
 .comp-book-box-det .cc-list {position: absolute;top: 38px;left: 40px;}
 .comp-book-box-det .cc-list .lbel {display: inline-block;vertical-align: middle;font-size: 14px;color: #000;width: 80px;}
-.comp-book-box-det .cc-list .val {display: inline-block;vertical-align: middle;font-size: 20px;color: #000;font-family:"NotoSansKR" !important;font-weight: bold;}
-.comp-book-box-det .cc-list .val .code {display: inline-block;font-size: 14px;color: #000;font-family:"NotoSansKR" !important;font-weight: bold;}
+.comp-book-box-det .cc-list .val {display: inline-block;vertical-align: middle;font-size: 20px;color: #000;font-family:"NotoSansKR" !important;font-weight: 500;}
+.comp-book-box-det .cc-list .val strong {font-size: 20px;color: #000;font-family:"NotoSansKR" !important;font-weight: 500;}
+.comp-book-box-det .cc-list .val .code {display: inline-block;font-size: 14px;color: #000;font-family:"NotoSansKR" !important;font-weight: 500;}
 
 /* 나의 질문답변/변경 내역 */
 .hbooksec-my-ask .tbl-list.ptb-short td{padding:13px 0;}

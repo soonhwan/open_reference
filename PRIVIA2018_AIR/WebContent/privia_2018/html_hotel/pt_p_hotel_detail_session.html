@@ -316,19 +316,19 @@ $(function(){
 											<div class="qsb-cont-box">
 												<div class="qsb-cont qsb-places">
 													<div class="places-exit">
-														<a href="#" class="qsb-area" data-panel="mainsel" data-panel-name="ui-mainsel-hotel">
+														<a href="#" class="qsb-area on" data-panel="mainsel" data-panel-name="ui-mainsel-hotel">
 															<span class="qsb-label">여행지, 숙소명, 관광명소</span>
-															<span class="qsb-input"><span class="city"></span></span>
+															<span class="qsb-input"><span class="city">파리 (인근 지역 포함), 프랑스</span></span>
 														</a>
 													</div>
 												</div>
 												<div class="qsb-cont qsb-dates">
-													<a href="#" class="qsb-area" data-panel="calendar" data-panel-name="ui-date-calendar">
+													<a href="#" class="qsb-area on" data-panel="calendar" data-panel-name="ui-date-calendar">
 														<span class="qsb-label">숙박 날짜</span>
 														<span class="qsb-input">
-															<span class="qsb-chkin" data-day=""></span>
-															<span class="qsb-chkout" data-day=""></span>
-															<span class="qsb-result-days"><em class="qsb-c"><span class="num"></span>박</em></span>
+															<span class="qsb-chkin" data-day="2018/12/29">12월 29일 (목)</span>
+															<span class="qsb-chkout" data-day="2018/12/31">12월 31일 (목)</span>
+															<span class="qsb-result-days on"><em class="qsb-c"><span class="num">2</span>박</em></span>
 														</span>
 													</a>
 												</div>
@@ -922,33 +922,33 @@ $(function(){
 					<div class="htp-places">
 						<a href="#">
 							<p class="label">여행지, 숙소명, 랜드마크</p>
-							<p class="result">15구, 파리 호텔, 프랑스</p>
+							<p class="result">파리 (인근 지역 포함), 프랑스</p>
 						</a>
 					</div>
 					<div class="htp-dates">
             <!-- 숙박날짜가 없을 경우 -->
+						<!--
             <a href="#">
               <p class="label">숙박날짜</p>
 							<div class="result date-select">숙박날짜 선택</div>
 						</a>
+            -->
 
             <!-- 숙박날짜가 있을 경우 -->
-						<!--
             <a href="#">
 							<p class="label">숙박날짜</p>
 							<div class="result">
-								<span class="chkin">02월 15일  (목)</span>
-								<span class="chkout">02월 15일  (목)</span>
-								<span class="result-days">3박</span>
+								<span class="chkin">12월 29일 (토)</span>
+								<span class="chkout">12월 31일 (월)</span>
+								<span class="result-days">2박</span>
 							</div>
 						</a>
-						-->
 
 					</div>
 					<div class="htp-capacity">
 						<a href="#">
 							<p class="label">인원, 객실 수</p>
-							<p class="result">성인2, 아동0, 객실1</p>
+							<p class="result">성인4, 아동4, 객실2</p>
 							<span class="ico-search"></span>
 						</a>
 					</div>
@@ -1011,7 +1011,6 @@ $(function(){
 							<p class="htp-facilities"><span>주요편의시설</span>무료와이파이, 무료주차, 다국어지원</p>
 
 							<!-- 숙박날짜가 있을 경우 -->
-							<!--
 							<div class="htp-rb-utils">
 								<p class="txt">3박 최저가</p>
 								<p class="price"><em>413,300</em> 원</p>
@@ -1053,16 +1052,7 @@ $(function(){
 									<span class="btn-base bb-st3 long"><a href="#" class="go-htp1st-sec">객실선택</a></span>
 								</div>
 							</div>
-							-->
 							<!-- //숙박날짜가 있을 경우 -->
-
-							<!-- 숙박날짜가 없을 경우 -->
-							<div class="htp-rb-utils">
-								<div class="btns">
-									<span class="btn-base bb-st3 long"><a href="#">요금 확인</a></span>
-								</div>
-							</div>
-							<!-- //숙박날짜가 없을 경우 -->
 						</div>
 						<div class="htp-badge">
 							<span class="st1">PRIVIA 특가</span>
@@ -1193,7 +1183,7 @@ $(function(){
 												</div>
 											</td>
 											<td class="room-btn">
-												<span class="btn-base bb-st3"><a href="#">객실 예약</a></span>
+												<span class="btn-base bb-st3"><a href="#">객실선택</a></span>
 											</td>
 										</tr>
 										<tr>
@@ -1239,7 +1229,7 @@ $(function(){
 												</div>
 											</td>
 											<td class="room-btn">
-												<span class="btn-base bb-st3"><a href="#">객실 예약</a></span>
+												<span class="btn-base bb-st3"><a href="#">객실선택</a></span>
 											</td>
 										</tr>
 										<tr>
@@ -1285,7 +1275,7 @@ $(function(){
 												</div>
 											</td>
 											<td class="room-btn">
-												<span class="btn-base bb-st3"><a href="#">객실 예약</a></span>
+												<span class="btn-base bb-st3"><a href="#">객실선택</a></span>
 											</td>
 										</tr>
 										<tr>
@@ -1331,7 +1321,7 @@ $(function(){
 												</div>
 											</td>
 											<td class="room-btn">
-												<span class="btn-base bb-st3"><a href="#">객실 예약</a></span>
+												<span class="btn-base bb-st3"><a href="#">객실선택</a></span>
 											</td>
 										</tr>
 										<tr>
@@ -1377,7 +1367,7 @@ $(function(){
 												</div>
 											</td>
 											<td class="room-btn">
-												<span class="btn-base bb-st3"><a href="#">객실 예약</a></span>
+												<span class="btn-base bb-st3"><a href="#">객실선택</a></span>
 											</td>
 										</tr>
 									</tbody>

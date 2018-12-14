@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width">
+  <title>JS Bin</title>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/redux/3.6.0/redux.js"></script> 
+</head>
+<body>
+
+<script>
+//액션 타입 지정
+const INCREMENT = 'INCREMENT';
+const DECREMENT = 'DECREMENT';
+const init = {
+    number : 0
+};
+
+//액션 객체를 만들어주는 액션 생성 함수
+const increment = (todos) =>({
+  type : INCREMENT,
+  todos : todos
+});
+
+//액션
+const decrement = (todos) =>({
+  type : DECREMENT,
+  todos : todos
+});
+
+//디스패치
+console.log(increment(1));
+console.log(decrement(2));
+console.log(counter(undefined, increment(1)));
+
+//리듀서
+function counter(state = init, action){
+  switch(action.type){
+    case INCREMENT : 
+      return {number : state.number + action.todos};
+    case DECREMENT : 
+      return {number : state.number - action.todos};
+    default :
+      return state;
+  }
+} 
+
+//스토어
+const { createStore } = Redux;
+const store = createStore(counter);  //store가 상태관리, 리듀서가 변화 -> 둘은 유기적으로 밀접히 붙어다녀야함.
+
+// 상태가 변경 될 때 마다 호출시킬 listener 함수입니다
+const render = () => {
+  console.log(`render = ${store.getState().number}`);
+}
+
+//구독
+const unsubscribe = store.subscribe(render); 
+
+//스토어를 중심으로 액션이 디스패치전달로 스토어로 들어오고 
+//스토어 내부 리듀서가 수행이되고 
+//state가 변경이 되면 구독자들이 체 간다
+
+store.dispatch(increment(10));
+store.dispatch(increment(14)); 
+store.dispatch(decrement(5)); 
+store.dispatch(decrement(10));
+
+</script>
+
+</body>
+</html>
