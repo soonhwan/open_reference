@@ -1,7 +1,7 @@
-import React from 'react';
+import React from "react";
 
-const PageTemplate = ({children}) => {
-  return (
+const PageTemplate = ({ children }) => {
+  return (
     <div>
       <h1>일정관리앱</h1>
       <div>{children}</div>
@@ -9,4 +9,4 @@ const PageTemplate = ({children}) => {
   );
 };
 
-export default PageTemplate; 
+export default PageTemplate;

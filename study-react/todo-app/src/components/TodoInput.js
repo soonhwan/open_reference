@@ -1,4 +1,4 @@
-import React from 'react';
+import React from "react";
 
 /*
 state를 가지고 놀아야되는데
@@ -9,13 +9,15 @@ this.props.뭐뭐뭐
 const TodoInput = ({여기에 prop내용}) => { 
 */
 
-const TodoInput = ({value, onChange, onInsert}) => { 
-  return (
+const TodoInput = ({ value, onChange, onInsert }) => {
+  return (
     <div>
       <input type="text" value={value} onChange={onChange} />
-      <button type="button" onClick={onInsert}>추가하기</button>
+      <button type="button" onClick={onInsert}>
+        추가하기
+      </button>
     </div>
   );
 };
 
-export default TodoInput; 
+export default TodoInput;

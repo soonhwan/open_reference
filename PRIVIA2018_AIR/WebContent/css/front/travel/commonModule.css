@@ -4,14 +4,13 @@
  ************************ common - reset, lyout ************************
  *--------------------------------------------------------------------------------------------------------------*/
 /* reset - font-size:16px 부터 NotoSansKR 적용 */
-#top-area-sec, #top-area-sec, #top-area-sec,
-#top-area-sec *, #top-area-sec *:after, #top-area-sec *:before,
-#header-sec *, #header-sec *:after, #header-sec *:before,
-#mobile-promotion-sec *, #mobile-promotion-sec *:after, #mobile-promotion-sec *:before,
-#content-sec *, #content-sec *:after, #content-sec *:before,
+#top-area-sec, #top-area-sec *, #top-area-sec *:after, #top-area-sec *:before,
+#header-sec, #header-sec *, #header-sec *:after, #header-sec *:before,
+#mobile-promotion-sec, #mobile-promotion-sec *, #mobile-promotion-sec *:after, #mobile-promotion-sec *:before,
+#content-sec, #content-sec *, #content-sec *:after, #content-sec *:before,
 .w-nav-gsub-ly *, .w-nav-gsub-ly *:after, .w-nav-gsub-ly *:before,
-.popup-wrap *, .popup-wrap *:after, .popup-wrap *:before,
-.custom-tooltip *, .custom-tooltip *:after, .custom-tooltip *:before,
+.popup-wrap, .popup-wrap *, .popup-wrap *:after, .popup-wrap *:before,
+.custom-tooltip, .custom-tooltip *, .custom-tooltip *:after, .custom-tooltip *:before,
 .datepker-base, .datepker-base *, .datepker-base *:after, .datepker-base *:before,
 #footer-sec *, #footer-sec *:after, #footer-sec *:before {font-family: "Malgun Gothic", "NotoSansKR", sans-serif;-moz-box-sizing:border-box;-webkit-box-sizing:border-box;box-sizing:border-box;}
 
