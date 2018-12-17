@@ -1,0 +1,407 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=no" />
+<meta name="format-detection" content="telephone=no" />
+<title>PRIVIA 여행</title>
+<meta name="description" content=" "> 
+<meta property="og:title" content=" "> 
+<meta property="og:image" content="http://static.priviatravel.com/images/front/mtravel/common/mobile_17004159046.png"> 
+<meta property="og:description" content=" ">
+<link rel="shortcut icon" type="image/x-icon" href="//static.priviatravel.com/images/front/mtravel/common/favicon.ico" />
+<link rel="apple-touch-icon-precomposed" sizes="152x152" href="//static.priviatravel.com/images/front/mtravel/common/apple-touch-icon-152.png" />
+<link type="text/css" rel="stylesheet" href="/css/front/mtravel/jquery.mobile.1.4.2.css" />
+<link type="text/css" rel="stylesheet" href="/css/front/mtravel/jquery-ui.min.css" />
+<link type="text/css" rel="stylesheet" href="/css/front/mtravel/swiper.min.css" />
+<link type="text/css" rel="stylesheet" href="/css/front/mtravel/base.css" />
+<link type="text/css" rel="stylesheet" href="/css/front/mtravel/common.css" />
+<link type="text/css" rel="stylesheet" href="/css/front/mtravel/contents.css" />
+<link type="text/css" rel="stylesheet" href="/css/front/mtravel/airCont.css" />
+<script type="text/javascript" src="/js/front/mtravel/jquery-1.8.3.min.js"></script>
+<script type="text/javascript" src="/js/front/mtravel/jquery-ui.min.js"></script>
+<script type="text/javascript" src="/js/front/mtravel/init.js"></script>
+<script type="text/javascript" src="/js/front/mtravel/jquery.mobile-1.4.2.js"></script>
+<script type="text/javascript" src="/js/front/mtravel/swiper.min.js"></script>
+<script type="text/javascript" src="/js/front/mtravel/commonModuleSearchM.js"></script> <!-- headerManager 가이드 버전 실제로는 반영 되지 않음 -->
+<script type="text/javascript" src="/js/front/mtravel/commonUI.js"></script>
+<script type="text/javascript" src="/js/utils.js"></script>
+</head>
+
+<body>
+
+<!-- page -->
+<div data-role="page">
+   
+    <!-- header-sec -->
+    <!-- 메인헤더 -->
+    <div class="header-secV2">
+        <div class="in-header-secV2">
+            <h1 class="logo"><a href="#"><img src="/images/front/mtravel/contents/logo-privia.png" alt="현대카드 PRIVIA 여행"></a></h1>
+            <div class="ly-left">
+                <a href="#" class="b-gnb"><span class="a11y">메뉴보기</span></a>
+            </div>
+            <div class="ly-right">
+                <a href="#" class="b-mymenu"><span class="a11y">마이페이지 가기</span></a>
+            </div>
+        </div>
+    </div>
+    <!-- //메인헤더 -->
+    
+    <!-- 서브헤더 - 항공 검색결과 --> 
+    <div class="header-secV2 header-page-st hps-air">
+        <div class="in-header-secV2">
+            <div class="hps-air-info">
+                <div class="hai-places">
+                    <div class="label">가는편</div>
+                    <div class="air-info">
+                        <span class="txt">ICN</span>
+                        <span class="txt">NRT</span>
+                    </div>
+                </div>
+                <div class="hai-info">
+                   <a href="#" class="area-hai-info">
+                        <div class="hai-dates">12월 01일 (토)</div>
+                        <div class="hai-capacity">
+                            <ul class="list">
+                                <li class="icon-adt"><span class="num">3</span></li>
+                                <li class="icon-chd"><span class="num">2</span></li>
+                                <li class="icon-inf"><span class="num">0</span></li>
+                            </ul>
+                        </div>
+                    </a>
+                </div>
+            </div>
+            <div class="ly-left">
+                <a href="#" class="b-back" data-rel="back" data-direction="reverse"><span class="a11y">이전 페이지로 가기</span></a>
+            </div>
+            
+            <!-- 검색 영역 -->
+            <div class="w-search-sec o-bg-air">                
+                <!-- 검색 섹션 -->
+                <div class="hs-search-cont">
+                    <!-- 항공 -->
+                    <div class="hss-inner-cont sc-air">
+                        <!-- 왕복 -->
+                        <div class="sc-search-box o-shuttle on" data-sc="shuttle">
+                            <div class="w-qsb-cont">
+                                <div class="qsb-cont-box-indep">
+                                    <div class="qsb-places">
+                                        <div class="places-exit">
+                                            <a href="#" class="qsb-area" data-panel="mainsel">
+                                                <span class="code">출발</span>
+                                                <span class="city">출발지 선택</span>
+                                            </a>
+                                        </div>
+                                        <div class="places-entry">
+                                            <a href="#" class="qsb-area" data-panel="mainsel">
+                                                <span class="code">도착</span>
+                                                <span class="city">도착지 선택</span>
+                                            </a>
+                                        </div>
+                                        <span class="btn-base b-change-places"><button type="button"><span class="a11y">출발도시, 도착도시 변경</span></button></span>
+                                    </div>
+                                </div>
+                                <div class="qsb-cont-box">
+                                    <div class="qsb-cont qsb-dates">
+                                        <a href="#" class="qsb-area" data-panel="calendar">
+                                            <span class="qsb-label-hide">여행날짜</span>
+                                            <span class="qsb-input">
+                                                <span class="qsb-chkin" data-day="">
+                                                    <span class="label">출발일</span>
+                                                    <span class="txt"></span>
+                                                </span>
+                                                <span class="qsb-chkout" data-day="">
+                                                    <span class="label">도착일</span>
+                                                    <span class="txt"></span>
+                                                </span>
+                                            </span>
+                                        </a>
+                                    </div>
+                                    <div class="qsb-cont qsb-capacity">
+                                        <a href="#" class="qsb-area on" data-panel="capacity">
+                                            <span class="qsb-label">인원, 좌석등급</span>
+                                            <span class="qsb-input" data-adt="1" data-chd="0" data-inf="0" data-comp="Y">
+                                                <span class="adt-txt">성인 <em class="num">1</em></span>
+                                                <span class="chd-txt">,아동 <em class="num">0</em></span>
+                                                <span class="inf-txt">,유아 <em class="num">0</em></span>
+                                                <span class="type-seat">일반석</span>
+                                            </span>
+                                        </a>
+                                    </div>
+                                    <div class="qsb-cont qsb-btn-search">
+                                        <span class="btn-base bb-st3"><button type="button" class="b-search">항공권 검색</button></span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- //왕복 -->
+
+                        <!-- 편도 -->
+                        <div class="sc-search-box o-oneway" data-sc="oneway">
+                            <div class="w-qsb-cont">
+                                <div class="qsb-cont-box-indep">
+                                    <div class="qsb-places">
+                                        <div class="places-exit">
+                                            <a href="#" class="qsb-area" data-panel="mainsel">
+                                                <span class="code">출발</span>
+                                                <span class="city">출발지 선택</span>
+                                            </a>
+                                        </div>
+                                        <div class="places-entry">
+                                            <a href="#" class="qsb-area" data-panel="mainsel">
+                                                 <span class="code">도착</span>
+                                                <span class="city">도착지 선택</span>
+                                            </a>
+                                        </div>
+                                        <span class="btn-base b-change-places"><button type="button"><span class="a11y">출발도시, 도착도시 변경</span></button></span>
+                                    </div>
+                                </div>
+                                <div class="qsb-cont-box">
+                                    <div class="qsb-cont qsb-dates">
+                                        <a href="#" class="qsb-area" data-panel="calendar">
+                                            <span class="qsb-label-hide">여행날짜</span>
+                                            <span class="qsb-input">
+                                                <span class="qsb-chkin" data-day="">
+                                                    <span class="label">출발일</span>
+                                                    <span class="txt"></span>
+                                                </span>
+                                            </span>
+                                        </a>
+                                    </div>
+                                    <div class="qsb-cont qsb-capacity">
+                                        <a href="#" class="qsb-area on" data-panel="capacity">
+                                            <span class="qsb-label">인원, 좌석등급</span>
+                                            <span class="qsb-input" data-adt="1" data-chd="0" data-inf="0" data-comp="Y">
+                                                <span class="adt-txt">성인 <em class="num">1</em></span>
+                                                <span class="chd-txt">,아동 <em class="num">0</em></span>
+                                                <span class="inf-txt">,유아 <em class="num">0</em></span>
+                                                <span class="type-seat">일반석</span>
+                                            </span>
+                                        </a>
+                                    </div>
+                                    <div class="qsb-cont qsb-btn-search">
+                                        <span class="btn-base bb-st3"><button type="button" class="b-search">항공권 검색</button></span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- //편도 -->
+
+                        <!-- 다구간 -->
+                        <div class="sc-search-box o-multiway" data-sc="multiway">
+                            <div class="w-qsb-cont">
+                                <ol class="ol-list-qsb">
+                                    <li class="air-md-1 on">
+                                         <div class="qsb-cont-box-indep">
+                                            <div class="qsb-places">
+                                                <div class="places-exit">
+                                                    <a href="#" class="qsb-area" data-panel="mainsel">
+                                                        <span class="code">출발</span>
+                                                        <span class="city">출발지 선택</span>
+                                                    </a>
+                                                </div>
+                                                <div class="places-entry">
+                                                    <a href="#" class="qsb-area" data-panel="mainsel">
+                                                         <span class="code">도착</span>
+                                                        <span class="city">도착지 선택</span>
+                                                    </a>
+                                                </div>
+                                                <span class="btn-base b-change-places"><button type="button"><span class="a11y">출발도시, 도착도시 변경</span></button></span>
+                                            </div>
+                                            <div class="qsb-dates">
+                                                <a href="#" class="qsb-area" data-panel="calendar">
+                                                    <span class="qsb-input">
+                                                        <span class="qsb-chkin" data-day="">
+                                                            <span class="txt"></span>
+                                                        </span>
+                                                    </span>
+                                                </a>                                                
+                                                <div class="qsb-btn-add">
+                                                    <span class="number">여정 1</span>
+                                                </div>
+                                            </div>
+                                        </div>                                   
+                                    </li>
+                                    <li class="air-md-2 on">
+                                         <div class="qsb-cont-box-indep">
+                                            <div class="qsb-places">
+                                                <div class="places-exit">
+                                                    <a href="#" class="qsb-area" data-panel="mainsel">
+                                                        <span class="code">출발</span>
+                                                        <span class="city">출발지 선택</span>
+                                                    </a>
+                                                </div>
+                                                <div class="places-entry">
+                                                    <a href="#" class="qsb-area" data-panel="mainsel">
+                                                        <span class="code">도착</span>
+                                                        <span class="city">도착지 선택</span>
+                                                    </a>
+                                                </div>
+                                                <span class="btn-base b-change-places"><button type="button"><span class="a11y">출발도시, 도착도시 변경</span></button></span>
+                                            </div>
+                                            <div class="qsb-dates">
+                                                <a href="#" class="qsb-area" data-panel="calendar">
+                                                    <span class="qsb-input">
+                                                        <span class="qsb-chkin" data-day="">
+                                                            <span class="txt"></span>
+                                                        </span>
+                                                    </span>
+                                                </a>     
+                                                <div class="qsb-btn-add">
+                                                    <span class="number">여정 2</span>
+                                                    <span class="remove-md"><a href="#">여정 2</a></span>
+                                                </div>
+                                            </div>
+                                        </div>                                   
+                                    </li>
+                                    <li class="air-md-3">
+                                         <div class="qsb-cont-box-indep">
+                                            <div class="qsb-places">
+                                                <div class="places-exit">
+                                                    <a href="#" class="qsb-area" data-panel="mainsel">
+                                                        <span class="code">출발</span>
+                                                        <span class="city">출발지 선택</span>
+                                                    </a>
+                                                </div>
+                                                <div class="places-entry">
+                                                    <a href="#" class="qsb-area" data-panel="mainsel">
+                                                         <span class="code">도착</span>
+                                                        <span class="city">도착지 선택</span>
+                                                    </a>
+                                                </div>
+                                                <span class="btn-base b-change-places"><button type="button"><span class="a11y">출발도시, 도착도시 변경</span></button></span>
+                                            </div>
+                                            <div class="qsb-dates">
+                                                <a href="#" class="qsb-area" data-panel="calendar">
+                                                    <span class="qsb-input">
+                                                        <span class="qsb-chkin" data-day="">
+                                                            <span class="txt"></span>
+                                                        </span>
+                                                    </span>
+                                                </a>     
+                                                <div class="qsb-btn-add">
+                                                    <span class="remove-md"><a href="#">여정 3</a></span>
+                                                </div>
+                                            </div>
+                                        </div>                                   
+                                    </li>
+                                    <li class="air-md-4">
+                                         <div class="qsb-cont-box-indep">
+                                            <div class="qsb-places">
+                                                <div class="places-exit">
+                                                    <a href="#" class="qsb-area" data-panel="mainsel">
+                                                        <span class="code">출발</span>
+                                                        <span class="city">출발지 선택</span>
+                                                    </a>
+                                                </div>
+                                                <div class="places-entry">
+                                                    <a href="#" class="qsb-area" data-panel="mainsel">
+                                                         <span class="code">도착</span>
+                                                        <span class="city">도착지 선택</span>
+                                                    </a>
+                                                </div>
+                                                <span class="btn-base b-change-places"><button type="button"><span class="a11y">출발도시, 도착도시 변경</span></button></span>
+                                            </div>
+                                            <div class="qsb-dates">
+                                                <a href="#" class="qsb-area" data-panel="calendar">
+                                                    <span class="qsb-input">
+                                                        <span class="qsb-chkin" data-day="">
+                                                            <span class="txt"></span>
+                                                        </span>
+                                                    </span>
+                                                </a>     
+                                                <div class="qsb-btn-add">
+                                                    <span class="remove-md"><a href="#">여정 4</a></span>
+                                                </div>
+                                            </div>
+                                        </div>                                   
+                                    </li>
+                                </ol>
+                                
+                                <a href="#" class="add-md"><span>여정추가</span></a>
+                                
+                                <div class="qsb-cont-box">
+                                    <div class="qsb-cont qsb-capacity">
+                                        <a href="#" class="qsb-area on" data-panel="capacity">
+                                            <span class="qsb-label">인원, 좌석등급</span>
+                                            <span class="qsb-input" data-adt="1" data-chd="0" data-inf="0" data-comp="Y">
+                                                <span class="adt-txt">성인 <em class="num">1</em></span>
+                                                <span class="chd-txt">,아동 <em class="num">0</em></span>
+                                                <span class="inf-txt">,유아 <em class="num">0</em></span>
+                                                <span class="type-seat">일반석</span>
+                                            </span>
+                                        </a>
+                                    </div>
+                                    <div class="qsb-cont qsb-btn-search">
+                                        <span class="btn-base bb-st3"><button type="button" class="b-search">항공권 검색</button></span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- //다구간 -->
+                    </div>
+                    <!-- //항공 -->
+                </div>
+                <!-- //검색 섹션 -->
+            </div>
+            <!-- //검색 영역 -->
+        </div>
+    </div>
+    <!-- //서브헤더 - 항공 검색결과 --> 
+    <!-- //header-sec -->
+       
+    <!-- content-sec -->
+    <div class="content-sec">
+        <section class="w-content-sec">
+            
+        </section>
+    </div>
+    <!-- //content-sec -->
+        
+    <!-- footer-sec -->
+    <div class="footer-sec">
+        <footer class="w-footer-sec">
+            <div class="fts-ly1">
+                <p class="fts-call">
+                    <span class="txt1">고객센터 <em><a href="tel:1588-0360">1588-0360</a></em></span>
+                    <span class="txt2"><a href="tel:82-2-6911-8300">(해외 82-2-6911-8300)</a></span>
+                </p>
+                <ul class="fts-go-link">
+                    <li><span class="btn-base bb-st1"><a href="#">PC버전</a></span></li>
+                    <li><span class="btn-base bb-st1"><a href="#">고객센터</a></span></li>
+                </ul>
+            </div>
+            <ul class="nav-fnb">
+				<li><a href="#" target="_blank">사업자정보확인</a></li>
+				<li><a href="#">이용약관</a></li>
+				<li><a href="#">개인정보처리방침</a></li>
+				<li><a href="#">업무위탁현황</a></li>
+			</ul>     
+            <ul class="w-address">
+                <li class="address">서울특별시 중구 청계천로 100 시그니쳐 타워 서관 16층</li>
+                <li>㈜타이드스퀘어</li>
+                <li>대표이사 윤민</li>
+                <li>사업자등록번호 124-86-86370</li>
+                <li>관광사업자번호 제 2015-000033호</li>
+                <li>통신판매업신고번호 제 2015-서울중구-0788호</li>
+            </ul>
+            <p class="copyright"><small>COPYRIGHT (c) TIDESQUARE CO. LTD. ALL RIGHTS RESERVED. <br />SPONSORED BY HYUNDAI CARD</small></p>
+        </footer>
+    </div>
+    <!-- //footer-sec -->
+    
+    <script type="text/javascript">
+    $(document).one('pageshow',function(e,data){      
+        pvmSearch.comSearchAir();
+    });
+    </script>
+    
+</div>
+<!-- //page -->
+
+
+
+    
+</body>
+</html>

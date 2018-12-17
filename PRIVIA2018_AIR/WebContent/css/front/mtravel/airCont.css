@@ -1,0 +1,58 @@
+@charset "utf-8";
+
+/*--------------------------------------------------------------------------------------------------------------
+ *  common - background
+ *--------------------------------------------------------------------------------------------------------------*/
+.header-secV2.hps-air .area-hai-info:before,
+.header-secV2.hps-air .hai-capacity .icon-inf:before,
+.header-secV2.hps-air .hai-capacity .icon-chd:before,
+.header-secV2.hps-air .hai-capacity .icon-adt:before,
+.header-secV2.hps-air .hai-places .air-info .txt + .txt:before,
+.header-secV2.hps-air .hai-places .air-info .txt + .txt:before {background-image: url(/images/front/mtravel/contents/icon-common-secM.png);-webkit-background-size: 160px;background-size: 160px;}
+
+/*--------------------------------------------------------------------------------------------------------------
+ *  contents - 공통
+ *--------------------------------------------------------------------------------------------------------------*/
+/* 항공 상세 헤더 */
+.header-secV2.hps-air .in-header-secV2 {background-color: #288ecc;border-bottom: 0;position: relative;}
+.header-secV2.hps-air .in-header-secV2:before {content: '';display: block;width: 100%;height: 1px;background-color: #fff;opacity: 0.1;position: absolute;bottom: 0;left: 0;}
+.header-secV2.hps-air .in-header-secV2 .ly-left .b-back {background-position: -17px -141px;}
+.header-secV2.hps-air .hps-air-info {text-align: center;color: #fff;}
+.header-secV2.hps-air .hai-places {display: inline-block;width: 100%;}
+.header-secV2.hps-air .hai-places .label {display: inline-block;font-size:14px;font-weight: 500;margin-right: 16px;}
+.header-secV2.hps-air .hai-places .air-info {display: inline-block;}
+.header-secV2.hps-air .hai-places .air-info .txt {display: inline-block;font-size:16px;font-weight: 500;position: relative;}
+.header-secV2.hps-air .hai-places .air-info .txt + .txt {padding-left: 30px;}
+.header-secV2.hps-air .hai-places .air-info .txt + .txt:before {content: '';display: block;width: 14px;height: 6px;background-position: -29px -219px;position: absolute;top: 9px;left: 7px;}
+.header-secV2.hps-air .hai-info {display: inline-block;width: 100%;}
+.header-secV2.hps-air .hai-dates {display: inline-block;font-size:12px;margin-right: 18px;color: #fff;}
+.header-secV2.hps-air .hai-capacity {display: inline-block;}
+.header-secV2.hps-air .hai-capacity li {display: inline-block;position: relative;}
+.header-secV2.hps-air .hai-capacity .num {display: inline-block;width: 16px;text-align: center;font-size:12px;color: #fff;}
+.header-secV2.hps-air .hai-capacity .icon-adt {padding-left: 11px;}
+.header-secV2.hps-air .hai-capacity .icon-adt:before {content: '';display: block;width: 11px;height: 16px;overflow: hidden;position: absolute;top: 2px;left: 0;background-position: -100px -26px;}
+.header-secV2.hps-air .hai-capacity .icon-chd {padding-left: 14px;}
+.header-secV2.hps-air .hai-capacity .icon-chd:before {content: '';display: block;width: 14px;height: 16px;overflow: hidden;position: absolute;top: 2px;left: 0;background-position: -114px -26px;}
+.header-secV2.hps-air .hai-capacity .icon-inf {padding-left: 11px;}
+.header-secV2.hps-air .hai-capacity .icon-inf:before {content: '';display: block;width: 11px;height: 16px;overflow: hidden;position: absolute;top: 2px;left: 0;background-position: -130px -26px;}
+.header-secV2.hps-air .area-hai-info {position: relative;display: inline-block;padding-right: 15px;}
+.header-secV2.hps-air .area-hai-info:before {content: '';display: block;width: 11px;height: 7px;position: absolute;top: 6px;right: 0;background-position: -28px -111px;}
+
+/* 항공 상세 헤더 검색 영역 */
+.hps-air .w-search-sec {display: none;}
+
+/*--------------------------------------------------------------------------------------------------------------
+ *  contents - 검색결과 리스트
+ *--------------------------------------------------------------------------------------------------------------*/
+
+
+
+
+
+
+
+
+
+
+
+

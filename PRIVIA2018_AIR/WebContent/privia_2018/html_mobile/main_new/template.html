@@ -122,25 +122,68 @@ var AIR_HTL_FLAG = "ETC";
     <!-- //메인 레이어팝업(메인/마이페이지 메인/고객센터 메인 사용) -->
     
     <!-- header-sec -->
-    <div class="header-sec">
+    <!-- 개편 ver1 -->
+    <!--<div class="header-sec">
         <header class="w-header-sec">
             <h1 class="logo"><a href="#"><img src="/images/front/mtravel/contents/logo-privia.png" alt="현대카드 PRIVIA 여행"></a></h1>
-            <!--<h2 class="whs-title">출발 도시 선택</h2>-->
-            <!--<div class="ly-left">
+            <h2 class="whs-title">출발 도시 선택</h2>
+            <div class="ly-left">
                 <a href="#" class="b-back" data-rel="back" data-direction="reverse"><span class="a11y">이전 페이지로 가기</span></a>
                 <a href="#" class="b-close" data-rel="back"><span class="a11y">페이지 닫기</span></a>
-            </div>-->
+            </div>
             <div class="ly-right">
                 <a href="#" class="b-mymenu"><span class="a11y">마이페이지 가기</span></a>
                 <a href="#" class="b-gnb"><span class="a11y">메뉴보기</span></a>
             </div>
-        </header>
+        </header>        
+    </div>-->
+    <!-- //개편 ver1 -->
+    
+    <!-- 개편 ver2 -->
+    <!-- 메인헤더 - 팝업 제외하고 항상 존재 -->
+    <div class="header-secV2">
+        <div class="in-header-secV2">
+            <h1 class="logo"><a href="#"><img src="/images/front/mtravel/contents/logo-privia.png" alt="현대카드 PRIVIA 여행"></a></h1>
+            <div class="ly-left">
+                <a href="#" class="b-gnb"><span class="a11y">메뉴보기</span></a>
+            </div>
+            <div class="ly-right">
+                <a href="#" class="b-mymenu"><span class="a11y">마이페이지 가기</span></a>
+            </div>
+        </div>
     </div>
+    <!-- //메인헤더 -->
+    
+    <!-- 서브헤더 - 최초진입시 서브헤더만 보이도록 위치, 스크롤시 fix모드(.is-fixed) -->
+    <div class="header-secV2 header-page-st">
+        <div class="in-header-secV2">
+            <h2 class="ihg-title">예약하기</h2>
+            <div class="ly-left">
+                <a href="#" class="b-back" data-rel="back" data-direction="reverse"><span class="a11y">이전 페이지로 가기</span></a>
+            </div>
+        </div>
+    </div>
+    <!-- //서브헤더 -->
+    
+    <!-- 팝업헤더 - fix모드 -->
+    <!--<div class="header-secV2 header-page-st header-pop-st">
+        <div class="in-header-secV2">
+            <h2 class="ihg-title">결과 내 검색</h2>
+            <div class="ly-left">
+                <a href="#" class="b-close" data-rel="back"><span class="a11y">페이지 닫기</span></a>
+            </div>
+            <div class="ly-right">
+                <a href="#" class="b-refresh"><span class="a11y">새로고침</span></a>
+            </div>
+        </div>
+    </div>-->
+    <!-- //팝업헤더 -->
     <!-- //header-sec -->
        
     <!-- content-sec -->
     <div class="content-sec">
         <section class="w-content-sec">
+            content 시작<br />
             content<br />
             content<br />
             content<br />
@@ -159,7 +202,9 @@ var AIR_HTL_FLAG = "ETC";
             content<br />
             content<br />
             content<br />
-            content
+            content<br />
+            content<br />
+            content 끝
         </section>
     </div>
     <!-- //content-sec -->

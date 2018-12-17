@@ -1,0 +1,2069 @@
+@charset "utf-8";
+
+/***************************************************************************************** 20171102 
+	main_new.css -> common.css 공통 css 에서 가공된 버전
+	.cont-wrap 감싸줘야 함 필요한 경우 .sch-wrap 함께 필요함
+*/
+/* contents layout */
+.cont-wrap *{font-size:14px;line-height:1.0;color:#333;font-family:'Malgun Gothic','맑은 고딕',돋움,sans-serif}
+.cont-wrap .input{display:block;position:relative;width:100%;height:45px;border:1px solid #d5d5d5;background-color:#fff;
+-moz-box-sizing:border-box;
+-webkit-box-sizing: border-box;
+box-sizing: border-box;
+}
+.cont-wrap .input:after{content:'';position:absolute;top:18px;right:15px;display:inline-block;width:12px;height:7px;background:url(/images/front/mtravel/main/sprite_arrow_collection.png) no-repeat 0 1px;background-size:12px auto}
+.cont-wrap .input.no-arrow:after{display: none;}
+.cont-wrap .input .value{overflow:hidden;display:block;position:absolute;top:0;left:0;width:100%;height:45px;padding:16px 30px 14px 15px;background:transparent;
+-moz-box-sizing:border-box;
+-webkit-box-sizing: border-box;
+box-sizing: border-box;
+} 
+.cont-wrap .input a.value{height:45px;padding-top:16px;padding-bottom:0;vertical-align:top}
+.cont-wrap .input select{display:inline-block;padding:0;border:0 none;background:0 none;padding-top:0 !important;padding-bottom:0 !important;font-size:14px;height:auto;line-height:15px}
+.cont-wrap .input.bg-none:after{background:0 none}
+.cont-wrap .input .deco-icon + .value{padding-left:41px}
+.cont-wrap .input .deco-icon, .cont-wrap .i-title .deco-icon{position:absolute;top:50%;left:14px;z-index:2}
+.cont-wrap .input.on{border-color:#333}
+.cont-wrap .input.on:after{background-position:0 -6px}
+.cont-wrap .input .placeholder{position:absolute;top:14px;left:43px;line-height:1.2}
+.cont-wrap .input .sub-txt{display:inline-block;padding-left:5px;font-size:11px;color:#999;font-weight:normal}
+
+.cont-wrap .item {margin-top: 5px;}
+.cont-wrap .col2:after,
+.cont-wrap .col3:after{content:'';display:block;height:0;clear:both}
+.cont-wrap .col2 + .col2{margin-top:5px}
+.cont-wrap .col2 .input{width:49.4%}
+.cont-wrap .col2 .input:first-child{float:left}
+.cont-wrap .col2 .input:last-child{float:right}
+.cont-wrap .col3 .input{float:left}
+.cont-wrap .col3 .input.stay{margin:0 1%}
+.cont-wrap .col3 .input.stay:after{right:10px}
+.cont-wrap .col3 .input.stay .value{padding:0;padding-left:8px}
+.cont-wrap .col3 .input.bg-none .value{padding-right:10px}
+
+/* 하단 검색 버튼(main-wrap -> sch-wrap) */
+.sch-wrap.pb50 {padding-bottom: 50px;}
+.sch-wrap .btn-group{margin-top:25px}
+.sch-wrap .btn-search{display:block;overflow:hidden;height:40px;padding:13px 0;background-color:#424242;color:#fff;font-family:'YMB';text-align:center;
+-moz-box-sizing:border-box;
+-webkit-box-sizing: border-box;
+box-sizing: border-box;
+}
+.sch-wrap .btn-search > em{display:inline-block;position:relative;top:-4px;color:#fff;font-family:'YMB'}
+.sch-wrap .btn-search > .deco-icon{margin-left:8px}
+.sch-wrap .btn-search.no-deco-icon > em {top: 0;}
+/********************************************************************************************************************************* 20171102 */
+
+/* 검색 ----------------------------------------------------------------------------------------------------------------------------------- */
+.searchArea{border-top:1px solid #d5d5d5;border-bottom:1px solid #d5d5d5}
+.searchArea .leftArea{display:inline-block;float:left;height:100%}
+.searchArea .rightArea{display:inline-block;float:right;height:100%}
+.searchArea .innerCont{overflow:hidden;background-color:#f5f5f5;border-bottom:1px solid #d5d5d5}
+.searchArea .innerCont .item{overflow:hidden;margin:0 7px;border-bottom:1px dotted #d5d5d5;text-align:center;background-repeat:no-repeat;background-position:50% 50%}
+.searchArea .innerCont .item .leftArea{width:46%;margin-right:4%}
+.searchArea .innerCont .item .rightArea{width:46%;margin-left:4%}
+.searchArea .innerCont .item > span > a{-moz-box-sizing:border-box;-webkit-box-sizing:border-box;display:block;height:85px;padding:10px 0 8px;font-family:'YMR'}
+.searchArea .innerCont .item .itemTit{padding-right:9px;background:url(/images/front/mtravel/common/bg_bullet1.gif) no-repeat 100% 3px;background-size:4px 8px;font-family:'YMR'}
+.searchArea .innerCont .item .itemCont{display:block;margin-top:4px;font-size:15px;font-family:'YMB';font-weight:normal}
+.searchArea .innerCont .item .default > a{padding:0;font-size:16px}
+.searchArea .innerCont .item .default .itemTit{display:inline-block;margin:22px 0;background-position:100% 4px;font-size:16px}
+.searchArea .innerCont .item .default .itemTit{margin:33px 0}
+.searchArea .innerCont .item .itemCont .emph{display:inline-block;margin-bottom:-7px;padding-top:2px;font-size:36px;line-height:1.0;vertical-align:baseline}
+.searchArea .innerCont .item .itemCont .name{display:block;font-weight:normal;font-size:12px;font-family:'YMR'}
+.searchArea .innerCont .oneway{background-image:url(/images/front/mtravel/search/bg_air_oneway.png);background-size:22px 21px}
+.searchArea .innerCont .roundtrip{background-image:url(/images/front/mtravel/search/bg_air_roundtrip.png);background-size:22px 35px}
+.searchArea .innerCont .item.date{-moz-box-sizing:border-box;-webkit-box-sizing:border-box;box-sizing:border-box;height:50px;border-bottom:0 none;background-image:url(/images/front/mtravel/search/bg_air_calendar.png);background-size:24px 21px}
+.searchArea .innerCont .item.date > span > a{height:50px}
+.searchArea .innerCont .item.date .default > a{height:50px}
+.searchArea .innerCont .item.date .default .itemTit{margin:17px 0 !important}
+.searchArea .innerCont .item.date .disable .itemTit{display:inline-block;margin:17px 0;opacity:0.3;font-size:16px}
+.searchArea .innerCont .item.date .itemCont{margin-top:2px;font-size:15px;font-weight:normal;font-family:'YMB'}
+.sch_option{padding:13px 19px}
+.sch_option .numCheck ul{display:table;width:100%;text-align:center;margin:0 auto}
+.sch_option .numCheck li{display:table-cell;position:relative;width:33%;text-align:center;vertical-align:top;border-right:6px solid transparent}
+.sch_option .numCheck li:nth-child(3){width:34%}
+.sch_option .numCheck li:last-child{border-right:0 none}
+.sch_option .numCheck li label{display:block;padding-top:45px;color:#a7a7a7;font-size:12px;text-align:center;letter-spacing:-1px}
+.sch_option .numCheck li .range{-moz-box-sizing:border-box;-webkit-box-sizing:border-box;box-sizing:border-box;overflow:hidden;position:absolute;top:0;width:100%;height:40px;border:1px solid #d5d5d5;background-color:#f4f4f5}
+.sch_option .numCheck li .range button{overflow:hidden;display:inline-block;position:absolute;top:0;width:30%;text-indent:-9999px;height:38px;background:url(/images/front/mtravel/search/btn_count.gif) no-repeat;background-size:10px 50px}
+.sch_option .numCheck li .range .plus{right:0;background-position:50% 14px;border-left:1px solid #d5d5d5}
+.sch_option .numCheck li .range .minus{left:0;background-position:50% -30px;border-right:1px solid #d5d5d5}
+.sch_option .numCheck li .range input{overflow:hidden;width:40%;margin:0;padding:0;line-height:40px;text-align:center;background-color:#f4f4f4;font-size:20px;font-family:'YMB';color:#a7a7a7}
+.sch_option .item{margin-top:10px}
+.interval_sch{border-bottom:1px solid #d5d5d5}
+/* 검색결과 상단 */
+.searchInfo{-moz-box-sizing:border-box;-webkit-box-sizing:border-box;box-sizing:border-box;position:relative;min-height:44px;background-color:#ed2b74;color:#fff}
+.searchInfo .head{position:relative;padding:8px 0 9px;text-align:center;font-family:'YMR'}
+.searchInfo .head > span{display:inline-block;padding-top:6px;vertical-align:middle}
+.searchInfo .head strong{padding-right:4px;font-weight:normal;font-family:'YMB';font-size:15px}
+.searchInfo .head .bg{display:inline-block;width:15px;height:25px;vertical-align:top;margin:0 10px;padding-top:0;background-repeat:no-repeat;background-position:0 55%}
+.searchInfo .oneway .bg{background-image:url(/images/front/mtravel/search/ico_air_path.png);background-size:15px 15px}
+.searchInfo .roundtrip .bg{background-image:url(/images/front/mtravel/search/ico_air_path_round.png);background-size:16px 25px;background-position:0 0}
+.searchInfo .interval .bg{height:15px;background-image:url(/images/front/mtravel/search/ico_air_path.png);background-size:15px 15px}
+.searchInfo .interval{height:54px;overflow:hidden}
+.searchInfo .interval ul{margin:-5px 0}
+.searchInfo .interval li{padding:5px 0;vertical-align:middle}
+.searchInfo .interval .more{display:none;position:absolute;bottom:0;width:100%}
+.searchInfo .interval .more button{position:relative;z-index:2;overflow:hidden;display:block;width:100%;height:100%;text-indent:-9999px;background:url(/images/front/mtravel/search/ico_spread.gif) no-repeat 50% 50%;background-size:18px 18px}
+.searchInfo .interval .more.close *{background-image:url(/images/front/mtravel/search/ico_spread2.gif)}
+.searchInfo .interval.open .more{display:block}
+.searchInfo .info{-moz-box-sizing:border-box;-webkit-box-sizing:border-box;box-sizing:border-box;overflow:hidden;min-height:46px;margin:0 7px;padding:8px 12px 7px;border-top:1px solid #f26b9e}
+.searchInfo .leftArea{float:left}
+.searchInfo .rightArea{float:right;margin-right:7px}
+.searchInfo .withBtn{margin-right:65px}
+.searchInfo .icon{overflow:hidden;display:inline-block;margin-right:5px;padding:6px 0 2px 15px;text-align:center;background:url(/images/front/mtravel/common/bg_air_icon2.png) no-repeat;background-size:50px 500px;font-weight:normal;font-family:'YMB'}
+.searchInfo .adult{mbackground-position:0 0}
+.searchInfo .child{background-position:0 -46px}
+.searchInfo .baby{margin-right:0;background-position:0 -87px}
+.searchInfo .btn{position:absolute;bottom:8px;right:8px}
+/* 검색결과 필터 */
+.chkfilter{overflow:hidden;height:40px;padding:0 4px 0 10px;background-color:#424242}
+.chkfilter a{display:inline-block;height:100%;margin-left:9px;padding-right:9px;line-height:40px;color:#fff;font-size:12px;font-family:'YMR';background:url(/images/front/mtravel/common/bg_bullet10.gif) no-repeat 100% 16px;background-size:4px 40px}
+.chkfilter a.activated{color:#ee2b74;background-position:100% -16px}
+.chkfilter .rightArea{float:right}
+.chkfilter .fIcon a{overflow:hidden;float:left;width:40px;margin:0;padding:0;text-indent:-9999px;background:url(/images/front/mtravel/search/icon_filter.png) no-repeat;background-size:80px}
+.chkfilter .fIcon .resch{background-position:0 0}
+.chkfilter .fIcon .align{background-position:0 -40px}
+.chkfilter .fIcon .btnMap{background-position:0 -80px}
+.chkfilter .fIcon .btnList{background-position:0 -120px}
+.chkfilter .fIcon .resch.activated{background-position:-40px 0}
+.chkfilter .fIcon .align.activated{background-position:-40px -40px}
+.chkfilter.cf-st2 .sort {padding-right: 15px;position: relative;background: none;margin-right: 10px;}
+.chkfilter.cf-st2 .sort:after {content: '';display: block;width: 6px;height: 18px;position: absolute;right:0;top:11px;background:url(/images/front/mtravel/search/icon_filter.png) no-repeat;background-size:80px;background-position: -12px -51px;}
+.chkfilter.cf-st2 a.activated:after {background-position: -52px -51px;}
+
+/* 결과 내 검색 */
+#sortingArea{background-color:#fff}
+#sortingArea header{position:relative;padding:20px 25px 19px;background-color:#ee2b74;color:#fff}
+#sortingArea header h2{font-size:14px;font-family:'YMB'}
+#sortingArea header .btn_close{position:absolute;top:20px;right:15px}
+#sortingArea ul li{border-bottom:1px solid #d5d5d5}
+#sortingArea ul li > a{display:block;padding:12px 0 12px 25px;color:#1e1e1e;background:url(/images/front/mtravel/common/bg_toggle_arrow_open.gif) no-repeat 100% 50%;background-size:31px 7px}
+#sortingArea ul li > .open{background-image:url(/images/front/mtravel/common/bg_toggle_arrow_close.gif)}
+#sortingArea ul li ul{display:none;border-top:1px solid #d5d5d5}
+#sortingArea ul li ul li{background-color:#f0f0f0}
+#sortingArea ul li ul li:last-child{border-bottom:0 none}
+#sortingArea ul li input[type="checkbox"]{position:absolute;top:0;left:0;opacity:0}
+#sortingArea ul li label{display:block;margin:0;padding:11px 35px 11px 45px;font-family:'YMR'}
+#sortingArea ul li input[type="checkbox"]:checked + label{background:url(/images/front/mtravel/common/bg_checked.png) no-repeat 100% 50%;background-size:31px 13px}
+/* 최근검색 */
+.schHistory{overflow:hidden;position:fixed;bottom:0;left:0;z-index:90;width:100%;height:35px;background-color:#767676;-webkit-transform:translate(0,0);transform:translate(0,0);-webkit-transition:all .5s ease-out;transition:all .5s ease-out;-webkit-backface-visibility:hidden}
+.schHistory header .tit a{overflow:hidden;display:block;padding:10px 12px;color:#fff;background:url(/images/front/mtravel/search/bg_schHistory.gif) no-repeat 100% 1px;background-size:41px 70px;font-family:'YMB'}
+.schHistory.open{height:295px;-webkit-transform:translate(0,0);transform:translate(0,0)}
+.schHistory.open header .tit a{background-position:100% -33px}
+.schHistory .list{height:260px;margin:0 3px;background-color:#fff;overflow:auto;-webkit-overflow-scrolling:touch}
+.schHistory .list >ul{position:relative;height:100%}
+.schHistory .list li{overflow:hidden;position:relative;padding:12px 15px 10px;border-top:1px solid #d5d5d5}
+.schHistory .list li:first-child{border-top:0 none}
+.schHistory .list li.nodata{margin:0;padding:0;line-height:260px;vertical-align:middle}
+.schHistory .list .subTit{padding-bottom:6px;border-bottom:1px dotted #d5d5d5;color:#767676;font-family:'YMR';line-height:1.2}
+.schHistory .list .subTit strong{margin-right:5px;color:#767676;font-family:'YMB';font-weight:normal}
+.schHistory .list .subTit .bg{display:inline-block;width:25px;min-height:17px;vertical-align:middle;background-repeat:no-repeat;background-position:50% 0;background-size:15px 15px}
+.schHistory .list .subTit .oneway .bg{background-image:url(/images/front/mtravel/search/ico_air_path_gray.png)}
+.schHistory .list .subTit .roundtrip .bg{min-height:25px;background-image:url(/images/front/mtravel/search/ico_air_path_round_gray.png);background-size:15px 25px}
+.schHistory .list .subTit .interval .bg{background-image:url(/images/front/mtravel/search/ico_air_path_gray.png)}
+.schHistory .list .subTit .interval ul li{padding:0;border-top:0 none}
+.schHistory .list .subInfo{float:left;padding-top:7px;font-weight:normal;font-family:'YMB';color:#767676}
+.schHistory .list .subInfo strong{font-weight:normal;font-family:'YMB';color:#767676}
+.schHistory .list .subInfo.fr{padding-top:10px}
+.schHistory .list .subInfo .icon{overflow:hidden;display:inline-block;height:23px;line-height:26px;vertical-align:middle;text-indent:-9999px;padding-left:15px;margin-left:10px;text-align:right;background:url(/images/front/mtravel/search/icon_person_gray.png) no-repeat;background-size:10px 102px}
+.schHistory .list .subInfo .icon.adult{background-position:0 0;margin-left:0}
+.schHistory .list .subInfo .icon.child{background-position:0 -45px}
+.schHistory .list .subInfo .icon.baby{background-position:0 -84px}
+.schHistory .list .hotelInfo{padding-top:9px}
+.schHistory .list .hotelInfo .mark{margin-right:4px;font-family:'YMR'}
+.schHistory .list .hotelInfo strong{margin-right:5px}
+.schHistory.dAir .subTit{float:left;padding-bottom:0;border-bottom:0 none}
+.schHistory.dAir .subTit .oneway{padding-top:3px}
+.schHistory.dAir .subInfo{float:right;padding-top:0}
+
+/* 항공 ----------------------------------------------------------------------------------------------------------------------------------- */
+.eticketHolder{overflow-x:auto}
+.eticketHolder img{max-width:none;width:auto}
+.eticketHolder .tblTypeRow + .tblTypeRow{margin-top:15px}
+.eticketHolder .tblTypeRow th .subname{display:block;word-break:break-word;font-weight:normal}
+.eticketHolder .tblTypeRow td{word-break:break-word}
+.sortArea{position:relative}
+.progresswrap{-moz-box-sizing:border-box;-webkit-box-sizing:border-box;box-sizing:border-box;position:absolute;top:0;left:0;z-index:2;width:100%;height:40px;padding:13px 15px 13px 19px;background-color:#424242}
+.progresswrap span{float:left;color:#fff;font-size:12px;font-family:'YMR';display: inline-block;position: relative;}
+.progresswrap .progress{height:13px;margin:0 0 0 115px;background:url(/images/front/mtravel/cont/bg_progress.gif) repeat;background-size:auto}
+.progresswrap .progress .bar{height:13px;background-color:#ed2b74}
+.progresswrap .progress #progressbar{width:100%;-webkit-animation: progressbar1 60s;-webkit-animation-play-state:paused}
+.progresswrap .progress #progressbar2{-webkit-animation: progressbar2 1s}
+@-webkit-keyframes progressbar1{from {width:0} to {width:100%}}
+
+/* 호텔 검색결과 로딩바 */
+.hotelWrap .progresswrap {position: relative;border-bottom: 1px solid #555;}
+
+/* 다구간 */
+.interval_line{padding:15px 19px 0;background-color:#f5f5f5;border-top:1px solid #d5d5d5;border-bottom:1px solid #d5d5d5}
+.interval_line > .section{margin-bottom:15px}
+.interval_line > .section header{position:relative;padding-bottom:8px}
+.interval_line > .section header h2{font-size:14px;font-weight:bold}
+.interval_line > .section header .button{position:absolute;top:-2px;right:0}
+.interval_line > .section header .button em{display:inline-block;width:18px;height:18px;overflow:hidden;text-indent:-9999px}
+.interval_line > .section:first-child header{padding-top:0}
+.interval_line > .section .input_text{margin-bottom:-1px}
+.interval_line > .section .input_persons .tit{display:inline-block;padding:11px 10px 10px 15px}
+.interval_line > .section .input_persons .number{display:inline-block;margin:-12px 3px 0 0}
+/* 항공사 선택 */
+.detailResultAir > header {position:relative; -moz-box-sizing:border-box;-webkit-box-sizing:border-box;box-sizing:border-box; padding:14px 7px 13px}
+.detailResultAir > header strong {font-weight:bold}
+.detailResultAir > header h2 {position:relative; margin-bottom:9px; padding-left:28px; font-size:16px; font-weight:bold; line-height:1.3em}
+.detailResultAir > header h2 > img {position:absolute; left:0; top:0; width:30px}
+.detailResultAir > header .state {position:absolute;top:50%;right:0;width:9px;height:32px;margin-top:-22px;padding:11px 5px 9px;background-color:#b1b2b3;color:#fff;font-size:11px;line-height:1.4em;font-family:'YMB'}
+.detailResultAir > header .state.fix {background-color:#ed2b74}
+.detailResultAir > header .emph {float:right;margin-right:20px;padding-top:4px;font-size:10px}
+.detailResultAir > header .emph .hotsale{color:#ee2b74}
+.detailResultAir > header .emph .airtel{color:#66bacc}
+.detailResultAir > header .emph .purple{color:#916db8}
+.detailResultAir > header .emph .red{color:#e70012}
+.detailResultAir > header .info {font-size:13px; display:inline-block; padding-left:28px; color:#a7a7a7; line-height:1.4;letter-spacing:-1px}
+.detailResultAir > header .right {position:absolute;bottom:14px;right:0; margin-top:-3px;margin-right:23px;text-align:right;font-family:'YMB'}
+.detailResultAir > header .right strong{font-weight:normal}
+.detailResultAir > header .right a {display:inline-block; overflow:hidden; width:20px; height:20px; margin:0; text-align:left; text-indent:-9999px; vertical-align:middle; background:url(/images/front/mtravel/common/bg_guide.png) no-repeat 100% 0;background-size:18px 18px}
+.detailResultAir > header .right .fare{display:inline-block;font-size:19px;line-height:1.0;color:#1e1e1e}
+.detailResultAir section.list > header{width:100%;-moz-box-sizing:border-box;-webkit-box-sizing:border-box;position:relative;min-height:20px;background:#ed2b74;color:#fff;padding:11px 3px 9px 49px}
+.detailResultAir section.list > header:before {position:absolute; left:0; top:0; width:39px; height:100%; content:""; border-right:1px solid #f695ba}
+.detailResultAir section.list.leave > header:before {background:url(/images/front/mtravel/search/ico_air_leave.png) no-repeat 50%;background-size:39px 40px}
+.detailResultAir section.list.return > header:before {background:url(/images/front/mtravel/search/ico_air_return.png) no-repeat 50%;background-size:39px 40px}
+.detailResultAir section.list > header h3{height:100%;min-height:100%;}
+.detailResultAir section.list > header h3 *{display:inline-block;line-height:15px;font-family:'YMB'}
+.detailResultAir section.list > header h3 span.date {font-size:10px; padding-left:5px; line-height:1.7em}
+.detailResultAir section.list > header h3 em {width:0; height:0; font-size:0; text-indent:-9999px}
+.detailResultAir section.list > header h3 em.path {width:15px; height:15px; margin:0 10px; background:url(/images/front/mtravel/search/ico_air_path.png); background-size:cover; vertical-align:text-bottom}
+.detailResultAir section.list > header h3 strong{line-height:1.1}
+.detailResultAir .leave .listType3{border-bottom:0 none}
+.scheduleAir .list .item{overflow:hidden;width:100%;background:#fff;border-bottom:1px dotted #d5d5d5}
+.scheduleAir .list .item:last-child{border-bottom:1px solid #d5d5d5}
+.scheduleAir .list .item .simpleInfo{overflow:hidden;padding:15px 15px 3px}
+.scheduleAir .list .item .simpleInfo .opt{float:right;position:relative;top:-1px;width:120px;min-height:60px;text-align:right}
+.scheduleAir .list .item .simpleInfo .opt strong{display:block}
+.scheduleAir .list .item .simpleInfo .opt .flight{line-height:1.2;color:#ee2b74;font-size:14px;font-family:'YMB'}
+.scheduleAir .list .item .simpleInfo .opt .flight-black{line-height:1.2;color:#000;font-size:14px;font-family:'YMB'}
+.scheduleAir .list .item .simpleInfo .opt .seat{padding:0px 0 2px;color:#1e1e1e;font-size:16px;font-family:'YMB'}
+.scheduleAir .list .item .simpleInfo .opt .seat em{display:inline-block;line-height:1.2;font-size:30px;font-family:'YMB'}
+.scheduleAir .list .item .simpleInfo .opt .time{position:absolute;bottom:0;width:100%;color:#999;font-size:10px;font-weight:normal}
+.scheduleAir .list .item .simpleInfo .path{float:left;width:160px;height:60px}
+.scheduleAir .list .item .simpleInfo .path:before{height:90%}
+.scheduleAir .list .item .simpleInfo .path p:last-child{position:absolute;bottom:0;width:100%}
+.scheduleAir .list .item .simpleInfo .path p:last-child:before{margin-bottom:3px;vertical-align:text-bottom}
+.scheduleAir .list .item .simpleInfo .path .stay{position:absolute;top:50%;margin:-6px 0 0;color:#999;font-size:10px}
+.scheduleAir .list .item .path{overflow:hidden;position:relative;padding:0 2px}
+.scheduleAir .list .item .path:before{content:"";display:inline-block;position:absolute;top:0;left:5px;z-index:1;width:2px;height:100%;background:#ed2b74}
+.scheduleAir .list .item .path p:before{content:"";display:inline-block;position:relative;z-index:2;-moz-box-sizing:border-box;-webkit-box-sizing:border-box;box-sizing:border-box;width:8px;height:8px;margin-right:7px;background:#ed2b74;border-radius:8px;-webkit-border-radius:8px;-moz-border-radius:8px;-o-border-radius:8px;-ms-border-radius:8px;vertical-align:top}
+.scheduleAir .list .item .path .path-last, .scheduleAir .list .item .path .path-last2 {position: relative;}
+.scheduleAir .list .item .path .path-last:after{content:"";display:inline-block;position:absolute;top:6px;left:-1px;z-index:1;width:10px;height:1000%;background-color:#dddee0;}
+.scheduleAir .list .item .path .path-last2:after{content:"";display:inline-block;position:absolute;top:6px;left:-1px;z-index:1;width:10px;height:1000%;background-color:#f0f0f0;}
+.scheduleAir .list .item .path p{color:#2b2f33;line-height:1.0;vertical-align:top;}
+.scheduleAir .list .item .path p:last-child{margin-bottom:0}
+.scheduleAir .list .item .path:last-child p:last-child:before{vertical-align:text-bottom}
+.scheduleAir .list .item .path .stay{margin:18px 0}
+.scheduleAir .list .item .path .stay:before{border:2px solid #ed2b74;background:#fff}
+.scheduleAir .list .item .expand_ly.opened{background-color:#f0f0f0}
+.scheduleAir .list .item .detailInfo{display:none;padding:15px 15px 5px;border-top:1px dotted #d5d5d5}
+.scheduleAir .list .item .detailInfo .txt{margin-bottom:10px;font-size:10px;color:#999}
+.scheduleAir .list .item .detailInfo .txt-st2{padding-top:10px;font-size:10px;color:#2b2f33}
+.scheduleAir .list .item .detailInfo .path p{margin-bottom:0;font-size:11px;text-indent:-14px;padding-left:14px;line-height:1.2;}
+.scheduleAir .list .item .detailInfo .path p .rightArea {position: absolute;right: 0;display: inline-block;text-align: right;}
+.scheduleAir .list .item .detailInfo .path .stay{margin:18px 0}
+.scheduleAir .list .item .detailInfo .path .flight_time{display:block;margin:5px 0 7px;padding-left:16px;color:#999;font-size:10px}
+.scheduleAir .list .item .detailInfo .path .path-exp {display:block;margin:5px 0 7px;padding-left:16px;color:#999;font-size:10px}
+.scheduleAir .list .item .detailInfo .path .path-exp {display:block;margin:5px 0 7px;padding-left:16px;color:#999;font-size:10px}
+.scheduleAir .list .item .detailInfo .path .path-exp + .stay {margin:0px 0 18px 0;}
+.scheduleAir .list .item .btnMore a{height:24px}
+.scheduleAir .list .item .expand_ly{overflow:hidden;height:24px}
+.scheduleAir .list .item .expand_ly.opened{margin-top:10px}
+/* 국내선 항공사 선택 */
+.d_selectAirline .airline{position:relative;padding:5px 90px 0 30px}
+.d_selectAirline .airline .seat{position:absolute;top:1px;right:0;display:inline-block;width:82px;text-align:center;letter-spacing:-1.5px;font-size:13px;line-height:1.7}
+.d_selectAirline .airline .seat > em{font-family:'YMB';font-size:20px}
+.d_selectAirline ul.path{position:relative;min-height:38px;}
+.d_selectAirline ul.path:after{content:""; display:block; position:absolute; top:50%; width:100%; height:2px; background:#ed2b74;}
+.d_selectAirline ul.path li{position:absolute; top:0; margin-left:-15px; width:41px; text-align:center; font-size:10px}
+.d_selectAirline ul.path li:first-child {left:0}
+.d_selectAirline ul.path li:last-child {left:auto;right:0;margin-left:0;margin-right:-15px}
+.d_selectAirline ul.path li *{display:block; line-height:1em}
+.d_selectAirline ul.path li em {width:8px; height:8px; margin:6px auto; background:#ed2b74; font-size:0; color:#ed2b74;border-radius:4px; -webkit-border-radius:4px; -moz-border-radius:4px; -o-border-radius:4px; -ms-border-radius:4px;}
+.d_selectAirline ul.path li:first-child em, .d_selectAirline ul.path li:last-child em {width:12px; height:12px; margin:4px auto;border-radius:6px; -webkit-border-radius:6px; -moz-border-radius:6px; -o-border-radius:6px; -ms-border-radius:6px;}
+.detailSelectedAir{border-bottom:1px solid #d5d5d5}
+.detailSelectedAir .scheduleAir .list .item{border-bottom:0 none}
+.detailSelectedAir .list.leave .item,.detailSelectedAir .list.leave .listType{border-bottom:0 none}
+.airWrap .searchInfo .rightArea{padding-top:7px}
+.airWrap .searchInfo .withBtn strong{display:inline-block}
+.airWrap .listType .state{height:29px;padding-top:11px;padding-bottom:9px;text-indent:0}
+.airWrap .listType .info{padding-left:30px;letter-spacing:-1px}
+.airWrap .listType .detailResultAir{border-top:0 none}
+.airWrap .listType .detailResultAir .set{padding-right:150px}
+.airWrap .listType .detailResultAir .set ul li{border-top:0 none}
+.airWrap .listType .saleD{font-size:11px}
+.airWrap .listType .disable{background-color:#f5f5f5;opacity:0.5}
+.airWrap .specialAir_list .tit{margin-right:120px}
+.airWrap .specialAir_list .info{margin-top:10px}
+.d_selectAirline .listType .airline{margin-right:125px}
+.input_persons .icon{display:inline-block;margin-left:10px;line-height:25px;text-align:right;vertical-align:middle;padding-left:18px;background:url(/images/front/mtravel/search/bg_air_interval.png)  no-repeat;background-size:12px 112px}
+.input_persons .adult{margin-left:5px;background-position:0 0 !important}
+.input_persons .child{background-position:0 -47px !important}
+.input_persons .baby{background-position:0 -90px !important}
+.reserveInfo .detailSelectedAir{border-bottom:1px solid #e0e0e0}
+.reserveInfo .detailResultAir > header,.reserveInfo .d_selectAirline > header{padding:0 !important}
+.reserveInfo .detailResultAir > header h2,.reserveInfo .d_selectAirline > header h2{margin:0;font-weight:normal;line-height:normal}
+.reserveInfo .detailResultAir.open > header,.reserveInfo .d_selectAirline.open > header{border-bottom:0 none}
+.reserveInfo .detailResultAir.open > header:after,.reserveInfo .d_selectAirline.open > header:after{background-image:url(/images/front/mtravel/common/bg_block_open2.png);position:relative;z-index:1}
+.reserveInfo .detailResultAir .content,.reserveInfo .d_selectAirline .content{padding:0}
+.reserveInfo .detailResultAir section.item > header.closed{border-bottom:0 none}
+.reserveInfo .detailResultAir section.item section.info:after{height:0}
+.reserveInfo .d_selectAirline .listType .listLine{border-bottom:0 none}
+.reserveInfo .d_selectAirline .listType .airline{margin-right:20px}
+.reserveInfo .d_selectAirline .detailSelectedAir{border-bottom:0 none}
+.reserveInfo .input_text .input_persons{display:block;padding:6px 24px 7px 8px;background:#fff url(/images/front/mtravel/common/bul_input_arrow.gif) no-repeat right center;background-size:14px 8px}
+.reserveInfo .detailResultAir .list.leave .item,.reserveInfo .detailResultAir .list .listType{border-bottom:0 none}
+.reserveInfo .scheduleAir .list.return .item{border-bottom:0 none}
+.reserveInfo .scheduleAir .list .item{background-color:#f5f5f5}
+.reserveInfo .scheduleAir .list .item .expand_ly.opened{background-color:#dddee0}
+.special_selectAirline .listType .airline{margin-right:0;padding-right:30px}
+.specialAir_list .airline{display:block;padding:5px 0 0;vertical-align:top;line-height:1.3;font-size:14px;font-weight:normal}
+.specialAir_list .airline > em{overflow:hidden;display:inline-block;width:15px;margin:0 7px;text-indent:-9999px;background:url(/images/front/mtravel/search/ico_air_path_gray.png) no-repeat 0 1px;background-size:15px 15px}
+.specialAir_list .airline.roundtrip > em{position:relative;top:-3px;line-height:25px;vertical-align:top;background-image:url(/images/front/mtravel/search/ico_air_path_round_gray.png);background-size:15px 25px;background-position:0 0}
+.specialAir_list .right_pos{position:absolute;top:15px;right:19px;text-align:right}
+.specialAir_list .saleInfo{display:block;color:#1e1e1e;font-size:12px;font-family:'YMR'}
+.specialAir_list .saleInfo *{vertical-align:middle}
+.specialAir_list .price{display:block}
+.specialAir_list .price em{display:inline-block;font-size:20px;font-family:'YMB';color:#1e1e1e}
+.specialAir_list .usd{display:block;margin-top:-2px;color:#1e1e1e;font-size:11px;font-weight:normal}
+#add_mileage{margin-top:-1px;padding:0;border-top:1px dotted #d5d5d5;border-bottom:1px solid #d5d5d5}
+.selected_mileage{position:relative;padding:10px 19px 0}
+.selected_mileage:first-child{margin-top:0}
+.selected_mileage .name{font-weight:bold}
+.selected_mileage .ico_calc{position:absolute;top:9px;right:19px}
+.subjAir{height:40px;overflow:hidden}
+.f_subjAir .searchInfo .head{background:url(/images/front/mtravel/search/ico_spread.gif) no-repeat 97% 11px;background-size:18px 18px}
+.f_subjAir .searchInfo .head.open{background-image:url(/images/front/mtravel/search/ico_spread2.gif)}
+.f_subjAir .searchInfo .interval{height:auto;margin:-7px 0 -10px}
+.f_subjAir .searchInfo .interval ul{margin:0;padding:8px 0 9px}
+.f_subjAir .searchInfo .interval ul li{overflow:hidden}
+.f_subjAir .searchInfo .rightArea{padding-top:6px}
+.d_subjAir{text-align:left}
+.d_subjAir .searchInfo{padding-left:19px;padding-right:19px}
+.d_subjAir .head{text-align:left}
+.d_subjAir .info{position:absolute;top:10px;right:19px;margin:0;border-top:0 none;padding:0;font-size:13px}
+.d_subjAir .info .icon{margin-top:0}
+/* 특가항공 탑승인원 */
+.sp_air .numCheck li{position:relative;padding:14px 19px 15px 43px;border-bottom:1px solid #d5d5d5;background:#f5f5f5 url(/images/front/mtravel/search/bg_air_member.png) no-repeat;background-size:14px 203px}
+.sp_air .numCheck .adult{background-position:19px 18px}
+.sp_air .numCheck .child{background-position:19px -77px}
+.sp_air .numCheck .baby{background-position:19px -165px}
+.sp_air .numCheck li .tit{display:block;margin-bottom:2px;font-size:14px;color:#1e1e1e;font-weight:bold}
+.sp_air .numCheck li .txt{color:#767676;font-size:11px;letter-spacing:-1px}
+.sp_air .numCheck .range{position:absolute;top:20px;right:17px;height:24px}
+.sp_air .numCheck .range .input{position:relative;display:inline-block;width:28px;padding:0 24px}
+.sp_air .numCheck .range button{width:24px;height:24px;position:absolute;top:1px;border-radius:12px 12px;background-color:#767676;color:#fff;font-size:15px}
+.sp_air .numCheck .range .plus{right:0}
+.sp_air .numCheck .range .minus{left:0}
+.sp_air .numCheck .range .input input{width:28px;height:24px;line-height:27px;vertical-align:middle;margin:0;padding:0;text-align:center;font-size:19px;color:#1e1e1e;background:transparent;font-family:'YMB'}
+
+/* 호텔 ----------------------------------------------------------------------------------------------------------------------------------- */
+.htlholder{line-height:1.4;background:0 none}
+.hotelWrap .searchArea .innerCont .item > span > a{height:60px}
+.hotelWrap .searchArea .innerCont .item .default .itemTit{margin:22px 0}
+.hotelWrap .searchArea .innerCont .item .itemCont .emph{font-size:25px;padding-top:0}
+.hotelWrap .mark + strong{display:inline-block;margin:0 8px 0 5px;padding-top:1px}
+.hotelWrap .mark{display:inline-block;min-width:32px;height:17px;-moz-box-sizing:border-box;-webkit-box-sizing:border-box;box-sizing:border-box;padding:2px 4px 2px 3px;vertical-align:top;border-radius:5px 5px;border:1px solid #1e1e1e;text-align:center;font-size:11px;font-weight:normal;font-family:'YMR';color:#1e1e1e}
+.hotelWrap .mark.red{border-color:#fff;color:#fff}
+.hotelWrap .mark.purple {border-color:#7f3a9b;color:#7f3a9b}
+.hotelWrap .mark.magenta {border-color:#e42073;color:#e42073}
+.hotelWrap .mark.blue {border-color:#1f68ee;color:#1f68ee}
+.hotelWrap .searchArea{margin-top:6px}
+.hotelWrap .searchInfo .head > span{padding:6px 0 5px}
+.hotelWrap .searchInfo .hotelBed{float:left;margin-top:5px}
+.hotelWrap .searchInfo .hotelBed li{display:inline-block}
+.hotelWrap .searchInfo .hotelBed li strong{font-weight:normal;font-family:'YMB'}
+.hotelWrap .listType .state{bottom: 13px;height:28px;padding-top: 13px;padding-bottom: 13px;}
+.hotelWrap .listType .state.fix{/*height:44px;padding-top:4px;padding-bottom:5px;line-height:1.1*/}
+.hotelWrap .mapwrap{position:relative;-moz-box-sizing:border-box;-webkit-box-sizing:border-box;box-sizing:border-box;height:0;overflow:hidden;margin:15px 19px;padding-bottom:100%;border:1px solid #d5d5d5}
+.hotelWrap .mapwrap #mapArea{position:absolute;top:0;left:0;width:100%;height:100%}
+.hotelWrap .resultArea .mapwrap{margin-left:0;margin-right:0}
+.detailView header .tit{padding:15px 19px 10px;font-weight:bold;font-size:15px;color:#1e1e1e}
+.detailView header .koreaName{display:block;margin-top:4px;color:#999;font-size:12px;font-weight:normal}
+.detailView .picWrap{clear:both;position:relative;overflow:hidden;-moz-box-sizing:border-box;-webkit-box-sizing:border-box;box-sizing:border-box;height:0;margin-bottom:20px;padding-bottom:56.26%;z-index:0}
+.detailView .picWrap .mask{overflow:hidden;position:absolute;top:0;left:0;width:100%;height:100%;z-index:1}
+.detailView .picWrap .mask ul{overflow:hidden;height:100%;position:relative;}
+.detailView .picWrap .mask li{float:left;position:relative;width:100%;height:100%;-moz-box-sizing:border-box;-webkit-box-sizing:border-box;box-sizing:border-box;padding:0;border-left:19px solid transparent;border-right:19px solid transparent}
+.detailView .picWrap .mask li img{display:block;position:absolute;top:0;left:0;right:0;bottom:0;height:100% !important}
+.detailView .picWrap .controll em{display:inline-block;position:absolute;top:50%;width:16px;height:24px;margin-top:-12px;background-repeat:no-repeat;background-size:16px 24px;z-index:9;-webkit-backface-visibility: hidden;}
+.detailView .picWrap .controll .prev{left:26px;background-image:url(/images/front/mtravel/search/btn_prev_arrow.png)}
+.detailView .picWrap .controll .next{right:26px;background-image:url(/images/front/mtravel/search/btn_next_arrow.png)}
+.detailView .mapwrap{margin-top:0}
+.detailView .htlInfo{overflow:hidden;height:42px;padding-left:7px;border-top:1px solid #d5d5d5}
+.detailView .htlInfo .icon a{display:inline-block;overflow:hidden;width:33px;height:42px;text-indent:-9999px;background:url(/images/front/mtravel/cont/icon_sns.png) no-repeat;background-size:33px 126px}
+.detailView .htlInfo .icon .mail{background-position:0 0}
+.detailView .htlInfo .icon .facebook{background-position:0 -42px}
+.detailView .htlInfo .icon .twitter{background-position:0 -83px}
+.detailView .htlInfo .link{float:right}
+.detailView .htlInfo .link a{display:inline-block;line-height:42px;padding-left:11px;font-family:'YMB';color:#1e1e1e}
+.detailView .htlInfo .link a:after{content:'|';color:#d5d5d5;padding-left:12px}
+.detailView .htlInfo .link a:last-child:after{content:''}
+.detailView .roomType header{position:relative;padding:15px;background-color:#424242;color:#fff}
+.detailView .roomType header .subTit{font-family:'YMB';font-size:15px}
+.detailView .roomType .noti{padding:5px 0 0;border-bottom:0 none;text-align:left;font-size:11px;letter-spacing:-1px}
+.detailView .roomType .noti .guide{background-image:url(/images/front/mtravel/common/icon_guide2.png)}
+.detailView .roomType .align{display:inline-block;position:absolute;top:12px;right:3px;width:40px;height:40px;overflow:hidden;}
+.detailView .roomType .align a{display:block;overflow:hidden;width:40px;height:40px;text-indent:-9999px;background:url(/images/front/mtravel/search/icon_filter.png) no-repeat 0 -40px;background-size:80px}
+.detailView .roomType .expand_ly{overflow:hidden;position:relative;z-index:1;height:30px;margin-top:-14px}
+.detailView .roomType .expand_ly.opened{background-color:#f0f0f0}
+.detailView .roomType .expand_ly .eqRoom{display:none;border-top:1px dotted #d5d5d5}
+.detailView .roomType .expand_ly .eqRoom .listType li:last-child{border-bottom:0 none}
+.detailView .roomType .expand_ly.opened{margin-top:0}
+.detailView .hotelInfo{padding:0 19px 20px;border-top:1px solid #d5d5d5}
+.detailView .hotelInfo dt{margin:15px 0 6px;font-weight:bold;font-size:12px;color:#1e1e1e}
+.detailView .hotelInfo dd{font-size:11px;color:#767676}
+
+/* 20245 */
+.detailView.dV-st2 > header {position: absolute;z-index: 9;width: 100%;}
+.detailView.dV-st2 > header:before {content: '';display: block;width: 100%;height: 100%;background-color: #000;opacity: 0.5;position: absolute;top:0;left:0;z-index: 0;}
+.detailView.dV-st2 header .tit{color:#fff;position: relative;}
+.detailView.dV-st2 header .koreaName{color:#fff;position: relative;}
+.detailView.dV-st2 .picWrap{margin-bottom: 0;}
+.detailView.dV-st2 .picWrap .mask li{border: 0;}
+
+/* 20525 */
+.detailView.dV-st3 .picWrap{margin-bottom: 0;padding-bottom:66.66666666666667%;}
+.detailView.dV-st3 .picWrap .mask li{border: 0;}
+.detailView.dV-st3 .pagination {display: block;}
+.detailView.dV-st3 .picWrap .controll .prev {left: 7px;}
+.detailView.dV-st3 .picWrap .controll .next {right: 7px;}
+
+/* 27732 */
+.dV-tit-new {padding: 14px 50px 14px 20px;position: relative;}
+.dV-tit-new > span {display: block;letter-spacing: -1px;}
+.dV-tit-new .tit-en {font-size:15px;color: #1e1e1e;font-weight: bold;}
+.dV-tit-new .tit-ko {font-size:13px;color: #767676;padding-top: 4px;}
+.dV-tit-new .icon-map {font-size:0;display: block;position: absolute;top:50%;margin-top: -20px;right: 5px;width: 40px;height: 40px;overflow: hidden;}
+.dV-tit-new .icon-map a {display: block;width: 100%;height: 100%;overflow: hidden;background: url(/images/front/mtravel/cont/icon_cf1.png) 50% 10px no-repeat;-webkit-background-size: 40px;background-size: 40px;}
+
+.detailView .hotelInfo2 {padding:20px;border-top:1px solid #d5d5d5}
+.detailView .hotelInfo2 dl {margin-bottom: 18px;overflow: hidden;clear: both;}
+.detailView .hotelInfo2 dt {font-weight:bold;font-size:12px;color:#1e1e1e;}
+.detailView .hotelInfo2 dd {font-size:11px;color:#767676;margin-top: 6px;}
+.detailView .hotelInfo2 .inline-st:after {content: '';display: block;clear: both;}
+.detailView .hotelInfo2 .inline-st dt, .detailView .hotelInfo2 .inline-st dd {float: left;}
+.detailView .hotelInfo2 .inline-st dt {width: 20%;}
+.detailView .hotelInfo2 .inline-st dd {width: 80%;margin-top: 0;}
+.detailView .hotelInfo2 .s__expand {font-size:11px;color:#767676;overflow:hidden;transition: height 0.3s;}
+.detailView .hotelInfo2 .s__expand * {font-size:11px;color:#767676;}
+.detailView .hotelInfo2 .s__expand-st1 {height:160px;line-height: 1.5;}
+.detailView .hotelInfo2 .s__expand-st1.ell {text-overflow:ellipsis;word-wrap:break-word;display:-webkit-box;-webkit-line-clamp:10;-webkit-box-orient:vertical;}
+.detailView .hotelInfo2 .s__expand-st2 {height: 0;margin-top: 10px;}
+.detailView .hotelInfo2 .b__expand {margin-top: 5px;}
+.detailView .hotelInfo2 .b__expand button {font-size:11px;color: #ed2b74;text-decoration: underline;}
+ 
+.c-myaccom {overflow: hidden;width: 98%;}
+.c-myaccom:after  {content: '';display: block;clear: both;} 
+.c-myaccom li {float:left;position: relative;text-align: center;padding-top: 35px;width: 20%;} 
+.c-myaccom li > span {font-size:11px;color:#767676;display: inline-block;} 
+.c-myaccom li:before {content: '';display: block;width: 100%;height: 40px;overflow: hidden;position: absolute;top:5px;left:0;background: url(/images/front/mtravel/cont/icon_cf1.png) 50% 0 no-repeat;-webkit-background-size: 40px;background-size: 40px;} 
+.c-myaccom .ico-wifi:before {background-position: 50% -40px;} 
+.c-myaccom .ico-park:before {background-position: 50% -80px;} 
+.c-myaccom .ico-24time:before {background-position: 50% -120px;} 
+.c-myaccom .ico-lang:before {background-position: 50% -160px;} 
+.c-myaccom .ico-pool:before {background-position: 50% -200px;} 
+
+/* 20525(pagination 컨텐츠 외부에 보여줌) */
+.detailView.out-pagination {overflow: hidden;padding-bottom: 30px;}
+.detailView.out-pagination .mask {overflow: visible !important;}
+.detailView.out-pagination .picWrap {overflow: visible !important;}
+
+.supplier{float:right;color:#424242}
+.infoSelected {padding:15px 0 12px;font-size:14px; line-height:1.2em; font-weight:bold; border-bottom:1px solid #a6a6a6;position: relative;}
+.infoSelected .date {display: inline-block;text-align: right;position: absolute;right: 0;font-size:13px;}
+.infoSelected:first-child{padding-top:0}
+.hyctxt{margin:15px 19px;font-family:'YMR';colo:#767676;font-size:11px;line-height:1.4}
+.hyctxt strong{display:block;margin-bottom:5px;font-family:'YMB';font-size:14px}
+.hyctxt .point{font-family:'YMB'}
+.payment_total{position:relative;margin-top:-8px;padding:23px 19px 15px;border-bottom:1px solid #d5d5d5;background:url(/images/front/mtravel/common/bg_total_arrow.png) no-repeat 18px 0;background-size:12px 8px}
+.payment_total .tit{padding-top:4px;font-size:14px;color:#1d1d1d;font-family:'YMB'}
+.payment_total .price{position:absolute;top:22px;right:19px;color:#ed2b74;font-family:'YMR'}
+.payment_total .price strong{display:inline-block;font-family:'YMB';font-size:19px;padding-top:1px}
+.payment_total .tblType{margin-top:12px}
+.payment_total .hyctxt{margin:15px 0}
+.payment_total .totalList{border-top:0 none;border-bottom:0 none}
+.payment_total .lnkList,.payment_total + .lnkList{border-top:0 none}
+
+/* 15533 호텔 - 취소 및 예약규정 팝업 관련 */
+.box-caution {border: 1px solid #dadada;padding: 15px;}
+.box-caution .caution {font-weight: bold;font-size: 1em;height: 26px;line-height: 26px;color: #1e1e1e;padding-left: 32px;letter-spacing: -0.05em;background: url(/images/front/mtravel/search/icon_caution_coupon_333.png) 0 50% no-repeat;background-size: 26px;vertical-align: middle;}
+.box-caution .caution.icon-red {background: url(/images/front/mtravel/search/icon_caution_coupon_red.png) 0 50% no-repeat;background-size: 26px;vertical-align: middle;}
+.caution-exp-list {margin-top: 15px;}
+.caution-exp-list li {margin-bottom: 4px;color: #333;font-size:0.9230769230769231em;position: relative;padding-left: 8px;}
+.caution-exp-list li:after {content: '';position: absolute;display: block;width: 2px;height: 2px;top:5px;left:0;color: #000;background-color: #333;}
+.caution-exp-list li .underline {text-decoration:underline}
+/*.message-confirm {margin-top: 15px;color: #333;font-size:0.9230769230769231em;}*/
+
+/* 23578(호텔 재검색) */
+.re-search-htl {padding-bottom: 12px;border-bottom: 1px solid #d5d5d5;display: none;}
+.re-search-htl .set-title {padding-bottom: 5px;width: 100%;}
+.re-search-htl .set-title span {font-size:12px;font-weight: bold;color: #333;display: inline-block;float: left;padding-left: 2.5%;}
+.re-search-htl .set-title span:first-child {width: 59%;}
+.re-search-htl .set-title:after{content:'';display:inline-block;clear:both}
+.re-search-htl .btn-group {margin-top: 15px;}
+.btn-reS-close {position: absolute;right:10px;bottom:10px;display: none;}
+.btn-reS-close a{display:inline-block !important;width:18px;height:18px;padding:4px !important}
+
+/* 프비 공통 ----------------------------------------------------------------------------------------------------------------------------------- */
+/* 프리비아 이용권 */
+.priviaDscTicket .ticket {border-bottom:1px solid #d5d5d5}
+.priviaDscTicket .input_add {margin-bottom:0}
+.priviaDscTicket .boxType3 + .boxType2 {margin:0 -19px; padding-top:0; padding-bottom:0; height:0; overflow:hidden}
+.priviaDscTicket .added_ticket {overflow:hidden; height:0;padding:10px 19px 0}
+.priviaDscTicket .added_ticket:first-child{border-top:1px dashed #d5d5d5}
+.priviaDscTicket .added_ticket > header {position:relative; height:27px}
+.priviaDscTicket .added_ticket > header h3 {display:inline-block; padding-top:3px; font-size:14px; font-weight:bold; color:#1e1e1e;}
+.priviaDscTicket .added_ticket > header .ico_calc {position:absolute; right:0; top:0}
+.priviaDscTicket .added_ticket:last-child {margin-bottom:15px}
+/* the Purplr Reward */
+.thePurplrReward dl.guide + .tblType {margin-top:10px}
+.thePurplrReward .tblType td {font-size:11px}
+.thePurplrReward .tblType td .bulList li {color:#424242}
+/* 항공 + 호텔 추가 할인 */
+.extDiscountAirHotel .boxType3 {padding-bottom:0}
+.extDiscountAirHotel .boxType3 ~ .txtArea,.extDiscountAirHotel .boxType3 ~ .txtArea .space {margin-top:0}
+.extDiscountAirHotel .airCode {padding-bottom:15px}
+.extDiscountAirHotel .airCode > header{position:relative;margin-bottom:7px}
+.extDiscountAirHotel .airCode > header h3{margin-right:25px;font-size:14px;font-weight:bold;color:#1e1e1e}
+.extDiscountAirHotel .airCode > header input[type="checkbox"] {position:absolute;right:0;bottom:0}
+/* 프리비아 할인쿠폰 */
+.selectPriviaCoupon .boxType3 .input_row {margin-bottom:0}
+/* 호텔 바우처,티켓 등 정보 상세 */
+.detailTicketEtc .tblTypeRow th {word-break:normal}
+
+/* 회원 ----------------------------------------------------------------------------------------------------------------------------------- */
+.loginForm {padding:20px 19px}
+.loginForm .form {margin-bottom:30px}
+.loginForm .form .txt {margin-bottom:15px; color:#1e1e1e; font-size:12px; line-height:1em; text-align:center; letter-spacing:-1px}
+.loginForm .form fieldset:after {content:""; display:block; clear:both}
+.loginForm .form fieldset .input_text {margin-bottom:5px}
+.loginForm .form fieldset .input_text + .input_text {margin-bottom:15px}
+.loginForm .form fieldset .input_check {float:left}
+.loginForm .form fieldset .btn {float:right}
+.loginForm .form fieldset .not {margin-bottom:5px}
+.loginForm .form fieldset .not:after {content:""; display:block; clear:both}
+.loginForm .form fieldset .not .input_text,
+.loginForm .form fieldset .not .input_text + input_text {margin-bottom:0 !important}	
+.loginForm .form fieldset .not > .sex,
+.loginForm .form fieldset .not > .reserve {float:left}
+.loginForm .form fieldset .not > .reserve {width:63%; background:#CCC}
+.loginForm .form fieldset .not > .sex {width:37%; padding-right:5px; box-sizing:border-box}
+.loginForm .btns {display:table; width:100%; margin-bottom:15px; text-align:center}
+.loginForm .btns .large {display:table-cell;border-left:5px solid #fff}
+.loginForm .btns .large *{display:block;-moz-box-sizing:border-box;-webkit-box-sizing:border-box;box-sizing:border-box;line-height:52px;min-width:inherit}
+.loginForm .btns .large:first-child {width:33.3%;border-left:0 none}
+.loginForm .btns .large:last-child {width:33.3%}
+.loginForm .btns .large:first-child *{border-left:0}
+.loginForm .btns .xlarge {display:block}
+.loginForm .btns + .wide {margin-top:-5px}
+.loginForm .btns.btns2 .large {width:50%}
+.loginForm .wide {margin-bottom:15px}
+.loginForm .wide .btn {display:block}
+.loginForm .easy {padding-top:15px; border-top:1px solid #d5d5d5}
+.loginForm .easy .tit {margin-bottom:13px; font-size:15px; line-height:1em; color:#1e1e1e; font-weight:bold}
+.loginForm .easy .sns {overflow:hidden;display:table;width:100%;background:#fff}
+.loginForm .easy .sns > span{display:inline-block;display:table-cell;width:33.3%;border-left:5px solid #fff}
+.loginForm .easy .sns > span:first-child{border-left:0 none}
+.loginForm .easy .sns a{display:block;background:url(/images/front/mtravel/common/bg_sns_icon.png) no-repeat;background-size:29px 142px}
+.loginForm .easy .sns .facebook{background-position:100% -34px}
+.loginForm .easy .sns .twitter{background-position:100% -104px}
+.loginForm .easy .sns .naver{background-position:100% 22px}
+.loginForm .easy .txt{margin-top:8px;font-size:12px}
+.loginForm .sns a{padding:15px 10px;border:1px solid #d5d5d5;font-size:12px;font-family:'YMB'}
+.loginForm .nonemember {margin:0 -19px; border-bottom: 1px solid #d5d5d5;}
+.loginForm .nonemember .txt {line-height:1.25em; margin-bottom:10px; font-size:12px}
+.loginForm .nonemember + .easy {margin-top:-1px}
+.loginForm .sbm {text-align:center; padding-top:10px}
+.loginForm .form fieldset .sbm .btn {float:none}
+.loginForm .guide p {font-size:11px; line-height:1.33em; color:#767676}
+.loginForm .guide p strong {color:#1e1e1e}
+.loginForm .guide p.txt1 {padding-bottom:10px; border-bottom:1px solid #d5d5d5}
+.loginForm .guide p.txt2 {padding-top:12px; padding-bottom:12px}
+/* 27349 */
+.loginForm.lF-new .form {margin-bottom: 20px;}
+.loginForm.lF-new .txt {line-height:1.5em;font-family: 'YMR';letter-spacing: 0;}
+.loginForm.lF-new .btn-base {display: block;margin-top: 20px;}
+.loginForm.lF-new .form fieldset .input_check {float: none;margin-top: 20px;}
+.loginForm.lF-new .btns {margin-bottom:0;}
+.loginForm.lF-new .easy {padding-top:40px; border-top:0}
+.loginForm.lF-new .easy .sns {display:inherit;text-align: center;}
+.loginForm.lF-new .easy .sns > span{display:inline-block;border:0;width: 50px;height: 50px;margin: 0 5px;overflow: hidden;}
+.loginForm.lF-new .easy .sns a{background:url(/images/front/mtravel/common/bg_sns_icon-new.png) 0 0 no-repeat;background-size:50px}
+.loginForm.lF-new .easy .sns .facebook{background-position:0 0}
+.loginForm.lF-new .easy .sns .twitter{background-position:0 -55px}
+.loginForm.lF-new .easy .sns .naver{background-position:0 -110px}
+.loginForm.lF-new .easy .sns .kakao{background-position:0 -165px}
+.loginForm.lF-new .easy .txt{margin-top:18px;color: #424242;font-family: 'Malgun Gothic';letter-spacing: -0.5px;}
+.loginForm.lF-new .sns a{padding:25px;border:0;font-size:0;overflow: hidden;}
+.loginForm.lF-new .guide2 {margin-top: 35px;padding-top: 35px;border-top:1px solid #d5d5d5}
+.loginForm.lF-new .guide2 p {font-size:12px;color: #424242;font-family: 'Malgun Gothic';letter-spacing: -0.5px;}
+.loginForm.lF-new .guide2 p.exp {padding-bottom:12px;}
+.loginForm.lF-new .btn.large a {display:block;line-height:52px;min-width:inherit}
+
+
+/* 회원변경 */
+.member .txt{margin-bottom:22px;font-size:14px}
+.member .user{color:#535da8}
+.member .btn.medium{min-width:67px;height:40px;text-align:left;background-image:url(/images/front/mtravel/common/btn_arrow.gif);background-repeat:no-repeat;background-position:100% 15px;background-size:19px 74px}
+.member .btn.medium *{line-height:40px;padding:0 17px 0 10px;text-align:left}
+.member .input_btn{position:relative;padding-right:72px}
+.member .input_btn .btn{position:absolute;top:0;right:0}
+.member .modify_form .id{margin-bottom:7px;color:#1e1e1e;font-size:14px}
+.member .infoBlock{margin-top:-1px;border-top:1px solid #d5d5d5}
+.member .infoBlock:first-child{border-top:0 none}
+.member .infoBlock header{border-bottom:1px solid #e0e0e0}
+.member .infoBlock header .tit{padding:15px 5px 15px 19px;font-size:15px;font-family:'YMB'}
+.member .infoBlock.open > header{font-size:0}
+.member .infoBlock.open > header:after{content:'';display:block;position:relative;width:100%;height:8px;font-size:0;line-height:0;vertical-align:top;margin-bottom:-8px;background:url(/images/front/mtravel/common/bg_block_open.png) no-repeat 17px 0;background-size:12px 8px}
+.member .infoBlock .cont{padding:15px 19px;background-color:#f5f5f5;border-bottom:1px solid #d5d5d5}
+.member .infoBlock .cont .txt{display:inline-block;margin-right:5px;margin-bottom:5px;font-size:12px}
+.member .infoBlock .cont .txt + .btn.medium{vertical-align:middle}
+.member .infoBlock .cont .tblTypeRow th{background-color:#fff}
+.member .tblTypeRow th{padding-left:15px;padding-right:3px}
+.member .tblTypeRow td{padding:10px 0 9px 10px}
+.member .tblTypeRow td .input_row:last-child{margin-bottom:0}
+.member .tblTypeRow .subTit{display:inline-block;margin-bottom:5px;font-size:12px;color:#646464}
+.member .tblTypeRow .guideTxt{display:inline-block;padding-bottom:5px}
+.member .tblTypeRow .btn.small{vertical-align:top;margin:-3px 0 0 3px}
+.member .tblTypeRow .btn.medium + .tbl_row{margin-top:10px}
+.member .tblTypeRow .value + .btn.medium{vertical-align:middle;margin-left:4px}
+.member .tblTypeRow .input_text input{padding-left:7px;padding-right:7px}
+.member .tbl_row{display:table;width:100%}
+.member .tbl_row > .col{display:table-cell;padding:0 4px 5px 0;vertical-align:top}
+.member .tbl_row > .col:last-child{padding-right:0}
+.member .tbl_row:last-child > .col{padding-bottom:0}
+.member .btn.small + .tbl_row{margin-top:5px}
+.member .dash{display:inline-block;padding-right:2px;height:40px;line-height:40px;vertical-align:middle}
+.member .line{margin-top:10px;padding-top:10px;border-top:1px dotted #d5d5d5}
+.member .agreeChk label{margin-top:5px;padding:2px 0 0;font-size:12px} 
+.member .agreeChk .toggle_swicth{right:0}
+.member .list-sns-link li {margin-top: 10px;}
+.member .list-sns-link li:first-child {margin-top: 0;}
+.tblTypeRow th label{position:relative;display:block;margin-bottom: 0;}
+.tblTypeRow th label > .required{position:absolute;top:2px;left:-10px;overflow:hidden;text-indent:-9999px;display:inline-block;width:10px;height:5px;background:url(/images/front/mtravel/common/icon_required.gif) no-repeat;background-size:7px 5px}
+.tblTypeRow td .select-radio * {vertical-align: middle;}
+.tblTypeRow td .select-radio label {font-size:12px;}
+/* 아이디,비번찾기 */
+.findMyLogin + .btnArea {margin-top:10px}
+.findMyLogin .certBox {padding-top:5px}
+.findMyLogin .result {padding:5px 0}
+.findMyLogin .result p {padding:15px 0 12px; background:#f5f5f5; text-align:center; line-height:1.33em; font-size:12px; color:#646464} 
+.findMyLogin .result p strong {display:block; color:#ee2b74; font-size:21px; font-weight:normal; padding-bottom:5px}
+/* 회원가입 프로세스 */
+.joinMember .lnkList {margin-right:-19px; margin-left:-19px;}
+.joinMember .lnkList li .toggle_swicth {right:19px}
+.joinMember.step2 .hxDesc {padding-bottom:5px}
+/* 제목, 설명 + 간략 폼 or 컨텐츠 */
+/* 폼 아닐  경우 */
+.hxDesc {margin-top:-2px}
+.hxDesc h2, .hxDesc h3 {color:#1a1a1a; font-size:14px; font-weight:bold; line-height:1.33em; margin-bottom:4px}
+.hxDesc h2 + p, .hxDesc h3 + p {color:#767676; font-size:12px; line-height:1.33em; margin-bottom:10px}
+.hxDesc h2 + .comment,
+.hxDesc h3 + .comment {margin-top:0; margin-bottom:10px}
+.hxDesc h2 + .comment li:first-child,
+.hxDesc h3 + .comment li:first-child {margin-top:0}
+/* 폼일 경우 */
+fieldset.basicForm {margin-top:-2px}
+fieldset.basicForm legend:not(.hide) {position:static; overflow:visible; left:auto; top:auto; width:100%; height:auto; visibility:visible; text-indent:0; font-size:14px; font-weight:bold; line-height:1em; padding:0; padding-bottom:6px; }
+fieldset.basicForm legend + p {color:#767676; font-size:12px; line-height:1.33em; margin-bottom:10px}
+fieldset.basicForm legend + .comment {margin-top:0; margin-bottom:10px}
+fieldset.basicForm legend + .comment li:first-child {margin-top:0}
+/* 아이핀,휴대폰 등 인증 */
+.certBox ul {background:#f5f5f5; padding:0 12px}
+.certBox ul:after {content:""; display:block; clear:both}
+.certBox li {float:left; width:50%}
+.certBox li a {display:block; height:67px; padding-top:101px; text-align:center; font-size:11px; color:#767676; line-height:1.3em}
+.certBox li a strong {display:block; padding-bottom:5px; font-size:12px; color:#1e1e1e}
+.certBox li.ipin a {background:url(/images/front/mtravel/common/ico_cert_ipin.png) center 21px no-repeat; background-size:65px 65px}
+.certBox li.cell a {background:url(/images/front/mtravel/common/ico_cert_cell.png) center 21px no-repeat; background-size:65px 65px}
+
+/* 고객센터,마이페이지 서브메인 */
+.subIndex .reserveInfo .section .content {padding-bottom:10px}
+.subIndex .reserveInfo .section .tit{padding:0}
+.subIndex .reserveInfo .section .tit a{display:block;padding:15px 19px}
+.subIndex .reserveInfo .section .btnMore{float:right;padding-right:10px;background:url(/images/front/mtravel/common/bg_bullet1.gif) no-repeat right center;background-size:4px 8px;font-size:13px}
+.subIndex .btnArea{overflow:hidden;}
+.subIndex .infoBlock{padding-left:0 !important;padding-right:0 !important}
+.subIndex .infoBlock ul{overflow:hidden}
+.subIndex .infoBlock ul li{float:left;width:25%;text-align:center}
+.subIndex .infoBlock ul li a{display:block;width:70px;text-align:center;margin:0 auto;padding-top:45px;font-size:11px;color:#1e1e1e;font-family:'YMR';background-repeat:no-repeat;background-position:top center;background-size:40px 39px}
+.subIndex .infoBlock ul li em{display:block;margin-top:4px;font-family:'YMB';color:#ee2b74}
+
+.subIndex .my-benefit{padding-left:0 !important;padding-right:0 !important}
+.subIndex .my-benefit ul{overflow:hidden}
+.subIndex .my-benefit ul li{float:left;width:33%;text-align:center}
+.subIndex .my-benefit ul li + li + li +li{margin-top:20px}
+.subIndex .my-benefit ul li a{display:block;text-align:center;margin:0 auto;padding-top:40px;font-size:11px;color:#1e1e1e;font-family:'YMR';background: url(/images/front/mtravel/cont/icon-mypage-benefit.png) 50% 0 no-repeat;-webkit-background-size: 50px;background-size: 50px;}
+.subIndex .my-benefit ul li.mb1 a{background-position: 50% 4px;}
+.subIndex .my-benefit ul li.mb2 a{background-position: 50% -95px;}
+.subIndex .my-benefit ul li.mb3 a{background-position: 50% -195px;}
+.subIndex .my-benefit ul li.mb4 a{background-position: 50% -300px;}
+.subIndex .my-benefit ul li.mb5 a{background-position: 50% -394px;}
+.subIndex .my-benefit ul li.mb6 a{background-position: 50% -501px;}
+
+.subIndex .notiList li a{display:block;line-height:1.6;font-size:14px;color:#767676;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+#maypgeIndex .myInfo{position:relative;padding:15px 19px 14px;background-color:#424242;color:#fff;font-size:11px}
+#maypgeIndex .myInfo strong{display:block;margin-bottom:5px;font-family:'YMB';font-size:15px;font-weight:normal}
+#maypgeIndex .myInfo .btn{position:absolute;top:21px;right:19px}
+#maypgeIndex .infoBlock .qna a{background-image:url(/images/front/mtravel/cont/icon_category1.png)}
+#maypgeIndex .infoBlock .s_air a{width:90px;background-image:url(/images/front/mtravel/cont/icon_category2.png)}
+#maypgeIndex .boardList li{padding-left:35px;padding-right:12px}
+#maypgeIndex .boardList .pkg{background:url(/images/front/mtravel/cont/icon_pkg.png) no-repeat 11px 12px;background-size:17px 14px}
+#maypgeIndex .boardList .air{background:url(/images/front/mtravel/cont/icon_air2.png) no-repeat 10px 12px;background-size:18px 18px}
+#maypgeIndex .boardList .hotel{background:url(/images/front/mtravel/cont/icon_hotel2.png) no-repeat 10px 12px;background-size:17px 18px}
+#maypgeIndex .boardList .code{display:block;padding:2px 0 5px;font-size:12px;color:#999}
+#maypgeIndex .boardList .tit{margin-right:0}
+#maypgeIndex .boardList .date span{margin-right:8px}
+#maypgeIndex .boardList .mystatus{top:10px;right:12px}
+#maypgeIndex .btnArea{margin:15px 14px}
+#maypgeIndex .btnArea a{-moz-box-sizing:border-box;-webkit-box-sizing:border-box;box-sizing:border-box;display:block;float:left;width:32%;height:67px;margin-left:5px;padding-top:44px;text-align:center;border:1px solid #e5e5e5;border-radius:2px 2px;color:#6f6f6f;font-size:12px;background:#f4f4f5 url(/images/front/mtravel/cont/icon_memberbtn.gif) no-repeat;background-size:27px 150px}
+#maypgeIndex .btnArea a:first-child{margin-left:0}
+#maypgeIndex .btnArea .modify{background-position:50% 14px}
+#maypgeIndex .btnArea .member{background-position:50% -53px}
+#maypgeIndex .btnArea .coupon{background-position:50% -115px}
+#customerIndex .myInfo{overflow:hidden;position:relative;padding:7px 7px 10px}
+#customerIndex .myInfo h2{width:85px;height:80px;padding:15px 0 0 10px;background-color:#ee2b74;color:#fff;font-size:14px}
+#customerIndex .myInfo dl{position:absolute;bottom:10px;left:112px;padding-right:15px}
+#customerIndex .myInfo dl dt{margin-bottom:5px;font-family:'YMB'}
+#customerIndex .myInfo dl dd{color:#767676;font-size:11px;line-height:1.4}
+#customerIndex .myInfo .btn{margin-top:5px}
+#customerIndex .boxType{border-top:0 none}
+#customerIndex .boxType h2 a{font-size:15px;color:#ee2b74;font-family:'YMB'}
+#customerIndex .boxType > .txt{margin:5px 0 10px;font-size:11px;color:#ee2b74}
+#customerIndex .boxType .btnArea{margin:10px 0 0}
+#customerIndex .boxType .btnArea .btn{display:table;width:50%;-moz-box-sizing:border-box;-webkit-box-sizing:border-box;box-sizing:border-box;float:left;border-left:7px solid #f9eef2}
+#customerIndex .boxType .btnArea .btn:first-child{border-left:0 none}
+#customerIndex .reserveInfo{border-top:1px solid #e0e0e0}
+#customerIndex .reserveInfo .section:last-child .content{border-bottom:0 none}
+#customerIndex .infoBlock .qna a{background-image:url(/images/front/mtravel/cont/icon_category1.png)}
+#customerIndex .infoBlock .s_air a{width:90px;background-image:url(/images/front/mtravel/cont/icon_category2.png)}
+#customerIndex .callcenter{margin-top:0;background-color:#e0e4ef}
+
+/* 고객센터 ----------------------------------------------------------------------------------------------------------------------------------- */
+/* 특가항공 */
+.specialAir_list dl{margin-left:-5px;padding-left:23px}
+.specialAir_list .tit{overflow:visible;font-weight:bold;font-size:17px;line-height:1.0}
+.specialAir_list .emph{vertical-align:top;padding-top:2px}
+.specialAir_list .category{margin-top:5px}
+.specialAir_list .logoImg{margin:-2px 5px 0 -27px}
+/* 쿠폰다운로드 */
+.couponDown{padding:15px 7px 0}
+.couponDown header h2{margin:15px 0 5px;color:#1d1d1d;font-size:14px;font-family:'YMB'}
+.couponDown > section:first-child header h2{margin-top:0}
+.couponDown ul{margin-top:-5px;width: 100%;}
+.couponDown ul li{position:relative;/*display:inline-block;*/margin-top:5px;padding-left:25px;vertical-align:top;border:1px solid #d5d5d5;}
+.couponDown ul li .saleName{-moz-box-sizing:border-box;-webkit-box-sizing:border-box;box-sizing:border-box;position:absolute;top:0;left:0;width:25px;height:100%;padding:9px 5px 0;text-align:center;color:#5375b5;font-size:11px;border-right:1px dotted #d5d5d5;font-weight:bold;}
+.couponDown .saleName.price{color:#c6964b}
+.couponDown ul li dl{-moz-box-sizing:border-box;-webkit-box-sizing:border-box;box-sizing:border-box;width:100%;min-height:140px;height:100%;padding:10px 3px 10px 6px}
+.couponDown ul li .salePay{font-family:'YMB';color:#1e1e1e;font-size:14px}
+.couponDown ul li .salePay .exp {font-size:12px;height: 29px;margin-bottom: 5px;overflow: hidden;text-overflow: ellipsis; display: -webkit-box;-webkit-line-clamp: 2; /* 라인수 */	-webkit-box-orient: vertical; word-wrap:break-word;line-height: 1.3;}
+.couponDown ul li .salePay em{display:inline-block;margin-bottom:-3px;vertical-align:text-bottom;font-size:39px;line-height:1.0;letter-spacing:-1px}
+.couponDown ul li .desc{padding-top:5px;color:#767676;font-size:11px;text-align: right;padding-right: 10px;}
+.couponDown ul li .btnArea{position:absolute;bottom:10px;margin:0;right: 10px;}
+.couponDown ul li .finish{position:absolute;top:0;left:0;z-index:2;width:100%;height:100%;overflow:hidden;text-indent:-9999px;background:url(/images/front/mtravel/cont/img_coupon_finish.png) no-repeat 50% 50%;background-size:89px 82px}
+.couponPop{position:relative;border:1px solid #1e1e1e;padding:10px 15px}
+.couponTbl{width:100%;border-collapse:collapse;text-align:left}
+.couponTbl th{-moz-box-sizing:border-box;-webkit-box-sizing:border-box;box-sizing:border-box;width:60px;padding:4px 0;color:#ee2b74;font-size:11px}
+.couponTbl td{padding:4px 0;color:#1e1e1e;font-size:11px}
+/* 프로모션 */
+.promotion .list .cate{display:inline-block;position:absolute;top:0;left:0;width:37px;height:37px;overflow:hidden;text-indent:-9999px;background-repeat:no-repeat;background-size:37px 37px;z-index:2}
+.promotion .list .cate.air{background-image:url(/images/front/mtravel/cont/icon_air.png)}
+.promotion .list .cate.hotel{background-image:url(/images/front/mtravel/cont/icon_hotel.png)}
+.promotion .list .cate.all{background-image:url(/images/front/mtravel/cont/icon_common.png)}
+.promotion .list .img{display:block;width:100%;height:100%;overflow:hidden}
+.promotion .list .img img{display:block;width:100%;height:100% !important;position:absolute}
+.promotion .list dl{-moz-box-sizing:border-box;-webkit-box-sizing:border-box;box-sizing:border-box;position:absolute;bottom:0;left:0;z-index:2;width:100%;height:50px;padding-top:9px}
+.promotion .list dl dt{padding:0 10px 4px;color:#fff;font-size:14px;line-height:1.2;font-weight:bold;white-space:nowrap;text-overflow:ellipsis;overflow:hidden}
+.promotion .list dl dd{padding:0 10px;color:#fff;font-size:11px;line-height:1.2;font-weight:bold;white-space:nowrap;text-overflow:ellipsis;overflow:hidden}
+
+.mainPromotion{padding:15px 0 12px;border-bottom:1px solid #d5d5d5;background-color:#f5f5f5}
+.mainPromotion .mask{overflow:hidden;width:100%;height:0;position:relative;padding-bottom:69%}
+.mainPromotion .mask ul{position:absolute;top:0;left:0;width:100%;height:100%}
+.mainPromotion .mask li{position:relative;float:left;height:100%}
+.mainPromotion .block{-moz-box-sizing:border-box;-webkit-box-sizing:border-box;box-sizing:border-box;width:100%;height:100%;overflow:hidden;position:absolute;top:0;left:0;bottom:0;right:0;border-left:20px solid transparent;border-right:20px solid transparent}
+.mainPromotion .current{clear:both;text-align:center;padding-top:10px}
+.mainPromotion .current em{display:inline-block;vertical-align:middle;width:7px;height:7px;margin:0 4px;border-radius:7px 7px;background-color:#dddee0}
+.mainPromotion .current em.on{width:9px;height:9px;border-radius:9px 9px;background-color:#ee2b74}
+.subPromotion ul li{overflow:hidden;position:relative;width:100%;height:0;margin-top:15px;padding-bottom:54.6%}
+.subPromotion ul li .block{-moz-box-sizing:border-box;-webkit-box-sizing:border-box;box-sizing:border-box;width:100%;height:100%;overflow:hidden;position:absolute;top:0;left:0;bottom:0;right:0;border-left:20px solid transparent;border-right:20px solid transparent}
+.subPromotion .list .img:before{content:'';display:block;position:absolute;bottom:0;left:0;z-index:1;-moz-box-sizing:border-box;-webkit-box-sizing:border-box;box-sizing:border-box;width:100%;padding:0 19px;height:50px;background-color:#000;opacity:0.8}
+
+/* 모바일 신규 기획전 as is 대응 수정 */
+/*.promotionView{padding:15px 19px 0}
+.promotionView img{position:relative}*/
+.promotionView {padding: 0;}
+/* .promotionView > div {padding: 0 19px;} */
+.promotionView > div:first-child {padding-top: 15px;}
+
+/* PRIVIA안내 */
+.priviaCont .tabType li a{font-size:13px}
+.priviaCont .intro{text-align:center;padding:190px 20px 20px;background:url(/images/front/mtravel/cont/bg_intro.png) no-repeat 50% 19px;background-size:245px 144px}
+.priviaCont .intro h2{margin-bottom:14px;font-size:17px;font-family:'YMB'}
+.priviaCont .intro p{color:#767676;font-size:12px;font-family:'YMR';line-height:1.5}
+.priviaCont .cs_center{overflow:hidden}
+.priviaCont .cs_center h3{padding:11px 19px 8px;font-size:12px;font-family:'YMB';background:#f0f0f0}
+.priviaCont .cs_center a{position:relative;display:inline-block;-moz-box-sizing:border-box;-webkit-box-sizing:border-box;box-sizing:border-box;width:42%;margin-left:19px;padding:10px 0 8px;font-size:12px;font-family:'YMB'}
+.priviaCont .cs_center a > em{position:absolute;top:10px;left:30px;padding-left:15px;background:url(/images/front/mtravel/common/bg_call2.gif) no-repeat;background-size:12px 12px}
+.priviaCont .cs_center a:last-child{width:48%;margin-left:0;padding-left:0}
+.priviaCont .benefit{padding:20px 19px;border-top:1px solid #d5d5d5}
+.priviaCont .benefit .tit{margin:28px 0 10px;font-size:17px;color:#1e1e1e;font-family:'YMR'}
+.priviaCont .benefit .tit:first-child{margin-top:0}
+.priviaCont .benefit ul li{margin-top:10px}
+.priviaCont .benefit ul li > strong{display:block;min-height:39px;padding:8px 0 5px 70px;font-size:15px;line-height:1.3;color:#1e1e1e;font-weight:normal;font-family:'YMB';background:url(/images/front/mtravel/cont/icon_benefit.gif) no-repeat;background-size:52px}
+.priviaCont .benefit ul li > strong .sub{font-family:'YMR'}
+.priviaCont .benefit ul li > strong .btn{margin-top:5px}
+.priviaCont .benefit ul li .cont{padding-left:70px;color:#767676;font-size:11px;line-height:1.5}
+.priviaCont .benefit ul li .cont strong{display:block;margin:13px 0 5px;font-size:12px;color:#1e1e1e;font-weight:bold}
+.priviaCont .benefit ul li .cont li{margin-top:0}
+.priviaCont .benefit ul li .cont li strong{min-height:0;padding:0;background:0 none;}
+.priviaCont .benefit ul .air_benefit1 > strong{background-position:0 -1114px}
+.priviaCont .benefit ul .air_benefit2 > strong{background-position:0 -101px}
+.priviaCont .benefit ul .air_benefit3 > strong{background-position:0 -202px}
+.priviaCont .benefit ul .air_benefit4 > strong{background-position:0 -304px}
+.priviaCont .benefit ul .hotel_benefit1 > strong{background-position:0 -406px}
+.priviaCont .benefit ul .hotel_benefit2 > strong{background-position:0 -508px}
+.priviaCont .benefit ul .hotel_benefit3 > strong{background-position:0 -610px}
+.priviaCont .benefit ul .hotel_benefit4 > strong{background-position:0 -710px}
+.priviaCont .benefit ul .hotel_benefit5 > strong{background-position:0 -811px}
+.priviaCont .benefit ul .hotel_benefit_new_5 > strong{background-position:0 -912px}
+.priviaCont .benefit ul .hotel_benefit_new_2 > strong{background-position:0 -1013px}
+
+.priviaCont .topic{display:table;width:100%;background-size:cover !important;text-align:center;background:url(/images/front/mtravel/common/bg_about_privia.jpg) no-repeat;}
+.priviaCont .topic > p{display:table-cell;vertical-align:middle;text-align:center;color:#fff;font-size:17px;font-family:'YMB'}
+.priviaCont .subcopy{position:relative;padding:15px 120px 15px 19px;background-color:#f5f5f5;border-bottom:1px solid #d5d5d5}
+.priviaCont .subcopy > p{font-size:11px;line-height:1.5}.priviaCont .subcopy .btn{position:absolute;top:50%;right:15px;margin-top:-25px;}
+.priviaCont .toggleList .btnArea{margin-bottom:0}
+.priviaCont .benefit-new li{position:relative;min-height:50px;margin:20px 8px;padding-left:70px;border-bottom:0 none}
+.priviaCont .benefit-new li:before{content:'';display:inline-block;width:49px;height:48px;position:absolute;top:0;left:0;background:url(/images/front/mtravel/cont/icon_benefit_new.png) no-repeat;background-size:500px auto}
+.priviaCont .benefit-new li > strong{display:block;padding:5px 0;font-size:14px;line-height:1.4;color:#333;font-weight:bold;letter-spacing:-0.025em}
+.priviaCont .benefit-new li .cont{letter-spacing:-1px;font-size:12px;background:#e4e4e4;padding:15px 10px;margin-bottom:5px;}
+.priviaCont .benefit-new li.mb0{margin-bottom:0}
+.priviaCont .benefit-new li.icon-purple:before{background-position:0 0}
+.priviaCont .benefit-new li.icon-voucher:before{background-position:-50px 0}
+.priviaCont .benefit-new li.icon-mpoint:before{background-position:-100px 0}
+.priviaCont .benefit-new li.icon-cs:before{background-position:0 -50px}
+.priviaCont .benefit-new li.icon-company:before{background-position:-100px -50px}
+.priviaCont .benefit-new li.icon-onestop:before{background-position:-50px -50px}
+.priviaCont .benefit-new li.icon-aircs:before{background-position:-150px 0}
+.priviaCont .benefit-new li.icon-tour:before{background-position:0 -100px}
+.priviaCont .benefit-new li.icon-sale0:before{background-position:-300px -150px}
+.priviaCont .benefit-new li.icon-sale2:before{background-position:-200px -150px}
+.priviaCont .benefit-new li.icon-sale3:before{background-position:-250px -150px}
+.priviaCont .benefit-new li.icon-sale4:before{background-position:0 -150px}
+.priviaCont .benefit-new li.icon-sale5:before{background-position:-100px -150px}
+.priviaCont .benefit-new li.icon-sale6:before{background-position:-400px -150px}
+.priviaCont .benefit-new li.icon-sale7:before{background-position:-50px -150px}
+.priviaCont .benefit-new li.icon-sale10:before{background-position:-450px -150px}
+.priviaCont .benefit-new li.icon-sale15:before{background-position:-350px -150px}
+.priviaCont .benefit-new li.icon-sale2add:before{background-position:-150px -150px}
+.priviaCont .benefit-new li.icon-new-member:before{background-position:-100px -100px}
+.priviaCont .benefit-new li.icon-special-sale:before{background-position:-200px 0}
+.priviaCont #about-air .partnership{margin-top:5px;background:url(/images/front/mtravel/cont/img_partnership.png) no-repeat;background-size:236px auto;padding-bottom: 37px;}
+.priviaCont #about-air .kakao{width:45px;}
+
+.priviaCont #about-pkg .partnership{margin-top:15px;height:78px;background-color:rgba(255, 255, 255, 0.7)}
+.priviaCont #about-pkg .partnership > p{height:78px;background:url(/images/front/mtravel/cont/img_pkg_partnership.png) no-repeat 50%;background-size:241px auto}
+
+#about-privia dl{margin:0 -10px}
+#about-privia dt{margin-top:15px;padding:15px 10px 10px;border-top:1px solid #d5d5d5;font-size:14px;color:#333;font-weight:bold}
+#about-privia dt:first-child{margin-top:0;padding-top:0;border-top:0 none}
+#about-privia dd{padding:0 10px}
+#about-privia dt:before{content:'';display:inline-block;width:30px;height:27px;margin:-3px 10px 0 0;background:url(/images/front/mtravel/cont/icon_benefit_new.png) no-repeat;background-size:500px auto;vertical-align:middle}
+#about-privia dt.icon-benefit1:before{background-position:0 -200px}
+#about-privia dt.icon-benefit2:before{background-position:0 -227px}
+#about-privia dt.icon-benefit3:before{background-position:0 -309px}
+#about-privia dt.icon-benefit4:before{background-position:0 -281px}
+#about-privia dt.icon-benefit5:before{background:url(/images/front/mtravel/cont/icon_cs.png) 50% 50% no-repeat;background-size:auto 19px;}
+
+.priviaCont .txtArea{position:relative}
+.priviaCont .txtArea .btn_card{position:absolute;top:-6px;right:0}
+.priviaCont .bulList li > ul li{background:url(/images/front/mtravel/common/bg_bullet5.png) no-repeat 0 4px;background-size:4px 4px;}
+.priviaCont .cardRoll .current{text-align:center;margin:18px 0 27px;}
+.priviaCont .cardRoll .current em{display:inline-block;vertical-align:middle;width:7px;height:7px;margin:0 4px;border-radius:7px 7px;background-color:#dddee0}
+.priviaCont .cardRoll .current em.on{width:9px;height:9px;border-radius:9px 9px;background-color:#ee2b74}
+.priviaCont .cardRoll{position:relative;overflow:hidden}
+.priviaCont .cardRoll .mask > ul{position:relative;height:100%}
+.priviaCont .cardRoll .mask > ul > li{float:left;position:relative;-moz-box-sizing:border-box;-webkit-box-sizing:border-box;box-sizing:border-box;width:100%;height:100%;padding:0 19px}
+.priviaCont .cardRoll .sale{display:block;margin-bottom:15px;text-align:center;color:#333;font-size:17px;font-family:'YMB';letter-spacing:-1px}
+.priviaCont .cardRoll .cardImg{display:block;width:150px;margin:0 auto;text-align:center}
+.priviaCont .cardRoll .cardImg img{width:146px;height:92px}
+.priviaCont .cardRoll .cardName{margin:15px 0 25px;text-align:center;font-size:17px;color:#333;font-family:'YMB'}
+.setting_theme{padding:15px 7px}
+.setting_theme ul{overflow:hidden;margin-left:-4px}
+.setting_theme li{width:97px;height:110px;float:left;position:relative;margin:0 0 5px 4px;border:1px solid #d5d5d5}
+.setting_theme li input[type="radio"]{position:absolute;top:0;left:0;opacity:0}
+.setting_theme li label{display:block;width:100%;height:100%}
+.setting_theme li input[type="radio"]:checked + label:before{content:'';display:block;width:97px;height:110px;position:absolute;top:0;left:0;opacity:0.5;background-color:#000}
+.setting_theme li input[type="radio"]:checked + label:after{content:'';display:block;width:97px;height:110px;position:absolute;top:0;left:0;background:url(/images/front/mtravel/cont/bg_checked.png) no-repeat;background-size:26px 23px}
+.setting_theme li label.default{overflow:hidden;text-indent:-9999px;background-color:#ee2b74}
+.isp_guide .point2{display:block;margin:15px 0 7px;font-size:12px}
+.isp_guide .desc{margin-top:15px;border-top:1px solid #d5d5d5}
+.isp_guide .desc .section{margin-top:15px;line-height:1.5}
+.isp_guide .desc .section p{color:#767676;font-size:11px}
+.isp_guide .desc .section >strong{display:inline-block;margin-bottom:6px;color:#535da8;font-size:12px;font-weight:bold}
+.isp_guide .desc .section .bulList{margin-bottom:15px}
+.isp_guide .type{margin:15px 0;text-align:center}
+.isp_guide .type .arrow_box{display:inline-block;vertical-align:top;-moz-box-sizing:border-box;-webkit-box-sizing:border-box;box-sizing:border-box;width:140px;padding-bottom:24px;text-align:center;background:url(/images/front/mtravel/cont/bg_arrowBox.gif) no-repeat bottom center;background-size:100% auto}
+.isp_guide .type .arrow_box >p{width:100%;height:74px;padding:0 12px;display:table-cell;vertical-align:middle;border:1px solid #d5d5d5;border-bottom:0 none;font-size:11px;line-height:1.5}
+.stepArea{overflow:hidden;margin-top:15px;border:1px solid #d5d5d5;border-bottom:0 none;background-color:#f5f5f5}
+.stepArea li{float:left;position:relative;-moz-box-sizing:border-box;-webkit-box-sizing:border-box;box-sizing:border-box;width:50%;min-height:83px;padding:10px 9px;border-bottom:1px solid #d5d5d5}
+.stepArea li:nth-child(odd){border-right:1px solid #d5d5d5}
+.stepArea li .step{font-size:12px;font-family:'YMB'}
+.stepArea li > p{position:absolute;bottom:10px;right:9px;font-size:11px;color:#767676;text-align:right}
+.bridgeWrap{display:table;width:100%;height:100%}
+/*
+.bridgeWrap #headArea{width:100%;height:46px;position:relative}
+.bridgeWrap #headArea .header{width:100%;height:46px;position:fixed;background-color:#ef2b75}
+.bridgeWrap #headArea .header h1{width:168px;height:20px;margin:0 auto;padding:12px 0 0;overflow:hidden;text-indent:-9999px;color:#fff;background:url(/images/front/mtravel/main/h1.png) 0 12px no-repeat;background-size:cover}
+*/
+.bridgeWrap .contArea1{display:table-row}
+.bridgeWrap .contArea2{display:table-row}
+.bridgeWrap .contArea3{display:table-row}
+.bridgeWrap .contArea1 > p{display:table-cell;height:20%;vertical-align:middle;text-align:center;font-size:16px;color:#1a1a1a;font-family:'YMB'}
+.bridgeWrap .contArea1 > p span{color:#ef2b75}
+.bridgeWrap .contArea1 > p span em{font-size:24px;line-height:24px;letter-spacing:-1px}
+.bridgeWrap .contArea2 > .txt{display:table-cell;height:58%;padding:0 33px;vertical-align:middle;text-align:center;font-family:'YMR';line-height:1.5}
+.bridgeWrap .contArea2 > .txt img{width:auto}
+.bridgeWrap .contArea3 .btnArea{display:table-cell;height:22%;padding-bottom:15px;vertical-align:middle;margin-top:0}
+.bridgeWrap .contArea3 .btnArea .btn.xlarge *{width:138px;font-family:'YMR';font-weight:normal}
+@media all and (device-width:320px) and (device-height:480px) {
+.bridgeWrap .contArea2 > .txt{padding-bottom:15px;line-height:1.2}
+.bridgeWrap .contArea2 > .txt img{max-width:70%}	
+}
+.msgLayer .txt{padding:110px 0 105px;text-align:center;line-height:1.5;font-size:12px;color:#333}
+.msgLayer .txt strong{display:inline-block;margin-bottom:5px;font-size:16px;font-weight:normal}
+
+/* #7345 이벤트 영역 추가 */
+.evtwrap{padding:20px 19px 16px;border-top:1px solid #d5d5d5;border-bottom:1px solid #d5d5d5}
+.evtwrap .tit{margin-bottom:7px;font-size:12px;font-weight:bold}
+.evtwrap .bulList li p{margin-top:4px;font-size:11px;line-height:1.6}
+
+/* 항공 개선 ----------------------------------------------------------------------------------------------------------------------------------- */
+/* 9457 네이버연계서비스 */
+.naverWrap .titArea{padding:14px 20px 12px;background-color:#424242;color:#fff;font-family:'YMR'}
+.naverWrap .detailResultAir > header{display:table;width:100%;min-height:100px;height:100px;}
+.naverWrap .detailResultAir > header .info{position:absolute;bottom:13px}
+.naverWrap .detailResultAir > header .emph{padding-top:0}
+.naverWrap .detailResultAir > header .state{padding-top:18px;padding-bottom:14px;margin-top:-30px}
+.naverWrap .detailResultAir .txtArea {margin: 0;border-bottom:1px solid #d5d5d5}
+.naverWrap .detailResultAir .txtArea .bulList4 {padding: 0px 15px 10px 15px;}
+.naverWrap .reserveInfo .section > header .rightArea{top:16px}
+.naverWrap .reserveInfo .section > header .rightArea em{font-family:'YMR'}
+.naverWrap .d_selectAirline .searchInfo{min-height:0}
+.naverWrap .d_selectAirline .searchInfo .roundtrip{display:table;width:100%;padding:0}
+.naverWrap .d_selectAirline .searchInfo .roundtrip > p{display:table-cell;padding:9px 0 7px;vertical-align:middle;border-left:1px solid #fff}
+.naverWrap .d_selectAirline .searchInfo .roundtrip > p:first-child{border-left-color:transparent}
+.naverWrap .d_selectAirline .searchInfo .roundtrip > p span{vertical-align:middle;font-family:'YMR'}
+.naverWrap .d_selectAirline .searchInfo .roundtrip .bg{background-image:url(/images/front/mtravel/search/ico_air_path.png);background-size:15px 15px;background-position:0 4px}
+.naverWrap .d_selectAirline .detailResultAir > header{padding:0;border-bottom:1px solid #d5d5d5}
+.naverWrap .d_selectAirline .detailResultAir > header > div{display:table-cell;position:relative;-moz-box-sizing:border-box;-webkit-box-sizing:border-box;width:50%;padding:14px 7px 13px;border-left:1px solid #d5d5d5}
+.naverWrap .d_selectAirline .detailResultAir > header > div:first-child{border-left-color:transparent}
+.naverWrap .d_selectAirline .detailResultAir > header h2:after{content:'';clear:both;display:inline-block}
+.naverWrap .d_selectAirline .detailResultAir > header h2 > strong{display:block}
+.naverWrap .d_selectAirline .detailResultAir > header .right{position:static;float:right}
+.naverWrap .d_selectAirline .detailResultAir > header .state{margin-top:-22px}
+.naverWrap .d_selectAirline .airline{padding-right:90px}
+.naverWrap .d_selectAirline .listType .airline{margin-right:20px}
+.naverWrap .d_selectAirline .listType .state{height:29px;padding-top:10px;padding-bottom:9px;text-indent:0}
+
+/* #9607 항공 환불 추가 */
+.reserveList li .cont.refund_add{padding-right:55px}
+.reserveInfo .section .listType2 input[type="checkbox"]{vertical-align:middle}
+.reserveInfo .section .listType2 input[type="checkbox"] + label{line-height:20px;vertical-align:text-top}
+.reserveInfo .section .listType2 .inline_input{display:inline-block;margin-top:-4px}
+
+/* #13158 현대카드 인증 영역 추가 */
+.h-certi{border-top:1px solid #e0e0e0;padding:15px 19px;position:relative}
+.h-certi.bd-rev{border-bottom:1px solid #e0e0e0;border-top:0 none}
+.h-certi .tit{font-size:15px;color:#1e1e1e;font-family:'YMB';margin-bottom:11px}
+.h-certi .txt{width:70%;font-size:11px}
+.h-certi .btn-hdcard-certi{position:absolute;top:32px;right:19px}
+
+/* #12942(온라인 결제 시 결제카드 본인인증 프로세스 추가) */
+.content_is {display: none;border-top: 1px solid #d5d5d5;}
+.content_is ul, .content_is li {background-color: #fff;border: 0 !important;}
+.content_is dl {padding: 10px 19px 0 19px;background-color: #fff;border-bottom: 1px solid #d5d5d5;}
+.content_is dd {padding: 10px 0;border-bottom: 1px solid #d5d5d5;}
+.content_is .guide .tit {margin-bottom: 0;}
+.content_is .bulList li {color: #767676 !important;background-position: 0 7px;}
+.content_is dd:last-child {border-bottom: none;}
+.content_is li {width: 100%;float: none;}
+.content_is .set_chk {position: relative;background-color: #fff;}
+.content_is .set_chk .cardChk1 {position: absolute;right: 19px;top: 50%;margin-top: -10px;}
+.info_user {margin-top:10px;}
+.info_user p {margin-top:-7px;padding:0 15px 15px 0;}
+.my_tel {width: 100%;}
+.btn_my_tel {display: none;}
+.col2 .my_tel {width: 64%;}
+.col2 .btn_my_tel {display:inline-block;width: 34%;margin-top: 5px;float: right;}
+.bg-checked-white {width: 100%;background:url(/images/front/mtravel/main/deco_checked_white.png) no-repeat 100% 50%;background-size:25px auto}
+
+/* #14114 총요금 내부 리스트 (호텔 옵션 선택 UI 기능 추가) */
+.totalListSub {display: table-row;width: 100%;position: relative;}
+.setType {display: table-cell;padding-top: 12px;vertical-align:bottom;position: relative;}
+.setType > p {font-size: 11px;padding-top: 2px;}
+.setPrice {display: table-cell;padding-top: 12px;vertical-align:bottom;text-align: right;padding-right:5px;position: relative;}
+.totalListSub.first .setType:before, .totalListSub.first .setPrice:before {content: '';display: block;width: 100%;position: absolute;left: 0;top: 12px;border-top:1px dashed #d5d5d5;}
+.totalListSub.first .setType {padding-top: 24px;}
+.addOption.input_check label {font-size: 12px;margin: 3px 0 0 6px;}
+.addOption.totalList {border-bottom: 0;}
+.addOption.totalList li {border-bottom: 0;padding: 5px 0;}
+.addOption.totalList li .rowTit {width: 65%;}
+.addOption .rangeType2 {display: table-row-group;}
+
+.rightAreaType2 {position: absolute;right: 19px;top: 7px;min-width:35%;max-width: 55%;}
+.rightAreaType2 select {padding: 8px 8px 8px 10px;}
+
+.rangeType2 .range {position: relative;width: 100%;height: 32px;line-height: 34px;border: 1px solid #d5d5d5;color: #333;font-size: 14px;
+display: -webkit-box;      /* OLD - iOS 6-, Safari 3.1-6 */
+display: -moz-box;         /* OLD - Firefox 19- (buggy but mostly works) */
+display: -ms-flexbox;      /* TWEENER - IE 10 */
+display: -webkit-flex;     /* NEW - Chrome */
+display: flex;			   /* NEW, Spec - Opera 12.1, Firefox 20+ */ }
+.rangeType2 .plus, .rangeType2 .minus {width: 32px;background-color: #d5d5d5;}
+.rangeType2 .result {background-color: #fff;
+-webkit-box-flex: 1;      /* OLD - iOS 6-, Safari 3.1-6 */
+-moz-box-flex: 1;         /* OLD - Firefox 19- */
+width: 100%;			  /* For old syntax, otherwise collapses. */
+-webkit-flex: 1;          /* Chrome */
+-ms-flex: 1;              /* IE 10 */
+flex: 1;				  /* NEW, Spec - Opera 12.1, Firefox 20+ */ }
+.rangeType2 .result > span  {
+display: -webkit-box;      /* OLD - iOS 6-, Safari 3.1-6 */
+display: -moz-box;         /* OLD - Firefox 19- (buggy but mostly works) */
+display: -ms-flexbox;      /* TWEENER - IE 10 */
+display: -webkit-flex;     /* NEW - Chrome */
+display: flex; 			   /* NEW, Spec - Opera 12.1, Firefox 20+ */ }
+.rangeType2 .result > span > span {
+-webkit-box-flex: 1;      /* OLD - iOS 6-, Safari 3.1-6 */
+-moz-box-flex: 1;         /* OLD - Firefox 19- */
+width: 100%;			  /* For old syntax, otherwise collapses. */
+-webkit-flex: 1;          /* Chrome */
+-ms-flex: 1;              /* IE 10 */
+flex: 1;				  /* NEW, Spec - Opera 12.1, Firefox 20+ */ }
+.rangeType2 .result > span > span:first-child {text-align: right;}
+.rangeType2 input {background-color: transparent;width: 100%;vertical-align: middle;font-size: inherit;padding-left: 3px;margin-top: 0px;}
+.rangeType2 button {width: 100%;font-size: 23px;line-height: 36px;}
+
+/* 19984 */
+.rangeType3 {height:32px;border: 1px solid #d5d5d5;position: relative;z-index: 0;}
+.rangeType3 .plus, .rangeType3 .minus {width: 32px;height: 100%;background-color: #d5d5d5;position: absolute;z-index: 10;top:0;}
+.rangeType3 .minus {left:0;}
+.rangeType3 .plus {right:0;}
+.rangeType3 button {height: 100%;width: 100%;line-height:35px;font-size: 23px;}
+.rangeType3 .result {display: block;text-align: center;font-size: 14px;color: #333;position: relative;z-index: 0;box-sizing: border-box;}
+.rangeType3 .result .txt {display: inline-block;vertical-align: middle;line-height:34px;padding-left: 15px;}
+.rangeType3 .result input {display: inline-block;vertical-align: middle;background-color: transparent;margin-top: 0px;padding-left: 2px;width:15px;}
+.rangeType3 .result.empty input {display: none;}
+.rangeType3 .result.empty .txt {padding-left:0;}
+
+.totalList li.cont-sub .setType {padding-left: 20px;}
+.totalList li.cont-sub .rowTit {padding-left: 20px;position: relative;}
+.totalList li.cont-sub .rowTit:after {content: '';display: block;position: absolute;width: 7px;height: 7px;top:4px;left:7px;background: url(/images/front/mtravel/common/icon_arrow.png) 0 0 no-repeat;background-size: 7px;}
+
+/* #14124 네이버 프로모션 기능 추가 */
+.add-naver-old-price {font-size: 12px;text-decoration: line-through;}
+.add-naver-text {color: #00b822;position: absolute;left: -4px;}
+
+/* 국제선 항공 요금표기개선 - 결과 내 검색 체크부분 */
+#sortingArea ul li ul.type2 {position: relative;}
+#sortingArea ul li ul.type2:after {content: " "; display: block;width: 1px;height: 100%;background-color: #d5d5d5;position: absolute;top:0;left:32.5%;}
+#sortingArea ul li ul.type2 li {padding-left: 32.5%;}
+#sortingArea ul li ul.type2 li label {padding: 11px 35px 11px 25px;}
+#sortingArea ul li ul.type2 .ex {position: absolute;top:11px;right:75%;}
+
+/* 국제선 항공 요금표기개선 - 요금정보 부분 */
+.aline_new_pe {text-align: right;margin: 0px 15px 10px 0px;font-weight: bold;font-size: 12px;}
+.titalList_airline_new > li:last-child {border-bottom: 1px solid #a6a6a6;}
+.titalList_airline_new > li {padding: 12px 10px;border-bottom: 1px solid #d5d5d5;
+display: -webkit-box;      /* OLD - iOS 6-, Safari 3.1-6 */
+display: -moz-box;         /* OLD - Firefox 19- (buggy but mostly works) */
+display: -ms-flexbox;      /* TWEENER - IE 10 */
+display: -webkit-flex;     /* NEW - Chrome */
+display: flex;			   /* NEW, Spec - Opera 12.1, Firefox 20+ */ 
+-webkit-align-items: center; /* Safari 7.0+ */
+align-items: center; }
+.titalList_airline_new .rowTit {font-size: 11px;
+-webkit-box-flex: 60%;      /* OLD - iOS 6-, Safari 3.1-6 */
+-moz-box-flex: 60%;         /* OLD - Firefox 19- */
+width: 60%;			  /* For old syntax, otherwise collapses. */
+-webkit-flex: 60%;          /* Chrome */
+-ms-flex: 60%;              /* IE 10 */
+flex: 60%;				  /* NEW, Spec - Opera 12.1, Firefox 20+ */}
+.titalList_airline_new .cont {font-size: 12px;text-align: right;
+-webkit-box-flex: 40%;      /* OLD - iOS 6-, Safari 3.1-6 */
+-moz-box-flex: 40%;         /* OLD - Firefox 19- */
+width: 40%;			  /* For old syntax, otherwise collapses. */
+-webkit-flex: 40%;          /* Chrome */
+-ms-flex: 40%;              /* IE 10 */
+flex: 40%;				  /* NEW, Spec - Opera 12.1, Firefox 20+ */}
+.titalList_airline_new .cont strong {font-size: 15px;line-height: 1.0;}
+.titalList_airline_new .point {color: #1f68ee !important;}
+.titalList_airline_new:after {content:"";display:block;clear:both;}
+
+.titalList_airline_new .tl_box {display:block;/*background-color: #dde3f3;*/padding: 12px 15px;border-bottom: 0;}
+.titalList_airline_new .tl_box p {text-align: right;}
+.titalList_airline_new .tl_box p.txt1 {text-align: left;font-size:11px;}
+.titalList_airline_new .tl_box p.txt2 {font-weight: bold;margin-top: 5px;}
+.titalList_airline_new .tl_box p.txt2 strong {font-size:15px;}
+.titalList_airline_new .tl_box p.txt3 {font-size: 11px;letter-spacing: -0.05em;}
+
+.tl_exp {font-size: 11px;margin-bottom: 15px;padding-left: 12px;padding-right: 12px;position: relative;}
+.tl_exp > span {color: #ee2b74;display: inline-block;}
+.tl_exp > span.txt {padding-right: 70px;letter-spacing: -0.05em;padding-left: 12px;position: relative;}
+.tl_exp > span.txt:after {content: '※';position: absolute;left:0;top:4px;}
+.tl_exp > span.btn {position: absolute;top:6px;right:12px;}
+.tl_exp > span.btn a {font-size:11px;line-height: 24px;padding: 1px 3px 0;}
+
+/* 국제선 항공 요금표기개선 - 쿠폰 */
+.airline_coupon {margin:20px 15px;}
+.airline_coupon > ul {text-align: center;}
+.airline_coupon > ul > li {width: 100%;border: 1px solid #636363;margin-bottom: 10px;}
+.airline_coupon .ac_cont {height: 100%;}
+.airline_coupon .ac_cont li {float: left;height: 90px;padding: 10px 0;}
+.airline_coupon .ac_cont li.left {width: 40%;background: #f5f5f5 url(/images/front/mtravel/search/bg_airline_new_coupon.gif) 100% 0 repeat-y;-webkit-background-size: 2px;
+background-size: 2px;}
+.airline_coupon .ac_cont li.left p.txt1 {font-family: 'ymhr',sans-serif;font-size: 11px;letter-spacing: 2px;}
+.airline_coupon .ac_cont li.left p.txt1 span {display: block;padding-top: 3px;}
+.airline_coupon .ac_cont li.left p.txt2 {font-size:0;text-indent: -9999em;margin-top: 12px;width: 100%;height: 60px;background: url(/images/front/mtravel/search/airline_new_dc.png) 50% 0 no-repeat;-webkit-background-size: 60px;
+background-size: 60px;}
+.airline_coupon .ac_cont li.right {width: 60%;}
+.airline_coupon .ac_cont li.right > p {font-size: 11px;}
+.airline_coupon .ac_cont li.right p.txt2 {padding-top: 6px;}
+.airline_coupon .ac_cont li.right .btn_down_coupon {padding-top: 6px;text-align: center;}
+.airline_coupon .ac_cont li.right .btn_down_coupon img {width: 73px;padding-top: 6px;}
+.airline_coupon .ac_cont:after {content:"";display:block;clear:both;}
+
+/* 국제선 항공 요금표기개선 - 쿠폰타입1 */
+.airline_coupon_sc {padding:20px 15px;}
+.airline_coupon_sc > ul > li {width: 100%;border: 1px solid #636363;margin-top: 10px;}
+.airline_coupon_sc > ul > li:first-child {margin-top: 0;}
+.airline_coupon_sc .ac_cont {display: table;width: 100%;}
+.airline_coupon_sc .ac_cont > li {display: table-cell;}
+.airline_coupon_sc .ac_cont li.left {width: 40%;padding: 10px 0;background: #f5f5f5 url(/images/front/mtravel/search/bg_airline_new_coupon.gif) 100% 0 repeat-y;-webkit-background-size: 2px;
+background-size: 2px;text-align: center;vertical-align: middle;}
+.airline_coupon_sc .ac_cont li.left p.txt1 {font-family: 'ymhr',sans-serif;font-size: 11px;letter-spacing: 1px;background:  url(/images/front/mtravel/search/icon_coupon_sky.png) 50% 0 no-repeat;padding-top: 20px;-webkit-background-size: 78px;background-size: 78px;}
+.airline_coupon_sc .ac_cont li.left p.txt1 span {display: block;padding-top: 3px;}
+.airline_coupon_sc .ac_cont li.left p.txt2 {font-size:0;text-indent: -9999em;margin-top: 12px;width: 100%;height: 60px;}
+.airline_coupon_sc .ac_cont li.left p.txt2.dc_6 {background: url(/images/front/mtravel/search/airline_new_dc_6.png) 50% 0 no-repeat;-webkit-background-size: 60px;background-size: 60px;}
+.airline_coupon_sc .ac_cont li.left p.txt2.dc_3 {background: url(/images/front/mtravel/search/airline_new_dc.png) 50% 0 no-repeat;-webkit-background-size: 60px;background-size: 60px;}
+.airline_coupon_sc .ac_cont li.right {width: 60%;padding: 15px;}
+.airline_coupon_sc .ac_cont li.right > p {font-size: 11px;}
+.airline_coupon_sc .ac_cont li.right p.txt2 {padding-top: 6px;}
+.airline_coupon_sc .ac_cont li.right .set_caution li {font-size: 10px;padding-bottom: 4px;padding-left: 5px;position: relative;}
+.airline_coupon_sc .ac_cont li.right .set_caution li:after {content: '';position: absolute;display: block;width: 2px;height: 2px;background-color: #333;top:6px;left:0;}
+.airline_coupon_sc .ac_cont li.right .set_caution li.ex {font-size: 9px;padding-top: 4px;padding-left: 0;}
+.airline_coupon_sc .ac_cont li.right .set_caution li.ex:after {display: none;}
+.airline_coupon_sc .ac_cont li.right .set_price {margin: 4px 0;}
+.airline_coupon_sc .ac_cont li.right .set_price li {font-size: 11px;font-weight: bold;}
+.airline_coupon_sc .ac_cont li.right .set_price li.ex {font-size: 9px;padding-top: 2px;font-weight: normal;}
+.airline_coupon_sc .ac_cont li.right .btn_down_coupon {padding-top: 6px;text-align: center;}
+.airline_coupon_sc .ac_cont li.right .btn_down_coupon img {width: 73px;padding-top: 6px;}
+.airline_coupon_sc .ac_cont:after {content:"";display:block;clear:both;}
+
+/* 쿠폰타입2 */
+.airline_coupon_sc.sc2 {border-bottom: 1px solid #e0e0e0;}
+.airline_coupon_sc.sc2 .ac_cont {display: block;}
+.airline_coupon_sc.sc2 .ac_cont > li {display: block;}
+.airline_coupon_sc.sc2 .ac_cont li.left {width: 100%;padding: 15px 0 14px 0;background: #f5f5f5 url(/images/front/mtravel/search/bg_airline_new_coupon_h.gif) 0 100% repeat-x;-webkit-background-size: 5px;background-size: 5px;}
+.airline_coupon_sc.sc2 .ac_cont li.left p.txt1 {display: inline-block;font-size: 12px;background: url(/images/front/mtravel/search/icon_coupon_sky.png) 0 0 no-repeat;padding-top: 0;padding-left: 84px;-webkit-background-size: 78px;background-size: 78px;vertical-align: middle;}
+.airline_coupon_sc.sc2 .ac_cont li.right {width: 100%;padding: 15px;box-sizing: border-box;}
+.airline_coupon_sc.sc2 .ac_cont li.right .set_exp dt {font-size: 11px;font-weight: bold;margin-bottom: 10px;}
+.airline_coupon_sc.sc2 .ac_cont li.right .set_exp dt span {font-size: 10px;font-weight: bold;display: inline-block;margin-top: 3px;}
+.airline_coupon_sc.sc2 .ac_cont li.right .set_exp dd {font-size: 10px;margin-bottom: 4px;padding-left: 5px;position: relative;}
+.airline_coupon_sc.sc2 .ac_cont li.right .set_exp dd span {display: inline-block;vertical-align: top;}
+.airline_coupon_sc.sc2 .ac_cont li.right .set_exp dd:after {content: '';position: absolute;display: block;width: 2px;height: 2px;background-color: #333;top:4px;left:0;}
+.airline_coupon_sc.sc2-naver .ac_cont li.left p.txt1 {background: url(/images/front/mtravel/search/icon_coupon_naver.png) 0 0 no-repeat;-webkit-background-size: 63px;background-size: 63px;padding-left:68px;}
+.ask-guide {padding: 19px 16px;margin: 20px;border:1px solid #636363;position: relative;background: #f5f5f5 url(/images/front/mtravel/search/icon-ask-sky-m.png) 96.5% 10px no-repeat;-webkit-background-size: 40px;background-size: 40px;color: #333;}
+.ask-guide .tit {font-size:11px;margin-bottom:7px;font-weight: bold;}
+.ask-guide .ask-btn {display: inline-block;margin-top: 8px;}
+.ask-guide .ask-btn .btn {height: 30px;background-position: 100% -54px;}
+.ask-guide .ask-btn .btn * {padding: 8px 25px 0px 15px;}
+.ask-guide ul li {font-size:11px;line-height: 1.6;}
+
+/* 쿠폰타입3 */
+.airline_coupon_sc3 {border-bottom: 1px solid #e0e0e0;}
+.airline_coupon_sc3 dl {margin:20px 15px;padding:20px 15px 50% 15px;border: 5px solid #00cb0e;background: #fff url(/images/front/mtravel/search/bg-coupon-sc3-m.png) 50% bottom no-repeat;-webkit-background-size: 100%;background-size: 100%;}
+.airline_coupon_sc3 dt {font-size:18px;font-weight: bold;margin-bottom: 12px;}
+.airline_coupon_sc3 dl strong, .airline_coupon_sc3 dl em {color: #00cb0e;}
+.airline_coupon_sc3 dd {font-size:14px;}
+.airline_coupon_sc3 dd.area-down {font-size:11px;margin-top:8px;}
+.airline_coupon_sc3 dd.area-down .btn_down_coupon {display: inline-block;vertical-align:baseline;margin-top: 8px;width: 100px;}
+.airline_coupon_sc3.ac_sc3 dl {border: 5px solid #0eb0d5;background: #fff url(/images/front/mtravel/search/bg-coupon-sc3-2-m.png) 50% bottom no-repeat;-webkit-background-size: 100%;background-size: 100%;}
+.airline_coupon_sc3.ac_sc3 dl strong, .airline_coupon_sc3.ac_sc3 dl em {color: #0eb0d5;}
+
+/* 쿠폰타입4 */
+.airline_coupon_sc4 {padding:20px 15px;border-bottom: 1px solid #e0e0e0;}
+.airline_coupon_sc4 > ul > li {width: 100%;border: 1px solid #636363;margin-top: 10px;}
+.airline_coupon_sc4 > ul > li:first-child {margin-top: 0;}
+.airline_coupon_sc4 .ac_cont > li {box-sizing: border-box;}
+.airline_coupon_sc4 .ac_cont li.left {padding: 15px 0 14px 15px;background: #f5f5f5 url(/images/front/mtravel/search/bg_airline_new_coupon_h.gif) 0 100% repeat-x;-webkit-background-size: 5px;background-size: 5px;}
+.airline_coupon_sc4 .ac_cont li.left p.tit {font-family: 'YMR',sans-serif;display: inline-block;font-size: 12px;letter-spacing: 1px;}
+.airline_coupon_sc4 .ac_cont li.right {padding: 15px;}
+.airline_coupon_sc4 .ac_cont li.right .set_exp dt {font-size: 11px;font-weight: bold;margin-bottom: 10px;}
+.airline_coupon_sc4 .ac_cont li.right .set_exp dt span {font-size: 10px;font-weight: bold;display: inline-block;margin-top: 3px;}
+.airline_coupon_sc4 .ac_cont li.right .set_exp dd {font-size: 10px;margin-bottom: 4px;padding-left: 5px;position: relative;}
+.airline_coupon_sc4 .ac_cont li.right .set_exp dd span {display: inline-block;vertical-align: top;}
+.airline_coupon_sc4 .ac_cont li.right .set_exp dd:after {content: '';position: absolute;display: block;width: 2px;height: 2px;background-color: #333;top:4px;left:0;}
+.airline_coupon_sc4 .ac_cont li.right .btn_down_coupon {padding-top: 6px;text-align: center;}
+.airline_coupon_sc4 .ac_cont li.right .btn_down_coupon img {width: 73px;padding-top: 6px;}
+.airline_coupon_sc4 .ac_cont:after {content:"";display:block;clear:both;}
+
+/* 쿠폰타입5 */
+.airline_coupon_sc5 {border-bottom: 1px solid #e0e0e0;margin:20px 15px;position: relative;}
+.airline_coupon_sc5 .btn {position: absolute;background:transparent;opacity:1;filter:alpha(opacity=100);width: 31.60714285714286%;height: 8.529411764705882%;top: 42.823529%;left: 7.142857142857143%;font-size:0;text-indent: -9999em;}
+
+.airline_coupon_sc5.ac_sc5 {border-bottom: 0;margin:20px 15px;position: relative;}
+.airline_coupon_sc5.ac_sc5 .btn {width: 87.607143%;height: 13.529412%;top: 79.823529%;left: 6.142857%;}
+
+/* 쿠폰타입6 */
+.airline_coupon_sc6 {border-bottom: 1px solid #e0e0e0;}
+.airline_coupon_sc6 dl {margin:20px 15px;padding:20px 15px 50% 15px;border: 5px solid #00cb0e;background: #e5f8fc url(/images/front/mtravel/search/bg-coupon-sc6-m.gif) 50% bottom no-repeat;-webkit-background-size: 100%;background-size: 100%;}
+.airline_coupon_sc6 dt {font-size:18px;font-weight: bold;margin-bottom: 12px;}
+.airline_coupon_sc6 dl strong, .airline_coupon_sc6 dl em {color: #00cb0e;}
+.airline_coupon_sc6 dd {font-size:14px;}
+.airline_coupon_sc6 dd.area-down {font-size:11px;margin-top:8px;}
+.airline_coupon_sc6 dd.area-down .btn_down_coupon {display: inline-block;vertical-align:baseline;margin-top: 8px;width: 100px;}
+
+/* 쿠폰타입7 */
+.airline_coupon_sc7 {border-bottom: 1px solid #e0e0e0;margin:20px 15px;position: relative;}
+
+/* 제휴사 배너타입1 */
+.airline_banner_sc1 {border-top: 3px solid #57b04b;background-color: #57b04b;}
+.airline_banner_sc1 > a {display: block;}
+.airline_banner_sc1 > a > span {display: block;}
+.airline_banner_sc1 > a .txt {font-size:13px;color: #fff;padding: 15px 12px 13px 12px;position: relative;font-family: "YMR";}
+.airline_banner_sc1 > a .txt em {font-family: inherit;color: #fff10a;}
+.airline_banner_sc1 > a .txt:after{content: '';display: block;width: 10px;height: 10px;position: absolute;top: 50%;margin-top: -5px;right: 12px;background: url(/images/front/mtravel/common/btn_arrow.gif) no-repeat 0 0;-webkit-background-size: 19px 74px;background-size: 19px 74px;}
+.airline_banner_sc1.ab_sc1 {border-top: 3px solid #0eb0d5;background-color: #0eb0d5;}
+
+/* 제휴 안내 */
+.airline_partner_info {padding:15px;border-bottom: 1px solid #e0e0e0;}
+/*.airline_partner_info .logo {display: inline-block;width: 143px;margin-bottom:15px;}*/
+.airline_partner_info > ul {border: 1px solid #636363;background-color: #f5f5f5;}
+.airline_partner_info > ul > li {padding: 15px;border-top: 1px dashed #d5d5d5;}
+.airline_partner_info > ul > li:first-child {border-top: 0;}
+.airline_partner_info > ul > li .tit {font-size: 12px;font-weight: bold;margin-bottom: 12px;}
+.airline_partner_info > ul > li .exp {font-size: 11px;margin-bottom: 10px;}
+.airline_partner_info > ul > li .area-btn {display: block;text-align: right;margin-top: 15px;}
+.airline_partner_info > ul > li .area-btn .btn {background-position: 100% 11px;}
+.airline_partner_info > ul > li .area-btn .btn a {font-size:12px;height: 30px;min-width:135px;padding: 1px 17px 0 10px;}
+/*.airline_partner_info.ap_naver .logo {width: 110px;}*/
+
+/* 제휴 타이틀 */
+.airline_partner_title {padding: 10px 19px;border-bottom: 3px solid #0eb0d5;position: relative;}
+.airline_partner_title .logo {display: inline-block;width: 96px;position: absolute;left:19px;top:50%;margin-top: -9px;}
+.airline_partner_title .txt {font-size:10px;color: #999;padding-left: 116px;display: block;}
+.airline_partner_title .txt em {color: #333;}
+.airline_partner_title.ap_naver {border-bottom: 3px solid #57b04b;}
+.airline_partner_title.ap_naver .logo {width: 72px;margin-top: -6px;}
+
+/* 국제선 항공 요금표기개선 - 쿠폰유의사항 */
+.caution_coupon {border: 1px solid #e2e2e2;padding:15px;background:#f5f5f5;margin: 0 10px;}
+.caution_coupon .list {padding-left: 40px;background: url(/images/front/mtravel/search/icon_caution_coupon.png) 0 0 no-repeat;-webkit-background-size: 26px;
+background-size: 26px;}
+.caution_coupon .list > li {font-size:9px;margin-bottom: 3px;padding-left:6px;position: relative;}
+.caution_coupon .list > li:after {content: '';position: absolute;display: block;width: 2px;height: 2px;background-color: #333;top:6px;left:0;}
+
+/* 국제선 항공 요금표기개선 - 스케줄정보 */
+.sc_info_airline {margin-bottom: 15px;position: relative;color: #333;}
+.sc_info_airline .airline strong {vertical-align: middle;padding-left: 5px;}
+.sc_info_airline .al_dt_info {position: absolute;top:-11px;right:0;font-size:12px;}
+.sc_info_airline .al_dt_info > span {display: block;text-align: right;}
+.sc_info {border-top:1px solid #a6a6a6;border-bottom:1px solid #a6a6a6;color: #333;}
+.sc_info li {background-color: #fff;border-top:1px solid #d5d5d5;padding: 14px 0;
+display: -webkit-box;      /* OLD - iOS 6-, Safari 3.1-6 */
+display: -moz-box;         /* OLD - Firefox 19- (buggy but mostly works) */
+display: -ms-flexbox;      /* TWEENER - IE 10 */
+display: -webkit-flex;     /* NEW - Chrome */
+display: flex;			   /* NEW, Spec - Opera 12.1, Firefox 20+ */ 
+}
+.sc_info li:first-child {border-top: 0 none;}
+.sc_info li > span {/*text-align: right;*/text-align: center;
+-webkit-box-flex: 1;      /* OLD - iOS 6-, Safari 3.1-6 */
+-moz-box-flex: 1;         /* OLD - Firefox 19- */
+width: 100%;			  /* For old syntax, otherwise collapses. */
+-webkit-flex: 1;          /* Chrome */
+-ms-flex: 1;              /* IE 10 */
+flex: 1;				  /* NEW, Spec - Opera 12.1, Firefox 20+ */
+}
+.sc_info li > span.icon {flex:none;width: 30px;background: url(/images/front/mtravel/cont/icon_air3.png) 50% 50% no-repeat;-webkit-background-size: 15px;background-size: 15px;}
+.sc_info li > span.set_dt {padding-left: 10px;}
+.sc_info li > span.set_ar {padding-right: 10px;}
+.sc_info li > span > span {display: block;}
+
+.wrap_sc_info_more .section .content {padding: 20px 7px 0px 7px;border-bottom: 0 none;}
+.wrap_sc_info_more .section .content .block {margin-bottom: 0;}
+.wrap_sc_info_more .sc_info_more {height: 36px;position: relative;background-color: #f5f5f5;}
+.wrap_sc_info_more .sc_info_more a {display: block;position: absolute;top:0;left:0;width: 100%;height: 100%;font-size:0;text-indent: -9999em;background: url(/images/front/mtravel/common/bg_exp_arrow.gif) 50% -50% no-repeat;-webkit-background-size: 12px;background-size: 12px;}
+.wrap_sc_info_more .sc_info_more a.on {background-position: 50% 150%;}
+.wrap_sc_info_more .sc_info_more + .scheduleAir {display: none;}
+
+/* 16424 결제페이지 현대카드 Digital 서비스 내용 추가 */
+.info-lock-limit {border: 1px solid #e2e2e2;margin: 19px;padding: 19px;position: relative;background: url(/images/front/mtravel/cont/logo-hc-digital.png) 194px 19px no-repeat;background-size: 67px;}
+.info-lock-limit > p {font-family: 'YMR';}
+.info-lock-limit .tit {font-size:14px;color: #333;}
+.info-lock-limit .tit span {color: #1e75d6;}
+.info-lock-limit .exp {font-size:9px;color: #999;margin-top: 9px;}
+.info-lock-limit .link {margin-top: 9px;}
+.info-lock-limit .link a {background-color: red;display: inline-block;font-size:9px;color: #333;padding-bottom: 2px;padding-right:10px;background: url(/images/front/mtravel/cont/icon-underline.png) 0 100% no-repeat;background-size: 125px;}
+
+/* 프비공통 개선 ----------------------------------------------------------------------------------------------------------------------------------- */
+/* 16379 공지사항 상단 검색 부분 */
+.set_search_input {background-color: #424242;padding: 10px 15px;}
+.set_search_input .input_row {margin-bottom: 0px;}
+.set_search_input .input_row > span {display: block;overflow: hidden;position: relative;background-color: #fff;}
+.set_search_input .input_row > span input, .set_search_input .input_row > span select {width: 100%;border: 1px solid #d5d5d5;box-sizing: border-box;font-size:14px;margin: 0;padding: 6px 4px 6px 4px;}
+.set_search_input .s_select {float: left; width: 43%;}
+.set_search_input .s_input {float: right; width: 55%;}
+.set_search_input .s_select select {background:#fff url(/images/front/mtravel/common/bg_exp_arrow.gif) no-repeat 90% 11px;background-size:14px auto;padding-right: 20px !important;padding-bottom: 5px !important;}
+.set_search_input .s_input input {padding-right: 30px !important;}
+.set_search_input .s_input .btn_search {width: 32px;position: absolute;right:1px;top:1px;}
+
+/* 16379 공지사항 상단 검색 부분 개선 */
+.toggleList.tl-tit-b a.launcher {font-weight: bold;}
+.toggleList.tl-tit-b span.date {font-weight: normal;}
+
+.noti-list {background-color: #e0e4ef;}
+.noti-list > ul > li {border-bottom: 1px solid #d5d5d5;}
+.noti-list .launcher {display: block;padding: 13px 42px 13px 19px;background: url(/images/front/mtravel/common/bg_toggle_arrow_open.gif) no-repeat 100% 50%;background-size: 31px 7px;}
+.noti-list .launcher span {display: block;color: #424224;letter-spacing: -0.05em;}
+.noti-list .launcher .tit {font-size:14px;font-weight:bold;overflow:hidden;text-overflow:ellipsis;display:-webkit-box;-webkit-line-clamp:1;-webkit-box-orient:vertical;word-wrap:break-word;}
+.noti-list .launcher .exp {font-size:12px;margin-top: 7px;overflow:hidden;text-overflow:ellipsis;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;word-wrap:break-word;}
+
+.noti-roll {background-color: #fff;border-bottom: 1px solid #424242;position: relative;}
+.noti-roll ul {position: relative;height: 83px;overflow: hidden;}
+.noti-roll ul li {float:left;width: 100%;height: 100%;position: relative;}
+.noti-roll ul:after {content:"";display:block;clear:both;}
+.noti-roll .launcher {display: block;color: #424242;font-weight: bold;width: 100%;height: 100%;padding: 15px 19px;box-sizing: border-box;}
+.noti-roll .launcher span {display: block;height: 36px;padding-left: 25px;position: relative;overflow:hidden;text-overflow:ellipsis;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;word-wrap:break-word;padding-top: 3px;}
+.noti-roll .launcher span:before {content: '';display: block;position: absolute;top:0;left:0;width: 25px;height: 25px;overflow: hidden;background: url(/images/front/mtravel/cont/icon-noti-roll.png) 0 0 no-repeat;background-size: 25px;}
+.noti-roll .launcher.nr1 span:before {background-position: 0 0;}
+.noti-roll .launcher.nr2 span:before {background-position: 0 -25px;}
+.noti-roll .launcher.nr3 span:before {background-position: 0 -50px;}
+.noti-roll .launcher.nr4 span:before {background-position: 0 -75px;}
+.noti-roll .launcher.nr5 span:before {background-position: 0 -100px;}
+
+.set-search-input {background-color: #f5f5f5;padding: 14px 19px 8px 19px;border-bottom: 1px solid #d5d5d5;}
+.set-search-input .input-row {overflow: hidden;margin-bottom: 5px;}
+.set-search-input .input-row:after {content:"";display:block;clear:both;}
+.set-search-input .input-row > span {display: block;overflow: hidden;position: relative;background-color: #fff;}
+.set-search-input .input-row > span input, .set-search-input .input-row > span select {width: 100%;border: 1px solid #d5d5d5;box-sizing: border-box;font-size:14px;margin: 0;padding: 8px 8px 7px 8px;}
+.set-search-input .s-select {float:left;width:49%;}
+.set-search-input .s-select + .s-select {float:right;}
+.set-search-input .s-select select {background:#fff url(/images/front/mtravel/common/bg_exp_arrow.gif) no-repeat 90% 11px;background-size:14px auto;padding-top: 7px !important;padding-bottom: 6px !important;}
+.set-search-input .s-input input {padding-right: 30px !important;}
+.set-search-input .s-input .btn-search {width: 32px;position: absolute;right:1px;top:2px;}	
+
+/* 검색 결과 개수 */
+.noti-result {background-color: #fff;border-bottom: 1px solid #d5d5d5;}
+.noti-result p {font-size:14px;color: #a7a7a7;padding: 9px 5px 7px 19px;}
+.noti-result p strong {color: #333;}
+.noti-result-st2 {background-color: #f5f5f5;border-top: 1px solid #a6a6a6;border-bottom: 1px solid #a6a6a6;position: relative;padding: 13px 7px 11px 7px;}
+.noti-result-st2 p {font-size:14px;color: #1e1e1e;}
+.noti-result-st2 p em {color: #e66255;}
+.noti-result-st2 .btn {position: absolute;right: 7px;top:6px;}
+
+/* 결제하기 전에 동의 */
+.agreeArea {border-top: 1px dashed #e0e0e0;margin: 15px;padding: 15px 0;}
+.agreeArea > span {display: inline;vertical-align: top;}
+.agreeArea > span input {margin-top: 2px;}
+.agreeArea > span label {display: inline-block;padding-left: 5px;color: #333;font-weight: bold;width: 87.41258741258741%;font-size:13px;margin-bottom: 0;}
+.agreeArea-st2 {border-bottom: 1px solid #e0e0e0;margin: 15px 0;padding-bottom: 15px;text-align: center;}
+.agreeArea-st2 > span {display: inline-block;vertical-align: middle;}
+.agreeArea-st2 > span label {display: inline-block;padding-left: 5px;color: #333;font-weight: bold;font-size:13px;margin-bottom: 0;}
+.agreeArea-st3 {border-top: 1px solid #e0e0e0;padding-top: 15px;margin: 15px 0 5px 0;text-align: right;}
+.agreeArea-st3 > span {display: inline-block;vertical-align: middle;}
+.agreeArea-st3 > span + span {letter-spacing: -0.05em;max-width: 90%;}
+.agreeArea-st3 > span label {display: inline-block;padding-left: 2px;color: #333;font-weight: bold;font-size:11px;margin-bottom: 0;}
+.agreeArea-st4 {border-bottom: 1px solid #e0e0e0;padding: 15px 25px;background-color: #f5f5f5;}
+.agreeArea-st4 > span {display: inline-block;vertical-align: middle;}
+.agreeArea-st4 > span + span {width: 90%;}
+.agreeArea-st4 > span label {display: inline-block;padding-left: 5px;color: #424242;font-weight: bold;font-size:13px;margin-bottom: 0;}
+.agreeArea-st5 {border-bottom: 1px dashed #e0e0e0;padding: 10px 0 15px 0;}
+.agreeArea-st5 .txt-exp {font-size:11px;}
+.agreeArea-st5 .txt-inp {display: inline-block;vertical-align: top;width: 100%;text-align: center;margin-top: 5px;}
+.agreeArea-st5 .txt-inp input {margin-top: 2px;}
+.agreeArea-st5 .txt-inp label {display: inline-block;padding-left: 5px;color: #333;font-weight: bold;font-size:11px;margin-bottom: 0;}
+
+/* 16820 상담서비스 - 1:1 문의 개선 */
+.list-guide-top {padding: 14px 19px 13px 19px;border-bottom: 1px solid #ccc;color: #767676;font-size:12px;position: relative;} 
+.list-guide-top .btn.small {position: absolute;top:30px;right:19px;min-width: 48px;} 
+/* list */
+.c-ask-type {display: inline-block;color:#fff;font-size:12px;background-color: #000;text-align: center;padding: 2px 5px 0;line-height: 19px;}
+.c-bt-answer, .bv-tit-cont {padding:14px 19px 13px 19px;border-bottom:1px dotted #d5d5d5;background-color: #f5f5f5;}
+.c-bt-answer .ly-top, .bv-tit-cont .ly-top {margin-bottom: 5px !important;}
+.c-bt-answer .answer-type {color:#1f68ee;font-size:12px;font-weight: bold;position: relative;padding-left: 12px;}
+.c-bt-answer .answer-type:before {content: '';display: inline-block;width: 7px;height: 7px;background: url(/images/front/mtravel/common/icon_reply.png) 0 50% no-repeat;position: absolute;top:0;left:0;-webkit-background-size: 7px;background-size: 7px;}
+.c-bt-answer .date {color: #999;}
+.c-bt-answer .txt {font-size:13px;color: #363a3d;}
+.c-ref {font-size:11px;position:relative;padding-left:12px;color:#767676;line-height:1.5;margin-bottom:5px;letter-spacing: -0.02em;}
+.c-ref:before{content:'※';display:inline-block;position:absolute;left:0;}
+.boardlist-type2 {border-bottom:1px solid #ccc}
+.boardlist-type2 > ul > li .bt-ask {padding:14px 19px 13px 19px;border-bottom:1px dotted #d5d5d5}
+.boardlist-type2 > ul > li:last-child .bt-ask {border-bottom:0 none}
+.boardlist-type2 > ul > li:last-child .bt-answer {border-bottom:0 none;border-top:1px dotted #d5d5d5;}
+.boardlist-type2 li .ly-top {margin-bottom: 10px;}
+.boardlist-type2 li .ly-top:after{content:'';display:inline-block;clear:both}
+.boardlist-type2 li .ly-top .status {min-width: 48px;}
+.boardlist-type2 li .ly-middle {color: #999;position: relative;}
+.boardlist-type2 li .bt-ask .category {font-weight: bold;padding-right: 70px;display:block;text-overflow:ellipsis;white-space:nowrap;overflow:hidden;}
+.boardlist-type2 li .bt-ask .date {position: absolute;text-align: right;top:0;right:0;}
+.boardlist-type2 li .bt-ask .tit {font-size:15px;line-height: 1.2;color: #363a3d;font-weight: bold;padding-right: 70px;margin-top: 5px;overflow: hidden;text-overflow: ellipsis;display: -webkit-box;-webkit-line-clamp: 2; /* 라인수 */-webkit-box-orient: vertical;word-wrap:break-word;}
+/* view */
+.boardview-type2 .bv-head {padding:14px 19px 13px 19px;border-bottom:1px dotted #d5d5d5;}
+.boardview-type2 .bv-head .ly-top {margin-bottom: 10px;}
+.boardview-type2 .ly-top:after{content:'';display:inline-block;clear:both}
+.boardview-type2 .ly-top .status {min-width: 48px;}
+.boardview-type2 .bv-head .ask-tit {font-size:15px;line-height: 1.2;color: #363a3d;font-weight: bold;margin-top: 5px;margin-bottom: 14px;}
+.boardview-type2 .bv-head .info {margin-top: 14px;padding-top: 14px;border-top:1px dotted #d5d5d5;}
+.boardview-type2 .bv-head .info li {display: table;table-layout: fixed;margin-top: 5px;}
+.boardview-type2 .bv-head .info li:first-child {margin-top: 0;}
+.boardview-type2 .bv-head .info li span {display: table-cell;color: #1e1e1e;font-size:12px;font-weight: bold;}
+.boardview-type2 .bv-head .info li span.tit {width: 70px;}
+.boardview-type2 .bv-tit-cont .tit {color:#333;font-size:12px;font-weight: bold;}
+.add-ask {padding:14px 19px 9px 19px;}
+.add-ask .tit {background-color: #fff;padding-left: 20px;font-size:12px;border: 1px solid #d5d5d5;border-bottom:0;padding: 12px 8px 11px 14px;background: #fff url(/images/front/mtravel/common/bg_arrow_bottom.gif) 96% center no-repeat;background-size:8px;}
+
+/* 16825 본인인증 대체 진행 개선 */
+.cfind-exp {padding:20px 19px 0;letter-spacing: -0.03em;}
+.cfind-exp dt {font-size:14px;font-weight: bold;line-height: 1em;padding-bottom: 10px;color: #1e1e1e;}
+.cfind-exp dd {color:#767676;font-size:12px;line-height:1.2;margin-bottom:10px;}
+.cfind-exp dd .tit-sub {font-size:14px;line-height: 1.2;padding-bottom: 5px;color: #1e1e1e;}
+.cfind-exp dd .comment {margin-top: 0;}
+.cfind-info-box {padding:5px 19px 0;}
+.cfind-info-box .select-radio {width: 90%;padding: 18px 5% 16px 5%;background-color: #f0f0f0;margin-bottom:5px;}
+.cfind-info-box .select-radio .input_check {width: 49%;}
+.cfind-info-box .select-radio label {font-size:12px;font-weight: bold;margin-top: 3px;}
+.cfind-info-box .certBox {margin-bottom: 20px;}
+.cfind-info-box .certBox li.ipin a {background:url(/images/front/mtravel/common/ico_cert_ipin2.png) center 21px no-repeat; background-size:65px 65px}
+.cfind-info-box .certBox li.cell a {background:url(/images/front/mtravel/common/ico_cert_cell2.png) center 21px no-repeat; background-size:65px 65px}
+.cfind-info-box .result {padding:5px 0}
+.cfind-info-box .result p {padding:25px 0 22px; background:#f5f5f5; text-align:center; line-height:1.33em; font-size:12px; color:#646464} 
+.cfind-info-box .result p strong {display:block; color:#ee2b74; font-size:21px; font-weight:normal; padding-bottom:10px}
+.cfind-info-box .set-input-btn {margin-top: 0;margin-bottom: 5px;}
+.cfind-member .infoBlock{margin-top:-1px;border-top:1px solid #d5d5d5}
+.cfind-member .infoBlock header{border-bottom:1px solid #e0e0e0}
+.cfind-member .infoBlock header .tit{padding:15px 5px 15px 19px;font-size:14px;font-weight: bold;line-height: 1em;}
+.cfind-member .infoBlock.open > header{font-size:0}
+.cfind-member .infoBlock.open > header:after{content:'';display:block;position:relative;width:100%;height:8px;font-size:0;line-height:0;vertical-align:top;margin-bottom:-8px;background:url(/images/front/mtravel/common/bg_block_open.png) no-repeat 17px 0;background-size:12px 8px}
+.cfind-member .infoBlock .cont{padding:15px 19px;background-color:#f5f5f5;border-bottom:0;color:#767676;font-size:12px;line-height:1.33em;}
+.cfind-member .infoBlock .cont .txt{display:inline-block;margin-right:5px;margin-bottom:5px;font-size:12px}
+.cfind-member .infoBlock .cont .btn {height: 40px;line-height: 19px;background-position: 100% -50px;}
+.cfind-member .infoBlock .cont .btn * {padding: 11px 25px 14px 15px;font-weight: normal;height: 40px;}
+.cfind-member .infoBlock .cont .tblTypeRow th{background-color:#fff}
+.cfind-member .infoBlock .cont .list-send li {padding: 25px 0;border-top:1px dotted #d5d5d5;}
+.cfind-member .infoBlock .cont .list-send li:first-child {padding-top: 10px;border-top:0;}
+.cfind-member .infoBlock .cont .list-send li:last-child {padding-bottom: 10px;}
+.cfind-member .infoBlock .cont .list-send .exp {text-align: center;padding-top: 75px;font-size:12px;color:#767676;}
+.cfind-member .infoBlock .cont .list-send .exp em {font-weight: bold;color: #424242;}
+.cfind-member .infoBlock .cont .list-send .exp.emall {background: url(/images/front/mtravel/common/ico_cert_emall2.png) 50% 0 no-repeat;-webkit-background-size: 65px;background-size: 65px;}
+.cfind-member .infoBlock .cont .list-send .exp.hp {background: url(/images/front/mtravel/common/ico_cert_cell2.png) 50% 0 no-repeat;-webkit-background-size: 65px;background-size: 65px;}
+.cfind-member .infoBlock .cont .list-send .set-input-btn {margin-top: 15px;}
+.cfind-member .infoBlock .cont .list-send .set-input-btn .input_text input[readonly] {text-align: center;}
+
+/* 17526 고객센터 개선 */
+.noti-list2 {background-color: #e0e4ef;overflow: hidden;height: 52px;}
+.noti-list2 ol > li a {display: block;padding: 17px 19px 16px 19px;background:url(/images/front/mtravel/common/bul_input_arrow.gif) no-repeat 97% center;background-size:14px 8px;}
+.noti-list2 .icon-bg-noti {vertical-align: middle;font-size:12px;display: inline-block;color: #fff;background-color: #000;padding: 3px 3px 1px 3px;border-radius: 5px;margin-right:2%;}
+.noti-list2 .tit {vertical-align: middle;font-size:14px;width: 78%;display: inline-block;text-overflow:ellipsis;white-space:nowrap;overflow:hidden;}
+
+.list-privia-service {border-top:1px solid #e0e0e0;border-left:1px solid #e0e0e0;overflow: hidden;}
+.list-privia-service > li {float:left;border-right:1px solid #e0e0e0;border-bottom:1px solid #e0e0e0;background-color: #fff;width: 50%;box-sizing: border-box}
+.list-privia-service > li > a {display: block;height: 90px;}
+.list-privia-service > li > a span {display: block;text-align: center;font-size:14px;color: #333;padding-top: 60px;position: relative;}
+.list-privia-service > li > a span:after {content: '';display: block;display: block;width: 100%;height: 40px;position: absolute;top:15px;background: url(/images/front/mtravel/common/icon-privia-service-m.png) 0 0 no-repeat;-webkit-background-size:52px;background-size:52px;}
+.list-privia-service li.lps1 span:after {background-position: 50% 10px;}
+.list-privia-service li.lps2 span:after {background-position: 50% -43px;}
+.list-privia-service li.lps3 span:after {background-position: 50% -93px;}
+.list-privia-service li.lps4 span:after {background-position: 50% -141px;}
+.list-privia-service li.lps5 span:after {background-position: 50% -191px;}
+.list-privia-service li.lps6 span:after {background-position: 50% -241px;}
+.list-privia-service:after{content:'';display:inline-block;clear:both}
+
+.set-guide-call .sg-call {border-bottom: 1px dotted #d5d5d5;padding: 0 14px 13px 14px;}
+.set-guide-call .sg-call dl{color: #333;font-weight: bold;}
+.set-guide-call .sg-call dt {float:left;font-size:14px;}
+.set-guide-call .sg-call dd {float:right;font-size:16px;}
+.set-guide-call .sg-call dl:after{content:'';display:inline-block;clear:both}
+.set-guide-call .sg-exp {font-size:12px;color: #767676;line-height: 1.5;padding: 11px 14px 0px 14px;}
+
+.tblType-inner {width: 100%;}
+.tblType-inner span {float:left;display: inline-block;text-align: left;font-size: 12px;color: #333;}
+.tblType-inner:after{content:'';display:inline-block;clear:both}
+.tblType-inner .tTi-tit {width: 28%;font-weight: bold;}
+.tblType-inner .tTi-list {width: 72%;}
+.tblType-inner .tTi-list ul li > span {width: 75%;}
+.tblType-inner .tTi-list ul li > span + span {width: 20%;padding-left: 5%;text-align: left;color: #e42073;}
+.tblType-inner .tTi-list ul li:after{content:'';display:inline-block;clear:both}
+
+/* 17526 FAQ 개선 */
+.noti-roll-st2 {background-color: #fff;border-bottom: 1px solid #424242;position: relative;}
+.noti-roll-st2 ul {position: relative;height: 103px;overflow: hidden;}
+.noti-roll-st2 ul li {float:left;width: 100%;height: 100%;position: relative;}
+.noti-roll-st2 ul:after {content:"";display:block;clear:both;}
+.noti-roll-st2 .launcher {display: block;width: 100%;height: 100%;padding: 15px 19px 15px 19px;box-sizing: border-box;}
+.noti-roll-st2 .launcher .sort {display: block;color: #999;font-size:12px;}
+.noti-roll-st2 .launcher .sort > span {display: inline-block;float: left; padding: 0 6px;position: relative;}
+.noti-roll-st2 .launcher .sort > span:after {content: '';display: block;width: 1px;height: 10px;position: absolute;background-color: #999;top:1px;left:0;}
+.noti-roll-st2 .launcher .sort > span:first-child {padding-left: 0;}
+.noti-roll-st2 .launcher .sort > span:first-child:after {display: none;}
+.noti-roll-st2 .launcher .sort:after{content:'';display:inline-block;clear:both}
+.noti-roll-st2 .launcher .tit {display: block;font-size:14px;font-weight: bold;height: 36px;position: relative;overflow:hidden;text-overflow:ellipsis;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;word-wrap:break-word;padding-top: 3px;}
+.noti-roll-st2 .pagination-st2 {bottom: 12%;}
+
+.toggleList.tl-st2 .launcher{background:url(/images/front/mtravel/common/bg_toggle_arrow_open2.png) no-repeat 100% 50%;background-size:40px;}
+.toggleList.tl-st2 .launcher.open{background-image:url(/images/front/mtravel/common/bg_toggle_arrow_close2.png);background-size:40px;text-decoration: underline;}
+.toggleList.tl-st2 .sort{display:block;margin-bottom:3px;color:#999;font-size:12px;font-weight: normal;text-decoration:none;}
+.toggleList.tl-st2 .sort > span {display: inline-block;float: left; padding: 0 6px;position: relative;}
+.toggleList.tl-st2 .sort > span:after {content: '';display: block;width: 1px;height: 10px;position: absolute;background-color: #999;top:1px;left:0;}
+.toggleList.tl-st2 .sort > span:first-child {padding-left: 0;}
+.toggleList.tl-st2 .sort > span:first-child:after {display: none;}
+.toggleList.tl-st2 .sort:after{content:'';display:inline-block;clear:both}
+
+.toggleList.tl-st3 .launcher{background:url(/images/front/mtravel/common/bg_toggle_arrow_open2.png) no-repeat 100% 50%;background-size:40px;}
+.toggleList.tl-st3 .launcher.open{background-image:url(/images/front/mtravel/common/bg_toggle_arrow_close2.png);background-size:40px;text-decoration: underline;}
+.toggleList.tl-st3 .tl3__sort {display:block;margin-top:3px;color:#999;font-size:12px;font-weight: normal;text-decoration:none;}
+.toggleList.tl-st3 .tl3__sort > span {display: inline-block;float: left; padding: 0 6px;position: relative;}
+.toggleList.tl-st3 .tl3__sort > span:after {content: '';display: block;width: 1px;height: 10px;position: absolute;background-color: #999;top:1px;left:0;}
+.toggleList.tl-st3 .tl3__sort:after{content:'';display:inline-block;clear:both}
+.toggleList.tl-st3 .tl3__sort .tl3__state {padding-left: 0;}
+.toggleList.tl-st3 .tl3__sort .tl3__state:after {display: none;}
+.toggleList.tl-st3 .tl3__tit {display: block;}
+.toggleList.tl-st3 .tl3__btn {display: block;text-align: right;}
+.toggleList.tl-st3 .tl3__question {font-weight: bold;color: #999;}
+.toggleList.tl-st3 .tl3__answer {margin-top: 14px;color:#999;}
+.toggleList.tl-st3 .tl3__answer dt span {color: #4c86f1;font-size:12px;font-family: 'YMR';border:2px solid #4c86f1;padding:  2px 5px;border-radius: 3px;margin-left: 6px;position: relative;}
+.toggleList.tl-st3 .tl3__answer dt span:after {content: '';display: block;position: absolute;top:-2px;left:-8px;width: 4px;height: 10px;border-left: 2px solid #4c86f1;border-bottom: 2px solid #4c86f1;}
+.toggleList.tl-st3 .tl3__answer dd {margin-top: 6px;}
+.toggleList.tl-st3 .tl3--recom > dl > dt {background-color: #f0f4ff;}
+.toggleList.tl-st3 .tl3--complete .tl3__state {color: #1f68ee;}
+.toggleList.tl-st3 .tl3--private .tl3__tit {padding-left: 14px;background: url(/images/front/mtravel/cont/icon_unlock.png) 0 3px no-repeat;-webkit-background-size: 8px;background-size: 8px;}
+.toggleList.tl-st3 .tl3-pri__msg em {color: #333;}
+
+
+.rec-section {padding:5px 0 0 0;position: relative;}
+.rec-section dl{width:100%;overflow: hidden;}
+.rec-section dl:after{content:'';display:inline-block;clear:both;}
+.rec-section dt{float:left;width:40px;}
+.rec-section dt span{display:inline-block;height:18px;line-height:20px;padding:0 7px 0 5px;border-radius:8px;background-color:#0e58aa;color:#fff;font-size:11px;letter-spacing:-1px;}
+.rec-section .list-cont {float:left;width:80%;height: 20px;margin-top: 2px;}
+.rec-section .list-cont ul{width:100%;overflow: hidden;}
+.rec-section .list-cont ul:after{content:'';display:inline-block;clear:both;}
+.rec-section .list-cont ul li{float: left;text-align:left;vertical-align:middle;margin: 0 7px 4px 0px;}
+.rec-section .list-cont ul li a{display:block;}
+.rec-section .btn-more{position: absolute;top:5px;right:0;width:20px;}
+.rec-section .btn-more a{display:inline-block}
+.rec-section .popular-more{display:none;padding:0 10px}
+.rec-section .popular-more a{display:inline-block;width:49%;margin-top:10px;padding-left:24px;vertical-align:top;line-height:16px;background:url(/images/front/mtravel/main/sprite_icon_collection.png) no-repeat 0 -450px;background-size:60px auto;box-sizing: border-box;}
+.rec-section i.deco-icon.plus{background-position:100% -405px}
+.rec-section i.deco-icon.minus{background-position:100% -423px}
+
+/* .exp-st */
+.exp-st1 {letter-spacing: -0.03em;position: relative;}
+.exp-st1 dt {font-size:14px;font-weight: bold;line-height: 1.2;padding-bottom: 10px;color: #1e1e1e;font-family: "YMR";}
+.exp-st1 dd {color:#333;font-size:11px;line-height:1.2;/*margin-bottom:10px;*/}
+.exp-st1 dd.btn-confirm {position: absolute;top:-3px;right:0;}
+.exp-st1 dd.btn-link {margin-top: 10px;text-align: right;font-size:15px;font-weight: bold;color: #1e1e1e;font-family: "YMR";}
+.exp-st2 {color: #1e1e1e;margin-top: 15px;margin-bottom: 15px;}
+.exp-st2 dt {font-size:12px;font-weight: bold;margin-bottom: 10px;}
+.exp-st2 dd {font-size:12px;margin-bottom: 2px;}
+/* 22295 */
+.exp-st3 {margin-top: 15px;}
+.exp-st3 dt {color: #1e1e1e;font-size:12px;font-weight: bold;margin-bottom: 2px;}
+.exp-st3 dd {color: #767676;font-size:11px;margin-bottom: 2px;margin-left: 40px;}
+/* 25110 */
+.exp-st4 dt {font-size:14px;font-weight: bold;margin-bottom: 9px;color: #424242;}
+.exp-st4 dd {font-size:12px;margin-bottom: 2px;color: #424242;}
+.exp-st4 dd .bulList li {font-size:12px;color: #424242;}
+
+/* 카드 혜택 확인(팝업) */
+.list-card-st1 {margin:20px 0;border-top:1px solid #a6a6a6;border-bottom:1px solid #a6a6a6;max-height: 269px;overflow-y: scroll;-webkit-overflow-scrolling: touch;}
+.list-card-st1 li{display: table;width: 100%;padding:12px 0 11px;border-bottom:1px solid #d5d5d5;color: #333;font-size:12px;letter-spacing: -0.03em;}
+.list-card-st1 li > * {display: table-cell;vertical-align: middle;}
+.list-card-st1 li > .input {width:30px;}
+.list-card-st1 li:last-child{border-bottom:0 none}
+.lcs-new {max-height: none;overflow-y: visible;}
+.lcs-new li {padding-left: 10px;}
+.btn-sub-input {display:block;margin-bottom:5px;text-align:left;font-size:11px;color:#1e1e1e;font-weight: bold;}
+
+/* #20606 1:1 문의 작성(회원/비회원) 개선  */
+.cmi-set-radio {overflow: hidden;}
+.cmi-set-radio li {float:left;width: 33.333333333%;margin-bottom: 15px;}
+.cmi-set-radio:after {content:'';display:block;clear:both;}
+
+.blm {position: relative;}
+.blm .title {font-size:14px;padding-top: 7px;padding-bottom: 15px;border-bottom: 1px solid #d5d5d5;}
+.blm .btn {position: absolute;top:10px;right:14px;}
+.blm .blm-list {width: 100%;}
+.blm .blm-list li {position: relative;margin:2px 0;padding-left:20px;color:#333;font-size:11px;line-height:1.5}
+.blm .blm-list li a {display: block;text-overflow:ellipsis;white-space:nowrap;overflow:hidden;}
+.blm .blm-list li:after {content: 'Q.';left:0;top:0;position: absolute;color: #e81e75;}
+
+.ui-select-list .select {border: 1px solid #d5d5d5;background: #fff url(/images/front/mtravel/common/bg_arrow_bottom.gif) right center no-repeat;-webkit-background-size: 8px;background-size: 8px;padding-right: 8px;background-position: right 10px center;}
+.ui-select-list .select.on {background-image: url(/images/front/mtravel/common/bg_arrow_top.gif);}
+.ui-select-list .select .txt {display: block;padding: 12px 8px 11px 14px;font-size: 12px;text-overflow:ellipsis;white-space:nowrap;overflow:hidden;}
+.ui-select-list .list {max-height: 167px;overflow-y: scroll;-webkit-overflow-scrolling: touch;border: 1px solid #d5d5d5;border-top: 0;display: none;}
+.ui-select-list .list li {border-top: 1px dotted #d5d5d5;}
+.ui-select-list .list li:first-child {border-top: 0;}
+.ui-select-list .list li a {display: block;padding: 12px 8px 11px 14px;font-size: 12px;}
+.ui-select-list .list li a span {display: block;text-overflow:ellipsis;white-space:nowrap;overflow:hidden;}
+
+/* 20747 나의혜택 모바일 버전 */
+/* 나의혜택 공통 - 인증안내 */
+.myInfo-benefit {position:relative;padding:15px 19px 14px;background-color:#424242;color:#fff;font-size:11px;}
+.myInfo-benefit strong{display:block;margin-bottom:5px;font-family:'YMB';font-size:15px;font-weight:normal;}
+.myInfo-benefit .btn{position:absolute;top:50%;right:19px;margin-top: -11px;}
+
+/* 나의혜택 공통 - 혜택안내 */
+.benefit-tit dt{padding-bottom:10px;}
+.benefit-tit dd{font-size:12px;}
+.btnArea .padR{padding-right:45px;}
+
+/* 나의혜택 공통 - 보유개수, 셀렉트부분 */
+.list-title-st1 {position: relative;text-align: right;padding: 0 19px;min-height: 15px;}
+.list-title-st1 .tit {display: inline-block;font-size:13px;font-weight: bold;color: #1e1e1e;font-family: "YMR";position: absolute;bottom: 0;left: 19px;}
+.list-title-st1 .input_text {display: inline-block;vertical-align: bottom;}
+.list-title-st1 .input_text select {padding-top: 0;padding-bottom: 0;padding: 9px 8px 8px 14px;}
+
+/* 나의혜택 공통 - 리스트 없는 경우  */
+.empty-list {border-top:2px solid #d5d5d5;color: #1e1e1e;text-align: center;margin-top:15px;font-size:14px;padding-top: 25px;font-family:'YMR';}
+
+/* 나의혜택 프리비아 쿠폰 */
+.boxType3 + .couponDown.myCoupon{padding-top:0;}
+.couponDown.myCoupon ul li{position:relative;}
+.couponDown.myCoupon ul li:after{content:'';display:block;width:40px;height:40px;position:absolute;top:10px;right:5px;background:url(/images/front/mtravel/cont/icon_coupon.png) no-repeat;background-size:87.5px;}
+.couponDown.myCoupon ul li.air:after{background-position:0 0;}
+.couponDown.myCoupon ul li.hotel:after{background-position:-40px 0;}
+.couponDown.myCoupon ul li .benefitCoup{min-height:155px;}
+.couponDown.myCoupon ul li .benefitCoup .exp{padding-right:50px;}
+.couponDown.myCoupon ul li .desc.coupDate{padding-top:0;color:#1e1e1e;}
+.couponDown.myCoupon ul li .unusable{text-indent:-9999px;font-size:0;}
+.couponDown.myCoupon ul li .unusable:after{content:'';display:block;width:100%;height:100%;position:absolute;top:0;left:0;z-index:2;width:100%;height:100%;overflow:hidden;background-repeat:no-repeat;background-position:50% 50%;background-size:120px 46.5px;}
+.couponDown.myCoupon ul li .unusable.used:after{background-image:url(/images/front/mtravel/cont/img_coupon_used.png);}
+.couponDown.myCoupon ul li .unusable.expired:after{background-image:url(/images/front/mtravel/cont/img_coupon_expired.png);}
+.couponDown.myCoupon ul li .unusable:before{content:'';display:block;width:100%;height:100%;position:absolute;top:0;left:0;background-color:#f5f5f5;opacity:.6;}
+
+/* 나의혜택 현대카드 할인 혜택 */
+.benefit-tit .hcc-dic-exp{margin-top:10px;color:#999;}
+.benefit-tit + .exp-st1{margin-top:30px;}
+.exp-st1 + .hcc-benefit-list{margin:5px 0 10px;}
+
+/* 20848 */
+.box-agree-ticket .bat-box {padding: 15px;background-color: #fff;color: #333;}
+.box-agree-ticket .bat-box * {font-size:12px;}
+.box-agree-ticket .bat-box dl {border-top: 1px dashed #d5d5d5;margin-top: 8px;padding-top: 9px;color: #767676;}
+.box-agree-ticket .bat-box dl dt {margin-bottom: 3px;}
+.box-agree-ticket .input_check {margin:5px 0;font-size:12px;}
+.box-agree-ticket .input_check input {vertical-align: middle;}
+
+/* 18561 */
+.box-guide {padding: 19px 16px;margin: 15px;border:1px solid #636363;position: relative;background: #f5f5f5 url(/images/front/mtravel/cont/icon-change-payment.png) 96.5% 10px no-repeat;-webkit-background-size: 40px;background-size: 40px;color: #333;}
+.box-guide .tit {font-size:12px;margin-bottom:7px;font-weight: bold;}
+.box-guide ul li {font-size:11px;line-height: 1.6;}
+.totalList.tL-st2 {border-top:2px solid #fff;border-bottom:1px solid #fff}
+.totalList.tL-st2 li{border-bottom:1px solid #fff}
+.priceDetail .totalList.tL-st2 .cont {display: block;padding: 0 5px 0px 0;}
+.totalList.tL-st2 .totalListSub.first .setType:before, .totalList.tL-st2 .totalListSub.first .setPrice:before {border-top:1px dashed #fff;}
+
+/* 회원가입 본인인증 개선(21765)  */
+.set-type-auth > li {margin-bottom: 5px;border: 0;}
+.list-sta {padding: 0 19px;background-color: #f0f0f0;}
+.list-sta .tit {background: url() 0 0 no-repeat;}
+.list-sta .tit a {display: block;background:url(/images/front/mtravel/common/bg_bullet1.gif) no-repeat 100% 50%;background-size:4px}
+.list-sta .tit a.open{background-image:url(/images/front/mtravel/common/bg_arrow_bottom.gif);background-size:8px}
+.list-sta .tit a span {display: block;font-size:14px;color: #333;font-weight: bold;padding: 22px 0 22px 47px;-webkit-background-size: 32px !important;background-size: 32px !important;}
+.list-sta.sta1 .tit a span {background: url(/images/front/mtravel/cont/deco_icon_cer2-s.png) 0 50% no-repeat;}
+.list-sta.sta2 .tit a span {background: url(/images/front/mtravel/cont/deco_icon_id_total_confirm1-s.png) 0 50% no-repeat;}
+.list-sta.sta3 .tit a span {background: url(/images/front/mtravel/cont/deco_icon_cer1-s.png) 0 50% no-repeat;}
+.list-sta .cont {border-top: 1px solid #a6a6a6;padding: 15px 0;display: none;}
+.list-sta .cont .cfind-exp {padding:0;}
+.list-sta .cont .cfind-info-box {padding:5px 0;}
+.list-sta .cont .btnArea {margin:0;}
+
+/* 22226 */ 
+.title-dotted {padding: 11px 0;font-size:15px;font-weight: bold;border-bottom: 1px dotted #d5d5d5;}
+.list-meal li {border-bottom: 1px solid #d5d5d5;padding: 15px 0;}
+.list-meal li:first-child {padding-top: 0;}
+.list-meal li:last-child {padding-bottom: 0;border-bottom:0;}
+.list-meal dl {color: #1e1e1e;}
+.list-meal dl dt {font-size:14px;font-weight: bold;margin-bottom: 10px;}
+.list-meal dl dd {font-size:12px;margin-top: 3px;}
+.list-meal dl dd .line-br {width: 80%;}
+
+
+/* 해외패키지 ----------------------------------------------------------------------------------------------------------------------------------- */
+/* 해외패키지 제휴사 영역 */
+.infoCont .txt-ex {text-align: center;padding: 20px 0;color: #424242;}
+
+/* 해외패키지 예약 */
+.reserveInfo .termsAgree{overflow:hidden;padding:15px 0;border-bottom:1px solid #e0e0e0;}
+.reserveInfo .termsAgree li{float:left;width:33.33%;text-align:center;font-family: "YMR";font-weight:bold;color:#a7a7a7;background:url(/images/front/mtravel/common/bg_bullet3.gif) no-repeat center right;background-size:4px 8px;}
+.reserveInfo .termsAgree li:last-child{background:none !important;}
+.reserveInfo .termsAgree li.current{color:#1e1e1e;background-image:url(/images/front/mtravel/common/bg_bullet1.gif);}
+.total_fee_pkg{background:#dde3f3;text-align:right;padding:15px 12px;}
+.total_fee_pkg p{font-size:11px;}
+.total_fee_pkg .total_txt{font-family:"YMR";font-weight:bold;font-size:12px;}
+.total_fee_pkg .total_txt span{color:#e30303;font-size:22px;}
+.subjectTop.pkgSubjectTop{text-align:left;}
+
+/* 해외패키지 브릿지 */
+.bridgeBeneTit{text-align:center;font-size:15px;}
+.bridgeWrap .contArea2 * {font-family: 'YMR';}
+.bridgeWrap .contArea2 ul{overflow:hidden;margin:15px 0 40px;padding:0 19px;}
+.bridgeWrap .contArea2 ul li{float:left;text-align:center;padding-top:60px;width:33.33%;background:url(/images/front/mtravel/cont/icon_benefit.gif) no-repeat 0 0;background-size:52px;font-size:12px;}
+.bridgeWrap .contArea2 ul li.pkgBene1{background-position:50% -505px;}
+.bridgeWrap .contArea2 ul li.pkgBene2{background-position:50% -705px;}
+.bridgeWrap .contArea2 ul li.pkgBene3{background-position:50% -605px;}
+
+.dV-picWrap{padding-bottom:62.5% !important;}
+.dV-picWrap .pagination-st2 {width:100%;text-align:center;position:absolute;bottom:-30px;z-index:1}
+.dV-picWrap .mask ul li{position:relative;}
+.dV-picWrap .mask ul li.pkg:before{content:'';display:block;position:absolute;top:0;left:0;width:100%;height:100%;background:url(/images/front/mtravel/cont/icon_common.png) no-repeat 0 0;background-size:13.214%;z-index:1;}
+.dV-picWrap .mask ul li dl{position:absolute;bottom:0;left:0;width:100%;background-color:#333;opacity:.8;color:#fff;}
+.dV-picWrap .mask ul li dt{padding:8px 10px 2px;font-weight:bold;white-space:nowrap;text-overflow:ellipsis;overflow:hidden;}
+.dV-picWrap .mask ul li dd{padding:0 10px 8px;font-size:11px;white-space:nowrap;text-overflow:ellipsis;overflow:hidden;}
+
+/* 해외패키지 지역선택 */
+#pkg-Area.sch-wrap .item .input{display:block;position:relative;width:100%;height:45px;border:1px solid #d5d5d5;background-color:#fff;-moz-box-sizing:border-box;-webkit-box-sizing: border-box;box-sizing: border-box;}
+#pkg-Area.sch-wrap .item .input:after{content:'';position:absolute;top:18px;right:15px;display:inline-block;width:12px;height:7px;background:url(/images/front/mtravel/main/sprite_arrow_collection.png) no-repeat 0 1px;background-size:12px auto}
+#pkg-Area.sch-wrap .item .input a.value{overflow:hidden;display:block;position:absolute;top:0;left:0;width:100%;height:45px;padding:14px 30px 15px 15px;background:transparent;-moz-box-sizing:border-box;-webkit-box-sizing: border-box;box-sizing: border-box;}
+#pkg-Area.sch-wrap .item .layer-holder .city-table li a{text-overflow:ellipsis;-o-text-overflow:ellipsis;}
+
+.boxType2 .pkgTravAgy{background:#fff;border:2px solid #d5d5d5;}
+.boxType2 .pkgTravAgy li{border-bottom:1px dotted #d5d5d5;background:url(/images/front/mtravel/common/bul_input_arrow.gif) no-repeat right center;background-size:14px 8px;}
+.boxType2 .pkgTravAgy li a {display:block;padding:12px 10px;}
+.boxType2 .pkgTravAgy li a:after{content:'';display:block;clear:both;}
+.boxType2 .pkgTravAgy li:last-child{border-bottom:none}
+.boxType2 .pkgTravAgy li span{display:inline-block;}
+.boxType2 .pkgTravAgy li .travelAgy{width:85px;text-indent:-9999px;}
+.boxType2 .pkgTravAgy li.modoo .travelAgy{background:url(/images/front/mtravel/cont/img_logomodoo.png) no-repeat 0 4px;background-size:60px;}
+.boxType2 .pkgTravAgy li.hana .travelAgy{background:url(/images/front/mtravel/cont/img_logohana.png) no-repeat 0 4px;background-size:60px;}
+.boxType2 .pkgTravAgy li.lotte .travelAgy{background:url(/images/front/mtravel/cont/img_logolotte.png) no-repeat 4px 4px;background-size:34px;}
+.boxType2 .pkgTravAgy li.hanjin .travelAgy{background:url(/images/front/mtravel/cont/img_logohanjin.png) no-repeat 0 4px;background-size:60px;}
+.boxType2 .pkgTravAgy li.vgood .travelAgy{background:url(/images/front/mtravel/cont/img_logovgood.png) no-repeat 0 0;background-size:60px;}
+.boxType2 .pkgTravAgy li .travelPrice{float:right;padding-right:10px;color:#1e1e1e;font-weight:bold;}
+.pkgSearchResult .listLine.pkgSelectList{min-height:117px;}
+.pkgSearchResult .picLogo{border:1px solid #d5d5d5;border-bottom:none;height:35px;text-indent:-9999px;}
+.pkgSearchResult .picLogo.lotte{background:url(/images/front/mtravel/cont/img_logolotte.png) no-repeat center center;background-size:44px;}
+.pkgSearchResult .picLogo.modoo{background:url(/images/front/mtravel/cont/img_logomodoo.png) no-repeat center center;background-size:60px;}
+.pkgSearchResult .picLogo.hana{background:url(/images/front/mtravel/cont/img_logohana.png) no-repeat center center;background-size:60px;}
+.pkgSearchResult .picLogo.hanjin{background:url(/images/front/mtravel/cont/img_logohanjin.png) no-repeat center center;background-size:60px;}
+.pkgSearchResult .picLogo.vgood{background:url(/images/front/mtravel/cont/img_logovgood.png) no-repeat center center;background-size:60px;}
+.pkgSearchResult .s-state-pkg {padding:10px 0 12px 0;}
+.pkgSearchResult .s-state-pkg + .photoList {margin-bottom: 60px;}
+
+/* 해외패키지 상품(자상품,모상품) */
+.w-pkg-benefit {margin: 25px 10px 10px 10px;padding: 25px 8px 10px 8px;border-top: 1px dotted #d5d5d5;}
+.pkg-benefit .title{font-size:14px;color:#333;}
+.pkg-benefit ul {overflow: hidden;}
+.pkg-benefit ul li {float:left;width: 50%;margin-top:10px;font-size:12px;color: #1e1e1e;padding: 0 0 0 40px;min-height: 35px;background:url(/images/front/mtravel/cont/icon_benefit.gif) no-repeat;-webkit-background-size: 33px;background-size:33px;box-sizing: border-box;}
+.pkg-benefit ul .bf1 {background-position:0 -322px;}
+.pkg-benefit ul .bf2 {background-position:0 -450px;}
+.pkg-benefit ul .bf3 {background-position:0px -184px;}
+.pkg-benefit ul .bf4 {background-position:0px -762px;padding-top: 16px;height: 45px;}
+.pkg-benefit .btn-more {display: block;text-align: right;margin-top: 10px;padding-right: 10px;background: url(/images/front/mtravel/common/bg_bullet1.gif) 100% 5px no-repeat;-webkit-background-size: 4px;background-size: 4px;}
+
+.ui-expand .btnMore a {border-bottom: 1px solid #a6a6a6;}
+.pkg-partner .name {padding: 15px 19px 0;}
+.pkg-partner .name + .boxType6 {padding: 10px 19px 0;}
+.pkg-partner.modoo .btnMore a {border-bottom: 3px solid #198e31;}
+.pkg-partner.hana .btnMore a {border-bottom: 3px solid #c83d67;}
+.pkg-partner.hanjin .btnMore a {border-bottom: 3px solid #2f95dd;}
+.pkg-partner.lotte .btnMore a {border-bottom: 3px solid #0c4da2;}
+.pkg-partner.vgood .btnMore a {border-bottom: 3px solid #fccf00;}
+.pkg-partner.modoo .name {width: 75px;}
+.pkg-partner.hana .name {width: 75px;}
+.pkg-partner.hanjin .name {width: 75px;}
+.pkg-partner.lotte .name {width: 55px;}
+.pkg-partner.vgood .name {width: 75px;}
+/* pkgSearchResult */
+.pkgSearchResult .rightArea .price.end em{color:#a7a7a7;text-decoration:line-through;}
+.pkgSearchResult .listLine {min-height: 80px;}
+.pkgSearchResult .listLine .cate {font-size:11px;}
+.pkgSearchResult .listLine .tit {padding: 0px 10px 16px 132px;}
+.pkgSearchResult .listLine .tit p{overflow:hidden;text-overflow:ellipsis;display:-webkit-box;-webkit-line-clamp: 2;-webkit-box-orient: vertical;word-wrap:break-word;line-height: 1.3;}
+.pkgSearchResult.lowest .photoList {border: 0 none;}
+.pkgSearchResult.lowest .listLine .cate:first-child {margin-top: 0;}
+/* pkgSearchResult-st2 */
+.pkgSearchResult-st2 .rightArea {bottom: 0;right: 0;text-align: right;}
+.pkgSearchResult-st2 .photoList .state-st2 {margin-top: 10px;}
+.pkgSearchResult-st2 .listLine {padding: 9px 0;min-height: auto;}
+.pkgSearchResult-st2 .listLine dd {margin-top: 5px;position: relative;}
+.pkgSearchResult-st2 .listLine .cate {font-size:11px;margin-top: 1px;}
+.pkgSearchResult-st2 .listLine .img {width: 100%;margin-bottom: 10px;}
+.pkgSearchResult-st2 .listLine .tit {padding: 0px;overflow:hidden;text-overflow:ellipsis;display:-webkit-box;-webkit-line-clamp: 2;-webkit-box-orient: vertical;word-wrap:break-word;line-height: 1.3;}
+.pkgSearchResult-st2.lowest .photoList {border: 0 none;}
+.pkgSearchResult-st2.lowest .rightArea .price {color: #e42073;}
+.pkgSearchResult-st2.lowest .rightArea .price em {font-size:20px;}
+.pkgSearchResult-st2.lowest .rightArea .txt {font-family: 'YMB';font-size:11px;color: #1e1e1e;}
+
+.control-calendar {height:38px;border: 1px solid #d5d5d5;position: relative;z-index: 0;}
+.control-calendar.on {border: 1px solid #333;}
+.control-calendar .info {display: block;text-align: center;line-height:38px;font-size: 23px;color: #333;font-family:'YMB';position: relative;z-index: 0;}
+.control-calendar button {width: 42px;height: 100%;background-color: #fff;font-size:0;text-indent: -9999em;z-index: 10;position: absolute;top:0;z-index: 10;}
+.control-calendar button:after {content: '';display: block;width: 100%;height: 12px;background: url(/images/front/mtravel/common/bg_btn_arrow.png) 50% 0 no-repeat;-webkit-background-size: 7px;background-size: 7px;}
+.control-calendar .prev {border-right: 1px solid #d5d5d5;left:0;}
+.control-calendar .prev:after {background-position: 50% 0;}
+.control-calendar .next {border-left: 1px solid #d5d5d5;right:0;}
+.control-calendar .next:after {background-position: 50% 100%;}
+.control-calendar i.deco-icon.datepicker {vertical-align:baseline;margin-left: 5px;}
+
+.tab__slider_wrap {position: relative;margin-bottom: 10px;overflow-y: hidden;-webkit-overflow-scrolling: touch;}
+.tab__slider_wrap:before {content: '';display: block;width: 100%;height: 1px;background-color: #d5d5d5;position: absolute;bottom: 0;left: 0;z-index: 0;}
+.tab__slider_wrap:after {content: '';display: block;width: 30px;height: 46px;position: absolute;top: 0;right: 0;z-index: 2;
+	background: -moz-linear-gradient(left, rgba(255,255,255,0) 0%, rgba(255,255,255,0) 1%, rgba(255,255,255,1) 100%); 
+	background: -webkit-linear-gradient(left, rgba(255,255,255,0) 0%,rgba(255,255,255,0) 1%,rgba(255,255,255,1) 100%);
+	background: linear-gradient(to right, rgba(255,255,255,0) 0%,rgba(255,255,255,0) 1%,rgba(255,255,255,1) 100%); 
+	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#00ffffff', endColorstr='#ffffff',GradientType=1 );
+}
+.tab__slider_list {padding: 0 10px;z-index: 1;position: relative;margin-bottom: -30px;
+	-webkit-transition: -webkit-transform 0.5s,transform 0.5s;
+    -moz-transition: transform 0.5s;
+    transition: -ms-transform 0.5s,-webkit-transform 0.5s,transform 0.5s;
+    white-space: nowrap;
+    overflow-x: auto;
+    overflow-y: hidden;
+}
+.tab__slider_wrap::-webkit-scrollbar, .tab__slider_list::-webkit-scrollbar {
+    -webkit-appearance: none;
+    display: none ;
+}
+.tab__slider_list li {display: inline-block;margin-bottom: 30px;}
+.tab__slider_list li a {color: #333;font-size:14px;text-align: center;display: block;padding: 14px 8px;position: relative;}
+.tab__slider_list li a.on {color: #ed174f;border-bottom: 1px solid #ed174f;}
+
+/* #24414 검색 탭메뉴 */
+.wrap-tsp {position: relative;background: url(/images/front/mtravel/cont/vis-main-pkg.jpg) 50% 50% no-repeat;-webkit-background-size: cover;background-size:cover;width: 100%;height: 90%;z-index: 3;transition: height 0.5s, margin-bottom 0.5s;line-height: 1.35;}
+.wrap-tsp h3.tit {position: absolute;top:15.02732240437158%;width:100%;text-align: center;transition: margin-top 0.5s;}
+.wrap-tsp h3.tit img {width: 69.21875%;max-width:340px;}
+.tab-search-pkg {overflow: hidden;position: absolute;bottom: 0;width: 100%;height:50px;}
+.tab-search-pkg:after{content:'';display:block;clear:both;}
+.tab-search-pkg li {float: left;width: 33.33333333%;position: relative;z-index: 5;}
+.tab-search-pkg li:before {content: '';display: block;width: 1px;height: 100%;background-color: #d5d5d5;position: absolute;top: 0;left: 0;display: none;z-index: 12;}
+.tab-search-pkg li:first-child:before {display: none !important;}
+.tab-search-pkg li a {display: block;text-align: center;padding: 16px 0px;font-size:14px;color: #fff;z-index: 10;position: relative;transition: background-color 0.3s;}
+.tab-search-pkg li a.on {font-size: 17px;padding: 14px 0px;font-weight: bold;color: #e92175;background-color: #fff !important;}
+.tab-search-pkg li:after{content:'';position: absolute;width: 100%;height: 100%;background-color: #000;opacity: 0.4;top:0;left:0;z-index: 0;transition: opacity 0.3s;}
+.wrap-tsp.tsp-on {background: none;}
+.wrap-tsp.tsp-on .tab-search-pkg {position: fixed;bottom: auto;top:47px;z-index: 12;background: url(/images/front/mtravel/cont/vis-main-pkg.jpg) 50% 90% no-repeat;-webkit-background-size: cover;background-size:cover;}
+.wrap-tsp.tsp-on .tab-search-pkg li:before {display: block;} 
+.wrap-tsp.tsp-on .tab-search-pkg li a {background-color: #bbb;}
+.wrap-tsp.tsp-ond {z-index: 0;}
+.wrap-tsp.tsp-onf {height: 97px;background: none;}
+.wrap-tsp.tsp-onf h3.tit {margin-top:-100%;}
+.section-tsp {display: none;}
+.section-tsp.tsp1 {display: block;}
+.wrap-tsp .btn-eme-inv {position: absolute;width: 107px;left: 0;top: 20px;z-index: 5;transition: top 0.5s;}
+.wrap-tsp.tsp-onf .btn-eme-inv {top:-100%;}
+.wrap-tsp .btn-swiper-next {position: absolute;width: 26%;text-align: center;left: 50%;margin-left: -13%;top: 15.02732240437158%;z-index: 2;transition: top 0.5s;}
+.wrap-tsp .btn-swiper-next a {display: inline-block;margin-top: 160%;}
+.wrap-tsp.tsp-onf .btn-swiper-next {top:-100%;}
+.wrap-tsp.tsp-onf .btn-swiper-next a {margin-top:0%;}
+.wrap-tsp.tsp-onf .swiper-container {display: none;}
+
+@media all and (max-height:375px) { 
+	.wrap-tsp h3.tit img {max-width:300px;} 
+	.wrap-tsp.tsp-on .tab-search-pkg {background-position: 50% 60%;}
+}
+
+.wrap-tsp .swiper-container {position:absolute;width: 100%;height: 100%;top: 0;left: 0;overflow: hidden;}
+.wrap-tsp .swiper-container:before {content: '';display: block;width: 100%;height: 100%;background: #000;position: absolute;top: 0;left: 0;z-index: 0;opacity: 0;transition: opacity 0.3s}
+.wrap-tsp .swiper-container.on:before {opacity: 0.3;}
+.wrap-tsp .swiper-wrapper {width: 100%;height: 90%;}
+.wrap-tsp .swiper-slide {width: 64%;
+display: -webkit-box;
+display: -ms-flexbox;
+display: -webkit-flex;
+display: flex;
+-webkit-box-pack: center;
+-ms-flex-pack: center;
+-webkit-justify-content: center;
+justify-content: center;
+-webkit-box-align: center;
+-ms-flex-align: center;
+-webkit-align-items: center;
+align-items: center;
+}
+.wrap-tsp .swiper-slide:first-child {width: 100%;height: 100%;}
+.wrap-tsp .swiper-slide:first-child .swiper-slide-empty {width: 100%;height: 100%;background-color: transparent;}
+.wrap-tsp .swiper-pagination {bottom: 60px !important;}
+.wrap-tsp .swiper-pagination-bullet {width: 11px;height: 11px;margin-right: 4px;overflow: hidden;background: url(/images/front/mtravel/common/paginate.png) 0 0 no-repeat;-webkit-background-size: 22px;background-size:22px;opacity: 1;}
+.wrap-tsp .swiper-pagination-bullet-active {background-position: 100% 0;}
+
+/* 인기지역, 추천상품 */
+.list-poparea-pkg {position: relative;z-index: 0;}
+.list-poparea-pkg li {margin-top: -1px;}
+.tit-ticon {background-color: #fff;font-size:14px;color: #333;border-bottom: 1px solid #d5d5d5;padding: 14px 0 10px 45px;background: url(/images/front/mtravel/main/sprite_icon_collection.png) 15px -618px no-repeat;-webkit-background-size: 60px;background-size: 60px;font-family: "YMB";}
+.tit-ticon.tti01 {background-position: 15px -618px;}
+.tit-ticon.tti02 {background-position: 15px -668px;}
+.tit-ticon.tti03 {background-position: 15px -820px;}
+.s-pkg__info .s-pi__tit {position: relative;color: #fff;font-size:13px;}
+.s-pkg__info .s-pi__tit .des {position: absolute;font-size:0.9230769230769231em;top:35%;left: 10%;font-family: "YMR";}
+.s-pkg__info .s-pi__tit .tit {position: absolute;font-size:2.153846153846154em;top:44%;left: 10%;font-family: "YMR";}
+@media all and (min-width:420px) { .s-pkg__info .s-pi__tit {font-size:20px;} }
+
+/* 지역검색 */ 
+.pkg-area-search {padding-top: 0;}
+.pkg-area-search .input .placeholder, .pkg-item-search .input .placeholder {left: 14px;}
+.pkg-area-search .layer-holder.on {display: block;border: 1px solid #d5d5d5;}
+.pkg-area-search .item:first-child {border-bottom: 1px dotted #d5d5d5;padding-bottom: 25px;margin-top: 25px;}
+
+/* 상품검색 */
+.pkg-item-search {padding-top: 0;}
+.pkg-item-search .item {margin-top: 15px;}
+.pkg-item-search .i-title2 {padding-top: 5px !important;}
+.pkg-item-search .item:first-child {border-bottom: 1px dotted #d5d5d5;padding-bottom: 25px;margin-top: 25px;}
+.btn-info-search {text-align: center;}
+.btn-info-search a {display: inline-block;font-size:13px;color: #333;padding-right: 14px;margin-top: 14px;background: url(/images/front/mtravel/common/bg_bullet1.gif) 100% 1px no-repeat;-webkit-background-size: 4px;background-size: 4px;}
+
+/* 패키지 날짜선택 */
+.cont-wrap .i-title {display: table;position: relative;height: 45px;width: 100%;background-color: #fff;box-sizing: border-box;}
+.cont-wrap .i-title2 {position: relative;color: #1e1e1e;font-size:15px;font-family: 'YMR';font-weight: bold;padding: 20px 0 15px 0;}
+.cont-wrap .i-title .txt {display: table-cell;vertical-align: middle;padding: 0 5px;font-size:14px;letter-spacing: -0.05em;}
+.cont-wrap .i-title .deco-icon + .txt {padding-left:32px}
+.cont-wrap .i-title .deco-icon {left:5px;}
+/*.cont-wrap .item {padding: 0 8px;}*/
+.cont-wrap .col2 .i-title {width:49.4%}
+.cont-wrap .col2 .i-title:first-child{float:left}
+.banner-recom {margin-top: 20px;}
+
+/* 상세검색 */
+.sch-wrap .section {border-bottom: 1px solid #d5d5d5;padding: 5px 0 10px 0;}
+.sch-wrap .section:first-child {padding-top: 0;}
+
+/* 가격 범위 UI */
+.set-range-ui {padding: 0 5px;}
+.set-range-ui .tit {font-size:14px;color: #333;padding: 8px 0 4px 30px;background: url(/images/front/mtravel/main/sprite_icon_collection.png) 0 -675px no-repeat;-webkit-background-size: 60px;background-size: 60px;margin-bottom: 5px;}
+.set-init-range {position: relative;margin: 5px 10px;}
+.set-init-range span {color: #ed2b74;font-size: 14px;}
+.set-init-range .max {position: absolute;top:0;right:0;}
+.wrap-range-ui {padding-top: 10px;}
+.wrap-range-ui input.ui-slider-input {display: none;}
+.wrap-range-ui .ui-rangeslider {margin:  0;}
+.wrap-range-ui .ui-rangeslider .ui-rangeslider-sliders {margin:  0 10px;height: 24px;}
+.wrap-range-ui .ui-bar-inherit {background-color: #dddee0;border: 0 none;}
+.wrap-range-ui .ui-slider-track {height: 7px;border-radius: 5px;}
+.wrap-range-ui .ui-slider-track .ui-btn-active {background-color: #ed2b74;border: 0 none;}
+.wrap-range-ui .ui-slider-track .ui-btn.ui-slider-handle {background-color: #ed2b74;width: 24px;height: 24px;border-radius: 50%;margin: -13px 0 0 -12px;overflow: visible;}
+
+/* 패키지 사용성 개선 */
+.s-state-pkg {width: 100%;background-color: #424242;border-bottom: 1px solid #555;padding: 3px 0 8px 0;text-align: center;position: relative;
+border-bottom:1px solid #555;
+-moz-box-shadow:0 4px 5px rgba(0,0,0,.1);
+-webkit-box-shadow:0 4px 5px rgba(0,0,0,.1);
+box-shadow:0 4px 5px rgba(0,0,0,.1);
+-moz-box-sizing:border-box;
+-webkit-box-sizing: border-box;
+box-sizing: border-box;
+}
+.s-state-pkg .txt {font-size:13px;font-family: 'YMR';color: #fff;line-height:1.3;}
+.s-state-pkg .txt-city {font-size:23px;font-family: 'YMR';font-weight: bold;padding-bottom: 8px;}
+.s-state-pkg .rightArea {position: absolute;text-align: right;right: 10px;top: 22px;}
+.s-state-pkg .rightArea > a {display: inline-block;font-size:0;line-height: 0;text-indent:-9999px;overflow:hidden;width:26px;height: 32px;background: url(/images/front/mtravel/main/sprite_icon_collection.png) no-repeat;background-size:60px;vertical-align: middle;}
+.s-state-pkg .rightArea .align {background-position: 4px -975px;}
+.s-state-pkg .rightArea .btnMap {background-position: 6px -1024px;}
+.s-state-pkg.fix {position: fixed;left: 0;top: 97px;z-index: 10;}
+
+/* 26459 */
+.bnn--temp1 {position: relative;}
+.bnn--temp1 .b-bnn__more {width: 23.28125%;position: absolute;top: 55%;left: 4.84375%;}
+.bnn--temp2 {padding: 0 !important;min-height: auto !important;border-top:0 !important;border: 0 !important;}
+.bnn--temp2 + li {border-top:0 !important;}
+
+/* 27049 */
+.listType .myFocusing {position: relative;border-bottom: 0;}
+.listType .myFocusing:after {content: '';display: block;position: absolute;top:0;left:0;width: 100%;height: 100%;border: 3px solid #ee3755;z-index: 1;pointer-events: none;box-sizing: border-box}
+.listType .myFocusing__exp {text-align: center;font-size:13px;color: #fff;background-color: #ee3755;padding: 2px 0;}
+
+/* 27836 */
+.pop-concierge {position: relative;}
+.pop-concierge .set-btn {width: 78.125%;overflow: hidden;position: absolute;left: 8.75%;top:87.5%;}
+.pop-concierge .set-btn:after {content: '';clear: both;display: block;}
+.pop-concierge .set-btn li {float:left;width: 48%;margin-left: 4%;}
+.pop-concierge .set-btn li:first-child {margin-left: 0;}
+.pop-concierge .btn-close {display: block;width: 14px;position: absolute;right: 15px;top: 15px;}
+.list-chk-col2 {overflow: hidden;}
+.list-chk-col2 li {float:left;width: 50%;margin-bottom: 12px;}
+.list-chk-col2 li:last-child {width: 100%;}
+
+/* 28646 */
+.concierge__point__msg {text-align: right;font-size:12px;color:#e30303;padding-top: 5px;margin-bottom:15px;border-top: 1px solid #d5d5d5;}
+
+/* 28298 */
+.s-coupon1 {border-top: 1px solid #d5d5d5;}
+.s-coupon1 a {display: block;padding: 14px 15px 13px 15px;position: relative;background: url(/images/front/mtravel/cont/icon_dc_down.png) 100% 0 no-repeat;-webkit-background-size: 74px;background-size: 74px;}
+.s-coupon1 .txt1 {font-size: 11px;color: #333;}
+.s-coupon1 .txt2 {font-size: 15px;color: #333;font-family:'YMB';}
+.s-coupon1 .txt2 em {color: #e81e75;}
+
+/* 20154 */
+/*.s-air__templet__search .cont-wrap{position: relative;}
+.s-air__templet__search .cont-wrap:after {content: '';display: block;width: 100%;height: 1px;background-color: #dcdcdc;margin-top: 20px;}*/
+.s-air__templet__search .cont-wrap .btn-group {padding-bottom: 20px;border-bottom: 1px solid #dcdcdc;}
+
+
+/* 25871 */
+.w-mark {padding:14px 0 0 7px}
+.special-secret {background-color: #faf1fe;}
+.special-secret-cover {position: absolute;right: 0;top: -54px;width:120px;height: 54px;background-color: #7f3a9b;}
+.special-secret-cover > span {display: block;color: #fff;text-align: center;font-family: 'YMR';}
+.special-secret-cover .txt1 {font-size:13px;padding-left: 17px;position: relative;padding-top: 13px;}
+.special-secret-cover .txt1:after {content: '';display: block;width: 12px;height: 15px;position: absolute;top: 12px;left: 19px;background:url(/images/front/mtravel/cont/icon_unlock2.png) 0 0 no-repeat;-webkit-background-size: 12px;background-size: 12px;}
+.special-secret-cover .txt2 {font-size:11px;padding-top: 3px;}
+.special-privia {background-color: #fdebf2;}
+.special-mobile {background-color: #ebf4fd;}
+
+/* 30824 */
+.toggleList .telbox li{margin-left:40px;background:#e4e4e4;padding:15px 10px;margin-bottom:5px;letter-spacing:-1px;border-bottom:0;font-size:12px;color:#424242;}
+
+/* 31323 */
+.concierge-hotel-area{padding-bottom:0 !important;}
+.concierge-hotel-area .reserveInfo{background:#f0f0f0;padding:15px 7px;}
+.concierge-hotel-area .reserveInfo .content .subTit{padding-bottom:13px;}
+.concierge-section .tit{padding:10px 0 5px;}
+.concierge-section .item{margin-top:5px;}
+.concierge-section .item .col2:after{content:'';display:block;height:0;clear:both}
+.concierge-section .item .col2 .input{width:49.4%}
+.concierge-section .item .col2 .input:first-child{float:left}
+.concierge-section .item .col2 .input:last-child{float:right}
+.concierge-section .item .input{display:block;position:relative;width:100%;height:45px;border:1px solid #d5d5d5;background-color:#fff;-moz-box-sizing:border-box;-webkit-box-sizing: border-box;box-sizing: border-box;}
+.concierge-section .item .input:after{content:'';position:absolute;top:18px;right:15px;display:inline-block;width:12px;height:7px;background:url(/images/front/mtravel/main/sprite_arrow_collection.png) no-repeat 0 1px;background-size:12px auto}
+.concierge-section .item .input .value{overflow:hidden;display:block;position:absolute;top:0;left:0;width:100%;height:45px;padding:15px 30px 15px 15px;background:transparent;-moz-box-sizing:border-box;-webkit-box-sizing: border-box;box-sizing: border-box;} 
+.concierge-section .item .input a.value{height:45px;padding-top:13px;padding-bottom:0;vertical-align:top}
+.concierge-section .item .input select{display:inline-block;padding:0;border:0 none;background:0 none;padding-top:0 !important;padding-bottom:0 !important;font-size:14px;height:auto;line-height:15px}
+.concierge-section .item .input select.sm-font{font-size:12px;}
+.concierge-section .item .input.bg-none:after{background:0 none}
+.concierge-section .item .input .deco-icon + .value{padding-left:41px}
+.concierge-section .item .input .deco-icon{position:absolute;top:50%;left:14px;z-index:2}
+.concierge-section .item .input.on{border-color:#333}
+.concierge-section .item .input.on:after{background-position:0 -6px}
+.concierge-section .item .input .placeholder{position:absolute;top:14px;left:43px;line-height:1.2}
+.concierge-section .item .input .sub-txt{display:inline-block;padding-left:5px;font-size:11px;color:#999;font-weight:normal}
+
+/* #30863 */
+.air_rv_b{position:relative;padding:15px 20px;border-bottom:1px dotted #d5d5d5;}
+.air_rv_b p{width:85%;}
+.air_rv_b .btn_close{position:absolute;top:25%;right:20px;}
+
+/* 31788 */
+.hyundai-card-simple{padding:15px 20px;overflow:hidden;}
+.hyundai-card-simple:after{display:block;content:'';clear:both;}
+.hyundai-card-simple ul.fl{float:left;width:52%;word-break:keep-all;}
+.hyundai-card-simple ul.fr{float:right;width:45%;word-break:keep-all;}
+.hyundai-card-simple li{margin-bottom:10px;background-position:0 8px;font-family:'YMB';font-size:13px;color:#333;}
+.hyundai-card-simple li:last-child{margin-bottom:0px;}
+.hyundai-card-simple:last-child li{color:#767676;font-size:12px;font-family:'Malgun Gothic','맑은 고딕',돋움,sans-serif;}
+
+/* 32400 */
+.w-hyundai-card-list .hci-card {text-align: center;padding: 10px 0;}
+.w-hyundai-card-list .hci-card img {width: 199px;}
+.w-hyundai-card-list .hci-list {margin: 0 15px 15px 15px;border-left: 1px solid #e6e6e6;border-top: 1px solid #e6e6e6;display: -webkit-box;display: -moz-box;display: -ms-flexbox;display: -webkit-flex;display: flex;flex-wrap:wrap;}
+.w-hyundai-card-list .hci-list li {width: 50%;border-bottom: 1px solid #e6e6e6;border-right: 1px solid #e6e6e6;}
+.w-hyundai-card-list .hci-list li span {display: block;height: 100%;padding: 13px;font-size:14px;letter-spacing: -0.05em;color: #333;display: -webkit-box;display: -moz-box;display: -ms-flexbox;display: -webkit-flex;display: flex;-webkit-box-align: center;-ms-flex-align: center;-webkit-align-items: center;align-items: center;}
+.w-hyundai-card-list .bulList3 strong {color: #333;font-weight: 400;}
