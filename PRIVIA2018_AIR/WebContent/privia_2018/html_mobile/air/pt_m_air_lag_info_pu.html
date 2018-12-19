@@ -1,0 +1,219 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=no" />
+<meta name="format-detection" content="telephone=no" />
+<title>PRIVIA 여행</title>
+<meta name="description" content=" "> 
+<meta property="og:title" content=" "> 
+<meta property="og:image" content="http://static.priviatravel.com/images/front/mtravel/common/mobile_17004159046.png"> 
+<meta property="og:description" content=" ">
+<link rel="shortcut icon" type="image/x-icon" href="//static.priviatravel.com/images/front/mtravel/common/favicon.ico" />
+<link rel="apple-touch-icon-precomposed" sizes="152x152" href="//static.priviatravel.com/images/front/mtravel/common/apple-touch-icon-152.png" />
+<link type="text/css" rel="stylesheet" href="/css/front/mtravel/jquery.mobile.1.4.2.css" />
+<link type="text/css" rel="stylesheet" href="/css/front/mtravel/jquery-ui.min.css" />
+<link type="text/css" rel="stylesheet" href="/css/front/mtravel/swiper.min.css" />
+<link type="text/css" rel="stylesheet" href="/css/front/mtravel/base.css" />
+<link type="text/css" rel="stylesheet" href="/css/front/mtravel/common.css" />
+<link type="text/css" rel="stylesheet" href="/css/front/mtravel/contents.css" />
+<link type="text/css" rel="stylesheet" href="/css/front/mtravel/airCont.css" />
+<script type="text/javascript" src="/js/front/mtravel/jquery-1.8.3.min.js"></script>
+<script type="text/javascript" src="/js/front/mtravel/jquery-ui.min.js"></script>
+<script type="text/javascript" src="/js/front/mtravel/init.js"></script>
+<script type="text/javascript" src="/js/front/mtravel/jquery.mobile-1.4.2.js"></script>
+<script type="text/javascript" src="/js/front/mtravel/swiper.min.js"></script>
+<script type="text/javascript" src="/js/front/mtravel/commonModuleSearchM.js"></script> <!-- headerManager 가이드 버전 실제로는 반영 되지 않음 -->
+<script type="text/javascript" src="/js/front/mtravel/commonUI.js"></script>
+<script type="text/javascript" src="/js/utils.js"></script>
+</head>
+
+<body>
+
+<!-- page -->
+<div data-role="page">
+   
+    <!-- header-sec -->
+    <div class="header-secV2 header-page-st header-pop-st">
+        <div class="in-header-secV2">
+            <h2 class="ihg-title">항공사별 수하물 정보</h2>
+            <div class="ly-left">
+                <a href="#" class="b-close" data-rel="back"><span class="a11y">페이지 닫기</span></a>
+            </div>
+        </div>
+    </div>
+    <!-- //header-sec -->
+       
+    <!-- content-sec -->
+    <div class="content-sec">
+        <section class="w-content-sec">
+            <div class="c-box-st1">
+                <table class="c-table-st1">
+                    <caption>항공사별 수하물 정보 링크 리스트</caption>
+                    <colgroup>
+                        <col width="50%">
+                        <col width="50%">
+                    </colgroup>
+                    <tbody>
+                        <tr>
+                            <td class="leftp0"><a href="https://www.garuda-indonesia.com/kr/ko/garuda-indonesia-experience/on-ground/baggage/index.page?" target="_blank">가루다인도네시아(GA)</a></td>
+                            <td class="a-left"><a href="http://www.flysaa.com/kr/en/flyingSAA/baggage/excessBaggage.html" target="_blank">남아프리카항공(SA)</a></td>
+                        </tr>            
+                        <tr>
+                            <td class="leftp0"><a href="https://www.klm.com/travel/kr_ko/prepare_for_travel/baggage/baggage_allowance/index.htm" target="_blank">네덜란드항공(KL)</a></td>
+                            <td class="a-left"><a href="https://www.airnewzealand.co.kr/faq#baggage" target="_blank">뉴질랜드항공(NZ)</a></td>
+                        </tr>  
+                        <tr>
+                            <td class="leftp0"><a href="https://kr.koreanair.com/content/koreanair/korea/ko/traveling/baggage-services.html#allowed-to-bring-unrestricted" target="_blank">대한항공(KE)</a></td>
+                            <td class="a-left"><a href="https://ko.delta.com/content/www/en_US/traveling-with-us/baggage/before-your-trip/checked.html#StandardCheckedBagAllowance" target="_blank">델타항공(DL)</a></td>
+                        </tr>             
+                        <tr>          
+                            <td class="leftp0"><a href="http://www.laoairlines.com/?contentkey=pages&id=22" target="_blank">라오항공(QV)</a></td>
+                            <td class="a-left"><a href="https://www.latam.com/en_un/travel-information/baggage/checked-baggage/" target="_blank">란 항공(LA)</a></td>
+                        </tr>             
+                        <tr>
+                            <td class="leftp0"><a href="https://www.aeroflot.ru/ru-ko/information/preparation/baggage/allowance" target="_blank">러시아항공(SU)</a></td>
+                            <td class="a-left"><a href="http://www.lufthansa.com/kr/ko/Free-baggage-rules" target="_blank">루프트한자항공(LH)</a></td>
+                        </tr>            
+                        <tr>
+                            <td class="leftp0"><a href="https://www.mandarin-airlines.com/Content/%E6%A9%9F%E5%A0%B4%E6%9C%8D%E5%8B%99-2016100012-30#p2" target="_blank">만다린항공(AE)</a></td>
+                            <td class="a-left"><a href="https://www.malaysiaairlines.com/kr/ko/plan-your-trip.html" target="_blank">말레이시아항공(MH)</a></td>
+                        </tr>            
+                        <tr>
+                            <td class="leftp0"><a href="https://www.airmauritius.com/cbaggage.htm" target="_blank">모리셔스항공(MK)</a></td>
+                            <td class="a-left"><a href="http://www.miat.com/pagecontent.php?pageId=150&lang=en" target="_blank">몽골항공(OM)</a></td>
+                        </tr>            
+                        <tr>
+                            <td class="leftp0"><a href="https://www.vietnamairlines.com/vn/ko/travel-information/baggage/" target="_blank">베트남항공(VN)</a></td>
+                            <td class="a-left"><a href="https://www.vietjetair.com/Sites/Web/ko-KR/NewsDetail/%e1%84%89%e1%85%ae%e1%84%92%e1%85%a1%e1%84%86%e1%85%ae%e1%86%af-%e1%84%89%e1%85%a5%e1%84%87%e1%85%b5%e1%84%89%e1%85%b3/%201542/%e1%84%89%e1%85%ae%e1%84%92%e1%85%a1%e1%84%86%e1%85%ae%e1%86%af%e1%84%89%e1%85%a5%e1%84%87%e1%85%b5%e1%84%89%e1%85%b3" target="_blank">비엣젯항공(VJ)</a></td>
+                        </tr>
+                        <tr>
+                            <td class="leftp0"><a href="http://www.88888888.cn/Global/News/Detail/4610" target="_blank">사천항공(3U)</a></td>
+                            <td class="a-left"><a href="http://www.srilankan.com/en_uk/plan-and-book/luggage-revamp" target="_blank">스리랑카항공(UL)</a></td>
+                        </tr>           
+                        <tr>
+                            <td class="leftp0"><a href="https://www.swiss.com/ch/EN/prepare/baggage/checked-baggage" target="_blank">스위스항공(LX)</a></td>
+                            <td class="a-left"><a href="https://www.flysas.com/en/travel-info/baggage/checked-baggage/" target="_blank">스칸디나비아항공(SK)</a></td>
+                        </tr>
+                        <tr>
+                            <td class="leftp0"><a href="http://www.flyscoot.com/index.php/ko/pre-flight/baggage.html" target="_blank">스쿠트항공(TR)</a></td>
+                            <td class="a-left"><a href="https://global.shenzhenair.com/zhair/ibe/static/pages/wcm/ko/07-3-3-2-RegisteredLuggage_ko.html" target="_blank">심천항공(ZH)</a></td>
+                        </tr>             
+                        <tr>
+                            <td class="leftp0"><a href="http://www.singaporeair.com/ko_KR/kr/travel-info/baggage/baggage-allowance/" target="_blank">싱가폴항공(SQ)</a></td>
+                            <td class="a-left"><a href="https://www.american-airlines.co.kr/i18n/travel-info/baggage/baggage.jsp?locale=ko_KR&anchorEvent=false&from=Nav" target="_blank">아메리칸항공(AA)</a></td>
+                        </tr>
+                        <tr>
+                            <td class="leftp0"><a href="https://flyasiana.com/C/KR/KO/contents/free-baggage" target="_blank">아시아나항공(OZ)</a></td>
+                            <td class="a-left"><a href="https://www.alitalia.com/ko_kr/fly-alitalia/baggage.html" target="_blank">알리탈리아항공(AZ)</a></td>
+                        </tr>           
+                        <tr>
+                            <td class="leftp0"><a href="https://www.emirates.com/kr/korean/before-you-fly/baggage/checked-baggage.aspx" target="_blank">에미레이트항공(EK)</a></td>
+                            <td class="a-left"><a href="http://www.evaair.com/ko-kr/managing-your-trip/baggage-information/allowances/" target="_blank">에바항공(BR)</a></td>
+                        </tr>
+                        <tr>
+                            <td class="leftp0"><a href="https://world.aeromexico.com/en/travel-with-aeromexico/baggage/?site=us" target="_blank">에어로멕시코(AM)</a></td>
+                            <td class="a-left"><a href="http://www.airmacau.co.kr/web/text/text_list.asp?menu_id=13" target="_blank">에어마카오(NX)</a></td>
+                        </tr>           
+                        <tr>
+                            <td class="leftp0"><a href="https://www.airbusan.com/content/common/service/baggage/free" target="_blank">에어부산(BX)</a></td>
+                            <td class="a-left"><a href="https://airastana.com/kor/ko-kr/Information/Baggage-Information/Baggage-Allowance" target="_blank">에어아스타나(KC)</a></td>
+                        </tr>
+                        <tr>
+                            <td class="leftp0"><a href="https://flyairseoul.com/CW/ko/destinations.do" target="_blank">에어서울(RS)</a></td>
+                            <td class="a-left"><a href="http://www.airindia.co.kr/sub4_1.php" target="_blank">에어인디아(AI)</a></td>
+                        </tr>           
+                        <tr>
+                            <td class="leftp0"><a href="http://www.aircalin.co.kr/flying/etcinfo_baggage.html" target="_blank">에어칼린(SB)</a></td>
+                            <td class="a-left"><a href="http://www.aircanada.co.kr/html/sub_info_dep_mn04_2.asp?gubun=0401" target="_blank">에어캐나다(AC)</a></td>
+                        </tr>
+                        <tr>
+                            <td class="leftp0"><a href="https://www.airfrance.co.kr/KR/ko/common/guidevoyageur/pratique/bagages-cabine-airfrance.htm" target="_blank">에어프랑스(AF)</a></td>
+                            <td class="a-left"><a href="https://www.ethiopianairlines.com/AA/EN/information/baggage/free-baggage-allowance" target="_blank">에티오피아항공(ET)</a></td>
+                        </tr>            
+                        <tr>
+                            <td class="leftp0"><a href="http://www.etihad.com/ko-kr/before-you-fly/baggage-information/" target="_blank">에티하드항공(EY)</a></td>
+                            <td class="a-left"><a href="https://www.elal.com/en/PassengersInfo/Baggage/Pages/Hand-Bag.aspx" target="_blank">엘알이스라엘항공(LY)</a></td>
+                        </tr>
+                        <tr>
+                            <td class="leftp0"><a href="https://www.britishairways.com/ko-kr/information/baggage-essentials/checked-baggage-allowances" target="_blank">영국항공(BA)</a></td>
+                            <td class="a-left"><a href="http://www.austrian.com/Info/Flying/Baggage.aspx?sc_lang=en&cc=ZZ" target="_blank">오스트리아항공(OS)</a></td>
+                        </tr>
+                        <tr>
+                            <td class="leftp0"><a href="https://www.uniair.com.tw/uniweb/CMS/service/luggage_information_int/en-us##a3" target="_blank">유니항공(B7)</a></td>
+                            <td class="a-left"><a href="https://www.eastarjet.com/newstar/PGWIK00001" target="_blank">이스타항공(ZE)</a></td>
+                        </tr>
+                        <tr>
+                            <td class="leftp0"><a href="http://www.uzbekair.co.kr/" target="_blank">우즈베키스탄항공(HY)</a></td>
+                            <td class="a-left"><a href="https://www.united.com/web/ko/content/travel/baggage/default.aspx" target="_blank">유나이티드항공(UA)</a></td>
+                        </tr>           
+                        <tr>
+                            <td class="leftp0"><a href="https://www.jejuair.net/jejuair/serviceinfo/airport/baggage_service.jsp" target="_blank">제주항공(7C)</a></td>
+                            <td class="a-left"><a href="https://www.jetairways.com/EN/IN/TravelInformation/Baggage/baggage-allowances.aspx" target="_blank">제트에어웨이즈(9W)</a></td>
+                        </tr>
+                        <tr>
+                            <td class="leftp0"><a href="http://www.kr.jal.co.jp/krl/ko/inter/service/bag/#anchorlink002" target="_blank">일본항공(JL)</a></td>
+                            <td class="a-left"><a href="http://www.ana.co.jp/ko/kr/international/prepare/baggage/?menu=free" target="_blank">전일본공수(NH)</a></td>
+                        </tr>           
+                        <tr>
+                            <td class="leftp0"><a href="https://kr.ceair.com/ko/content/information/baggage/baggage-allowance" target="_blank">중국동방항공(MU)</a></td>
+                            <td class="a-left"><a href="http://kr.csa.cz/kr/portal/info-and-services/travel-information/baggage2.htm" target="_blank">체코항공(OK)</a></td>
+                        </tr>
+                        <tr>
+                            <td class="leftp0"><a href="https://www.airchina.kr/KR/KO/info/checked-baggage/" target="_blank">중국국제항공(CA)</a></td>
+                            <td class="a-left"><a href="http://www.csair.com/kr/ko/tourguide/luggage_service/carryon_luggage/" target="_blank">중국남방항공(CZ)</a></td>
+                        </tr>            
+                        <tr>
+                            <td class="leftp0"><a href="https://www.jinair.com/ready/baggage" target="_blank">진에어(LJ)</a></td>
+                            <td class="a-left"><a href="https://www.kenya-airways.com/prepare-for-travel/baggage-information/en/" target="_blank">케냐항공(KQ)</a></td>
+                        </tr>
+                        <tr>
+                            <td class="leftp0"><a href="https://www.hainanairlines.com/HUPortal/dyn/portal/DisplayPage?COUNTRY_SITE=HK&SITE=CBHZCBHZ&FAQ_CATEGORY=114&LANGUAGE=GB&PAGE=FAQD" target="_blank">중국해남항공(HU)</a></td>
+                            <td class="a-left"><a href="https://www.china-airlines.com/kr/ko/fly/prepare-for-the-fly/baggage/baggage-rules" target="_blank">중화항공(CI)</a></td>
+                        </tr> 
+                        <tr>
+                            <td class="leftp0"><a href="https://www.cathaypacific.com/cx/ko_KR/travel-information/baggage.html" target="_blank">캐세이패시픽(CX)</a></td>
+                            <td class="a-left"><a href="http://www.turkishairlines.com/en-kr/travel-information/baggage/free-baggage-allowance" target="_blank">터키항공(TK)</a></td>
+                        </tr>
+                        <tr>
+                            <td class="leftp0"><a href="https://www.qatarairways.com/ko-kr/baggage/allowance.html" target="_blank">카타르항공(QR)</a></td>
+                            <td class="a-left"><a href="https://www.cambodiaangkorair.com/ko/travel-information/baggage-information/checked-baggage/" target="_blank">캄보디아앙코르항공(K6)</a></td>
+                        </tr>
+                        <tr>
+                            <td class="leftp0"><a href="https://www.latam.com/en_un/travel-information/baggage/checked-baggage/" target="_blank">탐항공(JJ)</a></td>
+                            <td class="a-left"><a href="http://hawaiianair-kr.custhelp.com/app/home/topic/465" target="_blank">하와이안항공(HA)</a></td>
+                        </tr>
+                        <tr>
+                            <td class="leftp0"><a href="http://www.qantas.com/kr/en/travel-info/baggage/checked-baggage.html" target="_blank">콴타스항공(QF)</a></td>
+                            <td class="a-left"><a href="http://www.thaiairways.com/ko_KR/plan_my_trip/travel_information/Baggage.page" target="_blank">타이항공(TG)</a></td>
+                        </tr>
+                        <tr>
+                            <td class="leftp0"><a href="http://www.philippineair.co.kr/ko/service/baggage_rules.asp" target="_blank">필리핀항공(PR)</a></td>
+                            <td class="a-left"><a href="http://www.hkexpress.com/ko/learn/baggage-guide/checked-baggage" target="_blank">홍콩익스프레스(UO)</a></td>
+                        </tr>
+                        <tr>
+                            <td class="leftp0"><a href="https://www.twayair.com/service/serviceInfo.do?menuSeq=236" target="_blank">티웨이항공(TW)</a></td>
+                            <td class="a-left"><a href="https://www.finnair.com/kr/ko/information-services/baggage/checked-baggage" target="_blank">핀에어(AY)</a></td>
+                        </tr> 
+                    </tbody>
+                </table>
+            </div>
+        </section>
+    </div>
+    <!-- //content-sec -->
+        
+    
+    <script type="text/javascript">
+    $(document).one('pageshow',function(e,data){      
+        
+    });
+    </script>
+    
+</div>
+<!-- //page -->
+
+
+
+    
+</body>
+</html>

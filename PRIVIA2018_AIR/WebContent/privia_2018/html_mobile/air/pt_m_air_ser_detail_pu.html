@@ -1,0 +1,359 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=no" />
+<meta name="format-detection" content="telephone=no" />
+<title>PRIVIA 여행</title>
+<meta name="description" content=" "> 
+<meta property="og:title" content=" "> 
+<meta property="og:image" content="http://static.priviatravel.com/images/front/mtravel/common/mobile_17004159046.png"> 
+<meta property="og:description" content=" ">
+<link rel="shortcut icon" type="image/x-icon" href="//static.priviatravel.com/images/front/mtravel/common/favicon.ico" />
+<link rel="apple-touch-icon-precomposed" sizes="152x152" href="//static.priviatravel.com/images/front/mtravel/common/apple-touch-icon-152.png" />
+<link type="text/css" rel="stylesheet" href="/css/front/mtravel/jquery.mobile.1.4.2.css" />
+<link type="text/css" rel="stylesheet" href="/css/front/mtravel/jquery-ui.min.css" />
+<link type="text/css" rel="stylesheet" href="/css/front/mtravel/swiper.min.css" />
+<link type="text/css" rel="stylesheet" href="/css/front/mtravel/base.css" />
+<link type="text/css" rel="stylesheet" href="/css/front/mtravel/common.css" />
+<link type="text/css" rel="stylesheet" href="/css/front/mtravel/contents.css" />
+<link type="text/css" rel="stylesheet" href="/css/front/mtravel/airCont.css" />
+<script type="text/javascript" src="/js/front/mtravel/jquery-1.8.3.min.js"></script>
+<script type="text/javascript" src="/js/front/mtravel/jquery-ui.min.js"></script>
+<script type="text/javascript" src="/js/front/mtravel/init.js"></script>
+<script type="text/javascript" src="/js/front/mtravel/jquery.mobile-1.4.2.js"></script>
+<script type="text/javascript" src="/js/front/mtravel/swiper.min.js"></script>
+<script type="text/javascript" src="/js/front/mtravel/commonModuleSearchM.js"></script> <!-- headerManager 가이드 버전 실제로는 반영 되지 않음 -->
+<script type="text/javascript" src="/js/front/mtravel/commonUI.js"></script>
+<script type="text/javascript" src="/js/utils.js"></script>
+</head>
+
+<body>
+
+<!-- page -->
+<div data-role="page">
+   
+    <!-- header-sec -->
+    <div class="header-secV2 header-page-st header-pop-st">
+        <div class="in-header-secV2">
+            <h2 class="ihg-title">결과 내 검색</h2>
+            <div class="ly-left">
+                <a href="#" class="b-close" data-rel="back"><span class="a11y">페이지 닫기</span></a>
+            </div>
+            <div class="ly-right">
+                <a href="#" class="b-refresh"><span class="a11y">새로고침</span></a>
+            </div>
+        </div>
+    </div>
+    <!-- //header-sec -->
+       
+    <!-- content-sec -->
+    <div class="content-sec">
+        <section class="w-content-sec">
+            <div class="w-inres-options">
+                <ul class="list-options">
+                    <li class="io-box">
+                        <div class="ioi-header">
+                            <h4 class="tit-ins">정렬기준</h4>
+                            <span class="select-base">
+                                <select>
+                                    <option>추천순</option>
+                                    <option>낮은 가격순</option>
+                                    <option>높은 가격순</option>
+                                    <option>소요시간 짧음</option>
+                                    <option>소요시간 높음</option>
+                                    <option>출발시간 빠름</option>
+                                    <option>출발시간 늦음</option>
+                                    <option>도착시간 빠름</option>
+                                    <option>도착시간 늦음</option>
+                                </select>
+                            </span>
+                        </div>
+                    </li>    
+                    <li class="io-box">
+                        <div class="ioi-header">
+                            <button class="area-tit"><h4 class="tit">경유</h4></button>
+                            <label for="via" class="chk-base chk-st1">
+                                <input type="checkbox" id="via">
+                                <span class="label">선택해제</span> 
+                            </label>
+                        </div>
+                        <div class="ioi-cont">
+                            <ul class="list">
+                                <li>
+                                    <label for="via1" class="chk-base chk-st1">
+                                        <input type="checkbox" id="via1">
+                                        <span class="label">직항</span> 
+                                        <span class="area-right">300,000원</span>
+                                    </label>
+                                </li>
+                                <li>
+                                    <label for="via2" class="chk-base chk-st1">
+                                        <input type="checkbox" id="via2">
+                                        <span class="label">1회 경유</span> 
+                                        <span class="area-right">300,000원</span>
+                                    </label>
+                                </li>
+                                <li>
+                                    <label for="via3" class="chk-base chk-st1">
+                                        <input type="checkbox" id="via3">
+                                        <span class="label">2회 경유</span> 
+                                        <span class="area-right">300,000원</span>
+                                    </label>
+                                </li>
+                                <li>
+                                    <label for="via4" class="chk-base chk-st1">
+                                        <input type="checkbox" id="via4">
+                                        <span class="label">3회 경유</span> 
+                                        <span class="area-right">300,000원</span>
+                                    </label>
+                                </li>
+                            </ul>
+                        </div>
+                    </li> 
+                    <li class="io-box">
+                        <div class="ioi-header">
+                            <button class="area-tit"><h4 class="tit">출발시간</h4></button>
+                            <label for="depTime" class="chk-base chk-st1">
+                                <input type="checkbox" id="depTime">
+                                <span class="label">선택해제</span> 
+                            </label>
+                        </div>
+                        <div class="ioi-cont">
+                            <ul class="list fi-bsel-st">
+                                <li>
+                                    <label for="depTime1" class="chk-base chk-st3">
+                                        <input type="checkbox" id="depTime1" class="a11y">
+                                        <span class="label">
+                                            <span class="txt">00:00</span>
+                                            <span class="txt">06:00</span>
+                                        </span>
+                                    </label>
+                                </li>
+                                <li>
+                                    <label for="depTime2" class="chk-base chk-st3">
+                                        <input type="checkbox" id="depTime2" class="a11y">
+                                        <span class="label">
+                                            <span class="txt">07:00</span>
+								            <span class="txt">12:00</span>
+                                        </span>
+                                    </label>
+                                </li>
+                                <li>
+                                    <label for="depTime3" class="chk-base chk-st3">
+                                        <input type="checkbox" id="depTime3" class="a11y">
+                                        <span class="label">
+                                            <span class="txt">12:00</span>
+								            <span class="txt">18:00</span>
+                                        </span>
+                                    </label>
+                                </li>
+                                <li>
+                                    <label for="depTime4" class="chk-base chk-st3">
+                                        <input type="checkbox" id="depTime4" class="a11y">
+                                        <span class="label">
+                                            <span class="txt">18:00</span>
+								            <span class="txt">24:00</span>
+                                        </span>
+                                    </label>
+                                </li>
+                            </ul>
+                        </div>
+                    </li> 
+                    <li class="io-box">
+                        <div class="ioi-header">
+                            <button class="area-tit"><h4 class="tit">도착시간</h4></button>
+                            <label for="arrTime" class="chk-base chk-st1">
+                                <input type="checkbox" id="arrTime">
+                                <span class="label">선택해제</span> 
+                            </label>
+                        </div>
+                        <div class="ioi-cont">
+                            <ul class="list fi-bsel-st">
+                                <li>
+                                    <label for="arrTime1" class="chk-base chk-st3">
+                                        <input type="checkbox" id="arrTime1" class="a11y">
+                                        <span class="label">
+                                            <span class="txt">00:00</span>
+                                            <span class="txt">06:00</span>
+                                        </span>
+                                    </label>
+                                </li>
+                                <li>
+                                    <label for="arrTime2" class="chk-base chk-st3">
+                                        <input type="checkbox" id="arrTime2" class="a11y">
+                                        <span class="label">
+                                            <span class="txt">07:00</span>
+								            <span class="txt">12:00</span>
+                                        </span>
+                                    </label>
+                                </li>
+                                <li>
+                                    <label for="arrTime3" class="chk-base chk-st3">
+                                        <input type="checkbox" id="arrTime3" class="a11y">
+                                        <span class="label">
+                                            <span class="txt">12:00</span>
+								            <span class="txt">18:00</span>
+                                        </span>
+                                    </label>
+                                </li>
+                                <li>
+                                    <label for="arrTime4" class="chk-base chk-st3">
+                                        <input type="checkbox" id="arrTime4" class="a11y">
+                                        <span class="label">
+                                            <span class="txt">18:00</span>
+								            <span class="txt">24:00</span>
+                                        </span>
+                                    </label>
+                                </li>
+                            </ul>
+                        </div>
+                    </li>
+                    <li class="io-box">
+                        <div class="ioi-header">
+                            <button class="area-tit"><h4 class="tit">항공사</h4></button>
+                            <label for="airline" class="chk-base chk-st1">
+                                <input type="checkbox" id="airline">
+                                <span class="label">선택해제</span> 
+                            </label>
+                        </div>
+                        <div class="ioi-cont">
+                            <ul class="list">
+                                <li>
+                                    <label for="airline1" class="chk-base chk-st1">
+                                        <input type="checkbox" id="airline1">
+                                        <span class="label">대한항공</span> 
+                                        <span class="area-right">300,000원</span>
+                                    </label>
+                                </li>
+                                <li>
+                                    <label for="airline2" class="chk-base chk-st1">
+                                        <input type="checkbox" id="airline2">
+                                        <span class="label">아시아나항공</span> 
+                                        <span class="area-right">300,000원</span>
+                                    </label>
+                                </li>
+                            </ul>
+                        </div>
+                    </li>     
+                    <li class="io-box cdBenefit">
+                        <div class="ioi-header">
+                            <button class="area-tit"><h4 class="tit">현대카드 혜택</h4></button>
+                            <span class="btn-base bb-help bc-gray"><a href="#"><span class="a11y">현대카드 혜택 안내</span></a></span>
+                            <label for="cdBenefit" class="chk-base chk-st1">
+                                <input type="checkbox" id="cdBenefit">
+                                <span class="label">선택해제</span> 
+                            </label>
+                        </div>
+                        <div class="ioi-cont">
+                            <ul class="list">
+                                <li>
+                                    <label for="cdBenefit1" class="chk-base chk-st1">
+                                        <input type="checkbox" id="cdBenefit1">
+                                        <span class="label">Voucher</span> 
+                                    </label>
+                                </li>
+                                <li>
+                                    <label for="cdBenefit2" class="chk-base chk-st1">
+                                        <input type="checkbox" id="cdBenefit2">
+                                        <span class="label">리워드 쿠폰</span> 
+                                    </label>
+                                </li>
+                                <li>
+                                    <label for="cdBenefit3" class="chk-base chk-st1">
+                                        <input type="checkbox" id="cdBenefit3">
+                                        <span class="label">오픈마일리지</span> 
+                                    </label>
+                                </li>
+                            </ul>
+                        </div>
+                    </li> 
+                    <li class="io-box">
+                        <div class="ioi-header">
+                            <button class="area-tit"><h4 class="tit">운임조건</h4></button>
+                            <label for="freightTerm" class="chk-base chk-st1">
+                                <input type="checkbox" id="freightTerm">
+                                <span class="label">선택해제</span> 
+                            </label>
+                        </div>
+                        <div class="ioi-cont">
+                            <ul class="list">
+                                <li>
+                                    <label for="freightTerm1" class="chk-base chk-st1">
+                                        <input type="checkbox" id="freightTerm1">
+                                        <span class="label">성인</span>
+                                    </label>
+                                </li>
+                                <li>
+                                    <label for="freightTerm2" class="chk-base chk-st1">
+                                        <input type="checkbox" id="freightTerm2">
+                                        <span class="label">성인 2명 이상</span>
+                                    </label>
+                                </li>
+                                <li>
+                                    <label for="freightTerm3" class="chk-base chk-st1">
+                                        <input type="checkbox" id="freightTerm3">
+                                        <span class="label">장애인</span>
+                                    </label>
+                                </li>
+                                <li>
+                                    <label for="freightTerm4" class="chk-base chk-st1">
+                                        <input type="checkbox" id="freightTerm4">
+                                        <span class="label">학생</span>
+                                    </label>
+                                </li>
+                                <li>
+                                    <label for="freightTerm5" class="chk-base chk-st1">
+                                        <input type="checkbox" id="freightTerm5">
+                                        <span class="label">다문화 가정</span>
+                                    </label>
+                                </li>
+                                <li>
+                                    <label for="freightTerm6" class="chk-base chk-st1">
+                                        <input type="checkbox" id="freightTerm6">
+                                        <span class="label">만 60세 이상</span>
+                                    </label>
+                                </li>
+                            </ul>
+                            <ul class="list ls-toggle">
+                                <li>
+                                    <label for="freightTerm7" class="chk-base chk-st1">
+                                        <input type="checkbox" id="freightTerm7">
+                                        <span class="label">만 70세 이상</span>
+                                    </label>
+                                </li>
+                                <li>
+                                    <label for="freightTerm8" class="chk-base chk-st1">
+                                        <input type="checkbox" id="freightTerm8">
+                                        <span class="label">만 80세 이상</span>
+                                    </label>
+                                </li>
+                            </ul>
+                            <button href="#" class="b-more-list">
+                                <span class="b-more">+ 더보기</span>
+                                <span class="b-hide">간단히 보기</span>
+                            </button>
+                        </div>
+                    </li> 
+                </ul>
+                <div class="btn-inres-options"><span class="btn-base bb-st4"><button>적용</button></span></div>
+            </div>
+        </section>
+    </div>
+    <!-- //content-sec -->
+        
+    
+    <script type="text/javascript">
+    $(document).one('pageshow',function(e,data){      
+        
+    });
+    </script>
+    
+</div>
+<!-- //page -->
+
+
+
+    
+</body>
+</html>

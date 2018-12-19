@@ -61,7 +61,7 @@
                 </div>
                 <div class="hai-info">
                    <a href="#" class="area-hai-info">
-                        <div class="hai-dates">12월 01일 (토)</div>
+                        <div class="hai-date">12월 01일 (토)</div>
                         <div class="hai-capacity">
                             <ul class="list">
                                 <li class="icon-adt"><span class="num">3</span></li>
@@ -354,7 +354,633 @@
     <!-- content-sec -->
     <div class="content-sec">
         <section class="w-content-sec">
+            <!-- 검색결과 로딩바 -->
+            <div class="loading-all-list">
+                <span class="lal-bar"><span class="bar"></span></span>
+                <p class="txt"><span class="per"><em class="num">0</em>%</span> 잠시만 기다려 주세요. 실시간 항공 요금을 조회하고 있습니다.</p>
+            </div>
+            <!-- //검색결과 로딩바 -->
             
+            <!-- skeleton loading -->
+            <div class="list-airline-skeleton">
+                <ul class="list">
+                    <li class="inset">
+                        <div class="box-airline-detail">
+                            <div class="box-sec">
+                                <div class="w-skel">
+                                    <div class="skel-bg"></div>
+                                    <div class="skel-bg"></div>
+                                </div>
+                            </div>
+                            <div class="box-sec">
+                                <div class="w-skel">
+                                    <div class="skel-bg"></div>
+                                    <div class="skel-bg"></div>
+                                    <div class="skel-bg"></div>
+                                </div>
+                            </div>
+                        </div>
+                    </li>
+                    <li class="inset">
+                        <div class="box-airline-detail">
+                            <div class="box-sec">
+                                <div class="w-skel">
+                                    <div class="skel-bg"></div>
+                                    <div class="skel-bg"></div>
+                                </div>
+                            </div>
+                            <div class="box-sec">
+                                <div class="w-skel">
+                                    <div class="skel-bg"></div>
+                                    <div class="skel-bg"></div>
+                                    <div class="skel-bg"></div>
+                                </div>
+                            </div>
+                        </div>
+                    </li>
+                    <li class="inset">
+                        <div class="box-airline-detail">
+                            <div class="box-sec">
+                                <div class="w-skel">
+                                    <div class="skel-bg"></div>
+                                    <div class="skel-bg"></div>
+                                </div>
+                            </div>
+                            <div class="box-sec">
+                                <div class="w-skel">
+                                    <div class="skel-bg"></div>
+                                    <div class="skel-bg"></div>
+                                    <div class="skel-bg"></div>
+                                </div>
+                            </div>
+                        </div>
+                    </li>
+                    <li class="inset">
+                        <div class="box-airline-detail">
+                            <div class="box-sec">
+                                <div class="w-skel">
+                                    <div class="skel-bg"></div>
+                                    <div class="skel-bg"></div>
+                                </div>
+                            </div>
+                            <div class="box-sec">
+                                <div class="w-skel">
+                                    <div class="skel-bg"></div>
+                                    <div class="skel-bg"></div>
+                                    <div class="skel-bg"></div>
+                                </div>
+                            </div>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+            <!-- //skeleton loading -->
+           
+            <!-- 추천항공편 -->
+            <div class="s-rec-list-airline" style="display: none;">
+                <div class="info-header">
+                    <span class="txt">추천항공편</span>
+                    <span class="btn-base bb-help bc-white"><a href="#"><span class="a11y">추천항공편 안내</span></a></span>
+                </div>
+                
+                <!-- 추천항공 요약 슬라이드 -->
+                <div class="list-rec-airline swiper-container">
+                    <ul class="list swiper-wrapper">
+                        <li class="swiper-slide">
+                            <a href="#" class="o-box">
+                                <span class="logo"><img src="/images/front/travel/contents/logo-air/KE.png" alt="KE">대한항공</span>
+                                <span class="price final-low"><strong>845,000</strong>원</span>
+                            </a>
+                        </li>
+                        <li class="swiper-slide">
+                            <a href="#" class="o-box">
+                                <span class="logo"><img src="/images/front/travel/contents/logo-air/DOM_OZ.png" alt="DOM_OZ">아시아나항공</span>
+                                <span class="price"><strong>924,000</strong>원</span>
+                            </a>
+                        </li>
+                        <li class="swiper-slide">
+                            <a href="#" class="o-box">
+                                <span class="logo"><img src="/images/front/travel/contents/logo-air/DOM_OZ.png" alt="DOM_OZ">아시아나항공</span>
+                                <span class="price"><strong>924,000</strong>원</span>
+                            </a>
+                        </li>
+                        <li class="swiper-slide">
+                            <a href="#" class="o-box">
+                                <span class="logo"><img src="/images/front/travel/contents/logo-air/DOM_OZ.png" alt="DOM_OZ">아시아나항공</span>
+                                <span class="price"><strong>924,000</strong>원</span>
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+                <!-- //추천항공 요약 슬라이드 -->
+                
+                <!-- 추천항공 상세 슬라이드 -->
+                <div class="area-rec-detail swiper-container">
+                    <div class="swiper-wrapper">
+                        <div class="swiper-slide">
+                            <div class="box-airline-detail">
+                                <div class="area-sel-box">
+                                    <div class="box-sec">
+                                        <div class="inset-row box-airline-info">
+                                            <div class="bad-airline">
+                                                <div class="ba-airline-logo"><img src="/images/front/travel/contents/logo-air/KE.png" alt="KE"></div>
+                                            </div>
+                                            <div class="bad-route">
+                                                <div class="ba-route-time">
+                                                    <div class="dep-time">
+                                                        <span class="time">10:35</span>
+                                                        <span class="txt">ICN T1</span>
+                                                    </div>
+                                                    <div class="info-time">
+                                                        <span class="a11y">경유가 없습니다.</span>
+                                                    </div>
+                                                    <div class="arr-time">
+                                                        <span class="time">23:15 <span class="gap">+1</span></span>
+                                                        <span class="txt">NRT T3</span>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="bad-airline-info">
+                                                <div class="ba-ai">
+                                                    <span class="ba-seat">잔여1석</span>
+                                                    <span class="ba-time">14시간 30분</span>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="box-sec">
+                                        <div class="inset-row">
+                                            <div class="bad-pricelist">
+                                                <ul class="bp-pricelist-info">
+                                                    <li>
+                                                        <span class="txt">현대카드 <em>10%</em> 청구 할인</span>
+                                                        <span class="btn-base bb-help bc-gray"><a href="#"><span class="a11y">현대카드 10% 청구 할인 안내</span></a></span>
+                                                        <strong class="price"><em>924,909</em> 원</strong>
+                                                    </li>
+                                                    <li>
+                                                        <span class="txt">현대카드 <em>7%</em> 청구 할인</span>
+                                                        <strong class="price"><em>976,909</em> 원</strong>
+                                                    </li>
+                                                    <li class="privia-price">
+                                                        <span class="txt">PRIVIA 특가</span>
+                                                        <span class="btn-base bb-help bc-gray"><a href="#"><span class="a11y">PRIVIA 특가 안내</span></a></span>
+                                                        <strong class="price"><em>1,876,909</em> 원</strong>
+                                                    </li>
+                                                </ul>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="swiper-slide">
+                            <div class="box-airline-detail">
+                                <div class="area-sel-box">
+                                    <div class="box-sec">
+                                        <div class="inset-row box-airline-info">
+                                            <div class="bad-airline">
+                                                <div class="ba-airline-logo"><img src="/images/front/travel/contents/logo-air/KE.png" alt="KE"></div>
+                                            </div>
+                                            <div class="bad-route">
+                                                <div class="ba-route-time">
+                                                    <div class="dep-time">
+                                                        <span class="time">10:35</span>
+                                                        <span class="txt">ICN T1</span>
+                                                    </div>
+                                                    <div class="info-time">
+                                                        <span class="mark-point">
+                                                            <span class="mp"><span class="a11y">경유 표시 모양</span></span>
+                                                        </span>
+                                                        <span class="txt">1회 경유</span>
+                                                    </div>
+                                                    <div class="arr-time">
+                                                        <span class="time">23:15 <span class="gap">+1</span></span>
+                                                        <span class="txt">NRT T3</span>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="bad-airline-info">
+                                                <div class="ba-ai">
+                                                    <span class="ba-seat">잔여1석</span>
+                                                    <span class="ba-time">14시간 30분</span>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="inset-row">
+                                            <div class="bad-airline-joint">
+                                                <ul class="list">
+                                                    <li><span class="code">ICN - NRT</span> 실제 진에어 탑승</li>
+                                                </ul>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="box-sec">
+                                        <div class="inset-row">
+                                            <div class="bad-pricelist">
+                                                <ul class="bp-pricelist-info">
+                                                    <li>
+                                                        <span class="txt">현대카드 <em>10%</em> 청구 할인</span>
+                                                        <span class="btn-base bb-help bc-gray"><a href="#"><span class="a11y">현대카드 10% 청구 할인 안내</span></a></span>
+                                                        <strong class="price"><em>924,909</em> 원</strong>
+                                                    </li>
+                                                    <li>
+                                                        <span class="txt">현대카드 <em>7%</em> 청구 할인</span>
+                                                        <strong class="price"><em>976,909</em> 원</strong>
+                                                    </li>
+                                                    <li class="privia-price">
+                                                        <span class="txt">PRIVIA 특가</span>
+                                                        <span class="btn-base bb-help bc-gray"><a href="#"><span class="a11y">PRIVIA 특가 안내</span></a></span>
+                                                        <strong class="price"><em>1,876,909</em> 원</strong>
+                                                    </li>
+                                                </ul>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="swiper-slide">
+                            <div class="box-airline-detail">
+                                <div class="area-sel-box">
+                                    <div class="box-sec">
+                                        <div class="inset-row box-airline-info">
+                                            <div class="bad-airline">
+                                                <div class="ba-airline-logo"><img src="/images/front/travel/contents/logo-air/KE.png" alt="KE"></div>
+                                            </div>
+                                            <div class="bad-route">
+                                                <div class="ba-route-time">
+                                                    <div class="dep-time">
+                                                        <span class="time">10:35</span>
+                                                        <span class="txt">ICN T1</span>
+                                                    </div>
+                                                    <div class="info-time">
+                                                        <span class="a11y">경유가 없습니다.</span>
+                                                    </div>
+                                                    <div class="arr-time">
+                                                        <span class="time">23:15 <span class="gap">+1</span></span>
+                                                        <span class="txt">NRT T3</span>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="bad-airline-info">
+                                                <div class="ba-ai">
+                                                    <span class="ba-seat">잔여1석</span>
+                                                    <span class="ba-time">14시간 30분</span>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="box-sec">
+                                        <div class="inset-row">
+                                            <div class="bad-pricelist">
+                                                <ul class="bp-pricelist-info">
+                                                    <li>
+                                                        <span class="txt">현대카드 <em>10%</em> 청구 할인</span>
+                                                        <span class="btn-base bb-help bc-gray"><a href="#"><span class="a11y">현대카드 10% 청구 할인 안내</span></a></span>
+                                                        <strong class="price"><em>924,909</em> 원</strong>
+                                                    </li>
+                                                    <li>
+                                                        <span class="txt">현대카드 <em>7%</em> 청구 할인</span>
+                                                        <strong class="price"><em>976,909</em> 원</strong>
+                                                    </li>
+                                                    <li class="privia-price">
+                                                        <span class="txt">PRIVIA 특가</span>
+                                                        <span class="btn-base bb-help bc-gray"><a href="#"><span class="a11y">PRIVIA 특가 안내</span></a></span>
+                                                        <strong class="price"><em>1,876,909</em> 원</strong>
+                                                    </li>
+                                                </ul>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="swiper-slide">
+                            <div class="box-airline-detail">
+                                <div class="area-sel-box">
+                                    <div class="box-sec">
+                                        <div class="inset-row box-airline-info">
+                                            <div class="bad-airline">
+                                                <div class="ba-airline-logo"><img src="/images/front/travel/contents/logo-air/KE.png" alt="KE"></div>
+                                            </div>
+                                            <div class="bad-route">
+                                                <div class="ba-route-time">
+                                                    <div class="dep-time">
+                                                        <span class="time">10:35</span>
+                                                        <span class="txt">ICN T1</span>
+                                                    </div>
+                                                    <div class="info-time">
+                                                        <span class="a11y">경유가 없습니다.</span>
+                                                    </div>
+                                                    <div class="arr-time">
+                                                        <span class="time">23:15 <span class="gap">+1</span></span>
+                                                        <span class="txt">NRT T3</span>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="bad-airline-info">
+                                                <div class="ba-ai">
+                                                    <span class="ba-seat">잔여1석</span>
+                                                    <span class="ba-time">14시간 30분</span>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="box-sec">
+                                        <div class="inset-row">
+                                            <div class="bad-pricelist">
+                                                <ul class="bp-pricelist-info">
+                                                    <li>
+                                                        <span class="txt">현대카드 <em>10%</em> 청구 할인</span>
+                                                        <span class="btn-base bb-help bc-gray"><a href="#"><span class="a11y">현대카드 10% 청구 할인 안내</span></a></span>
+                                                        <strong class="price"><em>924,909</em> 원</strong>
+                                                    </li>
+                                                    <li>
+                                                        <span class="txt">현대카드 <em>7%</em> 청구 할인</span>
+                                                        <strong class="price"><em>976,909</em> 원</strong>
+                                                    </li>
+                                                    <li class="privia-price">
+                                                        <span class="txt">PRIVIA 특가</span>
+                                                        <span class="btn-base bb-help bc-gray"><a href="#"><span class="a11y">PRIVIA 특가 안내</span></a></span>
+                                                        <strong class="price"><em>1,876,909</em> 원</strong>
+                                                    </li>
+                                                </ul>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- //추천항공편 -->
+            
+            <!-- 국제선 검색 결과 리스트 -->
+            <div class="s-list-airline" style="display: none;">
+                <div class="info-header">
+                    <span class="ih-date">12/01 (토)</span>
+                    <span class="ih-places"><em>도쿄(나리타)</em> 가는편</span>
+                </div>
+                <div class="list-airline">
+                    <ul class="list">
+                        <li class="inset"><!-- loop -->
+                            <div class="box-airline-detail">
+                                <div class="area-sel-box">
+                                    <div class="box-sec">
+                                        <div class="inset-row box-airline-info">
+                                            <div class="bad-airline">
+                                                <div class="ba-airline-logo"><img src="/images/front/travel/contents/logo-air/KE.png" alt="KE"></div>
+                                            </div>
+                                            <div class="bad-route">
+                                                <div class="ba-route-time">
+                                                    <div class="dep-time">
+                                                        <span class="time">10:35</span>
+                                                        <span class="txt">ICN T1</span>
+                                                    </div>
+                                                    <div class="info-time">
+                                                        <span class="mark-point">
+                                                            <span class="mp"><span class="a11y">경유 표시 모양</span></span>
+                                                            <span class="mp"><span class="a11y">경유 표시 모양</span></span>
+                                                        </span>
+                                                        <span class="txt">2회 경유</span>
+                                                    </div>
+                                                    <div class="arr-time">
+                                                        <span class="time">23:15 <span class="gap">+1</span></span>
+                                                        <span class="txt">NRT T3</span>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="bad-airline-info">
+                                                <div class="ba-ai">
+                                                    <span class="ba-seat">잔여1석</span>
+                                                    <span class="ba-time">14시간 30분</span>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="inset-row">
+                                            <div class="bad-airline-joint">
+                                                <ul class="list">
+                                                    <li><span class="code">ICN - NRT</span> 실제 진에어 탑승</li>
+                                                    <li><span class="code">NRT - ICN</span> 실제 진에어 탑승</li>
+                                                </ul>
+                                                <button class="tg-joint">외 1회</button>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="box-sec">
+                                        <div class="inset-row">
+                                            <div class="bad-pricelist">
+                                                <ul class="bp-pricelist-info">
+                                                    <li>
+                                                        <span class="txt">현대카드 <em>10%</em> 청구 할인</span>
+                                                        <span class="btn-base bb-help bc-gray"><a href="#"><span class="a11y">현대카드 10% 청구 할인 안내</span></a></span>
+                                                        <strong class="price"><em>924,909</em> 원</strong>
+                                                    </li>
+                                                    <li>
+                                                        <span class="txt">현대카드 <em>7%</em> 청구 할인</span>
+                                                        <strong class="price"><em>976,909</em> 원</strong>
+                                                    </li>
+                                                    <li class="privia-price">
+                                                        <span class="txt">PRIVIA 특가</span>
+                                                        <span class="btn-base bb-help bc-gray"><a href="#"><span class="a11y">PRIVIA 특가 안내</span></a></span>
+                                                        <strong class="price"><em>1,876,909</em> 원</strong>
+                                                    </li>
+                                                </ul>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </li><!-- //loop -->
+                        <li class="inset"><!-- loop -->
+                            <div class="box-airline-detail">
+                                <div class="area-sel-box">
+                                    <div class="box-sec">
+                                        <div class="inset-row box-airline-info">
+                                            <div class="bad-airline">
+                                                <div class="ba-airline-logo"><img src="/images/front/travel/contents/logo-air/KE.png" alt="KE"></div>
+                                            </div>
+                                            <div class="bad-route">
+                                                <div class="ba-route-time">
+                                                    <div class="dep-time">
+                                                        <span class="time">10:35</span>
+                                                        <span class="txt">ICN T1</span>
+                                                    </div>
+                                                    <div class="info-time">
+                                                        <span class="mark-point">
+                                                            <span class="mp"><span class="a11y">경유 표시 모양</span></span>
+                                                        </span>
+                                                        <span class="txt">1회 경유</span>
+                                                    </div>
+                                                    <div class="arr-time">
+                                                        <span class="time">23:15 <span class="gap">+1</span></span>
+                                                        <span class="txt">NRT T3</span>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="bad-airline-info">
+                                                <div class="ba-ai">
+                                                    <span class="ba-seat">잔여1석</span>
+                                                    <span class="ba-time">14시간 30분</span>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="inset-row">
+                                            <div class="bad-airline-joint">
+                                                <ul class="list">
+                                                    <li><span class="code">ICN - NRT</span> 실제 진에어 탑승</li>
+                                                </ul>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="box-sec">
+                                        <div class="inset-row">
+                                            <div class="bad-pricelist">
+                                                <ul class="bp-pricelist-info">
+                                                    <li>
+                                                        <span class="txt">현대카드 <em>10%</em> 청구 할인</span>
+                                                        <span class="btn-base bb-help bc-gray"><a href="#"><span class="a11y">현대카드 10% 청구 할인 안내</span></a></span>
+                                                        <strong class="price"><em>924,909</em> 원</strong>
+                                                    </li>
+                                                    <li>
+                                                        <span class="txt">현대카드 <em>7%</em> 청구 할인</span>
+                                                        <strong class="price"><em>976,909</em> 원</strong>
+                                                    </li>
+                                                    <li class="privia-price">
+                                                        <span class="txt">PRIVIA 특가</span>
+                                                        <span class="btn-base bb-help bc-gray"><a href="#"><span class="a11y">PRIVIA 특가 안내</span></a></span>
+                                                        <strong class="price"><em>1,876,909</em> 원</strong>
+                                                    </li>
+                                                </ul>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </li><!-- //loop -->
+                        <li class="inset"><!-- loop -->
+                            <div class="box-airline-detail">
+                                <div class="area-sel-box">
+                                    <div class="box-sec">
+                                        <div class="inset-row box-airline-info">
+                                            <div class="bad-airline">
+                                                <div class="ba-airline-logo"><img src="/images/front/travel/contents/logo-air/KE.png" alt="KE"></div>
+                                            </div>
+                                            <div class="bad-route">
+                                                <div class="ba-route-time">
+                                                    <div class="dep-time">
+                                                        <span class="time">10:35</span>
+                                                        <span class="txt">ICN T1</span>
+                                                    </div>
+                                                    <div class="info-time">
+                                                        <span class="a11y">경유가 없습니다.</span>
+                                                    </div>
+                                                    <div class="arr-time">
+                                                        <span class="time">23:15 <span class="gap">+1</span></span>
+                                                        <span class="txt">NRT T3</span>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="bad-airline-info">
+                                                <div class="ba-ai">
+                                                    <span class="ba-seat">잔여1석</span>
+                                                    <span class="ba-time">14시간 30분</span>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="box-sec">
+                                        <div class="inset-row">
+                                            <div class="bad-pricelist">
+                                                <ul class="bp-pricelist-info">
+                                                    <li>
+                                                        <span class="txt">현대카드 <em>10%</em> 청구 할인</span>
+                                                        <span class="btn-base bb-help bc-gray"><a href="#"><span class="a11y">현대카드 10% 청구 할인 안내</span></a></span>
+                                                        <strong class="price"><em>924,909</em> 원</strong>
+                                                    </li>
+                                                    <li>
+                                                        <span class="txt">현대카드 <em>7%</em> 청구 할인</span>
+                                                        <strong class="price"><em>976,909</em> 원</strong>
+                                                    </li>
+                                                    <li class="privia-price">
+                                                        <span class="txt">PRIVIA 특가</span>
+                                                        <span class="btn-base bb-help bc-gray"><a href="#"><span class="a11y">PRIVIA 특가 안내</span></a></span>
+                                                        <strong class="price"><em>1,876,909</em> 원</strong>
+                                                    </li>
+                                                </ul>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </li><!-- //loop -->
+                        <li class="inset"><!-- loop -->
+                            <div class="box-airline-detail">
+                                <div class="area-sel-box">
+                                    <div class="box-sec">
+                                        <div class="inset-row box-airline-info">
+                                            <div class="bad-airline">
+                                                <div class="ba-airline-logo"><img src="/images/front/travel/contents/logo-air/KE.png" alt="KE"></div>
+                                            </div>
+                                            <div class="bad-route">
+                                                <div class="ba-route-time">
+                                                    <div class="dep-time">
+                                                        <span class="time">10:35</span>
+                                                        <span class="txt">ICN T1</span>
+                                                    </div>
+                                                    <div class="info-time">
+                                                        <span class="a11y">경유가 없습니다.</span>
+                                                    </div>
+                                                    <div class="arr-time">
+                                                        <span class="time">23:15 <span class="gap">+1</span></span>
+                                                        <span class="txt">NRT T3</span>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="bad-airline-info">
+                                                <div class="ba-ai">
+                                                    <span class="ba-seat">잔여1석</span>
+                                                    <span class="ba-time">14시간 30분</span>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="box-sec">
+                                        <div class="inset-row">
+                                            <div class="bad-pricelist">
+                                                <ul class="bp-pricelist-info">
+                                                    <li>
+                                                        <span class="txt">현대카드 <em>10%</em> 청구 할인</span>
+                                                        <span class="btn-base bb-help bc-gray"><a href="#"><span class="a11y">현대카드 10% 청구 할인 안내</span></a></span>
+                                                        <strong class="price"><em>924,909</em> 원</strong>
+                                                    </li>
+                                                    <li>
+                                                        <span class="txt">현대카드 <em>7%</em> 청구 할인</span>
+                                                        <strong class="price"><em>976,909</em> 원</strong>
+                                                    </li>
+                                                    <li class="privia-price">
+                                                        <span class="txt">PRIVIA 특가</span>
+                                                        <span class="btn-base bb-help bc-gray"><a href="#"><span class="a11y">PRIVIA 특가 안내</span></a></span>
+                                                        <strong class="price"><em>1,876,909</em> 원</strong>
+                                                    </li>
+                                                </ul>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </li><!-- //loop -->
+                    </ul>
+                </div>
+                <div class="more-list-loading">
+                    <p>더 많은 항공을 검색중입니다.</p>
+                </div>
+            </div>
+            <!-- //국제선 검색 결과 리스트 -->
+            
+            <!-- 필터 정렬 버튼 -->
+            <div class="btn-filter-range" style="display: none;"><a href="/privia_2018/html_mobile/air/pt_m_air_ser_detail_pu.html" data-rel="dialog" data-transition="slideup" class="bfr"><span class="txt">필터&amp;정렬</span></a></div>
         </section>
     </div>
     <!-- //content-sec -->
@@ -393,7 +1019,80 @@
     
     <script type="text/javascript">
     $(document).one('pageshow',function(e,data){      
-        pvmSearch.comSearchAir();
+        function setHSPInt(num){
+            if(num > 100){
+                clearInterval(barItv);
+                
+                //실시간 검색결과 로딩바 삭제
+                $('.loading-all-list').fadeOut('fast', function(){
+                    $(this).remove();
+                });
+                
+                //skeleton 삭제
+                $('.list-airline-skeleton').fadeOut('fast', function(){
+                    $(this).remove();
+                });
+                
+                //추천항공편, 항공편 리스트, 필터버튼 노출
+                $('.s-rec-list-airline, .s-list-airline, .btn-filter-range').show();
+                
+                //재검색
+                pvmSearch.comSearchAir();
+
+                //추천항공 요약 슬라이드
+                var recAirlineSwiper = new Swiper('.s-rec-list-airline .list-rec-airline', {
+                    slidesPerView: 'auto',
+                    autoplay: false,
+                    on: {
+                        click: function(){
+                            /*$('.s-rec-list-airline .list-rec-airline').find('.is-clicked').removeClass('is-clicked');
+                            $(this.clickedSlide).addClass('is-clicked');*/
+                            recAirlineDetailSwiper.slideTo(this.clickedIndex);
+                        }
+                    }
+                });
+
+                //추천항공 상세 슬라이드
+                var recAirlineDetailSwiper = new Swiper('.s-rec-list-airline .area-rec-detail', {
+                    effect: 'fade',
+                    slidesPerView: 1,
+                    simulateTouch: false,
+                    shortSwipes: false,
+                    longSwipes: false,
+                    allowTouchMove: false,
+                    autoHeight: true,
+                    autoplay: false
+                });
+
+                //공동운항 리스트 클릭
+                $(document).on('click', '.tg-joint', function(e){
+                    console.log('공동운항 리스트 클릭');
+                    e.stopPropagation();
+                });
+                
+                //청구할인 클릭
+                $(document).on('click', '.bp-pricelist-info .bb-help a', function(e){
+                    console.log('청구할인 클릭');
+                    e.stopPropagation();
+                });
+
+                //검색 결과 리스트 클릭
+                $(document).on('click', '.box-airline-detail .area-sel-box', function(){
+                    console.log('검색 결과 리스트 클릭');
+                });
+                
+                return false;
+            }
+            
+            $('.loading-all-list .lal-bar .bar').css('width',num+'%');
+            $('.loading-all-list .num').text(num);
+        }
+        
+        //실시간 검색결과 로딩바
+        var cnt = 0;
+        var barItv = setInterval(function(){
+            setHSPInt(cnt++);
+        }, 20);       
     });
     </script>
     

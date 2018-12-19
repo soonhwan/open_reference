@@ -26,80 +26,6 @@
 		}
 		return unescape(dc.substring(begin + prefix.length, end));
 	};
-	/*$.fn.customCheckbox = function(){
-		return this.each(function(){
-			var $this = $(this);
-			var $chk = $this.find('[type="checkbox"]');
-			var $label = $this.find('label');
-			
-			if(!$chk || $this.hasClass('chk-initialized')){return false;}
-			
-			//checked 유효체크
-			if($chk.prop('checked')){
-				$label.addClass('on');
-			}
-			else{
-				$label.removeClass('on');
-			}
-			
-			//disabled
-			if($chk.prop('disabled')){
-			   $this.addClass('disabled');
-			}
-			
-			//label click
-			$label.on('click', function(){
-				if($label.closest('.disabled').hasClass('disabled')){return;}
-				if($label.hasClass('on')){
-					$label.removeClass('on');
-				}
-				else{
-					$label.addClass('on');
-				}
-			});
-			
-			//initialized
-			$this.addClass('chk-initialized');
-		});
-	}*/
-	/*$.fn.customRadio = function(){
-		return this.each(function(){
-			var $this = $(this);
-			var $radio = $this.find('[type="radio"]');
-			var $label = $this.find('label');
-			var $name = $radio.attr('name');
-			
-			if(!$radio || $this.hasClass('radio-initialized')){return false;}
-			
-			//name 저장
-			$label.name = $name;
-			
-			//checked 유효체크
-			if($radio.prop('checked')){
-				$label.addClass('on');
-			}
-			else{
-				$label.removeClass('on');
-			}
-			
-			//disabled
-			if($radio.prop('disabled')){
-			   $this.addClass('disabled');
-			}
-			
-			//label click
-			$label.on('click', function(){
-				if($label.closest('.disabled').hasClass('disabled')){return;}
-				if(!$label.hasClass('on')){
-					$('[name="'+$label.name+'"]').next('label.on').removeClass('on');
-					$label.addClass('on');	
-				}
-			});
-			
-			//initialized
-			$this.addClass('radio-initialized');
-		});
-	}*/
 	$.fn.uisCustomNumber = function(setting){
 		return this.each(function(){
 			var $this = $(this);	
@@ -1484,6 +1410,8 @@ function init(){
 	zipCode(); //우편번호
 	$('.input_text').removeRequired();
 	adjust_ios_header();
+	
+	pvmFrontScript.init();
 	
 	if(typeof AIR_HTL_FLAG == 'undefined'){
 		AIR_HTL_FLAG = 'ETC';

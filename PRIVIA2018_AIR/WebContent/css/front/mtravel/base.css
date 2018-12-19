@@ -292,9 +292,10 @@ box-sizing: border-box;
 .popWrap-sec, .popWrap-sec *, .popWrap-sec *:after, .popWrap-sec *:before, 
 .search-sec, .search-sec *, .search-sec *:after, .search-sec *:before,
 .content-sec, .content-sec *, .content-sec *:after, .content-sec *:before,
-.footer-sec, .footer-sec *, .footer-sec *:after, .footer-sec *:before {font-family: "NotoSansKR", "Malgun Gothic", sans-serif;font-weight: 300;-moz-box-sizing:border-box;-webkit-box-sizing:border-box;box-sizing:border-box;}
-.popWrap-sec table, .search-sec table, .content-sec table {border:0;border-spacing:0;border-collapse:collapse;}
+.footer-sec, .footer-sec *, .footer-sec *:after, .footer-sec *:before {font-family: "NotoSansKR", "Malgun Gothic", sans-serif;-moz-box-sizing:border-box;-webkit-box-sizing:border-box;box-sizing:border-box;}
+.popWrap-sec table, .search-sec table, .content-sec table {border-spacing:0;border-collapse:collapse;}
 
+/* 개편 시작 */
 /*--------------------------------------------------------------------------------------------------------------
  *  common - background
  *--------------------------------------------------------------------------------------------------------------*/
