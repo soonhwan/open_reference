@@ -305,8 +305,8 @@ box-sizing: border-box;
 .w-header-sec .ly-right .b-gnb:before, 
 .w-header-sec .ly-right .b-mymenu, 
 .w-header-sec .ly-left .b-close, 
-.header-secV2.header-page-st .ly-right .b-refresh, 
-.header-secV2.header-page-st .ly-left .b-close, 
+.header-secV2.header-pop-st .ly-right .b-refresh, 
+.header-secV2.header-pop-st .ly-left .b-close, 
 .header-secV2.header-page-st .ly-left .b-back, 
 .in-header-secV2 .ly-right .b-mymenu, 
 .in-header-secV2 .ly-left .b-gnb:before {background-image: url(/images/front/mtravel/contents/icon-common-secM.png);-webkit-background-size: 160px;background-size: 160px;}
@@ -329,6 +329,9 @@ box-sizing: border-box;
 
 /* 개편 ver2 - 메인헤더 */
 .header-secV2 {position: relative;height: 50px;}
+.header-secV2.header-main-st {animation:headerMainShow 0.3s 1 ease-out;}
+@keyframes headerMainShow{ 0% {opacity:0;} 100% {opacity:1;} }
+.header-secV2.header-main-st {opacity: 1;visibility: visible;}
 .in-header-secV2 {height: 50px;background-color: #fff;width: 100%;position: relative;}
 .in-header-secV2 .logo {text-align: center;padding-top: 18px;}
 .in-header-secV2 .logo a {display: inline-block;width: 130px;}
@@ -337,16 +340,17 @@ box-sizing: border-box;
 .in-header-secV2 .ly-left .b-gnb {display: inline-block;position: relative;width: 28px;height: 22px;}
 .in-header-secV2 .ly-left .b-gnb:before {content: '';display: inline-block;width: 28px;height: 10px;overflow: hidden;background-position: -45px 0px;position: absolute;left: 0;top: 6px;}
 .in-header-secV2 .ly-right .b-mymenu {display: inline-block;width: 23px;height: 22px;overflow: hidden;background-position: -19px 0px;}
+.in-header-secV2 .ihg-title {font-size:18px;color: #000;text-align: center;font-weight: 400;padding-top: 12px;}
 /* 개편 ver2 - 서브헤더 */
-.header-secV2.header-page-st .in-header-secV2 {background-color: #fff;border-bottom: 1px solid #ccc;}
+.header-secV2.header-page-st .in-header-secV2 {background-color: #fff;}
 .header-secV2.header-page-st.is-fixed .in-header-secV2 {position: fixed;z-index: 10;top: 0;left: 0;width: 100%;}
-.header-secV2.header-page-st .ihg-title {font-size:18px;color: #000;text-align: center;font-weight: 400;padding-top: 12px;}
 .header-secV2.header-page-st .ly-left {top: 14px;}
 .header-secV2.header-page-st .ly-left .b-back {display: inline-block;width: 13px;height: 23px;overflow: hidden;background-position: 0px -141px;}
-.header-secV2.header-page-st .ly-left .b-close {display: inline-block;width: 21px;height: 22px;overflow: hidden;background-position: -33px -141px;}
-.header-secV2.header-page-st .ly-right .b-refresh {display: inline-block;width: 24px;height: 24px;overflow: hidden;background-position: -57px -141px;}
 /* 개편 ver2 - 팝업헤더 */
-.header-secV2.header-pop-st .in-header-secV2 {position: fixed;z-index: 10;top: 0;left: 0;width: 100%;}
+.header-secV2.header-pop-st .in-header-secV2 {background-color: #fff;border-bottom: 1px solid #ccc;position: fixed;z-index: 10;top: 0;left: 0;width: 100%;}
+.header-secV2.header-pop-st .ly-left {top: 14px;}
+.header-secV2.header-pop-st .ly-left .b-close {display: inline-block;width: 21px;height: 22px;overflow: hidden;background-position: -33px -141px;}
+.header-secV2.header-pop-st .ly-right .b-refresh {display: inline-block;width: 24px;height: 24px;overflow: hidden;background-position: -57px -141px;}
 
 /* gnb */
 .gnbArea{width:200px;position:fixed;top:0;right:-200px;height:100%;background-color:#fff;z-index:100;

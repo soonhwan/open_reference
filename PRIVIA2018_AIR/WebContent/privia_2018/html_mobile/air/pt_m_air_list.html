@@ -35,7 +35,7 @@
    
     <!-- header-sec -->
     <!-- 메인헤더 -->
-    <div class="header-secV2">
+    <div class="header-secV2 header-main-st">
         <div class="in-header-secV2">
             <h1 class="logo"><a href="#"><img src="/images/front/mtravel/contents/logo-privia.png" alt="현대카드 PRIVIA 여행"></a></h1>
             <div class="ly-left">
@@ -437,14 +437,15 @@
             <!-- //skeleton loading -->
            
             <!-- 추천항공편 -->
-            <div class="s-rec-list-airline" style="display: none;">
+            <div class="s-rec-list-items" style="display: none;">
                 <div class="info-header">
-                    <span class="txt">추천항공편</span>
+                    <h4 class="txt">추천항공편</h4>
                     <span class="btn-base bb-help bc-white"><a href="#"><span class="a11y">추천항공편 안내</span></a></span>
+                    <button class="btn-close-detail"><span class="a11y">추천항공 상세 닫기</span></button>
                 </div>
                 
                 <!-- 추천항공 요약 슬라이드 -->
-                <div class="list-rec-airline swiper-container">
+                <div class="lri-sum-swiper swiper-container">
                     <ul class="list swiper-wrapper">
                         <li class="swiper-slide">
                             <a href="#" class="o-box">
@@ -475,7 +476,7 @@
                 <!-- //추천항공 요약 슬라이드 -->
                 
                 <!-- 추천항공 상세 슬라이드 -->
-                <div class="area-rec-detail swiper-container">
+                <div class="lri-detail-swiper swiper-container">
                     <div class="swiper-wrapper">
                         <div class="swiper-slide">
                             <div class="box-airline-detail">
@@ -716,6 +717,32 @@
             </div>
             <!-- //추천항공편 -->
             
+            <!-- 선택한 항공편 -->
+            <div class="s-sel-items" style="display: none;">
+                <div class="info-header">
+                    <h4 class="txt">선택한 항공편</h4>
+                </div>
+                <ul class="list-items">
+                    <li class="ow-expand">
+                        <div class="area-title o-expand-btn">
+                            <button><span class="tit">여정1</span><span class="txt">08/28(화) 10:35 ~ 13:07 ICN - NRT</span></button>
+                        </div>
+                        <div class="area-detail o-expand-cont">
+                            sdf
+                        </div>    
+                    </li>
+                    <li class="ow-expand">
+                        <div class="area-title o-expand-btn">
+                            <button><span class="tit">여정1</span><span class="txt">08/28(화) 10:35 ~ 13:07 ICN - NRT</span></button>
+                        </div>
+                        <div class="area-detail o-expand-cont">
+                            sdf
+                        </div>     
+                    </li>
+                </ul>
+            </div>
+            <!-- //선택한 항공편 -->
+            
             <!-- 국제선 검색 결과 리스트 -->
             <div class="s-list-airline" style="display: none;">
                 <div class="info-header">
@@ -759,12 +786,12 @@
                                             </div>
                                         </div>
                                         <div class="inset-row">
-                                            <div class="bad-airline-joint">
-                                                <ul class="list">
+                                            <div class="bad-airline-joint ow-expand">
+                                                <ul class="list o-expand-cont">
                                                     <li><span class="code">ICN - NRT</span> 실제 진에어 탑승</li>
                                                     <li><span class="code">NRT - ICN</span> 실제 진에어 탑승</li>
                                                 </ul>
-                                                <button class="tg-joint">외 1회</button>
+                                                <button class="tg-joint o-expand-btn"><span class="txt">외 1회</span></button>
                                             </div>
                                         </div>
                                     </div>
@@ -973,9 +1000,6 @@
                         </li><!-- //loop -->
                     </ul>
                 </div>
-                <div class="more-list-loading">
-                    <p>더 많은 항공을 검색중입니다.</p>
-                </div>
             </div>
             <!-- //국제선 검색 결과 리스트 -->
             
@@ -1034,40 +1058,44 @@
                 });
                 
                 //추천항공편, 항공편 리스트, 필터버튼 노출
-                $('.s-rec-list-airline, .s-list-airline, .btn-filter-range').show();
+                $('.s-rec-list-items, .s-list-airline, .btn-filter-range').show();
                 
                 //재검색
                 pvmSearch.comSearchAir();
 
                 //추천항공 요약 슬라이드
-                var recAirlineSwiper = new Swiper('.s-rec-list-airline .list-rec-airline', {
+                var recAirlineSwiper = new Swiper('.s-rec-list-items .lri-sum-swiper', {
                     slidesPerView: 'auto',
                     autoplay: false,
+                    //slideToClickedSlide: true,
                     on: {
                         click: function(){
-                            /*$('.s-rec-list-airline .list-rec-airline').find('.is-clicked').removeClass('is-clicked');
-                            $(this.clickedSlide).addClass('is-clicked');*/
-                            recAirlineDetailSwiper.slideTo(this.clickedIndex);
+                            var $expandCont = $('.s-rec-list-items .lri-detail-swiper');
+                            recAirlineDetailSwiper.slideTo(this.clickedIndex,0);                            
+                            $expandCont.addClass('is-open');
+                            $expandCont.css({'height' : $expandCont.prop('scrollHeight')+'px'});
+                            $('.s-rec-list-items .info-header .btn-close-detail').addClass('is-show');
+                            recAirlineSwiper.allowTouchMove = false;
                         }
                     }
                 });
 
                 //추천항공 상세 슬라이드
-                var recAirlineDetailSwiper = new Swiper('.s-rec-list-airline .area-rec-detail', {
+                var recAirlineDetailSwiper = new Swiper('.s-rec-list-items .lri-detail-swiper', {
                     effect: 'fade',
                     slidesPerView: 1,
-                    simulateTouch: false,
-                    shortSwipes: false,
-                    longSwipes: false,
                     allowTouchMove: false,
                     autoHeight: true,
                     autoplay: false
                 });
-
-                //공동운항 리스트 클릭
-                $(document).on('click', '.tg-joint', function(e){
-                    console.log('공동운항 리스트 클릭');
-                    e.stopPropagation();
+                
+                //추천항공 상세 슬라이드 닫기
+                $('.s-rec-list-items .info-header .btn-close-detail').on('click', function(){
+                    var $expandCont = $('.s-rec-list-items .lri-detail-swiper');
+                    $expandCont.removeClass('is-open');
+                    $expandCont.removeAttr('style');
+                    $(this).removeClass('is-show');
+                    recAirlineSwiper.allowTouchMove = true;
                 });
                 
                 //청구할인 클릭
@@ -1092,7 +1120,7 @@
         var cnt = 0;
         var barItv = setInterval(function(){
             setHSPInt(cnt++);
-        }, 20);       
+        }, 0);   
     });
     </script>
     

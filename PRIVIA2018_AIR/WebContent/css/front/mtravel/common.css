@@ -1369,6 +1369,7 @@ box-sizing: border-box;
 /*--------------------------------------------------------------------------------------------------------------
  *  common - background
  *--------------------------------------------------------------------------------------------------------------*/
+.select-st1:before,
 .radio-st1 input[type="radio"],
 .chk-st1 input[type="checkbox"],
 .c-tit-sec a:after,
@@ -1446,22 +1447,16 @@ box-sizing: border-box;
 /*.lbr-st3 span {font-size:10px;color: #f42a86;text-align: center;min-width: 38px;padding: 9px 7px;border-radius:2px;border:1px solid #ec0d61;}*/
 
 /* ------------- checkbox style */
-/*.chk-base {transition: opacity 0.3s;display: inline-block;}
-.chk-base.disabled {opacity: 0.4;pointer-events: none;}
-.chk-base label {display: inline-block;vertical-align: middle;position: relative;}
-.chk-base input[type="checkbox"] + label {margin-left: 0;}*/
-/* checkbox1 */ 
-/*.chk-st1 label {min-width:22px;min-height: 22px;line-height: 20px;padding-left: 30px;font-size: 14px;color: #000;}
-.chk-st1 label:before {content: '';display: block;width: 22px;height: 22px;position: absolute;top: 0;left: 0;background-position: -83px -89px;}
-.chk-st1 input[type="checkbox"]:checked ~ label:before {background-position: -107px -89px;}
-.chk-st1 label.on:before {background-position: -107px -89px;}*/
 .chk-base {transition: opacity 0.3s;display: inline-block !important;margin: 0 !important;position: relative;}
-.chk-base .label {display: inline-block;vertical-align: middle;position: relative;}
+.chk-base .label {display: inline-block;vertical-align: middle;position: relative;margin-left:5px;}
 .chk-base input[type="checkbox"] {-webkit-appearance: none;-webkit-border-radius: 0;outline: none;display: inline-block;width: auto;height: auto;border:0;margin: 0;padding: 0;}
-.chk-base input[type="checkbox"] + .label {display:inline-block;vertical-align:middle;margin-left:5px;} 
 .chk-base input[type="checkbox"]:checked {-webkit-appearance:button;background-position:auto;}
 .chk-base input[type="checkbox"]:disabled,
 .chk-base input[type="checkbox"]:disabled + .label {opacity: 0.4;pointer-events: none;} 
+.chk-base.chk-aright input[type="checkbox"] {float: right;}
+.chk-base.chk-aright .label {margin-left: 0;margin-right: 5px;clear: both;}
+.chk-base .logo-airline {width: 23px;margin-right: 5px;margin-top: 2px;}
+
 /* checkbox1 */
 .chk-st1 .label {font-size: 14px;color: #000;}
 .chk-st1 input[type="checkbox"] {width: 22px;height: 22px;background-position: -83px -89px;}
@@ -1485,9 +1480,8 @@ box-sizing: border-box;
 
 /* ------------- radio style */
 .radio-base {transition: opacity 0.3s;display: inline-block !important;margin: 0 !important;position: relative;}
-.radio-base .label {display: inline-block;vertical-align: middle;position: relative;}
+.radio-base .label {display: inline-block;vertical-align: middle;position: relative;margin-left:5px;}
 .radio-base input[type="radio"] {-webkit-appearance: none;-webkit-border-radius: 0;outline: none;display: inline-block;width: auto;height: auto;border:0;margin: 0;padding: 0;}
-.radio-base input[type="radio"] + .label {display:inline-block;vertical-align:middle;margin-left:5px;} 
 .radio-base input[type="radio"]:checked {-webkit-appearance:button;background-position:auto;}
 .radio-base input[type="radio"]:disabled,
 .radio-base input[type="radio"]:disabled + .label {opacity: 0.4;pointer-events: none;} 
@@ -1499,6 +1493,10 @@ box-sizing: border-box;
 /* ------------- selectbox style */
 .select-base {transition: opacity 0.3s;display: inline-block;}
 .select-base select {-webkit-appearance: none;border-radius: 0;outline: none;}
+/* select1 */
+.select-st1 {width: 100%;border-bottom: 1px solid #000;position: relative;}
+.select-st1 select {display: block;width: 100%;padding: 12px 0 13px 0;font-size: 16px;color: #000;font-weight: 600;border:0;}
+.select-st1:before {content: '';display: block;width: 15px;height: 8px;position: absolute;top: 21px;right: 0;background-position: -27px -101px;}
 
 /* ------------- from style */
 /*.a-row {margin-bottom: 5px;}
@@ -1519,6 +1517,10 @@ box-sizing: border-box;
 .o-tab-menu .ui-tab-cont.tab-on {display: block;} */
 
 /* ------------- scrollbar style */
+
+/* ------------- expand style */
+.ow-expand .o-expand-cont {overflow: hidden;transition: height 0.3s;}
+
 
 /*--------------------------------------------------------------------------------------------------------------
  *  common - format

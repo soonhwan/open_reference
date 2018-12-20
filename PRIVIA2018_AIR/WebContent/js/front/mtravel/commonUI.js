@@ -1726,7 +1726,8 @@ var pvmFrontScript = window.pvmFrontScript || (function(){
 	return {
 		init: function(){
 			//공통 UI
-			pvmFrontScript.baseUI($(document));
+			//pvmFrontScript.baseUI($(document));
+			pvmFrontScript.comContentsV2();
 		},
 		baseUI: function($this){
 			/* 설명   : 전역 공통으로 사용하는 UI 
@@ -1917,6 +1918,7 @@ var pvmFrontScript = window.pvmFrontScript || (function(){
 			}
 		},
 		comContents: function(){
+			//섹션메인에서 호출되고 있음 추후 개선 당분간 작성 금지
 			if($('.s-rec-promotion .w-list-item-st1').length > 0){
 				var recPromSwiper = new Swiper('.s-rec-promotion .swiper-container', {
 					slidesPerView: 'auto',
@@ -1925,6 +1927,75 @@ var pvmFrontScript = window.pvmFrontScript || (function(){
 					  }
 				});
 			}
+		},
+		comContentsV2: function(){
+			//서브 페이지 헤더 fix event
+			if($('.ui-page-active .header-secV2.header-page-st').length > 0 && !$('.ui-page-active .header-secV2.header-page-st').hasClass('isHeaderFixedOne')){		
+				var isFix = false;
+				var scTop = null;
+				var scUTarget = null;
+				var headerMainH = $('.header-secV2.header-main-st').height();	
+				var $header = $('.header-secV2.header-page-st');	
+				$(document).off('scroll').on('scroll', function(){
+					scTop = $(document).scrollTop() + headerMainH;
+					scUTarget = $header.offset().top + $header.height();
+					
+					//fixed
+					if(scUTarget < scTop && isFix == false){
+						$header.addClass('is-fixed');
+						isFix = true;
+					}
+
+					//relative
+					if(scUTarget > scTop && isFix == true){
+						$header.removeClass('is-fixed');
+						isFix = false;
+					}
+				});
+				
+				//서브 페이지 헤더먼저 보여준다
+				$('.header-secV2.header-main-st').hide();
+				$('.header-secV2.header-main-st').delay(500).show(0, function(){
+					$.mobile.silentScroll(headerMainH);	
+				});
+				$header.addClass('isHeaderFixedOne');
+				console.log('isHeaderFixedOne');
+			}
+			
+			//심플 더보기 UI(콘텐츠 height가 정해지고 내부에 height가 변경되지 않는 경우 사용됨 - 상세 스케줄 더보기, 공동운항 리스트 더보기, 필터 항목 더보기)
+			$('.ow-expand .o-expand-btn').die('click').live('click', function(e){
+				var $wExpand = $(this).closest('.ow-expand');
+				var $expandCont = $wExpand.find('.o-expand-cont');
+				if($wExpand.hasClass('is-expanded')){
+					$wExpand.removeClass('is-expanded');
+					$expandCont.removeAttr('style');
+				}
+				else{
+					$wExpand.addClass('is-expanded');
+					$expandCont.css({'height' : $expandCont.prop('scrollHeight')+'px'});
+				}           
+				e.stopPropagation();
+			});
+			
+			//필터 리스트
+			if($('.w-inres-options').length > 0){
+				//항목 리스트 토글
+				$('.w-inres-options .ioi-header .area-tit').on('click', function(){
+					var $wExpand = $(this).closest('.io-box');
+					var $expandCont = $wExpand.find('.ioi-cont');
+					if($wExpand.hasClass('is-io-open')){
+						$expandCont.slideUp('fast', function(){
+							$wExpand.removeClass('is-io-open');
+						});
+					}
+					else{
+						$expandCont.slideDown('fast', function(){
+							$wExpand.addClass('is-io-open');
+						});
+					}
+				});	
+			}
+			
 		}
 	}	
 }());
