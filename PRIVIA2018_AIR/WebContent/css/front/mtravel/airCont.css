@@ -8,7 +8,7 @@
 .s-sel-items .list-items .area-title button:before,
 .w-inres-options .area-tit:before,
 .btn-filter-range .txt:before,
-.box-airline-detail .bad-airline-joint .tg-joint:before,
+.box-airline-detail .box-airline-joint .tg-joint:before,
 .header-secV2.hps-air .area-hai-info:before,
 .header-secV2.hps-air .hai-capacity .icon-inf:before,
 .header-secV2.hps-air .hai-capacity .icon-chd:before,
@@ -88,7 +88,6 @@
 .box-airline-detail .box-sec + .box-sec {position: relative;border-top: 1px dashed #ccc;}
 .box-airline-detail .box-sec + .box-sec:before {content: '';display: block;width: 12px;height: 12px;background-color: #ebeef2;border-radius: 100%;position: absolute;top: -6px;left: -23px;}
 .box-airline-detail .box-sec + .box-sec:after {content: '';display: block;width: 12px;height: 12px;background-color: #ebeef2;border-radius: 100%;position: absolute;top: -6px;right: -23px;}
-.box-airline-detail .inset-row + .inset-row {border-top: 1px solid #ccc;}
 .box-airline-detail .box-airline-info {display:-webkit-box;display:-moz-box;display:-ms-flexbox;display:-webkit-flex;display:flex;}
 .box-airline-detail .box-airline-info > div {position: relative;height: 80px;}
 .box-airline-detail .bad-airline {padding-top:20px;text-align: center;-webkit-box-flex: 10%;-moz-box-flex: 10%;width: 10%;-webkit-flex: 10%;-ms-flex: 10%;flex: 10%;}
@@ -109,22 +108,42 @@
 .box-airline-detail .ba-ai {font-size: 12px;text-align: right;}
 .box-airline-detail .ba-ai .ba-seat {display: block;color: #f30774;}
 .box-airline-detail .ba-ai .ba-time {display: block;font-size: 12px;color: rgba(0, 0, 0, 0.5);margin-top: 8px;}
-.box-airline-detail .bad-airline-joint {padding: 14px 0;position: relative;}
-.box-airline-detail .bad-airline-joint .list {height: 18px;overflow: hidden;}
-.box-airline-detail .bad-airline-joint .list li {font-size: 12px;color: #2981e2;margin-top: 2px;}
-.box-airline-detail .bad-airline-joint .list li:first-child {margin-top: 0;}
-.box-airline-detail .bad-airline-joint .list .code {margin-right: 5px;}
-.box-airline-detail .bad-airline-joint .tg-joint {position: absolute;top: 14px;right: 0;font-size: 12px;color: #2981e2;padding-right: 26px;}
-.box-airline-detail .bad-airline-joint .tg-joint:before {content: '';display: block;width: 18px;height: 18px;position: absolute;right: 0;top: 0;background-position: -83px -141px;}
-.box-airline-detail .bad-airline-joint.is-expanded .tg-joint:before {height: 4px;top: 6px;background-position: -83px -160px;}
-.box-airline-detail .bad-airline-joint.is-expanded .tg-joint .txt {opacity: 0;}
+.box-airline-detail .ba-ai .ba-state {display: block;font-size: 12px;}
+.box-airline-detail .ba-ai .ba-state .ok {color: #ea0000;}
+.box-airline-detail .box-airline-joint {padding: 10px 0;position: relative;border-top: 1px solid #ccc;}
+.box-airline-detail .box-airline-joint .list {height: 18px;overflow: hidden;}
+.box-airline-detail .box-airline-joint .list li {font-size: 12px;color: #2981e2;margin-top: 2px;}
+.box-airline-detail .box-airline-joint .list li:first-child {margin-top: 0;}
+.box-airline-detail .box-airline-joint .list .code {margin-right: 5px;}
+.box-airline-detail .box-airline-joint .tg-joint {position: absolute;top: 10px;right: 0;font-size: 12px;color: #2981e2;padding-right: 26px;}
+.box-airline-detail .box-airline-joint .tg-joint:before {content: '';display: block;width: 18px;height: 18px;position: absolute;right: 0;top: 0;background-position: -83px -141px;}
+.box-airline-detail .box-airline-joint .o-expanded .tg-joint:before {height: 4px;top: 6px;background-position: -83px -160px;}
+.box-airline-detail .box-airline-joint .o-expanded .tg-joint .txt {opacity: 0;}
 .box-airline-detail .bad-pricelist {padding: 17px 8px;}
+.box-airline-detail .bad-pricelist .bad-header {margin-bottom: 6px;}
+.box-airline-detail .bad-pricelist .bad-header .tit {font-size: 12px;color: #000;font-weight: 600;}
 .box-airline-detail .bp-pricelist-info li {margin-top: 6px;position: relative;}
 .box-airline-detail .bp-pricelist-info li:first-child {margin-top: 0;}
 .box-airline-detail .bp-pricelist-info .txt {font-size: 12px;color: #000;vertical-align: middle;letter-spacing: -1px;}
 .box-airline-detail .bp-pricelist-info .txt em {color: #2981e2;}
 .box-airline-detail .bp-pricelist-info .price {font-size:12px;color: #000;position: absolute;top: -2px;right: 0;}
 .box-airline-detail .bp-pricelist-info .price em {font-size:16px;font-weight: 600;}
+.box-airline-detail .bp-pricelist-info .normal .price em {font-size: 14px;font-weight: 400;}
+.box-airline-detail .box-airline-header .lbr-st2 {margin-right: 5px;vertical-align: baseline;}
+.box-airline-detail .box-airline-header .date, .box-airline-detail .box-airline-header .seat {display: inline-block;vertical-align: middle;font-size:14px;color: #000;font-weight: 400;position: relative;}
+.box-airline-detail .box-airline-header .seat {padding-left: 15px;}
+.box-airline-detail .box-airline-header .seat:before {content: '';width: 1px;height: 10px;background-color: #e3e3e3;position: absolute;top: 6px;left: 6px;}
+/* 국제선 항공편 상세 박스 - 예약하기 */
+.box-airline-detail.bad-st2 {padding: 0;border-radius: 0;overflow: visible;}
+.box-airline-detail.bad-st2 .box-sec {padding: 0;}
+.box-airline-detail.bad-st2 .box-sec + .box-sec {padding-top: 16px;}
+.box-airline-detail.bad-st2 .box-sec + .box-sec:before {display: none;}
+.box-airline-detail.bad-st2 .box-sec + .box-sec:after {display: none;}
+.box-airline-detail.bad-st2 .box-airline-joint {border-top: 2px solid #f2f2f2;}
+.box-airline-detail.bad-st2 .bad-pricelist {padding: 0;}
+.box-airline-detail.bad-st2 .bad-pricelist .bad-btnset {margin-top: 10px;text-align: right;}
+.box-airline-detail.bad-st2 .bad-pricelist .bad-btnset .bb-st5 {margin-left: 6px;}
+
 
 /* 실시간 검색결과 로딩바 */
 .loading-all-list .lal-bar {background-color: #fff;display: block;width: 100%;height: 2px;position: relative;}
@@ -157,24 +176,23 @@
 .w-inres-options .ioi-header .tit-ins {font-size: 12px;color: rgba(0, 0, 0, 0.5);margin-bottom: 1px;}
 .w-inres-options .ioi-header .area-tit {display: block;position: relative;z-index: 0;padding: 12px 0 13px 0;border-bottom: 1px solid #ccc;position: relative;width: 100%;text-align: left;outline:none;}
 .w-inres-options .ioi-header .area-tit:before {content: '';display: block;width: 15px;height: 8px;position: absolute;top: 21px;right: 0;background-position: -27px -101px;transition:transform 0.3s;-wekbit-transition: transform 0.3s;}
+.w-inres-options .o-acdi-open .ioi-header .area-tit:before {-webkit-transform:rotate(180deg);transform:rotate(180deg);}
 .w-inres-options .ioi-header .area-tit .tit {font-size: 16px;color: #000;font-weight: 600;display: inline-block;}
 .w-inres-options .ioi-header .chk-st1 {position: absolute;z-index: 1;top: 15px;right: 33px;}
-.w-inres-options .ioi-cont {display: none;}
 .w-inres-options .ioi-cont .list {padding: 17px 1px 0 1px;}
 .w-inres-options .ioi-cont .list > li {margin-top: 20px;}
 .w-inres-options .ioi-cont .ls-hide {height: 0;}
 .w-inres-options .ioi-cont .b-more-list {border-bottom: 1px solid #808080;}
 .w-inres-options .ioi-cont .b-more-list > span {font-size:14px;color: #000;font-weight: 600;}
 .w-inres-options .ioi-cont .b-more-list .b-hide {display: none;}
-.w-inres-options .ioi-cont.is-expanded .b-more-list {margin-top: 20px;}
-.w-inres-options .ioi-cont.is-expanded .b-more-list .b-more {display: none;}
-.w-inres-options .ioi-cont.is-expanded .b-more-list .b-hide {display: block;}
+.w-inres-options .ioi-cont.o-expanded .b-more-list {margin-top: 20px;}
+.w-inres-options .ioi-cont.o-expanded .b-more-list .b-more {display: none;}
+.w-inres-options .ioi-cont.o-expanded .b-more-list .b-hide {display: block;}
 .w-inres-options .ioi-cont .list li:first-child {margin-top: 0;}
 .w-inres-options .ioi-cont .list .chk-st1 {width: 100%;}
 .w-inres-options .ioi-cont .list .chk-st1 .area-right {position: absolute;top: 0;right: 31px;}
 .w-inres-options .io-cdBenefit .ioi-header .bb-help {position: absolute;top: 17px;left: 98px;}
-.w-inres-options .is-io-open .ioi-header .area-tit:before {-webkit-transform:rotate(180deg);transform:rotate(180deg);}
-.w-inres-options .is-io-open .ioi-cont {display: block;}
+
 
 /* 선택한 항공편 */
 .s-sel-items {background-color: #288ecc;padding: 18px 0 20px 0;}
@@ -199,4 +217,13 @@
 .ssi-header .air-info .txt + .txt {padding-left: 26px;position: relative;} 
 .ssi-header .air-info .txt + .txt:before {content: '';display: block;width: 15px;height: 14px;position: absolute;left: 5px;top: 7px;background-position: -134px -55px;} 
 .ssi-header.trip-type-shuttle .air-info .txt + .txt:before {background-position: -117px -55px;}
+.ssi-cont .ssic-header {border-bottom: 2px solid #f2f2f2;position: relative;padding: 12px 20px 12px 20px;}
+.ssi-cont .ssic-header .tit {font-size:16px;color: #000;font-weight: 500;}
+.ssi-cont .ssic-header .ar-txt {position: absolute;top: 14px;right: 20px;text-align: right;font-size: 14px;color: #000;font-weight: 400;}
+
+.ssic-cont {padding: 20px;}
+
+.tip-enname {position: absolute;top: 15px;left: 106px;}
+.tip-enname .txt {font-size: 12px;color: #000;vertical-align: middle;}
+.tip-enname .bb-help {margin-left: 3px;}
 

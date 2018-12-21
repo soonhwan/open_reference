@@ -1,0 +1,430 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=no, minimal-ui" />
+<meta name="format-detection" content="no" />
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="description" content="">
+<meta name="keywords" content="" />
+<title> Guide </title>
+<link rel="stylesheet" href="assets/css/magnific-popup.min.css" />
+<link rel="stylesheet" href="assets/css/jquery.mCustomScrollbar.min.css" />
+<link rel="stylesheet" href="assets/css/common.css" /> 
+<link rel="stylesheet" href="assets/css/contents.css" />
+<style>
+	.w-guide {padding: 20px 0;}
+	.box-guide {margin-top: 40px;}	
+	.title {margin-bottom: 20px;font-size: 20px;font-weight: bold;color: #000;border-bottom: 1px solid #000;}	
+		
+	.custom-scrollbar1 {max-height:150px;}
+	.custom-scrollbar2 {max-height:150px;overflow: hidden;position: relative;}
+	.custom-scrollbar2 .iScrollVerticalScrollbar {background: rgba(0,0,0,.1);right: 3px;}
+	.custom-scrollbar2 .iScrollIndicator {background: rgba(0,0,0,.5);}
+	.custom-scrollbar3 {max-height:150px;}
+</style>
+</head>
+
+<body>
+
+<div id="wrap">
+	<div class="ly-inner w-guide">
+		<div class="box-guide">
+			<div class="title">input-custom</div>
+			<span class="input-base input-st1" style="width:100%;"><input type="text" placeholder="IE8까지 지원"></span><br><br>
+			<span class="input-base input-st1" style="width:140px;"><input type="text" disabled></span>
+		</div>
+		
+		<div class="box-guide">
+			<div class="title">textarea-custom</div>
+			<span class="input-base txtarea-st1">
+				<textarea placeholder="IE8까지 지원"></textarea>
+			</span>
+		</div>
+		
+		<div class="box-guide">
+			<div class="title">select-custom</div>
+			<span class="select-base">
+				<select>
+					<option value="">DP200</option>
+					<option value="">Option 1</option>
+					<option value="">Option 2</option>
+					<option value="">Option 3</option>
+				</select>
+			</span>
+			<span class="select-base">
+				<select disabled>
+					<option value="">DP200</option>
+					<option value="">Option 1</option>
+					<option value="">Option 2</option>
+					<option value="">Option 3</option>
+				</select>
+			</span>			
+			<span class="select-base">
+				<select class="select-st1">
+					<option value="0">승인</option>
+					<option value="1">보류</option>
+				</select>
+			</span>
+		</div>
+		
+		<div class="box-guide">
+			<div class="title">check-custom</div>
+			<span class="checkbox-base">
+				<input type="checkbox" name="chk1" id="chk1">
+				<label for="chk1">checkbox 1</label>
+			</span>
+			<span class="checkbox-base checkbox-st1">
+				<input type="checkbox" name="chk2" id="chk2">
+				<label for="chk2">checkbox 2</label>
+			</span>
+			<span class="checkbox-base checkbox-st2">
+				<input type="checkbox" name="chk3" id="chk3">
+				<label for="chk3">checkbox 3</label>
+			</span>
+			<span class="checkbox-base checkbox-st2">
+				<input type="checkbox" name="chk4" id="chk4" disabled>
+				<label for="chk4">checkbox 4</label>
+			</span>
+		</div>
+		
+		<div class="box-guide">
+			<div class="title">radio-custom</div>
+			<span class="radio-base">
+				<input type="radio" name="rd" id="rd1">
+				<label for="rd1">radio 1</label>
+			</span>
+			<span class="radio-base radio-st1">
+				<input type="radio" name="rd" id="rd2">
+				<label for="rd2">radio 2</label>
+			</span>
+			<span class="radio-base radio-st2">
+				<input type="radio" name="rd" id="rd3">
+				<label for="rd3">radio 3</label>
+			</span>
+			<span class="radio-base radio-st2">
+				<input type="radio" name="rd" id="rd4" disabled>
+				<label for="rd4">radio 4</label>
+			</span>
+		</div>
+		
+		<div class="box-guide">
+			<div class="title">file-custom</div>
+			<span class="file-base file-st1">
+				<input type="file" data-jcf='{"buttonText": "Choose file", "placeholderText": "Custom placeholder"}'>
+			</span>
+		</div>
+		
+		<div class="box-guide">
+			<div class="title">custom from</div>
+			<div class="a-row">
+				<span class="a-col input-base input-st1" style="width:140px;"><input type="text"></span>
+				<span class="a-col select-base">
+				<select class="select-st1">
+					<option value="0">승인</option>
+					<option value="1">보류</option>
+				</select>
+			</span>
+				<span class="a-col file-base file-st1">
+					<input type="file" data-jcf='{"buttonText": "Choose file", "placeholderText": "Custom placeholder"}'>
+				</span>
+				<span class="a-col btn-base btn-st1 small"><a href="#">small</a></span>
+				<span class="a-col">
+					<span class="radio-base radio-st1">
+						<input type="radio" name="rd" id="rd10">
+						<label for="rd10">radio 10</label>
+					</span>
+					<span class="radio-base radio-st1">
+						<input type="radio" name="rd" id="rd11">
+						<label for="rd11">radio 11</label>
+					</span>
+				</span>
+				<span class="a-col">
+					<span class="checkbox-base checkbox-st1">
+						<input type="checkbox" name="chk11" id="chk11">
+						<label for="chk11">checkbox 11</label>
+					</span>
+					<span class="checkbox-base checkbox-st1">
+						<input type="checkbox" name="chk12" id="chk12">
+						<label for="chk12">checkbox 12</label>
+					</span>
+				</span>
+			</div>
+		</div>
+		
+		<div class="box-guide">
+			<div class="title">label</div>
+			<span class="label-base lbr-st1"><span>뉴욕</span></span>
+			<span class="label-base lbr-st1 big"><span>뉴욕</span></span>
+		</div>
+		
+		<div class="box-guide">
+			<div class="title">btn-base</div>
+			<span class="btn-base btn-st1 short"><a href="#">short</a></span>
+			<span class="btn-base btn-st1 long"><a href="#">long</a></span>
+			<span class="btn-base btn-st1 big"><a href="#">big</a></span>
+			<span class="btn-base btn-st1 bc-mgt"><a href="#">bc-mgt</a></span>
+			<span class="btn-base btn-st1 bc-red"><a href="#">bc-red</a></span>
+		</div>
+		
+		<div class="box-guide a-center">
+			<div class="title">a-center</div>
+			<span class="btn-base btn-st1"><a href="#">btn-st1 - a</a></span>
+			<span class="btn-base btn-st1"><button type="button">btn-st1 - button</button></span>
+			<span class="btn-base btn-st1"><input type="button" value="btn-st1 - input"></span>
+		</div>
+		
+		<div class="box-guide ">
+			<div class="title">col2</div>
+			<div class="a-row col2">
+				<span class="a-col"><span class="btn-base btn-st1"><a href="#">col2</a></span></span>
+				<span class="a-col"><span class="btn-base btn-st1"><a href="#">col2</a></span></span>
+			</div>
+		</div>	
+		
+		<div class="box-guide">
+			<div class="title">박스 스타일, 불릿 텍스트 리스트</div>
+			<div class="c-box-st1">
+				<ul class="blist-st1">
+					<li>확인하여 주시기 바랍니다.</li>
+					<li class="mgt">확인하여 주시기 바랍니다.</li>
+					<li class="red">확인하여 주시기 바랍니다.</li>
+					<li class="dl-strong">확인하여 주시기 바랍니다.</li>
+					<li>
+						확인하여 주시기 바랍니다.
+						<ul class="blist-st1-sub">
+							<li>확인하여 주시기 바랍니다.</li>
+							<li>확인하여 주시기 바랍니다.</li>
+							<li class="dl-point">확인하여 주시기 바랍니다.</li>
+						</ul>
+					</li>
+				</ul>
+			</div>
+			<br />
+			<div class="c-box-st2">
+				<ul class="blist-st1">
+					<li>확인하여 주시기 바랍니다.</li>
+					<li>확인하여 주시기 바랍니다.</li>
+				</ul>
+			</div>
+		</div>
+		<div class="box-guide">
+			<div class="title">tooltip</div>
+			<style>
+			.custom-tooltip.cttip-customName {margin-top: -4px;} 
+			.custom-tooltip.cttip-customName.custom-tooltip-bottom {margin-top: 4px;} 
+			.custom-tooltip.cttip-customName .custom-tooltip-inner {max-width:150px;}
+			</style>
+			<span class="cttip-customName" title="<strong class='className'>툴팁 내용</strong>">툴팁</span>
+		</div>
+		<div class="box-guide">
+			<div class="title">탭메뉴</div>
+			<div class="o-tab-menu">
+				<ul class="ui-tab-menu static">
+					<li class="on"><span class="btn-base btn-st1"><a href="#tab1">tab1</a></span></li>
+					<li><span class="btn-base btn-st1"><a href="#tab2">tab2</a></span></li>
+					<li><span class="btn-base btn-st1"><a href="#tab3">tab3</a></span></li>
+				</ul>
+				<div class="ui-tab-cont tab-on" id="tab1">tab1 컨텐츠...</div>
+				<div class="ui-tab-cont" id="tab2">tab2 컨텐츠...</div>
+				<div class="ui-tab-cont" id="tab3">tab3 컨텐츠...</div>
+			</div>
+		</div>
+		
+		<div class="box-guide">
+			<div class="title">테이블, 페이징</div>
+			<table class="c-table-st1">
+				<caption>제목, 등록일 게시판 리스트</caption>
+				<colgroup>
+					<col>
+					<col width="15%">
+				</colgroup>
+				<thead>
+					<tr>
+						<th>제목</th>
+						<th>등록일</th>
+					</tr>
+				</thead>
+				<tbody>
+					<tr>
+						<td class="left"><a href="#">[업데이트] 동해물과 백두산이 마르고 닭도록 하느님이 보우하사 우리나라 만세</a></td>
+						<td>2018-11-11</td>
+					</tr>
+					<tr>
+						<td class="left"><a href="#">[업데이트] 동해물과 백두산이 마르고 닭도록 하느님이 보우하사 우리나라 만세 보우하사 우리나라 만세 보우하사 우리나라 만세 동해물과 백두산이 마르고 닭도록 하느님이 보우하사 우리나라 만세 보우하사 우리나라 만세 보우하사 우리나라 만세</a></td>
+						<td>2018-11-11</td>
+					</tr>
+					<tr>
+						<td class="left"><a href="#">[업데이트] 동해물과 백두산이 마르고 닭도록 하느님이 보우하사 우리나라 만세</a></td>
+						<td>2018-11-11</td>
+					</tr>
+					<tr>
+						<td class="left"><a href="#">[업데이트] 동해물과 백두산이 마르고 닭도록 하느님이 보우하사 우리나라 만세</a></td>
+						<td>2018-11-11</td>
+					</tr>
+				</tbody>
+			</table>
+			
+			<div class="paging">
+				<ul>
+					<li class="btn-front"><a href="#">&lt;&lt;</a></li>
+					<li class="btn-prev"><a href="#">&lt;</a></li>
+					<li class="active"><a href="#">1</a></li>
+					<li><a href="#">2</a></li>
+					<li><a href="#">3</a></li>
+					<li><a href="#">4</a></li>
+					<li><a href="#">5</a></li>
+					<li class="btn-next"><a href="#">&gt;</a></li>
+					<li class="btn-last"><a href="#">&gt;&gt;</a></li>
+				</ul>
+			</div>
+		</div>	
+		
+		<div class="box-guide">
+			<div class="title">팝업</div>
+			<p><a href="#custom-popup-inline" class="open-popup-link">페이지 내부에서 호출</a></p>
+			<p><a href="lpu.html" class="ajax-popup-link">페이지 외부에서 호출</a></p>
+		</div>
+		
+		<div class="box-guide">
+			<div class="title">custom scrollbar1 - mCustomScrollbar(PC에 적합, ie8지원, css필요, 용량:42+39.2=81.2)</div>
+			<div class="custom-scrollbar1">
+				<ul class="blist-st1">
+					<li>확인하여 주시기 바랍니다.</li>
+					<li>확인하여 주시기 바랍니다.</li>
+					<li>확인하여 주시기 바랍니다.</li>
+					<li>확인하여 주시기 바랍니다.</li>
+					<li>확인하여 주시기 바랍니다.</li>
+					<li>확인하여 주시기 바랍니다.</li>
+					<li>확인하여 주시기 바랍니다.</li>
+					<li>확인하여 주시기 바랍니다.</li>
+					<li>확인하여 주시기 바랍니다.</li>
+					<li>확인하여 주시기 바랍니다.</li>
+					<li>확인하여 주시기 바랍니다.</li>
+				</ul>
+			</div>
+		</div>
+		
+		<div class="box-guide">
+			<div class="title">custom scrollbar2 - iscroll(모바일에 적합, 용량:20.7)</div>
+			<div class="custom-scrollbar2">
+				<div class="cs-inner">
+					<ul class="blist-st1">
+						<li>확인하여 주시기 바랍니다.</li>
+						<li>확인하여 주시기 바랍니다.</li>
+						<li>확인하여 주시기 바랍니다.</li>
+						<li>확인하여 주시기 바랍니다.</li>
+						<li>확인하여 주시기 바랍니다.</li>
+						<li>확인하여 주시기 바랍니다.</li>
+						<li>확인하여 주시기 바랍니다.</li>
+						<li>확인하여 주시기 바랍니다.</li>
+						<li>확인하여 주시기 바랍니다.</li>
+						<li>확인하여 주시기 바랍니다.</li>
+						<li>확인하여 주시기 바랍니다.</li>
+					</ul>
+				</div>
+			</div>
+		</div>
+		
+		<div class="box-guide">
+			<div class="title">custom scrollbar3 - niceScroll(기본적으로 사용하기 좋음, 반응형에 적합, 용량:58.6)</div>
+			<div class="custom-scrollbar3">
+				<div class="cs-inner">
+					<ul class="blist-st1">
+						<li>확인하여 주시기 바랍니다.</li>
+						<li>확인하여 주시기 바랍니다.</li>
+						<li>확인하여 주시기 바랍니다.</li>
+						<li>확인하여 주시기 바랍니다.</li>
+						<li>확인하여 주시기 바랍니다.</li>
+						<li>확인하여 주시기 바랍니다.</li>
+						<li>확인하여 주시기 바랍니다.</li>
+						<li>확인하여 주시기 바랍니다.</li>
+						<li>확인하여 주시기 바랍니다.</li>
+						<li>확인하여 주시기 바랍니다.</li>
+						<li>확인하여 주시기 바랍니다.</li>
+					</ul>
+				</div>
+			</div>
+		</div>
+		
+		<div class="box-guide">
+			<div class="title">slides plugin</div>
+			<div>slick - 가볍다, 기본적으로 사용하기 좋음, css필요</div>
+			<div>swiper - 기능이 많아서 다소 무거움 css필요, 모바일에 적합</div>
+		</div>
+	</div>
+</div><!-- //wrap -->
+
+<!-- 내부 팝업 샘플 -->
+<div id="custom-popup-inline" class="o-wrap-popup mfp-hide" style="width:500px;">
+	<div class="owp-contents">
+		<div class="c-box-st1">
+			내부 팝업 내용....
+		</div>
+		<span class="btn-base btn-st1 short btn-close"><a href="#" class="o-popup-close">닫기</a></span>
+	</div>
+</div>
+<!-- //내부 팝업 샘플 -->
+
+<script src="assets/js/jquery-1.12.0.min.js"></script>
+<script src="assets/js/jquery.magnific-popup.min.js"></script>
+<script src="assets/js/jquery.mCustomScrollbar.min.js"></script>
+<script src="assets/js/jquery.nicescroll.min.js"></script>
+<script src="assets/js/iscroll.min.js"></script>
+<script src="assets/js/jcf.js"></script>
+<script src="assets/js/jcf.checkbox.js"></script>
+<script src="assets/js/jcf.radio.js"></script>
+<script src="assets/js/jcf.select.js"></script>
+<script src="assets/js/jcf.file.js"></script>
+<script src="assets/js/common.js"></script>
+<script>
+$(function(){
+    // custom tooltip
+	$('.cttip-customName').tooltip();
+			
+	// custom select
+	if($('.select-st1').length > 0){
+		jcf.setOptions('Select', {
+			wrapNative: false
+		});
+		jcf.replace($('.select-st1'));
+	}
+	
+	// custom all
+	jcf.replaceAll();
+	
+	// custom scrollbar1 - mCustomScrollbar(PC에 적합, ie8지원)
+	$('.custom-scrollbar1').mCustomScrollbar({
+		theme:"dark"
+	});
+	
+	// custom scrollbar2 - iscroll(모바일에 적합)
+	var sc2 = new IScroll('.custom-scrollbar2', {
+		mouseWheel: true,
+		scrollbars: true,
+		interactiveScrollbars: true,
+		shrinkScrollbars: 'scale'
+	});	
+	//resize event
+	sc2.on('refresh', function(){
+		if($(sc2).find('.iScrollIndicator').css('display') == 'none'){
+			$(sc2).find('.iScrollVerticalScrollbar').hide();
+		}
+		else{
+			$(sc2).find('.iScrollVerticalScrollbar').show();
+		}
+	});
+	sc2.refresh();
+	
+	// custom scrollbar3 - niceScroll(반응형에 적합)
+	var sc3 = $('.custom-scrollbar3').niceScroll('.cs-inner', {
+		scrollspeed: 240,
+		autohidemode: false,
+		bouncescroll: false,
+		background: 'rgba(0,0,0,.1)'
+	});
+});	
+</script>
+
+</body>
+</html>

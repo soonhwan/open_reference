@@ -508,6 +508,15 @@
                                                 </div>
                                             </div>
                                         </div>
+                                        <div class="inset-row box-airline-joint">
+                                            <div class="o-expand-wrap">
+                                                <ul class="list o-expand-cont">
+                                                    <li><span class="code">ICN - NRT</span> 실제 진에어 탑승</li>
+                                                    <li><span class="code">NRT - ICN</span> 실제 진에어 탑승</li>
+                                                </ul>
+                                                <button class="tg-joint o-expand-btn"><span class="txt">외 1회</span></button>
+                                            </div>
+                                        </div>
                                     </div>
                                     <div class="box-sec">
                                         <div class="inset-row">
@@ -567,8 +576,8 @@
                                                 </div>
                                             </div>
                                         </div>
-                                        <div class="inset-row">
-                                            <div class="bad-airline-joint">
+                                        <div class="inset-row box-airline-joint">
+                                            <div>
                                                 <ul class="list">
                                                     <li><span class="code">ICN - NRT</span> 실제 진에어 탑승</li>
                                                 </ul>
@@ -723,7 +732,7 @@
                     <h4 class="txt">선택한 항공편</h4>
                 </div>
                 <ul class="list-items">
-                    <li class="ow-expand">
+                    <li class="o-expand-wrap">
                         <div class="area-title o-expand-btn">
                             <button><span class="tit">여정1</span><span class="txt">08/28(화) 10:35 ~ 13:07 ICN - NRT</span></button>
                         </div>
@@ -731,7 +740,7 @@
                             sdf
                         </div>    
                     </li>
-                    <li class="ow-expand">
+                    <li class="o-expand-wrap">
                         <div class="area-title o-expand-btn">
                             <button><span class="tit">여정1</span><span class="txt">08/28(화) 10:35 ~ 13:07 ICN - NRT</span></button>
                         </div>
@@ -785,8 +794,8 @@
                                                 </div>
                                             </div>
                                         </div>
-                                        <div class="inset-row">
-                                            <div class="bad-airline-joint ow-expand">
+                                        <div class="inset-row box-airline-joint">
+                                            <div class="o-expand-wrap">
                                                 <ul class="list o-expand-cont">
                                                     <li><span class="code">ICN - NRT</span> 실제 진에어 탑승</li>
                                                     <li><span class="code">NRT - ICN</span> 실제 진에어 탑승</li>
@@ -853,8 +862,8 @@
                                                 </div>
                                             </div>
                                         </div>
-                                        <div class="inset-row">
-                                            <div class="bad-airline-joint">
+                                        <div class="inset-row box-airline-joint">
+                                            <div>
                                                 <ul class="list">
                                                     <li><span class="code">ICN - NRT</span> 실제 진에어 탑승</li>
                                                 </ul>
@@ -1061,21 +1070,24 @@
                 $('.s-rec-list-items, .s-list-airline, .btn-filter-range').show();
                 
                 //재검색
-                pvmSearch.comSearchAir();
+                //pvmSearch.comSearchAir();
 
                 //추천항공 요약 슬라이드
                 var recAirlineSwiper = new Swiper('.s-rec-list-items .lri-sum-swiper', {
                     slidesPerView: 'auto',
                     autoplay: false,
+                    touchStartForcePreventDefault: true,
                     //slideToClickedSlide: true,
                     on: {
                         click: function(){
-                            var $expandCont = $('.s-rec-list-items .lri-detail-swiper');
-                            recAirlineDetailSwiper.slideTo(this.clickedIndex,0);                            
-                            $expandCont.addClass('is-open');
-                            $expandCont.css({'height' : $expandCont.prop('scrollHeight')+'px'});
-                            $('.s-rec-list-items .info-header .btn-close-detail').addClass('is-show');
-                            recAirlineSwiper.allowTouchMove = false;
+                            if(recAirlineSwiper.allowTouchMove){
+                                var $expandCont = $('.s-rec-list-items .lri-detail-swiper');
+                                recAirlineDetailSwiper.slideTo(this.clickedIndex,0);                            
+                                $expandCont.addClass('is-open');
+                                $expandCont.css({'height' : $expandCont.prop('scrollHeight')+'px'});
+                                $('.s-rec-list-items .info-header .btn-close-detail').addClass('is-show');
+                                recAirlineSwiper.allowTouchMove = false;
+                            }
                         }
                     }
                 });
