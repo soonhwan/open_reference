@@ -268,10 +268,14 @@ var inputNumberFix = function(){
 	#3 : .dialogue_pop 자신이 선택되어지면 close 실행
 */
 var oriPopup = null; //내부팝업 위치 저장
-//var popContScrollMode = null; //팝업 scroll 저장
+var popContScrollMode = null; //팝업 isscroll 저장
+var beforePopSC = $(window).scrollTop(); //팝업 scroll 위치 저장
 var selectPop = {
 	init : function(id,url){
 		var popup = $("#" + id);
+		
+		//팝업 scroll 위치 저장
+		beforePopSC = $(window).scrollTop(); 
 		
 		//내부팝업 위치 저장
 		if(oriPopup != null){
@@ -304,7 +308,7 @@ var selectPop = {
 			return false;
 		});
 		
-		$(".dialogue_pop").off('mouseup').on('mouseup',function(e){
+		$(".dialogue_pop, .popWrap-mfix").off('mouseup').on('mouseup',function(e){
 			//console.log(e.target === this);
 			//if (popup.has(e.target).length === 0){
 			if (e.target === this){ //#3
@@ -323,6 +327,9 @@ var selectPop = {
 			if(popup.hasClass('popWrap-fix')){
 				$(this).addClass('dialogue_pop_fix');
 			}
+			if(popup.hasClass('popWrap-mfix')){
+				$(this).addClass('dialogue_pop_mfix');
+			}
 			popup.show();
 			selectPop.position(id);
 			$(this).fadeTo(200,1);
@@ -337,6 +344,9 @@ var selectPop = {
 			}
 			if(popup.find(".popWrap-fix").length > 0){
 				popup.addClass('popWrap-fix');
+			}
+			if(popup.find(".popWrap-mfix").length > 0){
+				popup.addClass('popWrap-mfix');
 			}
 			popup.empty().html(html);
 			selectPop.position(id);
@@ -369,11 +379,15 @@ var selectPop = {
 		popup.parent(".dialogue_pop").height(docHeight).css("padding-top",paddingTop);
 		
 		//fix 모드인경우 화면 중앙에 위치
-		/*if(popup.hasClass('popWrap-fix')){
+		if(popup.hasClass('popWrap-fix')){
 			popup.css("margin-top",-(popHeight / 2));
-		}*/
+		}
 		
 		//팝업 스크롤 적용		
+		if(popup.find(".popCont-iscroll").length > 0){
+			$('.ui-page-active').css({overflow:'hidden',position:'fixed',width:'100%',height:'100%'}).bind('touchmove', function(e){e.preventDefault();});
+			setTimeout(function(){$('.popWrap-mfix').addClass('loaded');},250);
+		}
 		/*if(popup.find(".popCont-iscroll").length > 0){
 			$('.ui-page-active').css({overflow:'hidden',position:'fixed',width:'100%',height:'100%'}).bind('touchmove', function(e){e.preventDefault();});
 			setTimeout(function(){
@@ -391,6 +405,12 @@ var selectPop = {
 		var popup = $("#" + id);
 		
 		//팝업 스크롤 이벤트 제거
+		if(popup.find(".popCont-iscroll").length > 0){
+			$('.popWrap-mfix').removeClass('loaded');
+			$('.ui-page-active').attr('style','');
+			$('.ui-page-active').unbind('touchmove');
+			$(window).scrollTop(beforePopSC); //이전 스크롤 재위치
+		}
 		/*if(popup.find(".popCont-iscroll").length > 0){
 			$('.ui-page-active').attr('style','');
 			$('.ui-page-active').unbind('touchmove');
@@ -410,6 +430,7 @@ var selectPop = {
 			if(!opt){
 				popup.hide().unwrap();
 				oriPopup.append(popup); //내부팝업 위치 원복
+				
 			}else{
 				popup.hide().unwrap().html("");
 			}
@@ -1411,8 +1432,6 @@ function init(){
 	$('.input_text').removeRequired();
 	adjust_ios_header();
 	
-	pvmFrontScript.init();
-	
 	if(typeof AIR_HTL_FLAG == 'undefined'){
 		AIR_HTL_FLAG = 'ETC';
 	}
@@ -1431,6 +1450,8 @@ function init(){
 			etcInit();
 			break;
 	}
+	
+	pvmFrontScript.init();
 }
 //항공인 경우에 실행
 function airInit(){
@@ -1919,6 +1940,7 @@ var pvmFrontScript = window.pvmFrontScript || (function(){
 		},
 		comContents: function(){
 			//섹션메인에서 호출되고 있음 추후 개선 당분간 작성 금지
+			
 			if($('.s-rec-promotion .w-list-item-st1').length > 0){
 				var recPromSwiper = new Swiper('.s-rec-promotion .swiper-container', {
 					slidesPerView: 'auto',
@@ -1930,53 +1952,55 @@ var pvmFrontScript = window.pvmFrontScript || (function(){
 		},
 		comContentsV2: function(){
 			//서브 페이지 헤더 fix event
-			if($('.ui-page-active .header-secV2.header-page-st').length > 0 && !$('.ui-page-active .header-secV2.header-page-st').hasClass('isHeaderFixedOne')){		
-				var isFix = false;
-				var scTop = null;
-				var scUTarget = null;
-				var headerMainH = $('.header-secV2.header-main-st').height();	
-				var $header = $('.header-secV2.header-page-st');	
-				$(document).off('scroll').on('scroll', function(){
-					scTop = $(document).scrollTop() + headerMainH;
-					scUTarget = $header.offset().top + $header.height();
-					
-					//fixed
-					if(scUTarget < scTop && isFix == false){
-						$header.addClass('is-fixed');
-						isFix = true;
-					}
+			if($('.ui-page-active').length > 0){
+				if($('.header-secV2.header-page-st').length > 0 && !$('.header-secV2.header-page-st').hasClass('isHeaderFixedOne')){		
+					var isFix = false;
+					var scTop = null;
+					var scUTarget = null;
+					var headerMainH = $('.header-secV2.header-main-st').height();	
+					var $header = $('.header-secV2.header-page-st');	
+					$(document).off('scroll').on('scroll', function(){
+						scTop = $(document).scrollTop() + headerMainH;
+						scUTarget = $header.offset().top + $header.height();
 
-					//relative
-					if(scUTarget > scTop && isFix == true){
-						$header.removeClass('is-fixed');
-						isFix = false;
-					}
-				});
-				
-				//서브 페이지 헤더먼저 보여준다
-				$('.header-secV2.header-main-st').hide();
-				$('.header-secV2.header-main-st').delay(500).show(0, function(){
-					$.mobile.silentScroll(headerMainH);	
-				});
-				$header.addClass('isHeaderFixedOne');
-				console.log('isHeaderFixedOne');
+						//fixed
+						if(scUTarget < scTop && isFix == false){
+							$header.addClass('is-fixed');
+							isFix = true;
+						}
+
+						//relative
+						if(scUTarget > scTop && isFix == true){
+							$header.removeClass('is-fixed');
+							isFix = false;
+						}
+					});
+
+					//서브 페이지 헤더먼저 보여준다
+					$('.header-secV2.header-main-st').hide();
+					$('.header-secV2.header-main-st').delay(500).show(0, function(){
+						$.mobile.silentScroll(headerMainH);	
+					});
+					$header.addClass('isHeaderFixedOne');
+				}
 			}
 			
 			//심플 더보기 UI(무조건 닫힌상태(height:0) 에서만 사용 - 상세 스케줄 더보기, 공동운항 리스트 더보기, 필터 항목 더보기)
-			if($('.o-expand-wrap').length > 0){}
-			$('.o-expand-wrap .o-expand-btn').die('click').live('click', function(e){
-				var $wExpand = $(this).closest('.o-expand-wrap');
-				var $expandCont = $wExpand.find('.o-expand-cont');
-				if($wExpand.hasClass('o-expanded')){
-					$wExpand.removeClass('o-expanded');
-					$expandCont.removeAttr('style');
-				}
-				else{
-					$wExpand.addClass('o-expanded');
-					$expandCont.css({'height' : $expandCont.prop('scrollHeight')+'px'});
-				}           
-				e.stopPropagation();
-			});
+			if($('.o-expand-wrap').length > 0){
+				$('.o-expand-wrap .o-expand-btn').die('click').live('click', function(e){
+					var $wExpand = $(this).closest('.o-expand-wrap');
+					var $expandCont = $wExpand.find('.o-expand-cont');
+					if($wExpand.hasClass('o-expanded')){
+						$wExpand.removeClass('o-expanded');
+						$expandCont.removeAttr('style');
+					}
+					else{
+						$wExpand.addClass('o-expanded');
+						$expandCont.css({'height' : $expandCont.prop('scrollHeight')+'px'});
+					}           
+					e.stopPropagation();
+				});
+			}
 			
 			//Accordion UI
 			if($('.o-acdi-click').length > 0){

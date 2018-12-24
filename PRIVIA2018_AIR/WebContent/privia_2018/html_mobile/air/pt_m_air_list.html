@@ -727,7 +727,7 @@
             <!-- //추천항공편 -->
             
             <!-- 선택한 항공편 -->
-            <div class="s-sel-items" style="display: none;">
+            <div class="s-sel-items" style="display: ;">
                 <div class="info-header">
                     <h4 class="txt">선택한 항공편</h4>
                 </div>
@@ -1119,6 +1119,8 @@
                 //검색 결과 리스트 클릭
                 $(document).on('click', '.box-airline-detail .area-sel-box', function(){
                     console.log('검색 결과 리스트 클릭');
+                    //pvmSearch.changePage('/privia_2018/html_mobile/air/pt_m_air_list_sch_lpu.html');
+                    selectPop.init('m_air_list_sch_lpu_01', '/privia_2018/html_mobile/air/pt_m_air_list_sch_lpu.html');
                 });
                 
                 return false;

@@ -267,16 +267,29 @@ box-sizing: border-box;
 .dialogue_pop .popWrap {display:block}
 .layerPopWrapper {position:absolute; left:0; top:0; z-index:200; width:100%;  background:#fff; opacity:0; -webkit-opacity:0; -moz-opacity:0; -o-opacity:0; -ms-opacity:0} 
 .bg_layerpop {position:absolute; left:0; top:0; z-index:90; background:rgba(0,0,0,0.5); width:100%; height:0; opacity:0; display:none}
-/* popWrap-sec */
+/* 개편 ver1 - popWrap-sec */
 .popWrap-sec {border-radius: 4px;overflow: hidden;margin: 0 auto;}
 .popWrap-sec .pop-exp-st1 dt {font-size:14px;font-weight: 500 !important;margin-bottom: 2px;color: #333;}
 .popWrap-sec .pop-exp-st1 dd {font-size:14px;color: #333;}
 .popWrap-sec .pop-exp-st1 + .pop-exp-st1 {margin-top: 10px;}
-/* popWrap-fix */
+/* 개편 ver1 - dialogue_pop + popWrap-fix */
 .dialogue_pop.dialogue_pop_fix {position: fixed;padding-top: 0 !important;height: 100% !important;}
 .dialogue_pop .popWrap-fix {position: relative;top: 50%;margin-top: -200px;}
 .inner-popCont-scroll {max-height:400px;}
-/*.popCont-iscroll {max-height:400px;overflow: hidden;position: relative;}
+/* 개편 ver2 - popWrap-mfix */
+.popWrap-mfix {overflow: hidden;margin: 0 auto;background: none;}
+.popWrap-mfix .popHead {height: 50px;background-color: #fff;width: 100%;position: relative;padding: 0;}
+.popWrap-mfix .popHead .tit {font-size:18px;color: #000;text-align: center;font-weight: 400;padding-top: 12px;font-family:"NotoSansKR";}
+.popWrap-mfix .popHead .btnClose {right: auto;left: 20px;top: 14px;}
+.popWrap-mfix .popHead .btnClose a {display: inline-block;width: 21px;height: 22px;overflow: hidden;background-position: -33px -141px;}
+.popWrap-mfix .popCont {background-color: #fff;}
+.popWrap-mfix .popCont-iscroll {max-height:100%;overflow-y: scroll;-webkit-overflow-scrolling: touch;position: relative;}
+.popWrap-mfix .popCont-iscroll.pih100 {height: 100%;}
+/* 개편 ver2 - dialogue_pop + popWrap-mfix */
+.dialogue_pop.dialogue_pop_mfix {position: fixed;padding: 0 !important;width: 100%;height: 100% !important;padding-top: 50px !important;}
+.dialogue_pop .popWrap-mfix {display:-webkit-box;display:-moz-box;display:-ms-flexbox;display:-webkit-flex;display:flex;flex-direction: column;justify-content:flex-end;width: 100%;height: 100%;margin-top:200%;transition: margin-top 0.3s;}
+.dialogue_pop .popWrap-mfix.loaded {margin-top: 0;}
+/*.popCont-iscroll {max-height:100%;overflow: hidden;position: relative;}
 .popCont-iscroll .iScrollVerticalScrollbar {background: rgba(0,0,0,.1);right: 3px;}
 .popCont-iscroll .iScrollIndicator {background: rgba(0,0,0,.5);}*/
     
@@ -290,15 +303,17 @@ box-sizing: border-box;
 .header-secV2, .header-secV2 *, .header-secV2 *:after, .header-secV2 *:before, 
 .gnbArea-sec, .gnbArea-sec *, .gnbArea-sec *:after, .gnbArea-sec *:before, 
 .popWrap-sec, .popWrap-sec *, .popWrap-sec *:after, .popWrap-sec *:before, 
+.popWrap-mfix, .popWrap-mfix *, .popWrap-mfix *:after, .popWrap-mfix *:before, 
 .search-sec, .search-sec *, .search-sec *:after, .search-sec *:before,
 .content-sec, .content-sec *, .content-sec *:after, .content-sec *:before,
 .footer-sec, .footer-sec *, .footer-sec *:after, .footer-sec *:before {font-family: "NotoSansKR", "Malgun Gothic", sans-serif;font-weight: 400;-moz-box-sizing:border-box;-webkit-box-sizing:border-box;box-sizing:border-box;}
-.popWrap-sec table, .search-sec table, .content-sec table {border-spacing:0;border-collapse:collapse;}
+.popWrap-mfix table, .popWrap-sec table, .search-sec table, .content-sec table {border-spacing:0;border-collapse:collapse;}
 
 /* 개편 시작 */
 /*--------------------------------------------------------------------------------------------------------------
  *  common - background
  *--------------------------------------------------------------------------------------------------------------*/
+.popWrap-mfix .popHead .btnClose a, 
 .gnbArea-sec .btnClose button:before, 
 .gnbArea-sec .gnb >li.suboff:after, 
 .gnbArea-sec .gnb >li.subon:after, 
@@ -404,7 +419,7 @@ transform:translate(-200px,0);
 /*--------------------------------------------------------------------------------------------------------------
  *  common - footer
  *--------------------------------------------------------------------------------------------------------------*/
-.footer-sec .w-footer-sec {background-color: #000;padding: 30px 20px;margin-top: 40px;}
+.footer-sec .w-footer-sec {background-color: #000;padding: 30px 20px;}
 .w-footer-sec .fts-ly1:after {content: '';display: block;clear:both;}
 .w-footer-sec .fts-ly1 .fts-call {float: left;line-height: 1.3;}
 .w-footer-sec .fts-ly1 .fts-call > span {display: block;}

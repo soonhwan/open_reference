@@ -768,7 +768,7 @@ html[class*="ie"] .w-list-dair .ldair-noway {margin-top: 55px;}
 .hbooksec-bda-fareinfo .help-tooltip {vertical-align: baseline;}
 /*.hbooksec-bda-fareinfo .help-tooltip .cont {width: 310px;}*/
 /* 국내선 운임할인 툴팁  */
-.custom-tooltip.cttip-fareinfo .custom-tooltip-inner {max-width: 310px;}
+.custom-tooltip.cttip-fareinfo .custom-tooltip-inner {max-width: 365px;}
 
 /* 결제하기 - 결제정보 */
 .hbooksec-bda-paymentinfo .w-pi-est-price {position: relative;overflow: hidden;}

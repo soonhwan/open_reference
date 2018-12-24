@@ -3598,7 +3598,8 @@ img.adp-marker {width: 34px !important; height: 18px !important;}
 .ico_cus.prew {width:33px; height:11px; background-position:-55px -80px;}
 .ico_cus.air {width:30px; height:15px; background-position:-10px -40px;}
 .ico_cus.hotel {width:18px; height:20px; background-position:-70px -40px;}
-.ico_cus.best {width:20px; height:6px; margin-left:5px; background:url(/images/front/travel/customer/ico_customer_best.png) no-repeat;}
+.ico_cus.best {width:23px; height:8px; margin-left:5px; background:url(/images/front/travel/customer/bbs_icon_best.gif) no-repeat;}
+.ico_cus.new2 {width:22px; height:8px; margin-left:5px; background:url(/images/front/travel/customer/bbs_icon_new.gif) no-repeat;}
 /* 공지사항 뷰 */
 .view_tit {position:relative; overflow:hidden; padding:16px 40px 13px 40px; border-top:1px solid #666; border-bottom:1px solid #666; background-color:#fff;}
 .view_tit .right_info {position:absolute; top:18px; right:40px;}

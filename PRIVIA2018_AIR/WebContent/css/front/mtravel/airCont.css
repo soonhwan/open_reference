@@ -129,6 +129,7 @@
 .box-airline-detail .bp-pricelist-info .price {font-size:12px;color: #000;position: absolute;top: -2px;right: 0;}
 .box-airline-detail .bp-pricelist-info .price em {font-size:16px;font-weight: 600;}
 .box-airline-detail .bp-pricelist-info .normal .price em {font-size: 14px;font-weight: 400;}
+.box-airline-detail .bp-pricelist-info .bb-help {margin-left: 3px;}
 .box-airline-detail .box-airline-header .lbr-st2 {margin-right: 5px;vertical-align: baseline;}
 .box-airline-detail .box-airline-header .date, .box-airline-detail .box-airline-header .seat {display: inline-block;vertical-align: middle;font-size:14px;color: #000;font-weight: 400;position: relative;}
 .box-airline-detail .box-airline-header .seat {padding-left: 15px;}
@@ -160,7 +161,6 @@
 @keyframes shine-line{ 0% {background-position:50%;} 40%, 100% {background-position:-100%;} }
 
 /* 필터, 정렬 버튼 */
-.btn-filter-range {position: relative;height: 40px;}
 .btn-filter-range .bfr {position: fixed;width: 138px;height: 40px;line-height: 40px;text-align: center;z-index:10;bottom: 20px;left: 50%;margin-left: -69px;border-radius: 20px;box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.2);background-color: rgba(62, 70, 85, 0.9);}
 .btn-filter-range .txt {font-size: 14px;color: #fff;padding-left: 26px;position: relative;}
 .btn-filter-range .txt:before {content: '';display: block;width: 15px;height: 13px;position: absolute;left: 0;top: 4px;background-position: -81px -26px;}
@@ -190,6 +190,7 @@
 .w-inres-options .ioi-cont.o-expanded .b-more-list .b-hide {display: block;}
 .w-inres-options .ioi-cont .list li:first-child {margin-top: 0;}
 .w-inres-options .ioi-cont .list .chk-st1 {width: 100%;}
+.w-inres-options .ioi-cont .list .chk-st1 .label {width: 100%;}
 .w-inres-options .ioi-cont .list .chk-st1 .area-right {position: absolute;top: 0;right: 31px;}
 .w-inres-options .io-cdBenefit .ioi-header .bb-help {position: absolute;top: 17px;left: 98px;}
 
@@ -220,9 +221,9 @@
 .ssi-cont .ssic-header {border-bottom: 2px solid #f2f2f2;position: relative;padding: 12px 20px 12px 20px;}
 .ssi-cont .ssic-header .tit {font-size:16px;color: #000;font-weight: 500;}
 .ssi-cont .ssic-header .ar-txt {position: absolute;top: 14px;right: 20px;text-align: right;font-size: 14px;color: #000;font-weight: 400;}
-
 .ssic-cont {padding: 20px;}
 
+/* 이름 작성시 유의사항 */
 .tip-enname {position: absolute;top: 15px;left: 106px;}
 .tip-enname .txt {font-size: 12px;color: #000;vertical-align: middle;}
 .tip-enname .bb-help {margin-left: 3px;}

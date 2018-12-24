@@ -324,9 +324,9 @@ body>.jcf-select-drop.jcf-drop-flipped{margin:1px 0 0}
 
 /* ------------- bullet list style */
 .blist-st1 > li {position:relative;margin-top:10px;padding-left:12px;font-size:12px;color:#000;letter-spacing: -0.05em;line-height: 17px;}
-.blist-st1 > li:first-child{margin-top:0;}
-.blist-st1 > li:before{content:"";display:block;width:2px;height:2px;position: absolute;background-color: #666;left: 0;top: 8px;}
-.blist-st1 > li a{color:#000;text-decoration:underline;display:inline-block;}
+.blist-st1 > li:first-child {margin-top:0;}
+.blist-st1 > li:before {content:"";display:block;width:2px;height:2px;position: absolute;background-color: #666;left: 0;top: 8px;}
+.blist-st1 > li .link {color:#000;text-decoration:underline;display:inline-block;}
 .blist-st1 .dl-strong {font-size:14px;font-weight: bold;}
 .blist-st1 .dl-strong:before{content: '*';background: none;top: 3px;color: #000;}
 .blist-st1 .red {color:#ea0000;}
@@ -345,6 +345,13 @@ body>.jcf-select-drop.jcf-drop-flipped{margin:1px 0 0}
 
 /* ------------- format align style */
 .c-box-st1 + .c-box-st1 {padding-top: 2px;}
+.a-bdt-st1 {margin-top: 15px;padding-top: 15px;border-top: 2px solid #f2f2f2;}
+.form-st1 {display: block;}
+.form-st1 .radio-base + .radio-base {margin-left: 20px !important;}
+.form-tit-input {padding: 10px 0;font-size: 14px;color: #000;display: inline-block;min-width: 50px;}
+.form-st2 {display: block;}
+.form-st2 .form-tit-input {min-width: 140px;}
+.form-st2 .select-st1 {width: 170px;}
 
 /* ------------- align style */
 .a-center {text-align: center !important;}
@@ -362,13 +369,19 @@ body>.jcf-select-drop.jcf-drop-flipped{margin:1px 0 0}
 .a-pb0 {padding-bottom: 0px !important;} 
 .a-pb10 {padding-bottom: 10px !important;} 
 .a-pb20 {padding-bottom: 20px !important;}
+
 .a-row {display: block;}
 .a-col {display: inline-block;}
-.a-col:first-child {margin-left: 0;}
 .a-row.col2:after {content: '';display: block;clear: both;}
 .a-row.col2 .a-col {width: 49%;float: left;}
 .a-row.col2 .a-col > * {width: 100%;}
 .a-row.col2 .a-col + .a-col {width: 49%;float: right;}
+
+/*.a-row {display:-webkit-box;display:-moz-box;display:-ms-flexbox;display:-webkit-flex;display:flex;justify-content: space-between;align-items: center;}
+.a-col {width:100%;}
+.a-row.col2 .a-col {width:48%;}
+.a-row.col2-unbal .a-col {width:43%;}
+.a-row.col2-unbal .a-col + .a-col {width:53%;}*/
 
 /*--------------------------------------------------------------------------------------------------------------
  ************************ common - popup ************************
