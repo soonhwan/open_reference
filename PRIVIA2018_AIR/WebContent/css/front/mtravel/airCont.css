@@ -228,3 +228,47 @@
 .tip-enname .txt {font-size: 12px;color: #000;vertical-align: middle;}
 .tip-enname .bb-help {margin-left: 3px;}
 
+/* 스케줄 정보 - 상세스케줄 */
+.schedule-detail {}
+.schedule-detail .schd-header {font-size:14px;color: #000;position: relative;}
+.schedule-detail .schd-header .schdh-flight {display: block;font-weight: 500;}
+.schedule-detail .schd-header .schdh-time {display: block;font-size:12px;color: rgba(0, 0, 0, 0.5);margin-top: 2px;}
+.schedule-detail .schd-cont {margin-top: 15px;border-top: 2px solid #ebeef2;}
+.schedule-detail .schdc-if {border-bottom: 1px solid #ccc;position: relative;padding: 15px 0;}
+.schedule-detail .schdc-if .air-logo {padding-left: 40px;font-size: 14px;color: #000;}
+.schedule-detail .schdc-if .air-logo .logo-img {width: 30px;position: absolute;top: 27px;left: 0;}
+.schedule-detail .schdc-if .air-logo .airline {display: block;}
+.schedule-detail .schdc-if .air-logo .airline-name {display: inline-block;vertical-align: middle;}
+.schedule-detail .schdc-if .airline-shar {margin-top: 2px;font-size: 14px;color: #000;}
+.schedule-detail .schdc-if .airline-shar .seat {display: inline-block;vertical-align: middle;font-size: 14px;color: #000;}
+.schedule-detail .schdc-if .luggage {font-size: 12px;color: #000;text-align: right;}
+
+.schedule-detail .schdc-det {padding: 30px 0 20px 0;position: relative;}
+.schedule-detail .schdc-det .sd-path {min-height: 100px;}
+.schedule-detail .schdc-det .sdp-route {padding-left: 125px;position: relative;}
+.schedule-detail .schdc-det .sdp-route .est-time {font-size: 14px;color: #999;position: absolute;left: 45px;top: 50%;margin-top: -9px;}
+.schedule-detail .schdc-det .sdpr-row {display: block;padding-left: 30px;position: relative;}
+.schedule-detail .schdc-det .sdpr-row .date {display: block;font-size:14px;color: #000;}
+.schedule-detail .schdc-det .sdpr-row .date em {color: #2a7cc8;}
+.schedule-detail .schdc-det .sdpr-row .time {display: block;font-size: 17px;color: #000;font-family:"NotoSansKR" !important;}
+.schedule-detail .schdc-det .sdpr-row .termi {position: absolute;font-size:14px;color: #000;left: 173px;top: 12px;}
+.schedule-detail .schdc-det .sdpr-row .termi em {color: #e93a84;}
+.schedule-detail .schdc-det .sdpr-row.hvia-route .vr-txt {color: #000;font-size:14px;margin-left: 142px;}
+.schedule-detail .schdc-det .sdp-route.via-route {padding-top: 25px;position: relative;}
+.schedule-detail .schdc-det .sdp-route.via-route .vr-txt {color: #e93a84;font-size:14px;}
+.schedule-detail .schdc-det .sdp-route.via-route .est-time {color: #e93a84;top: 25px;margin-top: 0;}
+
+.schedule-detail .schdc-det .sdpr-row + .sdpr-row {margin-top: 25px;}
+.schedule-detail .schdc-det .sdpr-row + .hvia-route {margin: 6px 0;}
+.schedule-detail .schdc-det .sdpr-row + .hvia-route + .sdpr-row {margin-top: 0;}
+
+.schedule-detail .schdc-det .sdp-route:before {content: '';display: block;width: 2px;height: 100%;background-color: #e2e2e2;position: absolute;top: 10px;left: 129px;z-index: 0;}
+.schedule-detail .schdc-det .sdp-route:after {content: '';display: block;width: 2px;height: 24px;background-color: #fff;position: absolute;left: 129px;bottom: -13px;z-index: 1;} 
+.schedule-detail .schdc-det .sdp-route.via-route:before {background: url(/images/front/travel/contents/bg-dashed2-v.png) 0 0 repeat-y;z-index: 2;height: 120%;top: auto;bottom: 0px;} 
+.schedule-detail .schdc-det .sdp-route.via-route:after {display: none;} 
+
+.schedule-detail .schdc-det .sdpr-row:before {content:"";display:block;position:relative;z-index:2;width:10px;height:10px;background:#fff;border: 2px solid #e2e2e2;border-radius:10px;position: absolute;top: 5px;left: 0;z-index: 3;}
+.schedule-detail .schdc-det .sdpr-row-last:before {top: 27px;}
+.schedule-detail .schdc-det .sdpr-mark:before {background:#cfcfcf;border: 0;}
+.schedule-detail .schdc-det .sdp-route.via-route .sdpr-row:before {display: none;}
+.schedule-detail .schdc-det .sdpr-row.hvia-route:before {top: 5px;}
