@@ -268,7 +268,7 @@ box-sizing: border-box;
 .layerPopWrapper {position:absolute; left:0; top:0; z-index:200; width:100%;  background:#fff; opacity:0; -webkit-opacity:0; -moz-opacity:0; -o-opacity:0; -ms-opacity:0} 
 .bg_layerpop {position:absolute; left:0; top:0; z-index:90; background:rgba(0,0,0,0.5); width:100%; height:0; opacity:0; display:none}
 /* 개편 ver1 - popWrap-sec */
-.popWrap-sec {border-radius: 4px;overflow: hidden;margin: 0 auto;}
+.popWrap-sec {border-radius: 4px;overflow: hidden;margin: 0 auto;width: 80%;}
 .popWrap-sec .pop-exp-st1 dt {font-size:14px;font-weight: 500 !important;margin-bottom: 2px;color: #333;}
 .popWrap-sec .pop-exp-st1 dd {font-size:14px;color: #333;}
 .popWrap-sec .pop-exp-st1 + .pop-exp-st1 {margin-top: 10px;}
@@ -276,6 +276,12 @@ box-sizing: border-box;
 .dialogue_pop.dialogue_pop_fix {position: fixed;padding-top: 0 !important;height: 100% !important;}
 .dialogue_pop .popWrap-fix {position: relative;top: 50%;margin-top: -200px;}
 .inner-popCont-scroll {max-height:400px;}
+/* 개편 ver2 - popWrap-secV2 */
+.popWrap-secV2 {border-radius: 4px;overflow: hidden;margin: 0 auto;width: 80%;}
+.popWrap-secV2 .popHead {padding:14px 0;margin:0 20px;border-bottom: 2px solid #f2f2f2;}
+.popWrap-secV2 .popHead .tit {font-size:16px;color: #000;font-weight: 500;font-family:"NotoSansKR";}
+.popWrap-secV2 .btnClose {right:0;top:19px;}
+.popWrap-secV2 .btnClose a {display: inline-block;width:16px;height:16px;overflow: hidden;background-position: -137px -141px;}
 /* 개편 ver2 - popWrap-mfix */
 .popWrap-mfix {overflow: hidden;margin: 0 auto;background: none;}
 .popWrap-mfix .popHead {height: 50px;background-color: #fff;width: 100%;position: relative;padding: 0;}
@@ -303,16 +309,18 @@ box-sizing: border-box;
 .header-secV2, .header-secV2 *, .header-secV2 *:after, .header-secV2 *:before, 
 .gnbArea-sec, .gnbArea-sec *, .gnbArea-sec *:after, .gnbArea-sec *:before, 
 .popWrap-sec, .popWrap-sec *, .popWrap-sec *:after, .popWrap-sec *:before, 
+.popWrap-secV2, .popWrap-secV2 *, .popWrap-secV2 *:after, .popWrap-secV2 *:before, 
 .popWrap-mfix, .popWrap-mfix *, .popWrap-mfix *:after, .popWrap-mfix *:before, 
 .search-sec, .search-sec *, .search-sec *:after, .search-sec *:before,
 .content-sec, .content-sec *, .content-sec *:after, .content-sec *:before,
 .footer-sec, .footer-sec *, .footer-sec *:after, .footer-sec *:before {font-family: "NotoSansKR", "Malgun Gothic", sans-serif;font-weight: 400;-moz-box-sizing:border-box;-webkit-box-sizing:border-box;box-sizing:border-box;}
-.popWrap-mfix table, .popWrap-sec table, .search-sec table, .content-sec table {border-spacing:0;border-collapse:collapse;}
+.popWrap-secV2 table, .popWrap-mfix table, .popWrap-sec table, .search-sec table, .content-sec table {border-spacing:0;border-collapse:collapse;}
 
 /* 개편 시작 */
 /*--------------------------------------------------------------------------------------------------------------
  *  common - background
  *--------------------------------------------------------------------------------------------------------------*/
+.popWrap-secV2 .btnClose a, 
 .popWrap-mfix .popHead .btnClose a, 
 .gnbArea-sec .btnClose button:before, 
 .gnbArea-sec .gnb >li.suboff:after, 

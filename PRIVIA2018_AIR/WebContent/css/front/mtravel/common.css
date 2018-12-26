@@ -1429,8 +1429,14 @@ box-sizing: border-box;
 /* btn - 일반버튼4 */
 .bb-st4 {width: 100%;}
 .bb-st4 a, .bb-st4 button, .bb-st4 input {font-size:16px;color: #fff;font-weight: 500;min-width: 60px;padding: 17px 14px 18px 14px;background-color: #3e4655;}
+/* 하단 고정 버튼 */
+.btn-bottom-fixed {position: relative;height: 59px;}
+.btn-bottom-fixed .bb-st4 {position: fixed;z-index: 10;bottom: 0;left: 0;}
 /* btn - 일반버튼5 */
 .bb-st5 a, .bb-st5 button, .bb-st5 input {font-size:12px;color: #fff;font-weight: 300;min-width: 60px;padding: 6px 14px 7px 14px;background-color: #aaa;border-radius: 3px;}
+/* btn - 일반버튼6 */
+.bb-st6 a, .bb-st6 button, .bb-st6 input {font-size:14px;color: #000;font-weight: 400;min-width: 100px;padding: 8px 14px 10px 14px;background-color: #fff;border-radius: 4px;border:1px solid #000}
+.bb-st6.bc-black a, .bb-st6.bc-black button, .bb-st6.bc-black input {color: #fff;background-color: #000;border: 0;padding: 9px 14px 11px 14px;}
 
 /* btn - 안내팝업버튼 */
 .bb-help a {overflow: hidden;width: 15px;height: 15px;position: relative;}
@@ -1539,6 +1545,7 @@ box-sizing: border-box;
 .c-point1{color:#e93a84 !important;}
 .c-point1-400{color:#e93a84 !important;font-weight:400 !important}
 .c-point2{color:#2981e2 !important;}
+.c-point3{color:#f30774 !important;}
 
 /* ------------- title style */
 /* 섹션 타이틀 */
@@ -1551,11 +1558,14 @@ box-sizing: border-box;
 /* ------------- text style */
 .c-txt-st1 {font-size: 14px;font-weight: 400;color: #000;line-height: 18px;margin-bottom: 12px;}
 .c-txt-st2 {font-size: 12px;font-weight: 400;color: #000;line-height: 18px;margin-bottom: 14px;}
+.c-txt-st3 {font-size: 14px;font-weight: 400;color: #000;line-height: 21px;}
+.c-txt-st4 a {margin-top:10px;display:inline-block;font-size:14px;font-weight:bold;color:#000;border-bottom:1px solid #000;}
 
 /* ------------- icon */
 /*.icon-hyphen {display: inline-block;vertical-align: middle;width: 7px;height: 1px;background-color: #aaa;}*/
 
 /* ------------- table style */
+/* table-st1 */
 .c-table-st1 {width:100%;text-align:center;}
 .c-table-st1 td {font-size:14px;color: #000;letter-spacing: -0.05em;padding:17px 20px;border:1px solid #ccc;border-left:0;}
 .c-table-st1 td a {font-size:inherit;color: inherit;}
@@ -1568,6 +1578,8 @@ box-sizing: border-box;
 .c-list-st1 > li .area-click {display: block;width: 100%;min-height: 60px;position: relative;}
 .c-list-st1 > li .area-click:after {content: '';display: block;width: 8px;height: 14px;position: absolute;top: 50%;margin-top: -7px;right: 0;background-position: -35px -85px;}
 .c-list-st1 > li .chk-st1 {position: absolute;top: 20px;left: 0;}
+
+.c-list-st2 > li {border-bottom: 2px solid #f3f3f3;position: relative;padding: 14px 0 15px 0;position: relative;}
 
 /* ------------- paging style */
 
@@ -1585,6 +1597,9 @@ box-sizing: border-box;
 .blist-st1 .blist-st1-sub > .dl-point:before{content: '*';background: none;top: 0px;color: #000;}
 .blist-st1 .blist-st1-sub > .mgt {color:#f30774;}
 .blist-st1 .blist-st1-sub > .mgt:before{background-color: #f30774;}
+.blist-st2 > li {position:relative;margin-top:10px;padding-left:10px;font-size:14px;color:#000;font-weight: 400;letter-spacing: -0.05em;line-height: 20px;}
+.blist-st2 > li:first-child{margin-top:0;}
+.blist-st2 > li:before{content:"";display:block;width:4px;height:2px;position: absolute;background-color: #666;left: 0;top: 10px;}
 
 /* ------------- box type style */
 .c-box-st1 {padding: 20px;}
@@ -1599,6 +1614,7 @@ box-sizing: border-box;
 .c-box-st3 .cb3-cont {padding: 20px;border-top: 1px solid #e6e6e6;}
 .c-box-st4 {padding: 20px;background-color: #e1e1e1;}
 .c-box-st5 {padding: 20px;background-color: #ebeef2;border-radius: 6px;}
+.c-box-st6 {padding: 17px 20px 20px 20px;}
 
 /* ------------- format align style */
 .c-box-st2 .c-box-st3 {margin-top: 10px;}
@@ -1633,6 +1649,8 @@ box-sizing: border-box;
 .a-row.col2 .a-col {width:48%;}
 .a-row.col2-unbal .a-col {width:43%;}
 .a-row.col2-unbal .a-col + .a-col {width:53%;}
+.a-pop-bottom-btn {margin-top: 30px;text-align: center;}
+.a-pop-bottom-btn.col2 .btn-base + .btn-base {margin-left: 5px;}
 
 /*--------------------------------------------------------------------------------------------------------------
  *  contents - 검색

@@ -72,6 +72,18 @@
                         <span class="txt">인천/김포(SEL)</span>
                         <span class="txt">오사카(OSA)</span>
                     </div>
+                    <div class="air-info">
+                        <span class="txt">부에노스아이레스(AER)</span>
+                        <span class="txt">리우데자네이루(GIG)</span>
+                    </div>
+                    <div class="air-info">
+                        <span class="txt">뉴욕(JFK)(JFK) </span>
+                        <span class="txt">인천(ICN)</span>
+                    </div>
+                    <div class="air-info">
+                        <span class="txt">나리타(NRT)</span>
+                        <span class="txt">뉴욕(JFK)(JFK) </span>
+                    </div>
                 </div>
                 <!-- //타이틀 -->
                 
@@ -79,7 +91,8 @@
                 <div class="ssi-cont">
                     <div class="ssic-header">
                         <h4 class="tit">예약정보</h4>
-                        <span class="ar-txt">성인1, 아동1</span>
+                        <span class="air-capacity">성인1, 아동1</span>
+                        <span class="btn-base bb-st5"><a href="#">상세스케줄</a></span>
                     </div>
                     <div class="ssic-cont">
                         <div class="box-airline-detail bad-st2">
@@ -120,7 +133,7 @@
                                 <div class="inset-row box-airline-header">
                                     <span class="btn-base lbr-st2"><span>오는편</span></span>
                                     <span class="date">08/28(화)</span>
-                                    <span class="seat">프리미엄 이코노미</span>
+                                    <span class="seat">일반석</span>
                                 </div>
                                 <div class="inset-row box-airline-info">
                                     <div class="bad-airline">
@@ -221,7 +234,6 @@
                                         </li>
                                     </ul>
                                     <div class="bad-btnset">
-                                        <span class="btn-base bb-st5"><a href="#">상세스케줄</a></span>
                                         <span class="btn-base bb-st5"><a href="#">상세요금</a></span>
                                     </div>
                                 </div>
@@ -278,7 +290,7 @@
                         <button class="area-tit o-acdi-click"><h4 class="tit">탑승객 정보</h4></button>
                         <span class="tip-enname">
                             <span class="txt">이름 작성 시 유의사항</span>
-                            <span class="btn-base bb-help bc-gray"><a href="#"><span class="a11y">이름 작성 유의사항 안내</span></a></span>
+                            <span class="btn-base bb-help bc-gray"><a href="#" onclick="selectPop.init('tipEnnamePop'); return false;"><span class="a11y">이름 작성 유의사항 안내</span></a></span>
                         </span>
                     </div>
                     <div class="cb3-cont o-acdi-cont">
@@ -296,7 +308,7 @@
                                 <input type="checkbox" id="self1" class="a11y">
                                 <span class="label">
                                     본인여부
-                                    <span class="btn-base bb-help bc-gray"><a href="#"><span class="a11y">본인여부 안내</span></a></span>
+                                    <span class="btn-base bb-help bc-gray"><a href="#" onclick="selectPop.init('selfChkPop'); return false;"><span class="a11y">본인여부 안내</span></a></span>
                                 </span> 
                             </label>
                         </div>
@@ -359,7 +371,7 @@
                                 <input type="checkbox" id="self2" class="a11y">
                                 <span class="label">
                                     본인여부
-                                    <span class="btn-base bb-help bc-gray"><a href="#"><span class="a11y">본인여부 안내</span></a></span>
+                                    <span class="btn-base bb-help bc-gray"><a href="#" onclick="selectPop.init('selfChkPop'); return false;"><span class="a11y">본인여부 안내</span></a></span>
                                 </span> 
                             </label>
                         </div>
@@ -564,8 +576,45 @@
                     <span class="btn-base bb-st3 bc-mgt"><button type="button">예약하기</button></span>
                 </div>
             </div>
-                
             <!-- //정보 입력 -->
+            
+            
+            <!-- 탑승객 이름 작성 시 유의사항 팝업 --> 
+            <section id="tipEnnamePop" class="popWrap popWrap-secV2" style="display:none">
+                <header class="popHead">
+                    <h1 class="tit">탑승객 이름 작성 시 유의사항</h1>
+                    <span class="btnClose"><a href="#">닫기</a></span>
+                </header>
+                <section class="popCont">
+                    <div class="c-box-st6">
+                        <h3 class="c-title-st2">한글명</h3>
+                        <ul class="blist-st2">
+                            <li>한글명은 예약 및 본인 결제 확인을 위해 필요한 정보입니다.</li>
+                            <li>한국 이름이 없는 경우 영문으로 입력 하거나 영문 발음대로 한글로 기입해 주시기 바랍니다.</li>
+                        </ul>
+                        <h3 class="c-title-st2 a-mt20">영문명</h3>
+                        <ul class="blist-st2">
+                            <li>탑승객 이름은 반드시 여권 영문 성, 이름과 동일해야 합니다.</li>
+                        </ul>
+                        <div class="a-mt20">
+                            <img src="/images/front/mtravel/contents/passport-en-name.jpg" alt="영문명 여권 예시">
+                        </div>
+                    </div>
+                </section>
+            </section>
+            <!-- //탑승객 이름 작성 시 유의사항 팝업 --> 
+            
+            <!-- 본인여부 팝업 -->
+            <section id="selfChkPop" class="popWrap popWrap-secV2" style="display:none">
+                <header class="popHead">
+                    <h1 class="tit">본인여부</h1>
+                    <span class="btnClose"><a href="#">닫기</a></span>
+                </header>
+                <section class="popCont">
+                    <div class="c-box-st6"><p class="c-txt-st3">현대카드 the Purple 혜택 사용 시 카드 소유자 본인 체크가 필요합니다.</p></div>
+                </section>
+            </section>
+            <!-- //본인여부 팝업 -->
         </section>
     </div>
     <!-- //content-sec -->

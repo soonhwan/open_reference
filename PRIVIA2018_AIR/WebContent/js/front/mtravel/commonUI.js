@@ -342,6 +342,9 @@ var selectPop = {
 			if(popup.find(".popWrap-sec").length > 0){
 				popup.addClass('popWrap-sec');
 			}
+			if(popup.find(".popWrap-secV2").length > 0){
+				popup.addClass('popWrap-secV2');
+			}
 			if(popup.find(".popWrap-fix").length > 0){
 				popup.addClass('popWrap-fix');
 			}

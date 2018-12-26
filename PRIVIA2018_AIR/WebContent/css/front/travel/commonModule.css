@@ -1478,6 +1478,9 @@ border-left:0;
 .sc-free .o-airtelpremium .qsb-cont-box .qsb-select {width: 46%;}
 .sc-free .o-airtelpremium .qsb-btn-search {width: 8%;}
 .sc-free .o-airtelpremium .ui-select-list {min-width:552px;}
+.sc-free .o-airteladdtu .qsb-cont-box .qsb-select {width: 46%;}
+.sc-free .o-airteladdtu .qsb-btn-search {width: 8%;}
+.sc-free .o-airteladdtu .ui-select-list {min-width:552px;}
 /* 검색 박스 lyout - 렌터카 */
 .sc-freetour .o-rentv .qsb-places {width: 52%;border-left: 0;}
 .sc-freetour .o-rentv .qsb-places .places-exit {position: relative;padding-right: 20px;}
