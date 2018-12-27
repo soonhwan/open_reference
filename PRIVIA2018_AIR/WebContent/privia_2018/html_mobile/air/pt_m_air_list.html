@@ -503,7 +503,7 @@
                                             </div>
                                             <div class="bad-airline-info">
                                                 <div class="ba-ai">
-                                                    <span class="ba-seat">잔여1석</span>
+                                                    <span class="ba-seat">잔여 1석</span>
                                                     <span class="ba-time">14시간 30분</span>
                                                 </div>
                                             </div>
@@ -571,7 +571,7 @@
                                             </div>
                                             <div class="bad-airline-info">
                                                 <div class="ba-ai">
-                                                    <span class="ba-seat">잔여1석</span>
+                                                    <span class="ba-seat">잔여 1석</span>
                                                     <span class="ba-time">14시간 30분</span>
                                                 </div>
                                             </div>
@@ -634,7 +634,7 @@
                                             </div>
                                             <div class="bad-airline-info">
                                                 <div class="ba-ai">
-                                                    <span class="ba-seat">잔여1석</span>
+                                                    <span class="ba-seat">잔여 1석</span>
                                                     <span class="ba-time">14시간 30분</span>
                                                 </div>
                                             </div>
@@ -690,7 +690,7 @@
                                             </div>
                                             <div class="bad-airline-info">
                                                 <div class="ba-ai">
-                                                    <span class="ba-seat">잔여1석</span>
+                                                    <span class="ba-seat">잔여 1석</span>
                                                     <span class="ba-time">14시간 30분</span>
                                                 </div>
                                             </div>
@@ -927,7 +927,7 @@
                                             </div>
                                             <div class="bad-airline-info">
                                                 <div class="ba-ai">
-                                                    <span class="ba-seat">잔여1석</span>
+                                                    <span class="ba-seat">잔여 1석</span>
                                                     <span class="ba-time">14시간 30분</span>
                                                 </div>
                                             </div>
@@ -995,7 +995,7 @@
                                             </div>
                                             <div class="bad-airline-info">
                                                 <div class="ba-ai">
-                                                    <span class="ba-seat">잔여1석</span>
+                                                    <span class="ba-seat">잔여 1석</span>
                                                     <span class="ba-time">14시간 30분</span>
                                                 </div>
                                             </div>
@@ -1058,7 +1058,7 @@
                                             </div>
                                             <div class="bad-airline-info">
                                                 <div class="ba-ai">
-                                                    <span class="ba-seat">잔여1석</span>
+                                                    <span class="ba-seat">잔여 1석</span>
                                                     <span class="ba-time">14시간 30분</span>
                                                 </div>
                                             </div>
@@ -1114,7 +1114,7 @@
                                             </div>
                                             <div class="bad-airline-info">
                                                 <div class="ba-ai">
-                                                    <span class="ba-seat">잔여1석</span>
+                                                    <span class="ba-seat">잔여 1석</span>
                                                     <span class="ba-time">14시간 30분</span>
                                                 </div>
                                             </div>
@@ -1215,16 +1215,18 @@
                     slidesPerView: 'auto',
                     autoplay: false,
                     touchStartForcePreventDefault: true,
-                    //slideToClickedSlide: true,
+                    freeMode: true,
+                    slideToClickedSlide: true,
                     on: {
                         click: function(){
                             if(recAirlineSwiper.allowTouchMove){
                                 var $expandCont = $('.s-rec-list-items .lri-detail-swiper');
-                                recAirlineDetailSwiper.slideTo(this.clickedIndex,0);                            
-                                $expandCont.addClass('is-open');
-                                $expandCont.css({'height' : $expandCont.prop('scrollHeight')+'px'});
+                                recAirlineDetailSwiper.slideTo(this.clickedIndex,10);   
+                                $expandCont.slideDown('fast');
+                                recAirlineDetailSwiper.updateAutoHeight(0);
                                 $('.s-rec-list-items .info-header .btn-close-detail').addClass('is-show');
                                 recAirlineSwiper.allowTouchMove = false;
+                                $('.s-rec-list-items .lri-sum-swiper').addClass('is-clicked');
                             }
                         }
                     }
@@ -1236,16 +1238,31 @@
                     slidesPerView: 1,
                     allowTouchMove: false,
                     autoHeight: true,
-                    autoplay: false
+                    autoplay: false,
+                    on: {
+                        init: function () {
+                            var $expandCont = $('.s-rec-list-items .lri-detail-swiper');
+                            $expandCont.css({'display':'none'});
+                        }
+                    }
+                });
+                
+                //추천항공 상세 슬라이드 내부 공동운항 클릭
+                $(document).on('click', '.swiper-container .o-expand-btn', function(){
+                    setTimeout(function(){
+                        recAirlineDetailSwiper.updateAutoHeight(0);
+                    },200);
                 });
                 
                 //추천항공 상세 슬라이드 닫기
                 $('.s-rec-list-items .info-header .btn-close-detail').on('click', function(){
                     var $expandCont = $('.s-rec-list-items .lri-detail-swiper');
-                    $expandCont.removeClass('is-open');
-                    $expandCont.removeAttr('style');
                     $(this).removeClass('is-show');
+                    $expandCont.slideUp('fast', function(){
+                        recAirlineDetailSwiper.updateAutoHeight(0);
+                    });
                     recAirlineSwiper.allowTouchMove = true;
+                    $('.s-rec-list-items .lri-sum-swiper').removeClass('is-clicked');
                 });
                 
                 //청구할인 클릭
@@ -1260,10 +1277,10 @@
                     //console.log('검색 결과 리스트 클릭');
                     selectPop.init('m_air_list_sch_lpu_01', '/privia_2018/html_mobile/air/pt_m_air_list_sch_lpu.html');
                 });
-                
                 return false;
             }
             
+            //로딩 %
             $('.loading-all-list .lal-bar .bar').css('width',num+'%');
             $('.loading-all-list .num').text(num);
         }

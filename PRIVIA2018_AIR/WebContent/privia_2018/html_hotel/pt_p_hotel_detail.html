@@ -87,6 +87,15 @@ $(function(){
 		$(this).hide();
 		e.preventDefault();
 	});
+
+	$('.room-filter .ui-tab-menu li').on('click', function(e){
+		if(!$(this).hasClass('on')){
+			$(this).addClass('on');
+		}else{
+			$(this).removeClass('on');
+		}
+		e.preventDefault();
+	});
 });
 </script>
 </head>
@@ -277,7 +286,7 @@ $(function(){
 								<li id="n-gnb-free"><a href="#"><span class="txt">자유여행</span></a></li>
 								<li id="n-gnb-freetour"><a href="#"><span class="txt">투어&amp;액티비티</span></a></li>
 								<li id="n-gnb-pkg"><a href="#"><span class="txt">해외패키지</span></a></li>
-								<li id="n-gnb-domestic"><a href="#"><span class="txt">국내여행</span></a></li>
+								<!-- <li id="n-gnb-domestic"><a href="#"><span class="txt">국내여행</span></a></li> -->
 								<li id="n-gnb-promotion"><a href="#"><span class="txt">기획전</span></a></li>
 								<li class="b-total-nav">
 									<a href="#"><span class="a11y">전체메뉴</span></a>

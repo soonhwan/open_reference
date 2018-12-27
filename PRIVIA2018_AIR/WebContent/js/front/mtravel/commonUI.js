@@ -2023,6 +2023,27 @@ var pvmFrontScript = window.pvmFrontScript || (function(){
 				});	
 			}
 			
+			//input-baseV2
+			if($('.input-baseV2').length > 0){
+				$('.input-baseV2 .input').on('focusout', function(){
+					var inp = $(this).closest('.input-baseV2')
+					if($(this).val() != '' && !inp.hasClass('typed')){
+						inp.addClass('typed');
+					}
+					else if($(this).val() == '' && inp.hasClass('typed')){
+						inp.removeClass('typed');
+					}				
+				});
+
+				//input 내용 삭제
+				$('.input-baseV2 .btn-clear').on('vclick', function(e){ 
+					var inp = $(this).closest('.input-baseV2').find('.input');
+					inp.val('');
+					e.preventDefault(); 
+					inp.focus(); 
+				});	
+				
+			}
 		}
 	}	
 }());

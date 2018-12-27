@@ -1017,7 +1017,7 @@ table.tbl-list,table.tbl-list2, table.tbl-receipt{border-collapse:separate;}
 box-shadow: 3px 7px 22px 0px rgba(0,0,0,0.3);
 }
 .nav-gnb-total {border-top:2px solid #000;margin-right: -2px;overflow: hidden;background-color: #fff}
-.nav-gnb-total > li {float: left;width: 16.66666666666667%;height: 250px;background-color: #fff;position: relative;border-bottom:1px solid #ededed;}
+.nav-gnb-total > li {float: left;width: 20%;height: 250px;background-color: #fff;position: relative;border-bottom:1px solid #ededed;}
 .nav-gnb-total > li .tit a {display: block;font-size:14px;color: #000;font-weight: bold;background-color: #f9f9f9;padding: 17px 10px 17px 20px;position: relative;z-index: 1;border-bottom:1px solid #ededed;}
 .nav-gnb-total > li:before {content: '';display: block;width: 1px;height: 100%;background-color: #ededed;position: absolute;right: 0;top: 0;z-index: 0;}
 .nav-gnb-total .list {padding: 8px 13px;border-right:1px solid #ededed;}
@@ -2220,6 +2220,7 @@ box-shadow: 0px 5px 20px 0px rgba(0,0,0,0.1);
 .list-tiem-package .info-box .gallery-icon li.air{width:45px;}
 .list-tiem-package .info-box .gallery-icon li.air p{height:26px;display:table-cell;color:#000;padding-top:6px;font-size:11px;}
 .tbl-list.ptb-short2.tbl-package td{padding:12px 0;}
+.tbl-list.ptb-short2.tbl-package td.right{padding-right:15px;}
 .list-one-banner .list-item-st1 li{margin-left:10px;}
 .list-one-banner .list-item-st1 li .area span{display:block;height:25px;}
 .list-one-banner .list-item-st1 li .area .c-point4{display:block;float:left;padding-top:10px;}

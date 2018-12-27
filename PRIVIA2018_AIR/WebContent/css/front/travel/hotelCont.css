@@ -289,7 +289,7 @@ border-right:5px solid transparent;
 .sch-set-accomm.loading .filter-list>li dt{background-size:600px;animation:shine-line 2s infinite ease-out;background-image:linear-gradient(90deg,#e5e5e5 0px,rgba(0, 0, 0, 0.1) 40px,#e5e5e5 80px);background-color:#e5e5e5;width:130px;}
 .sch-set-accomm.loading .filter-list>li dt *{opacity:0;filter:alpha(opacity=0);}
 .sch-set-accomm.loading .filter-list .slider-price-wrap{display:none;}
-.sch-set-accomm.loading .filter-list .filter-item li{background-size:600px;animation:shine-line 2s infinite ease-out;background-image:linear-gradient(90deg,#e5e5e5 0px,rgba(0, 0, 0, 0.1) 40px,#e5e5e5 80px);background-color:#e5e5e5;width:100px;}
+.sch-set-accomm.loading .filter-list .filter-item li{background-size:600px;animation:shine-line 2s infinite ease-out;background-image:linear-gradient(90deg,#e5e5e5 0px,rgba(0, 0, 0, 0.1) 40px,#e5e5e5 80px);background-color:#e5e5e5;/*width:100px;*/}
 .sch-set-accomm.loading .filter-list .filter-item li:before{content:'';display:block;width:25px;height:20px;background:#fff url(/images/front/travel/contents/icon-common-sec.png) 0px -260px no-repeat;position: absolute;top: 0;left: 0;}
 .sch-set-accomm.loading .filter-list .filter-item li *{opacity:0;filter:alpha(opacity=0);}
 .sch-set-accomm.loading .more{display:none;}

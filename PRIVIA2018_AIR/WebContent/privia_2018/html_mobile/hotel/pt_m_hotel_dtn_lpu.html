@@ -1,0 +1,246 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=no" />
+<meta name="format-detection" content="telephone=no" />
+<title>PRIVIA 여행</title>
+<meta name="description" content=" ">
+<meta property="og:title" content=" ">
+<meta property="og:image" content="http://static.priviatravel.com/images/front/mtravel/common/mobile_17004159046.png">
+<meta property="og:description" content=" ">
+<link rel="shortcut icon" type="image/x-icon" href="//static.priviatravel.com/images/front/mtravel/common/favicon.ico" />
+<link rel="apple-touch-icon-precomposed" sizes="152x152" href="//static.priviatravel.com/images/front/mtravel/common/apple-touch-icon-152.png" />
+<!--
+<link type="text/css" rel="stylesheet" href="/css/front/mtravel/jquery.mobile.1.4.2.css" />
+-->
+<link type="text/css" rel="stylesheet" href="/css/front/mtravel/jquery-ui.min.css" />
+<link type="text/css" rel="stylesheet" href="/css/front/mtravel/swiper.min.css" />
+<link type="text/css" rel="stylesheet" href="/css/front/mtravel/base.css" />
+<link type="text/css" rel="stylesheet" href="/css/front/mtravel/common.css" />
+<link type="text/css" rel="stylesheet" href="/css/front/mtravel/contents.css" />
+<link type="text/css" rel="stylesheet" href="/css/front/mtravel/hotelCont.css" />
+<script type="text/javascript" src="/js/front/mtravel/jquery-1.8.3.min.js"></script>
+<script type="text/javascript" src="/js/front/mtravel/jquery-ui.min.js"></script>
+<!--
+<script type="text/javascript" src="/js/front/mtravel/init.js"></script>
+<script type="text/javascript" src="/js/front/mtravel/jquery.mobile-1.4.2.js"></script>
+<script type="text/javascript" src="/js/front/mtravel/commonModuleSearchM.js"></script>
+<script type="text/javascript" src="/js/front/mtravel/commonUI.js"></script>
+<script type="text/javascript" src="/js/utils.js"></script>
+-->
+<script type="text/javascript" src="/js/front/mtravel/hotelUI.js"></script>
+</head>
+
+<body class="no-jqm">
+
+<!-- page -->
+<div data-role="page">
+
+  <!-- header-sec -->
+  <div class="header-secV2 header-pop-st">
+    <div class="in-header-secV2">
+      <h2 class="ihg-title">여행지 검색</h2>
+      <div class="ly-left">
+        <a href="#" class="b-close" data-rel="back"><span class="a11y">페이지 닫기</span></a>
+      </div>
+      <!-- <div class="ly-right">
+        <a href="#" class="b-refresh"><span class="a11y">새로고침</span></a>
+      </div> -->
+    </div>
+  </div>
+  <!-- //header-sec -->
+
+  <!-- content-sec -->
+  <div class="content-sec">
+    <section class="w-content-sec">
+      <div class="fs-search-wrap">
+        <div class="fs-search-input">
+          <input class="fs-input" type="text" placeholder="어디로 가시나요?">
+          <span class="fs-input-exp">도시, 지역, 호텔, 관광명소 입력</span>
+          <a href="#" class="fs-input-del"></a>
+        </div>
+      </div>
+      <div class="fs-nearby-accomm">
+        <a href="#" class="fs-nearby-tit" onclick="selectPop.init('locaAgreePop'); return false;">내 위치 주변숙소</a>
+        <span class="fs-nearby-exp">위치정보 이용동의 필요</span>
+      </div>
+      <div class="fs-item-wrap">
+        <ul class="fs-item-list">
+          <li>
+            <dl>
+              <dt>최근검색</dt>
+              <dd>
+                <ul class="recently-city">
+                  <li><a href="#">서울시, 한국</a></li>
+                  <li><a href="#">서울시, 한국</a></li>
+                </ul>
+              </dd>
+            </dl>
+          </li>
+          <li>
+            <dl>
+              <dt>추천도시</dt>
+              <dd>
+                <ul class="recommend-city">
+                  <li>
+                    <dl>
+                      <dt>아시아</dt>
+                      <dd>
+                        <ul class="clist">
+                          <li><a href="#">다낭</a></li>
+                          <li><a href="#">싱가포르</a></li>
+                          <li><a href="#">방콕</a></li>
+                          <li><a href="#">세부</a></li>
+                          <li><a href="#">코타키나발루</a></li>
+                          <li><a href="#">발리</a></li>
+                        </ul>
+                      </dd>
+                    </dl>
+                  </li>
+                  <li>
+                    <dl>
+                      <dt>홍콩/중국</dt>
+                      <dd>
+                        <ul class="clist">
+                          <li><a href="#">홍콩</a></li>
+                          <li><a href="#">타이페이</a></li>
+                          <li><a href="#">마카오</a></li>
+                          <li><a href="#">상해</a></li>
+                          <li><a href="#">북경</a></li>
+                          <li><a href="#">청도</a></li>
+                          <li><a href="#">광저우</a></li>
+                        </ul>
+                      </dd>
+                    </dl>
+                  </li>
+                  <li>
+                    <dl>
+                      <dt>일본</dt>
+                      <dd>
+                        <ul class="clist">
+                          <li><a href="#">오카나와</a></li>
+                          <li><a href="#">오사카</a></li>
+                          <li><a href="#">도쿄</a></li>
+                          <li><a href="#">후쿠오카</a></li>
+                          <li><a href="#">삿포로</a></li>
+                          <li><a href="#">교토</a></li>
+                          <li><a href="#">유후인</a></li>
+                          <li><a href="#">나고야</a></li>
+                          <li><a href="#">노보리베츠</a></li>
+                        </ul>
+                      </dd>
+                    </dl>
+                  </li>
+                  <li>
+                    <dl>
+                      <dt>남태평양</dt>
+                      <dd>
+                        <ul class="clist">
+                          <li><a href="#">괌</a></li>
+                          <li><a href="#">사이판</a></li>
+                          <li><a href="#">시드니</a></li>
+                          <li><a href="#">멜버른</a></li>
+                        </ul>
+                      </dd>
+                    </dl>
+                  </li>
+                  <li>
+                    <dl>
+                      <dt>유럽</dt>
+                      <dd>
+                        <ul class="clist">
+                          <li><a href="#">파리</a></li>
+                          <li><a href="#">로마</a></li>
+                          <li><a href="#">런던</a></li>
+                          <li><a href="#">프라하</a></li>
+                          <li><a href="#">피렌체</a></li>
+                          <li><a href="#">바르셀로나</a></li>
+                          <li><a href="#">밀라노</a></li>
+                          <li><a href="#">베니스</a></li>
+                          <li><a href="#">부다페스트</a></li>
+                          <li><a href="#">비엔나</a></li>
+                        </ul>
+                      </dd>
+                    </dl>
+                  </li>
+                  <li>
+                    <dl>
+                      <dt>미주/캐나다</dt>
+                      <dd>
+                        <ul class="clist">
+                          <li><a href="#">호놀룰루</a></li>
+                          <li><a href="#">마우이</a></li>
+                          <li><a href="#">라스베가스</a></li>
+                          <li><a href="#">뉴욕</a></li>
+                          <li><a href="#">샌프란시스코</a></li>
+                          <li><a href="#">시카고</a></li>
+                          <li><a href="#">로스앤젤레스</a></li>
+                          <li><a href="#">벤쿠버</a></li>
+                          <li><a href="#">토론토</a></li>
+                        </ul>
+                      </dd>
+                    </dl>
+                  </li>
+                  <li>
+                    <dl>
+                      <dt>국내</dt>
+                      <dd>
+                        <ul class="clist">
+                          <li><a href="#">제주도</a></li>
+                          <li><a href="#">서울</a></li>
+                          <li><a href="#">부산</a></li>
+                          <li><a href="#">인천</a></li>
+                          <li><a href="#">광주</a></li>
+                          <li><a href="#">대구</a></li>
+                          <li><a href="#">대전</a></li>
+                          <li><a href="#">울산</a></li>
+                          <li><a href="#">강원도</a></li>
+                          <li><a href="#">경기도</a></li>
+                          <li><a href="#">경상남도</a></li>
+                          <li><a href="#">경상북도</a></li>
+                          <li><a href="#">전라남도</a></li>
+                          <li><a href="#">전라북도</a></li>
+                          <li><a href="#">충청남도</a></li>
+                          <li><a href="#">충청북도</a></li>
+                        </ul>
+                      </dd>
+                    </dl>
+                  </li>
+                </ul>
+              </dd>
+            </dl>
+          </li>
+        </ul>
+      </div><!-- //fs-item-wrap -->
+    </section>
+  </div>
+  <!-- //content-sec -->
+
+  <!-- 위치정보 이용동의 팝업 -->
+  <section id="locaAgreePop" class="popWrap popWrap-secV2" style="display:none">
+    <header class="popHead">
+      <h1 class="tit">위치정보 이용동의</h1>
+      <span class="btnClose"><a href="#">닫기</a></span>
+    </header>
+    <section class="popCont">
+      <div class="c-box-st6 a-center">
+        <p class="c-txt-st3">
+          고객님 주변에 위치한 숙소검색을 위해<br />
+          위치정보 이용에 동의해주세요.
+        </p>
+        <p class="c-txt-st4"><a href="#">위치정보이용약관 상세보기</a></p>
+        <div class="a-pop-bottom-btn col2">
+          <span class="btn-base bb-st6"><a href="#">취소</a></span>
+          <span class="btn-base bb-st6 bc-black"><a href="#">동의 후 검색</a></span>
+        </div>
+      </div>
+    </section>
+  </section>
+  <!-- //위치정보 이용동의 팝업 -->
+
+</div>
+<!-- //page -->
+
+</body>
+</html>

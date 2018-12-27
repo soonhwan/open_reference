@@ -1369,6 +1369,7 @@ box-sizing: border-box;
 /*--------------------------------------------------------------------------------------------------------------
  *  common - background
  *--------------------------------------------------------------------------------------------------------------*/
+.bb-select-st1:before,
 .c-list-st1 > li .area-click:after,
 .input-baseV2 .btn-clear,
 .c-box-st3 .cb3-header button.area-tit:before,
@@ -1436,7 +1437,12 @@ box-sizing: border-box;
 .bb-st5 a, .bb-st5 button, .bb-st5 input {font-size:12px;color: #fff;font-weight: 300;min-width: 60px;padding: 6px 14px 7px 14px;background-color: #aaa;border-radius: 3px;}
 /* btn - 일반버튼6 */
 .bb-st6 a, .bb-st6 button, .bb-st6 input {font-size:14px;color: #000;font-weight: 400;min-width: 100px;padding: 8px 14px 10px 14px;background-color: #fff;border-radius: 4px;border:1px solid #000}
-.bb-st6.bc-black a, .bb-st6.bc-black button, .bb-st6.bc-black input {color: #fff;background-color: #000;border: 0;padding: 9px 14px 11px 14px;}
+.bb-st6.bc-black a, .bb-st6.bc-black button, .bb-st6.bc-black input {color: #fff;background-color: #000;border: 0;padding: 9px 15px 11px 15px;}
+
+/* btn - select-st1 같은 style */
+.bb-select-st1 {position: relative;}
+.bb-select-st1:before {content: '';display: block;width: 15px;height: 8px;position: absolute;top: 21px;right: 0;background-position: -27px -101px;}
+.bb-select-st1 a {font-size:16px;color: #000;font-weight: 600;text-align: left;padding: 12px 25px 13px 0;border-bottom: 1px solid #000;background-color: #fff;}
 
 /* btn - 안내팝업버튼 */
 .bb-help a {overflow: hidden;width: 15px;height: 15px;position: relative;}
@@ -1445,6 +1451,7 @@ box-sizing: border-box;
 .bb-help.bc-white a:before {color: #000;background-color: #fff;}
 /* btn - 안내팝업버튼(gray) */
 .bb-help.bc-gray a:before {background-color: #b9b9b9;}
+
 
 /* ------------- input style */
 .input-base::-webkit-input-placeholder {color:#999;font-weight: 300;}
@@ -1458,16 +1465,24 @@ box-sizing: border-box;
 .input-baseV2 input {outline:none;-webkit-appearance:none;-webkit-border-radius:0px;}
 .input-baseV2 .input {font-size: 14px;color: #000;width: 100%;border-bottom: 1px solid #999;padding: 14px 0;transition: border-bottom 0.3s;}
 .input-baseV2 .input:focus {border-bottom: 1px solid #f30774;}
-.input-baseV2 .input:focus + .label {font-size: 10px;top: 0;}
+.input-baseV2 .input:focus + .label {font-size: 10px;top: -5px;}
 .input-baseV2 .input:focus + .label .requ {font-size: 12px;}
 .input-baseV2 .input:focus + .label .exp {opacity: 0;}
 .input-baseV2 .input:focus ~ .btn-clear {opacity: 1;visibility:visible;}
+.input-baseV2.typed .label {font-size: 10px;top: -5px;}
+.input-baseV2.typed .label .requ {font-size: 12px;}
+.input-baseV2.typed .label .exp {opacity: 0;}
 .input-baseV2 .label {font-size: 14px;color: rgba(0, 0, 0, 0.5);position: absolute;top: 14px;left: 0;transition: top 0.3s;}
 .input-baseV2 .label .requ {color: #f30774;margin-right: 3px;vertical-align: middle;}
 .input-baseV2 .label .exp {font-size: 12px;margin-left: 10px;opacity: 1;transition: opacity 0.3s;}
 .input-baseV2 .btn-clear {display: block;width: 17px;height: 17px;position: absolute;right: 0;top: 15px;opacity: 0;visibility: hidden;background-position: -118px -141px;transition: opacity 0.3s, visibility 0.3s;}
+.input-baseV2 .req-guide {font-size: 12px;color: #000;margin-top: 5px;}
+.input-baseV2 .req-error {display: none;font-size: 12px;color: #ea0000;margin-top: 5px;}
+.input-baseV2.invalid .req-guide {display: none;}
+.input-baseV2.invalid .req-error {display: block;}
+.input-baseV2.invalid .label .exp,
+.input-baseV2.invalid .label .txt {color: #ea0000;}
 /* input-baseV2 - input-st1 */
-.input-st1 {}
 
 /* ------------- checkbox style */
 .chk-base {transition: opacity 0.3s;display: inline-block !important;margin: 0 !important;position: relative;vertical-align: middle;}
@@ -1515,8 +1530,8 @@ box-sizing: border-box;
 .select-base {transition: opacity 0.3s;display: inline-block;vertical-align: middle;}
 .select-base select {-webkit-appearance: none;border-radius: 0;outline: none;}
 /* select1 */
-.select-st1 {width: 100%;border-bottom: 1px solid #000;position: relative;}
-.select-st1 select {display: block;width: 100%;padding: 12px 0 13px 0;font-size: 16px;color: #000;font-weight: 600;border:0;background-color: #fff;}
+.select-st1 {width: 100%;position: relative;}
+.select-st1 select {display: block;width: 100%;padding: 12px 0 13px 0;font-size: 16px;color: #000;font-weight: 600;border:0;border-bottom: 1px solid #000;background-color: #fff;}
 .select-st1:before {content: '';display: block;width: 15px;height: 8px;position: absolute;top: 21px;right: 0;background-position: -27px -101px;}
 
 /* ------------- tab style */
@@ -1578,8 +1593,12 @@ box-sizing: border-box;
 .c-list-st1 > li .area-click {display: block;width: 100%;min-height: 60px;position: relative;}
 .c-list-st1 > li .area-click:after {content: '';display: block;width: 8px;height: 14px;position: absolute;top: 50%;margin-top: -7px;right: 0;background-position: -35px -85px;}
 .c-list-st1 > li .chk-st1 {position: absolute;top: 20px;left: 0;}
+.c-list-st1.bd2 > li{border-bottom:2px solid #f2f2f2}
+.c-list-st1.bdt{border-top:2px solid #f2f2f2}
 
-.c-list-st2 > li {border-bottom: 2px solid #f3f3f3;position: relative;padding: 14px 0 15px 0;position: relative;}
+.c-list-st2 > li {border-bottom: 2px solid #f3f3f3;padding: 14px 0 15px 0;position: relative;}
+.c-list-st3 > li {border-top: 1px solid #f3f3f3;padding: 15px 0 20px 0;position: relative;}
+.c-list-st3 > li:first-child {border-top: 0;}
 
 /* ------------- paging style */
 
@@ -1603,6 +1622,11 @@ box-sizing: border-box;
 
 /* ------------- box type style */
 .c-box-st1 {padding: 20px;}
+.cb1-header {position: relative;}
+.cb1-header .area-tit {display: block;position: relative;z-index: 0;padding: 14px 0 15px 0;position: relative;width: 100%;text-align: left;outline:none;}
+.cb1-header .chk-agg-all {position: absolute;top: 17px;right:0px;font-weight: 500;}
+.cb1-header .chk-agg-all .label{font-weight:500}
+.cb1-header .area-tit .tit {font-size: 16px;color: #000;font-weight: 800;display: inline-block}
 .c-box-st2 {padding: 10px;background-color: #ebeef2;}
 .c-box-st3 {background-color: #fff;border-radius: 4px;overflow: hidden;}
 .c-box-st3 .cb3-header {position: relative;}
@@ -1615,6 +1639,8 @@ box-sizing: border-box;
 .c-box-st4 {padding: 20px;background-color: #e1e1e1;}
 .c-box-st5 {padding: 20px;background-color: #ebeef2;border-radius: 6px;}
 .c-box-st6 {padding: 17px 20px 20px 20px;}
+.c-box-st7 {padding: 20px;background-color: #f5f6f8;border-radius: 4px;}
+.c-box-st8 {padding: 15px 20px;background-color: #4a4a4a;}
 
 /* ------------- format align style */
 .c-box-st2 .c-box-st3 {margin-top: 10px;}

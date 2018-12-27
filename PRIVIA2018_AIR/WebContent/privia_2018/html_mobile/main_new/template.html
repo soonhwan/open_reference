@@ -169,7 +169,7 @@ var AIR_HTL_FLAG = "ETC";
     <!-- //서브헤더 -->
     
     <!-- 팝업헤더 - fix모드 -->
-    <div class="header-secV2 header-page-st header-pop-st">
+    <!--<div class="header-secV2 header-page-st header-pop-st">
         <div class="in-header-secV2">
             <h2 class="ihg-title">결과 내 검색</h2>
             <div class="ly-left">
@@ -179,7 +179,7 @@ var AIR_HTL_FLAG = "ETC";
                 <a href="#" class="b-refresh"><span class="a11y">새로고침</span></a>
             </div>
         </div>
-    </div>
+    </div>-->
     <!-- //팝업헤더 -->
     <!-- //개편 ver2 -->
     <!-- //header-sec -->
@@ -293,6 +293,26 @@ var AIR_HTL_FLAG = "ETC";
                     </div>
                 </div>
                 <div class="guide-box">
+                    <h3 class="guide-tit">select-st1 동일 style 버튼</h3>
+                    <div class="gb-inner">
+                        <span class="btn-base bb-select-st1">
+                            <a href="#" onclick="selectPop.init('pt_m_air_chs_pss_lpu_01', '/privia_2018/html_mobile/air/pt_m_air_chs_pss_lpu.html'); return false;">여행자 선택</a>
+                        </span>
+                    </div>
+                </div>                
+                <div class="guide-box">
+                    <h3 class="guide-tit">select 1</h3>
+                    <div class="gb-inner">
+                        <span class="select-base select-st1">
+                            <select>
+                                <option>선택</option>
+                                <option>홍길동1</option>
+                                <option>홍길동2</option>
+                            </select>
+                        </span>
+                    </div>
+                </div>
+                <div class="guide-box">
                     <h3 class="guide-tit">checkbox 1</h3>
                     <div class="gb-inner">
                         <label for="f2" class="chk-base chk-st1">
@@ -331,7 +351,51 @@ var AIR_HTL_FLAG = "ETC";
                 </div>
                 <div class="guide-box">
                     <h3 class="guide-tit">박스, form요소, 정렬</h3>
+                    <!-- 정보 입력 -->
                     <div class="c-box-st2">
+                        <!-- 예약자 정보 -->
+                        <div class="c-box-st3 a-mt0">
+                            <div class="cb3-header">
+                                <span class="area-tit"><h4 class="tit">예약자 정보</h4></span>
+                            </div>
+                            <div class="cb3-cont">
+                                <span class="input-baseV2 invalid">
+                                    <input type="text" id="u-name" class="input">
+                                    <label for="u-name" class="label">
+                                        <em class="requ">*</em><span class="txt">한글명</span><span class="exp">ex) 홍길동</span>
+                                    </label>
+                                    <button class="btn-clear"><span class="a11y">입력 항목 삭제</span></button>
+                                    <p class="req-guide"></p>
+                                    <p class="req-error">한글이름은 필수 항목입니다.</p>
+                                    <p class="req-error">한글이름은 한글 또는 영문만 입력 가능합니다.</p>
+                                </span>
+                                <span class="input-baseV2 a-mt20 invalid">
+                                    <input type="number" id="u-tel" class="input">
+                                    <label for="u-tel" class="label">
+                                        <em class="requ">*</em><span class="txt">연락처</span><span class="exp">- 없이 숫자만 입력</span>
+                                    </label>
+                                    <button class="btn-clear"><span class="a11y">입력 항목 삭제</span></button>
+                                    <p class="req-error">연락처 항목은 필수 항목입니다.</p>
+                                    <p class="req-error">연락처 항목은 숫자만 입력 가능합니다.</p>
+                                </span>
+                                <span class="input-baseV2 a-mt20 invalid">
+                                    <input type="email" id="u-email" class="input">
+                                    <label for="u-email" class="label">
+                                        <em class="requ">*</em><span class="txt">이메일</span><span class="exp">sample@priviatravel.com</span>
+                                    </label>
+                                    <button class="btn-clear"><span class="a11y">입력 항목 삭제</span></button>
+                                    <p class="req-error">이메일 항목은 필수 항목입니다.</p>
+                                    <p class="req-error">이메일 항목은 영문, 숫자, 일부 특수기호(@ _ - .)만 입력 가능합니다.</p>
+                                </span>
+                                <ul class="blist-st1 a-mt20">
+                                    <li class="mgt">실시간 예약 상황 및 정보 전달을 위해 정확한 연락처 및 이메일을 입력해주시기 바랍니다.</li>
+                                    <li>중복 예약을 하시는 경우 사전 안내 없이 모든 예약이 자동 취소 될 수 있습니다.</li>
+                                </ul>
+                            </div>
+                        </div>
+                        <!-- //예약자 정보 -->
+
+                        <!-- 탑승객 정보 -->
                         <div class="c-box-st3 o-acdi-wrap o-acdi-open">
                             <div class="cb3-header">
                                 <button class="area-tit o-acdi-click"><h4 class="tit">탑승객 정보</h4></button>
@@ -340,18 +404,14 @@ var AIR_HTL_FLAG = "ETC";
                                 <!-- 탑승객 1 -->
                                 <h5 class="c-title-st2">성인1</h5>
                                 <div class="a-row col2-unbal">
-                                    <span class="select-base select-st1 a-col">
-                                        <select>
-                                            <option>여행자 선택</option>
-                                            <option>여행자 선택1</option>
-                                            <option>여행자 선택2</option>
-                                        </select>
+                                    <span class="btn-base bb-select-st1 a-col">
+                                        <a href="#" onclick="selectPop.init('pt_m_air_chs_pss_lpu_01', '/privia_2018/html_mobile/air/pt_m_air_chs_pss_lpu.html'); return false;">여행자 선택</a>
                                     </span>
                                     <label for="self1" class="chk-base chk-st1 a-col a-right">
                                         <input type="checkbox" id="self1" class="a11y">
                                         <span class="label">
                                             본인여부
-                                            <span class="btn-base bb-help bc-gray"><a href="#"><span class="a11y">본인여부 안내</span></a></span>
+                                            <span class="btn-base bb-help bc-gray"><a href="#" onclick="selectPop.init('selfChkPop'); return false;"><span class="a11y">본인여부 안내</span></a></span>
                                         </span> 
                                     </label>
                                 </div>
@@ -361,6 +421,7 @@ var AIR_HTL_FLAG = "ETC";
                                         <em class="requ">*</em><span class="txt">한글명</span><span class="exp">ex) 홍길동</span>
                                     </label>
                                     <button class="btn-clear"><span class="a11y">입력 항목 삭제</span></button>
+                                    <p class="req-guide">한글명으로 입력해주십시오.</p>
                                 </div>
                                 <div class="a-row col2-unbal a-mt20">
                                     <span class="input-baseV2 a-col">
@@ -399,70 +460,7 @@ var AIR_HTL_FLAG = "ETC";
                                     </div>
                                 </div>
                                 <!-- //탑승객 1 -->
-
-                                <!-- 탑승객 2 -->
-                                <h5 class="c-title-st2 a-bdt-st1">성인2</h5>
-                                <div class="a-row col2-unbal">
-                                    <span class="select-base select-st1 a-col">
-                                        <select>
-                                            <option>여행자 선택</option>
-                                            <option>여행자 선택1</option>
-                                            <option>여행자 선택2</option>
-                                        </select>
-                                    </span>
-                                    <label for="self2" class="chk-base chk-st1 a-col a-right">
-                                        <input type="checkbox" id="self2" class="a11y">
-                                        <span class="label">
-                                            본인여부
-                                            <span class="btn-base bb-help bc-gray"><a href="#"><span class="a11y">본인여부 안내</span></a></span>
-                                        </span> 
-                                    </label>
-                                </div>
-                                <div class="input-baseV2 a-mt20">
-                                    <input type="text" id="u-nameKo2" class="input">
-                                    <label for="u-nameKo2" class="label">
-                                        <em class="requ">*</em><span class="txt">한글명</span><span class="exp">ex) 홍길동</span>
-                                    </label>
-                                    <button class="btn-clear"><span class="a11y">입력 항목 삭제</span></button>
-                                </div>
-                                <div class="a-row col2-unbal a-mt20">
-                                    <span class="input-baseV2 a-col">
-                                        <input type="text" id="u-nameEnF2" class="input">
-                                        <label for="u-nameEnF2" class="label">
-                                            <em class="requ">*</em><span class="txt">영문성</span><span class="exp">ex) HONG</span>
-                                        </label>
-                                        <button class="btn-clear"><span class="a11y">입력 항목 삭제</span></button>
-                                    </span>
-                                    <span class="input-baseV2 a-col">
-                                        <input type="text" id="u-nameEn2" class="input">
-                                        <label for="u-nameEn2" class="label">
-                                            <em class="requ">*</em><span class="txt">영문이름</span><span class="exp">ex) GILDONG</span>
-                                        </label>
-                                        <button class="btn-clear"><span class="a11y">입력 항목 삭제</span></button>
-                                    </span>
-                                </div>
-                                <div class="input-baseV2 a-mt20">
-                                    <input type="number" id="u-birthday2" class="input">
-                                    <label for="u-birthday2" class="label">
-                                        <em class="requ">*</em><span class="txt">생년월일</span><span class="exp">ex) YYYYMMDD</span>
-                                    </label>
-                                    <button class="btn-clear"><span class="a11y">입력 항목 삭제</span></button>
-                                </div>
-                                <div class="a-mt20">
-                                    <div class="form-st1">
-                                        <span class="form-tit-input">성별</span>
-                                        <label for="sexM2" class="radio-base radio-st1">
-                                            <input type="radio" id="sexM2" name="sex2" class="a11y" checked>
-                                            <span class="label">남자</span> 
-                                        </label>
-                                        <label for="sexF2" class="radio-base radio-st1">
-                                            <input type="radio" id="sexF2" name="sex2" class="a11y">
-                                            <span class="label">여자</span> 
-                                        </label>
-                                    </div>
-                                </div>
-                                <!-- //탑승객 2 -->
-
+                                
                                 <ul class="blist-st1 a-bdt-st2">
                                     <li>탑승객 정보는 입, 출국 수속 및 항공사에서 사용되는 기본 정보 입니다.</li>
                                     <li>
@@ -470,14 +468,166 @@ var AIR_HTL_FLAG = "ETC";
                                         <span class="btn-base bb-st5"><a href="#">자세히 보기</a></span>
                                     </li>
                                     <li>여권 유효기간은 출국일 기준 6개월 이상 남아 있어야 출국이 가능합니다.</li>
-                                    <li>탑승객 구분은 탑승일 나이 기준으로 적용되며, 아동은 만 2세 이상 ~ 만 12세 미만, 유아는 출/도착 탑승일 기준 만 24개월 미만입니다.</li>
-                                    <li>유아가 여행 중 만 24개월이 초과될 경우, 초과하는 첫 구간부터 아동 요금이 적용됩니다. 이 경우 요금 미확정으로 예약 완료되며, 담당자가 운임 및 규정 확인 후 확정됩니다.</li>
-                                    <li>아동 및 유아는 보호자가 만 18세 이상이어야 하며, 동반자와 탑승 클래스가 동일해야 합니다.</li>
-                                    <li>보호자 없이 혼자 여행하는 만 12세 ~ 17세 미만 청소년의 경우 탑승 항공사에 따라 탑승이 제한될 수 있습니다.</li>
                                 </ul>
                             </div>
                         </div>
+                        <!-- //탑승객 정보 -->
                     </div>
+                    <!-- //정보 입력 -->
+                    
+                    <!-- 예약 동의 -->
+                    <div class="c-box-st4 a-center">
+                        <p class="c-txt-st2">예약 후 영문 이름은 변경이 불가하오니 탑승객의 여권상 동일 영문 이름, 성별을 입력하여 주시기 바랍니다.<br /> (띄어쓰기, 특수문자 없이 입력)</p> 
+                        <label for="agg1" class="chk-base chk-st1">
+                            <input type="checkbox" id="agg1" class="a11y">
+                            <span class="label"><strong>동의합니다.</strong></span> 
+                        </label>
+                    </div>
+                    <!-- //예약 동의 -->
+                    
+                    <!-- 정보 입력 -->
+                    <div class="c-box-st2">
+                        <!-- 예약규정 및 이용약관 -->
+                        <div class="c-box-st3 a-mt0">
+                            <div class="cb3-header">
+                                <span class="area-tit"><h4 class="tit">예약규정 및 이용약관</h4></span>
+                                <label for="aggAll" class="chk-base chk-st1 chk-agg-all">
+                                    <input type="checkbox" id="aggAll" class="a11y">
+                                    <span class="label">모든 약관동의</span> 
+                                </label>
+                            </div>
+                            <div class="cb3-cont a-pt0">
+                                <ul class="c-list-st1">
+                                    <li>
+                                        <a href="#" class="area-click"><span class="a11y">내용 자세히 보기</span></a>
+                                        <label for="airIntFare" class="chk-base chk-st1">
+                                            <input type="checkbox" id="airIntFare" class="a11y">
+                                            <span class="label">요금규정 (필수)</span> 
+                                        </label>
+                                    </li>
+                                    <li>
+                                        <a href="#" class="area-click"><span class="a11y">내용 자세히 보기</span></a>
+                                        <label for="airIntBook" class="chk-base chk-st1">
+                                            <input type="checkbox" id="airIntBook" class="a11y">
+                                            <span class="label">예약관련 (필수)</span> 
+                                        </label>
+                                    </li>
+                                    <li>
+                                        <a href="#" class="area-click"><span class="a11y">내용 자세히 보기</span></a>
+                                        <label for="airIntPay" class="chk-base chk-st1">
+                                            <input type="checkbox" id="airIntPay" class="a11y">
+                                            <span class="label">결제 및 환불 (필수)</span> 
+                                        </label>
+                                    </li>
+                                    <li>
+                                        <a href="#" class="area-click"><span class="a11y">내용 자세히 보기</span></a>
+                                        <label for="airIntPassport" class="chk-base chk-st1">
+                                            <input type="checkbox" id="airIntPassport" class="a11y">
+                                            <span class="label">여권/비자 및 기타 (필수)</span> 
+                                        </label>
+                                    </li>
+                                    <li>
+                                        <a href="#" class="area-click"><span class="a11y">내용 자세히 보기</span></a>
+                                        <label for="airIntLuggage" class="chk-base chk-st1">
+                                            <input type="checkbox" id="airIntLuggage" class="a11y">
+                                            <span class="label">수하물 규정 (필수)</span> 
+                                        </label>
+                                    </li>
+                                    <li>
+                                        <a href="#" class="area-click"><span class="a11y">내용 자세히 보기</span></a>
+                                        <label for="airConditionsAgree" class="chk-base chk-st1">
+                                            <input type="checkbox" id="airConditionsAgree" class="a11y">
+                                            <span class="label">항공 이용약관 (필수)</span> 
+                                        </label>
+                                    </li>
+                                    <!-- 비회원인 경우 -->
+                                    <li>
+                                        <a href="#" class="area-click"><span class="a11y">내용 자세히 보기</span></a>
+                                        <label for="agmtAgree" class="chk-base chk-st1">
+                                            <input type="checkbox" id="agmtAgree" class="a11y">
+                                            <span class="label">PRIVIA 이용약관 (필수)</span> 
+                                        </label>
+                                    </li>
+                                    <li>
+                                        <a href="#" class="area-click"><span class="a11y">내용 자세히 보기</span></a>
+                                        <label for="commerceAgree" class="chk-base chk-st1">
+                                            <input type="checkbox" id="commerceAgree" class="a11y">
+                                            <span class="label">전자금융거래 이용약관 (필수)</span> 
+                                        </label>
+                                    </li>
+                                    <li>
+                                        <a href="#" class="area-click"><span class="a11y">내용 자세히 보기</span></a>
+                                        <label for="indinfoAgree" class="chk-base chk-st1">
+                                            <input type="checkbox" id="indinfoAgree" class="a11y">
+                                            <span class="label">개인정보 수집ㆍ이용 동의 (필수)</span> 
+                                        </label>
+                                    </li>
+                                    <!-- //비회원인 경우 -->
+                                    <li>
+                                        <a href="#" class="area-click"><span class="a11y">내용 자세히 보기</span></a>
+                                        <label for="indivInfoThirdFull" class="chk-base chk-st1">
+                                            <input type="checkbox" id="indivInfoThirdFull" class="a11y">
+                                            <span class="label">제 3자 개인정보 제공 동의 (필수)</span> 
+                                        </label>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                        <!-- //예약규정 및 이용약관 -->
+
+                        <!-- the Purple 본인 좌석 승급 신청 -->
+                        <div class="c-box-st3">
+                            <div class="cb3-header">
+                                <span class="area-tit"><h4 class="tit">the Purple 본인 좌석 승급 신청</h4></span>
+                            </div>
+                            <div class="cb3-cont">
+                                <div class="form-st2">
+                                    <span class="form-tit-input">본인 항공 좌석 승급권</span>
+                                    <span class="txt-val">1장</span>
+                                </div>
+                                <div class="form-st2">
+                                    <span class="form-tit-input">적용 탑승객</span>
+                                    <span class="select-base select-st1">
+                                        <select>
+                                            <option>선택</option>
+                                            <option>홍길동1</option>
+                                            <option>홍길동2</option>
+                                        </select>
+                                    </span>
+                                </div>
+                                <div class="c-box-st5 a-mt20">
+                                    <label for="upgradeSeat" class="chk-base chk-st1">
+                                        <input type="checkbox" id="upgradeSeat" class="a11y">
+                                        <span class="label">
+                                            the Purple Travel Voucher를 사용하여 비즈니스 클래스로 좌석 승급 신청
+                                        </span> 
+                                    </label>
+                                </div>
+                                <ul class="blist-st1 a-mt20">
+                                    <li>항공권은 e-ticket(전자 항공권)이므로 별도 항공권이 배송되지 않습니다.</li>
+                                    <li>결제 완료 후 마이페이지 에서 출력하실 수 있습니다.</li>
+                                </ul>
+                            </div>
+                        </div>
+                        <!-- //the Purple 본인 좌석 승급 신청 -->
+
+                        <div class="a-mt10">
+                            <span class="btn-base bb-st3 bc-mgt"><button type="button">예약하기</button></span>
+                        </div>
+                    </div>
+                    <!-- //정보 입력 -->
+                    
+                    <!-- 본인여부 팝업 -->
+                    <section id="selfChkPop" class="popWrap popWrap-secV2" style="display:none">
+                        <header class="popHead">
+                            <h1 class="tit">본인여부</h1>
+                            <span class="btnClose"><a href="#">닫기</a></span>
+                        </header>
+                        <section class="popCont">
+                            <div class="c-box-st6"><p class="c-txt-st3">현대카드 the Purple 혜택 사용 시 카드 소유자 본인 체크가 필요합니다.</p></div>
+                        </section>
+                    </section>
+                    <!-- //본인여부 팝업 -->
                 </div>
             </div>
         </section>

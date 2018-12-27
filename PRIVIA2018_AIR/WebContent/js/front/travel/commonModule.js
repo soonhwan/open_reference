@@ -1173,7 +1173,7 @@ var pvFrontScript = window.pvFrontScript || (function(){
 
 			$('.w-nav-gnb-total .nav-gnb-total').append(totalNav);
 
-			//높이설정
+			//높이설정 #34845 수정
 			setTimeout(function(){
 				var mh = 0;
 				var titH = $('.w-nav-gnb-total .nav-gnb-total .tit a').outerHeight();
@@ -1184,7 +1184,7 @@ var pvFrontScript = window.pvFrontScript || (function(){
 						$('.w-nav-gnb-total .nav-gnb-total > li').height(mh+titH);	
 					}
 				});
-				$('.w-nav-gnb-total .nav-gnb-total > li:eq(5)~').height(mh+titH);
+				$('.w-nav-gnb-total .nav-gnb-total > li:eq(4)~').height(mh+titH);
 			},($('.is_mobile').length > 0) ? 1000 : 250);
 		},
 		comGNBInit: function(){
@@ -1288,7 +1288,7 @@ var pvFrontScript = window.pvFrontScript || (function(){
 		},
 		comContents: function(){
 			//탭메뉴(공통)
-			$('.o-tab-menu').setTabMenu();	
+			$('.o-tab-menu:not(.room-filter)').setTabMenu();	
 			
 			//타이틀 오버시 텍스트2줄 노출
 			$('.list-item-st1 .tit-over').overListItemTitle();

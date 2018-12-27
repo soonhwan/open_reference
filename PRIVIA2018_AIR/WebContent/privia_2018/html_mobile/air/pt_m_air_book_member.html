@@ -67,7 +67,7 @@
             <div class="s-schedule-info">
                 <!-- 타이틀 -->
                 <!-- 왕복인 경우 클래스 추가(trip-type-shuttle) -->
-                <div class="ssi-header trip-type-shuttle">
+                <div class="ssi-header">
                     <div class="air-info">
                         <span class="txt">인천/김포(SEL)</span>
                         <span class="txt">오사카(OSA)</span>
@@ -92,7 +92,7 @@
                     <div class="ssic-header">
                         <h4 class="tit">예약정보</h4>
                         <span class="air-capacity">성인1, 아동1</span>
-                        <span class="btn-base bb-st5"><a href="#">상세스케줄</a></span>
+                        <span class="btn-base bb-st5"><a href="/privia_2018/html_mobile/air/pt_m_air_sch_detail_pu.html" data-rel="dialog" data-transition="slideup">상세스케줄</a></span>
                     </div>
                     <div class="ssic-cont">
                         <div class="box-airline-detail bad-st2">
@@ -234,7 +234,8 @@
                                         </li>
                                     </ul>
                                     <div class="bad-btnset">
-                                        <span class="btn-base bb-st5"><a href="#">상세요금</a></span>
+                                        <span class="btn-base bb-st5"><a href="/privia_2018/html_mobile/air/pt_m_air_fare_detail_pu.html" data-rel="dialog" data-transition="slideup">상세요금</a></span>
+                                        <span class="btn-base bb-st5"><a href="#">현대카드 할인혜택</a></span>
                                     </div>
                                 </div>
                             </div>
@@ -253,26 +254,32 @@
                         <span class="area-tit"><h4 class="tit">예약자 정보</h4></span>
                     </div>
                     <div class="cb3-cont">
-                        <span class="input-baseV2">
+                        <span class="input-baseV2 invalid">
                             <input type="text" id="u-name" class="input">
                             <label for="u-name" class="label">
                                 <em class="requ">*</em><span class="txt">한글명</span><span class="exp">ex) 홍길동</span>
                             </label>
                             <button class="btn-clear"><span class="a11y">입력 항목 삭제</span></button>
+                            <p class="req-error">한글이름은 필수 항목입니다.</p>
+                            <p class="req-error">한글이름은 한글 또는 영문만 입력 가능합니다.</p>
                         </span>
-                        <span class="input-baseV2 a-mt20">
+                        <span class="input-baseV2 a-mt20 invalid">
                             <input type="number" id="u-tel" class="input">
                             <label for="u-tel" class="label">
                                 <em class="requ">*</em><span class="txt">연락처</span><span class="exp">- 없이 숫자만 입력</span>
                             </label>
                             <button class="btn-clear"><span class="a11y">입력 항목 삭제</span></button>
+                            <p class="req-error">연락처 항목은 필수 항목입니다.</p>
+                            <p class="req-error">연락처 항목은 숫자만 입력 가능합니다.</p>
                         </span>
-                        <span class="input-baseV2 a-mt20">
+                        <span class="input-baseV2 a-mt20 invalid">
                             <input type="email" id="u-email" class="input">
                             <label for="u-email" class="label">
                                 <em class="requ">*</em><span class="txt">이메일</span><span class="exp">sample@priviatravel.com</span>
                             </label>
                             <button class="btn-clear"><span class="a11y">입력 항목 삭제</span></button>
+                            <p class="req-error">이메일 항목은 필수 항목입니다.</p>
+                            <p class="req-error">이메일 항목은 영문, 숫자, 일부 특수기호(@ _ - .)만 입력 가능합니다.</p>
                         </span>
                         <ul class="blist-st1 a-mt20">
                             <li class="mgt">실시간 예약 상황 및 정보 전달을 위해 정확한 연락처 및 이메일을 입력해주시기 바랍니다.</li>
@@ -297,12 +304,8 @@
                         <!-- 탑승객 1 -->
                         <h5 class="c-title-st2">성인1</h5>
                         <div class="a-row col2-unbal">
-                            <span class="select-base select-st1 a-col">
-                                <select>
-                                    <option>여행자 선택</option>
-                                    <option>여행자 선택1</option>
-                                    <option>여행자 선택2</option>
-                                </select>
+                            <span class="btn-base bb-select-st1 a-col">
+                                <a href="#" onclick="selectPop.init('pt_m_air_chs_pss_lpu_01', '/privia_2018/html_mobile/air/pt_m_air_chs_pss_lpu.html'); return false;">여행자 선택</a>
                             </span>
                             <label for="self1" class="chk-base chk-st1 a-col a-right">
                                 <input type="checkbox" id="self1" class="a11y">
@@ -360,12 +363,8 @@
                         <!-- 탑승객 2 -->
                         <h5 class="c-title-st2 a-bdt-st1">성인2</h5>
                         <div class="a-row col2-unbal">
-                            <span class="select-base select-st1 a-col">
-                                <select>
-                                    <option>여행자 선택</option>
-                                    <option>여행자 선택1</option>
-                                    <option>여행자 선택2</option>
-                                </select>
+                            <span class="btn-base bb-select-st1 a-col">
+                                <a href="#" onclick="selectPop.init('pt_m_air_chs_pss_lpu_01', '/privia_2018/html_mobile/air/pt_m_air_chs_pss_lpu.html'); return false;">여행자 선택</a>
                             </span>
                             <label for="self2" class="chk-base chk-st1 a-col a-right">
                                 <input type="checkbox" id="self2" class="a11y">
@@ -375,35 +374,49 @@
                                 </span> 
                             </label>
                         </div>
-                        <div class="input-baseV2 a-mt20">
+                        <div class="input-baseV2 a-mt20 invalid">
                             <input type="text" id="u-nameKo2" class="input">
                             <label for="u-nameKo2" class="label">
                                 <em class="requ">*</em><span class="txt">한글명</span><span class="exp">ex) 홍길동</span>
                             </label>
                             <button class="btn-clear"><span class="a11y">입력 항목 삭제</span></button>
+                            <p class="req-error">한글이름은 필수 항목입니다.</p>
+                            <p class="req-error">한글이름은 한글 또는 영문만 입력 가능합니다. </p>
                         </div>
                         <div class="a-row col2-unbal a-mt20">
-                            <span class="input-baseV2 a-col">
+                            <span class="input-baseV2 a-col invalid">
                                 <input type="text" id="u-nameEnF2" class="input">
                                 <label for="u-nameEnF2" class="label">
                                     <em class="requ">*</em><span class="txt">영문성</span><span class="exp">ex) HONG</span>
                                 </label>
                                 <button class="btn-clear"><span class="a11y">입력 항목 삭제</span></button>
+                                <p class="req-error">영문성은 필수 항목입니다.</p>
+                                <p class="req-error">영문성 영문만 입력 가능합니다. </p>
+                                <p class="req-error">여권상 실제 영문명을 입력해주세요.</p>
                             </span>
-                            <span class="input-baseV2 a-col">
+                            <span class="input-baseV2 a-col invalid">
                                 <input type="text" id="u-nameEn2" class="input">
                                 <label for="u-nameEn2" class="label">
                                     <em class="requ">*</em><span class="txt">영문이름</span><span class="exp">ex) GILDONG</span>
                                 </label>
                                 <button class="btn-clear"><span class="a11y">입력 항목 삭제</span></button>
+                                <p class="req-error">영문이름은 필수 항목입니다.</p>
+                                <p class="req-error">영문이름 영문만 입력 가능합니다. </p>
+                                <p class="req-error">여권상 실제 영문명을 입력해주세요.</p>
                             </span>
                         </div>
-                        <div class="input-baseV2 a-mt20">
+                        <div class="input-baseV2 a-mt20 invalid">
                             <input type="number" id="u-birthday2" class="input">
                             <label for="u-birthday2" class="label">
                                 <em class="requ">*</em><span class="txt">생년월일</span><span class="exp">ex) YYYYMMDD</span>
                             </label>
                             <button class="btn-clear"><span class="a11y">입력 항목 삭제</span></button>
+                            <p class="req-error">생년월일은 필수 항목입니다.</p>
+                            <p class="req-error">생년월일은 숫자만 입력 가능합니다.</p>
+                            <p class="req-error">생년월일을 정확히 입력해주세요.</p>
+                            <p class="req-error">생년월일의 월 입력이 잘못되었습니다.</p>
+                            <p class="req-error">생년월일의 일자 입력이 잘못되었습니다.</p>
+                            <p class="req-error">생년월일은 오늘날짜 이전으로 입력하셔야 합니다.</p>
                         </div>
                         <div class="a-mt20">
                             <div class="form-st1">
@@ -436,6 +449,7 @@
                 </div>
                 <!-- //탑승객 정보 -->
             </div>
+            <!-- //정보 입력 -->
                
             <!-- 예약 동의 -->
             <div class="c-box-st4 a-center">
@@ -446,7 +460,8 @@
                 </label>
             </div>
             <!-- //예약 동의 -->
-               
+            
+            <!-- 정보 입력 -->
             <div class="c-box-st2">
                 <!-- 예약규정 및 이용약관 -->
                 <div class="c-box-st3 a-mt0">

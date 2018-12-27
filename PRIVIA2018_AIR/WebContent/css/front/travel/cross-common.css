@@ -470,6 +470,7 @@ h2.svc-title{font-weight:normal;font-family:'ymhb',sans-serif;font-size:24px;col
 .ro-htl-main .view-new2 tbody tr td .empty-space{width:184px}
 .view-new2 tbody tr td .etc-br{display:inline-block;vertical-align:middle;text-align:center}
 .view-new2 tbody tr td.room-opt-view p{padding-left:47px;text-indent:-47px;line-height:1.5}
+.view-new2 tbody tr td pre{white-space:pre-wrap}
 .view-new2 .al{padding-left:10px;text-align:left}
 .view-new2 .ar{padding-right:10px;text-align:right}
 .view-new2 .ar0{text-align:right}
@@ -1560,7 +1561,7 @@ box-shadow: 2px 2px 1px 0px rgba(0, 0, 0, 0.1);
 
 /* 공지용팝업 */
 .pu-notice-origin{z-index:200}
-#pu-notice-origin{;width:950px;position:absolute;top:0;left:50%;margin-left:-475px}
+#pu-notice-origin{width:950px;position:absolute;top:0;left:50%;margin-left:-475px}
 /* 총요금,결제요금보기 */
 .reserve_complete + .line-box{margin-top:10px}
 .total-predict-fare-wrap:after{content:" ";display:block;clear:both}

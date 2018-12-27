@@ -181,37 +181,38 @@ var navData = {
 		}],
 		"newWindow": false
 	},
-	"domestic": {
-		"link": "http://domestic.priviatravel.com/domestic/",
-		"title": "국내여행",
-		"subNavDisplayToGNB": true,
-		"subNav": [{
-			"link": "http://www.priviatravel.com/promotion/sectionEvent/2301/",
-			"title": "제주호텔 2박 시 렌터카 무료",
-			"subNavDisplayToGNB": false,
-			"subNav": null,
-			"newWindow": false
-		}, {
-			"link": "http://domestic.priviatravel.com/domestic/promotion/htmlPlan?PROMOTION_SEQ=39",
-			"title": "남해 사우스 케이프 에어텔",
-			"subNavDisplayToGNB": false,
-			"subNav": null,
-			"newWindow": false
-		}, {
-			"link": "http://domestic.priviatravel.com/domestic/searchList?goodsCd=GOODS001&agencyCd=&travelType=AIRCARTEL",
-			"title": "제주도 에어텔",
-			"subNavDisplayToGNB": false,
-			"subNav": null,
-			"newWindow": false
-		}, {
-			"link": "https://www.priviatravel.com/promotion/sectionEvent/2441/",
-			"title": "국내숙박 1/2/3만원 할인 쿠폰",
-			"subNavDisplayToGNB": false,
-			"subNav": null,
-			"newWindow": false
-		}],
-		"newWindow": false
-	},
+	// #34845 수정
+	// "domestic": {
+	// 	"link": "http://domestic.priviatravel.com/domestic/",
+	// 	"title": "국내여행",
+	// 	"subNavDisplayToGNB": true,
+	// 	"subNav": [{
+	// 		"link": "http://www.priviatravel.com/promotion/sectionEvent/2301/",
+	// 		"title": "제주호텔 2박 시 렌터카 무료",
+	// 		"subNavDisplayToGNB": false,
+	// 		"subNav": null,
+	// 		"newWindow": false
+	// 	}, {
+	// 		"link": "http://domestic.priviatravel.com/domestic/promotion/htmlPlan?PROMOTION_SEQ=39",
+	// 		"title": "남해 사우스 케이프 에어텔",
+	// 		"subNavDisplayToGNB": false,
+	// 		"subNav": null,
+	// 		"newWindow": false
+	// 	}, {
+	// 		"link": "http://domestic.priviatravel.com/domestic/searchList?goodsCd=GOODS001&agencyCd=&travelType=AIRCARTEL",
+	// 		"title": "제주도 에어텔",
+	// 		"subNavDisplayToGNB": false,
+	// 		"subNav": null,
+	// 		"newWindow": false
+	// 	}, {
+	// 		"link": "https://www.priviatravel.com/promotion/sectionEvent/2441/",
+	// 		"title": "국내숙박 1/2/3만원 할인 쿠폰",
+	// 		"subNavDisplayToGNB": false,
+	// 		"subNav": null,
+	// 		"newWindow": false
+	// 	}],
+	// 	"newWindow": false
+	// },
 	"promotion": {
 		"link": "http://www.priviatravel.com/promotion/promotionList",
 		"title": "기획전",
@@ -414,14 +415,14 @@ var navData = {
 		"subNavDisplayToGNB": false,
 		"subNav": [],
 		"newWindow": false
-	},
-	"picks": {
-		"link": "http://www.priviatravel.com/special/main?seq=8",
-		"title": "현대카드 PICKS",
-		"subNavDisplayToGNB": false,
-		"subNav": [],
-		"newWindow": false
 	}
+	// "picks": {
+	// 	"link": "http://www.priviatravel.com/special/main?seq=8",
+	// 	"title": "현대카드 PICKS",
+	// 	"subNavDisplayToGNB": false,
+	// 	"subNav": [],
+	// 	"newWindow": false
+	// }
 };
 
 
@@ -3012,8 +3013,14 @@ function comGbnInit(){
 				gnbKey = gnbKey.replace(/n-gnb-/g, "");
 				
 				var aTag = $(this).find("a:first");
-
-				aTag.attr("href", navData[gnbKey].link);
+				
+				//#34845 수정 - 해당 id가 있으면 link 적용
+				if(navData[gnbKey]){
+					aTag.attr("href", navData[gnbKey].link);
+				}
+				else{
+					$('#n-gnb-'+gnbKey).remove();  //해당 gnb가 없으면 삭제(html 기존 삭제 못한 gnb 대응)
+				}
 			}
 		});
 	}
