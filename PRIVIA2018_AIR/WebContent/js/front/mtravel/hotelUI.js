@@ -637,6 +637,41 @@ var hotelFrontScript = window.hotelFrontScript || (function(){
         });
         $header.addClass('isHeaderFixedOne');
       }
+
+      //심플 더보기 UI(무조건 닫힌상태(height:0) 에서만 사용 - 상세 스케줄 더보기, 공동운항 리스트 더보기, 필터 항목 더보기)
+			if($('.o-expand-wrap').length > 0){
+				$('.o-expand-wrap .o-expand-btn').die('click').live('click', function(e){
+					var $wExpand = $(this).closest('.o-expand-wrap');
+					var $expandCont = $wExpand.find('.o-expand-cont');
+					if($wExpand.hasClass('o-expanded')){
+						$wExpand.removeClass('o-expanded');
+						$expandCont.removeAttr('style');
+					}
+					else{
+						$wExpand.addClass('o-expanded');
+						$expandCont.css({'height' : $expandCont.prop('scrollHeight')+'px'});
+					}
+					e.stopPropagation();
+				});
+			}
+
+			//Accordion UI
+			if($('.o-acdi-click').length > 0){
+				$('.o-acdi-click').off('click').on('click', function(){
+					var $wExpand = $(this).closest('.o-acdi-wrap');
+					var $expandCont = $wExpand.find('.o-acdi-cont');
+					if($wExpand.hasClass('o-acdi-open')){
+						$expandCont.slideUp('fast', function(){
+							$wExpand.removeClass('o-acdi-open');
+						});
+					}
+					else{
+						$expandCont.slideDown('fast', function(){
+							$wExpand.addClass('o-acdi-open');
+						});
+					}
+				});
+			}
     }
   }
 }());

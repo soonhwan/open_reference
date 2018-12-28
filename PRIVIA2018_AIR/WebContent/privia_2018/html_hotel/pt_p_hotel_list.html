@@ -205,7 +205,11 @@ $(function(){
           var _grade = _li.find('.htp-tit-kr .grade');
 
           $('.price-cont').eq(id).append('<a href="pt_p_hotel_detail.html" target="_blank"><dl><dt></dt><dd></dd></dl></a>');
-          $('.price-cont').eq(id).find('dt').append('<img src='+_imgSrc+' alt='+_imgAlt+' />');
+          if(_imgSrc.indexOf('/images/front/travel/contents/no_thumb_240x190.png')!=-1){
+            $('.price-cont').eq(id).find('dt').append('<img src="/images/front/travel/contents/no_thumb_120x120.png" alt='+_imgAlt+' />');
+          }else{
+            $('.price-cont').eq(id).find('dt').append('<img src='+_imgSrc+' alt='+_imgAlt+' />');
+          }
           $('.price-cont').eq(id).find('dd').append('<p class="tit">'+_tit+'</p>');
           $('.price-cont').eq(id).find('dd').append('<div class="eval">'+_eval+'</div>');
           $('.price-cont').eq(id).find('dd').append(_grade);

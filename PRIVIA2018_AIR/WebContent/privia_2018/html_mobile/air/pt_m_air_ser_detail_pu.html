@@ -42,7 +42,8 @@
                 <a href="#" class="b-close" data-rel="back"><span class="a11y">페이지 닫기</span></a>
             </div>
             <div class="ly-right">
-                <a href="#" class="b-refresh"><span class="a11y">새로고침</span></a>
+                <!--<a href="#" class="b-refresh"><span class="a11y">새로고침</span></a>-->
+                <a href="#" class="b-init"><span>초기화</span></a>
             </div>
         </div>
     </div>
@@ -74,10 +75,7 @@
                     <li class="io-box o-acdi-wrap o-acdi-open">
                         <div class="ioi-header">
                             <button class="area-tit o-acdi-click"><h4 class="tit">경유</h4></button>
-                            <label for="via" class="chk-base chk-st1">
-                                <input type="checkbox" id="via" class="a11y">
-                                <span class="label">선택해제</span> 
-                            </label>
+                            <a class="deselect" href="#">선택해제</a>
                         </div>
                         <div class="ioi-cont o-acdi-cont">
                             <ul class="list">
@@ -115,10 +113,7 @@
                     <li class="io-box o-acdi-wrap o-acdi-open">
                         <div class="ioi-header">
                             <button class="area-tit o-acdi-click"><h4 class="tit">출발시간</h4></button>
-                            <label for="depTime" class="chk-base chk-st1">
-                                <input type="checkbox" id="depTime" class="a11y">
-                                <span class="label">선택해제</span> 
-                            </label>
+                            <a class="deselect" href="#">선택해제</a>
                         </div>
                         <div class="ioi-cont o-acdi-cont">
                             <ul class="list fi-bsel-st">
@@ -164,10 +159,7 @@
                     <li class="io-box o-acdi-wrap o-acdi-open">
                         <div class="ioi-header">
                             <button class="area-tit o-acdi-click"><h4 class="tit">도착시간</h4></button>
-                            <label for="arrTime" class="chk-base chk-st1">
-                                <input type="checkbox" id="arrTime" class="a11y">
-                                <span class="label">선택해제</span> 
-                            </label>
+                            <a class="deselect" href="#">선택해제</a>
                         </div>
                         <div class="ioi-cont o-acdi-cont">
                             <ul class="list fi-bsel-st">
@@ -213,10 +205,7 @@
                     <li class="io-box o-acdi-wrap o-acdi-open">
                         <div class="ioi-header">
                             <button class="area-tit o-acdi-click"><h4 class="tit">항공사</h4></button>
-                            <label for="airline" class="chk-base chk-st1">
-                                <input type="checkbox" id="airline" class="a11y">
-                                <span class="label">선택해제</span> 
-                            </label>
+                            <a class="deselect" href="#">선택해제</a>
                         </div>
                         <div class="ioi-cont o-acdi-cont">
                             <ul class="list">
@@ -240,11 +229,8 @@
                     <li class="io-box o-acdi-wrap o-acdi-open io-cdBenefit">
                         <div class="ioi-header">
                             <button class="area-tit o-acdi-click"><h4 class="tit">현대카드 혜택</h4></button>
-                            <span class="btn-base bb-help bc-gray"><a href="#"><span class="a11y">현대카드 혜택 안내</span></a></span>
-                            <label for="cdBenefit" class="chk-base chk-st1">
-                                <input type="checkbox" id="cdBenefit" class="a11y">
-                                <span class="label">선택해제</span> 
-                            </label>
+                            <span class="btn-base bb-help bc-gray"><a href="#" onclick="selectPop.init('pt_m_air_hcbfinfo_lpu', '/privia_2018/html_mobile/air/pt_m_air_hcbfinfo_lpu.html'); return false;"><span class="a11y">현대카드 혜택 안내</span></a></span>
+                            <a class="deselect" href="#">선택해제</a>
                         </div>
                         <div class="ioi-cont o-acdi-cont">
                             <ul class="list">
@@ -272,10 +258,7 @@
                     <li class="io-box o-acdi-wrap o-acdi-open">
                         <div class="ioi-header">
                             <button class="area-tit o-acdi-click"><h4 class="tit">운임조건</h4></button>
-                            <label for="freightTerm" class="chk-base chk-st1">
-                                <input type="checkbox" id="freightTerm" class="a11y">
-                                <span class="label">선택해제</span> 
-                            </label>
+                            <a class="deselect" href="#">선택해제</a>
                         </div>
                         <div class="ioi-cont o-acdi-cont o-expand-wrap">
                             <ul class="list">

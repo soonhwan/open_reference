@@ -17,7 +17,7 @@
   },
   {
     "type": "normal",
-    "thumbImg": ["/images/front/travel/vis-size/vis-240x190-2.jpg"],
+    "thumbImg": ["/images/front/travel/contents/no_thumb_240x190.png"],
     "thumbAlt": ["test"],
     "wish": true,
     "titleKr": "2그린 톨토이즈 호스텔 시애틀 - 아메리카스 베스트 밸류 에어포트 인",

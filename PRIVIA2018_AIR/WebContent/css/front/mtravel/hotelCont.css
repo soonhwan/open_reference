@@ -152,6 +152,7 @@ jQuery mobile을 걷어내고 css 작업
 .list-hotel .list .box-hotel-detail{background: #fff;border-radius:5px;overflow:hidden;}
 .htl-detail{position:relative;height:165px;padding-left:110px;}
 .htl-detail dt{position:absolute;left:0;top:0;width:110px;height:165px;background:#ddd;}
+.htl-detail dt a{display:block;width:100%;height:100%;}
 .htl-detail dt .htl-wish{display:inline-block;width:18px;height:15px;background:url(/images/front/mtravel/contents/icon_htl_wish.png) 0 0 no-repeat;position:absolute;left:11px;top:11px;background-size:auto 15px;}
 .htl-detail dt .htl-wish.on{background:url(/images/front/mtravel/contents/icon_htl_wish_on.png) 0 0 no-repeat;background-size:auto 15px;}
 .htl-detail dd{padding:13px;height:165px;position:relative;background: #fff;}
@@ -162,7 +163,9 @@ jQuery mobile을 걷어내고 css 작업
 .htl-detail dd .skel-line:nth-child(4){margin-top:31px;}
 
 .htl-detail dd .htl-name{font-size:16px;font-weight:500;color:#000;text-overflow:ellipsis;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical; word-wrap:break-word;line-height:24px;max-height:48px;overflow:hidden;}
+.htl-detail dd .htl-name a{color:#000;}
 .htl-detail dd .htl-name-en{margin-top:4px;font-size:12px;color:rgba(0,0,0,0.5);text-overflow:ellipsis;white-space:nowrap;overflow:hidden;display:block;}
+.htl-detail dd .htl-name-en a{color:rgba(0,0,0,0.5);}
 .htl-detail dd .htl-sec{display:block;}
 .htl-detail dd .htl-sec.sec1{position:relative;margin-top:5px;}
 .htl-detail dd .htl-sec.sec2{position:absolute;left:13px;bottom:13px;right:13px;}
@@ -184,7 +187,9 @@ jQuery mobile을 걷어내고 css 작업
 .list-hotel .list .inset .htl-etc-info{padding:13px;position: relative;}
 .list-hotel .list .inset .htl-etc-info p{font-size:12px;color:#000;padding-right:85px;}
 .list-hotel .list .inset .htl-etc-info p a{font-weight:bold;text-decoration:underline;color:#000;}
-.list-hotel .list .inset .htl-etc-info .btn-base{position: absolute;right:13px;top:15px;}
+.list-hotel .list .inset .btn-base{position: absolute;}
+.list-hotel .list .inset .htl-sec.sec2 .btn-base{right:0;bottom:0;}
+.list-hotel .list .inset .htl-etc-info .btn-base{right:13px;top:15px;}
 .list-hotel .list .inset .htl-etc-info .btn-base a{min-width:80px;}
 
 /* 필터, 정렬 버튼 */

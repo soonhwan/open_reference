@@ -1,0 +1,347 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=no" />
+<meta name="format-detection" content="telephone=no" />
+<title>PRIVIA 여행</title>
+<meta name="description" content=" ">
+<meta property="og:title" content=" ">
+<meta property="og:image" content="http://static.priviatravel.com/images/front/mtravel/common/mobile_17004159046.png">
+<meta property="og:description" content=" ">
+<link rel="shortcut icon" type="image/x-icon" href="//static.priviatravel.com/images/front/mtravel/common/favicon.ico" />
+<link rel="apple-touch-icon-precomposed" sizes="152x152" href="//static.priviatravel.com/images/front/mtravel/common/apple-touch-icon-152.png" />
+<!--
+<link type="text/css" rel="stylesheet" href="/css/front/mtravel/jquery.mobile.1.4.2.css" />
+-->
+<link type="text/css" rel="stylesheet" href="/css/front/mtravel/jquery-ui.min.css" />
+<link type="text/css" rel="stylesheet" href="/css/front/mtravel/swiper.min.css" />
+<link type="text/css" rel="stylesheet" href="/css/front/mtravel/base.css" />
+<link type="text/css" rel="stylesheet" href="/css/front/mtravel/common.css" />
+<link type="text/css" rel="stylesheet" href="/css/front/mtravel/contents.css" />
+<link type="text/css" rel="stylesheet" href="/css/front/mtravel/airCont.css" />
+<link type="text/css" rel="stylesheet" href="/css/front/mtravel/hotelCont.css" />
+<script type="text/javascript" src="/js/front/mtravel/jquery-1.8.3.min.js"></script>
+<script type="text/javascript" src="/js/front/mtravel/jquery-ui.min.js"></script>
+<script type="text/javascript" src="/js/front/mtravel/jquery.ui.touch-punch.js"></script>
+<!--
+<script type="text/javascript" src="/js/front/mtravel/init.js"></script>
+<script type="text/javascript" src="/js/front/mtravel/jquery.mobile-1.4.2.js"></script>
+<script type="text/javascript" src="/js/front/mtravel/commonModuleSearchM.js"></script>
+<script type="text/javascript" src="/js/front/mtravel/commonUI.js"></script>
+<script type="text/javascript" src="/js/utils.js"></script>
+-->
+<script type="text/javascript" src="/js/front/mtravel/hotelUI.js"></script>
+<script>
+/*
+ * 가격대 슬라이더 init
+ */
+var numberSetComma = function(val){
+ while (/(\d+)(\d{3})/ .test(val.toString())){
+  val = val.toString().replace( /(\d+)(\d{3})/, '$1' + ',' + '$2' );
+ }
+ return val;
+};
+var initPriceRange = function(minVal,maxVal){
+  //슬라이더 init
+  var priceRS = $("#priceRangeSet");
+  var priceRMax = $("#priceRangeMax");
+  var priceRMin = $("#priceRangeMin");
+
+  priceRS.slider({
+    range: true,
+    min: minVal,
+    max: maxVal,
+    values: [ minVal, maxVal ],
+    slide: function( event, ui ) {
+      priceRMin.text(numberSetComma(ui.values[0]));
+      priceRMax.text(numberSetComma(ui.values[1]));
+    }
+  });
+  //텍스트 폼에 최초 최대값 세팅
+  priceRMin.text(numberSetComma(priceRS.slider( "values", 0 )));
+  priceRMax.text(numberSetComma(priceRS.slider( "values", 1 )));
+};
+</script>
+</head>
+
+<body class="no-jqm">
+
+<!-- 실제 ajax시 필요한 부분 -->
+<!-- page -->
+<div data-role="page">
+
+    <!-- header-sec -->
+    <div class="header-secV2 header-pop-st">
+        <div class="in-header-secV2">
+            <h2 class="ihg-title">필터&amp;정렬</h2>
+            <div class="ly-left">
+                <a href="#" class="b-close" data-rel="back"><span class="a11y">페이지 닫기</span></a>
+            </div>
+            <div class="ly-right">
+                <a href="#" class="b-init"><span>초기화</span></a>
+            </div>
+        </div>
+    </div>
+    <!-- //header-sec -->
+
+    <!-- content-sec -->
+    <div class="content-sec">
+        <section class="w-content-sec">
+            <div class="w-inres-options">
+                <ul class="list-options">
+                    <li class="io-box">
+                        <div class="ioi-header">
+                            <h4 class="tit-ins">정렬기준</h4>
+                            <span class="select-base select-st1">
+                                <select>
+                                    <option>추천순</option>
+                                    <option>낮은 가격순</option>
+                                    <option>높은 가격순</option>
+                                    <option>소요시간 짧음</option>
+                                    <option>소요시간 높음</option>
+                                    <option>출발시간 빠름</option>
+                                    <option>출발시간 늦음</option>
+                                    <option>도착시간 빠름</option>
+                                    <option>도착시간 늦음</option>
+                                </select>
+                            </span>
+                        </div>
+                    </li>
+                    <li class="io-box">
+                        <div class="ioi-header">
+                            <h4 class="tit-ins">숙소명 검색</h4>
+                            <span class="search-input">
+                              <input type="text" placeholder="숙소명을 입력하세요.">
+                              <a href="#" class="b-search"></a>
+                            </span>
+                        </div>
+                    </li>
+                    <li class="io-box">
+                        <div class="ioi-header">
+                            <h4 class="tit-ins">1박 요금 범위</h4>
+                            <div class="slider-price-wrap">
+    													<div id="priceRangeSet" class="slider-price"></div>
+    													<div class="slider-result">
+    														<p class="left">
+    															<span class="num" id="priceRangeMin" name="priceRangeMin"></span>
+    															<span>원</span>
+    														</p>
+    														<p class="right">
+    															<span class="num" id="priceRangeMax" name="priceRangeMax"></span>
+    															<span>원</span>
+    														</p>
+    													</div>
+    												</div>
+                        </div>
+                    </li>
+                    <li class="io-box o-acdi-wrap o-acdi-open">
+                        <div class="ioi-header">
+                            <button class="area-tit o-acdi-click"><h4 class="tit">호텔성급</h4></button>
+                            <a class="deselect" href="#">선택해제</a>
+                        </div>
+                        <div class="ioi-cont o-acdi-cont">
+                            <ul class="list">
+                                <li>
+                                    <label for="htl-grade1" class="chk-base chk-st1 chk-aright">
+                                        <input type="checkbox" id="htl-grade1" class="a11y">
+                                        <span class="label">5성급 <span class="grade"><i></i><i></i><i></i><i></i><i></i></span></span>
+                                    </label>
+                                </li>
+                                <li>
+                                    <label for="htl-grade2" class="chk-base chk-st1 chk-aright">
+                                        <input type="checkbox" id="htl-grade2" class="a11y">
+                                        <span class="label">4성급 <span class="grade"><i></i><i></i><i></i><i></i></span></span>
+                                    </label>
+                                </li>
+                                <li>
+                                    <label for="htl-grade3" class="chk-base chk-st1 chk-aright">
+                                        <input type="checkbox" id="htl-grade3" class="a11y">
+                                        <span class="label">3성급 <span class="grade"><i></i><i></i><i></i></span></span>
+                                    </label>
+                                </li>
+                                <li>
+                                    <label for="htl-grade4" class="chk-base chk-st1 chk-aright">
+                                        <input type="checkbox" id="htl-grade4" class="a11y">
+                                        <span class="label">2성급 <span class="grade"><i></i><i></i></span></span>
+                                    </label>
+                                </li>
+                                <li>
+                                    <label for="htl-grade5" class="chk-base chk-st1 chk-aright">
+                                        <input type="checkbox" id="htl-grade5" class="a11y">
+                                        <span class="label">1성급 <span class="grade"><i></i></span></span>
+                                    </label>
+                                </li>
+                                <li>
+                                    <label for="htl-grade6" class="chk-base chk-st1 chk-aright">
+                                        <input type="checkbox" id="htl-grade6" class="a11y">
+                                        <span class="label">해당 없음</span>
+                                    </label>
+                                </li>
+                            </ul>
+                        </div>
+                    </li>
+                    <li class="io-box o-acdi-wrap o-acdi-open">
+                        <div class="ioi-header">
+                            <button class="area-tit o-acdi-click"><h4 class="tit">숙박유형</h4></button>
+                            <a class="deselect" href="#">선택해제</a>
+                        </div>
+                        <div class="ioi-cont o-acdi-cont">
+                            <ul class="list">
+                                <li>
+                                    <label for="htl-accom-type1" class="chk-base chk-st1 chk-aright">
+                                        <input type="checkbox" id="htl-accom-type1" class="a11y">
+                                        <span class="label">호텔</span>
+                                    </label>
+                                </li>
+                                <li>
+                                    <label for="htl-accom-type2" class="chk-base chk-st1 chk-aright">
+                                        <input type="checkbox" id="htl-accom-type2" class="a11y">
+                                        <span class="label">리조트</span>
+                                    </label>
+                                </li>
+                                <li>
+                                    <label for="htl-accom-type3" class="chk-base chk-st1 chk-aright">
+                                        <input type="checkbox" id="htl-accom-type3" class="a11y">
+                                        <span class="label">호스텔</span>
+                                    </label>
+                                </li>
+                                <li>
+                                    <label for="htl-accom-type4" class="chk-base chk-st1 chk-aright">
+                                        <input type="checkbox" id="htl-accom-type4" class="a11y">
+                                        <span class="label">펜션</span>
+                                    </label>
+                                </li>
+                                <li>
+                                    <label for="htl-accom-type6" class="chk-base chk-st1 chk-aright">
+                                        <input type="checkbox" id="htl-accom-type6" class="a11y">
+                                        <span class="label">아파트</span>
+                                    </label>
+                                </li>
+                            </ul>
+                        </div>
+                    </li>
+                    <li class="io-box o-acdi-wrap o-acdi-open">
+                        <div class="ioi-header">
+                            <button class="area-tit o-acdi-click"><h4 class="tit">고객평가</h4></button>
+                            <a class="deselect" href="#">선택해제</a>
+                        </div>
+                        <div class="ioi-cont o-acdi-cont">
+                            <ul class="list">
+                                <li>
+                                    <label for="htl-eval1" class="radio-base radio-st1 radi-aright">
+                                        <input type="radio" id="htl-eval1" name="htl-eval" class="a11y">
+                                        <span class="label"><span class="slabel">최고 좋음</span> 4.5/5 이상</span>
+                                    </label>
+                                </li>
+                                <li>
+                                    <label for="htl-eval2" class="radio-base radio-st1 radi-aright">
+                                        <input type="radio" id="htl-eval2" name="htl-eval" class="a11y">
+                                        <span class="label"><span class="slabel">매우 좋음</span> 4/5.5 이상</span>
+                                    </label>
+                                </li>
+                                <li>
+                                    <label for="htl-eval3" class="radio-base radio-st1 radi-aright">
+                                        <input type="radio" id="htl-eval3" name="htl-eval" class="a11y">
+                                        <span class="label"><span class="slabel">좋음</span> 3.5/4 이상</span>
+                                    </label>
+                                </li>
+                            </ul>
+                        </div>
+                    </li>
+                    <li class="io-box o-acdi-wrap o-acdi-open">
+                        <div class="ioi-header">
+                            <button class="area-tit o-acdi-click"><h4 class="tit">편의시설</h4></button>
+                            <a class="deselect" href="#">선택해제</a>
+                        </div>
+                        <div class="ioi-cont o-acdi-cont">
+                            <ul class="list">
+                                <li>
+                                    <label for="htl-facilities1" class="chk-base chk-st1 chk-aright">
+                                        <input type="checkbox" id="htl-facilities1" class="a11y">
+                                        <span class="label">수영장</span>
+                                    </label>
+                                </li>
+                                <li>
+                                    <label for="htl-facilities2" class="chk-base chk-st1 chk-aright">
+                                        <input type="checkbox" id="htl-facilities2" class="a11y">
+                                        <span class="label">24시간 리셉션</span>
+                                    </label>
+                                </li>
+                                <li>
+                                    <label for="htl-facilities3" class="chk-base chk-st1 chk-aright">
+                                        <input type="checkbox" id="htl-facilities3" class="a11y">
+                                        <span class="label">피트니스센터</span>
+                                    </label>
+                                </li>
+                                <li>
+                                    <label for="htl-facilities4" class="chk-base chk-st1 chk-aright">
+                                        <input type="checkbox" id="htl-facilities4" class="a11y">
+                                        <span class="label">무료와이파이</span>
+                                    </label>
+                                </li>
+                                <li>
+                                    <label for="htl-facilities5" class="chk-base chk-st1 chk-aright">
+                                        <input type="checkbox" id="htl-facilities5" class="a11y">
+                                        <span class="label">다국어지원</span>
+                                    </label>
+                                </li>
+                                <li>
+                                    <label for="htl-facilities6" class="chk-base chk-st1 chk-aright">
+                                        <input type="checkbox" id="htl-facilities6" class="a11y">
+                                        <span class="label">무료주차</span>
+                                    </label>
+                                </li>
+                            </ul>
+                        </div>
+                    </li>
+                    <li class="io-box o-acdi-wrap o-acdi-open">
+                        <div class="ioi-header">
+                            <button class="area-tit o-acdi-click"><h4 class="tit">랜드마크</h4></button>
+                            <a class="deselect" href="#">선택해제</a>
+                        </div>
+                        <div class="ioi-cont o-acdi-cont">
+                            <ul class="list">
+                                <li>
+                                    <label for="htl-landmark1" class="chk-base chk-st1 chk-aright">
+                                        <input type="checkbox" id="htl-landmark1" class="a11y">
+                                        <span class="label">개선문</span>
+                                    </label>
+                                </li>
+                                <li>
+                                    <label for="htl-landmark2" class="chk-base chk-st1 chk-aright">
+                                        <input type="checkbox" id="htl-landmark2" class="a11y">
+                                        <span class="label">에펠탑</span>
+                                    </label>
+                                </li>
+                                <li>
+                                    <label for="htl-landmark3" class="chk-base chk-st1 chk-aright">
+                                        <input type="checkbox" id="htl-landmark3" class="a11y">
+                                        <span class="label">파티 카타콤베</span>
+                                    </label>
+                                </li>
+                            </ul>
+                        </div>
+                    </li>
+                </ul>
+                <div class="btn-bottom-fixed"><span class="btn-base bb-st4"><button>적용</button></span></div>
+            </div>
+        </section>
+    </div>
+    <!-- //content-sec -->
+
+
+    <script type="text/javascript">
+    // $(document).one('pageshow',function(e,data){
+    // });
+    $(document).ready(function(){
+      initPriceRange(0,1000000); //로드시 혹은 로드 후 리스팅된 상품가격의 최소 최대값
+    });
+    </script>
+
+</div>
+<!-- //page -->
+<!-- //실제 ajax시 필요한 부분 -->
+
+</body>
+</html>

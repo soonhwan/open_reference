@@ -103,6 +103,21 @@
 			}
 		});
 	}
+	$.fn.setTabMenu = function(){
+		return this.each(function(){
+			var $this = $(this);
+			$('.ui-tab-menu a', $this).on('click', function(e){
+				if(!$(this).closest('li').hasClass('on')){
+					var show = $(this).attr('href');
+					$this.find('.tab-on').removeClass('tab-on');
+					$this.find(show).addClass('tab-on');
+					$('.ui-tab-menu .on', $this).removeClass('on');
+					$(this).closest('li').addClass('on');
+				}
+				e.preventDefault();
+			});
+		});
+	}
 }(window.jQuery, window, document));
 
 /* 함수명 : rangeSliderUI (jQuery plugin)
@@ -308,10 +323,10 @@ var selectPop = {
 			return false;
 		});
 		
-		$(".dialogue_pop, .popWrap-mfix").off('mouseup').on('mouseup',function(e){
-			//console.log(e.target === this);
+		$(".dialogue_pop").off('mouseup').on('mouseup',function(e){
+			//console.log(e.target === this, e.target);
 			//if (popup.has(e.target).length === 0){
-			if (e.target === this){ //#3
+			if (e.target === this || $(e.target).hasClass('popWrap-mfix')){ //#3
 				if(url){
 					selectPop.close(id,true);
 				}else{
@@ -388,9 +403,15 @@ var selectPop = {
 		
 		//팝업 스크롤 적용		
 		if(popup.find(".popCont-iscroll").length > 0){
-			$('.ui-page-active').css({overflow:'hidden',position:'fixed',width:'100%',height:'100%'}).bind('touchmove', function(e){e.preventDefault();});
-			setTimeout(function(){$('.popWrap-mfix').addClass('loaded');},250);
+			//$('.ui-page-active').css({overflow:'hidden',position:'fixed',width:'100%'}).bind('touchmove', function(e){e.preventDefault();});
+			//$('body').bind('touchmove', function(e){e.preventDefault()});
+			//$(document).bind('touchmove', function(e){e.preventDefault()});
+			//$(document).on('scrollstop');
+			//$(document).on('scrollstop', function(e){e.preventDefault()});
+			setTimeout(function(){$('.popWrap-mfix').addClass('loaded');},300);
 		}
+		
+		//iscroll
 		/*if(popup.find(".popCont-iscroll").length > 0){
 			$('.ui-page-active').css({overflow:'hidden',position:'fixed',width:'100%',height:'100%'}).bind('touchmove', function(e){e.preventDefault();});
 			setTimeout(function(){
@@ -410,16 +431,23 @@ var selectPop = {
 		//팝업 스크롤 이벤트 제거
 		if(popup.find(".popCont-iscroll").length > 0){
 			$('.popWrap-mfix').removeClass('loaded');
-			$('.ui-page-active').attr('style','');
-			$('.ui-page-active').unbind('touchmove');
-			$(window).scrollTop(beforePopSC); //이전 스크롤 재위치
+			//$('.ui-page-active').attr('style','');
+			//$('.ui-page-active').unbind('touchmove');
+			//$('body').unbind('touchmove');
+			//$(document).unbind('touchmove', function(e){e.preventDefault()});
+			//$(document).off('scrollstop');
+			//$(document).off('scrollstop');
 		}
+		
+		//iscroll
 		/*if(popup.find(".popCont-iscroll").length > 0){
 			$('.ui-page-active').attr('style','');
 			$('.ui-page-active').unbind('touchmove');
 			popContScrollMode.destroy();
 			popContScrollMode = null;
 		}*/
+		
+		$(window).scrollTop(beforePopSC); //이전 스크롤 재위치
 		
 		popup.parent(".dialogue_pop").fadeTo(200,0,function(){
 			popup.parent(".dialogue_pop").hide();
@@ -1890,6 +1918,7 @@ var pvmFrontScript = window.pvmFrontScript || (function(){
 		},
 		changeTitle: function(title){
 			$('.ui-page-active .w-header-sec .whs-title').html(title);
+			//$('.ui-page-active .header-pop-st .ihg-title').html(title);
 		},
 		comSearchEvtBind: function($section){
 			/* 설명   : 통합검색 - 섹션별 필요한 이벤트 제공
@@ -1944,6 +1973,7 @@ var pvmFrontScript = window.pvmFrontScript || (function(){
 		comContents: function(){
 			//섹션메인에서 호출되고 있음 추후 개선 당분간 작성 금지
 			
+			//섹션메인 프로모션 리스트 슬라이드
 			if($('.s-rec-promotion .w-list-item-st1').length > 0){
 				var recPromSwiper = new Swiper('.s-rec-promotion .swiper-container', {
 					slidesPerView: 'auto',
@@ -2043,6 +2073,19 @@ var pvmFrontScript = window.pvmFrontScript || (function(){
 					inp.focus(); 
 				});	
 				
+			}
+			
+			//탭메뉴(공통)
+			$('.o-tab-menu').setTabMenu();	
+			
+			//섹션메인 프로모션 리스트 슬라이드
+			if($('.s-rec-promotion .w-list-item-st1').length > 0){
+				var recPromSwiper = new Swiper('.s-rec-promotion .swiper-container', {
+					slidesPerView: 'auto',
+					autoplay: {
+						delay: 5000,
+					  }
+				});
 			}
 		}
 	}	

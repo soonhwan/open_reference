@@ -6,11 +6,24 @@
 /* member */
 .pd0{padding-top:0px}
 .member-step{text-align:center;background-color:#f5f6f8;margin-bottom:10px}
-.member-step li{padding:15px 0;font-size:14px}
-.member-step .step1{width:33%}
-.member-step .step2{width:33%}
-.member-step .step3{width:34%}
-.cert-box{margin-bottom:20px}
-.cert-box li{width:48.5%;background-color:#f5f6f8;border-radius:2px;text-align:center}
-.cert-box li a{display:block;height:160px;padding:80px 0 20px;font-size:12px;color:#888}
-.cert-box li strong{display:block; padding-bottom:10px; font-size:14px; color:#333;font-weight:600}
+.member-step li{padding:14px 0 14px 5px;font-size:14px;position:relative;border-top:1px solid #ccc;border-bottom:1px solid #ccc;color:#ccc}
+.member-step li:after{content:'';background:url(/images/front/mtravel/contents/member.png) no-repeat -5px -55px;-webkit-background-size:89px;background-size:89px;position:absolute;top:-1px;right:0px;width:17px;height:50px}
+.member-step li:last-child:after{background:none}
+.member-step li.current{color:#f30774;font-weight:600}
+
+.member-step .step1{width:35%}
+.member-step .step2{width:35%}
+.member-step .step3{width:30%}
+.member-step li:before{background:url(/images/front/mtravel/contents/member.png) no-repeat 0 0;-webkit-background-size:89px;background-size:89px}
+.member-step .step1:before{content:'';position:absolute;top:18px;left:50%;margin-left:-45px;width:14px;height:13px;background-position: -39px -78px}
+.member-step .step2:before{content:'';position:absolute;top:18px;left:50%;margin-left:-45px;width:13px;height:13px;background-position: -71px -51px}
+.member-step .step3:before{content:'';position:absolute;top:18px;left:50%;margin-left:-45px;width:13px;height:13px;background-position: -71px -74px}
+.member-step .step1.current:before{background-position: -39px -55px}
+.member-step .step2.current:before{background-position: -71px -5px}
+.member-step .step3.current:before{background-position: -71px -28px}
+
+.cert-box li{width:48.5%;background-color:#f5f6f8;border-radius:4px;text-align:center;position:relative}
+.cert-box li a{display:block;height:157px;padding:75px 0 20px;font-size:12px;color:#888}
+.cert-box li.ipin a:after{content:'';background:url(/images/front/mtravel/contents/member.png) no-repeat -5px -5px;-webkit-background-size:89px;background-size:89px;position:absolute;top:25px;left:50%;margin-left:-12px;width:24px;height:40px}
+.cert-box li.cell a:after{content:'';background:url(/images/front/mtravel/contents/member.png) no-repeat -39px -5px;-webkit-background-size:89px;background-size:89px;position:absolute;top:26px;left:50%;margin-left:-11px;width:22px;height:40px}
+.cert-box li strong{display:block; padding-bottom:5px; font-size:14px; color:#000;font-weight:600}
