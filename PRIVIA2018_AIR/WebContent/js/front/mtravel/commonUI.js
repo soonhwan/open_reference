@@ -1972,6 +1972,7 @@ var pvmFrontScript = window.pvmFrontScript || (function(){
 		},
 		comContents: function(){
 			//섹션메인에서 호출되고 있음 추후 개선 당분간 작성 금지
+			//comContentsV2 이관
 			
 			//섹션메인 프로모션 리스트 슬라이드
 			if($('.s-rec-promotion .w-list-item-st1').length > 0){

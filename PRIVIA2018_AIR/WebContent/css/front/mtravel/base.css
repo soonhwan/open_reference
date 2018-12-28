@@ -366,7 +366,7 @@ box-sizing: border-box;
 .in-header-secV2 .ly-right .b-mymenu {display: inline-block;width: 23px;height: 22px;overflow: hidden;background-position: -19px 0px;}
 .in-header-secV2 .ihg-title {font-size:18px;color: #000;text-align: center;font-weight: 400;padding-top: 12px;}
 /* 개편 ver2 - 서브헤더 */
-.header-secV2.header-page-st .in-header-secV2 {background-color: #fff;}
+.header-secV2.header-page-st .in-header-secV2 {background-color: #fff;border-bottom: 1px solid #ccc;}
 .header-secV2.header-page-st.is-fixed .in-header-secV2 {position: fixed;z-index: 10;top: 0;left: 0;width: 100%;}
 .header-secV2.header-page-st .ly-left {top: 14px;}
 .header-secV2.header-page-st .ly-left .b-back {display: inline-block;width: 13px;height: 23px;overflow: hidden;background-position: 0px -141px;}

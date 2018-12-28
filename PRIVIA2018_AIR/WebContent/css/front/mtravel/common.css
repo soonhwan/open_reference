@@ -1559,6 +1559,10 @@ box-sizing: border-box;
 .radio-st1 .label:before {content: '';display: block;width: 23px;height: 23px;background-position: -83px -113px;position: absolute;top: 0;left: 0;}
 .radio-st1 input[type="radio"]:checked + .label:before {background-position: -108px -113px;}
 .radio-st1.radi-aright .label {padding-left: 0;padding-right: 32px;}
+/* radio2 */
+.form-st1 .radio-st2.radio-base + .radio-base{margin-left:8px !important;}
+.radio-st2 .label{display:inline-block;position:relative;padding:9px 32px 11px 32px;border-radius:20px;font-size:14px;color:#000;background-color:#e0e0e0;min-width:50px;}
+.radio-st2 input[type="radio"]:checked + .label{background-color:#000;color:#fff;}
 
 /* ------------- selectbox style */
 .select-base {transition: opacity 0.3s;display: inline-block;vertical-align: middle;}
@@ -2051,14 +2055,14 @@ border-left:0;
 .ot-multiway .t-air-md-2 .slt-btn-add.on .b-remove-multiway {display: inline-block;}
 /*.ot-multiway .ol-list-tab .list-tab {display: flex;}*/
 .ot-multiway .uis-datepicker-weekend .udw-inner {margin-top: 0;}
-/* 개편 ver2 */
+/* 검색 개편 ver2 */
 .w-search-sec.wss-st2 {background: #fff;}
 .w-search-sec.wss-st2 .hs-search-menu .hss-menu {width: 33.4%;margin-left: -1px;z-index: 0;position: relative;}
 .w-search-sec.wss-st2 .hs-search-menu .hss-menu:first-child {margin-left: 0;}
 .w-search-sec.wss-st2 .hs-search-menu .hss-main a {padding: 12px 20px;text-align: center;color: #000;border:1px solid #e7e7e7;border-bottom: 0;}
 .w-search-sec.wss-st2 .hs-search-menu .hss-menu.on {z-index: 1;}
 .w-search-sec.wss-st2 .hs-search-menu .hss-menu.on .hss-main a {color: #fff;}
-.w-search-sec.wss-st2 .hs-search-menu .hss-sub {width: 200%;}
+.w-search-sec.wss-st2 .hs-search-menu .hss-sub {width: 250%;}
 
 /*--------------------------------------------------------------------------------------------------------------
  *  contents - 공통

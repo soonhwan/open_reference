@@ -87,7 +87,7 @@
             <div class="label"><a href="#">파리,프랑스 <span>(200)</span></a></div>
           </div>
           <div class="hai-info">
-            <div class="hai-date"><a href="#">12월 01일 - 12월 06일</a></div>
+            <div class="hai-date no-date"><a href="#">숙박날짜 선택</a></div>
             <div class="hai-capacity">
               <a href="#">
                 <ul class="list">
@@ -115,10 +115,11 @@
       <section class="w-content-sec">
         <div class="gmap-wrapper">
           <div id="gmapArea"></div>
-          <span class="price-tip on" style="left:10px;top:80px;"><em>413,300</em>원</span>
-          <span class="price-tip" style="left:10px;top:120px;"><em>413,300</em>원</span>
-          <span class="price-tip wish" style="left:10px;top:160px;"><em>413,300</em>원</span>
-          <span class="price-tip wish" style="left:10px;top:200px;"><em>413,300</em>원</span>
+          <span class="pin" style="left:10px;top:80px;"></span>
+          <span class="pin" style="left:10px;top:120px;"></span>
+          <span class="pin on" style="left:10px;top:160px;"></span>
+          <span class="pin wish" style="left:10px;top:200px;"></span>
+
           <div class="htl-sel-info">
             <dl class="htl-detail">
               <dt style="background:url(https://i.travelapi.com/hotels/9000000/8510000/8508900/8508851/323f8653_b.jpg) 50% 50% no-repeat;background-size:cover;">
@@ -144,10 +145,7 @@
                     <span class="st1">NEW</span>
                     <span class="st2">프로모션</span>
                   </span>
-                  <span class="htl-price">
-                    <span class="txt">3박 최저가</span>
-                    <span class="price"><em>924,000</em>원</span>
-                  </span>
+                  <span class="btn-base bb-st2"><a href="#" class="ui-link">요금확인</a></span>
                 </span>
               </dd>
             </dl>
@@ -175,9 +173,9 @@
         $('.gmap-wrapper  .htl-detail dt .htl-wish').on('click', function(){
           $(this).toggleClass('on');
         });
-        $('.gmap-wrapper .price-tip').on('click', function(){
+        $('.gmap-wrapper .pin').on('click', function(){
           if($(this).hasClass('on')) return false;
-          $('.gmap-wrapper .price-tip').removeClass('on');
+          $('.gmap-wrapper .pin').removeClass('on');
           $(this).addClass('on');
           //선택한 요금과 관련된 정보를 보여주는 로직이 들어갑니다.
           //...

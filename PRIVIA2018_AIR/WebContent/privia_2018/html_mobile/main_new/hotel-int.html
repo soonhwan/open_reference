@@ -33,21 +33,25 @@
 <div data-role="page">
    
     <!-- header-sec -->
-    <div class="header-sec">
-        <header class="w-header-sec whs-st1">
+    <!-- 메인헤더 -->
+    <div class="header-secV2 header-main-st">
+        <div class="in-header-secV2">
             <h1 class="logo"><a href="#"><img src="/images/front/mtravel/contents/logo-privia.png" alt="현대카드 PRIVIA 여행"></a></h1>
-            <div class="ly-right">
-                <a href="#" class="b-mymenu"><span class="a11y">마이페이지 가기</span></a>
+            <div class="ly-left">
                 <a href="#" class="b-gnb"><span class="a11y">메뉴보기</span></a>
             </div>
-        </header>
+            <div class="ly-right">
+                <a href="#" class="b-mymenu"><span class="a11y">마이페이지 가기</span></a>
+            </div>
+        </div>
     </div>
+    <!-- //메인헤더 -->
     <!-- //header-sec -->
        
     <!-- content-sec -->
     <div class="content-sec">
         <section class="w-content-sec">
-            <div class="w-search-sec o-bg-hotel">
+            <div class="w-search-sec o-bg-hotel wss-st2">
                 <!-- 검색 메뉴 -->
                 <div class="hs-search-menu">
                     <!-- 항공 -->
@@ -61,17 +65,17 @@
                     </div>
                     <!-- //항공 -->
 
-                    <!-- 해외호텔 -->
+                    <!-- 호텔 -->
                     <div class="hss-menu hss-hotel on">
-                        <h3 class="hss-main"><a href="hotel-int.html" data-ajax="false">해외호텔</a></h3>
+                        <h3 class="hss-main"><a href="hotel-int.html" data-ajax="false">호텔</a></h3>
                     </div>
-                    <!-- //해외호텔 -->
+                    <!-- //호텔 -->
                     
-                    <!-- 국내숙박 -->
-                    <div class="hss-menu hss-hotel">
-                        <h3 class="hss-main"><a href="hotel-dom.html" data-ajax="false">국내숙박</a></h3>
+                    <!-- 해외패키지 -->
+                    <div class="hss-menu hss-pkg">
+                        <h3 class="hss-main"><a href="/html_mobile/pkg/PTM_B001.html" data-ajax="false">해외패키지</a></h3>
                     </div>
-                    <!-- //국내숙박 -->
+                    <!-- //해외패키지 -->
                 </div>
                 <!-- //검색 메뉴 -->
                 
@@ -264,7 +268,7 @@
                 </p>
                 <ul class="fts-go-link">
                     <li><span class="btn-base bb-st1"><a href="#">PC버전</a></span></li>
-                    <li><span class="btn-base bb-st1"><a href="#">고객센터</a></span></li>
+                    <!--<li><span class="btn-base bb-st1"><a href="#">고객센터</a></span></li>-->
                 </ul>
             </div>
             <ul class="nav-fnb">
@@ -289,7 +293,7 @@
     <script type="text/javascript">
     $(document).one('pageshow',function(e,data){      
         pvmSearch.comSearchHotel();
-        pvmFrontScript.comContents();
+        //pvmFrontScript.comContents();
     });
     </script>
     

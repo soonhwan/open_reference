@@ -1,19 +1,35 @@
 @charset "utf-8";
 
 /* login */
+.login-type a{display:inline-block;position:relative;color:#000;font-size:14px;padding-right:15px;}
+.login-type a:after{display:block;content:'';width:8px;height:15px;position:absolute;top:4px;right:0;background:url(/images/front/mtravel/contents/icon-common-secM.png) -76px 0 no-repeat;background-size:157px;}
+.cb1-header .area-tit.login-tit{padding:20px 0 10px;}
+.cb1-header .area-tit.login-tit .tit{color:#f30774;font-size:20px;}
+.login-txt{display:block;font-size:12px;line-height:1.5;}
+.login-sns{width:100%;overflow:hidden;text-align:center;}
+.login-sns li{display:inline-block;overflow:hidden;width:31.9%;height:40px;margin-left:1%;border-radius:4px;}
+.login-sns li:first-child{margin-left:0;}
+.login-sns li a{display:block;position:relative;height:100%;padding:11px 0 10px 43%;font-size:11px;color:#fff;border:0;overflow:hidden;background:url(/images/front/mtravel/common/bg-sns-icon-new2.png) 0 0 no-repeat;background-size:25px;}
+.login-sns li a.naver{border:1px solid #1eb400;background-color:#1ec800;background-position:8px -15%;}
+.login-sns li a.facebook{border:1px solid #22436b;background-color:#3c5a99;background-position:8px 46%;}
+.login-sns li a.kakao{border:1px solid #e0be12;background-color:#ffde00;background-position:8px 110%;color:#381e1f;}
+.login-sns li a.naver:after{display:block;content:'';position:absolute;top:0;left:40px;width:1px;height:100%;background:#1eb400;}
+a.facebook:after{display:block;content:'';position:absolute;top:0;left:40px;width:1px;height:100%;background:#22436b;}
+a.kakao:after{display:block;content:'';position:absolute;top:0;left:40px;width:1px;height:100%;background:#e0be12;}
 
 
 /* member */
 .pd0{padding-top:0px}
+
 .member-step{text-align:center;background-color:#f5f6f8;margin-bottom:10px}
 .member-step li{padding:14px 0 14px 5px;font-size:14px;position:relative;border-top:1px solid #ccc;border-bottom:1px solid #ccc;color:#ccc}
 .member-step li:after{content:'';background:url(/images/front/mtravel/contents/member.png) no-repeat -5px -55px;-webkit-background-size:89px;background-size:89px;position:absolute;top:-1px;right:0px;width:17px;height:50px}
 .member-step li:last-child:after{background:none}
 .member-step li.current{color:#f30774;font-weight:600}
 
-.member-step .step1{width:35%}
-.member-step .step2{width:35%}
-.member-step .step3{width:30%}
+.member-step .step1{width:33.3%}
+.member-step .step2{width:33.3%}
+.member-step .step3{width:33.4%}
 .member-step li:before{background:url(/images/front/mtravel/contents/member.png) no-repeat 0 0;-webkit-background-size:89px;background-size:89px}
 .member-step .step1:before{content:'';position:absolute;top:18px;left:50%;margin-left:-45px;width:14px;height:13px;background-position: -39px -78px}
 .member-step .step2:before{content:'';position:absolute;top:18px;left:50%;margin-left:-45px;width:13px;height:13px;background-position: -71px -51px}
@@ -27,3 +43,5 @@
 .cert-box li.ipin a:after{content:'';background:url(/images/front/mtravel/contents/member.png) no-repeat -5px -5px;-webkit-background-size:89px;background-size:89px;position:absolute;top:25px;left:50%;margin-left:-12px;width:24px;height:40px}
 .cert-box li.cell a:after{content:'';background:url(/images/front/mtravel/contents/member.png) no-repeat -39px -5px;-webkit-background-size:89px;background-size:89px;position:absolute;top:26px;left:50%;margin-left:-11px;width:22px;height:40px}
 .cert-box li strong{display:block; padding-bottom:5px; font-size:14px; color:#000;font-weight:600}
+
+.reception label + label{margin-left:20px !important}

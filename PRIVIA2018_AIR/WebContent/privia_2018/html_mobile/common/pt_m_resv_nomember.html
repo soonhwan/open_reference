@@ -51,7 +51,7 @@
     <!-- 서브헤더 --> 
     <div class="header-secV2 header-page-st">
         <div class="in-header-secV2">
-            <h2 class="ihg-title">회원가입</h2>
+            <h2 class="ihg-title">로그인</h2>
             <div class="ly-left">
                 <a href="#" class="b-back" data-rel="back" data-direction="reverse"><span class="a11y">이전 페이지로 가기</span></a>
             </div>
@@ -62,112 +62,52 @@
     
     <!-- content-sec -->
     <div class="content-sec">
-        <section class="w-content-sec">
-            <ul class="member-step a-row">
-                <li class="step1">본인인증</li>
-                <li class="step2">약관동의</li>
-                <li class="current step3">정보입력</li>
-            </ul>
-            
+        <section class="w-content-sec">    
             <div class="c-box-st1">
-                <div class="cb1-header">
-                    <span class="area-tit"><h3 class="tit">회원정보</h3></span>
+                <div class="login-type">
+                    <a href="#">회원 로그인</a>
+                </div>
+                <div class="cb1-header a-pb20">
+                    <span class="area-tit login-tit"><h3 class="tit">비회원 예약조회</h3></span>
                 </div>
                 
-                <div class="input-baseV2">
-                    <input type="text" id="u-name" class="input">
-                    <label for="u-name" class="label">
-                        <span class="txt">이름</span>
+                <div class="form-st1">
+                     <label for="air" class="radio-base radio-st2">
+                        <input type="radio" id="air" name="nonRrv" class="a11y" checked="">
+                        <span class="label">항공</span> 
+                    </label>
+                    <label for="hotel" class="radio-base radio-st2">
+                        <input type="radio" id="hotel" name="nonRrv" class="a11y">
+                        <span class="label">호텔</span> 
+                    </label>
+                </div>                
+                
+                <div class="input-baseV2 a-mt20 invalid">
+                    <input type="text" id="inpTCode" class="input">
+                    <label for="inpTCode" class="label">
+                        <span class="txt">예약번호</span>
                     </label>
                     <button class="btn-clear"><span class="a11y">입력 항목 삭제</span></button>
-                    
+                    <p class="req-error">예약번호는 필수 항목입니다.</p>
                 </div>
 
                 <div class="input-baseV2 a-mt20">
-                    <input type="text" id="u-id" class="input">
-                    <label for="u-id" class="label">
-                        <em class="requ">*</em><span class="txt">아이디</span>
+                    <input type="text" id="inpTPass" class="input">
+                    <label for="inpTPass" class="label">
+                        <span class="txt">예약자 전화번호 또는 이메일</span>
                     </label>
                     <button class="btn-clear"><span class="a11y">입력 항목 삭제</span></button>
-                    <p class="req-guide">공백없는 영문+숫자 6~20자</p>
-                    <p class="req-error">이미 사용중인 아이디 입니다.</p>
+                    <p class="req-error">전화번호 또는 이메일은 필수 항목입니다.</p>
                 </div>
-                
-                <div class="input-baseV2 a-mt20">
-                    <input type="password" id="u-pw" class="input">
-                    <label for="u-pw" class="label">
-                        <em class="requ">*</em><span class="txt">비밀번호</span>
-                    </label>
-                    <button class="btn-clear"><span class="a11y">입력 항목 삭제</span></button>
-                    <p class="req-guide">6~16자의 영문 대소문자, 숫자, 특수문자를 조합하여 사용</p>
-                    <p class="req-error">길이를 6자에서 16자 사이로 해주세요.</p>
+                                                
+                <div class="a-mt30">
+                    <span class="btn-base bb-st3"><button type="button">예약조회</button></span>
                 </div>
+                <span class="login-txt a-mt15 point9">예약번호가 기억나지 않으세요?<br />현대카드 PRIVIA 여행 고객센터 <span class="underline">1588-0360</span> 로 연락주세요.</span>
                 
-                <!-- 유효성 체크 결과표기 시 하단 div에 invalid 클래스 추가한 모습 -->                                             
-                <div class="input-baseV2 a-mt20 invalid">
-                    <input type="password" id="u-pw2" class="input">
-                    <label for="u-pw2" class="label">
-                        <em class="requ">*</em><span class="txt">비밀번호 확인</span>
-                    </label>
-                    <button class="btn-clear"><span class="a11y">입력 항목 삭제</span></button>
-                    <p class="req-error">비밀번호가 일치하지 않습니다.</p>
-                </div>                                               
-                
-                <div class="input-baseV2 a-mt20 invalid">
-                    <input type="text" id="u-c-phone" class="input">
-                    <label for="u-c-phone" class="label">
-                        <em class="requ">*</em><span class="txt">휴대폰</span>
-                    </label>
-                    <button class="btn-clear"><span class="a11y">입력 항목 삭제</span></button>
-                    <p class="req-error">휴대폰은 필수항목입니다.</p>
-                </div>                                     
-                
-                <div class="input-baseV2 a-mt20">
-                    <input type="text" id="u-phone" class="input">
-                    <label for="u-phone" class="label">
-                        <span class="txt">유선전화</span>
-                    </label>
-                    <button class="btn-clear"><span class="a11y">입력 항목 삭제</span></button>
-                </div>
-                
-                <div class="input-baseV2 a-mt20">
-                    <input type="text" id="u-email" class="input">
-                    <label for="u-email" class="label">
-                        <em class="requ">*</em><span class="txt">이메일</span>
-                    </label>
-                    <button class="btn-clear"><span class="a11y">입력 항목 삭제</span></button>
-                    <p class="req-error">이메일 형식을 확인해 주세요.</p>
-                </div>
-                
-                <div class="cb1-header a-mt10">
-                    <span class="area-tit"><h4 class="tit-sub">수신여부</h4></span>
-                </div>             
-                
-                <div class="reception">
-                    <label for="r1" class="chk-base chk-st1">
-                        <input type="checkbox" id="r1" class="a11y">
-                        <span class="label">휴대폰 알림서비스</span> 
-                    </label>
-                    
-                    <label for="r2" class="chk-base chk-st1">
-                        <input type="checkbox" id="r2" class="a11y">
-                        <span class="label">이메일 수신여부</span> 
-                    </label>
-                </div>
-                
-                <p class="c-txt-st6 ti-15 a-mt15">※ 거래 안전을 위한 여행상품 이용사항, 약관 및 서비스 변경, 마일리지 사용에 대한 서비스 공지는 수신 동의 여부와 상관 없이 발송됩니다.</p>
-                
-                <div class="cb1-header a-mt20 a-row">
-                    <span class="area-tit"><h3 class="tit">현대카드 회원 인증</h3></span>
-                    <span class="btn-base bb-st6"><button type="button">인증</button></span>
-                </div> 
-                
-                <p class="c-txt-st3 a-mt15">현대카드 인증을 하시면 현대카드에서 제공하는 바우처와 리워드, 쿠폰 등을 사용하실 수 있으며 상담 시 보다 편리한 안내를 받으실 수 있습니다.</p>
-                
-                <hr class="bd-hr">
-                
-                <div class="a-mt20">
-                    <span class="btn-base bb-st3"><button type="button">회원가입</button></span>
+                <div class="a-mt20 a-pt20 m-btns">
+                    <span class="login-txt fl point7" style="width:60%;">회원가입 시 현대카드 PRIVIA 여행의 특별하고 다양한 서비스를 누릴 수 있습니다.</span>
+                    <span class="btn-base bb-st6 fr"><a href="#" class="ui-link">회원가입</a></span>
                 </div>
             </div>
         </section>
@@ -208,7 +148,7 @@
     
     <script type="text/javascript">
     $(document).one('pageshow',function(e,data){      
-        
+       
     });
     </script>
     
