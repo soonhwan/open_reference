@@ -514,6 +514,7 @@ box-shadow: 0 3px 3px 0px rgba(0,0,0,0.1);
 .tbl-list td.room-type .room-cancel .txt.st1{color:#000;}
 .tbl-list td.room-type .room-cancel .txt.st2{color:#e10000;}
 .tbl-list td.includes{text-align:center;}
+.tbl-list td.includes .lp-area{display:block}
 .tbl-list td.room-state{text-align:center;padding-right:20px;}
 .tbl-list td.room-btn .bb-st3 a{width:110px;}
 .tbl-list td.total-price .total-price-cnt{width:280px;}

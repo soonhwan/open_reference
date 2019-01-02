@@ -411,6 +411,68 @@ $(function(){
   if($('#gmapArea').length>0){
     $('#gmapArea').css('height', $(window).height()-50);
   }
+
+  if($('.list-tab-wrap').length>0){
+    $(window).on('load', function(){
+      var $tabWrap = $('.list-tab-wrap'),
+  			  $tabUl = $tabWrap.find('ul'), $tabLi = $tabWrap.find('li'),
+          tabW = [], tabId = 0, tabPos=[], tabNum = $tabLi.length;
+  		for(var i=0; i<tabNum; i++){
+  			tabW.push($tabLi.eq(i).width()+10);
+  		}
+  		$tabUl.css('width', sum(tabW)+21);
+      for(var n=0; n<tabNum; n++){
+        tabPos.push($tabLi.eq(n).position().left-15);
+      }
+      $tabWrap.animate({'scrollLeft': $tabUl.find('li.on').position().left-15}, .1);
+      $tabLi.on('click', function(e){
+        tabId = $tabLi.index(this);
+        $(this).siblings('li').removeClass('on');
+        $(this).addClass('on');
+        $tabWrap.animate({'scrollLeft': tabPos[tabId]}, 300);
+        e.preventDefault();
+      });
+  		for(var j=0; j<tabNum; j++){
+  			if($tabLi.eq(j+1).hasClass('on')){
+  				$tabWrap.scrollLeft( sli_func(j+1) );
+  			}
+  		}
+  		function sum(arr){
+  			var sul_result = 0;
+  			for(var a=0; a<arr.length; a++){
+  				sul_result += arr[a];
+  			}
+  			return sul_result;
+  		}
+  		function sli_func(cnt){
+  			var sli_result = 0;
+  			for(var b=0; b<cnt; b++){
+  				sli_result += $tabLi.eq(b).width();
+  			}
+  			return sli_result;
+  		}
+    });
+  }
+
+  if($('.htl-detail-room').length>0){
+    $(window).on('load resize', function(){
+      var ww = $(window).width();
+      $('.htl-detail-room .swiper-slide').css({
+        'width': ww + 'px',
+        'height': ww*214/375 + 'px'
+      });
+    });
+    var swiper = new Swiper('.htl-detail-room.swiper-container', {
+      pagination: {
+        el: '.htl-detail-room .swiper-pagination',
+        clickable: true
+      },
+      autoplay: {
+        delay: 3000
+      },
+      loop: true
+    });
+  }
 });
 
 var hotelFrontScript = window.hotelFrontScript || (function(){

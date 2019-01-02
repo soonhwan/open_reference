@@ -25,6 +25,7 @@
 <script type="text/javascript" src="/js/front/mtravel/swiper.min.js"></script>
 <script type="text/javascript" src="/js/front/mtravel/commonUI.js"></script>
 <script type="text/javascript" src="/js/utils.js"></script>
+<script type="text/javascript" src="/js/front/mtravel/jquery.countdown.min.js"></script> <!-- 인증 script -->
 </head>
 
 <body>
@@ -51,10 +52,12 @@
     <!-- 서브헤더 --> 
     <div class="header-secV2 header-page-st">
         <div class="in-header-secV2">
-            <h2 class="ihg-title">로그인</h2>
+            <h2 class="ihg-title">회원가입</h2>
+            <!-- 뒤로가기 없음
             <div class="ly-left">
                 <a href="#" class="b-back" data-rel="back" data-direction="reverse"><span class="a11y">이전 페이지로 가기</span></a>
-            </div>
+            </div> 
+            -->
         </div>
     </div>
     <!-- //서브헤더 --> 
@@ -62,53 +65,15 @@
     
     <!-- content-sec -->
     <div class="content-sec">
-        <section class="w-content-sec">    
-            <div class="c-box-st1">
-                <div class="login-type">
-                    <a href="#">비회원 예약조회</a>
-                </div>
-                <div class="cb1-header a-pb20">
-                    <span class="area-tit login-tit"><h3 class="tit">회원 로그인</h3></span>
-                    <span class="login-txt fblur">현대카드 PRIVIA 여행은 현대카드의 제휴사인<br />(주) 타이드스퀘어가 운영하는 사이트로  별도의 회원가입과 로그인이 필요합니다.</span>
-                </div>
-                
-                <div class="input-baseV2 invalid">
-                    <input type="text" id="u-id" class="input">
-                    <label for="u-id" class="label">
-                        <span class="txt">아이디</span>
-                    </label>
-                    <button class="btn-clear"><span class="a11y">입력 항목 삭제</span></button>
-                    <p class="req-error">아이디는 필수 항목입니다.</p>
-                </div>
-
-                <div class="input-baseV2 a-mt20">
-                    <input type="password" id="u-pw" class="input">
-                    <label for="u-pw" class="label">
-                        <span class="txt">비밀번호</span>
-                    </label>
-                    <button class="btn-clear"><span class="a11y">입력 항목 삭제</span></button>
-                    <p class="req-error">비밀번호는 필수 항목입니다.</p>
-                </div>
-                                                
-                <div class="a-mt30">
-                    <span class="btn-base bb-st3"><button type="button">로그인</button></span>
-                    <label for="loginChk" class="chk-base chk-st1 a-mt30">
-                        <input type="checkbox" id="loginChk" class="a11y">
-                        <span class="label">아이디 저장</span> 
-                    </label>
-                </div>
-                <ul class="login-sns a-mt30 a-row">
-                    <li><a href="#" class="naver">로그인</a></li>
-                    <li><a href="#" class="facebook">로그인</a></li>
-                    <li><a href="#" class="kakao">로그인</a></li>
-                </ul>
-                <span class="login-txt ti-15 fblur a-mt10">※ 네이버 아이디로 예약을 진행한 경우 네이버 아이디로 로그인 해야만 확인 가능합니다.</span>
-                
-                <div class="a-mt20 a-pt30 m-btns m-btns2">
-                    <span class="btn-base bb-st6"><a href="#" class="ui-link">아이디 비밀번호 찾기</a></span>
-                    <span class="btn-base bb-st6"><a href="#" class="ui-link">회원가입</a></span>
-                </div>
+        <section class="w-content-sec">  
+            <div class="member-confirm bg-slpm">
+                <p class="c-txt-lg">휴면회원을 해제하시겠습니까?</p>
+                <p class="c-txt-st3 a-mt10">ooo 아이디는 0000년 00월 00일로<br />휴면회원으로 전환되었습니다.</p>
+                <p class="c-txt-st3 a-mt30">휴면회원 해제 후 현대카드 PRIVIA 여행 서비스의<br />다양하고 특별한 혜택을 누리세요.</p>
             </div>
+            <div class="a-mt20 tac">
+                <span class="btn-base bb-st6 bc-black"><a href="#">휴면회원 해제</a></span>
+            </div>          
         </section>
     </div>
     <!-- //content-sec -->
@@ -147,7 +112,37 @@
     
     <script type="text/javascript">
     $(document).one('pageshow',function(e,data){      
+        //인증 타이머 호출
+		$('.btn-timer-m').on('click', function(){
+            alert("인증번호가 발송 되었습니다.");
+			timerM();
+		});
+        $('.btn-timer-e').on('click', function(){
+            alert("인증번호가 발송 되었습니다.");
+			timerE();
+		});
         
+        //인증 타이머
+        function timerM(){
+            $('#timer1').off('finish.countdown');
+            var time = new Date().getTime() + 180000;
+            $('#timer1').countdown(time, function(event){
+                $(this).html(event.strftime('(<span>%M</span>:<span>%S</span>)'));                
+            }).on('finish.countdown', function(event){
+                //타이머 종료 시 실행
+                alert("인증시간이 지났습니다. 다시 확인해 주세요.");
+            });	
+        }
+        function timerE(){
+            $('#timer2').off('finish.countdown');
+            var time = new Date().getTime() + 600000;
+            $('#timer2').countdown(time, function(event){
+                $(this).html(event.strftime('(<span>%M</span>:<span>%S</span>)'));                
+            }).on('finish.countdown', function(event){
+                //타이머 종료 시 실행
+                alert("인증시간이 지났습니다. 다시 확인해 주세요.");
+            });	
+        }
     });
     </script>
     

@@ -25,6 +25,7 @@
 <script type="text/javascript" src="/js/front/mtravel/swiper.min.js"></script>
 <script type="text/javascript" src="/js/front/mtravel/commonUI.js"></script>
 <script type="text/javascript" src="/js/utils.js"></script>
+<script type="text/javascript" src="/js/front/mtravel/jquery.countdown.min.js"></script> <!-- 인증 script -->
 </head>
 
 <body>
@@ -65,10 +66,10 @@
         <section class="w-content-sec">    
             <div class="c-box-st1">
                 <div class="login-type">
-                    <a href="#">비밀번호 찾기</a>
+                    <a href="#">아이디 찾기</a>
                 </div>
                 <div class="cb1-header">
-                    <span class="area-tit login-tit"><h3 class="tit">아이디 찾기</h3></span>                    
+                    <span class="area-tit login-tit"><h3 class="tit">비밀번호 찾기</h3></span>                    
                 </div>
                 
                 <div class="cb1-header a-pb30">
@@ -86,7 +87,20 @@
                         </li>
                     </ul>
                     <div class="ui-tab-cont tab-on" id="ui-tab1">
-                        <div class="input-baseV2 a-mt20 invalid">
+                        <div class="a-row col2-unbal a-mt30">
+                            <span class="input-baseV2 a-col" style="width:63%">
+                                <input type="text" id="u-id1" class="input">
+                                <label for="u-id1" class="label">
+                                    <span class="txt">아이디</span>
+                                </label>
+                                <button class="btn-clear"><span class="a11y">입력 항목 삭제</span></button>
+                                <p class="req-error">아이디를 입력해 주세요.</p>
+                            </span>
+                            <span class="a-col a-right" style="width:36%;">
+                                <span class="btn-base bb-st6"><a href="#" class="ui-link">확인</a></span>
+                            </span>
+                        </div>
+                        <div class="input-baseV2 a-mt20">
                             <input type="text" id="userName1" class="input">
                             <label for="userName1" class="label">
                                 <span class="txt">이름</span>
@@ -94,17 +108,47 @@
                             <button class="btn-clear"><span class="a11y">입력 항목 삭제</span></button>
                             <p class="req-error">이름은 필수 항목입니다.</p>
                         </div>
-                        <div class="input-baseV2 a-mt20">
-                            <input type="text" id="certByHP" class="input">
-                            <label for="certByHP" class="label">
-                                <span class="txt">휴대폰</span>
-                            </label>
-                            <button class="btn-clear"><span class="a11y">입력 항목 삭제</span></button>
-                            <p class="req-error">휴대폰 번호는 필수 항목입니다.</p>
+                        <div class="a-row col2-unbal a-mt20">
+                            <span class="input-baseV2 a-col invalid" style="width:63%">
+                                <input type="text" id="u-num" class="input">
+                                <label for="u-num" class="label">
+                                    <span class="txt">휴대폰</span>
+                                </label>
+                                <button class="btn-clear"><span class="a11y">입력 항목 삭제</span></button>
+                                <p class="req-error">휴대폰 번호는 필수 항목입니다.</p>
+                            </span>
+                            <span class="a-col a-right btn-timer-m" style="width:36%;">
+                                <span class="btn-base bb-st6 btn-sp"><a href="#" class="ui-link">인증번호 발송</a></span>
+                            </span>
+                        </div>
+                        <div class="a-row col2-unbal a-mt20">
+                            <span class="input-baseV2 a-col" style="width:63%">
+                                <input type="text" id="cNum1" class="input">
+                                <label for="cNum1" class="label">
+                                    <span class="txt">인증번호</span>
+                                </label>
+                                <button class="btn-clear"><span class="a11y">입력 항목 삭제</span></button>
+                            </span>
+                            <span class="input-baseV2 a-col a-center" style="width:33%;">
+                                <span id="timer1" class="c-point3" style="width:100%;">(<span>03</span>:<span>00</span>)</span>
+                            </span>
                         </div>
                     </div>
                     <div class="ui-tab-cont" id="ui-tab2">
-                        <div class="input-baseV2 a-mt20 invalid">
+                        <div class="a-row col2-unbal a-mt30">
+                            <span class="input-baseV2 a-col" style="width:63%">
+                                <input type="text" id="u-id2" class="input">
+                                <label for="u-id2" class="label">
+                                    <span class="txt">아이디</span>
+                                </label>
+                                <button class="btn-clear"><span class="a11y">입력 항목 삭제</span></button>
+                                <p class="req-error">아이디를 입력해 주세요.</p>
+                            </span>
+                            <span class="a-col a-right" style="width:36%;">
+                                <span class="btn-base bb-st6"><a href="#" class="ui-link">확인</a></span>
+                            </span>
+                        </div>
+                        <div class="input-baseV2 a-mt20">
                             <input type="text" id="userName2" class="input">
                             <label for="userName2" class="label">
                                 <span class="txt">이름</span>
@@ -112,19 +156,36 @@
                             <button class="btn-clear"><span class="a11y">입력 항목 삭제</span></button>
                             <p class="req-error">이름은 필수 항목입니다.</p>
                         </div>
-                        <div class="input-baseV2 a-mt20">
-                            <input type="text" id="certByEmail" class="input">
-                            <label for="certByEmail" class="label">
-                                <span class="txt">이메일</span>
-                            </label>
-                            <button class="btn-clear"><span class="a11y">입력 항목 삭제</span></button>
-                            <p class="req-error">이메일은 필수 항목입니다.</p>
+                        <div class="a-row col2-unbal a-mt20">
+                            <span class="input-baseV2 a-col invalid" style="width:63%">
+                                <input type="text" id="u-email" class="input">
+                                <label for="u-email" class="label">
+                                    <span class="txt">이메일</span>
+                                </label>
+                                <button class="btn-clear"><span class="a11y">입력 항목 삭제</span></button>
+                                <p class="req-error">이메일은 필수 항목입니다.</p>
+                            </span>
+                            <span class="a-col a-right btn-timer-e" style="width:36%;">
+                                <span class="btn-base bb-st6 btn-sp"><a href="#" class="ui-link">인증번호 발송</a></span>
+                            </span>
+                        </div>
+                        <div class="a-row col2-unbal a-mt20">
+                            <span class="input-baseV2 a-col" style="width:63%">
+                                <input type="text" id="cNum2" class="input">
+                                <label for="cNum2" class="label">
+                                    <span class="txt">인증번호</span>
+                                </label>
+                                <button class="btn-clear"><span class="a11y">입력 항목 삭제</span></button>
+                            </span>
+                            <span class="input-baseV2 a-col a-center" style="width:33%;">
+                                <span id="timer2" class="c-point3" style="width:100%;">(<span>10</span>:<span>00</span>)</span>
+                            </span>
                         </div>
                     </div>
                 </div>                
                                                 
                 <div class="a-mt30 a-pb10">
-                    <span class="btn-base bb-st3"><button type="button">아이디 찾기</button></span>
+                    <span class="btn-base bb-st3"><button type="button">비밀번호 찾기</button></span>
                 </div>
                 
                 <div class="a-mt20 a-pt10 m-btns">
@@ -173,7 +234,37 @@
     
     <script type="text/javascript">
     $(document).one('pageshow',function(e,data){      
+        //인증 타이머 호출
+		$('.btn-timer-m').on('click', function(){
+            alert("인증번호가 발송 되었습니다.");
+			timerM();
+		});
+        $('.btn-timer-e').on('click', function(){
+            alert("인증번호가 발송 되었습니다.");
+			timerE();
+		});
         
+        //인증 타이머
+        function timerM(){
+            $('#timer1').off('finish.countdown');
+            var time = new Date().getTime() + 180000;
+            $('#timer1').countdown(time, function(event){
+                $(this).html(event.strftime('(<span>%M</span>:<span>%S</span>)'));                
+            }).on('finish.countdown', function(event){
+                //타이머 종료 시 실행
+                alert("인증시간이 지났습니다. 다시 확인해 주세요.");
+            });	
+        }
+        function timerE(){
+            $('#timer2').off('finish.countdown');
+            var time = new Date().getTime() + 600000;
+            $('#timer2').countdown(time, function(event){
+                $(this).html(event.strftime('(<span>%M</span>:<span>%S</span>)'));                
+            }).on('finish.countdown', function(event){
+                //타이머 종료 시 실행
+                alert("인증시간이 지났습니다. 다시 확인해 주세요.");
+            });	
+        }
     });
     </script>
     

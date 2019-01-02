@@ -1,11 +1,15 @@
 @charset "utf-8";
 
 /* login */
+.gray-box{display:block;background:#f5f6f8;border-radius:4px;padding:10px 0;}
+
 .login-type a{display:inline-block;position:relative;color:#000;font-size:14px;padding-right:15px;}
 .login-type a:after{display:block;content:'';width:8px;height:15px;position:absolute;top:4px;right:0;background:url(/images/front/mtravel/contents/icon-common-secM.png) -76px 0 no-repeat;background-size:157px;}
 .cb1-header .area-tit.login-tit{padding:20px 0 10px;}
-.cb1-header .area-tit.login-tit .tit{color:#f30774;font-size:20px;}
-.login-txt{display:block;font-size:12px;line-height:1.5;}
+.cb1-header .area-tit.login-tit .tit{color:#f30774;font-size:24px;}
+.login-txt{display:block;font-size:14px;line-height:1.5;color:#000;}
+.login-point{font-size:18px;color:#f30774;font-weight:bold;}
+.login-bold{font-weight:bold;}
 .login-sns{width:100%;overflow:hidden;text-align:center;}
 .login-sns li{display:inline-block;overflow:hidden;width:31.9%;height:40px;margin-left:1%;border-radius:4px;}
 .login-sns li:first-child{margin-left:0;}
@@ -16,10 +20,11 @@
 .login-sns li a.naver:after{display:block;content:'';position:absolute;top:0;left:40px;width:1px;height:100%;background:#1eb400;}
 a.facebook:after{display:block;content:'';position:absolute;top:0;left:40px;width:1px;height:100%;background:#22436b;}
 a.kakao:after{display:block;content:'';position:absolute;top:0;left:40px;width:1px;height:100%;background:#e0be12;}
+.bg-slpm{background:url(/images/front/mtravel/common/bg-sleep-icon.png) no-repeat center 100px !important;background-size:40px !important;}
 
 
 /* member */
-.pd0{padding-top:0px}
+.pd0{padding-top:0px !important;}
 
 .member-step{text-align:center;background-color:#f5f6f8;margin-bottom:10px}
 .member-step li{padding:14px 0 14px 5px;font-size:14px;position:relative;border-top:1px solid #ccc;border-bottom:1px solid #ccc;color:#ccc}
@@ -45,3 +50,5 @@ a.kakao:after{display:block;content:'';position:absolute;top:0;left:40px;width:1
 .cert-box li strong{display:block; padding-bottom:5px; font-size:14px; color:#000;font-weight:600}
 
 .reception label + label{margin-left:20px !important}
+
+.member-confirm{padding:155px 0 0 0;background:url(/images/front/mtravel/contents/deco_check.png) no-repeat center 100px;-webkit-background-size:47px;background-size:47px;text-align:center}

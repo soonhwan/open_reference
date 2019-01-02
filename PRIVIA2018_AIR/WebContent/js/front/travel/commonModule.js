@@ -211,11 +211,13 @@
 		return this.each(function(){
 			var $this = $(this);
 			$('.ui-tab-menu a', $this).on('click', function(e){
+				var wrapTab = $(this).closest('.o-tab-menu');
+				var tabMenu = $(this).closest('.ui-tab-menu');
 				if(!$(this).closest('li').hasClass('on')){
 					var show = $(this).attr('href');
-					$this.find('.tab-on').removeClass('tab-on');
-					$this.find(show).addClass('tab-on');
-					$('.ui-tab-menu .on', $this).removeClass('on');
+					wrapTab.find('.tab-on').eq(0).removeClass('tab-on');
+					wrapTab.find(show).eq(0).addClass('tab-on');
+					tabMenu.find('.on').eq(0).removeClass('on');
 					$(this).closest('li').addClass('on');
 				}
 				e.preventDefault();

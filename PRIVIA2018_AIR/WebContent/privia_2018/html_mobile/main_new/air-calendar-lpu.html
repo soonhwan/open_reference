@@ -17,7 +17,6 @@
 <link type="text/css" rel="stylesheet" href="/css/front/mtravel/base.css" />
 <link type="text/css" rel="stylesheet" href="/css/front/mtravel/common.css" />
 <link type="text/css" rel="stylesheet" href="/css/front/mtravel/contents.css" />
-<link type="text/css" rel="stylesheet" href="/css/front/mtravel/airCont.css" />
 <script type="text/javascript" src="/js/front/mtravel/jquery-1.8.3.min.js"></script>
 <script type="text/javascript" src="/js/front/mtravel/jquery-ui.min.js"></script>
 <script type="text/javascript" src="/js/front/mtravel/init.js"></script>
@@ -30,45 +29,62 @@
 
 <body>
 
-<!-- 실제 ajax시 필요한 부분 -->
-<section class="popWrap popWrap-mfix">
-    <header class="popHead">
-    	<h1 class="tit">여행자 선택</h1>
-        <span class="btnClose"><a href="#"><span class="a11y"></span>닫기</a></span>
-    </header>    
-    <section class="popCont popCont-iscroll">
-        <div class="c-box-st1 a-pt0">
-           <ul class="c-list-st1">
-               <li>
-                   <a href="#" class="area-click">
-                       <span class="c-txt-st5">
-                           <span class="txt1"><strong>홍길동(남)</strong> HONG GILDONG</span>
-                           <span class="txt2">1989/10/19 ㅣ 01043215555</span>
-                       </span>
-                   </a>
-                </li>
-                <li>
-                   <a href="#" class="area-click">
-                       <span class="c-txt-st5">
-                           <span class="txt1"><strong>김길동(여)</strong> KIM GILDONG</span>
-                           <span class="txt2">1989/10/19</span>
-                       </span>
-                   </a>
-                </li>
-                <li>
-                   <a href="#" class="area-click">
-                      <span class="c-txt-st5">
-                           <span class="txt1"><strong>한길동(남)</strong> HAN GILDONG</span>
-                           <span class="txt2">1989/10/19</span>
-                       </span>
-                   </a>
-                </li>
-           </ul>
-        </div>
-        <!--<div class="btn-bottom-fixed"><span class="btn-base bb-st4"><button>여행자 등록</button></span></div>-->
-    </section>
-</section>
-<!-- //실제 ajax시 필요한 부분 -->
+<!-- page -->
+<div data-role="page">
+    
+    <!-- header-sec -->
+    <div class="header-sec">
+        <header class="w-header-sec">
+            <h2 class="whs-title">여행 날짜 선택</h2>
+            <div class="ly-left">
+                <a href="#" class="b-close" data-rel="back"><span class="a11y">페이지 닫기</span></a>
+            </div>
+        </header>
+    </div>
+    <!-- //header-sec -->
+           
+    <!-- content-sec -->
+    <div class="content-sec">
+        <section class="w-content-sec">
+            <div class="w-search-lp o-bg-air">
+                <!-- 검색 box 영역 -->
+                <div class="sc-search-area">
+                    <div class="list-ssa">
+                        <div class="ssa-ui-box uis-calendar on">
+                            <div class="uis-datepicker-weekend">
+                                <div class="udw-inner">
+                                    <ul>
+                                        <li>일</li>
+                                        <li>월</li>
+                                        <li>화</li>
+                                        <li>수</li>
+                                        <li>목</li>
+                                        <li>금</li>
+                                        <li>토</li>
+                                    </ul>
+                                </div>
+                            </div>
+                            <div class="uis-datepicker"></div>
+                        </div>
+                    </div>
+                </div>
+                <!-- //검색 box 영역 -->
+            </div>
+        </section>
+    </div>
+    <!-- //content-sec -->
+    
+    <script type="text/javascript">
+    $(document).one('pageshow',function(e,data){  
+        pvmSearch.comSearchAirCalendarLpu();
+        
+    });
+    </script>
+</div>
+<!-- //page -->
 
+
+
+    
 </body>
 </html>

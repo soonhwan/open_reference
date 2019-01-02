@@ -107,11 +107,13 @@
 		return this.each(function(){
 			var $this = $(this);
 			$('.ui-tab-menu a', $this).on('click', function(e){
+				var wrapTab = $(this).closest('.o-tab-menu');
+				var tabMenu = $(this).closest('.ui-tab-menu');
 				if(!$(this).closest('li').hasClass('on')){
 					var show = $(this).attr('href');
-					$this.find('.tab-on').removeClass('tab-on');
-					$this.find(show).addClass('tab-on');
-					$('.ui-tab-menu .on', $this).removeClass('on');
+					wrapTab.find('.tab-on').eq(0).removeClass('tab-on');
+					wrapTab.find(show).eq(0).addClass('tab-on');
+					tabMenu.find('.on').eq(0).removeClass('on');
 					$(this).closest('li').addClass('on');
 				}
 				e.preventDefault();
@@ -1973,6 +1975,7 @@ var pvmFrontScript = window.pvmFrontScript || (function(){
 		comContents: function(){
 			//섹션메인에서 호출되고 있음 추후 개선 당분간 작성 금지
 			//comContentsV2 이관
+			//comContentsV2 오픈시 삭제
 			
 			//섹션메인 프로모션 리스트 슬라이드
 			if($('.s-rec-promotion .w-list-item-st1').length > 0){
@@ -1990,12 +1993,11 @@ var pvmFrontScript = window.pvmFrontScript || (function(){
 				if($('.header-secV2.header-page-st').length > 0 && !$('.header-secV2.header-page-st').hasClass('isHeaderFixedOne')){		
 					var isFix = false;
 					var scTop = null;
-					var scUTarget = null;
 					var headerMainH = $('.header-secV2.header-main-st').height();	
 					var $header = $('.header-secV2.header-page-st');	
+					var scUTarget = $header.offset().top;
 					$(document).off('scroll').on('scroll', function(){
-						scTop = $(document).scrollTop() + headerMainH;
-						scUTarget = $header.offset().top + $header.height();
+						scTop = $(document).scrollTop();
 
 						//fixed
 						if(scUTarget < scTop && isFix == false){
@@ -2019,11 +2021,11 @@ var pvmFrontScript = window.pvmFrontScript || (function(){
 				}
 			}
 			
-			//심플 더보기 UI(무조건 닫힌상태(height:0) 에서만 사용 - 상세 스케줄 더보기, 공동운항 리스트 더보기, 필터 항목 더보기)
+			//심플 더보기 UI(기본 height값이 있어야 함 - 상세 스케줄 더보기, 공동운항 리스트 더보기, 필터 항목 더보기)
 			if($('.o-expand-wrap').length > 0){
 				$('.o-expand-wrap .o-expand-btn').die('click').live('click', function(e){
 					var $wExpand = $(this).closest('.o-expand-wrap');
-					var $expandCont = $wExpand.find('.o-expand-cont');
+					var $expandCont = $wExpand.find('.o-expand-cont').eq(0);
 					if($wExpand.hasClass('o-expanded')){
 						$wExpand.removeClass('o-expanded');
 						$expandCont.removeAttr('style');
@@ -2038,9 +2040,9 @@ var pvmFrontScript = window.pvmFrontScript || (function(){
 			
 			//Accordion UI
 			if($('.o-acdi-click').length > 0){
-				$('.o-acdi-click').off('click').on('click', function(){
+				$('.o-acdi-click').off('click').on('click', function(e){
 					var $wExpand = $(this).closest('.o-acdi-wrap');
-					var $expandCont = $wExpand.find('.o-acdi-cont');
+					var $expandCont = $wExpand.find('.o-acdi-cont').eq(0);
 					if($wExpand.hasClass('o-acdi-open')){
 						$expandCont.slideUp('fast', function(){
 							$wExpand.removeClass('o-acdi-open');
@@ -2051,6 +2053,7 @@ var pvmFrontScript = window.pvmFrontScript || (function(){
 							$wExpand.addClass('o-acdi-open');
 						});
 					}
+					e.preventDefault();
 				});	
 			}
 			

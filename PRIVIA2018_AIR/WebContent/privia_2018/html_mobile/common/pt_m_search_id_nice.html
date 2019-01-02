@@ -51,7 +51,7 @@
     <!-- 서브헤더 --> 
     <div class="header-secV2 header-page-st">
         <div class="in-header-secV2">
-            <h2 class="ihg-title">로그인</h2>
+            <h2 class="ihg-title">아이디 비밀번호 찾기</h2>
             <div class="ly-left">
                 <a href="#" class="b-back" data-rel="back" data-direction="reverse"><span class="a11y">이전 페이지로 가기</span></a>
             </div>
@@ -65,48 +65,23 @@
         <section class="w-content-sec">    
             <div class="c-box-st1">
                 <div class="login-type">
-                    <a href="#">비회원 예약조회</a>
+                    <a href="#">비밀번호 찾기</a>
                 </div>
-                <div class="cb1-header a-pb20">
-                    <span class="area-tit login-tit"><h3 class="tit">회원 로그인</h3></span>
-                    <span class="login-txt fblur">현대카드 PRIVIA 여행은 현대카드의 제휴사인<br />(주) 타이드스퀘어가 운영하는 사이트로  별도의 회원가입과 로그인이 필요합니다.</span>
-                </div>
+                <div class="cb1-header a-pb10">
+                    <span class="area-tit login-tit"><h3 class="tit">아이디 찾기</h3></span>
+                    <span class="area-tit a-pb10"><h3 class="tit">본인인증으로 찾기</h3></span>
+                    <span class="login-txt">아래 인증 방법 중 한 가지를 선택해 아이디를 확인하실 수 있습니다.</span>
+                </div>     
                 
-                <div class="input-baseV2 invalid">
-                    <input type="text" id="u-id" class="input">
-                    <label for="u-id" class="label">
-                        <span class="txt">아이디</span>
-                    </label>
-                    <button class="btn-clear"><span class="a11y">입력 항목 삭제</span></button>
-                    <p class="req-error">아이디는 필수 항목입니다.</p>
-                </div>
-
-                <div class="input-baseV2 a-mt20">
-                    <input type="password" id="u-pw" class="input">
-                    <label for="u-pw" class="label">
-                        <span class="txt">비밀번호</span>
-                    </label>
-                    <button class="btn-clear"><span class="a11y">입력 항목 삭제</span></button>
-                    <p class="req-error">비밀번호는 필수 항목입니다.</p>
-                </div>
-                                                
-                <div class="a-mt30">
-                    <span class="btn-base bb-st3"><button type="button">로그인</button></span>
-                    <label for="loginChk" class="chk-base chk-st1 a-mt30">
-                        <input type="checkbox" id="loginChk" class="a11y">
-                        <span class="label">아이디 저장</span> 
-                    </label>
-                </div>
-                <ul class="login-sns a-mt30 a-row">
-                    <li><a href="#" class="naver">로그인</a></li>
-                    <li><a href="#" class="facebook">로그인</a></li>
-                    <li><a href="#" class="kakao">로그인</a></li>
-                </ul>
-                <span class="login-txt ti-15 fblur a-mt10">※ 네이버 아이디로 예약을 진행한 경우 네이버 아이디로 로그인 해야만 확인 가능합니다.</span>
+                <ul class="cert-box a-row">
+                    <li class="ipin"><a href="#" onclick="fnIpinPopup(); return false;" data-ajax="fasle" class="ui-link"><strong>아이핀</strong>본인 명의의 아이핀 아이디와<br />비밀번호로 인증</a></li>
+                    <li class="cell"><a href="#" onclick="fnSelfPopup(); return false;" class="ui-link"><strong>휴대폰</strong>본인 명의의 휴대폰으로<br />인증번호를 전송 받아 인증</a></li>
+                </ul>                
                 
-                <div class="a-mt20 a-pt30 m-btns m-btns2">
-                    <span class="btn-base bb-st6"><a href="#" class="ui-link">아이디 비밀번호 찾기</a></span>
-                    <span class="btn-base bb-st6"><a href="#" class="ui-link">회원가입</a></span>
+                <div class="cb1-header m-btns a-mt30 a-pt10">
+                    <span class="area-tit"><h3 class="tit">등록한 정보로 찾기</h3></span>
+                    <div class="login-type">본인인증이 어려운 경우 등록 된 회원정보를 이용해 주세요.</div>
+                    <span class="btn-base bb-st3 bc-wht a-mt15"><a href="#" class="ui-link">등록 된 회원정보로 찾기</a></span>
                 </div>
             </div>
         </section>

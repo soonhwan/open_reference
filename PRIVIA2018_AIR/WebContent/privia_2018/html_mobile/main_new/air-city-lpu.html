@@ -1,0 +1,426 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=no" />
+<meta name="format-detection" content="telephone=no" />
+<title>PRIVIA 여행</title>
+<meta name="description" content=" "> 
+<meta property="og:title" content=" "> 
+<meta property="og:image" content="http://static.priviatravel.com/images/front/mtravel/common/mobile_17004159046.png"> 
+<meta property="og:description" content=" ">
+<link rel="shortcut icon" type="image/x-icon" href="//static.priviatravel.com/images/front/mtravel/common/favicon.ico" />
+<link rel="apple-touch-icon-precomposed" sizes="152x152" href="//static.priviatravel.com/images/front/mtravel/common/apple-touch-icon-152.png" />
+<link type="text/css" rel="stylesheet" href="/css/front/mtravel/jquery.mobile.1.4.2.css" />
+<link type="text/css" rel="stylesheet" href="/css/front/mtravel/jquery-ui.min.css" />
+<link type="text/css" rel="stylesheet" href="/css/front/mtravel/swiper.min.css" />
+<link type="text/css" rel="stylesheet" href="/css/front/mtravel/base.css" />
+<link type="text/css" rel="stylesheet" href="/css/front/mtravel/common.css" />
+<link type="text/css" rel="stylesheet" href="/css/front/mtravel/contents.css" />
+<script type="text/javascript" src="/js/front/mtravel/jquery-1.8.3.min.js"></script>
+<script type="text/javascript" src="/js/front/mtravel/jquery-ui.min.js"></script>
+<script type="text/javascript" src="/js/front/mtravel/init.js"></script>
+<script type="text/javascript" src="/js/front/mtravel/jquery.mobile-1.4.2.js"></script>
+<script type="text/javascript" src="/js/front/mtravel/swiper.min.js"></script>
+<script type="text/javascript" src="/js/front/mtravel/commonModuleSearchM.js"></script> <!-- headerManager 가이드 버전 실제로는 반영 되지 않음 -->
+<script type="text/javascript" src="/js/front/mtravel/commonUI.js"></script>
+<script type="text/javascript" src="/js/utils.js"></script>
+</head>
+
+<body>
+
+<!-- page -->
+<div data-role="page">
+    
+    <!-- header-sec -->
+    <div class="header-sec">
+        <header class="w-header-sec">
+            <h2 class="whs-title">출발 도시 선택</h2>
+            <div class="ly-left">
+                <a href="#" class="b-close" data-rel="back"><span class="a11y">페이지 닫기</span></a>
+            </div>
+        </header>
+    </div>
+    <!-- //header-sec -->
+           
+    <!-- content-sec -->
+    <div class="content-sec">
+        <section class="w-content-sec">
+            <div class="w-search-lp o-bg-air">            
+                <!-- 검색 box 영역 -->
+                <div class="sc-search-area">
+                    <div class="list-ssa">
+                        <div class="ssa-ui-box uis-mainsel on">
+                            <div class="uis-input">
+                                <input type="text" placeholder="어디서 출발 하시나요?" class="input-base inp-search">
+                                <span class="btn-base b-clear"><button type="button"><span class="a11y">검색어 지우기</span></button></span>
+                            </div>
+                            <div class="w-uis-sec">
+                                <div class="uis-sec">
+                                    <p class="tit">최근 검색지</p>
+                                    <ul class="list uis-list recently">
+                                        <li>
+                                            <a href="#">
+                                                <span class="code">ICN</span>
+                                                <span class="name-det">인천, 한국</span>
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a href="#">
+                                                <span class="code">GMP</span>
+                                                <span class="name-det">김포, 한국</span>
+                                            </a>
+                                        </li>
+                                    </ul>
+                                </div> 
+                                <div class="uis-sec">
+                                    <p class="tit">주요도시</p>
+                                    <ul class="list uis-list recommend">
+                                        <li>
+                                            <a href="#" class="tit-rec">국내</a>
+                                            <div class="w-list-sub">
+                                                <ul class="list-sub">
+                                                    <li>
+                                                        <a href="#">
+                                                            <span class="code">SEL</span>
+                                                            <span class="name-det">인천/김포, 한국</span>
+                                                        </a>
+                                                    </li>
+                                                   <li>
+                                                        <a href="#">
+                                                            <span class="code">ICN</span>
+                                                            <span class="name-det">인천, 한국</span>
+                                                        </a>
+                                                    </li>
+                                                    <li>
+                                                        <a href="#">
+                                                            <span class="code">GMP</span>
+                                                            <span class="name-det">김포, 한국</span>
+                                                        </a>
+                                                    </li>
+                                                    <li>
+                                                        <a href="#">
+                                                            <span class="code">CJU</span>
+                                                            <span class="name-det">제주, 한국</span>
+                                                        </a>
+                                                    </li>
+                                                    <li>
+                                                        <a href="#">
+                                                            <span class="code">PUS</span>
+                                                            <span class="name-det">부산, 한국</span>
+                                                        </a>
+                                                    </li>
+                                                    <li>
+                                                        <a href="#">
+                                                            <span class="code">TAE</span>
+                                                            <span class="name-det">대구, 한국</span>
+                                                        </a>
+                                                    </li>
+                                                    <li>
+                                                        <a href="#">
+                                                            <span class="code">KWJ</span>
+                                                            <span class="name-det">광주, 한국</span>
+                                                        </a>
+                                                    </li>
+                                                </ul>
+                                            </div>
+                                        </li>
+                                        <li>
+                                            <a href="#" class="tit-rec">일본</a>
+                                            <div class="w-list-sub">
+                                                <ul class="list-sub">
+                                                    <li>
+                                                        <a href="#">
+                                                            <span class="code">HND</span>
+                                                            <span class="name-det">도쿄(하네다), 일본</span>
+                                                        </a>
+                                                    </li>
+                                                    <li>
+                                                        <a href="#">
+                                                            <span class="code">NRT</span>
+                                                            <span class="name-det">도쿄(나리타), 일본</span>
+                                                        </a>
+                                                    </li>
+                                                    <li>
+                                                        <a href="#">
+                                                            <span class="code">OSA</span>
+                                                            <span class="name-det">오사카, 일본</span>
+                                                        </a>
+                                                    </li>
+                                                    <li>
+                                                        <a href="#">
+                                                            <span class="code">NGO</span>
+                                                            <span class="name-det">나고야, 일본</span>
+                                                        </a>
+                                                    </li>
+                                                    <li>
+                                                        <a href="#">
+                                                            <span class="code">FUK</span>
+                                                            <span class="name-det">후쿠오카, 일본</span>
+                                                        </a>
+                                                    </li>
+                                                    <li>
+                                                        <a href="#">
+                                                            <span class="code">OKA</span>
+                                                            <span class="name-det">오키나와, 일본</span>
+                                                        </a>
+                                                    </li>
+                                                    <li>
+                                                        <a href="#">
+                                                            <span class="code">CTS</span>
+                                                            <span class="name-det">삿포로, 일본</span>
+                                                        </a>
+                                                    </li>
+                                                </ul>
+                                            </div>
+                                        </li>
+                                        <li>
+                                            <a href="#" class="tit-rec">홍콩/대만/중국</a>
+                                            <div class="w-list-sub">
+                                                <ul class="list-sub">
+                                                    <li>
+                                                        <a href="#">
+                                                            <span class="code">HKG</span>
+                                                            <span class="name-det">홍콩, 중국</span>
+                                                        </a>
+                                                    </li>
+                                                    <li>
+                                                        <a href="#">
+                                                            <span class="code">TPE</span>
+                                                            <span class="name-det">대만(타이베이), 중국</span>
+                                                        </a>
+                                                    </li>
+                                                    <li>
+                                                        <a href="#">
+                                                            <span class="code">TSA</span>
+                                                            <span class="name-det">대만(송산), 중국</span>
+                                                        </a>
+                                                    </li>
+                                                    <li>
+                                                        <a href="#">
+                                                            <span class="code">PVG</span>
+                                                            <span class="name-det">상해(푸동), 중국</span>
+                                                        </a>
+                                                    </li>
+                                                    <li>
+                                                        <a href="#">
+                                                            <span class="code">SHA</span>
+                                                            <span class="name-det">상해(홍차오), 중국</span>
+                                                        </a>
+                                                    </li>
+                                                    <li>
+                                                        <a href="#">
+                                                            <span class="code">PEK</span>
+                                                            <span class="name-det">북경, 중국</span>
+                                                        </a>
+                                                    </li>
+                                                    <li>
+                                                        <a href="#">
+                                                            <span class="code">TAO</span>
+                                                            <span class="name-det">청도, 중국</span>
+                                                        </a>
+                                                    </li>
+                                                </ul>
+                                            </div>
+                                        </li>
+                                        <li>
+                                            <a href="#" class="tit-rec">아시아</a>
+                                            <div class="w-list-sub">
+                                                <ul class="list-sub">
+                                                    <li>
+                                                        <a href="#">
+                                                            <span class="code">CEB</span>
+                                                            <span class="name-det">세부, 아시아</span>
+                                                        </a>
+                                                    </li>
+                                                    <li>
+                                                        <a href="#">
+                                                            <span class="code">BKK</span>
+                                                            <span class="name-det">방콕, 아시아</span>
+                                                        </a>
+                                                    </li>
+                                                    <li>
+                                                        <a href="#">
+                                                            <span class="code">SIN</span>
+                                                            <span class="name-det">싱가포르, 아시아</span>
+                                                        </a>
+                                                    </li>
+                                                    <li>
+                                                        <a href="#">
+                                                            <span class="code">DAD</span>
+                                                            <span class="name-det">다낭, 아시아</span>
+                                                        </a>
+                                                    </li>
+                                                    <li>
+                                                        <a href="#">
+                                                            <span class="code">HAN</span>
+                                                            <span class="name-det">하노이, 아시아</span>
+                                                        </a>
+                                                    </li>
+                                                    <li>
+                                                        <a href="#">
+                                                            <span class="code">HKT</span>
+                                                            <span class="name-det">푸켓, 아시아</span>
+                                                        </a>
+                                                    </li>
+                                                    <li>
+                                                        <a href="#">
+                                                            <span class="code">DPS</span>
+                                                            <span class="name-det">발리, 아시아</span>
+                                                        </a>
+                                                    </li>
+                                                </ul>
+                                            </div>
+                                        </li>
+                                        <li>
+                                            <a href="#" class="tit-rec">미주</a>
+                                            <div class="w-list-sub">
+                                                <ul class="list-sub">
+                                                    <li>
+                                                        <a href="#">
+                                                            <span class="code">HNL</span>
+                                                            <span class="name-det">호놀룰루(하와이), 미주</span>
+                                                        </a>
+                                                    </li>
+                                                    <li>
+                                                        <a href="#">
+                                                            <span class="code">LAX</span>
+                                                            <span class="name-det">로스앤젤레스, 미주</span>
+                                                        </a>
+                                                    </li>
+                                                    <li>
+                                                        <a href="#">
+                                                            <span class="code">SFO</span>
+                                                            <span class="name-det">샌프란시스코, 미주</span>
+                                                        </a>
+                                                    </li>
+                                                    <li>
+                                                        <a href="#">
+                                                            <span class="code">NYC</span>
+                                                            <span class="name-det">뉴욕(전체), 미주</span>
+                                                        </a>
+                                                    </li>
+                                                    <li>
+                                                        <a href="#">
+                                                            <span class="code">JFK</span>
+                                                            <span class="name-det">뉴욕(JFK), 미주</span>
+                                                        </a>
+                                                    </li>
+                                                    <li>
+                                                        <a href="#">
+                                                            <span class="code">YVR</span>
+                                                            <span class="name-det">밴쿠버, 미주</span>
+                                                        </a>
+                                                    </li>
+                                                    <!--<li>
+                                                        <a href="#">
+                                                            <span class="code">YTO</span>
+                                                            <span class="name-det">토론토, 미주</span>
+                                                        </a>
+                                                    </li>-->
+                                                    <li><!-- #34036 수정 -->
+                                                        <a href="#">
+                                                            <span class="code">BOS</span>
+                                                            <span class="name-det">보스톤, 미주</span>
+                                                        </a>
+                                                    </li><!-- //#34036 수정 -->
+                                                </ul>
+                                            </div>
+                                        </li>
+                                        <li>
+                                            <a href="#" class="tit-rec">유럽</a>
+                                            <div class="w-list-sub">
+                                                <ul class="list-sub">
+                                                    <li>
+                                                        <a href="#">
+                                                            <span class="code">LON</span>
+                                                            <span class="name-det">런던, 유럽</span>
+                                                        </a>
+                                                    </li>
+                                                    <li>
+                                                        <a href="#">
+                                                            <span class="code">PAR</span>
+                                                            <span class="name-det">파리, 유럽</span>
+                                                        </a>
+                                                    </li>
+                                                    <li>
+                                                        <a href="#">
+                                                            <span class="code">PRG</span>
+                                                            <span class="name-det">프라하, 유럽</span>
+                                                        </a>
+                                                    </li>
+                                                    <li>
+                                                        <a href="#">
+                                                            <span class="code">BCN</span>
+                                                            <span class="name-det">바르셀로나, 유럽</span>
+                                                        </a>
+                                                    </li>
+                                                    <li>
+                                                        <a href="#">
+                                                            <span class="code">IST</span>
+                                                            <span class="name-det">이스탄불, 유럽</span>
+                                                        </a>
+                                                    </li>
+                                                    <li>
+                                                        <a href="#">
+                                                            <span class="code">FRA</span>
+                                                            <span class="name-det">프랑크푸르트, 유럽</span>
+                                                        </a>
+                                                    </li>
+                                                    <li>
+                                                        <a href="#">
+                                                            <span class="code">VVO</span>
+                                                            <span class="name-det">블라디보스톡, 유럽</span>
+                                                        </a>
+                                                    </li>
+                                                </ul>
+                                            </div>
+                                        </li>
+                                    </ul>
+                                </div> 
+                                <div class="uis-sec">
+                                    <p class="tit">검색결과</p>
+                                    <ul class="list uis-list result">
+                                        <li>
+                                            <a href="#">
+                                                <span class="code">ICN</span>
+                                                <span class="name-det">인천, 한국</span>
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a href="#">
+                                                <span class="code">GMP</span>
+                                                <span class="name-det">김포, 한국</span>
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a href="#">
+                                                <span class="code">PUS</span>
+                                                <span class="name-det">부산, 한국</span>
+                                            </a>
+                                        </li>
+                                    </ul>
+                                </div>                                  
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- //검색 box 영역 -->
+            </div>
+        </section>
+    </div>
+    <!-- //content-sec -->
+    
+    <script type="text/javascript">
+    $(document).one('pageshow',function(e,data){  
+        pvmSearchV2.comSearchAirCityLpu();
+    });
+    </script>
+</div>
+<!-- //page -->
+
+
+
+    
+</body>
+</html>

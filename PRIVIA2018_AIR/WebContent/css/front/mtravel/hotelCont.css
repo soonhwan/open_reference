@@ -171,7 +171,7 @@ jQuery mobile을 걷어내고 css 작업
 .htl-detail dd .htl-sec{display:block;}
 .htl-detail dd .htl-sec.sec1{position:relative;margin-top:5px;}
 .htl-detail dd .htl-sec.sec2{position:absolute;left:13px;bottom:13px;right:13px;}
-.htl-detail dd .htl-grade i{display:inline-block;width:12px;height:12px;background:url(/images/front/mtravel/contents/icon_star.png) 0 0 no-repeat;background-size:auto 12px;}
+.htl-detail dd .htl-grade i{display:inline-block;width:12px;height:12px;background:url(/images/front/mtravel/contents/icon-sub-secM.png) -162px -59px no-repeat;background-size:180px;}
 .htl-detail dd .htl-eval{position: absolute;right:0;top:0;}
 .htl-detail dd .htl-eval span.score{font-size:10px;color:#fff;display:inline-block;padding:1px 7px 2px;border-radius:3px;background:#aaa;position: relative;}
 .htl-detail dd .htl-eval span.score:after{content:'';display:block;width:0;height:0;border-right:6px solid transparent;border-left:0px solid transparent;border-top:6px solid #aaa;position: absolute;right:-4px;top: 0;}
@@ -230,3 +230,36 @@ jQuery mobile을 걷어내고 css 작업
 .info-fix-accom{position:fixed;left:50%;bottom:70px;margin-left:-124px;width: 248px;height: 40px;padding-top:10px;border-radius: 20px;box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.2);background-color: rgba(243, 7, 116, 0.9);font-size:14px;color:#fff;text-align:center;z-index:10;}
 .info-fix-accom span{display:inline-block;padding-left:24px;position: relative;}
 .info-fix-accom span:before{position: absolute;left:0;top:2px;content:"";display:block;width:17px;height:15px;background:url(/images/front/mtravel/contents/icon_wish_white.png) 0 0 no-repeat;background-size:auto 15px;}
+
+.s-list-hotel.my-wish .htl-detail, .s-list-hotel.my-wish .htl-detail dt, .s-list-hotel.my-wish .htl-detail dd{height:120px;}
+.list-tab-wrap{padding-bottom:10px;overflow-x:auto;}
+.list-tab{font-size:0;width:1000px;padding:0 10px;}
+.list-tab:after{content:"";display:block;clear:both;}
+.list-tab li{float:left;margin:0 5px;}
+.list-tab li a{font-size:14px;color:#000;display:inline-block;background:#e1e1e1;border-radius:20px;padding:4px 12px 6px;}
+.list-tab li.on a{background:#000;color:#fff;font-weight:bold;}
+
+.s-list-hotel.my-wish .list-hotel.skeleton {padding:80px 0 285px;}
+.s-list-hotel.my-wish .list-hotel.skeleton .list .box-hotel-detail{width:284px;margin:0 auto;}
+.s-list-hotel.my-wish .skeleton .htl-detail, .s-list-hotel.my-wish .skeleton .htl-detail dt, .s-list-hotel.my-wish .skeleton .htl-detail dd{height:132px;}
+.s-list-hotel.my-wish .skeleton .htl-detail{padding-left:88px;}
+.s-list-hotel.my-wish .skeleton .htl-detail dt{width:88px;}
+.s-list-hotel.my-wish .skeleton .htl-detail dt .htl-wish{width:20px;height:17px;}
+.s-list-hotel.my-wish .skeleton .htl-detail dt .htl-wish.onfix{background:url(/images/front/mtravel/contents/icon_htl_wish_on.png) 0 0 no-repeat;background-size:auto 17px;}
+.s-list-hotel.my-wish .skeleton .htl-detail dd{padding:10px;}
+.s-list-hotel.my-wish .skeleton .htl-detail dd .skel-line{height:14.4px;margin-top:4.8px;}
+.s-list-hotel.my-wish .skeleton .htl-detail dd .skel-line:nth-child(1){margin-top:0;}
+.s-list-hotel.my-wish .skeleton .htl-detail dd .skel-line:nth-child(4){margin-top:24.8px;}
+.s-list-hotel.my-wish .skeleton .wish-con1{font-size:18px;font-weight:bold;color:#000;text-align:center;}
+.s-list-hotel.my-wish .skeleton .wish-con2{margin-top:14px;font-size:12px;line-height:1.5;color:#000;text-align:center;}
+
+.htl-detail-room .swiper-pagination{left:0;bottom:10px;}
+.htl-detail-room .swiper-pagination-bullet{position: relative;top:-2px;width:6px;height:6px;opacity:1;background:#fff;outline:none;}
+.htl-detail-room .swiper-pagination-bullet-active{width:10px;height:10px;top:0;}
+.htl-detail-room.swiper-container-horizontal>.swiper-pagination-bullets .swiper-pagination-bullet{margin:0 3px;}
+.htl-detail-room .btn-share{display:block;background:url(/images/front/mtravel/contents/icon-sub-secM.png) -3px -3px no-repeat;background-size:180px;width:24px;height:24px;position:absolute;right:18px;top:18px;z-index:1;}
+.htl-detail-room .btn-wish{display:block;background:url(/images/front/mtravel/contents/icon-sub-secM.png) -3px -26px no-repeat;background-size:180px;width:24px;height:24px;position:absolute;right:55px;top:18px;z-index:1;}
+.htl-detail-cont .htl-detail-sec1{padding:20px;}
+.htl-detail-cont .htl-detail-sec1 .htl-grade{font-size:0;}
+.htl-detail-cont .htl-detail-sec1 .htl-grade .txt{font-size:12px;color:rgba(0, 0, 0, 0.5);vertical-align:middle;}
+.htl-detail-cont .htl-detail-sec1 .htl-grade i{margin-left:2px;display:inline-block;width:12px;height:12px;background:url(/images/front/mtravel/contents/icon-sub-secM.png) -162px -59px no-repeat;background-size:180px;vertical-align:middle;}

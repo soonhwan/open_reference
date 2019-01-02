@@ -307,6 +307,7 @@ box-sizing: border-box;
  *  common - reset, lyout
  *--------------------------------------------------------------------------------------------------------------*/
 /* reset */
+.w-reSearch, .w-reSearch *, .w-reSearch *:after, .w-reSearch *:before, 
 .header-secV2, .header-secV2 *, .header-secV2 *:after, .header-secV2 *:before, 
 .gnbArea-sec, .gnbArea-sec *, .gnbArea-sec *:after, .gnbArea-sec *:before, 
 .popWrap-sec, .popWrap-sec *, .popWrap-sec *:after, .popWrap-sec *:before, 
@@ -373,7 +374,7 @@ box-sizing: border-box;
 /* 개편 ver2 - 팝업헤더 */
 .header-secV2.header-pop-st .in-header-secV2 {background-color: #fff;border-bottom: 1px solid #ccc;position: fixed;z-index: 10;top: 0;left: 0;width: 100%;}
 .header-secV2.header-pop-st .ly-left {top: 14px;}
-.header-secV2.header-pop-st .ly-left .b-close {display: inline-block;width: 21px;height: 22px;overflow: hidden;background-position: -33px -141px;}
+.header-secV2.header-pop-st .ly-left .b-close {display: inline-block;width: 22px;height: 22px;overflow: hidden;background-position: -33px -141px;}
 .header-secV2.header-pop-st .ly-right .b-refresh {display: inline-block;width: 24px;height: 24px;overflow: hidden;background-position: -57px -141px;}
 .header-secV2.header-pop-st .ly-right .b-init{font-size:14px;text-decoration:underline;color:#000;}
 

@@ -24,7 +24,8 @@
 	.guide-sec .guide-tit {font-size:18px;margin-bottom: 5px;text-transform:uppercase;border-top: 1px solid #eee;padding-left: 10px;}
 	.guide-sec .guide-box {margin-top: 30px;position: relative;}
 	.guide-sec .guide-box .gb-inner {padding: 10px;box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.4);background: #fff;border-radius:3px;}
-    
+    .guide-sec .o-tab-menu .o-tab-menu {margin-left: 30px;}
+    .guide-sec .o-expand-wrap .o-expand-cont {height: 0;}
 </style>
 <script type="text/javascript">
 var AIR_HTL_FLAG = "ETC";
@@ -396,8 +397,7 @@ var AIR_HTL_FLAG = "ETC";
                                 <span class="label">호텔</span> 
                             </label>
                         </div>  
-                    </div>
-                    
+                    </div>                    
                 </div>
                 <div class="guide-box">
                     <h3 class="guide-tit">tabmenu 1</h3>
@@ -415,7 +415,23 @@ var AIR_HTL_FLAG = "ETC";
                                 tab1 cont
                             </div>
                             <div class="ui-tab-cont" id="ui-tab2">
-                                tab2 cont
+                                tab2 cont<br />
+                                <div class="o-tab-menu">
+                                    <ul class="ui-tab-menu">
+                                        <li class="on">
+                                            <span class="btn-base bb-st5"><a href="#ui-tab1-2">tab1-2</a></span>
+                                        </li>
+                                        <li>
+                                            <span class="btn-base bb-st5"><a href="#ui-tab2-2">tab2-2</a></span>
+                                        </li>
+                                    </ul>
+                                    <div class="ui-tab-cont tab-on" id="ui-tab1-2">
+                                        tab1-2 cont
+                                    </div>
+                                    <div class="ui-tab-cont" id="ui-tab2-2">
+                                        tab2-2 cont
+                                    </div>
+                                </div>
                             </div>
                         </div>
                     </div>
@@ -423,16 +439,16 @@ var AIR_HTL_FLAG = "ETC";
                         <div class="o-tab-menu">
                             <ul class="ui-tab-menu tab-round">
                                 <li class="on">
-                                    <span class="btn-base bb-st5"><a href="#ui-tab1">tab1</a></span>
+                                    <span class="btn-base bb-st5"><a href="#ui-tab3">tab1</a></span>
                                 </li>
                                 <li>
-                                    <span class="btn-base bb-st5"><a href="#ui-tab2">tab2</a></span>
+                                    <span class="btn-base bb-st5"><a href="#ui-tab4">tab2</a></span>
                                 </li>
                             </ul>
-                            <div class="ui-tab-cont tab-on" id="ui-tab1">
+                            <div class="ui-tab-cont tab-on" id="ui-tab3">
                                 tab1 cont
                             </div>
-                            <div class="ui-tab-cont" id="ui-tab2">
+                            <div class="ui-tab-cont" id="ui-tab4">
                                 tab2 cont
                             </div>
                         </div>
@@ -718,6 +734,29 @@ var AIR_HTL_FLAG = "ETC";
                     </section>-->
                     <!-- //본인여부 팝업 -->
                 </div>
+                <div class="gb-inner">
+                    <h3 class="guide-tit">expand UI</h3>
+                    <!-- 심플 더보기 UI(기본 height값이 있어야 함 - 상세 스케줄 더보기, 공동운항 리스트 더보기, 필터 항목 더보기) -->
+                    <div class="o-expand-wrap">
+                        <span class="btn-base bb-st5"><button type="button" class="o-expand-btn">expand 실행</button></span>
+                        <div class="o-expand-cont">
+                            내용.....<br />
+                            내용.....<br />
+                            내용.....
+                        </div>
+                    </div>
+                </div>  
+                <div class="gb-inner">
+                    <h3 class="guide-tit">Accordion UI</h3>
+                    <div class="o-acdi-wrap o-acdi-open">
+                        <span class="btn-base bb-st5"><button type="button" class="o-acdi-click">Accordion 실행</button></span>
+                        <div class="o-acdi-cont">
+                            내용.....<br />
+                            내용.....<br />
+                            내용.....<br />
+                        </div>
+                    </div>
+                </div>  
             </div>
         </section>
     </div>
