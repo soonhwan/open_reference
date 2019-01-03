@@ -99,17 +99,77 @@
               </a>
             </div>
           </div>
+          <a href="#" class="btn-re-sch"><span class="txt">재검색</span></a>
         </div>
         <div class="ly-left">
           <a href="#" class="b-back"><span class="a11y">이전 페이지로 가기</span></a>
         </div>
-        <div class="ly-right">
-          <a href="#" class="b-wish"><span class="a11y">좋아요</span></a>
-        </div>
       </div>
     </div>
-    <!-- //서브헤더 - 항공 검색결과 -->
+    <!-- //서브헤더 - 호텔 검색결과 -->
     <!-- //header-sec -->
+
+    <!-- 검색조건 수정 영역 -->
+    <div class="w-reSearch">
+        <div class="resch-header">
+            <div class="tit">검색조건 수정</div>
+            <button class="btn-close-resch"><span class="a11y">검색조건 수정 닫기</span></button>
+        </div>
+        <div class="w-search-sec o-bg-hotel wss-st2">
+            <!-- 검색 섹션 -->
+            <div class="hs-search-cont">
+              <!-- 호텔 -->
+              <div class="hss-inner-cont sc-hotel wss-react">
+                <div class="sc-search-box o-inth on">
+                  <div class="w-qsb-cont">
+                    <div class="qsb-cont-box-indep">
+                        <div class="qsb-places">
+                            <div class="places-exit">
+                                <span class="label">목적지, 호텔명, 관광명소</span>
+                                <a href="#" class="qsb-area on">
+                                    <span class="city"><span class="txt">홍콩</span></span>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="qsb-cont-box multi">
+                        <div class="qsb-cont-l">
+                            <div class="qsb-cont qsb-dates">
+                                <a href="#" class="qsb-area on">
+                                    <span class="qsb-label-hide">숙박날짜</span>
+                                    <span class="qsb-input">
+                                        <span class="label">숙박날짜</span>
+                                        <span class="result">12월 01일 - 12월 06일</span>
+                                    </span>
+                                </a>
+                            </div>
+                        </div>
+                        <div class="qsb-cont-r">
+                            <div class="qsb-cont qsb-capacity">
+                                <a href="#" class="qsb-area on">
+                                    <span class="qsb-label-hide">인원, 객실 수</span>
+                                    <span class="qsb-input">
+                                        <span class="label">인원, 객실 수</span>
+                                        <span class="result">성인3, 아동2, 객실0</span>
+                                    </span>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="qsb-cont-box">
+                        <div class="qsb-cont qsb-btn-search">
+                            <span class="btn-base bb-st3"><button type="button" class="b-search">호텔검색</button></span>
+                        </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <!-- //호텔 -->
+            </div>
+            <!-- //검색 섹션 -->
+        </div>
+    </div>
+    <!-- //검색조건 수정 영역 -->
 
     <!-- content-sec -->
     <div class="content-sec">
@@ -202,6 +262,16 @@
       });
     }
 
+    //재검색 열기
+    $('.header-secV2.hps-hotel .btn-re-sch').on('click', function(e){
+      $('.w-reSearch').slideDown('fast');
+      e.preventDefault();
+    });
+
+    //재검색 닫기
+    $('.w-reSearch .resch-header .btn-close-resch').on('click', function(){
+      $('.w-reSearch').slideUp('fast');
+    });
     </script>
 
 </div>

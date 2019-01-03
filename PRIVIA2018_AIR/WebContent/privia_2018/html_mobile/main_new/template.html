@@ -26,6 +26,7 @@
 	.guide-sec .guide-box .gb-inner {padding: 10px;box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.4);background: #fff;border-radius:3px;}
     .guide-sec .o-tab-menu .o-tab-menu {margin-left: 30px;}
     .guide-sec .o-expand-wrap .o-expand-cont {height: 0;}
+    .guide-sec .o-expand-wrap .o-expand-cont.c-height {height: 20px;}
 </style>
 <script type="text/javascript">
 var AIR_HTL_FLAG = "ETC";
@@ -308,8 +309,8 @@ var AIR_HTL_FLAG = "ETC";
                     <div class="gb-inner">
                         <h3 class="guide-tit">일반버튼 두 개 + 상단 라인(m-btns)</h3>
                         <div class="a-pt30 m-btns m-btns2">
-                            <span class="btn-base bb-st6"><a href="#" class="ui-link">bb-st6</a></span>
-                            <span class="btn-base bb-st6 bc-black"><a href="#" class="ui-link">bb-st6</a></span>
+                            <span class="btn-base bb-st6"><a href="#">bb-st6</a></span>
+                            <span class="btn-base bb-st6 bc-black"><a href="#">bb-st6</a></span>
                         </div>
                     </div>
                 </div>
@@ -400,6 +401,11 @@ var AIR_HTL_FLAG = "ETC";
                     </div>                    
                 </div>
                 <div class="guide-box">
+                    <!--
+                    o-tab-menu : wrap 기능
+                        ui-tab-menu .on : 탭 클릭 영역
+                        ui-tab-cont.tab-on : 컨텐츠 영역
+                    -->
                     <h3 class="guide-tit">tabmenu 1</h3>
                     <div class="gb-inner">
                         <div class="o-tab-menu">
@@ -416,6 +422,7 @@ var AIR_HTL_FLAG = "ETC";
                             </div>
                             <div class="ui-tab-cont" id="ui-tab2">
                                 tab2 cont<br />
+                                
                                 <div class="o-tab-menu">
                                     <ul class="ui-tab-menu">
                                         <li class="on">
@@ -452,7 +459,50 @@ var AIR_HTL_FLAG = "ETC";
                                 tab2 cont
                             </div>
                         </div>
-                    </div>                    
+                    </div>
+                    <h3 class="guide-tit">tabmenu 2</h3>
+                    <div class="gb-inner">
+                        <div class="o-tab-menu">
+                            <ul class="ui-tab-menu tab-style1">
+                                <li class="on">
+                                    <a href="#ui-tab5">항공</a>
+                                </li>
+                                <li>
+                                    <a href="#ui-tab6">호텔</a>
+                                </li>
+                            </ul>
+                            <div class="ui-tab-cont tab-on" id="ui-tab5">
+                                <div class="cb1-header">
+                                    <span class="area-tit pd0"><h3 class="tit">항공</h3></span>
+                                </div>
+                                <ul class="coupon-list coupondown">
+                                    <li>
+                                        <a href="#">
+                                            <span class="label"></span>                            
+                                            <span class="title">11 ~ 12 월 출발 단거리 3천원 할인</span>
+                                            <span class="price"><i class="num">3,000</i>원</span>
+                                            <span class="fblur" style="margin-right:8px;">2018/11/01 ~ 2018/11/30</span>
+                                        </a>
+                                    </li>
+                                </ul>
+                            </div>
+                            <div class="ui-tab-cont" id="ui-tab6">
+                                <div class="cb1-header">
+                                    <span class="area-tit pd0"><h3 class="tit">호텔</h3></span>
+                                </div>
+                                <ul class="coupon-list coupondown">
+                                    <li>
+                                        <a href="#">
+                                            <span class="label"></span>                            
+                                            <span class="title">11 ~ 12 월 출발 단거리 3천원 할인</span>
+                                            <span class="price"><i class="num">3,000</i>원</span>
+                                            <span class="fblur" style="margin-right:8px;">2018/11/01 ~ 2018/11/30</span>
+                                        </a>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>                
                 </div>
                 <div class="guide-box">
                     <h3 class="guide-tit">박스, form요소, 정렬</h3>
@@ -501,11 +551,11 @@ var AIR_HTL_FLAG = "ETC";
                         <!-- //예약자 정보 -->
 
                         <!-- 탑승객 정보 -->
-                        <div class="c-box-st3 o-acdi-wrap o-acdi-open">
+                        <div class="c-box-st3">
                             <div class="cb3-header">
-                                <button class="area-tit o-acdi-click"><h4 class="tit">탑승객 정보</h4></button>
+                                <a href="#info1" class="area-tit o-acdi-click o-ac-on"><h4 class="tit">탑승객 정보</h4></a>
                             </div>
-                            <div class="cb3-cont o-acdi-cont">
+                            <div class="cb3-cont o-acdi-cont o-ac-on" id="info1">
                                 <!-- 탑승객 1 -->
                                 <h5 class="c-title-st2">성인1</h5>
                                 <div class="a-row col2-unbal">
@@ -735,8 +785,13 @@ var AIR_HTL_FLAG = "ETC";
                     <!-- //본인여부 팝업 -->
                 </div>
                 <div class="gb-inner">
-                    <h3 class="guide-tit">expand UI</h3>
                     <!-- 심플 더보기 UI(기본 height값이 있어야 함 - 상세 스케줄 더보기, 공동운항 리스트 더보기, 필터 항목 더보기) -->
+                    <!--
+                    o-expand-wrap.o-expanded : wrap 기능
+                        o-expand-btn : 클릭 영역
+                        o-expand-cont : 컨텐츠 영역 
+                    -->
+                    <h3 class="guide-tit">expand UI</h3>
                     <div class="o-expand-wrap">
                         <span class="btn-base bb-st5"><button type="button" class="o-expand-btn">expand 실행</button></span>
                         <div class="o-expand-cont">
@@ -747,13 +802,26 @@ var AIR_HTL_FLAG = "ETC";
                     </div>
                 </div>  
                 <div class="gb-inner">
+                    <!--
+                    o-acdi-click.o-ac-on : 클릭 영역
+                    o-acdi-cont.o-ac-on : 컨텐츠 영역 
+                    -->
                     <h3 class="guide-tit">Accordion UI</h3>
-                    <div class="o-acdi-wrap o-acdi-open">
-                        <span class="btn-base bb-st5"><button type="button" class="o-acdi-click">Accordion 실행</button></span>
-                        <div class="o-acdi-cont">
+                    <div>
+                        <span class="btn-base bb-st5"><a href="#ac1-1" class="o-acdi-click o-ac-on">Accordion 실행</a></span>
+                        <div class="o-acdi-cont o-ac-on" id="ac1-1">
                             내용.....<br />
                             내용.....<br />
                             내용.....<br />
+                            
+                            <div style="padding-left:30px">
+                                <span class="btn-base bb-st5"><a href="#ac1-2" class="o-acdi-click">Accordion 실행2</a></span>
+                                <div class="o-acdi-cont" id="ac1-2">
+                                    내용...2..<br />
+                                    내용..2...<br />
+                                    내용..2...<br />
+                                </div>
+                            </div>
                         </div>
                     </div>
                 </div>  

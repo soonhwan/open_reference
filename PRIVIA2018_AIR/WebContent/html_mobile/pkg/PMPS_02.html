@@ -25,6 +25,9 @@
 </head>
 
 <body>
+<!-- page -->
+<div data-role="page">
+
 <div class="headWrap">
     <header>
         <div class="header">
@@ -38,6 +41,7 @@
         </div>
     </header>
 </div>
+
 <div class="contentWrap">
 	<!-- 컨텐츠 시작 -->
     <div class="subjectTop-st2">
@@ -75,7 +79,7 @@
     
     <div class="reserveInfo">
         <section class="section open">
-            <header>
+            <header class="bdbd1">
                 <h2 class="tit launcher"><a href="#reserveInfo1">요금 정보를 확인하세요</a></h2>
             </header>
             <section id="reserveInfo1" class="content inner" style="padding-top:0">
@@ -119,13 +123,19 @@
             <li class="point">유류할증료 및 제세공과금은 유가와 환율에 따라 변경될 수 있습니다.</li>
             <li class="point">현대카드 또는 일반카드 즉시 할인은 기본 상품가에 한하여 적용되며, 추가요금은 할인 적용 대상에서 제외됩니다.</li>
         </ul>
+        
+        <!-- 예약 확정 전 -->
+        <!--<div class="btnArea">
+			<span class="btn xlarge action"><a href="/html_mobile/pkg/PMPS_04.html" data-rel="dialog" data-transition="slideup">결제내역확인</a></span>
+		</div>-->
+        <!-- //예약 확정 전 -->
+        
+        <!-- //예약 확정 후 -->
         <div class="btnArea col2">
-			<span class="btn xlarge action"><a href="#">결제내역확인</a></span>
+			<span class="btn xlarge action"><a href="/html_mobile/pkg/PMPS_04.html" data-rel="dialog" data-transition="slideup">결제내역확인</a></span>
 			<span class="btn xlarge action2"><a href="#">결제하기</a></span>
 		</div>
-        <!--<div class="btnArea">
-			<span class="btn xlarge action"><a href="#">결제내역확인</a></span>
-		</div>-->
+        <!-- //예약 확정 후 -->
     </div>
     
     <div class="boxType2 txt-total-st1">
@@ -214,6 +224,15 @@
         </section>
     </div>
 	<!-- 컨텐츠 끝 -->
+    <script type="text/javascript">
+    $(document).one('pageshow',function(e,data){
+        
+    });
+    </script>
 </div>
+
+
+</div>
+<!-- //page -->
 </body>
 </html>

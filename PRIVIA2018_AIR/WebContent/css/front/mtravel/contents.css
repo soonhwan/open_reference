@@ -2077,10 +2077,11 @@ box-sizing: border-box;
 .subjectTop-st2 {-moz-box-sizing:border-box;-webkit-box-sizing:border-box;box-sizing:border-box;min-height:35px;padding:8px 19px;background:#ed2b74; text-align:center; color:#fff}
 .subjectTop-st2 .tit {line-height: 21px;font-size:13px;font-weight: bold;}
 
-.totalList-st2 .tl-header {font-size:14px;color: #424242;}
+.totalList-st2 .tl-header {font-size:14px;color: #424242;border-bottom: 1px solid #a6a6a6;}
 .totalList-st2 .tl-header .tit {display: block;width: 100%;padding: 8px 0;text-align: left;font-size:14px;color: #424242;font-weight: bold;}
-.totalList-st2 .tl-header .tit-btn {display: block;width: 100%;padding: 8px 0;text-align: left;font-size:14px;color: #424242;font-weight: bold;position: relative;}
+.totalList-st2 .tl-header .tit-btn {display: block;width: 100%;padding: 8px 0;text-align: left;font-size:14px;color: #424242;font-weight: bold;position: relative;outline: none;}
 .totalList-st2 .tl-header .tit-btn:before {content: '';display: block;width: 10px;height: 10px;background: url(/images/front/mtravel/common/bg_arrow_bottom.gif) 0 0 no-repeat;-webkit-background-size: 8px;background-size: 8px;position: absolute;top: 16px;right: 0;}
+.totalList-st2.is-open .tl-header {border-bottom: 0;}
 .totalList-st2.is-open .tl-header .tit-btn:before {background-image: url(/images/front/mtravel/common/bg_arrow_top.gif);}
 .totalList-st2 .tl-header .label {display: inline-block;color: #fff;font-size:11px;text-align: center;padding: 0 8px 3px 8px;background-color: #424242;border-radius: 12px;vertical-align: middle;margin-right: 5px;}
 .totalList-st2 .tl-cont-list {border-bottom: 1px solid #a6a6a6;border-top: 1px solid #a6a6a6;display: none;}
@@ -2092,9 +2093,14 @@ box-sizing: border-box;
 .totalList-st2.is-open .tl-cont-list {display: block;}
 .totalList-st2 + .totalList-st2 {margin-top: 10px;}
 
-.txt-total-st1.bd1 {border-bottom: 1px solid #ccc;}
-
+.txt-total-st1.bdb1 {border-bottom: 1px solid #ccc;}
 .txt-total-st1 .btnArea {margin: 0;margin-top: 15px;}
+.txt-total-st1.totalBox {background-color: #fef4f8;}
+.txt-total-st1.totalBox .txtArea-type6 .cont .txt1 {color: #ee2b74;}
+.txt-total-st2 {border-top: 1px dotted #d5d5d5 !important;}
+.txt-total-st2 .list li {font-size: 11px;color: #666;margin-top: 2px;}
+.txt-total-st2 .list li:first-child {margin-top: 0;}
+
 .txtArea-type6 {position: relative;}
 .txtArea-type6 .title {font-size: 14px;font-weight: bold;position: absolute;top: 0;left: 0;}
 .txtArea-type6 .cont {text-align: right;}
@@ -2102,11 +2108,10 @@ box-sizing: border-box;
 .txtArea-type6 .cont .txt1.dc {color: #2a7cc8;}
 .txtArea-type6 .cont .txt1 strong {font-size: 15px;color: inherit;font-weight: bold;}
 .txtArea-type6 .cont .txt2 {display: block;font-size: 11px;color: #000;}
+.txtArea-type6 + .bulList {margin-top: 10px;}
 .txtArea-type7 {font-size:12px;}
 .txtArea-type7 strong {font-size:15px;font-weight: bold;}
 .txtArea-type8 {font-size:11px;color: #424242;text-align: center;}
-.txt-total-st1.totalBox {background-color: #fef4f8;}
-.txt-total-st1.totalBox .txtArea-type6 .cont .txt1 {color: #ee2b74;}
 
 .pay-step-st1 {background-color: #fff;border-top: 1px solid #ccc;border-bottom: 1px solid #333;padding: 11px 19px;}
 .pay-step-st1 .list:after {content: '';display: block;clear: both;}
@@ -2117,6 +2122,18 @@ box-sizing: border-box;
 .pay-step-st1 .list li.on {color: #ee2b74;font-weight: bold;}
 
 .agreeArea-st6 {margin-top: 12px;position: relative;}
-.agreeArea-st6 label {margin: 0 !important;}
+.agreeArea-st6 label {margin: 0 !important;font-size:12px;}
+.agreeArea-st6 .label-sub {display: block;font-size:10px;margin-top: 2px;}
 .agreeArea-st6 input[type="checkbox"] {position: absolute;right: 0;bottom: 0;}
 
+.w-pay-select .wps-radio {padding-bottom: 15px;}
+.w-pay-select .wps-radio .input_check {width: 49%;}
+.w-pay-select .wps-select-card {border-top: 1px dotted #d5d5d5;}
+.w-pay-select .wps-select-card dt {font-size:12px;color: #424242;padding-top: 12px;margin-bottom: 10px;}
+.w-pay-select .wps-select-card .btnArea {margin-top: 0;}
+
+.reserveInfo .section .content.pdt0 {padding-top: 0;}
+.reserveInfo .section .content.pd0 {padding: 0;}
+.reserveInfo .section .content.bdb0 {border-bottom: 0;}
+.reserveInfo .section > header.bdbd1 {border-bottom: 1px dotted #ccc;}
+.reserveInfo .section.open > header.bdbd1 {border-bottom: 1px solid #e0e0e0;}

@@ -27,7 +27,7 @@
 <body>
 <!-- page -->
 <div data-role="page">
-
+   
 <div class="headWrap">
     <header>
         <div class="header">
@@ -95,8 +95,8 @@
     <div class="pay-step-st1">
         <ul class="list">
             <li>결제필요내역확인</li>
-            <li class="on">예약금 결제</li>
-            <li>잔금 결제</li>
+            <li>예약금 결제</li>
+            <li class="on">잔금 결제</li>
             <li>결제완료</li>
         </ul>
     </div>
@@ -106,7 +106,7 @@
             <header>
                 <h2 class="tit">결제 필요내역</h2>
             </header>
-            <section class="content inner">
+            <section class="content inner bdb0">
                 <table class="tblTypeRow right">
                     <caption>결제 필요내역 상세</caption>
                     <colgroup>
@@ -114,21 +114,39 @@
                     </colgroup>
                     <tbody>
                         <tr>
-                            <th scope="row">최종결제요금</th>
-                            <td>300,000,000 원</td>
+                            <th scope="row" rowspan="2">상품 총액</th>
+                            <td>999,999,999 원</td>
+                        </tr>
+                        <tr>
+                            <td class="txt-total-st2">
+                                <ul class="list">
+                                    <li>성인 10명 / 300,000,000 원</li>
+                                    <li>아동 10명 / 300,000,000 원</li>
+                                    <li>추가요금 / 300,000,000 원</li>
+                                </ul>
+                            </td>
+                        </tr>
+                        <tr>
+                            <th scope="row">혜택/할인</th>
+                            <td><span class="point3">- 999,999,999 원</span></td>
                         </tr>
                         <tr>
                             <th scope="row">예약금</th>
-                            <td><span class="txtArea-type7 point"><strong>200,000,000</strong> 원</span></td>
-                        </tr>
-                        <tr>
-                            <th scope="row">잔금</th>
-                            <td>100,000,000 원</td>
+                            <td><span class="point3">- 100,000 원</span></td>
                         </tr>
                     </tbody>
                 </table> 
             </section>
         </section>
+        <div class="boxType3 txt-total-st1 bdb1">
+            <div class="txtArea-type6">
+               <p class="title">결제 잔금</p>
+               <div class="cont">
+                   <span class="txt1"><strong>999,999,999</strong> 원</span>
+                   <span class="txt2">(유류할증료 및 제세공과금 포함)</span>
+               </div>
+            </div>
+        </div>
         <section class="section open">
             <header>
                 <h2 class="tit">결제 수단선택</h2>
@@ -144,7 +162,7 @@
                             <dt>결제 카드 선택</dt>
                             <dd>
                                 <span class="input_text lnk arrow-bottom">
-                                    <select class="">
+                                    <select>
                                     <option value="">선택하세요</option>
                                     <option value="현대카드">현대카드</option>
                                     <option value="신한카드">신한카드</option>
@@ -192,6 +210,24 @@
     
     <!-- 신용카드인 경우 -->
     <div class="pay-type-paysel1">
+        <div class="reserveInfo">
+            <section class="section open">
+                <header>
+                    <h2 class="tit">결제요금 보기</h2>
+                </header>
+                <section class="content pd0">
+                    <div class="boxType3 txt-total-st1 totalBox">
+                        <div class="txtArea-type6">
+                           <p class="title">신용카드 결제요금</p>
+                           <div class="cont">
+                               <span class="txt1"><strong class="point">999,999,999</strong> 원</span>
+                               <span class="txt2">(유류할증료 및 제세공과금 포함)</span>
+                           </div>
+                        </div>
+                    </div>
+                </section>
+            </section>
+        </div>
         <div class="boxType2 bdBottom">
            <div class="guide">
                 <dl>
@@ -221,7 +257,7 @@
     
     <!-- 가상계좌인 경우 -->
     <div class="pay-type-paysel2" style="display: none;">
-        <div class="boxType2">
+        <div class="boxType2 bdBottom">
            <div class="guide">
                 <dl>
                     <dt class="tit">가상계좌란?</dt>
@@ -234,7 +270,25 @@
                     <dd><strong>담당 상담원 : 홍길동</strong> (1588-0000, 0번 > 0번)</dd>
                 </dl>
             </div>
-        </div>        
+        </div>    
+        <div class="reserveInfo">
+            <section class="section open">
+                <header>
+                    <h2 class="tit">결제요금 보기</h2>
+                </header>
+                <section class="content" style="padding:0;border-bottom:0;">
+                    <div class="boxType3 txt-total-st1 totalBox">
+                        <div class="txtArea-type6">
+                           <p class="title">가상계좌 결제요금</p>
+                           <div class="cont">
+                               <span class="txt1"><strong class="point">999,999,999</strong> 원</span>
+                               <span class="txt2">(유류할증료 및 제세공과금 포함)</span>
+                           </div>
+                        </div>
+                    </div>
+                </section>
+            </section>
+        </div>    
         <div class="btnArea">
             <span class="btn xlarge action"><a href="#">전화하기</a></span>
         </div>

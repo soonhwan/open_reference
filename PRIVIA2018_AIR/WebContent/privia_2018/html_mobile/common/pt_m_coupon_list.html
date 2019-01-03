@@ -25,6 +25,7 @@
 <script type="text/javascript" src="/js/front/mtravel/swiper.min.js"></script>
 <script type="text/javascript" src="/js/front/mtravel/commonUI.js"></script>
 <script type="text/javascript" src="/js/utils.js"></script>
+<script type="text/javascript" src="/js/front/mtravel/jquery.countdown.min.js"></script> <!-- 인증 script -->
 </head>
 
 <body>
@@ -51,7 +52,7 @@
     <!-- 서브헤더 --> 
     <div class="header-secV2 header-page-st">
         <div class="in-header-secV2">
-            <h2 class="ihg-title">로그인</h2>
+            <h2 class="ihg-title">쿠폰 다운로드</h2>
             <div class="ly-left">
                 <a href="#" class="b-back" data-rel="back" data-direction="reverse"><span class="a11y">이전 페이지로 가기</span></a>
             </div>
@@ -62,53 +63,50 @@
     
     <!-- content-sec -->
     <div class="content-sec">
-        <section class="w-content-sec">    
-            <div class="c-box-st1">
-                <div class="login-type">
-                    <a href="#">회원 로그인</a>
+        <section class="w-content-sec"> 
+            <ul class="ui-tab-menu tab-style1">
+                <li class="on">
+                    <a href="#">PRIVIA쿠폰</a>
+                </li>
+                <li>
+                    <a href="#">혜택 쿠폰</a>
+                </li>
+            </ul>
+            <div class="ui-tab-cont tab-on">
+                <div class="cb1-header">
+                    <span class="area-tit pd0"><h3 class="tit">항공</h3></span>
                 </div>
-                <div class="cb1-header a-pb20">
-                    <span class="area-tit login-tit"><h3 class="tit">비회원 예약조회</h3></span>
+                <ul class="coupon-list coupondown">
+                    <li>
+                        <a href="#">
+                            <span class="label"></span>                            
+                            <span class="title">11 ~ 12 월 출발 단거리 3천원 할인</span>
+                            <span class="price"><i class="num">3,000</i>원</span>
+                            <span class="fblur" style="margin-right:8px;">2018/11/01 ~ 2018/11/30</span>
+                        </a>
+                    </li>
+                </ul>
+                <div class="cb1-header">
+                    <span class="area-tit"><h3 class="tit">호텔</h3></span>
                 </div>
-                
-                <div class="form-st1">
-                     <label for="air" class="radio-base radio-st2">
-                        <input type="radio" id="air" name="nonRrv" class="a11y" checked="">
-                        <span class="label">항공</span> 
-                    </label>
-                    <label for="hotel" class="radio-base radio-st2">
-                        <input type="radio" id="hotel" name="nonRrv" class="a11y">
-                        <span class="label">호텔</span> 
-                    </label>
-                </div>                
-                
-                <div class="input-baseV2 a-mt20 invalid">
-                    <input type="text" id="inpTCode" class="input">
-                    <label for="inpTCode" class="label">
-                        <span class="txt">예약번호</span>
-                    </label>
-                    <button class="btn-clear"><span class="a11y">입력 항목 삭제</span></button>
-                    <p class="req-error">예약번호는 필수 항목입니다.</p>
-                </div>
-
-                <div class="input-baseV2 a-mt20">
-                    <input type="text" id="inpTPass" class="input">
-                    <label for="inpTPass" class="label">
-                        <span class="txt">예약자 전화번호 또는 이메일</span>
-                    </label>
-                    <button class="btn-clear"><span class="a11y">입력 항목 삭제</span></button>
-                    <p class="req-error">전화번호 또는 이메일은 필수 항목입니다.</p>
-                </div>
-                                                
-                <div class="a-mt30">
-                    <span class="btn-base bb-st3"><button type="button">예약조회</button></span>
-                </div>
-                <span class="login-txt a-mt15">예약번호가 기억나지 않으세요?<br />현대카드 PRIVIA 여행 고객센터 <span class="underline">1588-0360</span> 로 연락주세요.</span>
-                
-                <div class="a-mt20 a-pt20 m-btns">
-                    <span class="login-txt fl point7" style="width:60%;">회원가입 시 현대카드 PRIVIA 여행의 특별하고 다양한 서비스를 누릴 수 있습니다.</span>
-                    <span class="btn-base bb-st6 fr"><a href="#">회원가입</a></span>
-                </div>
+               <ul class="coupon-list coupondown">
+                    <li>
+                        <a href="#">
+                            <span class="label"></span>
+                            <span class="title">방콕 호텔 할인 1월 쿠폰</span>
+                            <span class="price"><i class="num">5</i>%</span>
+                            <span class="fblur" style="margin-right:8px;">2018/11/01 ~ 2018/11/30</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#">
+                            <span class="label"></span>
+                            <span class="title">홍콩/마카오 호텔 3만원 할인 쿠폰</span>
+                            <span class="price"><i class="num">3</i>만원</span>
+                            <span class="fblur" style="margin-right:8px;">2018/11/01 ~ 2018/11/30</span>
+                        </a>
+                    </li>
+                </ul>
             </div>
         </section>
     </div>
@@ -148,7 +146,37 @@
     
     <script type="text/javascript">
     $(document).one('pageshow',function(e,data){      
-       
+        //인증 타이머 호출
+		$('.btn-timer-m').on('click', function(){
+            alert("인증번호가 발송 되었습니다.");
+			timerM();
+		});
+        $('.btn-timer-e').on('click', function(){
+            alert("인증번호가 발송 되었습니다.");
+			timerE();
+		});
+        
+        //인증 타이머
+        function timerM(){
+            $('#timer1').off('finish.countdown');
+            var time = new Date().getTime() + 180000;
+            $('#timer1').countdown(time, function(event){
+                $(this).html(event.strftime('(<span>%M</span>:<span>%S</span>)'));                
+            }).on('finish.countdown', function(event){
+                //타이머 종료 시 실행
+                alert("인증시간이 지났습니다. 다시 확인해 주세요.");
+            });	
+        }
+        function timerE(){
+            $('#timer2').off('finish.countdown');
+            var time = new Date().getTime() + 600000;
+            $('#timer2').countdown(time, function(event){
+                $(this).html(event.strftime('(<span>%M</span>:<span>%S</span>)'));                
+            }).on('finish.countdown', function(event){
+                //타이머 종료 시 실행
+                alert("인증시간이 지났습니다. 다시 확인해 주세요.");
+            });	
+        }
     });
     </script>
     

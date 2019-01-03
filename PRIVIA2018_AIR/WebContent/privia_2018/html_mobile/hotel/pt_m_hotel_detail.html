@@ -88,7 +88,7 @@
             <div class="label"><a href="#">파리,프랑스 <span>(200)</span></a></div>
           </div>
           <div class="hai-info">
-            <div class="hai-date no-date"><a href="#">숙박날짜 선택</a></div>
+            <div class="hai-date"><a href="#">12월 01일 - 12월 06일</a></div>
             <div class="hai-capacity">
               <a href="#">
                 <ul class="list">
@@ -150,7 +150,7 @@
                                     <span class="qsb-label-hide">인원, 객실 수</span>
                                     <span class="qsb-input">
                                         <span class="label">인원, 객실 수</span>
-                                        <span class="result">성인3, 아동2, 객실0</span>
+                                        <span class="result">성인4, 아동1, 객실2</span>
                                     </span>
                                 </a>
                             </div>
@@ -174,83 +174,60 @@
     <!-- content-sec -->
     <div class="content-sec">
       <section class="w-content-sec">
-        <div class="gmap-wrapper">
-          <div id="gmapArea"></div>
-          <span class="pin" style="left:10px;top:80px;"></span>
-          <span class="pin" style="left:10px;top:120px;"></span>
-          <span class="pin on" style="left:10px;top:160px;"></span>
-          <span class="pin wish" style="left:10px;top:200px;"></span>
-
-          <div class="htl-sel-info">
-            <dl class="htl-detail">
-              <dt style="background:url(https://i.travelapi.com/hotels/9000000/8510000/8508900/8508851/323f8653_b.jpg) 50% 50% no-repeat;background-size:cover;">
-                <a href="#"></a><span class="htl-wish on"></span>
-              </dt>
-              <dd>
-                <span class="htl-name"><a href="#">베스트 웨스턴 프리미어 오페라 리에주 리젠시 베이 호텔 베스트 웨스턴 프리미어 오페라 리에주 리젠시 베이 호텔</a></span>
-                <span class="htl-sec sec1">
-                  <span class="htl-grade">
-                    <i></i>
-                    <i></i>
-                    <i></i>
-                    <i></i>
-                    <i></i>
-                  </span>
-                  <span class="htl-eval">
-                    <span class="score">4.5</span>
-                    <span class="txt">아주 좋음</span>
-                  </span>
-                </span>
-                <span class="htl-sec sec2">
-                  <span class="htl-badge">
-                    <span class="st1">NEW</span>
-                    <span class="st2">프로모션</span>
-                  </span>
-                  <span class="btn-base bb-st2"><a href="#" class="ui-link">요금확인</a></span>
-                </span>
-              </dd>
-            </dl>
-          </div>
-        </div>
-        <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCSQ52D13UwKZ7SntXHNKqBZMgsQgoWWD0&signed_in=true"></script>
-				<script>
-				var map;
-				var priviaMarker = new google.maps.LatLng(37.567468, 126.988159);
-				var marker;
-				function initialize() {
-					var mapOptions = {
-						zoom: 17,
-						center: priviaMarker,
-						mapTypeId: google.maps.MapTypeId.ROADMAP
-					};
-					map = new google.maps.Map(document.getElementById('gmapArea'),mapOptions);
-					marker = new google.maps.Marker({
-						position: priviaMarker,
-						map: map
-					});
-				}
-				google.maps.event.addDomListener(window, 'load', initialize);
-
-        $('.gmap-wrapper  .htl-detail dt .htl-wish').on('click', function(){
-          $(this).toggleClass('on');
-        });
-        $('.gmap-wrapper .pin').on('click', function(){
-          if($(this).hasClass('on')) return false;
-          $('.gmap-wrapper .pin').removeClass('on');
-          $(this).addClass('on');
-          //선택한 요금과 관련된 정보를 보여주는 로직이 들어갑니다.
-          //...
-        });
-				</script>
-
-        <!-- 목록 & 필터 정렬 버튼 -->
-        <div class="btns-fix-item">
-          <a href="#" class="list"><span>목록</span></a>
-          <a href="#" class="filter"><span>필터&amp;정렬</span></a>
-        </div>
+        <div class="htl-detail-wrap">
+          <div class="htl-detail-room swiper-container">
+            <div class="swiper-wrapper">
+              <div class="swiper-slide" style="background:url(https://i.travelapi.com/hotels/9000000/8260000/8254500/8254405/8254405_52_b.jpg) 50% 50% no-repeat; background-size:cover;"></div>
+              <div class="swiper-slide" style="background:url(/images/front/travel/search/img_no_detail.gif) 50% 50% no-repeat; background-size:cover;"></div>
+              <div class="swiper-slide" style="background:url(https://i.travelapi.com/hotels/9000000/8260000/8254500/8254405/8254405_72_b.jpg) 50% 50% no-repeat; background-size:cover;"></div>
+              <div class="swiper-slide" style="background:url(https://i.travelapi.com/hotels/9000000/8260000/8254500/8254405/8254405_46_b.jpg) 50% 50% no-repeat; background-size:cover;"></div>
+              <div class="swiper-slide" style="background:url(https://i.travelapi.com/hotels/9000000/8260000/8254500/8254405/8254405_54_b.jpg) 50% 50% no-repeat; background-size:cover;"></div>
+            </div>
+            <div class="swiper-pagination"></div>
+            <a href="#" class="btn-wish"><span class="a11y">좋아요</span></a>
+            <a href="#" class="btn-share"><span class="a11y">공유하기</span></a>
+          </div><!-- //htl-detail-room -->
+          <div class="htl-detail-cont">
+            <div class="htl-detail-sec1">
+              <span class="htl-grade"><span class="txt">3성급</span> <i></i><i></i><i></i></span>
+            </div><!-- //htl-detail-sec1 -->
+          </div><!-- //htl-detail-cont -->
+        </div><!-- //htl-detail-wrap -->
       </section>
     </div>
     <!-- //content-sec -->
+
+    <!-- footer-sec -->
+    <div class="footer-sec">
+      <footer class="w-footer-sec">
+          <div class="fts-ly1">
+            <p class="fts-call">
+              <span class="txt1">고객센터 <em><a href="tel:1588-0360">1588-0360</a></em></span>
+              <span class="txt2"><a href="tel:82-2-6911-8300">(해외 82-2-6911-8300)</a></span>
+            </p>
+            <ul class="fts-go-link">
+              <li><span class="btn-base bb-st1"><a href="#">PC버전</a></span></li>
+              <li><span class="btn-base bb-st1"><a href="#">고객센터</a></span></li>
+            </ul>
+          </div>
+          <ul class="nav-fnb">
+    				<li><a href="#" target="_blank">사업자정보확인</a></li>
+    				<li><a href="#">이용약관</a></li>
+    				<li><a href="#">개인정보처리방침</a></li>
+    				<li><a href="#">업무위탁현황</a></li>
+    			</ul>
+          <ul class="w-address">
+            <li class="address">서울특별시 중구 청계천로 100 시그니쳐 타워 서관 16층</li>
+            <li>㈜타이드스퀘어</li>
+            <li>대표이사 윤민</li>
+            <li>사업자등록번호 124-86-86370</li>
+            <li>관광사업자번호 제 2015-000033호</li>
+            <li>통신판매업신고번호 제 2015-서울중구-0788호</li>
+          </ul>
+          <p class="copyright"><small>COPYRIGHT (c) TIDESQUARE CO. LTD. ALL RIGHTS RESERVED. <br />SPONSORED BY HYUNDAI CARD</small></p>
+      </footer>
+    </div>
+    <!-- //footer-sec -->
 
     <script>
     //페이지 로드시 최상단 고정
@@ -259,16 +236,49 @@
         scrollTo(0,0);
       });
     }
+    $(function(){
+      function setHSPInt(num){
+        if(num > 99){
+          clearInterval(barItv);
+          //실시간 검색결과 로딩바 삭제
+          $('.loading-all-list').fadeOut('fast', function(){
+              $(this).remove();
+          });
 
-    //재검색 열기
-    $('.header-secV2.hps-hotel .btn-re-sch').on('click', function(e){
-      $('.w-reSearch').slideDown('fast');
-      e.preventDefault();
-    });
+          //skeleton 삭제
+          $('.list-hotel.skeleton').fadeOut('fast', function(){
+              $(this).remove();
+          });
 
-    //재검색 닫기
-    $('.w-reSearch .resch-header .btn-close-resch').on('click', function(){
-      $('.w-reSearch').slideUp('fast');
+          //호텔 리스트, 지도&필터버튼 노출
+          $('.s-list-hotel, .btns-fix-item').show();
+        }
+        $('.loading-all-list .lal-bar .bar').css('width',num+'%');
+        $('.loading-all-list .num').text(num);
+      }
+
+      //실시간 검색결과 로딩바
+      var cnt = 0;
+      var barItv = setInterval(function(){
+          setHSPInt(cnt++);
+      }, 0);
+
+      $('.list-hotel .list').on('click', '.htl-wish', function(e){
+        $(this).toggleClass('on');
+        e.stopPropagation();
+        e.preventDefault();
+      });
+
+      //재검색 열기
+      $('.header-secV2.hps-hotel .btn-re-sch').on('click', function(e){
+        $('.w-reSearch').slideDown('fast');
+        e.preventDefault();
+      });
+
+      //재검색 닫기
+      $('.w-reSearch .resch-header .btn-close-resch').on('click', function(){
+        $('.w-reSearch').slideUp('fast');
+      });
     });
     </script>
 

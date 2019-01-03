@@ -1512,7 +1512,7 @@ function etcInit(){
 	reserveInfo();
 	$('.priceDetail').toggle(); //요금상세
 	$('.reserveInfo .section').reserveToggle(); //예약상세내용 토글리스트
-	$('.toggleList').toggle(); //토글리스트
+	$('.toggleList').toggle(); //토글리스트	
 }
 //패키지 경우에 실행
 function pkgInit(){
@@ -1521,6 +1521,16 @@ function pkgInit(){
 	$('.priceDetail').toggle(); //요금상세
 	$('.reserveInfo .section').reserveToggle(); //예약상세내용 토글리스트
 	$('.toggleList').toggle(); //토글리스트
+	if($('.totalList-st2 .tit-btn').length > 0){
+		$('.totalList-st2 .tit-btn').off('click').on('click', function(){
+			var _this = $(this);
+			var $wrap = _this.closest('.totalList-st2');
+			var $cont = $wrap.find('.tl-cont-list').eq(0);
+			$cont.slideToggle('fast', function(){
+				$wrap.toggleClass('is-open');
+			});
+		});	
+	}	
 	pkgSearchGnb();
 }
 
@@ -2024,15 +2034,22 @@ var pvmFrontScript = window.pvmFrontScript || (function(){
 			//심플 더보기 UI(기본 height값이 있어야 함 - 상세 스케줄 더보기, 공동운항 리스트 더보기, 필터 항목 더보기)
 			if($('.o-expand-wrap').length > 0){
 				$('.o-expand-wrap .o-expand-btn').die('click').live('click', function(e){
-					var $wExpand = $(this).closest('.o-expand-wrap');
+					var _this = $(this);
+					var $wExpand = _this.closest('.o-expand-wrap');
 					var $expandCont = $wExpand.find('.o-expand-cont').eq(0);
 					if($wExpand.hasClass('o-expanded')){
 						$wExpand.removeClass('o-expanded');
-						$expandCont.removeAttr('style');
+						$expandCont.css({'height' : $expandCont.prop('scrollHeight')+'px'});
+						setTimeout(function(){
+							$expandCont.removeAttr('style');
+						},10);
 					}
 					else{
 						$wExpand.addClass('o-expanded');
 						$expandCont.css({'height' : $expandCont.prop('scrollHeight')+'px'});
+						setTimeout(function(){
+							$expandCont.height('auto');
+						},400);
 					}           
 					e.stopPropagation();
 				});
@@ -2041,18 +2058,24 @@ var pvmFrontScript = window.pvmFrontScript || (function(){
 			//Accordion UI
 			if($('.o-acdi-click').length > 0){
 				$('.o-acdi-click').off('click').on('click', function(e){
-					var $wExpand = $(this).closest('.o-acdi-wrap');
-					var $expandCont = $wExpand.find('.o-acdi-cont').eq(0);
-					if($wExpand.hasClass('o-acdi-open')){
-						$expandCont.slideUp('fast', function(){
-							$wExpand.removeClass('o-acdi-open');
+					var _this = $(this);
+					var show = _this.attr('href');
+					/*if(_this.hasClass('o-ac-on')){
+						$(show).slideUp('fast', function(){
+							_this.removeClass('o-ac-on');
+							$(show).removeClass('o-ac-on');
 						});
 					}
 					else{
-						$expandCont.slideDown('fast', function(){
-							$wExpand.addClass('o-acdi-open');
+						_this.addClass('o-ac-on');
+						$(show).slideDown('fast', function(){
+							$(show).addClass('o-ac-on');
 						});
-					}
+					}*/					
+					$(show).slideToggle('fast', function(){
+						_this.toggleClass('o-ac-on');
+						$(show).toggleClass('o-ac-on');
+					});
 					e.preventDefault();
 				});	
 			}
