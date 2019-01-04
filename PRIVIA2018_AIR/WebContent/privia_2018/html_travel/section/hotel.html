@@ -23,6 +23,9 @@
 <script type="text/javascript" src="/js/front/travel/commonModuleHeader.js"></script> <!-- headerManager 가이드 버전 실제로는 반영 되지 않음 -->
 <script type="text/javascript" src="/js/front/travel/commonModule.js"></script>
 <script type="text/javascript" src="/js/front/travel/commonModuleUI.js"></script>
+<style>
+.hs-search-cont .ui-mainsel-hotel.wide{width:1200px;}
+</style>
 </head>
 
 <body>
@@ -261,13 +264,13 @@
 														</span>
 													</a>
 												</div>
-                        <div class="qsb-cont qsb-room">
+                                                <div class="qsb-cont qsb-room">
 													<a href="#" class="qsb-area on" data-panel="room" data-panel-name="global-ui-room">
 														<span class="qsb-label">인원, 객실 수</span>
-                            <span class="qsb-input" data-room='2' data-room1='{"adult":2,"child":3,"age":[2,3,4]}' data-room2='{"adult":2,"child":1,"age":[8]}' data-room3='{"adult":0,"child":0,"age":[]}'>
+                                                        <span class="qsb-input" data-room='2' data-room1='{"adult":2,"child":3,"age":[2,3,4]}' data-room2='{"adult":2,"child":1,"age":[8]}' data-room3='{"adult":0,"child":0,"age":[]}'>
 															<span class="type-room">성인</span><span><em class="total-num">4</em></span>,
-                              <span class="type-room">아동</span><span><em class="total-num">4</em></span>,
-                              <span class="type-room">객실</span><span><em class="total-num">2</em></span>
+                                                            <span class="type-room">아동</span><span><em class="total-num">4</em></span>,
+                                                            <span class="type-room">객실</span><span><em class="total-num">2</em></span>
 														</span>
 													</a>
 												</div>
@@ -300,7 +303,7 @@
 															<th>남태평양</th>
 															<th>유럽</th>
 															<th>미주/캐나다</th>
-                              <th>국내</th>
+                                                            <th>국내</th>
 														</tr>
 														<tr>
 															<td>
@@ -382,7 +385,7 @@
 																	<li><a href="#" data-city="토론토">토론토</a></li>
 																</ul>
 															</td>
-                              <td>
+                                                            <td>
 																<ul class="list">
 																	<li><a href="#" data-city="제주도 전체">제주도 전체</a></li>
 																	<li><a href="#" data-city="서울특별시 전체">서울특별시 전체</a></li>
@@ -407,12 +410,11 @@
 												<div class="uis-list uis-list-auto">
 													<ul class="list o-customscrollbar">
 														<li class="no-list">검색 결과가 없습니다.</li>
-                            <li>
+                                                        <li>
 															<a href="#" data-city="파리 (인근 지역 포함), 프랑스">
 																<span class="label-base htp-st"><span class="st1"></span></span>
 																<span class="name-det">파리 (인근 지역 포함), 프랑스</span>
 															</a>
-
 														</li>
 														<li>
 															<a href="#" data-city="에펠탑">
@@ -456,17 +458,17 @@
 									<!-- //해외 -->
 
 									<!-- 인원, 객실 수 -->
-                  <div class="sc-ui-search-panel ui-capacity global-ui-room">
+                                    <div class="sc-ui-search-panel ui-capacity global-ui-room">
 										<div class="uis-capacity">
-                      <ul class="ui-htp-room">
-                        <li class="room-item on">
-                          <dl>
-                            <dt>
-                              <a href="#" class="room-tab">객실<span class="room-num">1</span></a>
-                              <a href="#" class="room-arrow"></a>
-                            </dt>
-                            <dd>
-                              <ul class="uis-capacity-number">
+                                          <ul class="ui-htp-room">
+                                            <li class="room-item on">
+                                              <dl>
+                                                <dt>
+                                                    <a href="#" class="room-tab">객실<span class="room-num">1</span></a>
+                                                    <a href="#" class="room-arrow"></a>
+                                                </dt>
+                                                <dd>
+                                                    <ul class="uis-capacity-number">
         												<li>
         													<div class="tit"><em>성인</em></div>
         													<div class="uis-custom-number adult" data-ucn='{"type":"adult1","min":1,"max":10}'>
@@ -480,23 +482,12 @@
         													</div>
         												</li>
         												<li>
-                                  <div class="tit">
-                                    <em>아동</em> (만2세 ~ 11세)
-                                    <span class="help-tooltip heltt-st2 small">
-        															<span class="over">?</span>
-        															<span class="cont" style="width:170px">
-        																<span class="heltt-tit">아동</span>
-        																<dl class="heltt-exp-box">
-        																	<dt>국제선</dt>
-        																	<dd>탑승일 기준 만 2세 ~ 12세 미만</dd>
-        																</dl>
-        																<dl class="heltt-exp-box">
-        																	<dt>국내선</dt>
-        																	<dd>탑승일 기준 만 2세 ~ 13세 미만</dd>
-        																</dl>
-        															</span>
+                                                            <div class="tit">
+                                                                <em>아동</em> <span class="age">(만2세 ~ 11세)</span>
+                                                                <span class="help-tooltip heltt-st2 small down">
+        															<span class="over age-tip" title="<span>아동 나이 체크인 시점 만 11세 이하</span><span>아동 추가 시 침대를 쉐어(Share) 하는 조건</span><span>보조침대 추가 시 인원 추가 및 별도 문의</span><span>동반 아동 인원 미입력 시 투숙이 제한될 수 있습니다.</span>">?</span>
         														</span>
-                                  </div>
+                                                            </div>
         													<div class="uis-custom-number child" data-ucn='{"type":"child1","min":0,"max":3}'>
         														<span class="btn-base ucn-crt b-minus">
         															<button type="button" data-type="room2d-minus"><span class="a11y">빼기</span></button>
@@ -508,7 +499,7 @@
         													</div>
         												</li>
         											</ul>
-                              <ul class="uis-set-selectbox">
+                                                    <ul class="uis-set-selectbox">
     														<li>
     															<select class="select-base">
     																<option value="">나이</option>
@@ -527,7 +518,7 @@
     														<li>
     															<select class="select-base">
     																<option value="">나이</option>
-                                    <option value="2">만 2세</option>
+                                                                    <option value="2">만 2세</option>
     																<option value="3">만 3세</option>
     																<option value="4">만 4세</option>
     																<option value="5">만 5세</option>
@@ -542,7 +533,7 @@
     														<li>
     															<select class="select-base">
     																<option value="">나이</option>
-                                    <option value="2">만 2세</option>
+                                                                    <option value="2">만 2세</option>
     																<option value="3">만 3세</option>
     																<option value="4">만 4세</option>
     																<option value="5">만 5세</option>
@@ -555,18 +546,18 @@
     															</select>
     														</li>
     													</ul>
-                            </dd>
-                          </dl>
-                        </li>
-                        <li class="room-item disabled">
-                          <dl>
-                            <dt>
-                              <a href="#" class="room-tab">객실<span class="room-num">2</span></a>
-                              <span class="btn-base bb-st2 b-remove"><a href="#">객실삭제</a></span>
-                              <a href="#" class="room-arrow"></a>
-                            </dt>
-                            <dd>
-                              <ul class="uis-capacity-number">
+                                                </dd>
+                                              </dl>
+                                            </li>
+                                            <li class="room-item disabled">
+                                              <dl>
+                                                <dt>
+                                                    <a href="#" class="room-tab">객실<span class="room-num">2</span></a>
+                                                    <span class="btn-base bb-st2 b-remove"><a href="#">객실삭제</a></span>
+                                                    <a href="#" class="room-arrow"></a>
+                                                </dt>
+                                                <dd>
+                                                    <ul class="uis-capacity-number">
         												<li>
         													<div class="tit"><em>성인</em></div>
         													<div class="uis-custom-number adult" data-ucn='{"type":"adult2","min":1,"max":10}'>
@@ -581,22 +572,11 @@
         												</li>
         												<li>
         													<div class="tit">
-                                    <em>아동</em> (만2세 ~ 11세)
-                                    <span class="help-tooltip heltt-st2 small">
-        															<span class="over">?</span>
-        															<span class="cont" style="width:170px">
-        																<span class="heltt-tit">아동</span>
-        																<dl class="heltt-exp-box">
-        																	<dt>국제선</dt>
-        																	<dd>탑승일 기준 만 2세 ~ 12세 미만</dd>
-        																</dl>
-        																<dl class="heltt-exp-box">
-        																	<dt>국내선</dt>
-        																	<dd>탑승일 기준 만 2세 ~ 13세 미만</dd>
-        																</dl>
-        															</span>
+                                                                <em>아동</em> <span class="age">(만2세 ~ 11세)</span>
+                                                                <span class="help-tooltip heltt-st2 small down">
+        															<span class="over age-tip" title="<span>아동 나이 체크인 시점 만 11세 이하</span><span>아동 추가 시 침대를 쉐어(Share) 하는 조건</span><span>보조침대 추가 시 인원 추가 및 별도 문의</span><span>동반 아동 인원 미입력 시 투숙이 제한될 수 있습니다.</span>">?</span>
         														</span>
-                                  </div>
+                                                            </div>
         													<div class="uis-custom-number child" data-ucn='{"type":"child2","min":0,"max":3}'>
         														<span class="btn-base ucn-crt b-minus">
         															<button type="button" data-type="room2d-minus"><span class="a11y">빼기</span></button>
@@ -608,7 +588,7 @@
         													</div>
         												</li>
         											</ul>
-                              <ul class="uis-set-selectbox">
+        											<ul class="uis-set-selectbox">
     														<li>
     															<select class="select-base">
     																<option value="">나이</option>
@@ -627,7 +607,7 @@
     														<li>
     															<select class="select-base">
     																<option value="">나이</option>
-                                    <option value="2">만 2세</option>
+    																<option value="2">만 2세</option>
     																<option value="3">만 3세</option>
     																<option value="4">만 4세</option>
     																<option value="5">만 5세</option>
@@ -642,7 +622,7 @@
     														<li>
     															<select class="select-base">
     																<option value="">나이</option>
-                                    <option value="2">만 2세</option>
+                                                                    <option value="2">만 2세</option>
     																<option value="3">만 3세</option>
     																<option value="4">만 4세</option>
     																<option value="5">만 5세</option>
@@ -655,18 +635,18 @@
     															</select>
     														</li>
     													</ul>
-                            </dd>
-                          </dl>
-                        </li>
-                        <li class="room-item disabled">
-                          <dl>
-                            <dt>
-                              <a href="#" class="room-tab">객실<span class="room-num">3</span></a>
-                              <span class="btn-base bb-st2 b-remove"><a href="#">객실삭제</a></span>
-                              <a href="#" class="room-arrow"></a>
-                            </dt>
-                            <dd>
-                              <ul class="uis-capacity-number">
+                                                    </dd>
+                                                  </dl>
+                                                </li>
+                                                <li class="room-item disabled">
+                                                  <dl>
+                                                    <dt>
+                                                      <a href="#" class="room-tab">객실<span class="room-num">3</span></a>
+                                                      <span class="btn-base bb-st2 b-remove"><a href="#">객실삭제</a></span>
+                                                      <a href="#" class="room-arrow"></a>
+                                                    </dt>
+                                                    <dd>
+                                                      <ul class="uis-capacity-number">
         												<li>
         													<div class="tit"><em>성인</em></div>
         													<div class="uis-custom-number adult" data-ucn='{"type":"adult3","min":1,"max":10}'>
@@ -680,23 +660,12 @@
         													</div>
         												</li>
         												<li>
-                                  <div class="tit">
-                                    <em>아동</em> (만2세 ~ 11세)
-                                    <span class="help-tooltip heltt-st2 small">
-        															<span class="over">?</span>
-        															<span class="cont" style="width:170px">
-        																<span class="heltt-tit">아동</span>
-        																<dl class="heltt-exp-box">
-        																	<dt>국제선</dt>
-        																	<dd>탑승일 기준 만 2세 ~ 12세 미만</dd>
-        																</dl>
-        																<dl class="heltt-exp-box">
-        																	<dt>국내선</dt>
-        																	<dd>탑승일 기준 만 2세 ~ 13세 미만</dd>
-        																</dl>
-        															</span>
+                                                            <div class="tit">
+                                                                <em>아동</em> <span class="age">(만2세 ~ 11세)</span>
+                                                                <span class="help-tooltip heltt-st2 small down">
+        															<span class="over age-tip" title="<span>아동 나이 체크인 시점 만 11세 이하</span><span>아동 추가 시 침대를 쉐어(Share) 하는 조건</span><span>보조침대 추가 시 인원 추가 및 별도 문의</span><span>동반 아동 인원 미입력 시 투숙이 제한될 수 있습니다.</span>">?</span>
         														</span>
-                                  </div>
+                                                            </div>
         													<div class="uis-custom-number child" data-ucn='{"type":"child3","min":0,"max":3}'>
         														<span class="btn-base ucn-crt b-minus">
         															<button type="button" data-type="room2d-minus"><span class="a11y">빼기</span></button>
@@ -708,7 +677,7 @@
         													</div>
         												</li>
         											</ul>
-                              <ul class="uis-set-selectbox">
+                                                    <ul class="uis-set-selectbox">
     														<li>
     															<select class="select-base">
     																<option value="">나이</option>
@@ -727,7 +696,7 @@
     														<li>
     															<select class="select-base">
     																<option value="">나이</option>
-                                    <option value="2">만 2세</option>
+                                                                    <option value="2">만 2세</option>
     																<option value="3">만 3세</option>
     																<option value="4">만 4세</option>
     																<option value="5">만 5세</option>
@@ -742,7 +711,7 @@
     														<li>
     															<select class="select-base">
     																<option value="">나이</option>
-                                    <option value="2">만 2세</option>
+                                                                    <option value="2">만 2세</option>
     																<option value="3">만 3세</option>
     																<option value="4">만 4세</option>
     																<option value="5">만 5세</option>
@@ -755,13 +724,13 @@
     															</select>
     														</li>
     													</ul>
-                            </dd>
-                          </dl>
-                        </li>
-                      </ul>
-                      <div class="b-addroom-wrap">
-                        <span class="btn-base bb-st2 b-addroom"><a href="#">객실추가</a></span>
-                      </div>
+                                                    </dd>
+                                                  </dl>
+                                                </li>
+                                              </ul>
+                                              <div class="b-addroom-wrap">
+                                                <span class="btn-base bb-st2 b-addroom"><a href="#">객실추가</a></span>
+                                              </div>
 										</div>
 									</div>
 									<!-- //인원, 객실 수 -->
@@ -811,6 +780,21 @@
 								<!-- //호텔 -->
 							</div>
 							<!-- //검색 섹션 -->
+							
+							<!-- 기획전 롤링 -->
+							<div class="hs-prom-roll">
+								<h3 class="a11y">기획전 롤링</h3>
+								<ul class="list">
+									<li><a href="#"><img src="/images/front/travel/vis-size/vis-180x80.png" alt="&nbsp;"></a></li>
+									<li><a href="#"><img src="/images/front/travel/vis-size/vis-180x80.png" alt="&nbsp;"></a></li>
+								</ul>
+								<div class="c-slick-dots">
+									<span class="cs-dots-crt">
+										<button type="button" class="b-slick-crt on"><span class="a11y txt">일시정지 버튼</span></button>
+									</span>
+								</div>
+							</div>
+							<!-- //기획전 롤링 -->
 						</div>
 					</div>
 				</div>

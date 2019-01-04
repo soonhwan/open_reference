@@ -2077,6 +2077,7 @@ box-sizing: border-box;
 .subjectTop-st2 {-moz-box-sizing:border-box;-webkit-box-sizing:border-box;box-sizing:border-box;min-height:35px;padding:8px 19px;background:#ed2b74; text-align:center; color:#fff}
 .subjectTop-st2 .tit {line-height: 21px;font-size:13px;font-weight: bold;}
 
+.totalList-st2 {padding-top: 10px;}
 .totalList-st2 .tl-header {font-size:14px;color: #424242;border-bottom: 1px solid #a6a6a6;}
 .totalList-st2 .tl-header .tit {display: block;width: 100%;padding: 8px 0;text-align: left;font-size:14px;color: #424242;font-weight: bold;}
 .totalList-st2 .tl-header .tit-btn {display: block;width: 100%;padding: 8px 0;text-align: left;font-size:14px;color: #424242;font-weight: bold;position: relative;outline: none;}
@@ -2088,10 +2089,9 @@ box-sizing: border-box;
 .totalList-st2 .tl-cont-list li {border-top: 1px dotted #d5d5d5;padding: 12px 0;}
 .totalList-st2 .tl-cont-list li:first-child {border-top: 0;}
 .totalList-st2 .tl-cont-list li:after {content: '';display: block;clear: both;}
-.totalList-st2 .tl-cont-list .label {float: left;max-width:49%;font-size:12px;color: #424242;}
-.totalList-st2 .tl-cont-list .cont {float: right;max-width:49%;font-size:12px;color: #424242;}
+.totalList-st2 .tl-cont-list .label {float: left;max-width:52%;font-size:12px;color: #424242;}
+.totalList-st2 .tl-cont-list .cont {float: right;max-width:48%;font-size:12px;color: #424242;}
 .totalList-st2.is-open .tl-cont-list {display: block;}
-.totalList-st2 + .totalList-st2 {margin-top: 10px;}
 
 .txt-total-st1.bdb1 {border-bottom: 1px solid #ccc;}
 .txt-total-st1 .btnArea {margin: 0;margin-top: 15px;}
@@ -2113,7 +2113,7 @@ box-sizing: border-box;
 .txtArea-type7 strong {font-size:15px;font-weight: bold;}
 .txtArea-type8 {font-size:11px;color: #424242;text-align: center;}
 
-.pay-step-st1 {background-color: #fff;border-top: 1px solid #ccc;border-bottom: 1px solid #333;padding: 11px 19px;}
+.pay-step-st1 {background-color: #fff;border-top: 1px solid #ccc;border-bottom: 1px solid #333;padding: 12px 19px 10px 19px;;}
 .pay-step-st1 .list:after {content: '';display: block;clear: both;}
 .pay-step-st1 .list li {float: left;padding-left: 20px;font-size: 12px;color: #999;position: relative;}
 .pay-step-st1 .list li:before {content: '';display: block;width: 4px;height: 8px;background: url(/images/front/mtravel/common/bg_bullet1.gif) 0 0 no-repeat;-webkit-background-size: 4px;background-size: 4px;position: absolute;top: 5px;left: 10px;opacity: 0.5;}
@@ -2137,3 +2137,26 @@ box-sizing: border-box;
 .reserveInfo .section .content.bdb0 {border-bottom: 0;}
 .reserveInfo .section > header.bdbd1 {border-bottom: 1px dotted #ccc;}
 .reserveInfo .section.open > header.bdbd1 {border-bottom: 1px solid #e0e0e0;}
+
+.point10{color:#2a7cc8 !important;}
+
+.isp_guide-st2.txtArea {margin: 0;}
+.isp_guide-st2.txtArea .guide {padding: 15px 15px 15px 19px;}
+.isp_guide-st2 .guide dd, .isp_guide-st2 .guide dd *, .isp_guide-st2 .bulList li {color: #424242;}
+.isp_guide-st2 .boxType2{background-color: #f0f0f0;}
+.isp_guide-st2 .point2{display:block;margin:15px 0 7px;font-size:12px}
+.isp_guide-st2 .desc{padding: 0 15px 15px 19px;border-top:1px solid #d5d5d5}
+.isp_guide-st2 .desc .section{margin-top:15px;line-height:1.5}
+.isp_guide-st2 .desc .section p{color:#424242;font-size:11px}
+.isp_guide-st2 .desc .section >strong{display:inline-block;margin-bottom:6px;color:#2a7cc8;font-size:12px;font-weight:bold}
+.isp_guide-st2 .desc .section >em{display:inline-block;margin-bottom:6px;color:#424242;font-size:12px;font-weight:bold}
+.isp_guide-st2 .desc .section .bulList{margin-bottom:15px}
+.isp_guide-st2 .w-type{background-color: #f0f0f0;padding: 0 7px 7px 7px;margin-top: 10px;}
+.isp_guide-st2 .w-type .stepArea {margin-top: 0;}
+.isp_guide-st2 .w-type .stepArea li{background-color: #fff;}
+.isp_guide-st2 .type{padding:10px 0;text-align:center}
+.isp_guide-st2 .type .arrow_box{display:inline-block;width:180px;text-align:center;position: relative;}
+.isp_guide-st2 .type .arrow_box:after{content: '';display: block;border-left:90px solid transparent;border-right:90px solid transparent;border-top:20px solid #d5d5d5;border-bottom:0;}
+.isp_guide-st2 .type .arrow_box:before{content: '';display: block;position: absolute;bottom: 1px;border-left:90px solid transparent;border-right:90px solid transparent;border-top:20px solid #f0f0f0;border-bottom:0;}
+.isp_guide-st2 .type .arrow_box >p{padding:12px 12px 0 12px;border:1px solid #d5d5d5;font-size:11px;line-height:1.5}
+/* ----------------------------------- 해외패키지 - 결제 기능 추가 ------------------------------------------------------------------------------- */

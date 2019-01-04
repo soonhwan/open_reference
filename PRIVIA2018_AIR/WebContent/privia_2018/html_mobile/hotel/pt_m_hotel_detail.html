@@ -135,11 +135,11 @@
                     <div class="qsb-cont-box multi">
                         <div class="qsb-cont-l">
                             <div class="qsb-cont qsb-dates">
-                                <a href="#" class="qsb-area">
+                                <a href="#" class="qsb-area on">
                                     <span class="qsb-label-hide">숙박날짜</span>
                                     <span class="qsb-input">
                                         <span class="label">숙박날짜</span>
-                                        <span class="result"></span>
+                                        <span class="result">12월 01일 - 12월 06일</span>
                                     </span>
                                 </a>
                             </div>
@@ -188,9 +188,72 @@
             <a href="#" class="btn-share"><span class="a11y">공유하기</span></a>
           </div><!-- //htl-detail-room -->
           <div class="htl-detail-cont">
-            <div class="htl-detail-sec1">
+            <div class="htl-detail-inner">
               <span class="htl-grade"><span class="txt">3성급</span> <i></i><i></i><i></i></span>
-            </div><!-- //htl-detail-sec1 -->
+              <span class="htl-title">베스트 웨스턴 프리미어 로얄티티 티 리에주 투어 에펠</span>
+              <span class="htl-eval">4.5</span>
+              <span class="htl-title-en">Best Western Premier Opera Liege</span>
+              <span class="htl-coupon"><a href="#">쿠폰 다운로드 하기</a></span>
+            </div><!-- //htl-detail-inner -->
+            <div class="htl-detail-gmap">
+              <span class="htl-loca">9 Rue de Liege, 53434 Paris, France</span>
+              <div id="mapArea"></div>
+              <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCSQ52D13UwKZ7SntXHNKqBZMgsQgoWWD0&signed_in=true"></script>
+      				<script>
+              var map;
+							var priviaMarker = new google.maps.LatLng(37.567468, 126.988159);
+							var marker;
+							function initialize() {
+								var mapOptions = {
+									zoom: 17,
+									center: priviaMarker,
+									mapTypeId: google.maps.MapTypeId.ROADMAP
+								};
+								map = new google.maps.Map(document.getElementById('mapArea'),mapOptions);
+								var priviaIcon = new google.maps.MarkerImage("/images/front/travel/contents/privia-marker.png", null, null, null, new google.maps.Size(15,21));
+								marker = new google.maps.Marker({
+									position: priviaMarker,
+									map: map,
+									icon: priviaIcon
+								});
+							}
+							google.maps.event.addDomListener(window, 'load', initialize);
+      				</script>
+            </div><!-- //htl-detail-gmap -->
+            <ul class="htl-dlist">
+              <li>
+                <dl>
+                  <dt>숙소 상세 정보</dt>
+                  <dd>
+                    <div class="inner">
+                      <span class="stit">편의시설</span>
+                      <span class="btn-base bb-st5"><a href="#">모두보기</a></span>
+                      <ul class="fac-list">
+                        <li></li>
+                      </ul>
+                    </div>
+                  </dd>
+                </dl>
+              </li>
+              <li>
+                <dl>
+                  <dt>대표 객실 정보</dt>
+                  <dd></dd>
+                </dl>
+              </li>
+              <li>
+                <dl>
+                  <dt>상품 Q&A</dt>
+                  <dd></dd>
+                </dl>
+              </li>
+              <li>
+                <dl>
+                  <dt>투숙객 평점 <span>총 100개의 평가 기반</span></dt>
+                  <dd></dd>
+                </dl>
+              </li>
+            </ul>
           </div><!-- //htl-detail-cont -->
         </div><!-- //htl-detail-wrap -->
       </section>

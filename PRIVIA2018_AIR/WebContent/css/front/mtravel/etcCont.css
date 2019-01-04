@@ -90,3 +90,12 @@ a.kakao:after{display:block;content:'';position:absolute;top:0;left:40px;width:1
 .coupon-util li a{display:block;width:40px;height:40px;font-size:0;overflow:hidden;text-indent:-999px;background:url(/images/front/mtravel/common/btn-view-util.png) no-repeat 0 0;background-size:40px;}
 .coupon-util li a.btn-link{background-position:0 -55px;}
 .coupon-view img{border-radius:6px;}
+
+/* myhyundai */
+.myhyundai{position:relative;}
+.myhyundai .bc-mgt{position:absolute;top:50%;margin-top:-30px;right:20px;}
+.myhyundai .bc-mgt a{padding:6px 29px 7px 29px;}
+.hcc-card-list{border-top:1px solid #ccc;border-bottom:1px solid #ccc;}
+.hcc-card-list li{border-bottom:1px solid #ccc;padding:15px 0;}
+.hcc-card-list li:last-child{border-bottom:none;}
+

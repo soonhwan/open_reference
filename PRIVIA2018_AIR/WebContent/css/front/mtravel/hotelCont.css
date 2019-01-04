@@ -116,17 +116,19 @@ jQuery mobile을 걷어내고 css 작업
 .fs-calendar-wrap .uis-datepicker .ui-datepicker td.ui-datepicker-week-end:nth-child(7n) span{color:#2981e2;}
 .fs-calendar-wrap .uis-datepicker .ui-datepicker .ui-datepicker-title *{font-size:18px;font-weight:bold;}
 .fs-calendar-wrap .uis-datepicker .ui-datepicker-calendar tbody tr td.ui-datepicker-today span:before, .fs-calendar-wrap .uis-datepicker .ui-datepicker-calendar tbody tr td.ui-datepicker-today a:before{content:'';/*width:40px;left:50%;margin-left:-20px;*/}
-.fs-calendar-wrap .uis-datepicker .dp-highlight .ui-state-default{border-radius:50%;}
+/*.fs-calendar-wrap .uis-datepicker .dp-highlight .ui-state-default{border-radius:50%;}*/
 .fs-calendar-wrap.ot-shuttle .uis-datepicker .dp-highlight.dp-first:after{content:'체크인'}
 .fs-calendar-wrap.ot-shuttle .uis-datepicker .dp-highlight.dp-end:after{content:'체크아웃'}
-.fs-calendar-wrap.ot-shuttle .uis-datepicker .dp-highlight.dp-first:after,
+/*.fs-calendar-wrap.ot-shuttle .uis-datepicker .dp-highlight.dp-first:after,
 .fs-calendar-wrap.ot-shuttle .uis-datepicker .dp-highlight.dp-end:after{font-size:10px;color:#f30774;bottom:-3px;}
 .fs-calendar-wrap .uis-datepicker .dp-highlight.dp-first .ui-state-default:after,
 .fs-calendar-wrap .uis-datepicker .dp-highlight.dp-end .ui-state-default:after{display:none;}
+*/
+/*
 .fs-calendar-wrap .uis-datepicker .ui-datepicker-calendar tbody tr td a,
 .fs-calendar-wrap .uis-datepicker .ui-datepicker-calendar tbody tr td span{width:28px;height:28px;line-height:28px;margin-bottom:10px;}
-
 .fs-calendar-wrap .uis-datepicker .dp-highlight.pd-between:before,.fs-calendar-wrap  .uis-datepicker .dp-highlight.dp-first:before,.fs-calendar-wrap  .uis-datepicker .dp-highlight.dp-end:before{height:20px;}
+*/
 
 .fs-travelers-wrap{padding:10px;height:557px;overflow-y:auto;background:#ebeef2;}
 .fs-travelers-wrap .roomUnit{margin-top:10px;padding:0 20px 20px;background:#fff;border-radius:4px;}
@@ -282,7 +284,26 @@ jQuery mobile을 걷어내고 css 작업
 .htl-detail-room.swiper-container-horizontal>.swiper-pagination-bullets .swiper-pagination-bullet{margin:0 3px;}
 .htl-detail-room .btn-share{display:block;background:url(/images/front/mtravel/contents/icon-sub-secM.png) -3px -3px no-repeat;background-size:180px;width:24px;height:24px;position:absolute;right:18px;top:18px;z-index:1;}
 .htl-detail-room .btn-wish{display:block;background:url(/images/front/mtravel/contents/icon-sub-secM.png) -3px -26px no-repeat;background-size:180px;width:24px;height:24px;position:absolute;right:55px;top:18px;z-index:1;}
-.htl-detail-cont .htl-detail-sec1{padding:20px;}
-.htl-detail-cont .htl-detail-sec1 .htl-grade{font-size:0;}
-.htl-detail-cont .htl-detail-sec1 .htl-grade .txt{font-size:12px;color:rgba(0, 0, 0, 0.5);vertical-align:middle;}
-.htl-detail-cont .htl-detail-sec1 .htl-grade i{margin-left:2px;display:inline-block;width:12px;height:12px;background:url(/images/front/mtravel/contents/icon-sub-secM.png) -162px -59px no-repeat;background-size:180px;vertical-align:middle;}
+.htl-detail-cont .htl-detail-inner{padding:20px;}
+.htl-detail-cont .htl-grade{display:block;font-size:0;}
+.htl-detail-cont .htl-grade .txt{font-size:12px;color:rgba(0, 0, 0, 0.5);vertical-align:middle;}
+.htl-detail-cont .htl-grade i{margin-left:2px;display:inline-block;width:12px;height:12px;background:url(/images/front/mtravel/contents/icon-sub-secM.png) -162px -59px no-repeat;background-size:180px;vertical-align:middle;}
+.htl-detail-cont .htl-title{font-size:24px;font-weight:bold;line-height:30px;max-height:60px;}
+.htl-detail-cont .htl-title-en{font-size:12px;line-height:2.5;display:block;color:rgba(0,0,0,0.5)}
+.htl-detail-cont .htl-eval{font-size:16px;font-weight:bold;color:#fff;display:inline-block;padding:1px 8px 2px;border-radius:3px;background:#aaa;position: relative;margin-left:5px;}
+.htl-detail-cont .htl-eval:after{content:'';display:block;width:0;height:0;border-left:6px solid transparent;border-right:0px solid transparent;border-top:6px solid #aaa;position: absolute;left:-4px;top: 0;}
+.htl-detail-cont .htl-coupon{margin-top:20px;display:block;}
+.htl-detail-cont .htl-coupon a{position:relative;padding:10px 10px 10px 50px;display:block;font-size:14px;font-weight:bold;color:#000;background:#ebeef2;border-radius:4px;}
+.htl-detail-cont .htl-coupon a:before{content:"";display:block;width:17px;height:11px;background:gold;position: absolute;left:20px;top:15px;}
+.htl-detail-cont .htl-loca{position:relative;display:block;margin:0 20px;padding-left:14px;font-size:12px;color:#000;}
+.htl-detail-cont .htl-loca:before{position: absolute;left:0;top:4px;content:"";display:block;width:9px;height:11px;background:url(/images/front/mtravel/contents/icon-sub-secM.png) -114px -62.5px no-repeat;background-size:180px;}
+.htl-detail-cont #mapArea{margin-top:8px;height:105px;}
+.htl-detail-cont .htl-dlist li dt{position: relative;margin:0 20px;padding:24px 0;font-size:16px;font-weight:bold;color:#000;border-bottom:1px solid #ccc;}
+.htl-detail-cont .htl-dlist li dt span{font-size:12px;color:rgba(0,0,0,0.5);margin-left:5px;}
+.htl-detail-cont .htl-dlist li dt:after{content: '';display: block;width: 8px;height: 14px;position: absolute;top: 50%;margin-top: -7px;right: 0;background-position: -35px -85px;background-image: url(/images/front/mtravel/contents/icon-common-secM.png);-webkit-background-size: 160px;background-size: 160px;}
+.htl-detail-cont .htl-dlist li dd .inner{position:relative;padding:24px 20px;}
+.htl-detail-cont .htl-dlist li dd .inner .stit{font-size:16px;font-weight:bold;color:#000;}
+.htl-detail-cont .htl-dlist li dd .inner .btn-base{position: absolute;right:20px;top:20px;}
+.htl-detail-cont .fac-list{width:100%;}
+.htl-detail-cont .fac-list li{float:left;width:20%;}
+.htl-detail-cont .fac-list{}

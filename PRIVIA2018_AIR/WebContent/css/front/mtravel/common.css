@@ -1448,7 +1448,6 @@ box-sizing: border-box;
 /* btn - 일반버튼3 */
 .bb-st3 {width: 100%;}
 .bb-st3 a, .bb-st3 button, .bb-st3 input {font-size:16px;color: #fff;min-width: 60px;padding: 13px 14px 14px 14px;background-color: #000;border-radius: 4px;}
-.bb-st3.bc-mgt a, .bb-st3.bc-mgt button, .bb-st3.bc-mgt input {background-color: #f30774;}
 .bb-st3.bc-wht a, .bb-st3.bc-wht button, .bb-st3.bc-wht input {background-color: #fff;border:1px solid #000;color:#000;}
 /* btn - 일반버튼4 */
 .bb-st4 {width: 100%;}
@@ -1461,6 +1460,8 @@ box-sizing: border-box;
 /* btn - 일반버튼6 */
 .bb-st6 a, .bb-st6 button, .bb-st6 input {font-size:14px;color: #000;font-weight: 400;min-width: 100px;padding: 8px 14px 10px 14px;background-color: #fff;border-radius: 4px;border:1px solid #000}
 .bb-st6.bc-black a, .bb-st6.bc-black button, .bb-st6.bc-black input {color: #fff;background-color: #000;border: 0;padding: 9px 15px 11px 15px;}
+/* btn - 마젠타 버튼 */
+.bc-mgt a, .bc-mgt button, .bc-mgt input {background-color: #f30774;}
 
 /* btn - select-st1 같은 style */
 .bb-select-st1 {position: relative;}
