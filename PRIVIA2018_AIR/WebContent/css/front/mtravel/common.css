@@ -1429,6 +1429,7 @@ box-sizing: border-box;
 .lbr-st1 span {font-size:10px;color: #000;border:1px solid #666;text-align: center;min-width: 45px;padding: 0 6px;border-radius:10px;}
 /* label - radius 라벨2 */ 
 .lbr-st2 span {font-size:12px;color: #288ecc;font-weight: 600;border:1px solid #288ecc;text-align: center;min-width: 44px;padding: 1px 12px 3px 12px;border-radius:12px;}
+.lbr-st2.mgt span{color:#f30774;border:1px solid #f30774;}
 
 /* ------------- btn base style */
 .btn-base {display: inline-block;vertical-align: middle;}
@@ -1520,6 +1521,7 @@ box-sizing: border-box;
 .input-baseV2.invalid.fixed .label .txt {color: #000;}
 .input-baseV2.invalid.fixed .input{border-bottom:1px solid #e1e1e1;}
 .input-baseV2.invalid.fixed .input[disabled]{background-color:transparent;}
+.input-baseV2.invalid.fixed .input.bold[value]{font-weight:bold;}
 
 /* input-baseV2 - input-st1 */
 
@@ -1576,6 +1578,8 @@ box-sizing: border-box;
 /* ------------- selectbox style */
 .select-base {transition: opacity 0.3s;display: inline-block;vertical-align: middle;}
 .select-base select {-webkit-appearance: none;border-radius: 0;outline: none;}
+.select-base.sel-aright select {padding-right: 24px;}
+.select-base.sel-aright select, .select-base.sel-aright select option {direction: rtl;text-align: right;}
 /* select1 */
 .select-st1 {width: 100%;position: relative;}
 .select-st1 select {display: block;width: 100%;padding: 12px 0 13px 0;font-size: 16px;color: #000;font-weight: 600;border:0;border-bottom: 1px solid #000;background-color: #fff;}
@@ -1654,6 +1658,11 @@ box-sizing: border-box;
 .c-table-st1 td.leftp0 {text-align: left;padding-left: 0;}
 .c-table-st1 td.rightp0 {text-align: right;padding-right: 0;}
 .c-table-st1 td:last-child{border-right:0;}
+
+.c-table-st2{width:100%;}
+.c-table-st2 th{border-top:1px solid #ccc;text-align:left;color:#999;padding:15px 0;vertical-align:top;}
+.c-table-st2 td{border-top:1px solid #ccc;text-align:left;padding:15px 0;}
+.c-table-st2 .bdb{border-bottom:1px solid #ccc;}
 
 /* ------------- list style */
 .c-list-st1 > li {border-bottom: 1px solid #ccc;position: relative;}

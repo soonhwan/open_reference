@@ -103,17 +103,27 @@
 			}
 		});
 	}
+	$.fn.closest_descendent = function(filter) {
+		var $found = $(),
+			$currentSet = this; // Current place
+		while ($currentSet.length) {
+			$found = $currentSet.filter(filter);
+			if ($found.length) break;  // At least one match: break loop
+			// Get all children of the current set
+			$currentSet = $currentSet.children();
+		}
+		return $found.first(); // Return first match of the collection
+	} 
 	$.fn.setTabMenu = function(){
 		return this.each(function(){
-			var $this = $(this);
-			$('.ui-tab-menu a', $this).on('click', function(e){
+			$('.ui-tab-menu a').on('click', this, function(e){
 				var wrapTab = $(this).closest('.o-tab-menu');
 				var tabMenu = $(this).closest('.ui-tab-menu');
 				if(!$(this).closest('li').hasClass('on')){
 					var show = $(this).attr('href');
-					wrapTab.find('.tab-on').eq(0).removeClass('tab-on');
-					wrapTab.find(show).eq(0).addClass('tab-on');
-					tabMenu.find('.on').eq(0).removeClass('on');
+					wrapTab.closest_descendent('.tab-on').removeClass('tab-on');
+					wrapTab.find(show).addClass('tab-on');
+					tabMenu.find('.on').removeClass('on');
 					$(this).closest('li').addClass('on');
 				}
 				e.preventDefault();
@@ -2036,7 +2046,7 @@ var pvmFrontScript = window.pvmFrontScript || (function(){
 				$('.o-expand-wrap .o-expand-btn').die('click').live('click', function(e){
 					var _this = $(this);
 					var $wExpand = _this.closest('.o-expand-wrap');
-					var $expandCont = $wExpand.find('.o-expand-cont').eq(0);
+					var $expandCont = $wExpand.find('.o-expand-cont');
 					if($wExpand.hasClass('o-expanded')){
 						$wExpand.removeClass('o-expanded');
 						$expandCont.css({'height' : $expandCont.prop('scrollHeight')+'px'});
@@ -2059,19 +2069,7 @@ var pvmFrontScript = window.pvmFrontScript || (function(){
 			if($('.o-acdi-click').length > 0){
 				$('.o-acdi-click').off('click').on('click', function(e){
 					var _this = $(this);
-					var show = _this.attr('href');
-					/*if(_this.hasClass('o-ac-on')){
-						$(show).slideUp('fast', function(){
-							_this.removeClass('o-ac-on');
-							$(show).removeClass('o-ac-on');
-						});
-					}
-					else{
-						_this.addClass('o-ac-on');
-						$(show).slideDown('fast', function(){
-							$(show).addClass('o-ac-on');
-						});
-					}*/					
+					var show = _this.attr('href');				
 					$(show).slideToggle('fast', function(){
 						_this.toggleClass('o-ac-on');
 						$(show).toggleClass('o-ac-on');

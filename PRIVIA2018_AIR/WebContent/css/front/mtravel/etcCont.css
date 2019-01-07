@@ -13,7 +13,7 @@
 .login-sns{width:100%;overflow:hidden;text-align:center;}
 .login-sns li{display:inline-block;overflow:hidden;width:31.9%;height:40px;margin-left:1%;border-radius:4px;}
 .login-sns li:first-child{margin-left:0;}
-.login-sns li a{display:block;position:relative;height:100%;padding:11px 0 10px 43%;font-size:11px;color:#fff;border:0;overflow:hidden;background:url(/images/front/mtravel/common/bg-sns-icon-new2.png) 0 0 no-repeat;background-size:25px;}
+.login-sns li a{display:block;position:relative;height:100%;padding:11px 0 10px 43%;font-size:12px;color:#fff;border:0;overflow:hidden;background:url(/images/front/mtravel/common/bg-sns-icon-new2.png) 0 0 no-repeat;background-size:25px;}
 .login-sns li a.naver{border:1px solid #1eb400;background-color:#1ec800;background-position:8px -15%;}
 .login-sns li a.facebook{border:1px solid #22436b;background-color:#3c5a99;background-position:8px 46%;}
 .login-sns li a.kakao{border:1px solid #e0be12;background-color:#ffde00;background-position:8px 110%;color:#381e1f;}
@@ -95,7 +95,44 @@ a.kakao:after{display:block;content:'';position:absolute;top:0;left:40px;width:1
 .myhyundai{position:relative;}
 .myhyundai .bc-mgt{position:absolute;top:50%;margin-top:-30px;right:20px;}
 .myhyundai .bc-mgt a{padding:6px 29px 7px 29px;}
+
 .hcc-card-list{border-top:1px solid #ccc;border-bottom:1px solid #ccc;}
 .hcc-card-list li{border-bottom:1px solid #ccc;padding:15px 0;}
 .hcc-card-list li:last-child{border-bottom:none;}
 
+.nbul:before{display:none !important;}
+.nbul li{font-size:12px;line-height:18px;margin-top:0;color:#999;}
+.nbul .line li:before{height:1px;background-color:#999;}
+
+.voucher-list .c-box-st5{padding:35px 20px !important;border:none !important;}
+.voucher-list .c-box-st5:after{display:none !important;}
+.voucher-list .c-box-st5:before{display:none !important;}
+.voucher-list li{position:relative;border:1px solid #ccc;border-radius:4px;margin-bottom:10px;padding:25px 20px 25px 60px;}
+.voucher-list li:before{display:block;content:'';position:absolute;top:21px;left:25px;width:28px;height:28px;}
+.voucher-list li .title{margin-bottom:5px;font-size:16px;font-family:'YMB';}
+.voucher-list li .txt,
+.voucher-list li .u-date{margin-bottom:5px;font-size:14px;}
+.voucher-list li .date{font-size:12px;color:#999;}
+.voucher-list li .lbr-st2{position:absolute;bottom:25px;right:20px;}
+.voucher-list li.used,
+.voucher-list li.expired{border:none;}
+.voucher-list li.used:after,
+.voucher-list li.expired:after{display:block;content:'';position:absolute;top:0;left:0;z-index:2;width:100%;height:100%;background:#f5f5f5;opacity:.6;}
+.voucher-list li.used .lbr-st2 span,
+.voucher-list li.expired .lbr-st2 span{color:#aaa;border:1px solid #aaa;}
+.voucher-list.purple li:before{background:url(/images/front/mtravel/common/bg-pvoucher.png) no-repeat 0 0;background-size:28px;}
+.voucher-list.purple li .title{color:#4e2a53;}
+.voucher-list.green li:before{background:url(/images/front/mtravel/common/bg-gvoucher.png) no-repeat 0 0;background-size:28px;}
+.voucher-list.green li .title{color:#006428;}
+
+.voucher-list.mygift li{position:relative;border:1px solid #ccc;border-radius:4px;padding:40px 20px 20px;overflow:hidden;}
+.voucher-list.mygift li:after{display:block;content:'';position:absolute;top:20px;right:20px;width:96px;height:12px;background:url(/images/front/mtravel/contents/logo-privia.png) no-repeat 0 0;background-size:96px;}
+.voucher-list.mygift li .lbr-st2{position:absolute;top:20px;left:20px;right:unset;bottom:unset;}
+.voucher-list.mygift li .price{font-weight:bold;font-size:16px;}
+.voucher-list.mygift li .price span{font-weight:bold;font-size:30px;}
+.voucher-list.mygift li .s-price,
+.voucher-list.mygift li .tcode,
+.voucher-list.mygift li .date{font-size:12px;color:#999;}
+.voucher-list.mygift li.unusable{border:none;}
+.voucher-list.mygift li.unusable:before{display:block;content:'';position:absolute;top:0;left:0;z-index:2;width:100%;height:100%;background:#f5f5f5;opacity:.6;}
+.voucher-list.mygift li.unusable .lbr-st2 span{color:#aaa;border:1px solid #aaa;}

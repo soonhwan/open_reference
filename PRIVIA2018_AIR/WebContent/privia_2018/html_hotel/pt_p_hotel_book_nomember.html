@@ -490,9 +490,9 @@
         												</li>
         												<li>
 																	<div class="tit">
-                                    <em>아동</em> <span class="age">(만2세 ~ 11세)</span>
-                                    <span class="help-tooltip heltt-st2 small down">
-        															<span class="over age-tip" title="<span>아동 나이 체크인 시점 만 11세 이하</span><span>아동 추가 시 침대를 쉐어(Share) 하는 조건</span><span>보조침대 추가 시 인원 추가 및 별도 문의</span><span>동반 아동 인원 미입력 시 투숙이 제한될 수 있습니다.</span>">?</span>
+                                    <em>아동</em>
+                                    <span class="help-tooltip heltt-st2 small">
+        															<span class="over age-tip" title="<span>체크인 시점 만 2세 ~ 12세 미만</span><span>침대를 공유 하는 조건</span><span>보조침대 추가 시 별도 문의</span><span>동반아동 인원 미입력 시 투숙 제한</span>">?</span>
         														</span>
                                   </div>
         													<div class="uis-custom-number child" data-ucn='{"type":"child1","min":0,"max":3}'>
@@ -579,9 +579,9 @@
         												</li>
         												<li>
 																	<div class="tit">
-                                    <em>아동</em> <span class="age">(만2세 ~ 11세)</span>
-                                    <span class="help-tooltip heltt-st2 small down">
-        															<span class="over age-tip" title="<span>아동 나이 체크인 시점 만 11세 이하</span><span>아동 추가 시 침대를 쉐어(Share) 하는 조건</span><span>보조침대 추가 시 인원 추가 및 별도 문의</span><span>동반 아동 인원 미입력 시 투숙이 제한될 수 있습니다.</span>">?</span>
+                                    <em>아동</em>
+                                    <span class="help-tooltip heltt-st2 small">
+        															<span class="over age-tip" title="<span>체크인 시점 만 2세 ~ 12세 미만</span><span>침대를 공유 하는 조건</span><span>보조침대 추가 시 별도 문의</span><span>동반아동 인원 미입력 시 투숙 제한</span>">?</span>
         														</span>
                                   </div>
         													<div class="uis-custom-number child" data-ucn='{"type":"child2","min":0,"max":3}'>
@@ -668,9 +668,9 @@
         												</li>
         												<li>
 																	<div class="tit">
-                                    <em>아동</em> <span class="age">(만2세 ~ 11세)</span>
-                                    <span class="help-tooltip heltt-st2 small down">
-        															<span class="over age-tip" title="<span>아동 나이 체크인 시점 만 11세 이하</span><span>아동 추가 시 침대를 쉐어(Share) 하는 조건</span><span>보조침대 추가 시 인원 추가 및 별도 문의</span><span>동반 아동 인원 미입력 시 투숙이 제한될 수 있습니다.</span>">?</span>
+                                    <em>아동</em>
+                                    <span class="help-tooltip heltt-st2 small">
+        															<span class="over age-tip" title="<span>체크인 시점 만 2세 ~ 12세 미만</span><span>침대를 공유 하는 조건</span><span>보조침대 추가 시 별도 문의</span><span>동반아동 인원 미입력 시 투숙 제한</span>">?</span>
         														</span>
                                   </div>
         													<div class="uis-custom-number child" data-ucn='{"type":"child3","min":0,"max":3}'>
@@ -915,11 +915,12 @@
 							</div>
 						</div>
 						<ul class="dtxt-list">
-							<li>베드타입은 요청하실 수 있으나 확정사항은 아니며 일부 호텔의 경우 요청 자체가 불가능할 수 있습니다.</li>
+							<li class="red">베드타입은 요청하실 수 있으나 확정사항은 아니며 일부 호텔의 경우 요청 자체가 불가능할 수 있습니다.</li>
 							<li>총 요금은 세금과 봉사료가 포함된 요금이며 지역에 따라 체크인/아웃 시에 별도의 추가비용(city TAX, resort fee 등)이 청구될 수 있습니다</li>
 							<li>예약상태가 '대기'인 경우 객실이 확정되지 않으면 자동으로 결제가 취소되며 취소 수수료는 부과되지 않습니다.</li>
 							<li>일일 고시환율이 적용된 요금이며, 선택과 결제시점에 따라 요금이 달라질 수 있습니다.</li>
 							<li>동일한 룸 타입이더라도 예약조건에 따라 요금은 다를 수 있습니다.</li>
+							<li>만 19세 이하 미성년자의 단독 투숙은 불가하며, 호텔에 따라 만 20세 이상의 성인만 투숙이 가능한 호텔도 있습니다.</li>
 						</ul>
 					</div><!-- //book-detail-area -->
 
@@ -970,6 +971,12 @@
 							</tbody>
 						</table>
 						<p class="sm-info">※ 예약진행상황 및 정보전달을 위하여 정확한 연락처 및 이메일 정보를 입력해주시기 바랍니다.</p>
+						<div class="book-tail-box st1 chk-single" style="margin-top:20px;">
+							<span class="chk-base chk-st3">
+								<input type="checkbox" id="res-agree" class="a11y">
+								<label for="res-agree" class="label-base">예약진행상황 및 정보전달을 위하여 정확한 연락처 및 이메일 정보를 입력했음에 동의합니다.</label>
+							</span>
+						</div>
 					</div><!-- //book-detail-area -->
 
 					<div class="book-detail-area">
@@ -1439,7 +1446,7 @@
 															<ul class="dtxt-list st2">
 																<li>취소시점 이전에 취소하시면 수수료 없이 전액 환불되며, 취소시점 이후 취소 또는 변경 시 취소 수수료가 적용되어 환불되는 금액이 없을 수도 있습니다.</li>
 																<li>환불불가 또는 전액취소수수료로 표시된 예약 건은 전 일정 취소 및 변경 불가인 예약이므로 결제 이후 변경/취소/환불이 불가능한 상태가 됩니다. (단, 체크인 일자까지 120일 이상 남아 있는 경우 무료 취소 가능)</li>
-																<li>예약취소는 마이페이지를 통해 접수된 건만 처리되며, 업무시간(09:00~17:00) 이후 또는 주말 및 공휴일에 접수된 취소요청 건은 다음날 정상 영업일 업무시작(09:00)과 동시에 접수된 것으로 간주하여 처리됩니다.</li>
+																<li>예약취소는 마이페이지를 통해 접수된 건만 처리되며, <strong>업무시간(09:00~17:00) 이후 또는 주말 및 공휴일에 접수된 취소요청 건은 다음날 정상 영업일 업무시작(09:00)과 동시에 접수된 것</strong>으로 간주하여 처리됩니다.</li>
 																<li>예약 시 안내된 취소시점은 현지 사정에 의해 변경될 수 있으며 이 경우 별도로 안내해드립니다.</li>
 																<li>예약과 결제를 완료하였으나 해당 날짜에 체크인하지 않은 경우(NO-SHOW), 이용하지 않은 객실에 대해 환불되지 않습니다.</li>
 																<li>2박 이상 예약 후 별도의 연락 없이 첫째 날 체크인하지 않은 경우(NO-SHOW) 나머지 날짜에 대한 예약도 자동으로 취소될 수 있으며 환불되지 않을 수 있습니다.</li>
@@ -1588,7 +1595,7 @@
 								<label for="last-payment-agree" class="label-base on">결제할 상품의 상품명, 상품가격, 예약일시, 취소규정을 확인하였으며, 결제에 동의하시겠습니까? (전자상거래법 제8조 2항)</label>
 							</span>
 							<div class="book-tail-btn">
-								<span class="btn-base bb-st3 big bc-red"><a href="#"><em>266,000</em>원 결제하기</a></span>
+								<span class="btn-base bb-st3 big bc-mgt2"><a href="#"><em>266,000</em>원 결제하기</a></span>
 							</div>
 						</div><!-- //book-tail-info -->
 					</div><!-- //book-detail-area -->

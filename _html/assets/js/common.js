@@ -132,16 +132,30 @@
  * 설명   : jQuery 메서드 모음
  */
 (function ($, window, document, undefined) {
+	//closest 자식버전
+	$.fn.closest_descendent = function(filter) {
+		var $found = $(),
+			$currentSet = this; // Current place
+		while ($currentSet.length) {
+			$found = $currentSet.filter(filter);
+			if ($found.length) break;  // At least one match: break loop
+			// Get all children of the current set
+			$currentSet = $currentSet.children();
+		}
+		return $found.first(); // Return first match of the collection
+	} 
 	//탭메뉴
 	$.fn.setTabMenu = function(){
 		return this.each(function(){
 			var $this = $(this);
 			$('.ui-tab-menu a', $this).on('click', function(e){
+				var wrapTab = $(this).closest('.o-tab-menu');
+				var tabMenu = $(this).closest('.ui-tab-menu');
 				if(!$(this).closest('li').hasClass('on')){
 					var show = $(this).attr('href');
-					$this.find('.tab-on').removeClass('tab-on');
-					$this.find(show).addClass('tab-on');
-					$('.ui-tab-menu .on', $this).removeClass('on');
+					wrapTab.find('.tab-on').eq(0).removeClass('tab-on');
+					wrapTab.find(show).eq(0).addClass('tab-on');
+					tabMenu.find('.on').eq(0).removeClass('on');
 					$(this).closest('li').addClass('on');
 				}
 				e.preventDefault();
@@ -334,6 +348,40 @@ var frontScript = window.frontScript || (function(){
 		comContents: function(){		
 			//탭메뉴(공통)
 			$('.o-tab-menu').setTabMenu();	
+			
+			//Accordion UI
+			if($('.o-acdi-click').length > 0){
+				$('.o-acdi-click').off('click').on('click', function(e){
+					var _this = $(this);
+					var show = _this.attr('href');				
+					$(show).slideToggle('fast', function(){
+						_this.toggleClass('o-ac-on');
+						$(show).toggleClass('o-ac-on');
+					});
+					e.preventDefault();
+				});	
+			}
+			
+			//input-baseV2
+			if($('.input-baseV2').length > 0){
+				$('.input-baseV2 .input').on('focusout', function(){
+					var inp = $(this).closest('.input-baseV2')
+					if($(this).val() != '' && !inp.hasClass('typed')){
+						inp.addClass('typed');
+					}
+					else if($(this).val() == '' && inp.hasClass('typed')){
+						inp.removeClass('typed');
+					}				
+				});
+
+				//input 내용 삭제
+				$('.input-baseV2 .btn-clear').on('vclick', function(e){ 
+					var inp = $(this).closest('.input-baseV2').find('.input');
+					inp.val('');
+					e.preventDefault(); 
+					inp.focus(); 
+				});				
+			}
 			
 			//외부팝업 ajax 호출
 			if($('.ajax-popup-link').length > 0){

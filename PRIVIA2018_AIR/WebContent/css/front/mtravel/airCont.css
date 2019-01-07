@@ -96,7 +96,7 @@
 .s-rec-list-items .lri-sum-swiper .list {padding:0 10px;}
 .s-rec-list-items .lri-sum-swiper .swiper-slide {width: 130px;margin-right: 12px;display: inline-block;}
 .s-rec-list-items .lri-sum-swiper.is-clicked .swiper-slide {opacity: 0.3;pointer-events: none;}
-.s-rec-list-items .lri-sum-swiper.is-clicked .swiper-slide.swiper-slide-active {opacity: 1;}
+.s-rec-list-items .lri-sum-swiper.is-clicked .swiper-slide.open {opacity: 1;}
 /*.s-rec-list-items .lri-sum-swiper .is-clicked {opacity: 0.5;}*/
 .s-rec-list-items .lri-sum-swiper .o-box {display: block;background-color: #fff;padding: 12px 8px;border-radius: 5px;position: relative;overflow: hidden;}
 .s-rec-list-items .lri-sum-swiper .o-box:before {content: '';display: block;width: 12px;height: 12px;background-color: #288ecc;border-radius: 100%;position: absolute;top: 50%;margin-top: -6px;left: -6px;}

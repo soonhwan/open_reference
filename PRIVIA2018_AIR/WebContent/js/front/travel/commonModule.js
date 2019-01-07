@@ -207,17 +207,27 @@
 			$this.addClass('radio-initialized');
 		});
 	}
+	$.fn.closest_descendent = function(filter) {
+		var $found = $(),
+			$currentSet = this; // Current place
+		while ($currentSet.length) {
+			$found = $currentSet.filter(filter);
+			if ($found.length) break;  // At least one match: break loop
+			// Get all children of the current set
+			$currentSet = $currentSet.children();
+		}
+		return $found.first(); // Return first match of the collection
+	} 
 	$.fn.setTabMenu = function(){
 		return this.each(function(){
-			var $this = $(this);
-			$('.ui-tab-menu a', $this).on('click', function(e){
+			$('.ui-tab-menu a').on('click', this, function(e){
 				var wrapTab = $(this).closest('.o-tab-menu');
 				var tabMenu = $(this).closest('.ui-tab-menu');
 				if(!$(this).closest('li').hasClass('on')){
 					var show = $(this).attr('href');
-					wrapTab.find('.tab-on').eq(0).removeClass('tab-on');
-					wrapTab.find(show).eq(0).addClass('tab-on');
-					tabMenu.find('.on').eq(0).removeClass('on');
+					wrapTab.closest_descendent('.tab-on').removeClass('tab-on');
+					wrapTab.find(show).addClass('tab-on');
+					tabMenu.find('.on').removeClass('on');
 					$(this).closest('li').addClass('on');
 				}
 				e.preventDefault();

@@ -1252,11 +1252,13 @@
                     autoplay: false,
                     touchStartForcePreventDefault: true,
                     freeMode: true,
+                    //paginationClickable: true,
                     slideToClickedSlide: true,
                     on: {
                         click: function(){
                             if(recAirlineSwiper.allowTouchMove){
                                 var $expandCont = $('.s-rec-list-items .lri-detail-swiper');
+                                $(this.clickedSlide).addClass('open');
                                 recAirlineDetailSwiper.slideTo(this.clickedIndex,10);   
                                 $expandCont.slideDown('fast');
                                 recAirlineDetailSwiper.updateAutoHeight(0);
@@ -1299,6 +1301,7 @@
                     });
                     recAirlineSwiper.allowTouchMove = true;
                     $('.s-rec-list-items .lri-sum-swiper').removeClass('is-clicked');
+                    $('.s-rec-list-items .lri-sum-swiper .open').removeClass('open');
                 });
                 
                 //청구할인 클릭

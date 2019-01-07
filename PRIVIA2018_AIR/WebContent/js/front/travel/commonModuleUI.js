@@ -775,6 +775,7 @@ var pvFrontComponent = function(){
 			}
 		});
 	}
+    if($('.age-tip').length>0) $('.age-tip').tooltip({align:'r'});
 };
 
 

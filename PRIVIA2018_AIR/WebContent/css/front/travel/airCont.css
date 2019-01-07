@@ -60,6 +60,7 @@
 
 /* 항공선택 진행 현황 */
 .htp-list-sec {min-height: 1000px;}
+.htp-list-sec.on {padding-top: 80px;}
 .htp-listr-header {position: relative;}
 .htp-air-step {background-color: #eef1f6;padding: 13px 29px;border-radius: 5px;margin-bottom: 35px;position: relative;}
 .htp-air-step .step-list {margin: 5px 0;}

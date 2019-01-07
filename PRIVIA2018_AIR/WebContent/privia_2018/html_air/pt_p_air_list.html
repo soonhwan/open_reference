@@ -42,7 +42,7 @@ $(function(){
 		var $htpList = $('.htp-list-sec').find('.htp-res-list-air');
 		var $htpLoading = $('.htp-res-loading');
 		var loadFlag = true;
-		var dummyData = '<li><div class="inset"><div class="inset-cell"><div class="htla-airline"><div class="hl-airline-logo"><img src="/images/front/travel/contents/logo-air/KE.png" alt="KE"><span class="name">대한항공</span></div><div class="hl-airline-info"><span class="txt">공동운항</span><span class="help-tooltip heltt-st2 small"><span class="over">?</span><span class="cont">[AA]-[BB] 구간 실제 OOOO 탑승<br>[CC]-[DD] 구간 실제 OOOOO 탑승</span></span></div></div></div><div class="inset-cell"><div class="htla-route"><div class="hl-route-time"><div class="dep-time"><span class="time">10:35</span><span class="txt">ICN T1</span><span class="help-tooltip heltt-st2 down"><span class="cont">인천 / 터미널 1</span></span></div><div class="info-time"><span class="time-line"><span class="time2">16시간 22분</span></span><span class="txt">2회 경유 DTT, LAX</span><span class="help-tooltip heltt-st2 small down"><span class="cont">디트로이트에서 환승 2시간 30분<br>로스앤젤레스에서 환승 3시간</span></span></div><div class="arr-time"><span class="time">23:15 <span class="gap">+1</span></span><span class="txt">LGA</span><span class="help-tooltip heltt-st2 down"><span class="cont">인천 / 터미널 1</span></span></div></div><div class="hl-route-info"><span class="btn-base bb-st6"><a href="#">상세스케줄</a></span></div></div></div><div class="inset-cell"><div class="htla-info"><div class="hl-info-benefit"><span>마일리지 공제</span><span>좌석승급</span></div></div></div><div class="inset-cell"><div class="htla-pricelist"><ul class="hl-pricelist-info"><li><span class="txt">현대카드 <em>10%</em> 청구 할인</span><span class="help-tooltip heltt-st2 small up"><span class="over">?</span><span class="cont">현대카드 청구 할인은 카드별 할인율이(7%/10%) 상이하며, 전월실적 충족 시 연간한도 1천만원 내에서 적용됩니다.<br>현대카드 Chameleon은 설정한 카드에 따라 혜택 및	할인금액 상이하게 적용됩니다.</span></span><strong class="price">876,909원</strong></li><li><span class="txt">현대카드 <em>7%</em> 청구 할인</span><strong class="price">976,909원</strong></li><li class="privia-price"><span class="txt">PRIVIA 특가</span><span class="help-tooltip heltt-st2 small down"><span class="over">?</span><span class="cont"><strong>현대카드 청구 할인 미적용 회원 및 *다른 결제수단으로 구매 시</strong> 적용됩니다.<br>(* 다른 결제수단이란? 현대카드가 아닌 기타 신용카드, 현금) 현대카드 청구 할인과 중복 적용되지 않습니다.</span></span><strong class="price">1,876,909원</strong></li></ul><div class="show-total-price"><span class="area-over"><span class="a11y">총 요금 자세히 보기</span></span><span class="help-tooltip heltt-st2 left"><span class="cont"><table class="ttip-total-ptbl"><caption>총 요금 자세히 보기</caption><colgroup><col width="25%"><col width="25%"><col width="25%"><col width="25%"></colgroup><tbody><tr><td colspan="2"><strong>[성인] 1,000,000원</strong> X2</td><td><strong>[아동] 1,000,000원</strong></td><td><strong>[유아] 1,000,000원</strong> X2</td></tr><tr><th>항공권료</th><td>800,000원</td><td>800,000원</td><td>800,000원</td></tr><tr><th>유류할증료</th><td>100,000원</td><td>100,000원</td><td>100,000원</td></tr><tr><th>제세공과금</th><td>50,000원</td><td>50,000원</td><td>50,000원</td></tr><tr><th>발권대행료</th><td>30,000원</td><td>30,000원</td><td>30,000원</td></tr></tbody></table><div class="ttip-total-price"><span class="txt">총 요금</span>5,000,000원</div></span></span></div><div class="hl-pricelist-btn"><span class="btn-base bb-st3 btn-select"><a href="#">선택</a></span></div></div></div></div></li>';
+		var dummyData = '<li><div class="inset"><div class="inset-cell"><div class="htla-airline"><div class="hl-airline-logo"><img src="/images/front/travel/contents/logo-air/KE.png" alt="KE"><span class="name">대한항공</span></div><div class="hl-airline-info"><span class="txt">공동운항</span><span class="help-tooltip heltt-st2 small"><span class="over">?</span><span class="cont">[AA]-[BB] 구간 실제 OOOO 탑승<br>[CC]-[DD] 구간 실제 OOOOO 탑승</span></span></div></div></div><div class="inset-cell"><div class="htla-route"><div class="hl-route-time"><div class="dep-time"><span class="time">10:35</span><span class="txt">ICN T1</span><span class="help-tooltip heltt-st2 down"><span class="cont">인천 / 터미널 1</span></span></div><div class="info-time"><span class="time-line"><span class="time2">16시간 22분</span></span><span class="txt">2회 경유 DTT, LAX</span><span class="help-tooltip heltt-st2 small down"><span class="cont">디트로이트에서 환승 2시간 30분<br>로스앤젤레스에서 환승 3시간</span></span></div><div class="arr-time"><span class="time">23:15 <span class="gap">+1</span></span><span class="txt">LGA</span><span class="help-tooltip heltt-st2 down"><span class="cont">인천 / 터미널 1</span></span></div></div><div class="hl-route-info"><span class="btn-base bb-st6"><a href="#">상세스케줄</a></span></div></div></div><div class="inset-cell"><div class="htla-info"><div class="hl-info-benefit"><span>마일리지 공제</span><span>좌석승급</span></div></div></div><div class="inset-cell"><div class="htla-pricelist"><ul class="hl-pricelist-info"><li><span class="txt">현대카드 <em>10%</em> 청구 할인</span><span class="help-tooltip heltt-st2 small up"><span class="over">?</span><span class="cont">현대카드 청구 할인은 카드별 할인율이(7%/10%) 상이하며, 전월실적 충족 시 연간한도 1천만원 내에서 적용됩니다.<br>현대카드 Chameleon은 설정한 카드에 따라 혜택 및	할인금액 상이하게 적용됩니다.</span></span><strong class="price">876,909원</strong></li><li><span class="txt">현대카드 <em>7%</em> 청구 할인</span><strong class="price">976,909원</strong></li><li class="privia-price"><span class="txt">PRIVIA 특가</span><span class="help-tooltip heltt-st2 small down"><span class="over">?</span><span class="cont"><strong>현대카드가 아닌 기타 신용카드 및 현금으로 결제 시</strong><br />항공권료(유류할증료, 제세공과금, 발권대행료 제외)에 대하여 적용됩니다.</span></span><strong class="price">1,876,909원</strong></li></ul><div class="show-total-price"><span class="area-over"><span class="a11y">총 요금 자세히 보기</span></span><span class="help-tooltip heltt-st2 left"><span class="cont"><table class="ttip-total-ptbl"><caption>총 요금 자세히 보기</caption><colgroup><col width="25%"><col width="25%"><col width="25%"><col width="25%"></colgroup><tbody><tr><td colspan="2"><strong>[성인] 1,000,000원</strong> X2</td><td><strong>[아동] 1,000,000원</strong></td><td><strong>[유아] 1,000,000원</strong> X2</td></tr><tr><th>항공권료</th><td>800,000원</td><td>800,000원</td><td>800,000원</td></tr><tr><th>유류할증료</th><td>100,000원</td><td>100,000원</td><td>100,000원</td></tr><tr><th>제세공과금</th><td>50,000원</td><td>50,000원</td><td>50,000원</td></tr><tr><th>발권대행료</th><td>30,000원</td><td>30,000원</td><td>30,000원</td></tr></tbody></table><div class="ttip-total-price"><span class="txt">총 요금</span>5,000,000원</div></span></span></div><div class="hl-pricelist-btn"><span class="btn-base bb-st3 btn-select"><a href="#">선택</a></span></div></div></div></div></li>';
 
 		$(window).on('scroll', function(){
 			var scToBottom = ($(window).scrollTop() >= $(document).height()-$(window).height()-$htpList.children('li').outerHeight()*2);
@@ -1261,28 +1261,28 @@ $(function(){
 															<span class="chk-base chk-st2">
 																<input type="checkbox" id="via1" class="a11y">
 																<label for="via1" class="label-base">직항</label>
-																<span class="area-right">300,00원</span>
+																<span class="area-right">300,000원</span>
 															</span>
 														</li>
 														<li>
 															<span class="chk-base chk-st2">
 																<input type="checkbox" id="via2" class="a11y">
 																<label for="via2" class="label-base">1회 경유</label>
-																<span class="area-right">300,00원</span>
+																<span class="area-right">300,000원</span>
 															</span>
 														</li>
 														<li>
 															<span class="chk-base chk-st2">
 																<input type="checkbox" id="via3" class="a11y">
 																<label for="via3" class="label-base">2회 경유</label>
-																<span class="area-right">300,00원</span>
+																<span class="area-right">300,000원</span>
 															</span>
 														</li>
 														<li>
 															<span class="chk-base chk-st2">
 																<input type="checkbox" id="via4" class="a11y">
 																<label for="via4" class="label-base">3회 경유</label>
-																<span class="area-right">300,00원</span>
+																<span class="area-right">300,000원</span>
 															</span>
 														</li>
 													</ul>
@@ -1400,70 +1400,70 @@ $(function(){
 															<span class="chk-base chk-st2">
 																<input type="checkbox" id="airline1" class="a11y">
 																<label for="airline1" class="label-base">대한항공</label>
-																<span class="area-right">300,00원</span>
+																<span class="area-right">300,000원</span>
 															</span>
 														</li>
 														<li>
 															<span class="chk-base chk-st2">
 																<input type="checkbox" id="airline2" class="a11y">
 																<label for="airline2" class="label-base">아시아나항공</label>
-																<span class="area-right">300,00원</span>
+																<span class="area-right">300,000원</span>
 															</span>
 														</li>
 														<li>
 															<span class="chk-base chk-st2">
 																<input type="checkbox" id="airline3" class="a11y">
 																<label for="airline3" class="label-base">중국국제항공</label>
-																<span class="area-right">300,00원</span>
+																<span class="area-right">300,000원</span>
 															</span>
 														</li>
 														<li>
 															<span class="chk-base chk-st2">
 																<input type="checkbox" id="airline4" class="a11y">
 																<label for="airline4" class="label-base">델타항공</label>
-																<span class="area-right">300,00원</span>
+																<span class="area-right">300,000원</span>
 															</span>
 														</li>
 														<li>
 															<span class="chk-base chk-st2">
 																<input type="checkbox" id="airline5" class="a11y">
 																<label for="airline5" class="label-base">유나이티드항공</label>
-																<span class="area-right">300,00원</span>
+																<span class="area-right">300,000원</span>
 															</span>
 														</li>
 														<li>
 															<span class="chk-base chk-st2">
 																<input type="checkbox" id="airline6" class="a11y">
 																<label for="airline6" class="label-base">아메리칸항공</label>
-																<span class="area-right">300,00원</span>
+																<span class="area-right">300,000원</span>
 															</span>
 														</li>
 														<li>
 															<span class="chk-base chk-st2">
 																<input type="checkbox" id="airline7" class="a11y">
 																<label for="airline7" class="label-base">에미레이트항공</label>
-																<span class="area-right">300,00원</span>
+																<span class="area-right">300,000원</span>
 															</span>
 														</li>
 														<li>
 															<span class="chk-base chk-st2">
 																<input type="checkbox" id="airline8" class="a11y">
 																<label for="airline8" class="label-base">추가항공1</label>
-																<span class="area-right">300,00원</span>
+																<span class="area-right">300,000원</span>
 															</span>
 														</li>
 														<li>
 															<span class="chk-base chk-st2">
 																<input type="checkbox" id="airline9" class="a11y">
 																<label for="airline9" class="label-base">추가항공2</label>
-																<span class="area-right">300,00원</span>
+																<span class="area-right">300,000원</span>
 															</span>
 														</li>
 														<li>
 															<span class="chk-base chk-st2">
 																<input type="checkbox" id="airline10" class="a11y">
 																<label for="airline10" class="label-base">추가항공3</label>
-																<span class="area-right">300,00원</span>
+																<span class="area-right">300,000원</span>
 															</span>
 														</li>
 													</ul>
@@ -1475,6 +1475,14 @@ $(function(){
 											<dl>
 												<dt>
 													<h4>현대카드 혜택</h4>
+													<span class="help-tooltip heltt-st2 small">
+														<span class="over">?</span>
+														<span class="cont" style="width:234px">
+															현대카드 the Purple 회원에게만 제공된<br />
+															Voucher 및 리워드 쿠폰, 오픈마일리지로 <br />
+															사용하실 수 있는 운임이 조회됩니다.
+														</span>
+													</span>
 													<a href="#" class="btn-deselect">선택해제</a>
 													<a href="#" class="btn-toggle-arrow"></a>
 												</dt>
@@ -1506,14 +1514,6 @@ $(function(){
 											<dl>
 												<dt>
 													<h4>운임 조건</h4>
-													<span class="help-tooltip heltt-st2 small">
-														<span class="over">?</span>
-														<span class="cont" style="width:234px">
-															현대카드 the Purple 회원에게만 제공된<br />
-															Voucher 및 리워드 쿠폰, 오픈마일리지로 <br />
-															사용하실 수 있는 운임이 조회됩니다.
-														</span>
-													</span>
 													<a href="#" class="btn-deselect">선택해제</a>
 													<a href="#" class="btn-toggle-arrow"></a>
 												</dt>
@@ -1702,8 +1702,8 @@ $(function(){
 															<span class="help-tooltip heltt-st2 small down">
 																<span class="over">?</span>
 																<span class="cont">
-																	<strong>현대카드 청구 할인 미적용 회원 및 *다른 결제수단으로 구매 시</strong> 적용됩니다.<br />
-																	(* 다른 결제수단이란? 현대카드가 아닌 기타 신용카드, 현금) 현대카드 청구 할인과 중복 적용되지 않습니다.
+																	<strong>현대카드가 아닌 기타 신용카드 및 현금으로 결제 시</strong><br />
+																	항공권료(유류할증료, 제세공과금, 발권대행료 제외)에 대하여 적용됩니다.
 																</span>
 															</span>
 															<strong class="price">1,876,909원</strong>
@@ -1858,8 +1858,8 @@ $(function(){
 															<span class="help-tooltip heltt-st2 small down">
 																<span class="over">?</span>
 																<span class="cont">
-																	<strong>현대카드 청구 할인 미적용 회원 및 *다른 결제수단으로 구매 시</strong> 적용됩니다.<br />
-																	(* 다른 결제수단이란? 현대카드가 아닌 기타 신용카드, 현금) 현대카드 청구 할인과 중복 적용되지 않습니다.
+																	<strong>현대카드가 아닌 기타 신용카드 및 현금으로 결제 시</strong><br />
+																	항공권료(유류할증료, 제세공과금, 발권대행료 제외)에 대하여 적용됩니다.
 																</span>
 															</span>
 															<strong class="price">1,876,909원</strong>
@@ -2014,8 +2014,8 @@ $(function(){
 															<span class="help-tooltip heltt-st2 small down">
 																<span class="over">?</span>
 																<span class="cont">
-																	<strong>현대카드 청구 할인 미적용 회원 및 *다른 결제수단으로 구매 시</strong> 적용됩니다.<br />
-																	(* 다른 결제수단이란? 현대카드가 아닌 기타 신용카드, 현금) 현대카드 청구 할인과 중복 적용되지 않습니다.
+																	<strong>현대카드가 아닌 기타 신용카드 및 현금으로 결제 시</strong><br />
+																	항공권료(유류할증료, 제세공과금, 발권대행료 제외)에 대하여 적용됩니다.
 																</span>
 															</span>
 															<strong class="price">1,876,909원</strong>
@@ -2154,8 +2154,8 @@ $(function(){
 															<span class="help-tooltip heltt-st2 small down">
 																<span class="over">?</span>
 																<span class="cont">
-																	<strong>현대카드 청구 할인 미적용 회원 및 *다른 결제수단으로 구매 시</strong> 적용됩니다.<br />
-																	(* 다른 결제수단이란? 현대카드가 아닌 기타 신용카드, 현금) 현대카드 청구 할인과 중복 적용되지 않습니다.
+																	<strong>현대카드가 아닌 기타 신용카드 및 현금으로 결제 시</strong><br />
+																	항공권료(유류할증료, 제세공과금, 발권대행료 제외)에 대하여 적용됩니다.
 																</span>
 															</span>
 															<strong class="price">1,876,909원</strong>
@@ -2292,8 +2292,8 @@ $(function(){
 															<span class="help-tooltip heltt-st2 small down">
 																<span class="over">?</span>
 																<span class="cont">
-																	<strong>현대카드 청구 할인 미적용 회원 및 *다른 결제수단으로 구매 시</strong> 적용됩니다.<br />
-																	(* 다른 결제수단이란? 현대카드가 아닌 기타 신용카드, 현금) 현대카드 청구 할인과 중복 적용되지 않습니다.
+																	<strong>현대카드가 아닌 기타 신용카드 및 현금으로 결제 시</strong><br />
+																	항공권료(유류할증료, 제세공과금, 발권대행료 제외)에 대하여 적용됩니다.
 																</span>
 															</span>
 															<strong class="price">1,876,909원</strong>
@@ -2438,8 +2438,8 @@ $(function(){
 															<span class="help-tooltip heltt-st2 small down">
 																<span class="over">?</span>
 																<span class="cont">
-																	<strong>현대카드 청구 할인 미적용 회원 및 *다른 결제수단으로 구매 시</strong> 적용됩니다.<br />
-																	(* 다른 결제수단이란? 현대카드가 아닌 기타 신용카드, 현금) 현대카드 청구 할인과 중복 적용되지 않습니다.
+																	<strong>현대카드가 아닌 기타 신용카드 및 현금으로 결제 시</strong><br />
+																	항공권료(유류할증료, 제세공과금, 발권대행료 제외)에 대하여 적용됩니다.
 																</span>
 															</span>
 															<strong class="price">1,876,909원</strong>
@@ -2579,8 +2579,8 @@ $(function(){
 															<span class="help-tooltip heltt-st2 small down">
 																<span class="over">?</span>
 																<span class="cont">
-																	<strong>현대카드 청구 할인 미적용 회원 및 *다른 결제수단으로 구매 시</strong> 적용됩니다.<br />
-																	(* 다른 결제수단이란? 현대카드가 아닌 기타 신용카드, 현금) 현대카드 청구 할인과 중복 적용되지 않습니다.
+																	<strong>현대카드가 아닌 기타 신용카드 및 현금으로 결제 시</strong><br />
+																	항공권료(유류할증료, 제세공과금, 발권대행료 제외)에 대하여 적용됩니다.
 																</span>
 															</span>
 															<strong class="price">1,876,909원</strong>
@@ -2724,8 +2724,8 @@ $(function(){
 															<span class="help-tooltip heltt-st2 small down">
 																<span class="over">?</span>
 																<span class="cont">
-																	<strong>현대카드 청구 할인 미적용 회원 및 *다른 결제수단으로 구매 시</strong> 적용됩니다.<br />
-																	(* 다른 결제수단이란? 현대카드가 아닌 기타 신용카드, 현금) 현대카드 청구 할인과 중복 적용되지 않습니다.
+																	<strong>현대카드가 아닌 기타 신용카드 및 현금으로 결제 시</strong><br />
+																	항공권료(유류할증료, 제세공과금, 발권대행료 제외)에 대하여 적용됩니다.
 																</span>
 															</span>
 															<strong class="price">1,876,909원</strong>
@@ -2871,8 +2871,8 @@ $(function(){
 															<span class="help-tooltip heltt-st2 small down">
 																<span class="over">?</span>
 																<span class="cont">
-																	<strong>현대카드 청구 할인 미적용 회원 및 *다른 결제수단으로 구매 시</strong> 적용됩니다.<br />
-																	(* 다른 결제수단이란? 현대카드가 아닌 기타 신용카드, 현금) 현대카드 청구 할인과 중복 적용되지 않습니다.
+																	<strong>현대카드가 아닌 기타 신용카드 및 현금으로 결제 시</strong><br />
+																	항공권료(유류할증료, 제세공과금, 발권대행료 제외)에 대하여 적용됩니다.
 																</span>
 															</span>
 															<strong class="price">1,876,909원</strong>

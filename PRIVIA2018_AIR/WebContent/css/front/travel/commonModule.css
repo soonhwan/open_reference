@@ -356,6 +356,8 @@
 box-shadow: 0 3px 3px 0px rgba(0,0,0,0.1);
 }
 .help-tooltip .cont:after {content: '';display: block;width: 0;height: 0;border-left: 30px solid transparent;border-right: 0px solid transparent;border-top: 30px solid #fff;position: absolute;left: -14px;top: 0;}
+.help-tooltip .cont.clist span{display:block;padding-left:10px;position: relative;}
+.help-tooltip .cont.clist span:before{content:"-";display:block;position: absolute;left:0;top:0;}
 .help-tooltip .stxt{position:relative;top:1px;font-size:14px;color:#fff;}
 /* 툴팁 st2 */
 .help-tooltip.heltt-st2 .over {display: inline-block;vertical-align: middle;width: 19px;height: 19px;cursor: pointer;position: relative;border-radius: 50%;overflow: hidden;border: 0;}
@@ -514,7 +516,9 @@ box-shadow: 0 3px 3px 0px rgba(0,0,0,0.1);
 .tbl-list td.room-type .room-cancel .txt.st1{color:#000;}
 .tbl-list td.room-type .room-cancel .txt.st2{color:#e10000;}
 .tbl-list td.includes{text-align:center;}
-.tbl-list td.includes .lp-area{display:block}
+.tbl-list td.includes .lp-areas{display:inline-block;vertical-align:middle;}
+.tbl-list td.includes .lp-area{display:block;}
+.tbl-list td.includes > p{margin-left:10px;display:inline-block;vertical-align:middle;max-width:205px;}
 .tbl-list td.room-state{text-align:center;padding-right:20px;}
 .tbl-list td.room-btn .bb-st3 a{width:110px;}
 .tbl-list td.total-price .total-price-cnt{width:280px;}
@@ -880,7 +884,7 @@ table.tbl-list,table.tbl-list2, table.tbl-receipt{border-collapse:separate;}
 .ui-term-wrap .ui-term-list dt .ui-term-tit .arrow{position:absolute;right:30px;top:26px;display:block;width:13px;height:8px;background-image:url(/images/front/travel/contents/icon-common-sec.png);background-position:-21px -156px;transition:background-position .3s;-webkit-transition:background-position .3s;cursor:pointer;}
 .ui-term-wrap .ui-term-list dt.on .ui-term-tit .arrow{background-position:-21px -146px;}
 .ui-term-wrap .ui-term-box{padding:10px;border:1px solid #e2e2e2;border-radius:5px;}
-.ui-term-wrap .ui-term-box .inner{padding:20px;height:215px;overflow:hidden;}
+.ui-term-wrap .ui-term-box .inner{padding:20px;height:216px;overflow:hidden;}
 .ui-term-wrap .ui-term-box .term-customscrollbar .mCSB_scrollTools{opacity:1 !important;width:6px;height:98%;top:1%;}
 .ui-term-wrap .ui-term-box .term-customscrollbar .mCSB_container{width:100%;}
 .ui-term-wrap .ui-term-box .term-customscrollbar .mCSB_scrollTools .mCSB_dragger .mCSB_dragger_bar{width:6px;}
@@ -1047,6 +1051,7 @@ box-shadow: 3px 7px 22px 0px rgba(0,0,0,0.3);
 .hs-search-menu:after {content: '';display: block;clear:both;}
 .o-CHO-full .w-header-search {padding: 80px 0 40px 0;display: block;}
 .o-CHO-section .w-header-search {display: block;}
+.hs-search-title{margin-bottom:20px;font-size:24px;font-family:"NotoSansKR" !important;font-weight: 500;color: #fff;}
 /* ------- 검색 메뉴 */
 .hs-search-menu .hss-menu {float: left;margin-right: 30px;display: inline-block;}
 .hs-search-menu:after {content: '';display: block;clear:both;}
@@ -1190,6 +1195,11 @@ box-shadow: 3px 7px 22px 0px rgba(0,0,0,0.3);
 .global-ui-room .uis-capacity-number{margin:0;}
 .global-ui-room .uis-capacity-number li{padding:0 0;margin:20px 0 0;}
 .global-ui-room .uis-capacity-number li:first-child{margin-top:0;}
+.custom-tooltip.age-tip {z-index:9999 !important;}
+.custom-tooltip.age-tip .custom-tooltip-inner {max-width:310px;}
+.custom-tooltip.age-tip .custom-tooltip-inner span{display:block;padding-left:5px;position: relative;margin-top:3px;}
+.custom-tooltip.age-tip .custom-tooltip-inner span:first-child{margin-top:0;}
+.custom-tooltip.age-tip .custom-tooltip-inner span:before{content:"·";display:block;position:absolute;left:0;top:0;}
 
 /* ------- 검색 UI 팝업 - 공통 */
 .sc-ui-search-panel {background-color: #fff;overflow: hidden;border-radius: 6px;z-index: 5;display: block;opacity: 0;position: absolute;visibility: hidden;transition: opacity 0.3s, visibility 0.3s;
@@ -1345,6 +1355,7 @@ border-left:0;
 .uis-capacity-number li:after {content: '';display: block;clear:both;}
 .uis-capacity-number .tit {float: left;padding-top: 7px;font-size:16px;font-family:"NotoSansKR" !important;font-weight: 300;color: #000;}
 .uis-capacity-number .tit * {font-size:16px;font-family:"NotoSansKR" !important;font-weight: 300;color: #000;}
+.uis-capacity-number .tit .age{font-size:12px;}
 .uis-capacity-number .tit em {font-weight: 500 !important;}
 .uis-capacity-number .help-tooltip {margin-top: -7px;}
 .uis-capacity-number .help-tooltip .cont {top:-12px;}

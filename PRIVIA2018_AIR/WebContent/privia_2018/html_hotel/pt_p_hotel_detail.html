@@ -53,7 +53,7 @@ $(function(){
 
 	$('.room-tbl-cont .room-tbl-more').on('click', function(e){
 		var tblMoreNum = 10;
-		var tblDummy = '<tr><td class="room-type"><div class="room-type-cnt"><p class="tit">DOUBLE STANDARD</p></div><div class="room-cancel before"><a href="#" class="btn-rule">취소규정확인</a></div><div class="room-cancel after"><span class="txt st1">무료취소기한 2018월 12월 01일까지</span><a href="#" class="btn-rule">상세취소규정</a></div></td><td class="includes"><div class="lp-area" style="width:40px;"><a href="#" class="btn base lp1">알림</a><div class="lp-cont" style="left: 50px; top: 0px; width: 310px; z-index: 1; display: none;"><a href="#" class="btn-close">닫기</a><span>공급사에서 응답 받은 텍스트(txt) 출력<br>공급사에서 응답 받은 텍스트(txt) 출력<br>공급사에서 응답 받은 텍스트(txt) 출력</span></div></div><p>조식포함</p></td><td class="room-state">선택 후 확인</td><td class="total-price"><div class="total-price-cnt"><ul><li><p class="con">현대카드 <strong>5%</strong> 즉시할인</p><p class="price pr1"><em>974,339</em>원</p></li><li><p class="con">PRIVIA <strong>2%</strong> 즉시할인</p><p class="price pr3"><em>1,005,108</em>원</p></li><li><p class="con">일반요금</p><p class="price pr3"><em>1,205,108</em>원</p></li></ul></div></td><td class="room-btn"><span class="btn-base bb-st3"><a href="#">예약</a></span></td></tr>';
+		var tblDummy = '<tr><td class="room-type"><div class="room-type-cnt"><p class="tit">DOUBLE STANDARD</p></div><div class="room-cancel before"><a href="#" class="btn-rule">취소규정확인</a></div><div class="room-cancel after"><span class="txt st1">무료취소기한 2018월 12월 01일까지</span><a href="#" class="btn-rule">상세취소규정</a></div></td><td class="includes"><div class="lp-areas"><div class="lp-area" style="width:40px;"><a href="#" class="btn base lp1">알림</a><div class="lp-cont" style="left: 50px; top: 0px; width: 310px; z-index: 1; display: none;"><a href="#" class="btn-close">닫기</a><span>공급사에서 응답 받은 텍스트(txt) 출력<br>공급사에서 응답 받은 텍스트(txt) 출력<br>공급사에서 응답 받은 텍스트(txt) 출력</span></div></div></div><p>조식포함</p></td><td class="room-state">선택 후 확인</td><td class="total-price"><div class="total-price-cnt"><ul><li><p class="con">현대카드 <strong>5%</strong> 즉시할인</p><p class="price pr1"><em>974,339</em>원</p></li><li><p class="con">PRIVIA <strong>2%</strong> 즉시할인</p><p class="price pr3"><em>1,005,108</em>원</p></li><li><p class="con">일반요금</p><p class="price pr3"><em>1,205,108</em>원</p></li></ul></div></td><td class="room-btn"><span class="btn-base bb-st3"><a href="#">예약</a></span></td></tr>';
 		for(var i=0; i<tblMoreNum; i++){
 			$(this).prev().find('tbody').append(tblDummy);
 		}
@@ -555,10 +555,10 @@ $(function(){
         													</div>
         												</li>
         												<li>
-                                  <div class="tit">
-                                    <em>아동</em> <span class="age">(만2세 ~ 11세)</span>
-                                    <span class="help-tooltip heltt-st2 small down">
-        															<span class="over age-tip" title="<span>아동 나이 체크인 시점 만 11세 이하</span><span>아동 추가 시 침대를 쉐어(Share) 하는 조건</span><span>보조침대 추가 시 인원 추가 및 별도 문의</span><span>동반 아동 인원 미입력 시 투숙이 제한될 수 있습니다.</span>">?</span>
+																	<div class="tit">
+                                    <em>아동</em>
+                                    <span class="help-tooltip heltt-st2 small">
+        															<span class="over age-tip" title="<span>체크인 시점 만 2세 ~ 12세 미만</span><span>침대를 공유 하는 조건</span><span>보조침대 추가 시 별도 문의</span><span>동반아동 인원 미입력 시 투숙 제한</span>">?</span>
         														</span>
                                   </div>
         													<div class="uis-custom-number child" data-ucn='{"type":"child1","min":0,"max":3}'>
@@ -645,9 +645,9 @@ $(function(){
         												</li>
         												<li>
 																	<div class="tit">
-                                    <em>아동</em> <span class="age">(만2세 ~ 11세)</span>
-                                    <span class="help-tooltip heltt-st2 small down">
-        															<span class="over age-tip" title="<span>아동 나이 체크인 시점 만 11세 이하</span><span>아동 추가 시 침대를 쉐어(Share) 하는 조건</span><span>보조침대 추가 시 인원 추가 및 별도 문의</span><span>동반 아동 인원 미입력 시 투숙이 제한될 수 있습니다.</span>">?</span>
+                                    <em>아동</em>
+                                    <span class="help-tooltip heltt-st2 small">
+        															<span class="over age-tip" title="<span>체크인 시점 만 2세 ~ 12세 미만</span><span>침대를 공유 하는 조건</span><span>보조침대 추가 시 별도 문의</span><span>동반아동 인원 미입력 시 투숙 제한</span>">?</span>
         														</span>
                                   </div>
         													<div class="uis-custom-number child" data-ucn='{"type":"child2","min":0,"max":3}'>
@@ -734,9 +734,9 @@ $(function(){
         												</li>
         												<li>
 																	<div class="tit">
-                                    <em>아동</em> <span class="age">(만2세 ~ 11세)</span>
-                                    <span class="help-tooltip heltt-st2 small down">
-        															<span class="over age-tip" title="<span>아동 나이 체크인 시점 만 11세 이하</span><span>아동 추가 시 침대를 쉐어(Share) 하는 조건</span><span>보조침대 추가 시 인원 추가 및 별도 문의</span><span>동반 아동 인원 미입력 시 투숙이 제한될 수 있습니다.</span>">?</span>
+                                    <em>아동</em>
+                                    <span class="help-tooltip heltt-st2 small">
+        															<span class="over age-tip" title="<span>체크인 시점 만 2세 ~ 12세 미만</span><span>침대를 공유 하는 조건</span><span>보조침대 추가 시 별도 문의</span><span>동반아동 인원 미입력 시 투숙 제한</span>">?</span>
         														</span>
                                   </div>
         													<div class="uis-custom-number child" data-ucn='{"type":"child3","min":0,"max":3}'>
@@ -1081,9 +1081,9 @@ $(function(){
 								<table summary="객실 정보 요약" class="tbl-list ptb-short2">
 									<caption class="ally">객실유형, 포함사항, 객실가능상태, 총 요금(세금/봉사료 포함)에 대한 테이블</caption>
 									<colgroup>
+										<col width="320" />
 										<col width="340" />
-										<col width="250" />
-										<col width="195" />
+										<col width="125" />
 										<col width="*" />
 										<col width="110" />
 									</colgroup>
@@ -1135,21 +1135,23 @@ $(function(){
 												</div>
 											</td>
 											<td class="includes">
-												<div class="lp-area" style="width:40px;">
-													<a href="#" class="btn base lp1">알림</a>
-													<div class="lp-cont" style="left:50px;top:0;width:310px;">
-														<a href="#" class="btn-close">닫기</a>
-														<span>공급사에서 응답 받은 텍스트(txt) 출력 공급사에서 응답 받은 텍스트(txt) 출력 공급사에서 응답 받은 텍스트(txt) 출력 공급사에서 응답 받은 텍스트(txt) 출력 공급사에서 응답 받은 텍스트(txt) 출력 공급사에서 응답 받은 텍스트(txt) 출력 공급사에서 응답 받은 텍스트(txt) 출력 공급사에서 응답 받은 텍스트(txt) 출력 공급사에서 응답 받은 텍스트(txt) 출력 공급사에서 응답 받은 텍스트(txt) 출력 공급사에서 응답 받은 텍스트(txt) 출력 공급사에서 응답 받은 텍스트(txt) 출력 공급사에서 응답 받은 텍스트(txt) 출력 공급사에서 응답 받은 텍스트(txt) 출력 공급사에서 응답 받은 텍스트(txt) 출력 공급사에서 응답 받은 텍스트(txt) 출력 공급사에서 응답 받은 텍스트(txt) 출력 공급사에서 응답 받은 텍스트(txt) 출력 공급사에서 응답 받은 텍스트(txt) 출력 공급사에서 응답 받은 텍스트(txt) 출력 공급사에서 응답 받은 텍스트(txt) 출력 공급사에서 응답 받은 텍스트(txt) 출력 공급사에서 응답 받은 텍스트(txt) 출력 공급사에서 응답 받은 텍스트(txt) 출력 공급사에서 응답 받은 텍스트(txt) 출력 공급사에서 응답 받은 텍스트(txt) 출력 공급사에서 응답 받은 텍스트(txt) 출력 공급사에서 응답 받은 텍스트(txt) 출력 공급사에서 응답 받은 텍스트(txt) 출력 공급사에서 응답 받은 텍스트(txt) 출력 공급사에서 응답 받은 텍스트(txt) 출력 공급사에서 응답 받은 텍스트(txt) 출력 공급사에서 응답 받은 텍스트(txt) 출력 공급사에서 응답 받은 텍스트(txt) 출력 공급사에서 응답 받은 텍스트(txt) 출력 공급사에서 응답 받은 텍스트(txt) 출력 공급사에서 응답 받은 텍스트(txt) 출력 공급사에서 응답 받은 텍스트(txt) 출력 공급사에서 응답 받은 텍스트(txt) 출력 공급사에서 응답 받은 텍스트(txt) 출력 공급사에서 응답 받은 텍스트(txt) 출력 공급사에서 응답 받은 텍스트(txt) 출력 공급사에서 응답 받은 텍스트(txt) 출력 공급사에서 응답 받은 텍스트(txt) 출력 공급사에서 응답 받은 텍스트(txt) 출력 공급사에서 응답 받은 텍스트(txt) 출력 공급사에서 응답 받은 텍스트(txt) 출력 공급사에서 응답 받은 텍스트(txt) 출력 공급사에서 응답 받은 텍스트(txt) 출력 공급사에서 응답 받은 텍스트(txt) 출력 공급사에서 응답 받은 텍스트(txt) 출력 공급사에서 응답 받은 텍스트(txt) 출력 공급사에서 응답 받은 텍스트(txt) 출력 공급사에서 응답 받은 텍스트(txt) 출력 공급사에서 응답 받은 텍스트(txt) 출력 공급사에서 응답 받은 텍스트(txt) 출력 공급사에서 응답 받은 텍스트(txt) 출력 공급사에서 응답 받은 텍스트(txt) 출력 공급사에서 응답 받은 텍스트(txt) 출력 공급사에서 응답 받은 텍스트(txt) 출력 공급사에서 응답 받은 텍스트(txt) 출력 공급사에서 응답 받은 텍스트(txt) 출력 공급사에서 응답 받은 텍스트(txt) 출력 공급사에서 응답 받은 텍스트(txt) 출력 공급사에서 응답 받은 텍스트(txt) 출력 공급사에서 응답 받은 텍스트(txt) 출력 공급사에서 응답 받은 텍스트(txt) 출력 공급사에서 응답 받은 텍스트(txt) 출력 공급사에서 응답 받은 텍스트(txt) 출력 공급사에서 응답 받은 텍스트(txt) 출력 공급사에서 응답 받은 텍스트(txt) 출력 공급사에서 응답 받은 텍스트(txt) 출력 공급사에서 응답 받은 텍스트(txt) 출력 공급사에서 응답 받은 텍스트(txt) 출력 공급사에서 응답 받은 텍스트(txt) 출력 공급사에서 응답 받은 텍스트(txt) 출력 공급사에서 응답 받은 텍스트(txt) 출력 공급사에서 응답 받은 텍스트(txt) 출력 공급사에서 응답 받은 텍스트(txt) 출력 공급사에서 응답 받은 텍스트(txt) 출력 공급사에서 응답 받은 텍스트(txt) 출력 공급사에서 응답 받은 텍스트(txt) 출력 공급사에서 응답 받은 텍스트(txt) 출력 공급사에서 응답 받은 텍스트(txt) 출력 공급사에서 응답 받은 텍스트(txt) 출력 공급사에서 응답 받은 텍스트(txt) 출력 공급사에서 응답 받은 텍스트(txt) 출력 공급사에서 응답 받은 텍스트(txt) 출력 공급사에서 응답 받은 텍스트(txt) 출력 공급사에서 응답 받은 텍스트(txt) 출력 공급사에서 응답 받은 텍스트(txt) 출력 공급사에서 응답 받은 텍스트(txt) 출력 공급사에서 응답 받은 텍스트(txt) 출력 공급사에서 응답 받은 텍스트(txt) 출력 공급사에서 응답 받은 텍스트(txt) 출력 공급사에서 응답 받은 텍스트(txt) 출력 공급사에서 응답 받은 텍스트(txt) 출력 공급사에서 응답 받은 텍스트(txt) 출력 공급사에서 응답 받은 텍스트(txt) 출력 공급사에서 응답 받은 텍스트(txt) 출력 공급사에서 응답 받은 텍스트(txt) 출력 공급사에서 응답 받은 텍스트(txt) 출력 공급사에서 응답 받은 텍스트(txt) 출력 공급사에서 응답 받은 텍스트(txt) 출력 공급사에서 응답 받은 텍스트(txt) 출력 공급사에서 응답 받은 텍스트(txt) 출력 공급사에서 응답 받은 텍스트(txt) 출력 공급사에서 응답 받은 텍스트(txt) 출력 공급사에서 응답 받은 텍스트(txt) 출력 공급사에서 응답 받은 텍스트(txt) 출력 공급사에서 응답 받은 텍스트(txt) 출력 공급사에서 응답 받은 텍스트(txt) 출력 공급사에서 응답 받은 텍스트(txt) 출력 공급사에서 응답 받은 텍스트(txt) 출력 공급사에서 응답 받은 텍스트(txt) 출력 공급사에서 응답 받은 텍스트(txt) 출력 공급사에서 응답 받은 텍스트(txt) 출력 공급사에서 응답 받은 텍스트(txt) 출력 공급사에서 응답 받은 텍스트(txt) 출력 공급사에서 응답 받은 텍스트(txt) 출력 공급사에서 응답 받은 텍스트(txt) 출력 공급사에서 응답 받은 텍스트(txt) 출력 공급사에서 응답 받은 텍스트(txt) 출력 공급사에서 응답 받은 텍스트(txt) 출력 공급사에서 응답 받은 텍스트(txt) 출력 공급사에서 응답 받은 텍스트(txt) 출력 공급사에서 응답 받은 텍스트(txt) 출력 공급사에서 응답 받은 텍스트(txt) 출력 공급사에서 응답 받은 텍스트(txt) 출력 공급사에서 응답 받은 텍스트(txt) 출력 공급사에서 응답 받은 텍스트(txt) 출력 공급사에서 응답 받은 텍스트(txt) 출력 공급사에서 응답 받은 텍스트(txt) 출력 공급사에서 응답 받은 텍스트(txt) 출력 공급사에서 응답 받은 텍스트(txt) 출력 공급사에서 응답 받은 텍스트(txt) 출력 공급사에서 응답 받은 텍스트(txt) 출력 공급사에서 응답 받은 텍스트(txt) 출력 공급사에서 응답 받은 텍스트(txt) 출력 공급사에서 응답 받은 텍스트(txt) 출력 공급사에서 응답 받은 텍스트(txt) 출력 공급사에서 응답 받은 텍스트(txt) 출력 공급사에서 응답 받은 텍스트(txt) 출력 공급사에서 응답 받은 텍스트(txt) 출력 공급사에서 응답 받은 텍스트(txt) 출력 공급사에서 응답 받은 텍스트(txt) 출력 공급사에서 응답 받은 텍스트(txt) 출력 공급사에서 응답 받은 텍스트(txt) 출력 공급사에서 응답 받은 텍스트(txt) 출력 공급사에서 응답 받은 텍스트(txt) 출력 공급사에서 응답 받은 텍스트(txt) 출력 공급사에서 응답 받은 텍스트(txt) 출력 공급사에서 응답 받은 텍스트(txt) 출력 공급사에서 응답 받은 텍스트(txt) 출력 공급사에서 응답 받은 텍스트(txt) 출력 공급사에서 응답 받은 텍스트(txt) 출력 공급사에서 응답 받은 텍스트(txt) 출력 공급사에서 응답 받은 텍스트(txt) 출력 공급사에서 응답 받은 텍스트(txt) 출력 공급사에서 응답 받은 텍스트(txt) 출력</span>
+												<div class="lp-areas">
+													<div class="lp-area" style="width:40px;">
+														<a href="#" class="btn base lp1">알림</a>
+														<div class="lp-cont" style="left:50px;top:0;width:310px;">
+															<a href="#" class="btn-close">닫기</a>
+															<span>공급사에서 응답 받은 텍스트(txt) 출력 공급사에서 응답 받은 텍스트(txt) 출력 공급사에서 응답 받은 텍스트(txt) 출력 공급사에서 응답 받은 텍스트(txt) 출력 공급사에서 응답 받은 텍스트(txt) 출력 공급사에서 응답 받은 텍스트(txt) 출력 공급사에서 응답 받은 텍스트(txt) 출력 공급사에서 응답 받은 텍스트(txt) 출력 공급사에서 응답 받은 텍스트(txt) 출력 공급사에서 응답 받은 텍스트(txt) 출력 공급사에서 응답 받은 텍스트(txt) 출력 공급사에서 응답 받은 텍스트(txt) 출력 공급사에서 응답 받은 텍스트(txt) 출력 공급사에서 응답 받은 텍스트(txt) 출력 공급사에서 응답 받은 텍스트(txt) 출력 공급사에서 응답 받은 텍스트(txt) 출력 공급사에서 응답 받은 텍스트(txt) 출력 공급사에서 응답 받은 텍스트(txt) 출력 공급사에서 응답 받은 텍스트(txt) 출력 공급사에서 응답 받은 텍스트(txt) 출력 공급사에서 응답 받은 텍스트(txt) 출력 공급사에서 응답 받은 텍스트(txt) 출력 공급사에서 응답 받은 텍스트(txt) 출력 공급사에서 응답 받은 텍스트(txt) 출력 공급사에서 응답 받은 텍스트(txt) 출력 공급사에서 응답 받은 텍스트(txt) 출력 공급사에서 응답 받은 텍스트(txt) 출력 공급사에서 응답 받은 텍스트(txt) 출력 공급사에서 응답 받은 텍스트(txt) 출력 공급사에서 응답 받은 텍스트(txt) 출력 공급사에서 응답 받은 텍스트(txt) 출력 공급사에서 응답 받은 텍스트(txt) 출력 공급사에서 응답 받은 텍스트(txt) 출력 공급사에서 응답 받은 텍스트(txt) 출력 공급사에서 응답 받은 텍스트(txt) 출력 공급사에서 응답 받은 텍스트(txt) 출력 공급사에서 응답 받은 텍스트(txt) 출력 공급사에서 응답 받은 텍스트(txt) 출력 공급사에서 응답 받은 텍스트(txt) 출력 공급사에서 응답 받은 텍스트(txt) 출력 공급사에서 응답 받은 텍스트(txt) 출력 공급사에서 응답 받은 텍스트(txt) 출력 공급사에서 응답 받은 텍스트(txt) 출력 공급사에서 응답 받은 텍스트(txt) 출력 공급사에서 응답 받은 텍스트(txt) 출력 공급사에서 응답 받은 텍스트(txt) 출력 공급사에서 응답 받은 텍스트(txt) 출력 공급사에서 응답 받은 텍스트(txt) 출력 공급사에서 응답 받은 텍스트(txt) 출력 공급사에서 응답 받은 텍스트(txt) 출력 공급사에서 응답 받은 텍스트(txt) 출력 공급사에서 응답 받은 텍스트(txt) 출력 공급사에서 응답 받은 텍스트(txt) 출력 공급사에서 응답 받은 텍스트(txt) 출력 공급사에서 응답 받은 텍스트(txt) 출력 공급사에서 응답 받은 텍스트(txt) 출력 공급사에서 응답 받은 텍스트(txt) 출력 공급사에서 응답 받은 텍스트(txt) 출력 공급사에서 응답 받은 텍스트(txt) 출력 공급사에서 응답 받은 텍스트(txt) 출력 공급사에서 응답 받은 텍스트(txt) 출력 공급사에서 응답 받은 텍스트(txt) 출력 공급사에서 응답 받은 텍스트(txt) 출력 공급사에서 응답 받은 텍스트(txt) 출력 공급사에서 응답 받은 텍스트(txt) 출력 공급사에서 응답 받은 텍스트(txt) 출력 공급사에서 응답 받은 텍스트(txt) 출력 공급사에서 응답 받은 텍스트(txt) 출력 공급사에서 응답 받은 텍스트(txt) 출력 공급사에서 응답 받은 텍스트(txt) 출력 공급사에서 응답 받은 텍스트(txt) 출력 공급사에서 응답 받은 텍스트(txt) 출력 공급사에서 응답 받은 텍스트(txt) 출력 공급사에서 응답 받은 텍스트(txt) 출력 공급사에서 응답 받은 텍스트(txt) 출력 공급사에서 응답 받은 텍스트(txt) 출력 공급사에서 응답 받은 텍스트(txt) 출력 공급사에서 응답 받은 텍스트(txt) 출력 공급사에서 응답 받은 텍스트(txt) 출력 공급사에서 응답 받은 텍스트(txt) 출력 공급사에서 응답 받은 텍스트(txt) 출력 공급사에서 응답 받은 텍스트(txt) 출력 공급사에서 응답 받은 텍스트(txt) 출력 공급사에서 응답 받은 텍스트(txt) 출력 공급사에서 응답 받은 텍스트(txt) 출력 공급사에서 응답 받은 텍스트(txt) 출력 공급사에서 응답 받은 텍스트(txt) 출력 공급사에서 응답 받은 텍스트(txt) 출력 공급사에서 응답 받은 텍스트(txt) 출력 공급사에서 응답 받은 텍스트(txt) 출력 공급사에서 응답 받은 텍스트(txt) 출력 공급사에서 응답 받은 텍스트(txt) 출력 공급사에서 응답 받은 텍스트(txt) 출력 공급사에서 응답 받은 텍스트(txt) 출력 공급사에서 응답 받은 텍스트(txt) 출력 공급사에서 응답 받은 텍스트(txt) 출력 공급사에서 응답 받은 텍스트(txt) 출력 공급사에서 응답 받은 텍스트(txt) 출력 공급사에서 응답 받은 텍스트(txt) 출력 공급사에서 응답 받은 텍스트(txt) 출력 공급사에서 응답 받은 텍스트(txt) 출력 공급사에서 응답 받은 텍스트(txt) 출력 공급사에서 응답 받은 텍스트(txt) 출력 공급사에서 응답 받은 텍스트(txt) 출력 공급사에서 응답 받은 텍스트(txt) 출력 공급사에서 응답 받은 텍스트(txt) 출력 공급사에서 응답 받은 텍스트(txt) 출력 공급사에서 응답 받은 텍스트(txt) 출력 공급사에서 응답 받은 텍스트(txt) 출력 공급사에서 응답 받은 텍스트(txt) 출력 공급사에서 응답 받은 텍스트(txt) 출력 공급사에서 응답 받은 텍스트(txt) 출력 공급사에서 응답 받은 텍스트(txt) 출력 공급사에서 응답 받은 텍스트(txt) 출력 공급사에서 응답 받은 텍스트(txt) 출력 공급사에서 응답 받은 텍스트(txt) 출력 공급사에서 응답 받은 텍스트(txt) 출력 공급사에서 응답 받은 텍스트(txt) 출력 공급사에서 응답 받은 텍스트(txt) 출력 공급사에서 응답 받은 텍스트(txt) 출력 공급사에서 응답 받은 텍스트(txt) 출력 공급사에서 응답 받은 텍스트(txt) 출력 공급사에서 응답 받은 텍스트(txt) 출력 공급사에서 응답 받은 텍스트(txt) 출력 공급사에서 응답 받은 텍스트(txt) 출력 공급사에서 응답 받은 텍스트(txt) 출력 공급사에서 응답 받은 텍스트(txt) 출력 공급사에서 응답 받은 텍스트(txt) 출력 공급사에서 응답 받은 텍스트(txt) 출력 공급사에서 응답 받은 텍스트(txt) 출력 공급사에서 응답 받은 텍스트(txt) 출력 공급사에서 응답 받은 텍스트(txt) 출력 공급사에서 응답 받은 텍스트(txt) 출력 공급사에서 응답 받은 텍스트(txt) 출력 공급사에서 응답 받은 텍스트(txt) 출력 공급사에서 응답 받은 텍스트(txt) 출력 공급사에서 응답 받은 텍스트(txt) 출력 공급사에서 응답 받은 텍스트(txt) 출력 공급사에서 응답 받은 텍스트(txt) 출력 공급사에서 응답 받은 텍스트(txt) 출력 공급사에서 응답 받은 텍스트(txt) 출력 공급사에서 응답 받은 텍스트(txt) 출력 공급사에서 응답 받은 텍스트(txt) 출력 공급사에서 응답 받은 텍스트(txt) 출력 공급사에서 응답 받은 텍스트(txt) 출력 공급사에서 응답 받은 텍스트(txt) 출력 공급사에서 응답 받은 텍스트(txt) 출력 공급사에서 응답 받은 텍스트(txt) 출력 공급사에서 응답 받은 텍스트(txt) 출력 공급사에서 응답 받은 텍스트(txt) 출력 공급사에서 응답 받은 텍스트(txt) 출력 공급사에서 응답 받은 텍스트(txt) 출력 공급사에서 응답 받은 텍스트(txt) 출력 공급사에서 응답 받은 텍스트(txt) 출력 공급사에서 응답 받은 텍스트(txt) 출력 공급사에서 응답 받은 텍스트(txt) 출력 공급사에서 응답 받은 텍스트(txt) 출력 공급사에서 응답 받은 텍스트(txt) 출력 공급사에서 응답 받은 텍스트(txt) 출력 공급사에서 응답 받은 텍스트(txt) 출력</span>
+														</div>
+													</div>
+													<div class="lp-area" style="width:40px;">
+														<a href="#" class="btn base lp2">특전</a>
+														<div class="lp-cont" style="left:50px;top:0;width:310px;">
+															<a href="#" class="btn-close">닫기</a>
+															<span>공급사에서 응답 받은 텍스트(txt) 출력 공급사에서 응답 받은 텍스트(txt) 출력 공급사에서 응답 받은 텍스트(txt) 출력 공급사에서 응답 받은 텍스트(txt) 출력 공급사에서 응답 받은 텍스트(txt) 출력 공급사에서 응답 받은 텍스트(txt) 출력 공급사에서 응답 받은 텍스트(txt) 출력 공급사에서 응답 받은 텍스트(txt) 출력 공급사에서 응답 받은 텍스트(txt) 출력 공급사에서 응답 받은 텍스트(txt) 출력 공급사에서 응답 받은 텍스트(txt) 출력 공급사에서 응답 받은 텍스트(txt) 출력 공급사에서 응답 받은 텍스트(txt) 출력 공급사에서 응답 받은 텍스트(txt) 출력 공급사에서 응답 받은 텍스트(txt) 출력 공급사에서 응답 받은 텍스트(txt) 출력 공급사에서 응답 받은 텍스트(txt) 출력 공급사에서 응답 받은 텍스트(txt) 출력 공급사에서 응답 받은 텍스트(txt) 출력 공급사에서 응답 받은 텍스트(txt) 출력 공급사에서 응답 받은 텍스트(txt) 출력 공급사에서 응답 받은 텍스트(txt) 출력 공급사에서 응답 받은 텍스트(txt) 출력 공급사에서 응답 받은 텍스트(txt) 출력 공급사에서 응답 받은 텍스트(txt) 출력 공급사에서 응답 받은 텍스트(txt) 출력 공급사에서 응답 받은 텍스트(txt) 출력 공급사에서 응답 받은 텍스트(txt) 출력 공급사에서 응답 받은 텍스트(txt) 출력 공급사에서 응답 받은 텍스트(txt) 출력 공급사에서 응답 받은 텍스트(txt) 출력 공급사에서 응답 받은 텍스트(txt) 출력 공급사에서 응답 받은 텍스트(txt) 출력 공급사에서 응답 받은 텍스트(txt) 출력 공급사에서 응답 받은 텍스트(txt) 출력 공급사에서 응답 받은 텍스트(txt) 출력 공급사에서 응답 받은 텍스트(txt) 출력 공급사에서 응답 받은 텍스트(txt) 출력 공급사에서 응답 받은 텍스트(txt) 출력 공급사에서 응답 받은 텍스트(txt) 출력 공급사에서 응답 받은 텍스트(txt) 출력 공급사에서 응답 받은 텍스트(txt) 출력 공급사에서 응답 받은 텍스트(txt) 출력 공급사에서 응답 받은 텍스트(txt) 출력 공급사에서 응답 받은 텍스트(txt) 출력 공급사에서 응답 받은 텍스트(txt) 출력 공급사에서 응답 받은 텍스트(txt) 출력 공급사에서 응답 받은 텍스트(txt) 출력 공급사에서 응답 받은 텍스트(txt) 출력 공급사에서 응답 받은 텍스트(txt) 출력 공급사에서 응답 받은 텍스트(txt) 출력 공급사에서 응답 받은 텍스트(txt) 출력 공급사에서 응답 받은 텍스트(txt) 출력 공급사에서 응답 받은 텍스트(txt) 출력 공급사에서 응답 받은 텍스트(txt) 출력 공급사에서 응답 받은 텍스트(txt) 출력 공급사에서 응답 받은 텍스트(txt) 출력 공급사에서 응답 받은 텍스트(txt) 출력 공급사에서 응답 받은 텍스트(txt) 출력 공급사에서 응답 받은 텍스트(txt) 출력 공급사에서 응답 받은 텍스트(txt) 출력 공급사에서 응답 받은 텍스트(txt) 출력 공급사에서 응답 받은 텍스트(txt) 출력 공급사에서 응답 받은 텍스트(txt) 출력 공급사에서 응답 받은 텍스트(txt) 출력 공급사에서 응답 받은 텍스트(txt) 출력 공급사에서 응답 받은 텍스트(txt) 출력 공급사에서 응답 받은 텍스트(txt) 출력 공급사에서 응답 받은 텍스트(txt) 출력 공급사에서 응답 받은 텍스트(txt) 출력 공급사에서 응답 받은 텍스트(txt) 출력 공급사에서 응답 받은 텍스트(txt) 출력 공급사에서 응답 받은 텍스트(txt) 출력 공급사에서 응답 받은 텍스트(txt) 출력 공급사에서 응답 받은 텍스트(txt) 출력 공급사에서 응답 받은 텍스트(txt) 출력 공급사에서 응답 받은 텍스트(txt) 출력 공급사에서 응답 받은 텍스트(txt) 출력 공급사에서 응답 받은 텍스트(txt) 출력 공급사에서 응답 받은 텍스트(txt) 출력 공급사에서 응답 받은 텍스트(txt) 출력 공급사에서 응답 받은 텍스트(txt) 출력 공급사에서 응답 받은 텍스트(txt) 출력 공급사에서 응답 받은 텍스트(txt) 출력 공급사에서 응답 받은 텍스트(txt) 출력 공급사에서 응답 받은 텍스트(txt) 출력 공급사에서 응답 받은 텍스트(txt) 출력 공급사에서 응답 받은 텍스트(txt) 출력 공급사에서 응답 받은 텍스트(txt) 출력 공급사에서 응답 받은 텍스트(txt) 출력 공급사에서 응답 받은 텍스트(txt) 출력 공급사에서 응답 받은 텍스트(txt) 출력 공급사에서 응답 받은 텍스트(txt) 출력 공급사에서 응답 받은 텍스트(txt) 출력 공급사에서 응답 받은 텍스트(txt) 출력 공급사에서 응답 받은 텍스트(txt) 출력 공급사에서 응답 받은 텍스트(txt) 출력 공급사에서 응답 받은 텍스트(txt) 출력 공급사에서 응답 받은 텍스트(txt) 출력 공급사에서 응답 받은 텍스트(txt) 출력 공급사에서 응답 받은 텍스트(txt) 출력 공급사에서 응답 받은 텍스트(txt) 출력 공급사에서 응답 받은 텍스트(txt) 출력 공급사에서 응답 받은 텍스트(txt) 출력 공급사에서 응답 받은 텍스트(txt) 출력 공급사에서 응답 받은 텍스트(txt) 출력 공급사에서 응답 받은 텍스트(txt) 출력 공급사에서 응답 받은 텍스트(txt) 출력 공급사에서 응답 받은 텍스트(txt) 출력 공급사에서 응답 받은 텍스트(txt) 출력 공급사에서 응답 받은 텍스트(txt) 출력 공급사에서 응답 받은 텍스트(txt) 출력 공급사에서 응답 받은 텍스트(txt) 출력 공급사에서 응답 받은 텍스트(txt) 출력 공급사에서 응답 받은 텍스트(txt) 출력 공급사에서 응답 받은 텍스트(txt) 출력 공급사에서 응답 받은 텍스트(txt) 출력 공급사에서 응답 받은 텍스트(txt) 출력 공급사에서 응답 받은 텍스트(txt) 출력 공급사에서 응답 받은 텍스트(txt) 출력 공급사에서 응답 받은 텍스트(txt) 출력 공급사에서 응답 받은 텍스트(txt) 출력 공급사에서 응답 받은 텍스트(txt) 출력 공급사에서 응답 받은 텍스트(txt) 출력 공급사에서 응답 받은 텍스트(txt) 출력 공급사에서 응답 받은 텍스트(txt) 출력 공급사에서 응답 받은 텍스트(txt) 출력 공급사에서 응답 받은 텍스트(txt) 출력 공급사에서 응답 받은 텍스트(txt) 출력 공급사에서 응답 받은 텍스트(txt) 출력 공급사에서 응답 받은 텍스트(txt) 출력 공급사에서 응답 받은 텍스트(txt) 출력 공급사에서 응답 받은 텍스트(txt) 출력 공급사에서 응답 받은 텍스트(txt) 출력 공급사에서 응답 받은 텍스트(txt) 출력 공급사에서 응답 받은 텍스트(txt) 출력 공급사에서 응답 받은 텍스트(txt) 출력 공급사에서 응답 받은 텍스트(txt) 출력 공급사에서 응답 받은 텍스트(txt) 출력 공급사에서 응답 받은 텍스트(txt) 출력 공급사에서 응답 받은 텍스트(txt) 출력 공급사에서 응답 받은 텍스트(txt) 출력 공급사에서 응답 받은 텍스트(txt) 출력 공급사에서 응답 받은 텍스트(txt) 출력 공급사에서 응답 받은 텍스트(txt) 출력 공급사에서 응답 받은 텍스트(txt) 출력 공급사에서 응답 받은 텍스트(txt) 출력 공급사에서 응답 받은 텍스트(txt) 출력 공급사에서 응답 받은 텍스트(txt) 출력 공급사에서 응답 받은 텍스트(txt) 출력 공급사에서 응답 받은 텍스트(txt) 출력 공급사에서 응답 받은 텍스트(txt) 출력 공급사에서 응답 받은 텍스트(txt) 출력 공급사에서 응답 받은 텍스트(txt) 출력 공급사에서 응답 받은 텍스트(txt) 출력 공급사에서 응답 받은 텍스트(txt) 출력 공급사에서 응답 받은 텍스트(txt) 출력 공급사에서 응답 받은 텍스트(txt) 출력 공급사에서 응답 받은 텍스트(txt) 출력 공급사에서 응답 받은 텍스트(txt) 출력</span>
+														</div>
 													</div>
 												</div>
-												<div class="lp-area" style="width:40px;">
-													<a href="#" class="btn base lp2">특전</a>
-													<div class="lp-cont" style="left:50px;top:0;width:310px;">
-														<a href="#" class="btn-close">닫기</a>
-														<span>공급사에서 응답 받은 텍스트(txt) 출력 공급사에서 응답 받은 텍스트(txt) 출력 공급사에서 응답 받은 텍스트(txt) 출력 공급사에서 응답 받은 텍스트(txt) 출력 공급사에서 응답 받은 텍스트(txt) 출력 공급사에서 응답 받은 텍스트(txt) 출력 공급사에서 응답 받은 텍스트(txt) 출력 공급사에서 응답 받은 텍스트(txt) 출력 공급사에서 응답 받은 텍스트(txt) 출력 공급사에서 응답 받은 텍스트(txt) 출력 공급사에서 응답 받은 텍스트(txt) 출력 공급사에서 응답 받은 텍스트(txt) 출력 공급사에서 응답 받은 텍스트(txt) 출력 공급사에서 응답 받은 텍스트(txt) 출력 공급사에서 응답 받은 텍스트(txt) 출력 공급사에서 응답 받은 텍스트(txt) 출력 공급사에서 응답 받은 텍스트(txt) 출력 공급사에서 응답 받은 텍스트(txt) 출력 공급사에서 응답 받은 텍스트(txt) 출력 공급사에서 응답 받은 텍스트(txt) 출력 공급사에서 응답 받은 텍스트(txt) 출력 공급사에서 응답 받은 텍스트(txt) 출력 공급사에서 응답 받은 텍스트(txt) 출력 공급사에서 응답 받은 텍스트(txt) 출력 공급사에서 응답 받은 텍스트(txt) 출력 공급사에서 응답 받은 텍스트(txt) 출력 공급사에서 응답 받은 텍스트(txt) 출력 공급사에서 응답 받은 텍스트(txt) 출력 공급사에서 응답 받은 텍스트(txt) 출력 공급사에서 응답 받은 텍스트(txt) 출력 공급사에서 응답 받은 텍스트(txt) 출력 공급사에서 응답 받은 텍스트(txt) 출력 공급사에서 응답 받은 텍스트(txt) 출력 공급사에서 응답 받은 텍스트(txt) 출력 공급사에서 응답 받은 텍스트(txt) 출력 공급사에서 응답 받은 텍스트(txt) 출력 공급사에서 응답 받은 텍스트(txt) 출력 공급사에서 응답 받은 텍스트(txt) 출력 공급사에서 응답 받은 텍스트(txt) 출력 공급사에서 응답 받은 텍스트(txt) 출력 공급사에서 응답 받은 텍스트(txt) 출력 공급사에서 응답 받은 텍스트(txt) 출력 공급사에서 응답 받은 텍스트(txt) 출력 공급사에서 응답 받은 텍스트(txt) 출력 공급사에서 응답 받은 텍스트(txt) 출력 공급사에서 응답 받은 텍스트(txt) 출력 공급사에서 응답 받은 텍스트(txt) 출력 공급사에서 응답 받은 텍스트(txt) 출력 공급사에서 응답 받은 텍스트(txt) 출력 공급사에서 응답 받은 텍스트(txt) 출력 공급사에서 응답 받은 텍스트(txt) 출력 공급사에서 응답 받은 텍스트(txt) 출력 공급사에서 응답 받은 텍스트(txt) 출력 공급사에서 응답 받은 텍스트(txt) 출력 공급사에서 응답 받은 텍스트(txt) 출력 공급사에서 응답 받은 텍스트(txt) 출력 공급사에서 응답 받은 텍스트(txt) 출력 공급사에서 응답 받은 텍스트(txt) 출력 공급사에서 응답 받은 텍스트(txt) 출력 공급사에서 응답 받은 텍스트(txt) 출력 공급사에서 응답 받은 텍스트(txt) 출력 공급사에서 응답 받은 텍스트(txt) 출력 공급사에서 응답 받은 텍스트(txt) 출력 공급사에서 응답 받은 텍스트(txt) 출력 공급사에서 응답 받은 텍스트(txt) 출력 공급사에서 응답 받은 텍스트(txt) 출력 공급사에서 응답 받은 텍스트(txt) 출력 공급사에서 응답 받은 텍스트(txt) 출력 공급사에서 응답 받은 텍스트(txt) 출력 공급사에서 응답 받은 텍스트(txt) 출력 공급사에서 응답 받은 텍스트(txt) 출력 공급사에서 응답 받은 텍스트(txt) 출력 공급사에서 응답 받은 텍스트(txt) 출력 공급사에서 응답 받은 텍스트(txt) 출력 공급사에서 응답 받은 텍스트(txt) 출력 공급사에서 응답 받은 텍스트(txt) 출력 공급사에서 응답 받은 텍스트(txt) 출력 공급사에서 응답 받은 텍스트(txt) 출력 공급사에서 응답 받은 텍스트(txt) 출력 공급사에서 응답 받은 텍스트(txt) 출력 공급사에서 응답 받은 텍스트(txt) 출력 공급사에서 응답 받은 텍스트(txt) 출력 공급사에서 응답 받은 텍스트(txt) 출력 공급사에서 응답 받은 텍스트(txt) 출력 공급사에서 응답 받은 텍스트(txt) 출력 공급사에서 응답 받은 텍스트(txt) 출력 공급사에서 응답 받은 텍스트(txt) 출력 공급사에서 응답 받은 텍스트(txt) 출력 공급사에서 응답 받은 텍스트(txt) 출력 공급사에서 응답 받은 텍스트(txt) 출력 공급사에서 응답 받은 텍스트(txt) 출력 공급사에서 응답 받은 텍스트(txt) 출력 공급사에서 응답 받은 텍스트(txt) 출력 공급사에서 응답 받은 텍스트(txt) 출력 공급사에서 응답 받은 텍스트(txt) 출력 공급사에서 응답 받은 텍스트(txt) 출력 공급사에서 응답 받은 텍스트(txt) 출력 공급사에서 응답 받은 텍스트(txt) 출력 공급사에서 응답 받은 텍스트(txt) 출력 공급사에서 응답 받은 텍스트(txt) 출력 공급사에서 응답 받은 텍스트(txt) 출력 공급사에서 응답 받은 텍스트(txt) 출력 공급사에서 응답 받은 텍스트(txt) 출력 공급사에서 응답 받은 텍스트(txt) 출력 공급사에서 응답 받은 텍스트(txt) 출력 공급사에서 응답 받은 텍스트(txt) 출력 공급사에서 응답 받은 텍스트(txt) 출력 공급사에서 응답 받은 텍스트(txt) 출력 공급사에서 응답 받은 텍스트(txt) 출력 공급사에서 응답 받은 텍스트(txt) 출력 공급사에서 응답 받은 텍스트(txt) 출력 공급사에서 응답 받은 텍스트(txt) 출력 공급사에서 응답 받은 텍스트(txt) 출력 공급사에서 응답 받은 텍스트(txt) 출력 공급사에서 응답 받은 텍스트(txt) 출력 공급사에서 응답 받은 텍스트(txt) 출력 공급사에서 응답 받은 텍스트(txt) 출력 공급사에서 응답 받은 텍스트(txt) 출력 공급사에서 응답 받은 텍스트(txt) 출력 공급사에서 응답 받은 텍스트(txt) 출력 공급사에서 응답 받은 텍스트(txt) 출력 공급사에서 응답 받은 텍스트(txt) 출력 공급사에서 응답 받은 텍스트(txt) 출력 공급사에서 응답 받은 텍스트(txt) 출력 공급사에서 응답 받은 텍스트(txt) 출력 공급사에서 응답 받은 텍스트(txt) 출력 공급사에서 응답 받은 텍스트(txt) 출력 공급사에서 응답 받은 텍스트(txt) 출력 공급사에서 응답 받은 텍스트(txt) 출력 공급사에서 응답 받은 텍스트(txt) 출력 공급사에서 응답 받은 텍스트(txt) 출력 공급사에서 응답 받은 텍스트(txt) 출력 공급사에서 응답 받은 텍스트(txt) 출력 공급사에서 응답 받은 텍스트(txt) 출력 공급사에서 응답 받은 텍스트(txt) 출력 공급사에서 응답 받은 텍스트(txt) 출력 공급사에서 응답 받은 텍스트(txt) 출력 공급사에서 응답 받은 텍스트(txt) 출력 공급사에서 응답 받은 텍스트(txt) 출력 공급사에서 응답 받은 텍스트(txt) 출력 공급사에서 응답 받은 텍스트(txt) 출력 공급사에서 응답 받은 텍스트(txt) 출력 공급사에서 응답 받은 텍스트(txt) 출력 공급사에서 응답 받은 텍스트(txt) 출력 공급사에서 응답 받은 텍스트(txt) 출력 공급사에서 응답 받은 텍스트(txt) 출력 공급사에서 응답 받은 텍스트(txt) 출력 공급사에서 응답 받은 텍스트(txt) 출력 공급사에서 응답 받은 텍스트(txt) 출력 공급사에서 응답 받은 텍스트(txt) 출력 공급사에서 응답 받은 텍스트(txt) 출력 공급사에서 응답 받은 텍스트(txt) 출력 공급사에서 응답 받은 텍스트(txt) 출력 공급사에서 응답 받은 텍스트(txt) 출력 공급사에서 응답 받은 텍스트(txt) 출력 공급사에서 응답 받은 텍스트(txt) 출력 공급사에서 응답 받은 텍스트(txt) 출력 공급사에서 응답 받은 텍스트(txt) 출력 공급사에서 응답 받은 텍스트(txt) 출력 공급사에서 응답 받은 텍스트(txt) 출력</span>
-													</div>
-												</div>
-												<p>조식포함<br>(BREAKFAST<br>INCLUDED)</p>
+												<p>조식포함조식포함조식포함조식포함조식포함조식포함조식포함조식포함(BREAKFAST INCLUDED)</p>
 											</td>
 											<td class="room-state">선택 후 확인</td>
 											<td class="total-price">
@@ -1188,11 +1190,13 @@ $(function(){
 												</div>
 											</td>
 											<td class="includes">
-												<div class="lp-area" style="width:40px;">
-													<a href="#" class="btn base lp1">알림</a>
-													<div class="lp-cont" style="left:50px;top:0;width:310px;">
-														<a href="#" class="btn-close">닫기</a>
-														<span>공급사에서 응답 받은 텍스트(txt) 출력<br>공급사에서 응답 받은 텍스트(txt) 출력<br>공급사에서 응답 받은 텍스트(txt) 출력</span>
+												<div class="lp-areas">
+													<div class="lp-area" style="width:40px;">
+														<a href="#" class="btn base lp1">알림</a>
+														<div class="lp-cont" style="left:50px;top:0;width:310px;">
+															<a href="#" class="btn-close">닫기</a>
+															<span>공급사에서 응답 받은 텍스트(txt) 출력<br>공급사에서 응답 받은 텍스트(txt) 출력<br>공급사에서 응답 받은 텍스트(txt) 출력</span>
+														</div>
 													</div>
 												</div>
 												<p>조식포함<br>(BREAKFAST<br>INCLUDED)</p>
@@ -1234,11 +1238,13 @@ $(function(){
 												</div>
 											</td>
 											<td class="includes">
-												<div class="lp-area" style="width:40px;">
-													<a href="#" class="btn base lp2">특전</a>
-													<div class="lp-cont" style="left:50px;top:0;width:310px;">
-														<a href="#" class="btn-close">닫기</a>
-														<span>공급사에서 응답 받은 텍스트(txt) 출력<br>공급사에서 응답 받은 텍스트(txt) 출력<br>공급사에서 응답 받은 텍스트(txt) 출력</span>
+												<div class="lp-areas">
+													<div class="lp-area" style="width:40px;">
+														<a href="#" class="btn base lp2">특전</a>
+														<div class="lp-cont" style="left:50px;top:0;width:310px;">
+															<a href="#" class="btn-close">닫기</a>
+															<span>공급사에서 응답 받은 텍스트(txt) 출력<br>공급사에서 응답 받은 텍스트(txt) 출력<br>공급사에서 응답 받은 텍스트(txt) 출력</span>
+														</div>
 													</div>
 												</div>
 												<p>조식포함</p>
@@ -1280,11 +1286,13 @@ $(function(){
 												</div>
 											</td>
 											<td class="includes">
-												<div class="lp-area" style="width:40px;">
-													<a href="#" class="btn base lp1">알림</a>
-													<div class="lp-cont" style="left:50px;top:0;width:310px;">
-														<a href="#" class="btn-close">닫기</a>
-														<span>공급사에서 응답 받은 텍스트(txt) 출력<br>공급사에서 응답 받은 텍스트(txt) 출력<br>공급사에서 응답 받은 텍스트(txt) 출력</span>
+												<div class="lp-areas">
+													<div class="lp-area" style="width:40px;">
+														<a href="#" class="btn base lp1">알림</a>
+														<div class="lp-cont" style="left:50px;top:0;width:310px;">
+															<a href="#" class="btn-close">닫기</a>
+															<span>공급사에서 응답 받은 텍스트(txt) 출력<br>공급사에서 응답 받은 텍스트(txt) 출력<br>공급사에서 응답 받은 텍스트(txt) 출력</span>
+														</div>
 													</div>
 												</div>
 												<p>조식포함</p>
@@ -1326,11 +1334,13 @@ $(function(){
 												</div>
 											</td>
 											<td class="includes">
-												<div class="lp-area" style="width:40px;">
-													<a href="#" class="btn base lp1">알림</a>
-													<div class="lp-cont" style="left:50px;top:0;width:310px;">
-														<a href="#" class="btn-close">닫기</a>
-														<span>공급사에서 응답 받은 텍스트(txt) 출력<br>공급사에서 응답 받은 텍스트(txt) 출력<br>공급사에서 응답 받은 텍스트(txt) 출력</span>
+												<div class="lp-areas">
+													<div class="lp-area" style="width:40px;">
+														<a href="#" class="btn base lp1">알림</a>
+														<div class="lp-cont" style="left:50px;top:0;width:310px;">
+															<a href="#" class="btn-close">닫기</a>
+															<span>공급사에서 응답 받은 텍스트(txt) 출력<br>공급사에서 응답 받은 텍스트(txt) 출력<br>공급사에서 응답 받은 텍스트(txt) 출력</span>
+														</div>
 													</div>
 												</div>
 												<p>조식포함</p>
@@ -1372,11 +1382,13 @@ $(function(){
 												</div>
 											</td>
 											<td class="includes">
-												<div class="lp-area" style="width:40px;">
-													<a href="#" class="btn base lp2">특전</a>
-													<div class="lp-cont" style="left:50px;top:0;width:310px;">
-														<a href="#" class="btn-close">닫기</a>
-														<span>공급사에서 응답 받은 텍스트(txt) 출력<br>공급사에서 응답 받은 텍스트(txt) 출력<br>공급사에서 응답 받은 텍스트(txt) 출력</span>
+												<div class="lp-areas">
+													<div class="lp-area" style="width:40px;">
+														<a href="#" class="btn base lp2">특전</a>
+														<div class="lp-cont" style="left:50px;top:0;width:310px;">
+															<a href="#" class="btn-close">닫기</a>
+															<span>공급사에서 응답 받은 텍스트(txt) 출력<br>공급사에서 응답 받은 텍스트(txt) 출력<br>공급사에서 응답 받은 텍스트(txt) 출력</span>
+														</div>
 													</div>
 												</div>
 												<p>조식포함</p>
@@ -1418,11 +1430,13 @@ $(function(){
 												</div>
 											</td>
 											<td class="includes">
-												<div class="lp-area" style="width:40px;">
-													<a href="#" class="btn base lp2">특전</a>
-													<div class="lp-cont" style="left:50px;top:0;width:310px;">
-														<a href="#" class="btn-close">닫기</a>
-														<span>공급사에서 응답 받은 텍스트(txt) 출력<br>공급사에서 응답 받은 텍스트(txt) 출력<br>공급사에서 응답 받은 텍스트(txt) 출력</span>
+												<div class="lp-areas">
+													<div class="lp-area" style="width:40px;">
+														<a href="#" class="btn base lp2">특전</a>
+														<div class="lp-cont" style="left:50px;top:0;width:310px;">
+															<a href="#" class="btn-close">닫기</a>
+															<span>공급사에서 응답 받은 텍스트(txt) 출력<br>공급사에서 응답 받은 텍스트(txt) 출력<br>공급사에서 응답 받은 텍스트(txt) 출력</span>
+														</div>
 													</div>
 												</div>
 												<p>조식포함</p>
@@ -1464,11 +1478,13 @@ $(function(){
 												</div>
 											</td>
 											<td class="includes">
-												<div class="lp-area" style="width:40px;">
-													<a href="#" class="btn base lp2">특전</a>
-													<div class="lp-cont" style="left:50px;top:0;width:310px;">
-														<a href="#" class="btn-close">닫기</a>
-														<span>공급사에서 응답 받은 텍스트(txt) 출력<br>공급사에서 응답 받은 텍스트(txt) 출력<br>공급사에서 응답 받은 텍스트(txt) 출력</span>
+												<div class="lp-areas">
+													<div class="lp-area" style="width:40px;">
+														<a href="#" class="btn base lp2">특전</a>
+														<div class="lp-cont" style="left:50px;top:0;width:310px;">
+															<a href="#" class="btn-close">닫기</a>
+															<span>공급사에서 응답 받은 텍스트(txt) 출력<br>공급사에서 응답 받은 텍스트(txt) 출력<br>공급사에서 응답 받은 텍스트(txt) 출력</span>
+														</div>
 													</div>
 												</div>
 												<p>조식포함</p>
@@ -1510,11 +1526,13 @@ $(function(){
 												</div>
 											</td>
 											<td class="includes">
-												<div class="lp-area" style="width:40px;">
-													<a href="#" class="btn base lp2">특전</a>
-													<div class="lp-cont" style="left:50px;top:0;width:310px;">
-														<a href="#" class="btn-close">닫기</a>
-														<span>공급사에서 응답 받은 텍스트(txt) 출력<br>공급사에서 응답 받은 텍스트(txt) 출력<br>공급사에서 응답 받은 텍스트(txt) 출력</span>
+												<div class="lp-areas">
+													<div class="lp-area" style="width:40px;">
+														<a href="#" class="btn base lp2">특전</a>
+														<div class="lp-cont" style="left:50px;top:0;width:310px;">
+															<a href="#" class="btn-close">닫기</a>
+															<span>공급사에서 응답 받은 텍스트(txt) 출력<br>공급사에서 응답 받은 텍스트(txt) 출력<br>공급사에서 응답 받은 텍스트(txt) 출력</span>
+														</div>
 													</div>
 												</div>
 												<p>조식포함</p>
@@ -1556,11 +1574,13 @@ $(function(){
 												</div>
 											</td>
 											<td class="includes">
-												<div class="lp-area" style="width:40px;">
-													<a href="#" class="btn base lp2">특전</a>
-													<div class="lp-cont" style="left:50px;top:0;width:310px;">
-														<a href="#" class="btn-close">닫기</a>
-														<span>공급사에서 응답 받은 텍스트(txt) 출력<br>공급사에서 응답 받은 텍스트(txt) 출력<br>공급사에서 응답 받은 텍스트(txt) 출력</span>
+												<div class="lp-areas">
+													<div class="lp-area" style="width:40px;">
+														<a href="#" class="btn base lp2">특전</a>
+														<div class="lp-cont" style="left:50px;top:0;width:310px;">
+															<a href="#" class="btn-close">닫기</a>
+															<span>공급사에서 응답 받은 텍스트(txt) 출력<br>공급사에서 응답 받은 텍스트(txt) 출력<br>공급사에서 응답 받은 텍스트(txt) 출력</span>
+														</div>
 													</div>
 												</div>
 												<p>조식포함</p>
