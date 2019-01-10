@@ -1,0 +1,513 @@
+<!DOCTYPE HTML>
+<html lang="ko">
+
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=no" />
+<meta name="format-detection" content="telephone=no" />
+<title>현대카드 PRIVIA 여행</title>
+<link type="text/css" rel="stylesheet" href="/css/front/mtravel/jquery.mobile.1.4.2.css" />
+<link type="text/css" rel="stylesheet" href="/css/front/mtravel/base.css" />
+<link type="text/css" rel="stylesheet" href="/css/front/mtravel/common.css" />
+<link type="text/css" rel="stylesheet" href="/css/front/mtravel/contents.css" />
+<link type="text/css" rel="stylesheet" href="/css/front/mtravel/jquery.mCustomScrollbar.min.css" /><!-- 스크롤 관련 추가 -->
+<script type="text/javascript" src="/js/front/mtravel/jquery-1.8.3.min.js"></script>
+<script type="text/javascript" src="/js/front/mtravel/jquery.mCustomScrollbar.concat.min.js"></script><!-- 스크롤 관련 추가 -->
+<script type="text/javascript" src="/js/front/mtravel/init.js"></script>
+<script type="text/javascript" src="/js/front/mtravel/jquery.mobile-1.4.2.js"></script>
+<script type="text/javascript" src="/js/front/mtravel/swipe.js"></script>
+<script type="text/javascript">
+    var AIR_HTL_FLAG = "PKG";
+</script>
+<script type="text/javascript" src="/js/front/mtravel/commonUI.js"></script>
+</head>
+
+<body>
+<div data-role="page">
+
+<!-- 헤더 --> 
+<div class="headWrap hdw-st2">
+    <header>
+        <div class="header">
+            <div class="rightArea">
+                <a href="#" class="btnMenu"><img src="/images/front/mtravel/common/btn_menu.gif" alt="메뉴보기" style="width:16px;" /></a>
+            </div>
+        </div>
+    </header>
+</div>
+<!-- //헤더 --> 
+    
+<div class="contentWrap">
+    <!-- 컨텐츠 시작 -->
+    
+    <!-- 탭메뉴 -->
+    <div class="wrap-tsp">
+        <h3 class="tit"><img src="/images/front/mtravel/cont/txt-main-pkg.png" alt="두근두근 설레는 첫 해외여행, 복잡한 해외여행, 패키지로 심플하게"></h3>
+        <ul class="tab-search-pkg">
+            <li><a href="#" data-tname="tsp1" class="on">인기지역</a></li>
+            <li><a href="#" data-tname="tsp2">지역검색</a></li>
+            <li><a href="#" data-tname="tsp3">상품검색</a></li>
+        </ul>
+    </div>
+    <!-- //탭메뉴 -->
+
+    <!-- 인기지역 리스트 -->  
+    <div class="section-tsp tsp1">
+        <ul class="list-poparea-pkg">
+            <li><a href="B000_PU01.html" data-rel="dialog" data-transition="slideup"><img src="/images/front/mtravel/cont/list-poparea01.jpg" alt="세부"></a></li>
+            <li><a href="#"><img src="/images/front/mtravel/cont/list-poparea02.jpg" alt="오사카"></a></li>
+            <li><a href="#"><img src="/images/front/mtravel/cont/list-poparea03.jpg" alt="방콕"></a></li>
+            <li><a href="#"><img src="/images/front/mtravel/cont/list-poparea04.jpg" alt="케언즈"></a></li>
+        </ul>
+    </div>      
+    <!-- //인기지역 리스트 -->  
+         
+    <!-- 지역검색 -->  
+    <div class="section-tsp tsp2">
+        <div id="appendArea" class="cont-wrap">
+            <div class="ajax-holder">
+                <div class="sch-wrap pkg-area-search">
+                    <div class="item searchform" style="margin-top:0">
+                        <div class="city-sch">
+                            <span class="input">
+                                <label for="sch-city" class="placeholder">여행도시<span class="sub-txt">한글명, 영문명 모두 검색 가능</span></label>
+                                <input type="search" id="sch-city" class="value" />
+                                <a href="#" class="button"><span class="blind">검색하기</span></a>
+                            </span>
+                        </div>
+
+                        <div class="layer-holder">
+                            <!-- 주요도시 -->
+                            <div class="city-wrap">
+                                <h2 class="title">주요도시</h2>
+                                <div id="pkg-city-int" class="inner tabtype">
+                                    <ul class="tab">
+                                        <li><a href="#">미주/캐나다</a></li>
+                                        <li><a href="#">유럽</a></li>
+                                        <li><a href="#">남태평양</a></li>
+                                        <li><a href="#">일본</a></li>
+                                        <li><a href="#">홍콩/중국</a></li>
+                                        <li><a href="#">아시아</a></li>
+                                    </ul>
+                                    <div class="list">
+                                        <ul id="pkg-city-int-1">
+                                            <li class="selected"><a href="#">호놀룰루</a></li>
+                                            <li><a href="#">마우이</a></li>
+                                            <li><a href="#">라스베가스</a></li>
+                                            <li><a href="#">뉴욕</a></li>
+                                            <li><a href="#">로스엔젤레스</a></li>
+                                            <li><a href="#">칸쿤</a></li>
+                                            <li><a href="#">샌프란시스코</a></li>
+                                            <li><a href="#">밴쿠버</a></li>
+                                            <li><a href="#">밴쿠버</a></li>
+                                            <li><a href="#">밴쿠버</a></li>
+                                        </ul>
+                                        <ul id="pkg-city-int-2">
+                                            <li class="selected"><a href="#">파리</a></li>
+                                            <li><a href="#">로마</a></li>
+                                            <li><a href="#">런던</a></li>
+                                            <li><a href="#">프라하</a></li>
+                                            <li><a href="#">피렌체(플로렌스)</a></li>
+                                            <li><a href="#">바르셀로나</a></li>
+                                            <li><a href="#">밀라노</a></li>
+                                            <li><a href="#">베니스</a></li>
+                                            <li><a href="#">베니스</a></li>
+                                            <li><a href="#">베니스</a></li>
+                                        </ul>
+                                        <ul id="pkg-city-int-3">
+                                            <li class="selected"><a href="#">괌</a></li>
+                                            <li><a href="#">사이판</a></li>
+                                            <li><a href="#">시드니</a></li>
+                                            <li><a href="#">멜버른</a></li>
+                                        </ul>
+                                        <ul id="pkg-city-int-4">
+                                            <li class="selected"><a href="#">오사카</a></li>
+                                            <li><a href="#">도쿄</a></li>
+                                            <li><a href="#">후쿠오카</a></li>
+                                            <li><a href="#">오키나와/중부</a></li>
+                                            <li><a href="#">교토</a></li>
+                                            <li><a href="#">삿포로</a></li>
+                                            <li><a href="#">유후인</a></li>
+                                            <li><a href="#">벳부</a></li>
+                                        </ul>
+                                        <ul id="pkg-city-int-5">
+                                            <li class="selected"><a href="#">홍콩</a></li>
+                                            <li><a href="#">타이페이</a></li>
+                                            <li><a href="#">마카오</a></li>
+                                            <li><a href="#">상해</a></li>
+                                            <li><a href="#">북경</a></li>
+                                            <li><a href="#">청도</a></li>
+                                        </ul>
+                                        <ul id="pkg-city-int-6">
+                                            <li class="selected"><a href="#">싱가포르</a></li>
+                                            <li><a href="#">방콕</a></li>
+                                            <li><a href="#">세부</a></li>
+                                            <li><a href="#">코타키나발루</a></li>
+                                            <li><a href="#">다낭</a></li>
+                                            <li><a href="#">마닐라</a></li>
+                                            <li><a href="#">푸켓</a></li>
+                                            <li><a href="#">발리</a></li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- //주요도시 -->
+
+                            <!-- 여행도시 검색 결과 리스트 -->
+                            <div class="city-wrap" style="display:none;">
+                                <h2 class="title">여행도시</h2>
+                                <div class="inner">
+                                    <div class="list">
+                                        <ul>
+                                            <li class="selected">
+                                                <a href="#">
+                                                    마닐라<span class="bar"></span>필리핀
+                                                </a>
+                                            </li>
+                                            <li>
+                                                <a href="#">
+                                                    마카오<span class="bar"></span>중국
+                                                </a>
+                                            </li>
+                                            <li>
+                                                <a href="#">
+                                                    마드리드<span class="bar"></span>스페인
+                                                </a>
+                                            </li>
+                                            <li>
+                                                <a href="#">
+                                                    마우이<span class="bar"></span>미국
+                                                </a>
+                                            </li>
+                                            <li>
+                                                <a href="#">
+                                                    마닐라<span class="bar"></span>필리핀
+                                                </a>
+                                            </li>
+                                            <li>
+                                                <a href="#">
+                                                    마카오<span class="bar"></span>중국
+                                                </a>
+                                            </li>
+                                            <li>
+                                                <a href="#">
+                                                    마드리드<span class="bar"></span>스페인
+                                                </a>
+                                            </li>
+                                            <li>
+                                                <a href="#">
+                                                    마우이<span class="bar"></span>미국
+                                                </a>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- //여행도시 검색 결과 리스트 -->
+                        </div>
+                    </div>
+
+                    <div class="btn-group tac">
+                        <a href="B000_PU01.html" data-rel="dialog" data-transition="slideup" class="btn-search"><em>검색하기</em><i class="deco-icon search"></i></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>   
+    <!-- //지역검색 --> 
+    
+    <!-- 상품검색 -->
+    <div class="section-tsp tsp3">
+        <div class="cont-wrap">
+            <div class="sch-wrap pkg-item-search">
+                <div class="item">
+                    <div class="city-sch">
+                        <span class="input">
+                            <input type="search" class="value" placeholder="상품명으로 찾기" />
+                            <a href="#" class="button"><span class="blind">검색하기</span></a>
+                        </span>
+                    </div>
+                    <div class="layer-holder" style="display:block;">
+                        <!-- 상품 검색 결과 리스트 -->
+                        <div class="city-wrap">
+                            <h2 class="title">상품명</h2>
+                            <div class="inner">
+                                <div class="list">
+                                    <ul>
+                                        <li class="selected">
+                                            <a href="#">
+                                                제주도 전체
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a href="#">
+                                                서울특별시 전체
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a href="#">
+                                               강원도 전체
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a href="#">
+                                                경기도 전체
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a href="#">
+                                                경상남도 전체
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a href="#">
+                                                경상북도 전체
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a href="#">
+                                                광주광역시 전체
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a href="#">
+                                                광주 광역시 전체
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a href="#">
+                                                제주도 전체
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a href="#">
+                                                서울특별시 전체
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a href="#">
+                                               강원도 전체
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a href="#">
+                                                경기도 전체
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a href="#">
+                                                경상남도 전체
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a href="#">
+                                                경상북도 전체
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a href="#">
+                                                광주광역시 전체
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a href="#">
+                                                광주 광역시 전체
+                                            </a>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- //상품 검색 결과 리스트 -->
+                    </div>
+                </div>
+                <div class="item">
+                    <div class="city-sch">
+                        <span class="input">
+                            <input type="search" class="value" placeholder="상품 코드로 찾기" />
+                            <a href="#" class="button"><span class="blind">검색하기</span></a>
+                        </span>
+                    </div>
+                </div>
+                <div class="item">
+                    <span class="input">
+                        <select class="value">
+                            <option>전체</option>
+                            <option>전체</option>
+                            <option>전체</option>
+                        </select>
+                    </span>
+                </div>
+
+                <div class="btn-group tac">
+                    <a href="B000_PU02.html" data-rel="dialog" data-transition="slideup" class="btn-search"><em>검색하기</em><i class="deco-icon search"></i></a>
+                </div>
+            </div>
+        </div>
+        
+        <!-- 상품검색 결과 리스트 -->
+        <section class="resultArea pkgSearchResult">
+            <div class="noti"><em class="n-point">2341255</em>로 <em class="n-point">52</em>건의 상품이 있습니다.</div>
+            <div class="photoList">
+                <ul>
+                    <li><a href="#">
+                        <dl class="listLine pkgSelectList">
+                            <dt class="tit"><p>[KE 남프랑스 전세기]예술가들이 머무는 곳곳곳곳곳곳곳곳곳곳곳곳곳곳곳곳곳곳곳곳곳곳곳곳곳곳곳곳곳곳곳곳곳곳곳곳곳곳곳곳곳곳곳곳곳곳</p>
+                                <em class="cate">여행기간 : 4일, 5일, 6일</em>
+                                <em class="cate">출발요일 : 매일</em>
+                                <em class="cate">상품코드 : AAP700</em> <!-- #25539수정 -->
+                            </dt>
+                            <dd class="pic">
+                                <p class="picLogo lotte">롯데관광</p>
+                                <img src="/images/front/mtravel/cont/dummy_pkg_img2.jpg" alt="사진" style="width:122px;height:80px;" />
+                            </dd>
+                            <dd class="rightArea">
+                                <strong class="price"><em>341,000</em>원</strong>
+                            </dd>
+                        </dl></a>
+                    </li>
+                    <li><a href="#">
+                        <dl class="listLine pkgSelectList">
+                            <dt class="tit"><p>대한항공 이태리 일주 + 남프랑스 &lt;니스/모나코&gt;</p>
+                                <em class="cate">여행기간 : 4일, 5일, 6일</em>
+                                <em class="cate">출발요일 : 매일</em>
+                                <em class="cate">상품코드 : AAP700</em> <!-- #25539수정 -->
+                            </dt>
+                            <dd class="pic">
+                                <p class="picLogo modoo">모두투어</p>
+                                <img src="/images/front/mtravel/cont/dummy_pkg_img2.jpg" alt="사진" style="width:122px;height:80px;" />
+                            </dd>
+                            <dd class="rightArea">
+                                <strong class="price"><em>201,000</em>원</strong>
+                            </dd>
+                        </dl></a>
+                    </li>   
+                     <li><a href="#">
+                    <dl class="listLine pkgSelectList">
+                        <dt class="tit"><p>세계인들의 워너비 이탈리아 완전일주 9일</p>
+                            <em class="cate">여행기간 : 4일, 5일, 6일</em>
+                            <em class="cate">출발요일 : 매일</em>
+                            <em class="cate">상품코드 : AAP700</em> <!-- #25539수정 -->
+                        </dt>
+                        <dd class="pic">
+                            <p class="picLogo hana">하나투어</p>
+                            <img src="/images/front/mtravel/cont/dummy_pkg_img2.jpg" alt="사진" style="width:122px;height:80px;" />
+                        </dd>
+                        <dd class="rightArea">
+                            <strong class="price"><em>5,341,000</em>원</strong>
+                        </dd>
+                    </dl></a>
+                </li>
+                <li><a href="#">
+                    <dl class="listLine pkgSelectList">
+                        <dt class="tit"><p>[KE 남프랑스 전세기] 예술가들이 머무는 곳, 프로방스</p>
+                            <em class="cate">여행기간 : 4일, 5일, 6일</em>
+                            <em class="cate">출발요일 : 매일</em>
+                            <em class="cate">상품코드 : AAP700</em> <!-- #25539수정 -->
+                        </dt>
+                        <dd class="pic">
+                            <p class="picLogo hanjin">한진관광</p>
+                            <img src="/images/front/mtravel/cont/dummy_pkg_img2.jpg" alt="사진" style="width:122px;height:80px;" />
+                        </dd>
+                        <dd class="rightArea">
+                            <strong class="price end"><em>5,341,000</em>원</strong><!-- .end 예약마감 취소선 클래스 -->
+                        </dd>
+                    </dl></a>
+                </li>
+                <li><a href="#">
+                    <dl class="listLine pkgSelectList">
+                        <dt class="tit"><p>세계인들의 워너비 이탈리아 완전일주 9일</p>
+                            <em class="cate">여행기간 : 4일, 5일, 6일</em>
+                            <em class="cate">출발요일 : 매일</em>
+                            <em class="cate">상품코드 : AAP700</em> <!-- #25539수정 -->
+                        </dt>
+                        <dd class="pic">
+                            <p class="picLogo vgood">참좋은여행</p>
+                            <img src="/images/front/mtravel/cont/dummy_pkg_img2.jpg" alt="사진" style="width:122px;height:80px;" />
+                        </dd>
+                        <dd class="rightArea">
+                            <strong class="price"><em>5,341,000</em>원</strong>
+                        </dd>
+                    </dl></a>
+                </li>              
+                </ul>
+            </div>
+        </section>
+        <div class="cont-wrap sch-wrap">
+            <div class="btn-group tac">
+                <a href="B000_PU02.html" data-rel="dialog" data-transition="slideup" class="btn-search"><em>재검색하기</em><i class="deco-icon search"></i></a>
+            </div>
+        </div>    
+        <!-- 검색 결과가 없는 경우 -->
+        <div class="nodata">검색하신 조건에 맞는 상품이 조회되지 않습니다. <br />정확한 상품코드를 입력하여 주시기 바랍니다.</div>
+        <!-- //상품검색 결과 리스트 -->    
+        
+    </div>
+    <!-- //상품검색 -->
+
+   
+    <script>
+    $(document).one('pageshow',function(e,data){  
+        //-----탭메뉴
+        $('.tab-search-pkg li a').click(function(e){
+            if(!$('.wrap-tsp').hasClass('tsp-on')){
+                var sp = 700;
+                $('html,body').animate({scrollTop:0},sp);
+                $('.wrap-tsp h3.tit').animate({'margin-top':'-70%'},sp);
+                $('.wrap-tsp').animate({'padding-top':'47px'},sp, function(){
+                    $('.wrap-tsp').addClass('tsp-on');
+                });
+            }
+            
+            if(!$(this).hasClass('on')){
+                var tname = $(this).data('tname');
+                $('.section-tsp').hide();
+                $('.section-tsp.'+tname).show();
+                $('.tab-search-pkg li a.on').removeClass('on');
+                $(this).addClass('on');
+            }
+            e.preventDefault();
+        });
+        
+        //-----지역검색 
+        // 주요도시 탭 (mainUI.js 에서 가져옴)
+        var mainCityTab = function(tabwrap){
+            var target = $('#'+tabwrap).find('.tab > li > a');
+            target.on('click touchend',function(){
+                var index = $(this).parent('li').index() + 1;
+                $(this).attr('href','#'+tabwrap+'-'+index);
+                var thishref = $(this).attr('href');
+                $('#'+tabwrap).find('> .list ul:visible').hide();
+                target.parent('li.activated').removeClass('activated');
+                $(this).parent('li').addClass('activated');
+                $(thishref).show();
+                return false;
+            }).eq(0).trigger('click');
+        };
+        
+        $('.city-wrap .list').mCustomScrollbar({theme:"dark"}); //도시검색 레이어 스크롤 (임시용)
+        mainCityTab('pkg-city-int'); //주요도시 탭 이벤트 처리 (임시용)
+
+        //placeholder 처리(임시용)
+        $('#sch-city').on('focusin', function(){
+            if($(this).val() == ''){
+                $(this).parent().find('.placeholder').hide();
+            }
+        });
+        $('#sch-city').on('focusout', function(){
+            if($(this).val() == ''){
+                $(this).parent().find('.placeholder').show();
+            }
+        });
+        
+        //-----상품검색
+        $('.city-wrap .list').mCustomScrollbar({theme:"dark"}); //도시검색 레이어 스크롤 (임시용)  
+    });
+        
+    </script>   
+    <!-- 컨텐츠 끝 -->
+</div>
+</div>
+
+</body>
+</html>

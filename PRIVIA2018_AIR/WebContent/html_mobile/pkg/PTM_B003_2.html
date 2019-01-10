@@ -1,0 +1,293 @@
+<!DOCTYPE HTML>
+<html lang="ko">
+
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=no" />
+<meta name="format-detection" content="telephone=no" />
+<title>현대카드 PRIVIA 여행</title>
+<link type="text/css" rel="stylesheet" href="/css/front/mtravel/jquery.mobile.1.4.2.css" />
+<link type="text/css" rel="stylesheet" href="/css/front/mtravel/base.css" />
+<link type="text/css" rel="stylesheet" href="/css/front/mtravel/common.css" />
+<link type="text/css" rel="stylesheet" href="/css/front/mtravel/contents.css" />
+<link type="text/css" rel="stylesheet" href="/css/front/mtravel/jquery.mCustomScrollbar.min.css" /><!-- 스크롤 관련 추가 -->
+<link type="text/css" rel="stylesheet" href="/css/front/mtravel/swiper.min.css" /><!-- #28988 슬라이드 관련 추가 -->
+<script type="text/javascript" src="/js/front/mtravel/jquery-1.8.3.min.js"></script>
+<script type="text/javascript" src="/js/front/mtravel/jquery.mCustomScrollbar.concat.min.js"></script><!-- 스크롤 관련 추가 -->
+<script type="text/javascript" src="/js/front/mtravel/init.js"></script>
+<script type="text/javascript" src="/js/front/mtravel/jquery.mobile-1.4.2.js"></script>
+<script type="text/javascript" src="/js/front/mtravel/swipe.js"></script>
+<script type="text/javascript" src="/js/front/mtravel/swiper.min.js"></script><!-- #28988 슬라이드 관련 추가 -->
+<script type="text/javascript">
+    var AIR_HTL_FLAG = "PKG";
+</script>
+<script type="text/javascript" src="/js/front/mtravel/commonUI.js"></script>
+</head>
+
+<body>    
+<!-- #30409 추가 -->
+<div id="layerpop9999" class="noti-layerpop"> <!-- id는 임시값 -->
+    <div class="inner">
+        <div class="cont">
+            <a href="#"><img src="/images/front/mtravel/main/dummy_5.png" alt="" /></a>
+            <div class="close">
+                <span>
+                    <input type="checkbox" id="today-close" />
+                    <label for="today-close">오늘 하루 그만 보기</label>
+                </span>
+                <a href="#"><span class="blind">닫기</span></a>
+            </div>
+        </div>
+    </div>    
+</div>
+<script>
+$(function(){
+    //팝업 노출 설정
+    var checkCloseYn = function () {
+        var closelayerPopId = '';
+        closelayerPopId = $.getCookie('layerpop9999');
+        if(closelayerPopId == "Y") { 
+            $('.ui-page-active').removeAttr('style');
+            $('.noti-layerpop').removeClass('show');
+        } else {
+            if($('.noti-layerpop').length > 0){
+                $('.ui-page-active').css({'position':'fixed',width:'100%'});
+                $('.noti-layerpop').addClass('show');
+            }
+        };
+    };  
+
+    //페이지 로드될때 팝업 display셋팅
+    checkCloseYn();
+    
+    $('.ui-page-active').removeAttr('style');
+    $('.noti-layerpop').removeClass('show');
+
+    //팝업 닫기버튼 클릭 시
+    $('.noti-layerpop .close > a').on('click',function(){
+        $('.noti-layerpop').removeClass('show'); 
+        $('.ui-page-active').removeAttr('style');
+        if($('#today-close').is(':checked')){
+            $.setCookie('layerpop9999', "Y", 1);
+        }
+        return false;
+    });
+});
+</script>
+<!-- //#30409 추가 -->
+
+<!-- #30336 gnb(임시) -->
+<div class="gnbArea">
+    <div class="gnbHolder">
+        <span class="btnClose"><button type="button">메뉴닫기</button></span>
+        <nav>
+            <div class="mystatus">홍길동님 <button type="button" class="logout">로그아웃</button></div>
+            <div class="mystatus"><button type="button" class="login">로그인</button></div>
+            <ul class="gnb">
+                <li><a href="/html_mobile/air/PTM_I0001.html" data-ajax="false">HOME</a></li>
+                <li class="subon"><a href="#dep2_1">항공검색</a>
+                    <ul id="dep2_1">
+                        <li><a href="http://www.daum.net">국제선 검색</a></li>
+                        <li><a href="#">국내선 검색</a></li>
+                    </ul>
+                </li>
+                <li class="subon"><a href="#dep2_2">호텔검색</a>
+                    <ul id="dep2_2">
+                        <li><a href="#">해외호텔</a></li>
+                        <li><a href="#">국내숙박</a></li>
+                    </ul>
+                </li>
+                <li><a href="#">마이페이지</a></li>
+                <li><a href="#">고객센터</a></li>
+                <li><a href="#">프로모션</a></li>
+                <li><a href="#">설정</a></li>
+            </ul>
+        </nav>
+    </div>
+</div>
+<!--// #30336 gnb(임시) -->
+
+<!-- 탭메뉴 -->
+<div class="wrap-tsp">
+    <!-- #30336 헤더 추가 --> 
+    <div class="headWrap hdw-st2">
+        <header>
+            <div class="header">
+                <h1 class="logo"><img src="/images/front/mtravel/main/deco_privia_logo.png" alt="현대카드 PRIVIA 여행" style="width:133px;" /></h1>
+                <!-- #32828 추가 -->
+				<div class="leftArea">
+					<a href="#" class="btnBack btn-pkg-back" data-rel="back" data-direction="reverse"><img src="/images/front/mtravel/common/btn_prev.gif" alt="이전으로 가기" style="width:21px;" /></a>
+				</div>
+               <!-- //#32828 추가 -->
+                <div class="rightArea">
+                    <a href="#" class="btnMenu"><img src="/images/front/mtravel/common/btn_menu.gif" alt="메뉴보기" style="width:16px;" /></a>
+                </div>
+            </div>
+        </header>
+    </div>
+    <!-- //#30336 헤더 추가 -->
+    
+    <!-- #28988 추가 -->
+    <div class="swiper-container">
+        <div class="swiper-wrapper">
+            <div class="swiper-slide"><img src="/images/front/mtravel/cont/banner_pkg_01.jpg" alt="&nbsp;" /></div>
+            <div class="swiper-slide"><img src="/images/front/mtravel/cont/banner_pkg_01.jpg" alt="&nbsp;" /></div>
+            <div class="swiper-slide"><img src="/images/front/mtravel/cont/banner_pkg_01.jpg" alt="&nbsp;" /></div>
+        </div>
+        <div class="swiper-pagination"></div>
+    </div>
+    <!-- //#28988 추가 -->
+    <a href="http://mw.priviatravel.com/pkgRenewal/urgencyList" class="btn-eme-inv"><img src="/images/front/mtravel/cont/btn-eme-inv.png" alt=""></a><!-- #29482 추가 -->
+    <span class="btn-swiper-next"><a href="#"><img src="/images/front/mtravel/cont/txt-main-pkg-next.png" alt="&nbsp;"></a></span><!-- #28988 추가 -->
+    <h3 class="tit"><img src="/images/front/mtravel/cont/txt-main-pkg.png" alt="두근두근 설레는 첫 해외여행, 복잡한 해외여행, 패키지로 심플하게"></h3>
+    <ul class="tab-search-pkg">
+        <li><a href="PTM_B001.html">인기지역</a></li>
+        <li><a href="PTM_B002.html" class="on">지역검색</a></li>
+        <li><a href="PTM_B003.html">상품검색</a></li>
+    </ul>
+</div>
+<!-- //탭메뉴 -->
+
+<div data-role="page" id="pkgSearch03"><!-- #28867 id 추가 -->
+    <div class="contentWrap">
+    <!-- 컨텐츠 시작 -->
+    
+        <!-- 상품검색 결과 리스트 -->    
+        <section class="resultArea pkgSearchResult f-point2"><!-- 스크롤진행시 fix 지점 -->
+            <div class="s-state-pkg">
+                <p class="txt txt-city">방콕</p>
+                <p class="txt">999개 상품이 있습니다.</p>
+                <div class="rightArea">
+                    <a href="B000_PU03.html" data-ajax="false" class="align">상세검색</a><!-- #29354 수정 -->
+                    <a href="#" class="btnMap">지역검색</a>
+                </div>
+            </div>
+            <div class="photoList">
+                <ul>
+                    <li><a href="PTM_B201.html" data-ajax="false">
+                        <dl class="listLine pkgSelectList">
+                            <dt class="tit"><p>[KE 남프랑스 전세기]예술가들이 머무는 곳곳곳곳곳곳곳곳곳곳곳곳곳곳곳곳곳곳곳곳곳곳곳곳곳곳곳곳곳곳곳곳곳곳곳곳곳곳곳곳곳곳곳곳곳곳</p>
+                                <em class="cate">여행기간 : 4일, 5일, 6일</em>
+                                <em class="cate">출발요일 : 매일</em>
+                                <em class="cate">상품코드 : AAP700</em> <!-- #25539수정 -->
+                            </dt>
+                            <dd class="pic">
+                                <p class="picLogo lotte">롯데관광</p>
+                                <img src="/images/front/mtravel/cont/dummy_pkg_img2.jpg" alt="사진" style="width:122px;height:80px;" />
+                            </dd>
+                            <dd class="rightArea">
+                                <strong class="price"><em>341,000</em>원</strong>
+                            </dd>
+                        </dl></a>
+                    </li>
+                    <li><a href="#">
+                        <dl class="listLine pkgSelectList">
+                            <dt class="tit"><p>대한항공 이태리 일주 + 남프랑스 &lt;니스/모나코&gt;</p>
+                                <em class="cate">여행기간 : 4일, 5일, 6일</em>
+                                <em class="cate">출발요일 : 매일</em>
+                                <em class="cate">상품코드 : AAP700</em> <!-- #25539수정 -->
+                            </dt>
+                            <dd class="pic">
+                                <p class="picLogo modoo">모두투어</p>
+                                <img src="/images/front/mtravel/cont/dummy_pkg_img2.jpg" alt="사진" style="width:122px;height:80px;" />
+                            </dd>
+                            <dd class="rightArea">
+                                <strong class="price"><em>201,000</em>원</strong>
+                            </dd>
+                        </dl></a>
+                    </li>   
+                     <li><a href="#">
+                    <dl class="listLine pkgSelectList">
+                        <dt class="tit"><p>세계인들의 워너비 이탈리아 완전일주 9일</p>
+                            <em class="cate">여행기간 : 4일, 5일, 6일</em>
+                            <em class="cate">출발요일 : 매일</em>
+                            <em class="cate">상품코드 : AAP700</em> <!-- #25539수정 -->
+                        </dt>
+                        <dd class="pic">
+                            <p class="picLogo hana">하나투어</p>
+                            <img src="/images/front/mtravel/cont/dummy_pkg_img2.jpg" alt="사진" style="width:122px;height:80px;" />
+                        </dd>
+                        <dd class="rightArea">
+                            <strong class="price"><em>5,341,000</em>원</strong>
+                        </dd>
+                    </dl></a>
+                </li>
+                <li><a href="#">
+                    <dl class="listLine pkgSelectList">
+                        <dt class="tit"><p>[KE 남프랑스 전세기] 예술가들이 머무는 곳, 프로방스</p>
+                            <em class="cate">여행기간 : 4일, 5일, 6일</em>
+                            <em class="cate">출발요일 : 매일</em>
+                            <em class="cate">상품코드 : AAP700</em> <!-- #25539수정 -->
+                        </dt>
+                        <dd class="pic">
+                            <p class="picLogo hanjin">한진관광</p>
+                            <img src="/images/front/mtravel/cont/dummy_pkg_img2.jpg" alt="사진" style="width:122px;height:80px;" />
+                        </dd>
+                        <dd class="rightArea">
+                            <strong class="price end"><em>5,341,000</em>원</strong><!-- .end 예약마감 취소선 클래스 -->
+                        </dd>
+                    </dl></a>
+                </li>
+                <li><a href="#">
+                    <dl class="listLine pkgSelectList">
+                        <dt class="tit"><p>세계인들의 워너비 이탈리아 완전일주 9일</p>
+                            <em class="cate">여행기간 : 4일, 5일, 6일</em>
+                            <em class="cate">출발요일 : 매일</em>
+                            <em class="cate">상품코드 : AAP700</em> <!-- #25539수정 -->
+                        </dt>
+                        <dd class="pic">
+                            <p class="picLogo vgood">참좋은여행</p>
+                            <img src="/images/front/mtravel/cont/dummy_pkg_img2.jpg" alt="사진" style="width:122px;height:80px;" />
+                        </dd>
+                        <dd class="rightArea">
+                            <strong class="price"><em>5,341,000</em>원</strong>
+                        </dd>
+                    </dl></a>
+                </li>              
+                </ul>
+            </div>
+        </section>
+
+        <!-- 검색 결과가 없는 경우 -->
+        <div class="nodata">검색하신 조건에 맞는 상품이 조회되지 않습니다. <br />정확한 상품코드를 입력하여 주시기 바랍니다.</div>
+        <!-- //상품검색 결과 리스트 -->
+
+        <div class="wrap-btn-fix2">
+            <div class="btn-b-fix btn_block-st2">
+                <span class="btn xlarge action3"><a href="#" class="tac">재검색하기</a></span>
+            </div>
+        </div>
+
+        <script>
+        $(document).one('pageshow',function(e,data){  
+            $('.city-wrap .list').mCustomScrollbar({theme:"dark"}); //도시검색 레이어 스크롤 (임시용)    
+
+            //#30336 삭제
+            /*setTimeout(function(){
+                var isScrollChange = false;
+                $(document).on('scroll',function(){
+                    var st = $(document).scrollTop();            
+                    var scUTarget = $('.wrap-tsp .tab-search-pkg').offset().top;
+                    var scDTarget = $('.wrap-tsp').offset().top + ($('.wrap-tsp').height() - $('.wrap-tsp .tab-search-pkg').height());
+
+                    if(scUTarget <= st && !isScrollChange){
+                        $('.f-point2 .s-state-pkg').addClass('fix');
+                        $('.f-point2').css({'padding-top':'76px'});
+                        isScrollChange = true;
+                    }
+                    else if(scDTarget > st && isScrollChange){
+                        $('.f-point2 .s-state-pkg').removeClass('fix');
+                        $('.f-point2').css({'padding-top':'0'});
+                        isScrollChange = false;
+                    }
+                });
+            },400);*/
+        });
+        </script>
+        
+    <!-- 컨텐츠 끝 -->
+    </div>
+</div><!-- data-role="page" -->
+
+</body>
+</html>

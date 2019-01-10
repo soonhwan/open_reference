@@ -1,0 +1,241 @@
+<!DOCTYPE HTML>
+<html lang="ko">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=no" />
+<meta name="format-detection" content="telephone=no" />
+<title>현대카드 PRIVIA 여행</title>
+<link type="text/css" rel="stylesheet" href="/css/front/mtravel/jquery.mobile.1.4.2.css" />
+<link type="text/css" rel="stylesheet" href="/css/front/mtravel/base.css" />
+<link type="text/css" rel="stylesheet" href="/css/front/mtravel/common.css" />
+<link type="text/css" rel="stylesheet" href="/css/front/mtravel/contents.css" />
+<script type="text/javascript" src="/js/front/mtravel/jquery-1.8.3.min.js"></script>
+<script type="text/javascript" src="/js/front/mtravel/init.js"></script>
+<script type="text/javascript" src="/js/front/mtravel/jquery.mobile-1.4.2.js"></script>
+<script type="text/javascript" src="/js/front/mtravel/swipe.js"></script>
+<!--<script type="text/javascript" src="/js/front/mtravel/main_datepicker.js"></script>--> <!-- #20525 추가(운영 버전) -->
+<script type="text/javascript" src="/js/front/mtravel/main_datepicker_dev.js"></script> <!-- #20525 추가(테스트 버전) -->
+
+<script type="text/javascript">
+var AIR_HTL_FLAG = "PKG";
+</script>
+<script type="text/javascript" src="/js/front/mtravel/commonUI.js"></script>
+<script type="text/javascript">
+$(document).on('pageshow',function(e,data){  
+    $('.ui-expand').lyExpand('혜택 닫기','혜택 자세히보기', $('.area-closed').height());
+    
+    $('#sch-available').calendar({
+        title:'다른 출발일 보기',
+        date:new Date(),
+        min:'2017-09-21',        
+        max:'2018-09-21',
+        parent:'.datepicker-holder',
+        inline:true,
+        resState:true, //#20525 추가 - 달력 하단에 상태표시
+        fixDay : {"2017" : ["2017-09-24","2017-09-25","2017-09-26","2017-09-27","2017-09-31","2017-10-01","2017-10-02","2017-10-03"]}, //#20525 추가 - 예약가능 (클래스명 .fix)
+        startDay : {"2017" : ["2017-09-28","2017-09-29","2017-10-04","2017-10-05"]}, //#20525 추가 - 출발가능 (클래스명 .start)
+        waitingDay : {"2017" : ["2017-09-30","2017-10-06","2017-10-07"]}, //#20525 추가 - 대기예약 (클래스명 .waiting)
+        sCallback:function(data){
+            //20525 추가 - (년.월) 까지 표시
+            var dateVal = data.replace(/-/gi,'.').substring(0,7);
+            $("#sch-available .date").html(dateVal);
+        }
+    });
+});
+</script>
+</head>
+
+<body>
+<div class="headWrap">
+    <header>
+        <div class="header">
+            <h1 class="logo">해외패키지</h1>
+            <div class="rightArea">
+                <a href="#" class="btnMenu"><img src="/images/front/mtravel/common/btn_menu.gif" alt="메뉴보기" style="width:16px;" /></a>
+            </div>
+            <div class="leftArea">
+                <a href="#" class="btnBack" data-rel="back" data-direction="reverse"><img src="/images/front/mtravel/common/btn_prev.gif" alt="이전으로 가기" style="width:21px;" /></a>
+            </div>
+        </div>
+    </header>
+</div>
+<div class="contentWrap">
+	<!-- 컨텐츠 시작 -->
+    <div class="ui-expand">
+        <div class="expand_ly opened">
+            <div class="boxType3 bdBottom expand_cont">
+                <div class="pkg-benefit">
+                    <h2 class="title">현대카드 PRIVIA 해외패키지 <strong>혜택</strong></h2>
+                    <ul>
+                        <li class="bf1">현대카드<br /> 3~7% 즉시할인</li>
+                        <li class="bf2">현대카드 <br />5% M포인트 사용</li>
+                        <li class="bf3">현대카드<br />무이자할부 또는<br />M포인트 적립</li><!-- #28985 수정 -->
+                        <li class="bf4">다양한 추가 혜택</li><!-- #28985 추가 -->
+                    </ul>
+                    <a href="https://mw.priviatravel.com/pkgRenewal/promotionView?promotionSeq=248" class="btn-more" target="_blank">자세히 보기</a><!-- #28985 추가 -->
+                </div>
+            </div>
+            
+            <!-- modoo(모두투어), hana(하나투어), hanjin(한진관광), lotte(롯데관광), vgood(참좋은여행) -->
+            <div class="area-closed pkg-partner modoo">
+                <h2 class="name"><img src="/images/front/mtravel/cont/img_logomodoo.png" alt="모두투어"></h2>
+                <!--
+                <h2 class="name"><img src="/images/front/mtravel/cont/img_logohana.png" alt="하나투어"></h2>
+                <h2 class="name"><img src="/images/front/mtravel/cont/img_logohanjin.png" alt="한진관광"></h2>
+                <h2 class="name"><img src="/images/front/mtravel/cont/img_logolotte.png" alt="롯데관광"></h2>
+                <h2 class="name"><img src="/images/front/mtravel/cont/img_logovgood.png" alt="참좋은여행"></h2>
+                -->
+                
+                <div class="boxType6">
+                    <p class="fs-14 point2">[KE 남프랑스 전세기] 예술가들이 머무는 곳, 프로방스&amp;코트다쥐르 9일</p>
+                </div>
+                <p class="btnMore"><a href="#">자세히 보기</a></p>
+            </div>
+        </div>
+    </div>
+    
+    <!-- #23949 수정 -->
+    <section class="resultArea pkgSearchResult-st2 lowest">
+        <div class="photoList">
+            <ul>
+                <li><a href="#">
+                    <dl class="listLine">
+                        <dt class="img"><img src="/images/front/mtravel/cont/dummy_pkg_img3.jpg" alt="예술가들이 머무는 곳, 프로방스&amp;코트다쥐르 9일"></dt>
+                        <dd>
+                            <em class="cate">상품코드 : APP412 (제휴사 모상품 코드)</em>
+                            <em class="cate">여행기간 : 4일 / 5일 / 6일</em>
+                            <em class="cate">출발요일 : 매일</em>
+                            <em class="cate">상품코드 : AAP700</em> <!-- #25539수정 -->
+                            <div class="rightArea">
+                                <span class="txt">최저가 요금</span>
+                                <strong class="price"><em>341,000</em>원+</strong>
+                            </div>
+                        </dd>
+                    </dl></a>
+                </li>
+            </ul>
+        </div>
+    </section>
+    <!-- //#23949 수정 -->
+    
+    <div class="boxType7" style="padding-top:0px;">
+        <div class="control-calendar input">
+            <button class="prev">이전달</button>
+            <a href="#none" class="info" id="sch-available"><span class="date">2017.03</span><i class="deco-icon datepicker"></i></a>
+            <button class="next">다음달</button>
+        </div>
+        <div class="datepicker-holder"></div>
+    </div>    
+    
+    <div class="chkfilter cf-st2">
+        <a href="#" class="activated sort">가격순</a>
+        <a href="#" class="sort">출발일순</a>
+    </div>
+    
+    <!-- #23949 수정 -->
+    <section class="resultArea pkgSearchResult-st2">
+        <div class="photoList">
+            <ul>
+                <li><a href="#">
+                    <span class="state-st2 fix">예약가능</span>
+                    <!--<span class="state-st2 fix">예약가능</span>
+                    <span class="state-st2 start">출발가능</span>
+                    <span class="state-st2 waiting">대기예약</span>
+                    <span class="state-st2 end">예약마감</span>-->                
+                    <dl class="listLine">
+                        <dt class="tit">[KE 남프랑스 전세기]예술가들이 머무는 곳곳곳곳곳곳곳곳곳곳곳곳곳곳곳곳곳곳곳곳곳곳곳곳곳곳곳곳곳곳곳곳곳곳곳곳곳곳곳곳곳곳곳곳곳곳</dt>
+                        <dd>
+                            <em class="cate">대한항공</em>
+                            <em class="cate">2017/08/19 | 20:45 출발</em>
+                            <em class="cate">상품코드 : AAP700</em> <!-- #25539수정 -->
+                            <div class="rightArea">
+                                <strong class="price"><em>341,000</em>원+</strong>
+                            </div>
+                        </dd>
+                    </dl></a>
+                </li>
+                 <li><a href="#">
+                    <span class="state-st2 start">출발가능</span>
+                    <!--<span class="state-st2 fix">예약가능</span>
+                    <span class="state-st2 start">출발가능</span>
+                    <span class="state-st2 waiting">대기예약</span>
+                    <span class="state-st2 end">예약마감</span>-->                
+                    <dl class="listLine">
+                        <dt class="tit"><다카마츠 자유 3일> 다카마츠 도큐레이 호텔 /트윈 /조식포함</dt>
+                        <dd>
+                            <em class="cate">대한항공</em>
+                            <em class="cate">2017/08/19 | 20:45 출발</em>
+                            <em class="cate">상품코드 : AAP700</em> <!-- #25539수정 -->
+                            <div class="rightArea">
+                                <strong class="price"><em>341,000</em>원+</strong>
+                            </div>
+                        </dd>
+                    </dl></a>
+                </li>
+                <li><a href="#">
+                    <span class="state-st2 waiting">대기예약</span>
+                    <!--<span class="state-st2 fix">예약가능</span>
+                    <span class="state-st2 start">출발가능</span>
+                    <span class="state-st2 waiting">대기예약</span>
+                    <span class="state-st2 end">예약마감</span>-->                
+                    <dl class="listLine">
+                        <dt class="tit">[민박팩] 바르셀로나 핵심 6일</dt>
+                        <dd>
+                            <em class="cate">대한항공</em>
+                            <em class="cate">2017/08/19 | 20:45 출발</em>
+                            <em class="cate">상품코드 : AAP700</em> <!-- #25539수정 -->
+                            <div class="rightArea">
+                                <strong class="price"><em>341,000</em>원+</strong>
+                            </div>
+                        </dd>
+                    </dl></a>
+                </li>
+                <li><a href="#">
+                    <span class="state-st2 end">예약마감</span>
+                    <!--<span class="state-st2 fix">예약가능</span>
+                    <span class="state-st2 start">출발가능</span>
+                    <span class="state-st2 waiting">대기예약</span>
+                    <span class="state-st2 end">예약마감</span>-->                
+                    <dl class="listLine">
+                        <dt class="tit">몰디브 센타라 비치빌라 6박 7일</dt>
+                        <dd>
+                            <em class="cate">대한항공</em>
+                            <em class="cate">2017/08/19 | 20:45 출발</em>
+                            <em class="cate">상품코드 : AAP700</em> <!-- #25539수정 -->
+                            <div class="rightArea">
+                                <strong class="price end"><em>341,000</em>원+</strong>
+                            </div>
+                        </dd>
+                    </dl></a>
+                </li>
+                <li><a href="#">
+                    <span class="state-st2 fix">예약가능</span>
+                    <!--<span class="state-st2 fix">예약가능</span>
+                    <span class="state-st2 start">출발가능</span>
+                    <span class="state-st2 waiting">대기예약</span>
+                    <span class="state-st2 end">예약마감</span>-->                
+                    <dl class="listLine">
+                        <dt class="tit">[KE 남프랑스 전세기]예술가들이 머무는 곳곳곳곳곳곳곳곳곳곳곳곳곳곳곳곳곳곳곳곳곳곳곳곳곳곳곳곳곳곳곳곳곳곳곳곳곳곳곳곳곳곳곳곳곳곳</dt>
+                        <dd>
+                            <em class="cate">대한항공</em>
+                            <em class="cate">2017/08/19 | 20:45 출발</em>
+                            <em class="cate">상품코드 : AAP700</em> <!-- #25539수정 -->
+                            <div class="rightArea">
+                                <strong class="price"><em>341,000</em>원+</strong>
+                            </div>
+                        </dd>
+                    </dl></a>
+                </li>
+            </ul>
+        </div>
+        <a href="#" class="ymb btn-list-more fs-15">더보기</a>
+
+        <!-- 검색 결과가 없는 경우 -->
+        <div class="nodata">이용 가능한 상품이 없습니다.</div>
+        <!-- //검색 결과가 없는 경우 -->        
+    </section>
+    <!-- //#23949 수정 -->
+	<!-- 컨텐츠 끝 -->
+</div>
+</body>
+</html>

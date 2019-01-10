@@ -1,0 +1,542 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=no" />
+<meta name="format-detection" content="telephone=no" />
+<title>PRIVIA 여행</title>
+<meta name="description" content=" "> 
+<meta property="og:title" content=" "> 
+<meta property="og:image" content="http://static.priviatravel.com/images/front/mtravel/common/mobile_17004159046.png"> 
+<meta property="og:description" content=" ">
+<link rel="shortcut icon" type="image/x-icon" href="//static.priviatravel.com/images/front/mtravel/common/favicon.ico" />
+<link rel="apple-touch-icon-precomposed" sizes="152x152" href="//static.priviatravel.com/images/front/mtravel/common/apple-touch-icon-152.png" />
+<link type="text/css" rel="stylesheet" href="/css/front/mtravel/jquery.mobile.1.4.2.css" />
+<link type="text/css" rel="stylesheet" href="/css/front/mtravel/jquery-ui.min.css" />
+<link type="text/css" rel="stylesheet" href="/css/front/mtravel/swiper.min.css" />
+<link type="text/css" rel="stylesheet" href="/css/front/mtravel/base.css" />
+<link type="text/css" rel="stylesheet" href="/css/front/mtravel/common.css" />
+<link type="text/css" rel="stylesheet" href="/css/front/mtravel/contents.css" />
+<link type="text/css" rel="stylesheet" href="/css/front/mtravel/airCont.css" />
+<script type="text/javascript" src="/js/front/mtravel/jquery-1.8.3.min.js"></script>
+<script type="text/javascript" src="/js/front/mtravel/jquery-ui.min.js"></script>
+<script type="text/javascript" src="/js/front/mtravel/init.js"></script>
+<script type="text/javascript" src="/js/front/mtravel/jquery.mobile-1.4.2.js"></script>
+<script type="text/javascript" src="/js/front/mtravel/swiper.min.js"></script>
+<script type="text/javascript" src="/js/front/mtravel/commonModuleSearchM.js"></script> <!-- headerManager 가이드 버전 실제로는 반영 되지 않음 -->
+<script type="text/javascript" src="/js/front/mtravel/commonUI.js"></script>
+<script type="text/javascript" src="/js/utils.js"></script>
+</head>
+
+<body>
+
+<!-- 실제 ajax시 필요한 부분 -->
+<!-- page -->
+<div data-role="page">
+   
+    <!-- header-sec -->
+    <div class="header-secV2 header-page-st header-pop-st">
+        <div class="in-header-secV2">
+            <h2 class="ihg-title">개인정보처리방침</h2>
+            <div class="ly-left">
+                <a href="#" class="b-close" data-rel="back"><span class="a11y">페이지 닫기</span></a>
+            </div>
+        </div>
+    </div>
+    <!-- //header-sec -->
+       
+    <!-- content-sec -->
+    <div class="content-sec">
+        <section class="w-content-sec">
+            <script type="text/javascript">
+            $(function(){
+                $('.goAgreement li a').on('click',function(){
+                    var $this = $(this).attr('href');
+                    var top = $($this).offset();
+                    $('html, body').scrollTop(top.top - 50);
+                    return false;
+                });	
+            });
+            </script>
+            <div class="agreement">
+                <div class="block">
+        <p>
+        주식회사 타이드스퀘어(이하 "회사" 또는 "PRIVIA" 이라 함)는 신용정보의 이용 및 보호에 관한 법률, 정보통신망 이용촉진 및 정보보호 등에 관한 법률, 개인정보보호법 등 준수하여야 할 관련 법규상의 개인정보보호규정을 준수하며, 타이드스퀘어가 운영하는 인터넷 웹사이트(www.priviatravel.com) 및 마이크로사이트(모바일 사이트 포함)의 회원 및 비회원과 타이드스퀘어의 콜센터를 이용하는 정보주체의 개인정보처리방침을 정하여 이용자 권익보호에 최선을 다하고 있습니다.<br /><br />
+        본 개인정보처리방침은 관련법령의 개정이나 당사 내부방침에 의해 변경될 수 있으며, 회원가입 및 홈페이지 이용 시에 수시로 확인하여 주시기 바랍니다.<br /><br />
+        개인정보처리방침의 '정보주체'는 처리되는 정보에 의하여 알아볼 수 있는 사람으로서 그 정보의 주체가 되는 사람을 말합니다. '고객'은 '정보주체' 중 회사가 제공하는 서비스를 이용하는 자(이용하려는 자 포함)를 의미합니다.
+        </p>
+        <strong class="tit">용어의 정의</strong>
+        <p>본 개인정보처리방침에서의 사용되는 용어의 정의는 다음과 같다.</p>
+        <ul>
+            <li>① "PRIVIA"라 함은 ㈜타이드스퀘어가 재화 또는 용역을 이용자에게 제공하기 위하여 컴퓨터 등 정보통신설비를 이용하여 재화 또는 용역을 거래할 수 있도록 설정한 가상의 영업장을 말하며, 아울러 사이버 몰을 운영하는 사업자들의 의미로도 사용합니다.</li>
+            <li>② "PRIVIA 홈페이지" (이하 "홈페이지"라 한다)란 "회사"에 회원으로 등록한 이용자가 다양한 정보와 서비스를 제공받을 수 있도록 회사가 제작, 운영하는 인터넷 웹사이트를 의미합니다.</li>
+            <li>③ "PRIVIA 회원"(이하 "회원"이라 한다)이란 "회사" 들에게 개인정보제공의 동의와 함께 회원등록을 하고 ID를 부여 받은 회원 또는 그 회원전체를 의미한다.</li>
+            <li>④ "이용자"라 함은 PRIVIA에 접속하여 이 약관에 따라 회사가 제공하는 서비스를 받는 회원 및 비회원을 말합니다.</li>
+            <li>⑤ "회원"이라 함은 "회사"에 개인정보를 제공하여 회원등록을 한 자로서, "PRIVIA회원"에 가입한 자를 의미합니다.</li>
+            <li>⑥ "비회원"이라 함은 회원에 가입하지 않고 회사가 제공하는 서비스를 이용하는 자를 말합니다.</li>
+        </ul><br />
+        <p>PRIVIA의 개인정보처리방침은 다음과 같은 내용으로 구성되어 있습니다.</p><br />
+        <ul class="goAgreement">
+            <li><a href="#agreement-cont1" data-ajax="false">1. 개인정보의 수집항목 및 이용 목적</a></li>
+            <li><a href="#agreement-cont2" data-ajax="false">2. 개인정보의 수집 방법</a></li>
+            <li><a href="#agreement-cont3" data-ajax="false">3. 이용자 개인정보의 이용 및 보유기간</a></li>
+            <li><a href="#agreement-cont4" data-ajax="false">4. 개인정보의 열람 및 정정</a></li>
+            <li><a href="#agreement-cont5" data-ajax="false">5. 동의철회 및 파기</a></li>
+            <li><a href="#agreement-cont6" data-ajax="false">6. 개인정보의 파기절차 및 방법</a></li>
+            <li><a href="#agreement-cont7" data-ajax="false">7. 제3자에 대한 제공 및 위탁처리업체</a></li>
+            <li><a href="#agreement-cont8" data-ajax="false">8. 개인정보보호를 위해 회원들이 알아야 할 사항</a></li>
+            <li><a href="#agreement-cont9" data-ajax="false">9. 비회원 고객의 개인정보수집 및 보호</a></li>
+            <li><a href="#agreement-cont10" data-ajax="false">10. 14세미만 아동의 회원가입제한</a></li>
+            <li><a href="#agreement-cont11" data-ajax="false">11. 쿠키의 운영 및 거부</a></li>
+            <li><a href="#agreement-cont12" data-ajax="false">12. 링크사이트에 대한 책임</a></li>
+            <li><a href="#agreement-cont13" data-ajax="false">13. 개인정보 보호를 위한 기술적, 관리적 대책</a></li>
+            <li><a href="#agreement-cont14" data-ajax="false">14. 게시물에 포함된 개인정보</a></li>
+            <li><a href="#agreement-cont15" data-ajax="false">15. 개인정보 관리책임자 및 담당자의 소속, 성명 및 연락처</a></li>
+            <li><a href="#agreement-cont16" data-ajax="false">16. 방침변경등에 대한 고지</a></li>
+        </ul>
+                </div>
+
+                <div id="agreement-cont1" class="block">
+        <strong class="tit">1. 개인정보의 수집항목 및 이용목적</strong>
+        <ul>
+            <li>① 개인정보란 생존하는 개인에 관한 정보로서 당해 정보에 포함되어 있는 성명 등의 사항에 의하여 당해 개인을 식별할 수 있는 부호∙문자∙음성∙음향 등의 정보(당해 정보만으로는 특정 개인을 식별할 수 없더라도 다른 정보와 용이하게 결합하여 식별할 수 있는 것을 포함)를 말합니다.</li>
+            <li>② 회사가 개인정보를 수집하는 목적은 이용자의 신분과 서비스 이용의사를 확인하여 최적화되고 맞춤화된 서비스를 제공하기 위함입니다. 회사는 최초 회원가입 시 서비스의 본질적 기능을 수행하기 위해 반드시 필요한 최소한의 정보만을 수집하고 있으며 회사가 제공하는 서비스 이용에 따라 대금결제, 물품배송 및 환불 등에 필요한 정보를 추가로 수집할 수 있습니다.</li>
+            <li>③ 회사는 개인정보를 수집•이용목적 이외에 다른 용도로 이를 이용하거나 이용자의 동의 없이 제3자에게 이를 제공하지 않습니다.</li>
+            <li>④ 회사는 다음과 같은 목적으로 개인정보를 수집하여 이용할 수 있습니다. 다만, 전자상거래 등에서의 소비자보호에 관한 법률, 국세기본법, 전자금융거래법 등 관련법령에 따라 개인정보 항목이 추가되는 경우 수집하는 화면에서 별도로 고지하고 동의를 받아 이용할 수 있습니다.
+                <ul>
+                    <li>가. 필수항목
+                        <table class="tblType">
+                        <caption>개인정보의 수집항목 및 이용목적</caption>
+                        <colgroup>
+                            <col style="width:33%" /><col style="width:33%" /><col />
+                        </colgroup>
+                        <thead>
+                        <tr>
+                            <th scope="col">수집항목</th>
+                            <th scope="col">수집목적</th>
+                            <th scope="col">보유기간</th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                        <tr>
+                            <td>성명(국문), 생년월일, 통신사, 휴대폰번호, I-PIN정보</td>
+                            <td>본인인증</td>
+                            <td>본인인증 절차를 위해 처리하는 개인정보로 별도 저장하지 않음</td>
+                        </tr>
+                        <tr>
+                            <td>성명(국문), 아이디, 비밀번호, 휴대폰번호</td>
+                            <td>이용자 식별 및 본인여부 확인을 통한 회원제서비스 제공</td>
+                            <td>회원탈퇴 시까지</td>
+                        </tr>
+                        <tr>
+                            <td>전화번호, 휴대폰번호, 전자우편주소</td>
+                            <td>계약이행(주문하신 상품 및 경품배송 등)에 대한 연락 및 안내 등의 고지</td>
+                            <td>회원탈퇴 시까지</td>
+                        </tr>
+                        </tbody>
+                        </table>
+                    </li>
+                    <li>나. 선택항목
+                        <table class="tblType">
+                        <caption>선택항목 개인정보의 수집항목 및 이용목적</caption>
+                        <colgroup>
+                            <col style="width:33%" /><col style="width:33%" /><col />
+                        </colgroup>
+                        <thead>
+                        <tr>
+                            <th scope="col">수집항목</th>
+                            <th scope="col">수집목적</th>
+                            <th scope="col">보유기간</th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                        <tr>
+                            <td>성명(국문), 주소, 전화번호, 휴대폰번호, 전자우편주소</td>
+                            <td>청약의사의 확인, 거래이행, 배송, 고객상담, AS 등 불만 처리</td>
+                            <td rowspan="9">개인정보 이용목적 달성 시 및 관계 법령에 따른 보관기간까지</td>
+                        </tr>
+                        <tr>
+                            <td>성명(국영문), 성별, 여권사본(국적, 여권번호, 여권종류, 여권유효기간), 체류지 정보(미주 여행 시), 휴대폰번호, 마일리지번호</td>
+                            <td>구매 및 요금 결제, 개인 식별, 고지사항 전달, 마일리지 적립∙전환, 불만처리 등 민원처리, 청약의사의 확인, 항공권 및 기타운송업체 탑승예약, 숙박예약, 현지행사 진행 및 고객관리 목적, 회원할인</td>
+                        </tr>
+                        <tr>
+                            <td>성명(국영문), 여권사본(국적, 여권번호, 여권종류, 여권유효기간)</td>
+                            <td>개인 식별 및 숙박 예약</td>
+                        </tr>
+                        <tr>
+                            <td>성명(국영문), 성별, 여권사본(국적, 여권번호, 여권종류, 여권유효기간)</td>
+                            <td>비자발급</td>
+                        </tr>
+                        <tr>
+                            <td>카드사명, 카드번호, 카드유효기간 등</td>
+                            <td>대금결제(카드결제 시)</td>
+                        </tr>
+                        <tr>
+                            <td>성명(국문), 거래은행명, 계좌번호</td>
+                            <td>대금결제(계좌이체 시) 및 환불</td>
+                        </tr>
+                        <tr>
+                            <td>휴대폰번호, 사업자등록번호</td>
+                            <td>현금영수증 발급(지출증빙용)</td>
+                        </tr>
+                        <tr>
+                            <td>성명(국영문), 주민등록번호</td>
+                            <td>여행자보험가입</td>
+                        </tr>
+                        <tr>
+                            <td>성명(국문), 전자우편주소, 휴대폰번호</td>
+                            <td>온라인 문의 및 게시글(프로모션) 응대</td>
+                        </tr>
+                        <tr>
+                            <td>현대카드 종류, 카드번호, 유효기간, 비밀번호 앞2자리, CVV번호</td>
+                            <td>현대카드 바우처, 리워드, 이용권 사용, 항공 청구할인 등의 제휴 서비스 제공</td>
+                            <td>현대카드 인증 절차를 위해 처리하는 개인정보로 별도 저장하지 않음</td>
+                        </tr>
+                        </tbody>
+                        </table>
+                    </li>
+                    <li>다. 자동으로 생성되는 개인정보<br />
+                        <table class="tblType">
+                        <colgroup>
+                            <col style="width:33%" /><col style="width:33%" /><col />
+                        </colgroup>
+                        <thead>
+                        <tr>
+                            <th scope="col">수집항목</th>
+                            <th scope="col">수집목적</th>
+                            <th scope="col">보유기간</th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                        <tr>
+                            <td>IP Address, 방문일시, 서비스 이용기록, 쿠키</td>
+                            <td>부정이용방지, 비인가 사용 방지, 분쟁조정 해결을 위한 기록보존, 맞춤형 서비스 제공</td>
+                            <td>회원탈퇴 시까지</td>
+                        </tr>
+                        </tbody>
+                        </table>
+                    </li>
+                </ul>
+            </li>
+            <li>⑤ 회사는 고객님의 기본적 인권 침해의 우려가 있는 민감한 개인정보(인종 및 민족, 사상 및 신조, 출신지 및 본적지, 정치적 성향 및 범죄기록, 건강상태 등)는 수집하지 않습니다.</li>
+        </ul>
+                </div>
+
+                <div id="agreement-cont2" class="block">
+        <strong class="tit">2. 개인정보의 수집 방법</strong>
+        <p>PRIVIA는 홈페이지, 모바일 앱, 상담전화, 서면, 팩스, 이벤트나 경품행사 응모, 영업업무 위탁사 또는 제휴사, 생성정보 수집툴 등을 통해 개인정보를 수집하고 있습니다.</p>
+                </div>
+
+                <div id="agreement-cont3" class="block">
+        <strong class="tit">3. 이용자 개인정보의 이용 및 보유기간</strong>
+        <ul>
+            <li>①  회사는 이용자의 개인정보를 원칙적으로 고지 및 약정한 기간 동안 보유 및 이용하며 개인정보의 수집 및 이용목적이 달성되면 지체 없이 파기합니다. 단, 상법, 전자상거래 등에서의 소비자보호에 관한 법률, 통신비밀보호법 등 관련법령의 규정에 의하여 다음과 같이 거래 관련 권리 의무 관계의 확인 등을 이유로 일정기간 보유하여야 할 필요가 있을 경우에는 일정기간 보유합니다. 
+                <ul>
+                    <li>가. 계약 또는 청약철회 등에 관한 기록<br />- 보존기간 : 5년<br />- 보존이유 : 전자상거래 등에서의 소비자 보호에 관한 법률</li>
+                    <li>나. 대금결제 및 재화 등의 공급에 관한 기록<br />- 보존기간 : 5년<br />- 보존이유 : 전자상거래 등에서의 소비자 보호에 관한 법률</li>
+                    <li>다. 소비자의 불만 또는 분쟁처리에 관한 기록<br />- 보존기간 : 3년<br />- 보존이유 : 전자상거래 등에서의 소비자 보호에 관한 법률</li>
+                    <li>라. 표시, 광고에 관한 기록<br />- 보존기간 : 6개월<br />- 보존이유 : 전자상거래 등에서의 소비자 보호에 관한 법률</li>
+                    <li>마. 접속에 관한 기록<br />- 보존기간 : 3개월<br />- 보존이유 : 통신비밀보호법</li>
+                </ul>
+            </li>
+            <li>② 회원님의 동의를 받아 보유하고 있는 거래정보 등을 회원님께서 열람을 요구하시는 경우에는 소정의 본인 확인 절차를 거친 후 지체 없이 열람, 확인할 수 있도록 조치합니다.</li>
+            <li>③ 회사는 정보통신망 이용촉진 및 정보보호 등에 관한 법률 제29조 및 동법 시행령 제16조에 따라 장기간(1년 이상) 서비스를 사용하지 않으신 이용자의 개인정보보호를 위하여 다른 이용자의 개인정보와 분리하여 저장·관리합니다.</li>
+            <li>④ 회사는 이용자의 자기결정권을 보장하기 위해 개인정보 이용내역을 해당 이용자에게 주기적(연 1회 이상) 통지합니다. 이용내역에는 다음과 같은 내용을 포함할 수 있습니다.
+                <ul>
+                    <li>가. 개인정보 수집 이용목적 및 수집한 개인정보 항목</li>
+                    <li>나. 개인정보를 제공받은 자와 그 제공 목적 및 제공한 개인정보의 항목</li>
+                    <li>다. 개인정보 취급 위탁을 받은 자 및 그 취급위탁을 하는 업무의 내용</li>
+                </ul>
+            </li>
+        </ul>
+                </div>
+                <div id="agreement-cont4" class="block">
+        <strong class="tit">4. 개인정보의 열람 및 정정</strong>
+        <ul>
+            <li>① 회원님 및 법정 대리인께서는 언제든지 등록되어 있는 회원님의 개인정보를 열람하거나 수정하실 수 있습니다. 개인정보 열람 및 정정을 하고자 할 경우에는 홈페이지 또는 모바일 앱에 로그인 후 "마이페이지 &gt; 나의 정보 관리" 항목을 클릭하여 직접 열람 또는 정정하거나, 개인정보 보호책임자 및 보호담당자에게 서면, 전화 또는 전자우편로 연락하시면 지체 없이 조치하겠습니다.</li>
+            <li>② 회원님께서 개인정보의 오류에 대한 정정을 요청한 경우, 정정을 완료하기 전까지 당해 개인 정보를 이용 또는 제공하지 않습니다.</li>
+            <li>③ 잘못된 개인정보를 제3자에게 이미 제공한 경우에는 정정 처리결과를 제3자에게 지체 없이 통지하여 정정하도록 조치하겠습니다.</li>
+            <li>이용자는 고객센터를 통하여 권리행사를 할 수 있으며, 개인정보보호법 시행규칙 별지 제8호 서식에 따라 개인정보 열람·정정·삭제·처리정지 요구서를 서면, 전자우편을 통해 제출할 수 있습니다.<br />또한 이용자는 대리인을 통하여 권리행사를 할 수 있으며, 이 경우 개인정보보호법 시행규칙 별지 제11호 서식에 따른 위임장을 제출하여야 합니다.</li>
+        </ul>
+                </div>
+                <div id="agreement-cont5" class="block">
+        <strong class="tit">5. 동의철회 및 파기</strong>
+        <p>회원가입 등을 통한 개인정보의 수집, 이용, 제공에 대하여 회원은 가입 시 동의한 내용에 대해서 언제든지 철회할 수 있습니다. 동의 철회는 홈페이지 또는 모바일 앱에 로그인 후, "마이페이지 &gt; 나의 정보 관리" 에서 언제든지 철회할 수 있으며, 개인정보 민원담당자에게 서면, 전화, 전자우편 등으로 연락하시면 신속하게 개인정보의 삭제 등 필요한 조치를 합니다. 단, 회사는 회원님 혹은 법정 대리인의 요청에 의해 동의철회, 파기된 개인정보는 "이용자 개인정보의 이용 및 보유기간"에 명시된 바에 따라 처리하고 그 외의 용도로 열람 또는 이용할 수 없도록 처리하고 있습니다.</p>
+        <p>이용자가 스마트폰 상에서 모바일 앱을 삭제한다 하더라도 회원가입 및 서비스 이용을 통해 수집된 개인정보는 삭제되지 않습니다. 개인정보 제공에 대한 동의철회 및 파기를 요청하실 때에는 ‘회원탈퇴’ 또는 개인정보 민원담당자에게 서면, 전화, 전자우편 등으로 연락하여야만 처리된다는 것을 알려드립니다.</p>
+                </div>
+                <div id="agreement-cont6" class="block">
+        <strong class="tit">6. 개인정보의 파기절차 및 방법</strong>
+        <p>회사는 「개인정보의 수집 및 이용목적」이 달성되면 다음과 같은 절차 및 방법에 따라 개인정보를 파기합니다.</p>
+        <ul>
+            <li>① 파기절차<br />회사는 원칙적으로 이용자의 개인정보를 회원 탈퇴 시 지체없이 파기하고 있습니다. <br />
+        단, 이용자에게 개인정보 보관기간에 대해 별도의 동의를 얻은 경우, 또는 법령에서 일정 기간 정보보관 의무를 부과하는 경우에는 별도의 DB(또는 DB Table)로 옮겨져(종이의 경우 별도의 보안구역) 내부 방침 및 기타 관련 법령에 의한 정보보호 사유에 따라(이용자 개인정보의 이용 및 보유기간 참조) 일정 기간 저장된 후 파기됩니다. 동 개인정보는 법률에 의한 경우가 아니고서는 보존 이외의 다른 목적으로 이용되지 않습니다.<br />회사는 개인정보 유효기간제에 따라 1년간 서비스를 이용하지 않은 회원의 개인정보를 별도로 분리 보관하여 관리하고 있습니다.</li>
+            <li>② 파기방법<br />종이에 출력된 개인정보는 분쇄기로 분쇄하거나 소각을 통하여 파기합니다. 전자적 파일 형태로 저장된 개인정보는 재생할 수 없는 기술적 방법을 사용하여 삭제합니다.</li>
+        </ul>
+                </div>
+                <div id="agreement-cont7" class="block">
+        <strong class="tit">7. 제3자에 대한 제공 및 위탁처리업체</strong>
+        <ul>
+            <li>① 회사는 고객의 동의가 있거나 법률의 규정에 의한 경우를 제외하고는 어떠한 경우에도 “개인정보의 수집항목 및 이용 목적”에서 고지한 범위를 넘어서 고객의 개인정보를 이용하거나 타인 또는 타기업, 기관에 제공하지 않습니다.</li>
+            <li>②  다음의 경우에는 예외적으로 고객의 동의 없이 개인정보를 제공할 수 있습니다.
+                <ul>
+                    <li>가. 형사소송법, 금융실명거래 및 비밀보장에 관한 법률, 신용정보의 이용 및 보호에 관한 법률, 전기통신기본법, 전기통신사업법, 전파법, 지방세법, 소비자보호법, 한국은행법, 등 관계법령에 특별한 규정이 있는 경우</li>
+                    <li>나. 정보주체 또는 그 법정대리인이 의사표시를 할 수 없는 상태에 있거나 주소불명 등으로 사전 동의를 받을 수 없는 경우로서 명백히 정보주체 또는 제3자의 급박한 생명, 신체, 재산상의 이익을 위하여 필요하다고 인정되는 경우</li>
+                    <li>다. 통계작성, 학술연구나 시장조사를 위하여 특정 개인을 식별할 수 없는 형태로 제공하는 경우</li>
+                    <li>라. 그러나 예외 사항에서도 관계법령에 의하거나 수사기관의 요청에 의해 정보를 제공한 경우에는 본래의 수집목적 및 이용목적에 반하여 무분별하게 정보가 제공되지 않도록 최대한 노력하겠습니다.</li>
+                </ul>
+            </li>
+            <li>③ 회사는 원칙적으로 고객님의 개인정보를 여행서비스업과 무관한 기업 및 기관에 공개하지 않습니다. 단, 여행서비스의 거래이행을 위하여 관련 정보는 필요한 범위 내에서 회원이 동의한 경우 아래와 같이 거래 당사자에게 제공합니다.
+                <table class="tblType">
+                <caption>개인정보 제공항목, 이용목적, 보유 및 이용기간 안내</caption>
+                <colgroup>
+                    <col width="24%" /><col width="28%" /><col width="28%" /><col />
+                </colgroup>
+                <thead>
+                <tr>
+                    <th scope="col">제공받는 자</th>
+                    <th scope="col">개인정보 제공항목</th>
+                    <th scope="col">개인정보 이용목적</th>
+                    <th scope="col">보유 및 이용기간</th>
+                </tr>
+                </thead>
+                <tbody>
+                <!--<tr>
+                    <th scope="row">쇼핑상품 제공업체<br /><a href="${config:getString('URL.STATIC')}/info/SHP.html" target="_blank">[업체 리스트]</a></th>
+                    <td>성명(국문), 주소, 전화번호, 휴대폰번호, 전자우편주소</td>
+                    <td>청약의사의 확인, 거래 이행, 배송, 고객상담, AS 등 불만 처리</td>
+                    <td rowspan="9">개인정보 이용목적 달성 시(제휴업체는 제휴계약 종료 시) 및 관계법령에 따른 보관기간까지</td>
+                </tr>-->
+                <tr>
+                    <th scope="row">대한항공 외 기타 항공사<br /><a href="${config:getString('URL.STATIC')}/info/AIR.html" target="_blank">[업체 리스트]</a></th>
+                    <td>성명(국영문), 성별, 여권사본(국적, 여권번호, 여권종류, 여권유효기간, 마일리지번호, 체류지 정보(미주 여행 시)</td>
+                    <td rowspan="2">구매 및 요금 결제, 개인 식별, 고지사항 전달, 마일리지 적립∙전환, 불만처리 등 민원처리, 청약의사의 확인, 항공권 및 기타운송업체 탑승예약, 숙박예약, 현지행사 진행 및 고객관리 목적, 회원할인</td>
+                    <td rowspan="8">개인정보 이용목적 달성 시(제휴업체는 제휴계약 종료 시) 및 관계법령에 따른 보관기간까지</td>
+                </tr>
+                <tr>
+                    <th scope="row">현지 및 제휴 여행업체<br /><a href="${config:getString('URL.STATIC')}/info/PKG.html" target="_blank">[업체 리스트]</a></th>
+                    <td>성명(국영문), 성별, 여권사본(국적, 여권번호, 여권종류, 여권유효기간), 휴대폰번호</td>
+                </tr>
+                <tr>
+                    <th scope="row">현지 호텔 및 제휴 숙박시설<br /><a href="${config:getString('URL.STATIC')}/info/HTL.html" target="_blank">[업체 리스트]</a></th>
+                    <td>성명(국영문), 성별, 주소, 전화번호, 휴대폰번호, 전자우편주소</td>
+                    <td>개인 식별 및 숙박 예약</td>
+                </tr>
+                <tr>
+                    <th scope="row">비자대행업체<br /><a href="${config:getString('URL.STATIC')}/info/VISA.html" target="_blank">[업체 리스트]</a></th>
+                    <td>성명(국영문), 성별, 여권사본(국적, 여권번호, 여권종류, 여권유효기간)</td>
+                    <td>비자발급</td>
+                </tr>
+                <tr>
+                    <th scope="row">토파스여행정보㈜</th>
+                    <td rowspan="2">성명(국영문), 카드사명, 카드번호, 카드유효기간 등</td>
+                    <td rowspan="2">항공권 카드결제</td>
+                </tr>
+                <tr>
+                    <th scope="row">아시아나애바카스㈜</th>
+                </tr>
+                <tr>
+                    <th scope="row">에이스손해보험</th>
+                    <td>성명(국영문), 주민등록번호</td>
+                    <td>여행자보험</td>
+                </tr>
+                <tr>
+                    <th scope="row">TravelJigsaw Limited</th>
+                    <td>성명(국영문), 성별, 생년월일, 휴대폰번호, 전자우편주소, 현지연락처</td>
+                    <td>해외 렌터카 예약</td>
+                </tr>
+                </tbody>
+                </table>
+            </li>
+            <li>④ 회사는 비즈니스 파트너사에서 제공하는 제휴 서비스 제공을 위해 필요한 범위 내에서 회원이 동의한 경우 아래와 같이 고객님의 개인정보를 거래 당사자에게 제공합니다.
+                <table class="tblType">
+                <caption>수탁자 위탁업무의 내용</caption>
+                <colgroup>
+                    <col width="24%" /><col width="28%" /><col width="28%" /><col />
+                </colgroup>
+                <thead>
+                <tr>
+                    <th scope="col">제공받는자</th>
+                    <th scope="col">개인정보 제공항목</th>
+                    <th scope="col">개인정보 이용목적</th>
+                    <th scope="col">보유 및 이용기간</th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr>
+                    <th scope="row">현대카드㈜</th>
+                    <td>성명, 카드번호, 유효기간, 비밀번호 앞의 2자리, CVV번호</td>
+                    <td>현대카드 바우처, 리워드, 이용권 사용 등의 제휴 서비스 제공</td>
+                    <td>이미 보유한 정보로 별도 저장하지 않음</td>
+                </tr>
+                </tbody>
+                </table>
+            </li>
+            <li>⑤ 회사는 보다 나은 서비스 제공과 고객 편의 제공 등 업무수행을 원활하게 하기 위해 고객의 개인정보를 제한된 범위 내에서 수집, 보관, 처리 등을 위탁하여 처리하고 있습니다.
+                <table class="tblType">
+                <caption>비즈니스 파트너사, 이용목적 안내</caption>
+                <colgroup>
+                    <col style="width:33%"><col style="width:33%"><col>
+                </colgroup>
+                <thead>
+                <tr>
+                    <th scope="col">수탁자</th>
+                    <th scope="col">위탁업무</th>
+                    <th scope="col">보유∙이용기간</th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr>
+                    <th scope="row">NICE 신용평가</th>
+                    <td>(휴대폰, I-PIN)본인인증</td>
+                    <td>해당업체에서 이미 보유하고 있는 개인정보이므로 별도로 저장하지 않음</td>
+                </tr>
+                <tr>
+                    <th scope="row">㈜이니시스, LG U+</th>
+                    <td>전자결제 대행</td>
+                    <td rowspan="2">개인정보 이용목적 달성 시(제휴업체는 제휴계약 종료 시) 및 관계법령에 따른 보관기간까지</td>
+                </tr>
+                <tr>
+                    <th scope="row">휴머스온</th>
+                    <td>전자우편 및 SMS 발송망 제공</td>
+                </tr>
+                </tbody>
+                </table>
+            </li>
+        </ul>
+                </div>
+                <div id="agreement-cont8" class="block">
+        <strong class="tit">8. 개인정보보호를 위해 회원들이 알아야 할 사항</strong>
+        <ul>
+            <li>① 회원님의 개인정보를 최신의 상태로 정확하게 입력하여 불의의 사고를 예방해 주시기 바랍니다.</li>
+            <li>② 회원님은 개인정보를 보호받을 권리와 함께 스스로를 보호하고 타인의 정보를 침해하지 않을 의무도 가지고 있습니다. 비밀번호를 포함한 회원님의 개인정보가 유출되지 않도록 주의하시고 게시물을 포함한 타인의 개인정보를 훼손하지 않도록 유의해 주십시오. 만약 이 같은 책임을 다하지 못하고 타인의 정보 및 존엄성을 훼손할 시에는 『정보통신망 이용촉진 및 정보보호 등에 관한 법률』등에 의해 처벌받을 수 있습니다.</li>
+        </ul>
+        <p>* 2006년 9월 25일부터 개정된 주민등록법(제37조(벌칙) 제1항 8호)에 의해 타인의 주민등록번호를 도용하여 온라인 회원가입을 하는 등 다른 사람의 주민등록번호를 부정하게 사용한 자는 3년 이하의 징역 또는 3천만 원 이하의 벌금이 부과될 수 있습니다.</p>
+                </div>
+                <div id="agreement-cont9" class="block">
+        <strong class="tit">9. 비회원 고객의 개인정보수집 및 보호</strong>
+        <p>회사에서는 회원뿐만 아니라 비회원 또한 물품 및 서비스 상품의 구매를 하실 수 있습니다. 회사는 비회원 주문 시 배송 및 대금 결제, 상품 배송, 항공권 및 숙박 등의 예약에 반드시 필요한 개인정보만을 고객에게 요청하고 있습니다. 회사에서 비회원으로 구매를 하신 경우 비회원 고객께서 입력하신 지불(예약)인 정보 및 수령인 정보는 대금 결제 및 상품 배송, 예약에 관련한 용도 외에는 다른 어떠한 용도로도 사용되지 않습니다.</p>
+                </div>
+                <div id="agreement-cont10" class="block">
+        <strong class="tit">10. 14세 미만 아동의 회원가입제한</strong>
+        <p>PRIVIA는 만 14세미만 아동의 회원가입을 받고 있지 않습니다.</p>
+                </div>
+                <div id="agreement-cont11" class="block">
+        <strong class="tit">11. 쿠키의 운용 및 거부</strong>
+        <ul>
+            <li>① 쿠키의 사용목적
+                <ul>
+                    <li>가. 회사는 개인 맞춤 서비스를 제공하기 위해서 이용자에 대한 정보를 저장하고 수시로 불러오는 '쿠키(cookie)'를 사용합니다. 쿠키는 웹사이트 서버가 이용자의 브라우저에게 전송하는 소량의 정보로서 이용자 컴퓨터의 하드디스크에 저장됩니다.</li>
+                    <li>나. 회사는 쿠키의 사용을 통해서만 가능한 특정된 맞춤형 서비스를 제공할 수 있습니다.</li>
+                    <li>다. 회사는 회원을 식별하고 회원의 로그인 상태를 유지하기 위해 쿠키를 사용할 수 있습니다.</li>
+                </ul>
+            </li>
+            <li>② 쿠키의 설치∙운용 및 거부 
+                <ul>
+                    <li>가. 이용자는 쿠키 설치에 대한 선택권을 가지고 있습니다. 따라서 이용자는 웹 브라우저에서 옵션을 조정함으로써 모든 쿠키를 허용∙거부하거나, 쿠키가 저장될 때마다 확인을 거치도록 할 수 있습니다.</li>
+                    <li>나. 쿠키의 저장을 거부할 경우에는 개인 맞춤서비스 등 회사가 제공하는 일부 서비스는 이용이 어려울 수 있습니다.</li>
+                </ul>
+            </li>
+        </ul>
+                </div>
+                <div id="agreement-cont12" class="block">
+        <strong class="tit">12. 링크사이트에 대한 책임</strong>
+        <p>회사는 이용자에게 다른 웹사이트에 대한 링크를 제공할 수 있습니다. 다만, 링크되어 있는 웹사이트들이 개인정보를 수집하는 행위에 대해서는 본 "개인정보처리방침"이 적용되지 않습니다</p>
+                </div>
+                <div id="agreement-cont13" class="block">
+        <strong class="tit">13. 개인정보의 기술적 / 관리적 보호 대책</strong>
+        <p>회사는 이용자들의 개인정보를 취급함에 있어 개인정보가 분실, 도난, 누출, 변조 또는 훼손되지 않도록 안전성 확보를 위하여 다음과 같은 기술적∙관리적 보호대책을 강구하고 있습니다.</p>
+        <ul>
+            <li>① 개인정보의 암호화<br />회사는 중요한 개인정보에 대해 암호화하여 저장 및 관리하고 있습니다. 이용자의 비밀번호는 일방향 암호화하여 저장 및 관리되고 있으며, 개인정보의 확인 및 변경은 비밀번호를 알고 있는 본인에 의해서만 가능합니다.</li>
+            <li>② 해킹 등에 대비한 대책<br />
+        회사는 해킹 등 회사 정보통신망 침입에 의해 이용자의 개인정보가 유출되는 것을 방지하기 위해 침입탐지 및 침입차단 시스템을 24시간 가동하고 있습니다. 만일의 사태에 대비하여 모든 침입탐지 시스템과 침입차단 시스템은 이중화로 구성하여 운영하고 있으며, 민감한 개인정보는 암호화 통신 등을 통하여 네트워크상에서 개인정보를 안전하게 전송할 수 있도록 하고 있습니다.</li>
+            <li>③ 개인정보 취급자의 최소화 및 교육<br />회사는 회사의 개인정보 취급자를 최소한으로 제한하며, 개인정보 취급자에 대한 교육 등 관리적 조치를 통해 개인정보보호의 중요성을 인식시키고 있습니다. </li>
+            <li>④ 개인정보보호 전담부서의 운영<br />회사는 개인정보의 효율적 보호를 위해 개인정보보호전담부서를 운영하고 있으며, 개인정보처리방침의 이행사항 및 개인정보 취급자의 준수여부를 확인하여 문제가 발견될 경우 즉시 수정할 수 있도록 노력하고 있습니다. </li>
+        </ul>
+                </div>
+                <div id="agreement-cont14" class="block">
+        <strong class="tit">14. 게시물에 포함된 개인정보</strong>
+        <p>회사는 회원님의 게시물을 소중하게 생각하며 변조, 훼손, 삭제되지 않도록 최선을 다하여 보호합니다. 그러나 다음의 경우에는 명시적 또는 개별적인 경고 후 삭제 조치할 수 있습니다.</p>
+        <ul>
+            <li>① 스팸(spam)성 게시물(예; 행운의 편지, 돈 버는 메일 등)</li>
+            <li>② 타인을 비방할 목적으로 허위사실을 유포하여 타인의 명예를 훼손하는 글</li>
+            <li>③ 동의 없는 타인의 개인정보 공개</li>
+            <li>④ 제3자의 저작권 등 권리를 침해하는 내용</li>
+        </ul>
+        <p>회사는 바람직한 게시판 문화를 활성화하고 개인정보를 보호하기 위하여 동의 없이 타인의 개인정보를 게시한 경우 특정부분을 삭제하거나 기호 등으로 수정하여 게시할 수 있습니다.</p>
+                </div>
+                <div id="agreement-cont15" class="block">
+        <strong class="tit">15. 개인정보 보호책임자 및 담당자의 소속, 성명 및 연락처</strong>
+        <p>회사는 이용자가 회사의 서비스를 안전하게 이용할 수 있도록 최선을 다하고 있습니다. 이용자는 회사의 서비스 이용과 관련한 모든 개인정보보호 민원을 개인정보 보호책임자 또는 전담부서로 신고하실 수 있으며, 회사는 이용자의 신고사항에 대해 신속하고 성실하게 답변해드리고 있습니다.</p>
+        <ul>
+            <li>개인정보보호책임자
+                <ul>
+                    <li>성 명 : 김 영 훈</li>
+                    <li>소속부서 : 경영지원팀</li>
+                    <li>직 위 : 팀 장</li>
+                    <li>전자우편 : kyh@tidesquare.com</li>
+                    <li>전화번호 : 02-6911-8311</li>
+                    <li>팩스번호 : 02-2638-6758</li>
+                </ul>
+            </li>
+            <li>개인정보보호담당자
+                <ul>
+                    <li>성 명 : 홍 명 화</li>
+                    <li>소속부서 : 경영지원팀</li>
+                    <li>직 위 : 대 리</li>
+                    <li>전자우편 : hmh0611@tidesquare.com</li>
+                    <li>전화번호 : 02-6911-8303</li>
+                    <li>팩스번호 : 02-2130-2882</li>
+                    <li>기타 개인정보침해에 대한 신고 또는 상담이 필요하신 경우에는 아래 기관으로 문의하시기 바랍니다.</li>
+                </ul>
+            </li>
+            <li>개인정보침해신고센터
+                <ul>
+                    <li>전화 : (국번없이)118</li>
+                    <li>URL : http://privacy.kisa.or.kr</li>
+                </ul>
+            </li>
+            <li>대검찰청 사이버수사과
+                <ul>
+                    <li>전화 : (국번없이) 1301</li>
+                    <li>URL : http://www.spo.go.kr</li>
+                </ul>
+            </li>
+            <li>경찰청 사이버안전국
+                <ul>
+                    <li>전화 : (국번 없이) 182</li>
+                    <li>URL : http://cyberbureau.police.go.kr</li>
+                </ul>
+            </li>
+        </ul>
+                </div>
+                <div id="agreement-cont16" class="block">
+        <strong class="tit">16. 방침변경 등에 대한 고지</strong>
+        <p>현 개인정보처리방침 내용의 추가, 삭제 및 수정이 있을 경우에는 시행일의 7일 전부터 홈페이지의 공지사항을 통하여 고지할 것이며 중요한 사항일 경우 시행일 30일전부터 홈페이지의 공지사항을 통한 고지 및 전자우편 고지를 할 것입니다. 단, 개인정보 수집 및 활용, 제3자제공 등이 변경될 경우 별도의 동의를 받겠습니다. 또한 개인정보처리방침에 버전번호 및 변경공고일자, 시행일자 등을 부여하여 개정여부를 쉽게 알 수 있도록 하고 있습니다.</p>
+        <ul>
+            <li>- 버전 : 개정 20180424</li>
+            <li>- 시행일자 : 2018년 4월 24일</li>
+            <li>- <a href="#" onclick="checkAgreeCont('2_20180213'); return false;" target="_blank" class="link">이전 버전 보기 2018년 2월 13일 시행 20180213 </a></li>
+            <li>- <a href="#" onclick="checkAgreeCont('2_20171205'); return false;" target="_blank" class="link">이전 버전 보기 2017년 12월 5일 시행 20171205 </a></li>
+            <li>- <a href="#" onclick="checkAgreeCont('2_20171205'); return false;" target="_blank" class="link">이전 버전 보기 2017년 12월 5일 시행 20171205 </a></li>
+            <li>- <a href="#" onclick="checkAgreeCont('2_20170216'); return false;" target="_blank" class="link">이전 버전 보기 2017년 2월 16일 시행 20170216 </a></li>
+            <li>- <a href="#" onclick="checkAgreeCont('2_20170116'); return false;" target="_blank" class="link">이전 버전 보기 2017년 1월 16일 시행 20170116 </a></li>
+            <li>- <a href="#" onclick="checkAgreeCont('2_20161027'); return false;" target="_blank" class="link">이전 버전 보기 2016년 10월 27일 시행 20161027</a></li>
+            <li>- <a href="#" onclick="checkAgreeCont('2_20150908'); return false;" target="_blank" class="link">이전 버전 보기 2015년 9월 8일 시행 20150908</a></li>
+            <!-- <li>- <a href="#" onclick="checkAgreeCont('2_1_Full'); return false;" target="_blank" class="link"><strong>개인정보 수집 이용동의</strong> 전체 내용보기</a></li> -->
+            <li>- <a href="#" onclick="checkAgreeCont('2_20131115'); return false;" target="_blank" class="link">이전 버전 보기 2013년 11월 15일 시행 20131115</a></li>
+            <li>- <a href="#" onclick="checkAgreeCont('2_2'); return false;" target="_blank" class="link">이전 버전 보기 2013년 8월 20일 시행 20130820</a></li>
+        </ul>
+                </div>
+            </div>
+        </section>
+    </div>
+    <!-- //content-sec -->
+    
+</div>
+<!-- //page -->
+<!-- //실제 ajax시 필요한 부분 -->
+
+
+    
+</body>
+</html>
