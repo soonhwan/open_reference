@@ -1,0 +1,28 @@
+0 info it worked if it ends with ok
+1 verbose cli [ 'C:\\Program Files\\nodejs\\\\node.exe',
+1 verbose cli   'C:\\Program Files\\nodejs\\node_modules\\npm\\bin\\npm-cli.js',
+1 verbose cli   'install',
+1 verbose cli   'ejs' ]
+2 info using npm@2.11.2
+3 info using node@v0.12.5
+4 verbose install initial load of C:\pub-project\r2pc\package.json
+5 verbose stack Error: Invalid name: "Realtime 2-way codingmap"
+5 verbose stack     at ensureValidName (C:\Program Files\nodejs\node_modules\npm\node_modules\normalize-package-data\lib\fixer.js:326:15)
+5 verbose stack     at Object.module.exports.fixNameField (C:\Program Files\nodejs\node_modules\npm\node_modules\normalize-package-data\lib\fixer.js:209:5)
+5 verbose stack     at C:\Program Files\nodejs\node_modules\npm\node_modules\normalize-package-data\lib\normalize.js:32:38
+5 verbose stack     at Array.forEach (native)
+5 verbose stack     at normalize (C:\Program Files\nodejs\node_modules\npm\node_modules\normalize-package-data\lib\normalize.js:31:15)
+5 verbose stack     at final (C:\Program Files\nodejs\node_modules\npm\node_modules\read-package-json\read-json.js:338:5)
+5 verbose stack     at then (C:\Program Files\nodejs\node_modules\npm\node_modules\read-package-json\read-json.js:113:5)
+5 verbose stack     at C:\Program Files\nodejs\node_modules\npm\node_modules\read-package-json\read-json.js:232:12
+5 verbose stack     at evalmachine.<anonymous>:334:14
+5 verbose stack     at C:\Program Files\nodejs\node_modules\npm\node_modules\graceful-fs\graceful-fs.js:102:5
+6 verbose cwd C:\pub-project\r2pc
+7 error Windows_NT 6.1.7601
+8 error argv "C:\\Program Files\\nodejs\\\\node.exe" "C:\\Program Files\\nodejs\\node_modules\\npm\\bin\\npm-cli.js" "install" "ejs"
+9 error node v0.12.5
+10 error npm  v2.11.2
+11 error Invalid name: "Realtime 2-way codingmap"
+12 error If you need help, you may report this error at:
+12 error     <https://github.com/npm/npm/issues>
+13 verbose exit [ 1, true ]
