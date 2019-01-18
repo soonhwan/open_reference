@@ -12,5 +12,4 @@ const Counter = ({number, color, onIncrement, onDecrement, onSetColor}) =
     </div>
   );
 };
-
 export default Counter; 
