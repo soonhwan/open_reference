@@ -14,7 +14,7 @@ class MyComponent extends Component {
       a : this.state.a + 1
     })
   }
-  
+
   minus = () =>{
     this.setState({
       a : this.state.a - 1
