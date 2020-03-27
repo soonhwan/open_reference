@@ -1,6 +1,6 @@
 import { useState } from 'react';
 
-const Input = ({type = 'text', placeholder, onChange}) => {
+const Input = ({type = 'text', placeholder = '', onChange}) => {
   const [val, setVal] = useState('')
   const handleChange = (e) => {
     setVal(e.target.value)
