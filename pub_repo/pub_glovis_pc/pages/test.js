@@ -20,6 +20,8 @@ const Index = () => {
       <Input onChange={handleChange} />
       {errorMsg && 
         <p>그거아니야</p>
+        <span>i gonna grab a byte</span>
+        <span>i not gonna grab a byte</span>
       }
       <Input onChange={handleChange1} />
 

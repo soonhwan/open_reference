@@ -1,0 +1,25 @@
+{
+  "name": "react-nodebird-front",
+  "version": "1.0.0",
+  "main": "index.js",
+  "scripts": {
+    "dev": "next",
+    "bulid": "next bulid",
+    "start": "next start"
+  },
+  "author": "shkwon",
+  "license": "MIT",
+  "description": "",
+  "dependencies": {
+    "antd": "^4.0.4",
+    "next": "^9.3.2",
+    "prop-types": "^15.7.2",
+    "react": "^16.13.1",
+    "react-dom": "^16.13.1"
+  },
+  "devDependencies": {
+    "eslint": "^6.8.0",
+    "nodemon": "^2.0.2",
+    "webpack": "^4.42.1"
+  }
+}

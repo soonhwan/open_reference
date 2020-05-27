@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import AppLayout from '../components/AppLayout';
 import Head from 'next/head';
 import { Form, Input, Checkbox, Button } from 'antd';
@@ -9,6 +9,12 @@ const Signup = () => {
     const [password, setPassword] = useState('');
     const [passwordChk, setPasswordChk] = useState('');
     const [term, setTerm] = useState(false);
+    const [passwordError, setPasswordError] = useState(false);
+    const [termError, setTermError] = useState(false);
+
+    /* useEffect(() => {
+        console.log(id);
+    }); */
 
     const onSubmit = (e) => {
         console.log({
@@ -16,8 +22,17 @@ const Signup = () => {
             nick,
             password,
             passwordChk,
-            term
+            term,
         });
+
+        if(password !== passwordChk){
+            return setPasswordError(true);
+        }
+
+        if(!term){
+            return setTermError(true);
+        }
+
         e.preventDefault();
     };
     const onChangeId = (e) => {
@@ -60,9 +75,11 @@ const Signup = () => {
                     <div>
                         <label htmlFor="userpassword-chk">비밀번호체크</label><br />
                         <Input name="userpassword-chk" type="password" value={passwordChk} required onChange={onChangePasswordChk} />
+                        {passwordError && <div style={{color: 'red'}}>비밀번호가 일치하지 않습니다.</div>}
                     </div>
                     <div>
                         <Checkbox name="user-term" onChange={onChangeTerm}>동의합니다.</Checkbox>
+                        {termError && <div style={{color: 'red'}}>약관에 동의하셔야 합니다.</div>}
                     </div>
                     <div>
                         <Button type="primary" htmlType="submit">가입하기</Button>

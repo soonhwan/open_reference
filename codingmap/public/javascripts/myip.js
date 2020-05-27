@@ -1,1 +1,0 @@
-var myip = "http://codingmap.tidesquare.com";
