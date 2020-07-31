@@ -4,6 +4,7 @@ import Counter2 from './Counter2';
 import Info from './Info';
 import Average from './Average';
 import ContextSample from './ContextSample';
+import UsePromiseSample from './UsePromiseSample';
 
 const App = () => {
   const [visible, setVisible] = useState(false);
@@ -14,13 +15,13 @@ const App = () => {
       <br />
       <hr />
       <br />
-
-      <Counter2 />
+ 
+      <Info />
 
       <br />
       <hr />
       <br />
-      
+
       <button onClick={() => { setVisible(!visible); }}>
         {visible ? '숨기기' : '보이기'}
       </button>
@@ -31,13 +32,13 @@ const App = () => {
       <br />
 
       <ContextSample />
-
+      
       <br />
       <hr />
       <br />
 
-      <Info />
-
+      <Counter2 />
+      
       <br />
       <hr />
       <br />
@@ -47,6 +48,8 @@ const App = () => {
       <br />
       <hr />
       <br />
+
+      <UsePromiseSample />
 
     </div>
   );

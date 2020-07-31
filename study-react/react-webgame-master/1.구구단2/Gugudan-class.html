@@ -1,0 +1,74 @@
+<html>
+<head>
+    <meta charset="UTF-8"/>
+    <title>구구단</title>
+    <script crossorigin src="https://unpkg.com/react@16/umd/react.development.js"></script>
+    <script crossorigin src="https://unpkg.com/react-dom@16/umd/react-dom.development.js"></script>
+    <script src="https://unpkg.com/babel-standalone@6/babel.min.js"></script>
+</head>
+<body>
+<div id="root"></div> 
+<script type="text/babel">
+  class GuGuDan extends React.Component {
+    state = {
+      first : Math.ceil(Math.random()*9),
+      second : Math.ceil(Math.random()*9),
+      value : '',
+      prevalue : '',
+      result : '',
+    };
+
+    onChange = (e) => { 
+      console.log(e.target.value);
+      this.setState({value: e.target.value});
+    };
+
+    onSubmit = (e) => {
+      e.preventDefault();
+      if(parseInt(this.state.value) === this.state.first * this.state.second){
+        //setState 비동기이다. 이전값(prevState)을 리턴해와서 처리 해야한다.
+        this.setState((prevState) => {
+          return {
+            first : Math.ceil(Math.random()*9),
+            second : Math.ceil(Math.random()*9),
+            value : '',
+            result : prevState.value + ' 정답', 
+          }
+        });
+      }
+      else{
+        this.setState((prevState) => {
+          return {
+            value : '',
+            result : this.state.value + ' 땡',
+          }
+        });
+      }
+      this.input.focus();
+    }
+    
+    input;
+    onInput = (c) => {this.input = c;}
+
+    render() {
+      console.log('렌더링');
+      return (
+        /*<></> babel이 처리 못해줌 */
+        <React.Fragment>
+            <div>{this.state.first} 곱하기 {this.state.second} 는?</div>
+            <form onSubmit={this.onSubmit}>
+              <input type="number" value={this.state.value} onChange={this.onChange} ref={this.onInput} />  
+              <button>입력!</button>
+            </form>
+            <div>{this.state.result}</div>
+        </React.Fragment>
+      )
+    }
+  }
+
+</script>
+<script type="text/babel">
+  ReactDOM.render(<GuGuDan/>, document.querySelector('#root'));
+</script>
+</body>
+</html>
