@@ -12,6 +12,7 @@ const Average = () => {
   const [number, setNumber] = useState('');
   const inputEl = useRef(null);
 
+  // useCallback 은 useMemo와 상당히 비슷한 함수입니다. 주로 렌더링 성능을 최적화해야 하는 상황에서 사용
   // 컴포넌트가 처음 렌더링 될 때만 함수 생성
   const onChange = useCallback(
     e => {
