@@ -1,7 +1,7 @@
 const path = require('path');
 
 module.exports = {
-  name: 'minesearch-dev',
+  name: 'response-check-dev',
   mode: 'development',
   devtool: 'eval',
   resolve: {

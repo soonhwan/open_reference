@@ -1,5 +1,5 @@
 {
-  "name": "minesearch",
+  "name": "lotto",
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
@@ -9,7 +9,6 @@
   "author": "ZeroCho",
   "license": "ISC",
   "dependencies": {
-    "antd": "^3.26.7",
     "react": "^16.8.6",
     "react-dom": "^16.8.6"
   },
