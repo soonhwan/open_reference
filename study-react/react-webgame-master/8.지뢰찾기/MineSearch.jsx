@@ -224,6 +224,7 @@ const MineSearch = () => {
   const [state, dispatch] = useReducer(reducer, initialState);
   const { tableData, halted, timer, result } = state;
 
+  //createContext 성능 최적화가 어렵다. useMemo 사용해서 갱신해준다. [] 내부에 dispatch가 없는 이유는 값이 바뀌지 않는다.
   const value = useMemo(() => ({ tableData, halted, dispatch }), [tableData, halted]);
 
   useEffect(() => {
