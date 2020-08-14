@@ -17,7 +17,7 @@ module.exports = {
       options: {
         presets: [
           ['@babel/preset-env', {
-            targets: {browsers: ['last 2 chrome versions']},
+            targets: {browsers: ['> 1% in KR'],},
             debug: true,
           }],
           '@babel/preset-react',
