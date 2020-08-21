@@ -2,15 +2,14 @@ import React, { useState, useRef, memo } from 'react';
 import PropTypes from 'prop-types';
 import classNames from 'classnames/bind';
 
-const Checkbox = memo(({id="", name="", label="", className="", checked, disabled=false, indeterminate=false, onChange, children}) => {
+const Radio = memo(({id="", name="", label="", className="", checked, disabled=false, value, onChange, children}) => {
   //console.log("label = ", label);
   const [chk, setChk] = useState(false);
   const chkRef = useRef(null);
 
   const customClassName = classNames(
-    "chk-base",
+    "radio-base",
     { "disabled": disabled},
-    { "indeterminate": indeterminate},
     className
   )
   //onsole.log('customClassName = ', customClassName);
@@ -23,8 +22,8 @@ const Checkbox = memo(({id="", name="", label="", className="", checked, disable
       id: id,
       name: name,
       label: label,
+      value: value,
       className: customClassName,
-      indeterminate: indeterminate,
       checked: chkRef.current.checked,
       disabled: chkRef.current.disabled,
     }
@@ -33,26 +32,26 @@ const Checkbox = memo(({id="", name="", label="", className="", checked, disable
 
   return (
     <label htmlFor={id} className={customClassName}>
-      <input className="a11y" ref={chkRef} id={id} name={name} type="checkbox" checked={checked===undefined?chk:checked} disabled={disabled} onChange={handleChange} />
+      <input className="a11y" ref={chkRef} id={id} name={name} type="radio" checked={checked===undefined?chk:checked} disabled={disabled} value={value} onChange={handleChange} />
       {label ? <span className="label">{label}</span> : null}
       {children ? <span className="custom-lb">{children}</span> : null}
     </label>
   );
 });
 
-Checkbox.propTypes = {
+Radio.propTypes = {
   id: PropTypes.string,
   name: PropTypes.string,
   label: PropTypes.string,
   className: PropTypes.string,
+  value: PropTypes.string,
   checked: PropTypes.bool,
   disabled: PropTypes.bool,
-  indeterminate: PropTypes.bool,
   onChange: PropTypes.func.isRequired,
   children: PropTypes.node,
 }
 
-export default Checkbox;
+export default Radio;
 
 
 

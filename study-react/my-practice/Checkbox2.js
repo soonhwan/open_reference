@@ -10,7 +10,7 @@ const Checkbox = memo(({id, name, pid, label, checked=false, disabled=false, onC
 
   return (
     <label htmlFor={id} className="base-chk">
-      <input id={id} name={name} pid={pid} type="Checkbox" checked={checked} disabled={disabled} onChange={handleChange} />
+      <input id={id} name={name} pid={pid} type="checkbox" checked={checked} disabled={disabled} onChange={handleChange} />
       <span className="label">{label}</span>
     </label>
   );

@@ -3,7 +3,26 @@
     <meta charset="UTF-8"/>
     <title>연습</title>
     <style>
-        
+        /* .a11y {overflow:hidden;position:absolute;clip:rect(0 0 0 0);width:1px;height:1px;margin:-1px;border:0;padding:0;} */
+        .chk-base {transition: opacity 0.3s;display: inline-block;position: relative;vertical-align: middle;}
+        .chk-base * {transition: color 0.3s, background-color 0.3s, border 0.3s;}
+        .chk-base .label {display: inline-block;position: relative;}
+        .chk-base.disabled .label,
+        .chk-base input[type="checkbox"]:disabled + .label,
+        .chk-base input[type="checkbox"]:disabled + .label:before {color: #ccc;background-color: transparent;opacity: 0.9;pointer-events: none;} 
+        .chk-base .label strong {font-weight: 500;}
+        /* checkbox1 */
+        .chk-sty1 .label {min-width: 20px;min-height: 20px;font-size: 14px;color: #000;}
+        .chk-sty1 .label:before {content: '';display: inline-block;width: 20px;height: 20px;vertical-align: top;margin-right: 8px;background-color:gray;}
+        .chk-sty1 input[type="checkbox"]:checked + .label:before {background-color:black;}
+        /* checkbox2 */
+        .chk-sty2 .label {font-size: 14px;color: #000;font-weight: 300;border:1px solid #f0f1f2;border-radius: 12px;padding: 2px 17px;background-color: #f0f1f2;}
+        .chk-sty2 input[type="checkbox"]:checked + .label {color: #0086c9;border:1px solid #0086c9;background-color: #fff;}
+        .chk-sty2 .label:hover {border:1px solid #0086c9;}
+        /* checkbox3 */
+        .chk-sty3 .label {font-size: 16px;color: #000;font-weight: 300;border:1px solid #f0f1f2;border-radius: 4px;padding: 7px 17px;min-width: 150px;text-align: center;background-color: #f0f1f2;}
+        .chk-sty3 input[type="checkbox"]:checked + .label {color: #0086c9;border:1px solid #0086c9;background-color: #fff;}
+        .chk-sty3 .label:hover {border:1px solid #0086c9;}
     </style>
 </head>
 <body>
