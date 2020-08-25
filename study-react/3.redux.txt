@@ -1,0 +1,29 @@
+설치 모듈
+npm i redux react-redux redux-devtools-extension
+
+- ContextAPI : UI 개발용 컴포넌트 (CheckboxGroup, RadioboxGroup, SelectBoxList)
+- Redux Store : FE 데이터 패칭과 관련된 컴포넌트 (SignUp, LogIn, CarList, CarDetail)
+
+// redux sample
+const initialState = {
+  posts: [],
+  users: [],
+  hasMorePost: true,
+}
+
+const ADD_POST_REQUEST = 'ADD_POST_REQUEST';
+
+const reducer = (state = initialState, action) => {
+  swith (action.type) {
+    case ADD_POST_REQUEST:
+      return {
+        ...state,
+        // state.posts ...
+      }
+    default:
+      return state;
+  }
+}
+
+초보: 화면을 보면서 데이터 구조를 잡음
+고수: 데이터 구조부터 싹 다 잡아놓고(리듀서랑 iniitialState 구조) 화면을 그림

@@ -1,0 +1,19 @@
+[제로초 웹게임 강좌]
+1. 훅에 대한 개념들 정립
+import { useState, useCallback, useMemo, useContext, memo }  from 'react';
+- 틱택토: 어려우니 게임만드는 로직x, useReducer로 리덕스 맛보기
+- 지뢰찾기: 어려우니 게임만드는 로직x, useContext가 뭔지만 파악
+
+[제로초 sns 강좌 (ch4)]
+2. 리덕스에 대한 개념들
+import { useDispatch, useSelector } from 'react-redux';
+
+리덕스 - 동기처리 밖에 안됨
+리덕스, 리덕스 사가 - 비동기처리 가능해짐
+
+[컴포넌트 개발 실습]
+webpack.config.js
+
+
+하이오더컴포넌트(HOC)
+컴포넌트를 매개변수로 받아서 컴포넌트를 리턴

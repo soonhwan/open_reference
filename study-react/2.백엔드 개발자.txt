@@ -1,0 +1,80 @@
+백엔드 개발자
+
+express + mysql
+express + mongodb
+
+router.get('/api/user', (req, res) => {
+  // 벡엔드로직 - 디비를 저장하고 조회하고 생성하고 삭제함
+})
+
+
+퍼블
+
+컴포넌트 개발
+액션명 정의 + 리듀서 정의
+
+프론트엔드 개발자
+
+액션명 정의 + 리듀서 정의
+
+
+
+컴포넌트 UI 개발: 메인(pub), 서브(fe)
+react-slick, swiper, react-select
+
+리덕스: (fe + pub)
+react-redux, redux
+
+비즈니스 로직을 짜는 부분(리덕스 사가, 썽크): 메인(fe), 서브(pub)
+비동기 처리되는 개발 로직들... axios, redux-saga, redux-thunk, express, mysql2
+
+
+- /(actions | reducers) 액션 크리에이터(유틸 요소 utils)
+const userAction = (data) => {
+  axiosGet(data)...
+  return {    
+    data...
+  }
+}
+
+- / 페이지 상(components | pages)
+const [a, setA] = useState('홍길동');
+const [n, setN] = useState(2);
+
+const onClick = () => {
+  userAction({name: a, number: b}); // 원래는 관여안함
+  // axios로 서버에 요청해서 백엔드에서 db에 저장, 조회, 수정, 삭제
+}
+
+// reducers
+// intialState 데이터들이 pub, fe 매개체
+const intialState = {
+  users: [], // 실제 db에서 조회한 회원 정보
+  posts: [],
+  hasMorePost: true,
+  loginResponse: false,
+  loginSuccess: false,
+  loginFailure: null,
+}
+
+const reducer = (state, action) => {
+  switch (action.type) {
+    case LOGIN_REQUEST: {
+      ...state,
+      loginResponse: true,
+    }
+    case LOAD_POST_REQUEST: {
+      ...state,
+      posts: [...state.posts]
+    }
+  }
+}
+
+// page상에서
+useEffect(() => {
+  dispatch({
+    type: LOAD_POST_REQUEST,
+    data: ....
+  })
+}, []);
+// fe 개발자가 ssr 처리

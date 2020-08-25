@@ -44,13 +44,13 @@ const PracticeCheckbox = () => {
   const [checkList2, setCheckList2] = useState(testCheck2);
 
   // 체크박스 그룹의 onChange
-  const onChangeAll1 = (e) => {
+  const onChangeAll1 = useCallback((e) => {
     console.log(e.target);
-  }
+  }, []);
 
-  const onChangeAll2 = (e) => {
+  const onChangeAll2 = useCallback((e) => {
     console.log(e.target);
-  }
+  }, []);
 
 
   useEffect(() => {

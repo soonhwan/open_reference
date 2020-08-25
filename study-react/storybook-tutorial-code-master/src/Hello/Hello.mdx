@@ -1,0 +1,30 @@
+import Hello from './Hello';
+// /기존에 자동생성된 DocsPage 에서 보여줬었던 것 처럼 컴포넌트의 설명 및 Props 정보를 추출하여 보여줄 수 있습니다.
+import { Story, Props, Description, Preview } from '@storybook/addon-docs/blocks';
+
+# Hello
+
+<Hello name="MDX" big={true} />
+<Description of={Hello} />
+
+## Props
+
+이 컴포넌트에서 사용되는 Props 들을 볼까요?
+
+<Props of={Hello} />
+
+## 그냥 조그마한 Hello
+
+<Preview>
+  <Story id="pages-basic-hello--standard" />
+</Preview>
+
+그냥 조그마한 Hello 입니다.
+
+## 커다란 Hello
+
+커다란 Hello를 보여주고 싶으면 `big` props 를 `true` 로설정하시면 됩니다.
+
+<Preview>
+  <Story id="pages-basic-hello--big" />
+</Preview>
