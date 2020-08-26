@@ -7,7 +7,8 @@ import AllContextProvider from './context/Context';
 const PracticeContext = () => {
   return (
     <AllContextProvider>
-      <Navbar />
+      <h1>Context sample</h1>
+      <Navbar /><br />
       <BookList />
       <BookForm />
     </AllContextProvider>

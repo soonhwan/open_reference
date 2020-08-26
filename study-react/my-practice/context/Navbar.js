@@ -1,20 +1,21 @@
 import React, { useContext, memo } from 'react';
 import { AllContext } from '../context/Context';
+import Button from '../Button';
 
 const Navbar = memo(() => {
-  console.log('rendering = Navbar');
+  //console.log('rendering = Navbar');
   const { login, handleLogin } = useContext(AllContext);
   return (
     <nav>
       <ul>
         {!login ? (
           <>
-            <li onClick={handleLogin(true)}>LOGIN</li>
+            <li><Button className="btn-st1" onClick={handleLogin(true)}>LOGIN</Button></li>
             <li>SIGNUP</li>
           </>
         ) : (
           <>
-            <li onClick={handleLogin(false)}>LOGOUT</li>
+            <li><Button className="btn-st1" onClick={handleLogin(false)}>LOGOUT</Button></li>
             <li>MYPAGE</li>
           </>
         )}

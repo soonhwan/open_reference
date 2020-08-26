@@ -2,9 +2,10 @@ import React, { memo, useState, useCallback } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { LOG_IN, LOG_OUT, ADD_USER, REMOVE_USER } from '../actions/user';
 import shortid from 'shortid';
+import Button from '../Button';
 
 const Navbar = memo(() => {
-  console.log('rendering = Navbar');
+  //console.log('rendering = Navbar');
   const dispatch = useDispatch();
   const { me, users } = useSelector(state => state.user);
   const onLogIn = useCallback(() => {
@@ -50,26 +51,26 @@ const Navbar = memo(() => {
         <ul>
           {!me ? (
             <>
-              <li onClick={onLogIn}>LOGIN</li>
+              <li><Button className="btn-st1" onClick={onLogIn}>LOGIN</Button></li>
               <li>SIGNUP</li>
             </>
           ) : (
             <>
-              <li onClick={onLogOut}>LOGOUT</li>
+              <li><Button className="btn-st1" onClick={onLogOut}>LOGOUT</Button></li>
               <li>MYPAGE</li>
             </>
           )}
         </ul>
       </nav>
-      <h1>회원목록</h1>
+      <h3>회원목록</h3>
       <ul>
-        {users.map(user => <li key={user.id}>{user.name} ({user.age}) <button onClick={onRemoveUser(user.id)}>삭제</button></li>)}
+        {users.map(user => <li key={user.id}>{user.name} ({user.age}) <Button className="btn-st1" onClick={onRemoveUser(user.id)}>삭제</Button></li>)}
       </ul>
       <div>
-        <h1>회원추가</h1>
+        <h3>회원추가</h3>
         <input type="text" placeholder="이름" value={name} onChange={onChangeName} />
         <input type="text" placeholder="나이" value={age} onChange={onChangeAge} />
-        <button onClick={onAddUser}>가입</button>
+        <Button className="btn-st1" onClick={onAddUser}>가입</Button>
       </div>
     </>
   )

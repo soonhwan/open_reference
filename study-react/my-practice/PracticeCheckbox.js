@@ -66,18 +66,19 @@ const PracticeCheckbox = () => {
 
   return (
     <>
+      <h1>Checkbox sample</h1>
       <h2>단일</h2>
-      <Checkbox id="checked01" label="체크01" onChange={onChangeCheck01} checked={isCheck01} />
-      <Checkbox id="checked02" label="체크02" onChange={onChangeCheck02} checked={isCheck02} disabled />
-      <Checkbox id="checked03" label="체크03" onChange={onChangeCheck03} checked={isCheck03} disabled />
+      <Checkbox id="checked01" label="체크01" onChange={onChangeCheck01} checked={isCheck01} className="chk-st1" />
+      <Checkbox id="checked02" label="체크02" onChange={onChangeCheck02} checked={isCheck02} disabled className="chk-st1" />
+      <Checkbox id="checked03" label="체크03" onChange={onChangeCheck03} checked={isCheck03} disabled className="chk-st1" />
       <Checkbox id="checked04" label="체크04" onChange={onChangeCheck04} checked={isCheck04} />
-      <Checkbox id="checked05" label="" onChange={onChangeCheck05} checked={isCheck05}>체크05(customized)</Checkbox>
+      <Checkbox id="checked05" label="체크05" onChange={onChangeCheck05} checked={isCheck05} className="chk-st1">체크05(customized)</Checkbox>
       <br />
       <br />
       <h2>state 없음</h2>
-      <Checkbox id="checked06" label="no state1" onChange={onChangeCheck} className="chk-sty1" />
-      <Checkbox id="checked07" label="no state2" onChange={onChangeCheck} className="chk-sty2" />
-      <Checkbox id="checked08" label="no state2" onChange={onChangeCheck} className="chk-sty3" />
+      <Checkbox id="checked06" label="no state1" onChange={onChangeCheck} className="chk-st1" />
+      <Checkbox id="checked07" label="no state2" onChange={onChangeCheck} className="chk-st2" />
+      <Checkbox id="checked08" label="no state2" onChange={onChangeCheck} className="chk-st3" />
       <br />
       <br />
       <h2>Group Type1</h2>

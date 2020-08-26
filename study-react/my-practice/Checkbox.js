@@ -34,8 +34,7 @@ const Checkbox = memo(({id="", name="", label="", className="", checked, disable
   return (
     <label htmlFor={id} className={customClassName}>
       <input className="a11y" ref={chkRef} id={id} name={name} type="checkbox" checked={checked===undefined?chk:checked} disabled={disabled} onChange={handleChange} />
-      {label ? <span className="label">{label}</span> : null}
-      {children ? <span className="custom-lb">{children}</span> : null}
+      <span className="label">{children ? children : label}</span>
     </label>
   );
 });

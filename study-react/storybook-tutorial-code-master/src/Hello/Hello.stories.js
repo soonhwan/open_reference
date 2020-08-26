@@ -8,16 +8,16 @@ import { withKnobs, text, boolean } from '@storybook/addon-knobs';
 import { action } from '@storybook/addon-actions';
 
 //Docs 페이지를 커스터마이징
-import mdx from './Hello.mdx';
+//import mdx from './Hello.mdx';
 
 export default {
-  title: 'pages|basic/Hello', // 스토리북에서 보여질 그룹과 경로를 명시
+  title: 'pages|Hello', // 스토리북에서 보여질 그룹과 경로를 명시
   component: Hello, // 어떤 컴포넌트를 문서화 할지 명시
   decorators: [withKnobs], // 애드온 적용
   parameters: {
     componentSubtitle: '"안녕하세요" 라고 보여주는 컴포넌트', //컴포넌트에 부제목
     docs: {
-      page: mdx, 
+      //page: mdx, 
     },
   },
 }

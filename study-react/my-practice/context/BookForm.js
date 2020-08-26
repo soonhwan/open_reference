@@ -1,8 +1,9 @@
 import React, { useState, useContext, useCallback, memo } from 'react';
 import { AllContext } from './Context';
+import Button from '../Button';
 
 const BookForm = memo(() => {
-  console.log('rendering = BookForm');
+  //console.log('rendering = BookForm');
   const { addBook } = useContext(AllContext);
   const [title, setTitle] = useState('');
   const [author, setAuthor] = useState('');
@@ -16,7 +17,7 @@ const BookForm = memo(() => {
     <div>
       <input type="text" placeholder="title" value={title} onChange={(e) => setTitle(e.target.value)} />
       <input type="text" placeholder="author" value={author} onChange={(e) => setAuthor(e.target.value)} />
-      <button onClick={handleSubmit}>입력</button>
+      <Button className="btn-st1" onClick={handleSubmit}>입력</Button>
     </div>
   )
 });

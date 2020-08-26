@@ -6,8 +6,9 @@ import BookForm from './redux/BookForm';
 const PracticeRedux = () => {
   return (
     <>
+      <h1>Redux sample</h1>
       <Navbar />
-      <br /><br /><hr />
+      <br /><hr />
       <BookList />
       <BookForm />
     </>

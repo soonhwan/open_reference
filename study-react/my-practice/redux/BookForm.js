@@ -2,9 +2,10 @@ import React, { useState, useCallback, memo } from 'react';
 import { useDispatch } from 'react-redux';
 import { ADD_BOOK } from '../actions/book';
 import shortid from 'shortid';
+import Button from '../Button';
 
 const BookForm = memo(() => {
-  console.log('rendering = BookForm');
+  //console.log('rendering = BookForm');
   const dispatch = useDispatch();
   const [title, setTitle] = useState('');
   const [author, setAuthor] = useState('');
@@ -20,10 +21,10 @@ const BookForm = memo(() => {
 
   return (
     <div>
-      <h1>도서추가</h1>
+      <h3>도서추가</h3>
       <input type="text" placeholder="title" value={title} onChange={(e) => setTitle(e.target.value)} />
       <input type="text" placeholder="author" value={author} onChange={(e) => setAuthor(e.target.value)} />
-      <button onClick={onAddBook}>입력</button>
+      <Button className="btn-st1" onClick={onAddBook}>입력</Button>
     </div>
   )
 });

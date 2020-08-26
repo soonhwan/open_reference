@@ -56,11 +56,11 @@ const CheckboxGroup2 = ({ list, onChange }) => {
 
   return (
     <>
-      <Checkbox id="gcheckedAll2" indeterminate label="전체" onChange={onChangeAll} checked={gcheckedAll} />
-      <Checkbox id="gcheckedEss" indeterminate label="필수" onChange={onChangeAll} checked={gcheckedEss} />
+      <Checkbox id="gcheckedAll2" indeterminate label="전체" onChange={onChangeAll} checked={gcheckedAll} className="chk-st1" />
+      <Checkbox id="gcheckedEss" indeterminate label="필수" onChange={onChangeAll} checked={gcheckedEss} className="chk-st1" />
       <br />
       {gcheckedList.map(v => 
-        <Checkbox key={v.id} id={v.id} label={v.label} onChange={onChangeAll} checked={v.checked} />
+        <Checkbox key={v.id} id={v.id} label={v.label} onChange={onChangeAll} checked={v.checked} className="chk-st1" />
       )}
     </>
   );
