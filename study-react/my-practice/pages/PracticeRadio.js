@@ -1,5 +1,5 @@
 import React, { useState, useCallback, useEffect } from 'react';
-import Radio from './Radio';
+import Radio from '../components/Radio';
 
 const PracticeRadio = () => {
   //------------- data 버전

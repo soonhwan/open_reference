@@ -18,8 +18,8 @@ const Button = memo(({id="", className="", type="button", disabled=false, onClic
       id: id,
       className: customClassName,
       href: href,
-      target: chkRef.current.target?chkRef.current.target:undefined,
-      disabled: chkRef.current.disabled?chkRef.current.disabled:disabled,
+      target: chkRef.current.target ? chkRef.current.target : undefined,
+      disabled: chkRef.current.disabled ? chkRef.current.disabled : disabled,
     }
     if(onClick) onClick({target});
   };

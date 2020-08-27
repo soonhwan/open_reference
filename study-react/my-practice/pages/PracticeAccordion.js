@@ -1,8 +1,8 @@
 import React, { useState, useCallback } from 'react';
-import Accordion from './accordion/Accordion';
-import AccordionList from './accordion/AccordionList';
-import AccordionHeader from './accordion/AccordionHeader';
-import AccordionCont from './accordion/AccordionCont';
+import Accordion from '../components/accordion/Accordion';
+import AccordionList from '../components/accordion/AccordionList';
+import AccordionHeader from '../components/accordion/AccordionHeader';
+import AccordionCont from '../components/accordion/AccordionCont';
 
 const PracticeAccordion = () => {
   return (

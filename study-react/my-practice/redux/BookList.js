@@ -1,7 +1,7 @@
 import React, { memo, useCallback } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { REMOVE_BOOK } from '../actions/book';
-import Button from '../Button';
+import Button from '../components/Button';
 
 const BookList = memo(() => {
   //console.log('rendering = BookList');

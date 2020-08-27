@@ -1,5 +1,5 @@
 import React, { useState, useCallback, useEffect } from 'react';
-import Checkbox from './Checkbox';
+import Checkbox from '../components/Checkbox';
 import CheckboxGroup1 from './CheckboxGroup1';
 import CheckboxGroup2 from './CheckboxGroup2';
 

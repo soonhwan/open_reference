@@ -1,5 +1,5 @@
 import React, { useState, useCallback, useEffect } from 'react';
-import Checkbox from './Checkbox';
+import Checkbox from '../components/Checkbox';
 
 const CheckboxGroup1 = ({ list, onChange }) => {
   let copyList = [...list];

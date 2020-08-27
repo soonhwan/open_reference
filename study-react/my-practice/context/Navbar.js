@@ -1,6 +1,6 @@
 import React, { useContext, memo } from 'react';
 import { AllContext } from '../context/Context';
-import Button from '../Button';
+import Button from '../components/Button';
 
 const Navbar = memo(() => {
   //console.log('rendering = Navbar');

@@ -1,10 +1,10 @@
 import React from 'react';
-import PracticeCheckbox from './PracticeCheckbox';
-import PracticeRadio from './PracticeRadio';
-import PracticeButton from './PracticeButton';
-import PracticeContext from './PracticeContext';
-import PracticeRedux from './PracticeRedux';
-import PracticeAccordion from './PracticeAccordion';
+import PracticeCheckbox from './pages/PracticeCheckbox';
+import PracticeRadio from './pages/PracticeRadio';
+import PracticeButton from './pages/PracticeButton';
+import PracticeContext from './pages/PracticeContext';
+import PracticeRedux from './pages/PracticeRedux';
+import PracticeAccordion from './pages/PracticeAccordion';
 
 const Main = () => {
   return (

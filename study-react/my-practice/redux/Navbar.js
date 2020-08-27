@@ -2,7 +2,7 @@ import React, { memo, useState, useCallback } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { LOG_IN, LOG_OUT, ADD_USER, REMOVE_USER } from '../actions/user';
 import shortid from 'shortid';
-import Button from '../Button';
+import Button from '../components/Button';
 
 const Navbar = memo(() => {
   //console.log('rendering = Navbar');

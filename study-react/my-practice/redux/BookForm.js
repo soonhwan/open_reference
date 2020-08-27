@@ -2,7 +2,7 @@ import React, { useState, useCallback, memo } from 'react';
 import { useDispatch } from 'react-redux';
 import { ADD_BOOK } from '../actions/book';
 import shortid from 'shortid';
-import Button from '../Button';
+import Button from '../components/Button';
 
 const BookForm = memo(() => {
   //console.log('rendering = BookForm');

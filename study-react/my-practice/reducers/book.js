@@ -1,5 +1,6 @@
 import { ADD_BOOK, REMOVE_BOOK } from '../actions/book';
 import shortid from 'shortid';
+import produce from 'immer';
 
 const initialState = {
   books: [
@@ -9,21 +10,34 @@ const initialState = {
   ],
 }
 
-const reducer = (state = initialState, action) => {
+// const reducer = (state = initialState, action) => {
+//   switch (action.type) {
+//     case ADD_BOOK:
+//       return {
+//         ...state,
+//         books: [...state.books, action.data]
+//       }
+//     case REMOVE_BOOK:
+//       return {
+//         ...state,
+//         books: state.books.filter(book => book.id !== action.data)
+//       }
+//     default:
+//       return state;
+//   }
+// }
+
+const reducer = (state = initialState, action) => produce(state, (draft) => {
   switch (action.type) {
     case ADD_BOOK:
-      return {
-        ...state,
-        books: [...state.books, action.data]
-      }
+      draft.books.push(action.data);
+      break;
     case REMOVE_BOOK:
-      return {
-        ...state,
-        books: state.books.filter(book => book.id !== action.data)
-      }
+      draft.books.splice(draft.books.findIndex(book => book.id === action.data), 1);
+      break;
     default:
-      return state;
+      break;
   }
-}
+});
 
 export default reducer;
