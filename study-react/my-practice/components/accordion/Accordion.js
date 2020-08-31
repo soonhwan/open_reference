@@ -3,7 +3,11 @@ export const AllContext = createContext();
 
 const Accordion = ({children, activeIndex=[], exclusive=false}) => {
 
-  const value = useMemo(() => ({activeIndex, exclusive}), []);
+  const onClick = (idx) => {
+    console.log(idx);
+  };
+
+  const value = useMemo(() => ({activeIndex, exclusive, onClick}), []);
 
   return (
     <>

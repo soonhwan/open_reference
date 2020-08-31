@@ -8,7 +8,7 @@ const PracticeAccordion = () => {
   return (
     <>
       <h1>Accordion sample</h1>
-      <Accordion activeIndex={[0,2]} exclusive>
+      <Accordion activeIndex={[1]} exclusive={false}>
         <AccordionList>
           <AccordionHeader>제목1</AccordionHeader>
           <AccordionCont>내용1..<br />내용..<br />내용..</AccordionCont>
@@ -22,21 +22,6 @@ const PracticeAccordion = () => {
           <AccordionCont>내용3..<br />내용..<br />내용..</AccordionCont>
         </AccordionList>
       </Accordion>
-
-      {/* <ul className="list-Accordion">
-        <li className="on">
-          <dl className="lm-box">
-            <dt className="tit"><button>제목</button></dt>
-            <dd className="cont">내용..<br />내용..<br />내용..</dd>
-          </dl>
-        </li>
-        <li>
-          <dl className="lm-box">
-            <dt className="tit"><button>제목</button></dt>
-            <dd className="cont">내용..<br />내용..<br />내용..</dd>
-          </dl>
-        </li>
-      </ul> */}
     </>
   );
 };

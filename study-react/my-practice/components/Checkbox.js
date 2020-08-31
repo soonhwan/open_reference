@@ -28,13 +28,13 @@ const Checkbox = memo(({id="", name="", label="", className="", checked, disable
       checked: chkRef.current.checked,
       disabled: chkRef.current.disabled,
     }
-    if(onChange) onChange({target});
+    if(typeof onChange === 'function') onChange({target});
   };
 
   return (
     <label htmlFor={id} className={customClassName}>
       <input className="a11y" ref={chkRef} id={id} name={name} type="checkbox" checked={checked===undefined?chk:checked} disabled={disabled} onChange={handleChange} />
-      <span className="label">{children ? children : label}</span>
+      <span className="label">{children || label}</span>
     </label>
   );
 });

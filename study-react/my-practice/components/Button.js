@@ -1,7 +1,10 @@
-import React, { useState, useRef, memo } from 'react';
+import React, { useRef, memo } from 'react';
 import PropTypes from 'prop-types';
 import classNames from 'classnames/bind';
 
+/**
+ * Button
+ */
 const Button = memo(({id="", className="", type="button", disabled=false, onClick, href="", target="", children}) => {
   //console.log("children = ", children);
   const chkRef = useRef(null);
@@ -18,10 +21,10 @@ const Button = memo(({id="", className="", type="button", disabled=false, onClic
       id: id,
       className: customClassName,
       href: href,
-      target: chkRef.current.target ? chkRef.current.target : undefined,
-      disabled: chkRef.current.disabled ? chkRef.current.disabled : disabled,
+      target: chkRef.current.target || undefined,
+      disabled: chkRef.current.disabled || disabled,
     }
-    if(onClick) onClick({target});
+    if(typeof onClick === 'function') onClick({target});
   };
 
   const getLabel = () => {
@@ -33,11 +36,11 @@ const Button = memo(({id="", className="", type="button", disabled=false, onClic
   return (
     <>
     {href ? 
-      <a href={href} target={target} ref={chkRef} id={id?id:null} className={customClassName} onClick={handleClick}>
+      <a href={href} target={target} ref={chkRef} id={id || null} className={customClassName} onClick={handleClick}>
         {getLabel()}
       </a>
        : 
-      <button type={type} ref={chkRef} id={id?id:null} className={customClassName} onClick={handleClick} disabled={disabled}>
+      <button type={type} ref={chkRef} id={id || null} className={customClassName} onClick={handleClick} disabled={disabled}>
         {getLabel()}
       </button>
     }
@@ -47,13 +50,21 @@ const Button = memo(({id="", className="", type="button", disabled=false, onClic
 });
 
 Button.propTypes = {
+  /** id 값 */
   id: PropTypes.string,
+  /** class 이름 */
   className: PropTypes.string,
+  /** 버튼 타입 */
   type: PropTypes.string,
+  /** Link href */
   href: PropTypes.string,
+  /** Link target */
   target: PropTypes.string,
+  /** 버튼 disabled */
   disabled: PropTypes.bool,
+  /** onClick */
   onClick: PropTypes.func,
+  /** label, html */
   children: PropTypes.node,
 }
 
