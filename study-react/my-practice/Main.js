@@ -5,6 +5,7 @@ import PracticeButton from './pages/PracticeButton';
 import PracticeContext from './pages/PracticeContext';
 import PracticeRedux from './pages/PracticeRedux';
 import PracticeAccordion from './pages/PracticeAccordion';
+import Study01 from './pages/Study01';
 
 const Main = () => {
   return (
@@ -20,6 +21,8 @@ const Main = () => {
       <PracticeRadio />
       <hr /><br /><br /><hr />
       <PracticeCheckbox />
+      <hr /><br /><br /><hr />
+      <Study01 />
     </div>
   );
 };
