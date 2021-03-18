@@ -22,11 +22,11 @@
                 if (this.cellData) return;
                 
                 const rootData = this.$root.$data;
-                //console.log(rootData);
-                //console.log(this.$parent.$data);
-                
+                console.log('$root === ', rootData); //최상위 접근
+                console.log('$parent === ', this.$parent.$data); //부모 접근
+
                 //rootData.tableData[this.rowIndex][this.cellIndex] = rootData.turn; //array 값을 수정해도 화면이 갱신 안된다.
-                this.$set(rootData.tableData[this.rowIndex], this.cellIndex, rootData.turn);
+                this.$set(rootData.tableData[this.rowIndex], this.cellIndex, rootData.turn); //$set() 사용해서 화면 갱신
                 
                 let win = false;
                 if (rootData.tableData[this.rowIndex][0] === rootData.turn && 
