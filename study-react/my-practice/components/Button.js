@@ -5,7 +5,7 @@ import classNames from 'classnames/bind';
 /**
  * Button
  */
-const Button = memo(({id="", className="", type="button", disabled=false, onClick, href="", target="", children}) => {
+const Button = memo(({id, className, type, disabled, onClick, href, target, children}) => {
   //console.log("children = ", children);
   const chkRef = useRef(null);
 
@@ -66,6 +66,15 @@ Button.propTypes = {
   onClick: PropTypes.func,
   /** label, html */
   children: PropTypes.node,
+}
+
+Button.defaultProps = {
+  id: '',
+  className: '',
+  href: '',
+  target: '',
+  type: 'button',
+  disabled: false,
 }
 
 export default Button;

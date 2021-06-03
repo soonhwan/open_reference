@@ -50,6 +50,14 @@ Radio.propTypes = {
   children: PropTypes.node,
 }
 
+Radio.defaultProps = {
+  id: '',
+  name: '',
+  label: '',
+  className: '',
+  disabled: false,
+}
+
 export default Radio;
 
 

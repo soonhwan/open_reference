@@ -2,7 +2,7 @@ import React, { useState, useRef, memo } from 'react';
 import PropTypes from 'prop-types';
 import classNames from 'classnames/bind';
 
-const Checkbox = memo(({id="", name="", label="", className="", checked, disabled=false, indeterminate=false, onChange, children}) => {
+const Checkbox = memo(({id, name, label, className, checked, disabled, indeterminate, onChange, children}) => {
   //console.log("label = ", label);
   const [chk, setChk] = useState(false);
   const chkRef = useRef(null);
@@ -49,6 +49,15 @@ Checkbox.propTypes = {
   indeterminate: PropTypes.bool,
   onChange: PropTypes.func.isRequired,
   children: PropTypes.node,
+}
+
+Checkbox.defaultProps = {
+  id: '',
+  name: '',
+  label: '',
+  className: '',
+  disabled: false,
+  indeterminate: false,
 }
 
 export default Checkbox;
