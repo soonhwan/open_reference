@@ -1,0 +1,29 @@
+[gulp 설치]
+npm install gulp-cli -g 
+npm init 
+npm install gulp -D 
+npx -p touch nodetouch gulpfile.js
+
+[SCSS 설치]
+npm install gulp-sass -D 
+npm install gulp-sourcemaps -D
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
