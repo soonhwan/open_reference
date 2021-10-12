@@ -53,7 +53,7 @@ gulp.task('nodemon:start', () => {
   return new Promise( resolve => { 
     nodemon({ 
       script: 'app.js',
-      watch: 'app' 
+      watch: 'app',
     }); 
     resolve(); 
   }); 
