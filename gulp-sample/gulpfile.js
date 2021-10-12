@@ -37,7 +37,8 @@ gulp.task('scss:compile', () => {
       .pipe(sourcemaps.init())
       .pipe(scss(options))
       .pipe(sourcemaps.write())
-      .pipe(gulp.dest(DEST_PATH.ASSETS.STYLE));
+      .pipe(gulp.dest(DEST_PATH.ASSETS.STYLE))
+      .pipe( browserSync.reload({stream: true}))
 		resolve();
 	});
 });
@@ -46,7 +47,8 @@ gulp.task('scss:compile', () => {
 gulp.task( 'html', () => { 
   return new Promise( resolve => { 
     gulp.src( PATH.HTML + '/*.html' )
-      .pipe( gulp.dest( DEST_PATH.HTML)); 
+      .pipe( gulp.dest( DEST_PATH.HTML))
+      .pipe( browserSync.reload({stream: true}))
     resolve(); 
   }); 
 });
@@ -56,7 +58,7 @@ gulp.task('nodemon:start', () => {
   return new Promise( resolve => { 
     nodemon({ 
       script: 'app.js',
-      watch: 'app',
+      watch: DEST_PATH.HTML,
     }); 
     resolve(); 
   }); 
