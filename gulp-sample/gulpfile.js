@@ -5,6 +5,7 @@ var nodemon = require('gulp-nodemon');
 
 // 소스 파일 경로 
 var PATH = {
+  HTML: './workspace/html',
   ASSETS: {
     FONTS: './workspace/assets/fonts',
     IMAGES: './workspace/assets/images',
@@ -13,6 +14,7 @@ var PATH = {
 },
 // 산출물 경로 
 DEST_PATH = {
+  HTML: './dist',
   ASSETS: {
     FONTS: './dist/assets/fonts',
     IMAGES: './dist/assets/images',
