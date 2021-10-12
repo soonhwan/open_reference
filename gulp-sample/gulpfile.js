@@ -3,6 +3,9 @@ var scss = require("gulp-sass");
 var sourcemaps = require('gulp-sourcemaps');
 var nodemon = require('gulp-nodemon');
 var browserSync = require('browser-sync');
+var concat = require('gulp-concat');
+var uglify = require('gulp-uglify');
+var rename = require('gulp-rename');
 
 // 소스 파일 경로 
 var PATH = {
@@ -11,6 +14,7 @@ var PATH = {
     FONTS: './workspace/assets/fonts',
     IMAGES: './workspace/assets/images',
     STYLE: './workspace/assets/css',
+    SCRIPT: './workspace/assets/js',
   }
 },
 // 산출물 경로 
@@ -20,6 +24,7 @@ DEST_PATH = {
     FONTS: './dist/assets/fonts',
     IMAGES: './dist/assets/images',
     STYLE: './dist/assets/css',
+    SCRIPT: './dist/assets/js',
   }
 };
 
@@ -64,11 +69,42 @@ gulp.task('nodemon:start', () => {
   }); 
 });
 
+//script 파일을 하나의 파일로 압축해준다.
+/* gulp.task( 'script:concat', () => {
+  return new Promise( resolve => {
+      gulp.src( PATH.ASSETS.SCRIPT + '/*.js' )
+          // src 경로에 있는 모든 js 파일을 common.js 라는 이름의 파일로 합친다.
+          .pipe( concat('common.js') )
+          .pipe( gulp.dest( DEST_PATH.ASSETS.SCRIPT ) )
+          .pipe( browserSync.reload({stream: true}) );
+
+      resolve();
+  })
+}); */
+
+//script 압축
+gulp.task( 'script:build', () => {
+  return new Promise( resolve => {
+      gulp.src( PATH.ASSETS.SCRIPT + '/*.js' )
+          .pipe( concat('common.js') )
+          .pipe( gulp.dest( DEST_PATH.ASSETS.SCRIPT ) )
+          .pipe( uglify({
+              mangle: true // 알파벳 한글자 압축
+          }))
+          .pipe( rename('common.min.js') )
+          .pipe( gulp.dest( DEST_PATH.ASSETS.SCRIPT ) )
+          .pipe( browserSync.reload({stream: true}) );
+      resolve();
+  })
+});
+
 //watch
 gulp.task('watch', () => {
   return new Promise( resolve => {
       gulp.watch(PATH.HTML + "/**/*.html", gulp.series(['html']));
       gulp.watch(PATH.ASSETS.STYLE + "/**/*.scss", gulp.series(['scss:compile']));
+      //gulp.watch(PATH.ASSETS.SCRIPT + "/**/*.js", gulp.series(['script:concat']));
+      gulp.watch(PATH.ASSETS.SCRIPT + "/**/*.js", gulp.series(['script:build']));
       
       resolve();
   });
@@ -86,4 +122,4 @@ gulp.task('browserSync', () => {
   });
 });
 
-gulp.task('default', gulp.series(['scss:compile', 'html', 'nodemon:start', 'browserSync', 'watch']));
+gulp.task('default', gulp.series(['scss:compile', 'html', 'script:build', 'nodemon:start', 'browserSync', 'watch']));
