@@ -4,7 +4,7 @@ npm init
 npm install gulp -D 
 npx -p touch nodetouch gulpfile.js
 
-[SCSS] 4.0.2
+[SCSS] gulp-sass 4.0.2 버전 설치
 npm install gulp-sass -D 
 npm install gulp-sourcemaps -D
 
@@ -13,7 +13,9 @@ npm install gulp-nodemon -D
 npm install express -D
 npm install ejs -D
 
-
+[Watch와 BrowserSync]
+npm install gulp-watch -D
+npm install browser-sync -D
 
 
 
