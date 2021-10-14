@@ -4,8 +4,8 @@ npm init
 npm install gulp -D 
 npx -p touch nodetouch gulpfile.js
 
-[SCSS] gulp-sass 4.0.2 버전 설치
-npm install gulp-sass -D 
+[SCSS]
+npm install gulp-sass@^4.0.2 -D 
 npm install gulp-sourcemaps -D
 
 [html과 웹서버]
@@ -22,10 +22,11 @@ npm install gulp-concat -D
 npm install gulp-uglify -D
 npm install gulp-rename -D
 
+[images Optimize]
+npm install gulp-imagemin@^7.1.0 -D
 
-
-
-
+[output directory init]
+npm install del -D
 
 
 

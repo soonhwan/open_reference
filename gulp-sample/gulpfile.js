@@ -6,6 +6,8 @@ var browserSync = require('browser-sync');
 var concat = require('gulp-concat');
 var uglify = require('gulp-uglify');
 var rename = require('gulp-rename');
+var imagemin = require('gulp-imagemin');
+var del = require('del');
 
 // 소스 파일 경로 
 var PATH = {
@@ -15,6 +17,7 @@ var PATH = {
     IMAGES: './workspace/assets/images',
     STYLE: './workspace/assets/css',
     SCRIPT: './workspace/assets/js',
+    LIB: './workspace/assets/lib',
   }
 },
 // 산출물 경로 
@@ -25,9 +28,37 @@ DEST_PATH = {
     IMAGES: './dist/assets/images',
     STYLE: './dist/assets/css',
     SCRIPT: './dist/assets/js',
+    LIB: './dist/assets/lib',
   }
 };
 
+//clean
+gulp.task('clean', () => {
+  return new Promise( resolve => {
+      del.sync(DEST_PATH.HTML);
+      resolve();
+  });
+});
+
+//fonts
+gulp.task( 'fonts', () => {
+  return new Promise( resolve => {
+      gulp.src( PATH.ASSETS.FONTS + '/*.*')
+          .pipe( gulp.dest( DEST_PATH.ASSETS.FONTS ));
+      resolve();
+  });
+});
+
+//library
+gulp.task( 'library', () => {
+  return new Promise( resolve => {
+      gulp.src( PATH.ASSETS.LIB + '/*.js')
+          .pipe( gulp.dest( DEST_PATH.ASSETS.LIB ));
+      resolve();
+  });
+});
+
+//scss
 gulp.task('scss:compile', () => {
 	return new Promise(resolve => {
 		var options = {
@@ -69,7 +100,7 @@ gulp.task('nodemon:start', () => {
   }); 
 });
 
-//script 파일을 하나의 파일로 압축해준다.
+//script 하나의 파일로 압축해준다.
 /* gulp.task( 'script:concat', () => {
   return new Promise( resolve => {
       gulp.src( PATH.ASSETS.SCRIPT + '/*.js' )
@@ -82,7 +113,28 @@ gulp.task('nodemon:start', () => {
   })
 }); */
 
-//script 압축
+//images Optimize
+gulp.task( 'imagemin', () => {
+  return new Promise( resolve => {
+      gulp.src( PATH.ASSETS.IMAGES + '/*.*' )
+          .pipe( imagemin([
+              imagemin.gifsicle({interlaced: false}),
+              imagemin.mozjpeg({progressive: true}),
+              imagemin.optipng({optimizationLevel: 5}),
+              imagemin.svgo({
+                  plugins: [
+                      {removeViewBox: true},
+                      {cleanupIDs: false}
+                  ]
+              })
+          ]))
+          .pipe( gulp.dest( DEST_PATH.ASSETS.IMAGES ) )
+          .pipe( browserSync.reload({stream: true}) );
+      resolve();
+  });
+});
+
+//Javascript Optimize
 gulp.task( 'script:build', () => {
   return new Promise( resolve => {
       gulp.src( PATH.ASSETS.SCRIPT + '/*.js' )
@@ -105,6 +157,7 @@ gulp.task('watch', () => {
       gulp.watch(PATH.ASSETS.STYLE + "/**/*.scss", gulp.series(['scss:compile']));
       //gulp.watch(PATH.ASSETS.SCRIPT + "/**/*.js", gulp.series(['script:concat']));
       gulp.watch(PATH.ASSETS.SCRIPT + "/**/*.js", gulp.series(['script:build']));
+      gulp.watch(PATH.ASSETS.IMAGES + "/**/*.*", gulp.series(['imagemin']));
       
       resolve();
   });
@@ -122,4 +175,18 @@ gulp.task('browserSync', () => {
   });
 });
 
-gulp.task('default', gulp.series(['scss:compile', 'html', 'script:build', 'nodemon:start', 'browserSync', 'watch']));
+//default
+var allSeries = gulp.series([
+  'clean',
+  'scss:compile',
+  'html',
+  'script:build',
+  'imagemin',
+  'fonts',
+  'library',
+  'nodemon:start',
+  'browserSync',
+  'watch',
+]);
+
+gulp.task( 'default', allSeries);
