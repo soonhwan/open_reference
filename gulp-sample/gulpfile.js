@@ -2,6 +2,7 @@ var gulp = require('gulp');
 var scss = require("gulp-sass");
 var sourcemaps = require('gulp-sourcemaps');
 var nodemon = require('gulp-nodemon');
+var ejs = require('gulp-ejs');
 var browserSync = require('browser-sync');
 var concat = require('gulp-concat');
 var uglify = require('gulp-uglify');
@@ -79,14 +80,13 @@ gulp.task('scss:compile', () => {
 	});
 });
 
-//html
-gulp.task( 'html', () => { 
-  return new Promise( resolve => { 
-    gulp.src( PATH.HTML + '/*.html' )
-      .pipe( gulp.dest( DEST_PATH.HTML))
-      .pipe( browserSync.reload({stream: true}))
-    resolve(); 
-  }); 
+//ejs
+gulp.task('gulpEjs', function() {
+  return gulp
+  .src(PATH.HTML + '/*.html')
+  .pipe(ejs())
+  .pipe(gulp.dest(DEST_PATH.HTML))
+  .pipe( browserSync.reload({stream: true}))
 });
 
 //서버
@@ -99,19 +99,6 @@ gulp.task('nodemon:start', () => {
     resolve(); 
   }); 
 });
-
-//script 하나의 파일로 압축해준다.
-/* gulp.task( 'script:concat', () => {
-  return new Promise( resolve => {
-      gulp.src( PATH.ASSETS.SCRIPT + '/*.js' )
-          // src 경로에 있는 모든 js 파일을 common.js 라는 이름의 파일로 합친다.
-          .pipe( concat('common.js') )
-          .pipe( gulp.dest( DEST_PATH.ASSETS.SCRIPT ) )
-          .pipe( browserSync.reload({stream: true}) );
-
-      resolve();
-  })
-}); */
 
 //images Optimize
 gulp.task( 'imagemin', () => {
@@ -153,9 +140,8 @@ gulp.task( 'script:build', () => {
 //watch
 gulp.task('watch', () => {
   return new Promise( resolve => {
-      gulp.watch(PATH.HTML + "/**/*.html", gulp.series(['html']));
+      gulp.watch(PATH.HTML + "/**/*", gulp.series(['gulpEjs']));
       gulp.watch(PATH.ASSETS.STYLE + "/**/*.scss", gulp.series(['scss:compile']));
-      //gulp.watch(PATH.ASSETS.SCRIPT + "/**/*.js", gulp.series(['script:concat']));
       gulp.watch(PATH.ASSETS.SCRIPT + "/**/*.js", gulp.series(['script:build']));
       gulp.watch(PATH.ASSETS.IMAGES + "/**/*.*", gulp.series(['imagemin']));
       
@@ -179,7 +165,7 @@ gulp.task('browserSync', () => {
 var allSeries = gulp.series([
   'clean',
   'scss:compile',
-  'html',
+  'gulpEjs',
   'script:build',
   'imagemin',
   'fonts',

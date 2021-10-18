@@ -8,10 +8,10 @@ npx -p touch nodetouch gulpfile.js
 npm install gulp-sass@^4.0.2 -D 
 npm install gulp-sourcemaps -D
 
-[html과 웹서버]
+[ejs, express]
 npm install gulp-nodemon -D
 npm install express -D
-npm install ejs -D
+npm install gulp-ejs -D
 
 [Watch와 BrowserSync]
 npm install gulp-watch -D
