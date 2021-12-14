@@ -1,0 +1,115 @@
+@import "~styles/base/util";
+
+.ReceiptPopupWrap {
+  position:fixed; left:0; right:0; top:0; bottom:0; width:100%; height:100%; background-color:transparent; z-index:6000;
+  @include boxSizing;
+  @include flexBox;
+  @include flexWidth(1 1);
+  @include alignItems(flex-end);
+  .ReceiptPopupWrapInner {
+    width:100%; line-height:1; background-color:$BGWhite; @include Shadow1R;
+    @include vendorPrefix(border-radius, 12px 12px 0 0);
+    @include boxSizing;
+    @include flexBox;
+    @include flexWidth(0 0 auto);
+    @include alignSelf(flex-end);
+  }
+  .ReceiptPopupCoWrap { width:100%; padding:16px 0 0 0; }
+  .ReceiptPopupCoScroll { /* max-height:244px; */ max-height:250px; overflow-y:auto; }
+  .ReceiptPopupCoScroll {}
+
+  .ReceiptPopupHeader { padding:8px 16px 9px 16px; }
+  .ReceiptPopupHeaderInner {
+    position:relative; padding:0 8px 19px 8px;
+
+    .ReceiptPopupHeaderTitle {
+      width:100%; padding:4px 0 0 0;
+      @include flexBox;
+      @include flexWrap(nowrap);
+      @include boxSizing;
+    }
+    .ReceiptPopupHeaderTitleCell {
+      overflow: hidden;
+      @include boxSizing;
+      @include flexWidth(1 1);
+      @include alignItems(center);
+      @include alignSelf(center);
+      &.price {
+        padding:0 0 0 16px;
+        overflow: visible;
+        @include flexWidth(0 0 auto);
+        @include flexDirection(column);
+        @include alignSelf(center);
+      }
+    }
+    .tReceiptPopupHTSummary { margin:4px 0 0 0; display:block;}
+    &:before { position:absolute; content:''; left:0; bottom:0; width:100%; height:1px; border-top:1px solid $BCExtraL; border-bottom:1px solid $BCExtraL; display:block; }
+  }
+
+  .ReceiptPopupContent {
+    padding:8px 16px 8px 16px;
+    .ReceiptPopupContentInner {}
+    .ReceiptPopupContentBenefits { 
+      margin-top:8px; padding-top:10px;
+      background:url('/static/images/bg/bg_receipt_popup_line_01.png') repeat-x left top;
+      @include vendorPrefix(background-size,4px 2px);
+    }
+    .ReceiptPopupContentItem {
+      padding:8px; 
+      dl {}
+      dt { padding:0 0 4px 0; line-height:1; }
+      dd {
+        ul {
+          li {
+            width:100%; line-height:1; table-layout:fixed; display:table;
+            .itemCell { vertical-align:top; display:table-cell; }
+            em.itemCell { width:104px; text-align:right; }
+          }
+        }
+      }
+
+      &.benefits { padding-top:10px; padding-bottom:10px; }
+    }
+  }
+
+  .ReceiptPopupCopy {
+    padding:8px 15px 8px 15px;
+    .ReceiptPopupCopyBox {
+      padding:16px 8px 16px 8px; background-color:$BGGrey;
+      @include vendorPrefix(border-radius, 16px);
+    }
+    .ReceiptPopupCopyText { text-align:center; }
+    .ReceiptPopupCopyBtn { padding:4px 0 0 0; text-align:center; }
+  }
+
+  .ReceiptPopupFooterBtn {
+    padding:8px 16px 24px 16px;
+    .ReceiptPopupFooterBtnRight { text-align:right; }
+  }
+}
+
+@include for-768-only {
+  .ReceiptPopupWrap {
+    .ReceiptPopupWrapInner {
+      width:360px; margin:0 auto;
+      @include vendorPrefix(border-radius, 12px);
+      @include alignSelf(center);
+      @include Shadow1;
+    }
+    .ReceiptPopupCoWrap {}
+    .ReceiptPopupCoScroll {}
+  }
+}
+
+@include for-1080-only {
+  .ReceiptPopupWrap {
+    .ReceiptPopupWrapInner {
+      width:360px; margin:0 auto;
+      @include vendorPrefix(border-radius, 12px);
+      @include alignSelf(center);
+      @include Shadow1;
+    }
+    .ReceiptPopupCoWrap {}
+    .ReceiptPopupCoScroll {}
+  }
+}

@@ -1,0 +1,93 @@
+@import "~styles/base/util";
+
+.formRadio label:before
+, .formRadio label:after {
+  @include iconPicUrl;
+}
+
+.formRadio {
+  position:relative; padding:8px 0 8px 18px;
+  .formRadioInner {}
+  input[type='radio'] {
+    opacity:0; display:none;
+    &:checked + label {
+      color:$FCDark;
+      &:before { display:none; }
+      &:after { display:block; }
+    }
+    &:disabled + label { opacity:0.3; }
+  }
+  label {
+    &:after
+    , &:before { position:absolute; content:''; width:16px; height:16px; }
+    &:before { background-position:-191px -500px; display:block; }
+    &:after { background-position:-208px -500px; display:none; }
+  }
+  .formRadioLabel {
+    position:relative;
+    padding:0; color:$FCMedium; display:block;
+    @include FSB12;
+  }
+
+  &.inlineBlock {
+    margin-right:16px; display:inline-block;
+    &:last-of-type { margin-right:0; }
+  }
+
+  &.basic
+  , &.textType {
+    position:relative; width:100%; padding:0 16px 0 16px;
+    @include pcMaxWidth;
+    @include boxSizing;
+    .formRadioInner { padding-top:12px; padding-bottom:12px; }
+    label {
+      &:after, &:before { left:0; top:50%; margin-top:-12px; width:24px; height:24px; }
+      &:before { background-position:-435px -448px; display:block; }
+      &:after { background-position:-460px -448px; display:none; }
+    }
+    .formRadioLabel {
+      padding:6px 0 6px 32px;
+      @include FSB14B; color:$FCDark;
+      em {
+        @include FSB12; color:$FCLight; display:block;
+      }
+    }
+  }
+
+  &.textType {
+    .formRadioLabel { padding-left:0; }
+  }
+}
+
+@include for-768-only {
+  .formRadio {
+    &.basic
+    , &.textType {
+      padding-left:40px; padding-right:40px;
+    }
+  }
+}
+
+@include for-1080-only {
+  .formRadio {
+    padding-top:6px; padding-bottom:6px; padding-left:20px;
+    label {
+      &:after
+      , &:before { width:18px; height:18px; }
+      &:before { background-position:-225px -500px; }
+      &:after { background-position:-244px -500px; }
+    }
+    .formRadioLabel {
+      @include FSB14;
+    }
+
+    &.basic
+    , &.textType {
+      .formRadioInner { padding-top:16px; padding-bottom:16px; }
+      .formRadioLabel {
+        padding-top:5px; padding-bottom:5px; @include FSST16B;
+        em { @include FSB14; }
+      }
+    }
+  }
+}

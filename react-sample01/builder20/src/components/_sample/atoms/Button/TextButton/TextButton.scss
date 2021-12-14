@@ -1,0 +1,53 @@
+@import "~styles/base/util";
+
+.TextButton, a.TextButton, button.TextButton {
+	padding:8px; font-size:18px; color:$primaryColor; line-height:24px; text-decoration:none; vertical-align:top; display:inline-block;
+	@include vendorPrefix(box-sizing,border-box);
+
+	span { font-size:18px; color:$primaryColor; line-height:24px; vertical-align:top; display:inline-block; }
+
+	&.s16 {
+		span { font-size:16px; }
+	}
+
+	&.CateButton {
+		padding:6px 0 8px 0; text-align:center; display:block;
+		span { font-size:14px; line-height:33px; border-bottom:1px solid #ffffff; vertical-align:top; display:inline-block; }
+	}
+
+	&.FixedButton {
+		padding:8px 10px 8px 10px; text-align:center; display:block;
+		span {
+			font-size:14px; line-height:20px; display:block;
+			@include textEllipsis;
+		}
+	}
+
+	&.SwiperButton {
+		padding:8px 10px 8px 10px; text-align:center; display:block;
+		span {
+			font-size:14px; line-height:20px; display:block;
+		}
+
+		&.selected {
+			background-color:#30333a;
+			@include vendorPrefix(border-radius,12px);
+			span { color:#ffffff; }
+		}
+	}
+
+	&.SortingUtilBtn {
+		padding:6px 0; line-height:20px;
+		span {
+			font-size:12px; color:$primaryDimColor; line-height:20px;
+		}
+
+		&.selected {
+			span { color:$primaryColor; }
+		}
+	}
+
+	&.primary {
+		span { color:$primaryColor; }
+	}
+}

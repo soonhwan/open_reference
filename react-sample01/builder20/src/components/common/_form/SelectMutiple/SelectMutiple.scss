@@ -1,0 +1,85 @@
+@import "~styles/base/util";
+
+.formSelectMutiple {
+  position:relative; width:100%; padding:0 16px 8px 16px;
+  @include pcMaxWidth;
+  @include boxSizing;
+  @include flexBox;
+  @include flexWrap(wrap);
+  .formSelectMutipleLabel {
+    width:100%; padding:14px 0px 6px 0px;
+    overflow:hidden;
+    @include boxSizing;
+    @include flexWidth(0 0 auto);
+    @include alignItems(center);
+
+    .textSt {
+      max-width:100%; padding-right:8px;
+      @include boxSizing;
+      @include textEll(inline-block,20px);
+    }
+
+    &.required {
+      .textSt {
+        position:relative;
+        &:before {
+          position:absolute; content:''; right:0px; top:0; width:5px; height:5px; background-color:$BGPoint; display:block;
+          @include vendorPrefix(border-radius, 2px);
+        }
+      }
+    }
+  }
+  .formSelectMutipleGroup {
+    position:relative; width:100%;
+    @include boxSizing;
+    @include flexWidth(0 0 auto);
+    @include flexDirection(column);
+    @include alignSelf(center);
+  }
+
+  .formSelectMutipleGroupInner {
+    display:block;
+  }
+  .formSelectMutipleItem {
+    padding-left:8px; width:33.3%; max-width:112px; display:inline-block; @include boxSizing;
+    &:first-of-type { padding-left:0; max-width:104px; }
+    .formSelect { min-width:1px; padding-left:0; padding-right:0; padding-bottom:0; }
+    label { display:none; }
+  }
+  .formSelectMutipleInfo {
+    padding:8px 16px 0 16px; @include FSB12; color:$FCMedium;
+    &.error { color:$FCError; }
+    &.success { color:$FCDark; }
+  }
+}
+
+@include for-768-only {
+  .formSelectMutiple {
+    padding-left:40px; padding-right:40px;
+  }
+}
+
+@include for-1080-only {
+  .formSelectMutiple {
+    padding-bottom:16px;
+    @include flexWrap(nowrap);
+    .formSelectMutipleLabel {
+      width:160px; padding:16px;
+      @include flexWidth(0 0 auto);
+      .tB14B { @include FSST18B; height:24px; }
+    }
+    .formSelectMutipleGroup {
+      @include flexWidth(1 1);
+      @include alignSelf(flex-start);
+    }
+
+    .formSelectMutipleItem {
+      max-width:168px;
+      &:first-of-type { padding-left:0; max-width:160px; }
+    }
+
+    .formSelectMutipleInfo {
+      @include FSB14;
+    }
+  }
+}

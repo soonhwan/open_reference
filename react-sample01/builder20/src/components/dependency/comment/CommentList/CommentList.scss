@@ -1,0 +1,32 @@
+@import "~styles/base/util";
+
+.CommentListWrap {
+  padding:0 0 0 0; background-color:#ffffff;
+  @include pcMaxWidth;
+  @include boxSizing;
+  .CommentListInner {}
+  .CommentListBox {
+    .CommentListReply { display:none; }
+    &.open {
+      .CommentListReply { display:block; }
+    }
+  }
+  .CommentListReplyMore {
+    padding:0 0 0 0;
+    .CommentListReplyMoreInner { padding:8px 0 0 0; background-color:$BGExtraL30; }
+    .linkSt { padding-top:10px; padding-bottom:10px; text-align:center; display:block;}
+  }
+}
+
+@include for-768-only {
+  .CommentListWrap {
+    .CommentListInner {}
+    .CommentListReplyMore { padding-left:24px; padding-right:24px; }
+  }
+}
+
+@include for-1080-only {
+  .CommentListWrap {
+    .CommentListInner {}
+  }
+}

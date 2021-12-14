@@ -1,0 +1,68 @@
+@import "~styles/base/util";
+
+.PurchaseBox {
+  position:fixed; left:0; bottom:0; right:0; width:100%; display:table; z-index:1000;
+  .PurchaseBoxWrap {
+    padding:0;
+    @include pcMaxWidth;
+    @include boxSizing;
+  }
+  .PurchaseBoxInner { padding:0; }
+  .PurchaseBoxArea {
+    width:100%; padding:4px; @include boxSizing;
+    .PurchaseBoxInfo {
+      margin-bottom:4px; padding:7px 10px; border:1px solid $BGExtraL; @include vendorPrefix(border-radius,16px);
+      .PurchaseBoxInfoInner {
+        text-align:center; @include textEll(block,16px);
+        .textSt { display:inline;}
+      }
+    }
+    ul {
+      width:100%;
+      @include boxSizing;
+      @include flexBox;
+      @include flexWrap(wrap);
+      li {
+        height:48px; padding:0 2px;
+        @include boxSizing;
+        @include flexBox;
+        @include flexWidth(1 1);
+        &:first-of-type { padding-left:0; }
+        &:last-of-type { padding-right:0; }
+      }
+    }
+  }
+}
+
+@include for-768-only {
+  .PurchaseBox {
+    position:static; display:block;
+    .PurchaseBoxWrap { padding:16px 24px 24px 24px; }
+    .PurchaseBoxInner { border-top:1px solid $BGExtraL; padding:20px 16px 0 16px; }
+    .PurchaseBoxArea { width:360px; margin:0 0 0 auto; }
+  }
+}
+
+@include for-1080-only {
+  .PurchaseBox {
+    position:static; display:block;
+    .PurchaseBoxWrap { padding:16px 16px 24px 16px; }
+    .PurchaseBoxInner { border-top:1px solid $BGExtraL; padding-top:20px; }
+    .PurchaseBoxArea {
+      width:400px; margin:0 0 0 auto;
+      .PurchaseBoxInfo {
+        padding:9px 10px; @include vendorPrefix(border-radius,20px);
+        .PurchaseBoxInfoInner {
+          @include textEll(block,20px);
+          .infoBlack16 { width:20px; height:20px; background-position:-383px -563px; }
+          .textSt { @include FSB14; }
+        }
+      }
+      ul {
+        li { height:56px; }
+        .tB14B { @include FSST16B; height:22px; }
+        .tB12B { @include FSB14B; height:20px; }
+      }
+    }
+  }
+}

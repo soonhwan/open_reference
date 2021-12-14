@@ -1,0 +1,42 @@
+@import "~styles/base/util";
+
+.CashPointInfoBox {
+  position:relative; padding:0;
+  @include pcMaxWidth;
+  @include boxSizing;
+  .CashPointInfoBoxInner {
+    padding:12px 16px 12px 16px; 
+    @include boxSizing;
+  }
+  .CashPointInfoBoxBody {
+    padding:30px 24px 30px 24px; background-color:$BGDark;
+    @include vendorPrefix(border-radius,16px);
+    @include boxSizing;
+
+    .CashPointInfoTextTitle { text-align:center; }
+    .CashPointInfoTextDesc { padding-top:12px; text-align:center; }
+  }
+
+  &.point {
+    .CashPointInfoBoxBody { background-color:$BGPoint;}
+  }
+}
+
+@include for-768-only {
+  .CashPointInfoBox {
+    padding:0 24px;
+    .CashPointInfoBoxInner { }
+  }
+}
+
+@include for-1080-only {
+  .CashPointInfoBox {
+    .CashPointInfoBoxInner {}
+    .CashPointInfoBoxBody {
+      padding:40px 52px 40px 52px;
+      
+      .CashPointInfoTextTitle { @include FSST18B; }
+      .CashPointInfoTextDesc { padding-top:16px; @include FSB14; }
+    }
+  }
+}

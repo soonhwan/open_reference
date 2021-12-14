@@ -1,0 +1,53 @@
+@import "~styles/base/util";
+
+.SearchAutoWrap {
+  position:relative; z-index:1000;
+  @include pcMaxWidth;
+  @include boxSizing;
+  .SearchAutoInner { padding-bottom:16px; }
+  .SearchAutoBox {}
+  .SearchAutoBoxInner {}
+
+  .SearchAutoLink { padding:4px 8px; display:block; }
+  .SearchAutoLinkInner { width:100%; table-layout:fixed; display:table; }
+  .SearchAutoLinkCell {
+    vertical-align:middle; display:table-cell; line-height:16px;
+    &.thumbnail { padding-left:8px; padding-right:8px; width:32px; text-align:left; }
+    &.icon { padding-left:8px; width:24px; text-align:left; }
+    &.righticon { padding-left:8px; padding-right:8px; width:24px; text-align:right; }
+    &.date { padding-right:8px; width:72px; text-align:right; }
+    &.title { padding-top:10px; padding-bottom:10px; }
+    .SearchAutoLinkTitle {
+      @include textEll(block, 20px);
+      @include FSB14; color:$FCDark;
+    }
+  }
+}
+
+@include for-768-only {
+  .SearchAutoWrap {
+    padding:0 24px;
+    .SearchAutoInner {}
+    .SearchAutoBox {}
+    .SearchAutoBoxInner {}
+
+    .SearchAutoLink { padding-left:16px; padding-right:16px; }
+  }
+}
+
+@include for-1080-only {
+  .SearchAutoWrap {
+    .SearchAutoInner {
+      position:absolute; right:64px; top:-3px; width:280px; border:1px solid $BCBlack10; background-color:#ffffff;
+      @include vendorPrefix(border-radius, 12px);
+      @include Shadow1;
+    }
+    .SearchAutoBox {
+      padding:7px 0 7px 0;
+    }
+    .SearchAutoBoxInner { padding-bottom:0px; }
+    .SearchAutoBoxScroll { overflow-y:auto; }
+
+    .SearchAutoLink { padding-left:6px; padding-right:6px; }
+  }
+}

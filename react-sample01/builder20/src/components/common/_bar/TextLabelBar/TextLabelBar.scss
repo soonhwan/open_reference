@@ -1,0 +1,64 @@
+@import "~styles/base/util";
+
+.TextLabelBar {
+  width:100%; padding:0 0 0 0;
+  @include pcMaxWidth;
+  @include boxSizing;
+  .TextLabelBarInner { padding:0 0 0 0; }
+  .TextLabelBarTitle {
+    .TextLabelBarTitleText {
+      padding:16px;
+    }
+    .TextLabelBarTitleTextInner {
+      @include textEll(block, 20px);
+      .textSt {
+        display:inline;
+        .textSt { margin-left:4px; }
+      }
+    }
+    .TextLabelBarTitleLink {
+      padding:16px 12px 16px 16px; display:block;
+      > span {
+        padding-right:30px; @include textEll(block, 20px);
+      }
+      .rightArrow24 { position:absolute; right:0; top:50%; margin-top:-12px; }
+      .textSt {
+        display:inline;
+        .textSt { margin-left:4px; }
+      }
+    }
+  }
+}
+
+@include for-768-only {
+  .TextLabelBar {
+    padding-left:24px; padding-right:24px;
+    .TextLabelBarInner {}
+    .TextLabelBarTitle {}
+  }
+}
+
+@include for-1080-only {
+  .TextLabelBar {
+    .TextLabelBarInner {}
+    .TextLabelBarTitle {
+      .TextLabelBarTitleText {
+        padding-top:20px; padding-bottom:20px;
+      }
+      .TextLabelBarTitleTextInner {
+        @include textEll(block, 24px);
+        .tB14B { @include FSST18B; }
+        .tB14 { @include FSST18; }
+      }
+      .TextLabelBarTitleLink {
+        padding-top:20px; padding-bottom:20px;
+        > span {
+          padding-right:38px; @include textEll(block, 24px);
+        }
+        .rightArrow24 { margin-top:-16px; width:32px; height:32px; background-position:-649px -566px; }
+        .tB14B { @include FSST18B; }
+        .tB14 { @include FSST18; }
+      }
+    }
+  }
+}

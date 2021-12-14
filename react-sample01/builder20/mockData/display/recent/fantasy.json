@@ -1,0 +1,69 @@
+{
+    "result_message": "",
+    "result_code": "00",
+    "params": {
+        "title": "일반도서 내가 본 상품",
+        "productList": [
+            {
+                "prodId": "H040027996",
+                "prodNm": "OSB 일반도서 사라져 가는 것들의 안부를 묻다",
+                "thumbnailImageUrl": "/data7/SMILE_DATA7/IMG/PEBOOK/201909/20/0040013497/1/01_0040013497_1339.jpg",
+                "thumbnailType": "rectangle",
+                "avgScore": 0,
+                "commentCount": 1,
+                "gradeCd": "PD004401",
+                "regDt": "2019.09.18",
+                "topMenuId": "DP13",
+                "metaClsfCd": "CT19",
+                "artistNm": "윤신영",
+                "artistNmSub": "",
+                "publisherNm": "MID",
+                "plus19Yn": "N",
+                "completedYn": "N",
+                "bookUnit": "권",
+                "totalCount": 1,
+                "setProdYn": "N"
+            },
+            {
+                "prodId": "H040069494",
+                "prodNm": "[고정] 판타지_시단ALL-퍼펙트 써전",
+                "thumbnailImageUrl": "/data7/SMILE_DATA7/IMG/PEBOOKS/202002/12/0040041588/01_0040041588_1313.png",
+                "thumbnailType": "rectangle",
+                "avgScore": 5,
+                "commentCount": 1,
+                "gradeCd": "PD004401",
+                "regDt": "2020.02.12",
+                "topMenuId": "DP13",
+                "metaClsfCd": "CT20",
+                "artistNm": "뫼달",
+                "artistNmSub": "",
+                "publisherNm": "제이플러스",
+                "plus19Yn": "N",
+                "completedYn": "Y",
+                "bookUnit": "권",
+                "totalCount": 15,
+                "setProdYn": "N"
+            },
+            {
+                "prodId": "H103827507",
+                "prodNm": "[SCQA] 180620 과",
+                "thumbnailImageUrl": "/data7/SMILE_DATA7/IMG/PEBOOKS/201811/19/0051393545/1/01_0051393545_1814.jpg",
+                "thumbnailType": "rectangle",
+                "avgScore": 4,
+                "commentCount": 5,
+                "gradeCd": "PD004401",
+                "regDt": "2018.12.04",
+                "topMenuId": "DP13",
+                "metaClsfCd": "CT20",
+                "artistNm": "ㅈㄷㄱ",
+                "artistNmSub": "ㅈㄷㄱ",
+                "publisherNm": "ㅈㄷㄱ",
+                "plus19Yn": "N",
+                "completedYn": "N",
+                "bookUnit": "권",
+                "totalCount": 231,
+                "setProdYn": "N"
+            }
+        ]
+    }
+}

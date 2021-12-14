@@ -1,0 +1,29 @@
+@import "~styles/base/util";
+
+.MemberLogo {
+  @include pcMaxWidth;
+  .MemberLogoWrap { padding:96px 0 24px; }
+  .MemberLogoInner {}
+  .MemberLogoPic {
+    width:272px; height:40px; margin:0 auto; background:url('/static/images/common/logo_member_onestorebooks_360.png') no-repeat center center; display:block;
+    @include fontSizeZero; @include vendorPrefix(background-size,272px 40px);
+  }
+}
+
+@include for-768-only {
+  .MemberLogo {
+    .MemberLogoWrap {}
+    .MemberLogoInner {}
+  }
+}
+
+@include for-1080-only {
+  .MemberLogo {
+    .MemberLogoWrap { padding-top:100px; padding-bottom:32px; }
+    .MemberLogoInner {}
+    .MemberLogoPic {
+      width:312px; height:44px; background-image:url('/static/images/common/logo_member_onestorebooks_1080.png');
+      @include vendorPrefix(background-size,312px 44px);
+    }
+  }
+}

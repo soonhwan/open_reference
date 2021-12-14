@@ -1,0 +1,135 @@
+@import "~styles/base/util";
+
+.CommentItemWrap {
+  padding:0;
+  .CommentItemInner { padding:0 16px; }
+  .CommentItemBox { border-bottom:1px solid $BCExtraL; }
+
+  .CommentItemTextBadge {
+    position:relative; top:1px; margin:0 4px 0 0; padding:1px 7px; border:1px solid $BCExtraL; vertical-align:top; display:inline-block;
+    @include FSC10; color:$FCMedium;
+    @include vendorPrefix(border-radius, 4px);
+    &.notice { padding:2px 8px; color:$FCWhite; border-width:0; background-color:$BGPoint70; }
+    &.recommendation { color:$FCPoint; border-color:$BCPoint50; }
+    &.best { color:$FCPoint; border-color:$BCPoint50; }
+  }
+
+  .CommentItemNickName {
+    padding:12px 0 0 0; @include FSB14; color:$FCDark;
+    i.adminLogo16 { margin-right:4px; top:1px; }
+  }
+  .CommentItemDesc {
+    padding:12px 0 16px 0; @include FSB14; color:$FCDark;
+    &.deleted {
+      color:$FCLight;
+    }
+  }
+  .CommentItemEpisode {
+    padding:0 0 4px 0; @include FSB12; color:$FCMedium;
+  }
+
+  .CommentItemBottom {
+    padding:0 0 12px 0;
+    @include boxSizing;
+    @include flexBox;
+    @include flexWrap(nowrap);
+    .CommentItemBottomCell {
+      height:24px;
+      @include boxSizing;
+      @include flexWidth(1 1);
+      @include alignItems(center);
+      @include alignSelf(center);
+      &.date {
+        padding:0 8px 0 0;
+        @include flexWidth(0 0 auto);
+        .textSt { vertical-align:middle; }
+      }
+      &.nav {
+        .linkSt {
+          position:relative; margin:0 8px 0 9px; padding:0 0 0 0; line-height:1; vertical-align:middle;
+          &:before { position:absolute; content:''; left:-8px; top:50%; margin-top:-6px; width:1px; height:12px; background-color:$BGExtraL; display:block; }
+        }
+      }
+      &.btn {
+        @include flexWidth(0 0 auto);
+        .btnExtraL50 {
+          margin:0 0 0 8px; padding:4px 6px;
+          i.commentLike14 { top:1px; margin-right:4px; }
+          i.commentLikeSel14 { top:1px; margin-right:4px; }
+        }
+        div.btnExtraL50 {
+          i.commentLike14
+          , i.commentLikeSel14  { opacity:0.5; }
+        }
+      }
+    }
+  }
+
+  &.reply {
+    .CommentItemInner {
+      position:relative; padding-left:28px; background-color:$BGExtraL30;
+      &:before { position: absolute; content:''; left:16px; top:15px; width:8px; height:8px; border-left:1px solid $BCLight; border-bottom:1px solid $BCLight; display:block; @include boxSizing;}
+    }
+  }
+}
+
+@include for-768-only {
+  .CommentItemWrap {
+    padding:0 24px;
+    .CommentItemInner {}
+  }
+}
+
+@include for-1080-only {
+  .CommentItemWrap {
+    .CommentItemInner {}
+
+    .CommentItemTextBadge {
+      @include FSB12;
+      &.notice {}
+      &.recommendation {}
+      &.best {}
+    }
+  
+    .CommentItemNickName {
+      padding-top:16px; @include FSST16;
+      i.adminLogo16 { top:0; width:20px; height:22px; background-position:-284px -149px; }
+    }
+    .CommentItemDesc {
+      padding-top:16px; padding-bottom:24px;
+      @include FSST16;
+      &.deleted {}
+    }
+    .CommentItemEpisode { padding-bottom:8px; @include FSB14; }
+  
+    .CommentItemBottom {
+      padding-bottom:16px;
+      .CommentItemBottomCell {
+        height:28px;
+        &.date {
+          .textSt { @include FSB14; }
+        }
+        &.nav {
+          .linkSt {
+            .tB12 { @include FSB14; }
+            &:before { margin-top:-7px; height:14px; }
+          }
+        }
+        &.btn {
+          .btnExtraL50 {
+            margin-left:12px;
+            .tB12 { @include FSB14; }
+            i.commentLike14 { top:2px; width:16px; height:16px; background-position:-140px -568px; }
+            i.commentLikeSel14 { top:2px; width:16px; height:16px; background-position:-157px -568px;}
+          }
+        }
+      }
+    }
+
+    &.reply {
+      .CommentItemInner {
+        &:before { left:16px; top:20px; width:8px; height:10px; }
+      }
+    }
+  }
+}

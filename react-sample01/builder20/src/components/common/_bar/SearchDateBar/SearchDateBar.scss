@@ -1,0 +1,52 @@
+@import "~styles/base/util";
+
+.SearchDateBar {
+  background-color:#ffffff;
+  .SearchDateBarInner {
+    width:100%; padding:4px 16px 4px 16px;
+    @include flexBox;
+    @include pcMaxWidth;
+    @include boxSizing;
+
+    .SearchDateBarHeader {
+      overflow:hidden;
+      @include flexBox;
+      @include flexWidth(1 1);
+      @include flexDirection(column);
+      @include alignSelf(center);
+
+      .searchDatelink { padding-left:0; padding-right:0;}
+    }
+    .SearchDateBarValue {
+      width:160px; padding:0 0 0 16px;
+      @include flexBox;
+      @include flexWidth(0 0 auto);
+      @include alignItems(center);
+    }
+  }
+}
+
+@include for-768-only {
+  .SearchDateBar {
+    .SearchDateBarInner {
+      padding:8px 40px 8px 40px;
+      .SearchDateBarValue { width:240px; }
+    }
+  }
+}
+
+@include for-1080-only {
+  .SearchDateBar {
+    .SearchDateBarInner {
+      padding:12px 16px 12px 16px;
+      .SearchDateBarHeader {
+        .searchDatelink {
+          padding-top:5px; padding-bottom:5px;
+          .tB14 { @include FSST16; }
+          .icon20 { top:1px; }
+        }
+      }
+      .SearchDateBarValue { width:240px; }
+    }
+  }
+}

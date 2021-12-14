@@ -1,0 +1,39 @@
+/* 다운 로드 배너 */
+.app-download-banner {
+  width:100%; 
+  height:42px; 
+  background:#2d2d2d;
+
+  .co { position:relative; width:100%; height:100%; }
+  .txt { position:relative; margin:0 100px 0 36px; height:100%; }
+  .txt u { 
+    position:absolute; left:0; top:11px; width:120px; height:16px; overflow:hidden; display:none;
+    -webkit-animation:downloadTextAni 3s ease-in-out infinite; animation:downloadTextAni 3s ease-in-out infinite;
+  }
+  .txt u em { position:absolute; width:100%; height:100%; background-position:0px -25px; display:block; }
+  .txt u.app-download-gif { width:110px; height:16px; }
+  .txt u.app-download-gif em { background-position:0px -25px; }
+  .txt strong { 
+    position:absolute; left:0; top:13px; width:92px; height:16px; overflow:hidden; display:block;
+    -webkit-animation:downloadTextAni 3s ease-in-out infinite; animation:downloadTextAni 3s ease-in-out infinite;
+  }
+  .txt strong em { position:absolute; width:100%; height:100%; background-position:0px -65px; display:block; }
+  .txt span {
+    position:absolute; left:92px; top:13px; width:61px; height:16px; overflow:hidden; display:block;
+    -webkit-animation:downloadTextAni 3s ease-in-out infinite; animation:downloadTextAni 3s ease-in-out infinite;
+  }
+  .txt span em { position:absolute; width:100%; height:100%; background-position:-92px -65px; display:block;; }
+  .btn { position:absolute; right:15px; top:0; padding:10px 0 10px 0; width:70px; height:22px; display:block; }
+  .close { position:absolute; left:0; top:0; padding:10px 10px 11px 10px; width:21px; height:21px; display:block; }
+
+  .app-download-banner-img {height: 42px;vertical-align: top;}
+}
+
+.app-download-banner-detail { height:54px; }
+.app-download-banner-detail .app-download-banner-btn { padding-top:16px; padding-bottom:16px; }
+.app-download-banner-detail .app-download-banner-close { padding-top:16px; padding-bottom:16px; }
+.app-download-banner-detail .app-download-banner-txt u { display:block; }
+.app-download-banner-detail .app-download-banner-txt strong { top:27px; }
+.app-download-banner-detail .app-download-banner-txt span { top:27px; }
+
+html.giftHtml .app-download-banner-wrap { position:absolute; left:0; top:0; width:100%; }

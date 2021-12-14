@@ -1,0 +1,69 @@
+@import "~styles/base/util";
+
+.MySubCouponPassWrap {
+  padding:0 0 0 0;
+  @include pcMaxWidth;
+  @include boxSizing;
+  .MySubCouponPassInner { padding:0 16px 0 16px; }
+  .MySubCouponPassBody {
+    width:100%;
+    @include boxSizing;
+    @include flexBox;
+    @include flexWrap(wrap);
+  }
+  .MySubCouponPassCell {
+    width:100%; padding:0 0 8px 0;
+    @include boxSizing;
+    @include flexWidth(0 0 auto);
+    @include alignItems(center);
+  }
+  .MySubCouponPassItem {
+    padding:0 16px 0 16px;
+    background-color:$BGExtraL50;
+    @include vendorPrefix(border-radius, 12px);
+    @include boxSizing;
+    @include flexBox;
+    @include flexWrap(nowrap);
+  }
+
+  .MySubCouponPassLink {
+    padding:17px 0 17px 0; overflow:hidden;
+    @include boxSizing;
+    @include flexWidth(1 1);
+    @include alignItems(center);
+    > span { @include textEll(block,22px)}
+    i.icon22 { margin-right:4px; }
+    .textSt { display:inline;}
+  }
+  .MySubCouponPassItemSub {
+    width:88px; padding-left:16px;
+    @include boxSizing;
+    @include flexWidth(0 0 auto);
+    @include flexDirection(column);
+    @include alignSelf(center);
+    .linkSt { @include Shadow2; border-width:0; }
+  }
+}
+
+@include for-768-only {
+  .MySubCouponPassWrap {
+    padding:0 24px 0 24px;
+  }
+}
+
+@include for-1080-only {
+  .MySubCouponPassWrap {
+    .MySubCouponPassInner { padding:16px 0 16px 0; }
+    .MySubCouponPassBody {
+      @include flexWrap(nowrap);
+    }
+    .MySubCouponPassCell {
+      padding:0 0 0 16px;
+      @include flexWidth(1 1);
+      &:first-of-type { padding-left:0; }
+    }
+    .MySubCouponPassLink {
+      padding:21px 0 21px 0;
+    }
+  }
+}

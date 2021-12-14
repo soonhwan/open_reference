@@ -1,0 +1,32 @@
+@import "~styles/base/util";
+
+.MySnbWrap {
+  padding:0 0 0 0;
+  @include pcMaxWidth;
+  @include boxSizing;
+  .MySnbInner {}
+  .MySnbHeader {
+    padding:38px 16px 24px 16px; display:none;
+    i.myhome20 { margin-right:4px; top:1px; }
+  }
+
+  .SnbMenuContent.purchase { display:none; }
+}
+
+@include for-768-only {
+  .MySnbWrap {
+    .MySnbInner { }
+    .SnbMenuContent.purchase { display:none; }
+  }
+}
+
+@include for-1080-only {
+  .MySnbWrap {
+    .MySnbInner { padding:0 8px; }
+    .MySnbHeader { display:block; }
+    .MySubCashPointWrap { display:none; }
+    .MySubCouponPassWrap { display:none; }
+    .SnbMenuWrap { padding-top:8px; }
+    .SnbMenuContent.purchase { display:block; }
+  }
+}

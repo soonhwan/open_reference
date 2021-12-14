@@ -1,0 +1,58 @@
+@import "~styles/base/util";
+
+.DropboxPopupWrap {
+  position:fixed; left:0; right:0; top:0; bottom:0; width:100%; height:100%; background-color:transparent; z-index:6000;
+  @include boxSizing;
+  @include flexBox;
+  @include flexWidth(1 1);
+  @include alignItems(flex-end);
+  .PopupWrapInner {
+    width:100%; background-color:$BGWhite; @include Shadow1R;
+    @include vendorPrefix(border-radius, 12px 12px 0 0);
+    @include boxSizing;
+    @include flexBox;
+    @include flexWidth(0 0 auto);
+    @include alignSelf(flex-end);
+
+    .PopupContentWrap {
+      width:100%; padding:16px;
+      @include boxSizing;
+    }
+  }
+
+  .PopupContentTitle { padding:8px 8px 10px 8px; }
+  .PopupContentCoScroll { max-height:330px; overflow-y:auto; }
+
+  .PopupContentCoOption { padding:0; }
+  .PopupContentCoOption ul { padding:0; }
+  .PopupContentCoOption ul li {
+    .optionLink {
+      padding-top:14px; padding-bottom:14px; display:block;
+      @include boxSizing;
+      > span { position:relative; padding-right:32px; display:block; }
+      i.icon24 { position:absolute; right:0; top:50%; margin-top:-12px; }
+    }
+  }
+}
+
+@include for-768-only {
+  .DropboxPopupWrap {
+    .PopupWrapInner {
+      width:360px; margin:0 auto;
+      @include vendorPrefix(border-radius, 12px);
+      @include alignSelf(center);
+      @include Shadow1;
+    }
+  }
+}
+
+@include for-1080-only {
+  .DropboxPopupWrap {
+    .PopupWrapInner {
+      width:360px; margin:0 auto;
+      @include vendorPrefix(border-radius, 12px);
+      @include alignSelf(center);
+      @include Shadow1;
+    }
+  }
+}

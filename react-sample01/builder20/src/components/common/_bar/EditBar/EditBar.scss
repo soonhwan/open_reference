@@ -1,0 +1,62 @@
+@import "~styles/base/util";
+
+.EditBar {
+  .EditBarInner {
+    width:100%; padding:8px 16px 8px 16px;
+    @include flexBox;
+    @include pcMaxWidth;
+    @include boxSizing;
+
+    .EditBarHeader {
+      overflow:hidden;
+      @include flexBox;
+      @include flexWidth(1 1);
+      @include flexDirection(column);
+      @include alignSelf(center);
+      label {
+        &:after
+        , &:before { left:-18px; top:0; }
+      }
+    }
+    .EditBarButton {
+      padding:0 0 0 16px;
+      @include flexBox;
+      @include flexWidth(0 0 auto);
+      @include alignItems(center);
+    }
+
+    .editDellink { padding:8px 0; line-height:16px; }
+  }
+}
+
+@include for-768-only {
+  .EditBar {
+    .EditBarInner {
+      padding:8px 40px 8px 40px;
+    }
+  }
+}
+
+@include for-1080-only {
+  .EditBar {
+    .EditBarInner {
+      padding:12px 16px 12px 16px;
+      .EditBarHeader {
+        .tB14 { @include FSST16; }
+        label {
+          &:after
+          , &:before { top:1px; }
+        }
+      }
+      .EditBarButton {
+
+      }
+
+      .editDellink {
+        padding-top:6px; padding-bottom:6px;
+        .tB12 { @include FSB14; }
+        .tB12B { @include FSB14B; }
+      }
+    }
+  }
+}

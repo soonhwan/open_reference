@@ -1,0 +1,32 @@
+{
+  "result_code": "00",
+  "result_message": "",
+  "params": {
+     "keywordList": [
+        {
+           "imagePath": "/data7/SMILE_DATA7/IMG/PEBOOKS/201604/11/0050543693/1/01_0050543693_480_758_2131.jpg",
+           "replaceThumbnail": "Y",
+           "prodId": "H103236564",
+           "categoryCode": "DP000513",
+           "keyword": "전권소장/전권대여",
+           "adult": "0"
+        },
+        {
+           "imagePath": "/data7/SMILE_DATA7/IMG/PCOMICS/201604/12/0050543701/1/01_0050543701_900_600_2213.jpg",
+           "replaceThumbnail": "Y",
+           "prodId": "H103236575",
+           "categoryCode": "DP000514",
+           "keyword": "전권소장/전권대여",
+           "adult": "0"
+        },
+        {
+           "imagePath": "/data7/SMILE_DATA7/IMG/PEBOOKS/201907/08/0002127661/1/01_0002127661_1350.jpg",
+           "replaceThumbnail": "Y",
+           "prodId": "H002621679",
+           "categoryCode": "DP000513",
+           "keyword": "n이북 단행 소장대여1_수정",
+           "adult": "0"
+        }
+     ]
+  }
+}

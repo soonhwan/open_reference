@@ -1,0 +1,112 @@
+@import "~styles/base/util";
+
+.formSelect .formSelectControl:before
+, .formSelect .formSelectControl:after {
+  @include iconPicUrl;
+}
+
+.formSelect {
+  position:relative; width:100%; padding:0 16px 8px 16px;
+  @include pcMaxWidth;
+  @include boxSizing;
+  @include flexBox;
+  @include flexWrap(wrap);
+  label {
+    width:100%; padding:14px 0px 6px 0px;
+    overflow:hidden;
+    @include boxSizing;
+    @include flexWidth(0 0 auto);
+    @include alignItems(center);
+
+    .textSt {
+      max-width:100%; padding-right:8px;
+      @include boxSizing;
+      @include textEll(inline-block,20px);
+    }
+
+    &.required {
+      .textSt {
+        position:relative;
+        &:before {
+          position:absolute; content:''; right:0px; top:0; width:5px; height:5px; background-color:$BGPoint; display:block;
+          @include vendorPrefix(border-radius, 2px);
+        }
+      }
+    }
+  }
+  .formSelectBox {
+    position:relative; width:100%;
+    @include boxSizing;
+    @include flexWidth(0 0 auto);
+    @include flexDirection(column);
+    @include alignSelf(center);
+
+    &.on {
+      select { color:$FCDark; border-color:$BCMedium; }
+    }
+
+    &.disabled {
+      .formSelectControl {
+        &:before { background-position:-475px -650px; }
+      }
+      select { border-color:$BCLight; border-color:$BCLight !important; background-color:$BGGrey !important; }
+    }
+  }
+
+  .formSelectControl {
+    position:relative;
+    &:before { position:absolute; content:''; right:8px; top:50%; margin-top:-12px; width:24px; height:24px; background-position:-425px -650px; display:block; z-index:1; }
+  }
+
+  select {
+    position:relative; width:100%; height:44px; padding:11px 15px 11px 15px; color:$FCMedium; outline-width:0; letter-spacing:-1px; display:block;
+    border:1px solid $BCLight50;
+
+    @include FSB14;
+    @include boxSizing;
+    @include vendorPrefix(border-radius, 12px);
+    @include vendorPrefix(appearance, none);
+
+    &:focus { border-color:$BCMedium; }
+  }
+
+  .formSelectInfo {
+    padding:8px 16px 0 16px; @include FSB12; color:$FCMedium;
+    &.error { color:$FCError; }
+    &.success { color:$FCDark; }
+  }
+
+  &.formLabelHidden {
+    label { display:none; }
+  }
+}
+
+@include for-768-only {
+  .formSelect {
+    padding-left:40px; padding-right:40px;
+  }
+}
+
+@include for-1080-only {
+  .formSelect {
+    padding-bottom:16px;
+    @include flexWrap(nowrap);
+    label { 
+      width:160px; padding:16px;
+      @include flexWidth(0 0 auto);
+      .tB14B { @include FSST18B; height:24px; }
+    }
+    .formSelectBox {
+      padding:0;
+      @include flexWidth(1 1);
+      @include alignSelf(flex-start);
+    }
+    
+
+    select { height:56px; @include FSST18; padding:15px; }
+
+    .formSelectInfo {
+      @include FSB14;
+    }
+  }
+}

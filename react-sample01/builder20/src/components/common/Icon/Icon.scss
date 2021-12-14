@@ -1,0 +1,271 @@
+@import "~styles/base/util";
+
+// .CoreButtonPrev
+// , .CoreButtonNext
+// , .formCheckbox label:before
+// , .formCheckbox label:after {
+//   background:url('/static/images/icon/icon_01.png') no-repeat 0 0;
+//   @include fontSizeZero;
+//   @include vendorPrefix(background-size,1000px 1000px);
+// }
+
+i.icon {
+  position:relative; width:24px; height:24px; margin:0; padding:0; vertical-align:top; display:inline-block;
+  @include iconPicUrl;
+
+  &.homelogo { width:86px; height:40px; background-position:0px 0px;}
+  &.homelogoSelect { width:86px; height:40px; background-position:-90px 0px;}
+  &.passlogo { width:90px; height:40px; background-position:-180px 0px;}
+  &.passlogoSelect { width:90px; height:40px; background-position:-275px 0px;}
+
+  &.logobooks { width:84px; height:40px; background-position:0px 0px; }
+  &.logobooksSel { width:84px; height:40px; background-position:0px -41px; }
+  &.logopass { width:84px; height:40px; background-position:-148px 0px; }
+  &.logopassSel { width:84px; height:40px; background-position:-148px -41px; }
+
+  &.avgscore12 { width:12px; height:12px; background-position:0px -500px; }
+  &.comment12 { width:12px; height:12px; background-position:-13px -500px; }
+  &.adult12 { width:12px; height:12px; background-position:-26px -500px; }
+  &.audiobook12 { width:12px; height:12px; background-position:-39px -500px; }
+  &.requiredCheck12 { width:12px; height:12px; background-position:-52px -500px; }
+
+  &.timefree14 { width:14px; height:14px; background-position:-65px -500px;}
+  &.commentLike14 { width:14px; height:14px; background-position:-80px -500px;}
+  &.commentLikeSel14 { width:14px; height:14px; background-position:-95px -500px;}
+
+  &.adult16 { width:16px; height:16px; background-position:-140px -500px; }
+  &.audiobook16 { width:16px; height:16px; background-position:-157px -500px; }
+  &.avgscore16 { width:16px; height:16px; background-position:-174px -500px; }
+  &.optionOff16 { width:16px; height:16px; background-position:-191px -500px; }
+  &.optionOn16 { width:16px; height:16px; background-position:-208px -500px; }
+  &.comment16 { width:16px; height:16px; background-position:-140px -517px; }
+  &.likeWhite16 { width:16px; height:16px; background-position:-157px -517px; }
+  &.deviceAOS16 { width:16px; height:16px; background-position:-174px -517px; }
+  &.deviceiOS16 { width:16px; height:16px; background-position:-191px -517px; }
+  &.deviceWeb16 { width:16px; height:16px; background-position:-208px -517px; }
+  &.infoBlack16 { width:16px; height:16px; background-position:-140px -534px; }
+  &.timeHistory16 { width:16px; height:16px; background-position:-157px -534px; }
+  &.search16 { width:16px; height:16px; background-position:-174px -534px; }
+  &.set16 { width:16px; height:16px; background-position:-191px -534px; }
+  &.noti16 { width:16px; height:16px; background-position:-208px -534px; }
+  &.notiNew16 { width:16px; height:16px; background-position:-140px -551px; }
+  &.right16 { width:16px; height:16px; background-position:-157px -551px; }
+  &.requiredCheck16 { width:16px; height:16px; background-position:-174px -551px; }
+  &.bottomGrey16 { width:16px; height:16px; background-position:-191px -551px; }
+  &.warningGrey16 { width:16px; height:16px; background-position:-208px -551px; }
+  &.commentLike16 { width:16px; height:16px; background-position:-140px -568px;}
+  &.commentLikeSel16 { width:16px; height:16px; background-position:-157px -568px;}
+
+  &.optionOff18 { width:18px; height:18px; background-position:-225px -500px; }
+  &.optionOn18 { width:18px; height:18px; background-position:-244px -500px; }
+  &.set18 { width:18px; height:18px; background-position:-263px -500px; }
+  &.noti18 { width:18px; height:18px; background-position:-282px -500px; }
+  &.notiNew18 { width:18px; height:18px; background-position:-301px -500px; }
+
+  &.searchdel20 { width:20px; height:20px; background-position:-320px -500px; }
+  &.dropup20 { width:20px; height:20px; background-position:-341px -500px; }
+  &.dropdown20 { width:20px; height:20px; background-position:-362px -500px; }
+  &.linkright20 { width:20px; height:20px; background-position:-383px -500px; }
+  &.linkleft20 { width:20px; height:20px; background-position:-404px -500px; }
+  &.search20 { width:20px; height:20px; background-position:-320px -521px; }
+  &.likeWhite20 { width:20px; height:20px; background-position:-341px -521px; }
+  &.avgscore20 { width:20px; height:20px; background-position:-362px -521px; }
+  &.avgscoreSel20 { width:20px; height:20px; background-position:-383px -521px; }
+  &.readme20 { width:20px; height:20px; background-position:-404px -521px; }
+  &.timeDealColor20 { width:20px; height:20px; background-position:-320px -542px; }
+  &.eventColor20 { width:20px; height:20px; background-position:-341px -542px; }
+  &.couponColor20 { width:20px; height:20px; background-position:-362px -542px; }
+  &.questionGrey20 { width:20px; height:20px; background-position:-383px -542px; }
+  &.rightGrey20 { width:20px; height:20px; background-position:-404px -542px; }
+  &.deviceAOS20 { width:20px; height:20px; background-position:-320px -563px; }
+  &.deviceiOS20 { width:20px; height:20px; background-position:-341px -563px; }
+  &.deviceWeb20 { width:20px; height:20px; background-position:-362px -563px; }
+  &.infoBlack20 { width:20px; height:20px; background-position:-383px -563px; }
+  &.myhome20 { width:20px; height:20px; background-position:-404px -563px; }
+  &.checkPoint20 { width:20px; height:20px; background-position:-320px -584px; }
+  &.receipt20 { width:20px; height:20px; background-position:-341px -584px; }
+  &.giftGrey20 { width:20px; height:20px; background-position:-362px -584px; }
+  &.episodeViewGrey20 { width:20px; height:20px; background-position:-383px -584px; }
+  &.warningGrey20 { width:20px; height:20px; background-position:-404px -584px; }
+
+  &.likeWhite22 { width:22px; height:22px; background-position:-320px -475px; }
+  &.coupon22 { width:22px; height:22px; background-position:-343px -475px; }
+  &.pass22 { width:22px; height:22px; background-position:-366px -475px; }
+  &.infoWhite22 { width:22px; height:22px; background-position:-389px -475px; }
+
+  &.bookclip24 { width:24px; height:24px; background-position:-425px -500px; }
+  &.cash24 { width:24px; height:24px; background-position:-450px -500px; }
+  &.customer24 { width:24px; height:24px; background-position:-475px -500px; }
+  &.gift24 { width:24px; height:24px; background-position:-500px -500px; }
+  &.library24 { width:24px; height:24px; background-position:-525px -500px; }
+  &.like24 { width:24px; height:24px; background-position:-425px -525px; }
+  &.my24 { width:24px; height:24px; background-position:-450px -525px; }
+  &.mySel24 { width:24px; height:24px; background-position:-475px -525px; }
+  &.purchase24 { width:24px; height:24px; background-position:-500px -525px; }
+  &.search24 { width:24px; height:24px; background-position:-525px -525px; }
+  &.set24 { width:24px; height:24px; background-position:-425px -550px; }
+  &.noti24 { width:24px; height:24px; background-position:-450px -550px; }
+  &.notiNew24 { width:24px; height:24px; background-position:-475px -550px; }
+  &.logout24 { width:24px; height:24px; background-position:-500px -550px; }
+  &.linkright24 { width:24px; height:24px; background-position:-525px -550px; }
+  &.option24 { width:24px; height:24px; background-position:-425px -575px; }
+  &.optionSel24 { width:24px; height:24px; background-position:-450px -575px; }
+  &.avgscore24 { width:24px; height:24px; background-position:-475px -575px; }
+  &.avgscoreSel24 { width:24px; height:24px; background-position:-500px -575px; }
+  &.readme24 { width:24px; height:24px; background-position:-525px -575px; }
+  &.likeBlack24 { width:24px; height:24px; background-position:-425px -600px; }
+  &.likeBlackSel24 { width:24px; height:24px; background-position:-450px -600px; }
+  &.avgscoreBlack24 { width:24px; height:24px; background-position:-475px -600px; }
+  &.avgscoreBlackSel24 { width:24px; height:24px; background-position:-500px -600px; }
+  &.commentBlack24 { width:24px; height:24px; background-position:-525px -600px; }
+  &.sharingBlack24 { width:24px; height:24px; background-position:-425px -625px; }
+  &.questionGrey24 { width:24px; height:24px; background-position:-450px -625px; }
+  &.rightGrey24 { width:24px; height:24px; background-position:-475px -625px; }
+  &.downGrey24 { width:24px; height:24px; background-position:-500px -625px; }
+  &.del24 { width:24px; height:24px; background-position:-525px -625px; }
+  &.selectDown24 { width:24px; height:24px; background-position:-425px -650px; }
+  &.selectUp24 { width:24px; height:24px; background-position:-450px -650px; }
+  &.selectDimDown24 { width:24px; height:24px; background-position:-475px -650px; }
+  &.selectDimUp24 { width:24px; height:24px; background-position:-500px -650px; }
+  &.rightArrow24 { width:24px; height:24px; background-position:-525px -650px; }
+  &.downBlack24 { width:24px; height:24px; background-position:-425px -675px; }
+  &.receipt24 { width:24px; height:24px; background-position:-450px -675px; }
+  &.giftGrey24 { width:24px; height:24px; background-position:-475px -675px; }
+  &.episodeViewGrey24 { width:24px; height:24px; background-position:-500px -675px; }
+  &.closeBlack24 { width:24px; height:24px; background-position:-525px -675px; }
+
+  &.thumbEdit32 { width:32px; height:32px; background-position:-550px -500px; }
+  &.thumbEditSel32 { width:32px; height:32px; background-position:-583px -500px; }
+  &.cardMore32 { width:32px; height:32px; background-position:-616px -500px; }
+  &.commentBlack32 { width:32px; height:32px; background-position:-649px -500px; }
+  &.sharingBlack32 { width:32px; height:32px; background-position:-682px -500px; }
+  &.likeBlack32 { width:32px; height:32px; background-position:-550px -533px; }
+  &.likeBlackSel32 { width:32px; height:32px; background-position:-583px -533px; }
+  &.avgscoreBlack32 { width:32px; height:32px; background-position:-616px -533px; }
+  &.avgscoreBlackSel32 { width:32px; height:32px; background-position:-649px -533px; }
+  &.timeDealColor32 { width:32px; height:32px; background-position:-550px -566px; }
+  &.eventColor32 { width:32px; height:32px; background-position:-583px -566px; }
+  &.couponColor32 { width:32px; height:32px; background-position:-616px -566px; }
+  &.rightArrow32 { width:32px; height:32px; background-position:-649px -566px; }
+  &.downBlack32 { width:32px; height:32px; background-position:-682px -566px; }
+  &.closeWhite32 { width:32px; height:32px; background-position:-550px -599px; }
+  
+  &.corePrev40 { width:40px; height:40px; background-position:0px -450px; }
+  &.coreNext40 { width:40px; height:40px; background-position:-45px -450px; }
+  &.corePrevWhite40 { width:40px; height:40px; background-position:-90px -450px; }
+  &.coreNextWhite40 { width:40px; height:40px; background-position:-135px -450px; }
+
+  &.cardMore48 { width:48px; height:48px; background-position:-715px -500px; }
+
+  // SNS Icon
+  &.snsfacebook16 { width:16px; height:16px; background-position:-500px -92px; }
+  &.snsgoogle16 { width:16px; height:16px; background-position:-517px -92px; }
+  &.snsnaver16 { width:16px; height:16px; background-position:-534px -92px; }
+  &.snsapple16 { width:16px; height:16px; background-position:-551px -92px; }
+  &.snstworld16 { width:16px; height:16px; background-position:-500px -109px; }
+  &.snsmdn16 { width:16px; height:16px; background-position:-517px -109px; }
+
+  &.snsfacebook20 { width:20px; height:20px; background-position:-500px -50px; }
+  &.snsgoogle20 { width:20px; height:20px; background-position:-521px -50px; }
+  &.snsnaver20 { width:20px; height:20px; background-position:-542px -50px; }
+  &.snsapple20 { width:20px; height:20px; background-position:-563px -50px; }
+  &.snstworld20 { width:20px; height:20px; background-position:-500px -71px; }
+  &.snsmdn20 { width:20px; height:20px; background-position:-521px -71px; }
+
+  &.snsfacebook22 { width:22px; height:22px; background-position:-500px -126px; }
+  &.snsgoogle22 { width:22px; height:22px; background-position:-523px -126px; }
+  &.snsnaver22 { width:22px; height:22px; background-position:-546px -126px; }
+  &.snsapple22 { width:22px; height:22px; background-position:-569px -126px; }
+  &.snstworld22 { width:22px; height:22px; background-position:-500px -149px; }
+
+  &.snsfacebook24 { width:24px; height:24px; background-position:-500px 0px; }
+  &.snsgoogle24 { width:24px; height:24px; background-position:-525px 0px; }
+  &.snsnaver24 { width:24px; height:24px; background-position:-550px 0px; }
+  &.snsapple24 { width:24px; height:24px; background-position:-575px 0px; }
+  &.snstworld24 { width:24px; height:24px; background-position:-500px -25px; }
+  &.snsmdn24 { width:24px; height:24px; background-position:-525px -25px; }
+
+  // Cash Point Icon
+  &.cash32 { width:32px; height:32px; background-position:-600px 0px; }
+  &.point32 { width:32px; height:32px; background-position:-633px 0px; }
+  &.pointWhite32 { width:32px; height:32px; background-position:-699px 0px; }
+
+  &.cash24 { width:24px; height:24px; background-position:-600px -33px; }
+  &.point24 { width:24px; height:24px; background-position:-625px -33px; }
+
+  &.cash16 { width:16px; height:16px; background-position:-600px -58px; }
+  &.point16 { width:16px; height:16px; background-position:-617px -58px; }
+
+  &.accumulate20 { width:20px; height:12px; background-position:-668px -58px; }
+  &.accumulate30 { width:30px; height:16px; background-position:-689px -58px; }
+
+  // Detail Avgscore Icon
+  &.detailAvgscore40 { width:40px; height:40px; background-position:-715px -410px; }
+  &.detailAvgscoreSel40 { width:40px; height:40px; background-position:-756px -410px; }
+  &.detailAvgscore48 { width:48px; height:48px; background-position:-715px -451px; }
+  &.detailAvgscoreSel48 { width:48px; height:48px; background-position:-764px -451px; }
+
+  // My Snb Icon
+  &.myapp24 { width:24px; height:12px; background-position:-707px -33px; }
+
+  &.mypurchase22 { width:22px; height:22px; background-position:-732px 0px; }
+  &.mylibrary22 { width:22px; height:22px; background-position:-755px 0px; }
+  &.mybookclip22 { width:22px; height:22px; background-position:-778px 0px; }
+  &.mylike22 { width:22px; height:22px; background-position:-801px 0px; }
+  &.mygift22 { width:22px; height:22px; background-position:-824px 0px; }
+  &.mycash22 { width:22px; height:22px; background-position:-847px 0px; }
+  &.mypoint22 { width:22px; height:22px; background-position:-870px 0px; }
+  &.mycoupon22 { width:22px; height:22px; background-position:-893px 0px; }
+  &.mypass22 { width:22px; height:22px; background-position:-732px -23px; }
+  &.myfaq22 { width:22px; height:22px; background-position:-755px -23px; }
+  &.mymail22 { width:22px; height:22px; background-position:-778px -23px; }
+  &.mynoti22 { width:22px; height:22px; background-position:-801px -23px; }
+  &.mylogout22 { width:22px; height:22px; background-position:-893px -23px; }
+
+  &.mypurchaseSel22 { width:22px; height:22px; background-position:-732px -46px; }
+  &.mylibrarySel22 { width:22px; height:22px; background-position:-755px -46px; }
+  &.mybookclipSel22 { width:22px; height:22px; background-position:-778px -46px; }
+  &.mylikeSel22 { width:22px; height:22px; background-position:-801px -46px; }
+  &.mygiftSel22 { width:22px; height:22px; background-position:-824px -46px; }
+  &.mycashSel22 { width:22px; height:22px; background-position:-847px -46px; }
+  &.mypointSel22 { width:22px; height:22px; background-position:-870px -46px; }
+  &.mycouponSel22 { width:22px; height:22px; background-position:-893px -46px; }
+  &.mypassSel22 { width:22px; height:22px; background-position:-732px -69px; }
+  &.myfaqSel22 { width:22px; height:22px; background-position:-755px -69px; }
+  &.mymailSel22 { width:22px; height:22px; background-position:-778px -69px; }
+  &.mynotiSel22 { width:22px; height:22px; background-position:-801px -69px; }
+
+  // Adult Toggle Btn
+  &.adultToggle48 { width:48px; height:24px; background-position:-450px 0px; }
+  &.adultToggleSel48 { width:48px; height:24px; background-position:-450px -25px; }
+
+  // Footer Icon
+  &.footerBooksLogo144 { width:144px; height:20px; background-position:0px -130px; }
+  &.footerDeveloper162 { width:162px; height:16px; background-position:0px -151px; }
+  &.footerStudioLogo144 { width:144px; height:16px; background-position:0px -168px; }
+  &.footerLogo24 { width:24px; height:24px; background-position:-170px -130px; }
+
+  // Loading Icon
+  &.loading22 { width:22px; height:22px; background-position:-918px 0px; }
+
+  // Comment Icon
+  &.adminLogo16 { width:16px; height:18px; background-position:-284px -130px; }
+  &.adminLogo22 { width:20px; height:22px; background-position:-284px -149px; }
+
+  // Etc Icon
+  &.booksLogo88 { width:88px; height:88px; background-position:-195px -130px; }
+
+
+
+  // &.check16 { width:16px; height:16px; background-position:0px -500px; }
+  // &.off16 { width:16px; height:16px; background-position:-20px -500px; }
+  // &.plus16 { width:16px; height:16px; background-position:-60px -500px; }
+  // &.up16 { width:16px; height:16px; background-position:0px -520px; }
+  // &.down16 { width:16px; height:16px; background-position:-20px -520px; }
+
+  // &.books20 { width:20px; height:20px; background-position:-80px -500px;}
+  // &.pass20 { width:20px; height:20px; background-position:-130px -500px;}
+}
+
+@include for-1080-only {
+}

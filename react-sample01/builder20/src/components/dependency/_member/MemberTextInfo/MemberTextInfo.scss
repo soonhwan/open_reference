@@ -1,0 +1,73 @@
+@import "~styles/base/util";
+
+.MemberTextInfo {
+  position:relative;
+  @include pcMaxWidth;
+  @include boxSizing;
+  .MemberTextInfoInner {}
+  .MemberTextInfoBody { width:100%; padding:0 16px; display:block; @include boxSizing;}
+  .MemberTextInfoBodyInner { padding:16px 0 16px 0; }
+
+  .MemberTextInfoSummary {
+    padding:0 0 0 0; text-align:left;
+    @include FSB14; color:$FCMedium;
+  }
+
+  &.basicCenter {
+    .MemberTextInfoBodyInner { padding-top:8px; padding-bottom:32px; }
+    .MemberTextInfoSummary { text-align:center; }
+  }
+
+  &.smallCenter {
+    .MemberTextInfoBodyInner { padding-top:8px; padding-bottom:24px; }
+    .MemberTextInfoSummary { @include FSB12; text-align:center; }
+  }
+
+  &.account {
+    .MemberTextInfoAccount {
+      position:relative; max-width:100%; margin-bottom:4px; padding:0 0 0 20px; display:inline-block; @include boxSizing;
+      > span { display:block; }
+      i.icon16 { position:absolute; left:0; top:50%; margin-top:-8px; }
+      .textSt { @include textEll(block, 20px); }
+
+      &.no { padding-left:0; }
+    }
+    .MemberTextInfoBodyInner { padding-top:8px; padding-bottom:24px; text-align:center; }
+    .MemberTextInfoSummary { @include FSB14; text-align:center; }
+  }
+}
+
+@include for-768-only {
+  .MemberTextInfo {
+    .MemberTextInfoInner { padding:0 24px; }
+    .MemberTextInfoBody {}
+    .MemberTextInfoBodyInner {}
+  }
+}
+
+@include for-1080-only {
+  .MemberTextInfo {
+    .MemberTextInfoInner { padding:0; }
+    .MemberTextInfoBody { }
+    .MemberTextInfoBodyInner { padding-top:24px; padding-bottom:24px; }
+
+    .MemberTextInfoSummary { @include FSST16; }
+
+    &.basicCenter {
+      .MemberTextInfoBodyInner { padding-top:16px; padding-bottom:40px; }
+    }
+
+    &.smallCenter {
+      .MemberTextInfoBodyInner { padding-top:16px; padding-bottom:24px; }
+      .MemberTextInfoSummary { @include FSB14; }
+    }
+
+    &.account {
+      .MemberTextInfoAccount {
+        .textSt { @include FSST16; @include textEll(block, 22px); }
+      }
+      .MemberTextInfoBodyInner { padding-top:13px; padding-bottom:36px; text-align:center; }
+      .MemberTextInfoSummary { @include FSST16; }
+    }
+  }
+}

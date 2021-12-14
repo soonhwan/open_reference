@@ -1,0 +1,340 @@
+@import "~styles/base/util";
+
+#Gnb {
+  width:100%; padding:0;
+  &.main { border-bottom:0px solid $BCExtraL; } 
+  &.sub { border-bottom:8px solid $BCExtraL; }
+  &.search { border-bottom:8px solid $BCExtraL; }
+  .GnbInner {
+    padding:0;
+    @include pcMaxWidth;
+    .GnbHeader {
+      width:100%; padding:8px 12px 8px 8px;
+      @include boxSizing;
+      @include flexBox;
+      .GnbHeaderLogo {
+        padding:4px 0;
+        @include flexBox;
+        @include flexWidth(1 1);
+        @include alignItems(center);
+      }
+      .GnbHeaderNav {
+        @include flexWidth(1 1);
+        @include flexDirection(column);
+        @include alignSelf(center);
+        text-align:center;
+        display:none;
+      }
+      .GnbHeaderUtil {
+        padding:4px 0;
+        @include flexBox;
+        @include flexWidth(0 0 auto);
+        @include alignItems(center);
+
+        .GnbHeaderSearch {
+          display:inline-block;
+          .GnbHeaderSearchBox { display:none; }
+          .GnbHeaderSearchBtn { display:inline-block;}
+        }
+        .GnbHeaderMy { display:inline-block; }
+      }
+    }
+    .GnbNav {
+      padding:0 12px;
+      display:block;
+    }
+  }
+
+  // Gnb Link Style Start
+  // Gnb Logo Link Style Start
+  .GnbHeaderLogo .linkFullIcon {
+    margin-left:4px;
+    &:first-of-type { margin-left:0; }
+  }
+  // Gnb Logo Link Style End
+
+  // Gnb Category Style Start
+  .books > .linkCategory {
+    padding:14px 0; text-align:center;
+    &:nth-of-type(1) { width:17%; }
+    &:nth-of-type(2) { width:17%; }
+    &:nth-of-type(3) { width:17%; }
+    &:nth-of-type(4) { width:14%; }
+    &:nth-of-type(5) { width:14%; }
+    &:nth-of-type(6) { width:21%; }
+
+    &.linkCategorySel {
+      span:after {
+        position:absolute; content:''; left:0; bottom:-6px; width:100%; height:2px; background-color:$BGDark; display:block;
+        @include vendorPrefix(border-radius,1px);
+      }
+    }
+  }
+  .pass > .linkCategory {
+    padding:14px 0; text-align:center;
+    width:33.3%;
+
+    &.linkCategorySel {
+      span:after {
+        position:absolute; content:''; left:0; bottom:-6px; width:100%; height:2px; background-color:$BGDark; display:block;
+        @include vendorPrefix(border-radius,1px);
+      }
+    }
+  }
+  .GnbHeaderNav .books > .linkCategory {
+    padding:0 0; margin-left:20px; width:auto;
+
+    > span { position:relative; padding:21px 0; }
+    &:first-of-type { margin-left:0; }
+    &.linkCategorySel {
+      span:after { display:none; }
+    }
+  }
+  .GnbHeaderNav .pass > .linkCategory {
+    padding:0 0; margin-left:40px; width:auto;
+
+    > span { padding:21px 0; }
+    &:first-of-type { margin-left:0; }
+    &.linkCategorySel {
+      span:after { display:none; }
+    }
+  }
+
+  .GnbHeaderNav .books > .linkCategorySel
+  , .GnbHeaderNav .pass > .linkCategorySel {
+    > span {
+      &:before { position:absolute; content:''; left:0; bottom:-1px; width:100%; height:3px; background-color:$BGDark; @include vendorPrefix(border-radius, 1px); }
+    }
+  }
+
+  &.search {
+    .GnbInner {
+      .GnbHeader {
+        .GnbHeaderNav {
+          .linkCategorySel {
+            > span {
+              &:before { display:none !important;}
+            }
+            .tB14B { color:$FCMedium !important; font-weight:normal !important;}
+          }
+        }
+      }
+    }
+  }
+  // Gnb Category Style End
+  // Gnb Link Style End
+}
+
+@include for-min-only {
+  #Gnb {
+    i.icon {
+      &.homelogo { width:63px; background-position:0px -45px;}
+      &.homelogoSelect { width:63px; background-position:-70px -45px;}
+      &.passlogo { width:67px; background-position:-140px -45px;}
+      &.passlogoSelect { width:67px; background-position:-215px -45px;}
+
+      &.logobooks { width:62px; height:40px; background-position:-85px 0px; }
+      &.logobooksSel { width:62px; height:40px; background-position:-85px -41px; }
+      &.logopass { width:62px; height:40px; background-position:-233px 0px; }
+      &.logopassSel { width:62px; height:40px; background-position:-233px -41px; }
+    }
+    .GnbHeaderLogo.sub {
+      .linkFullIcon {
+        position:relative;
+        &:after { position:absolute; content:''; left:-3px; top:50%; margin-top:-8px; width:2px; height:16px; background:$BGExtraL; display:block; }
+        &:first-of-type {
+          &:after { display:none;}
+        }
+      }
+      i.icon {
+        &.logobooksSel { width:62px; height:40px; background-position:-85px -82px; }
+        &.logopassSel { width:62px; height:40px; background-position:-233px -82px; }
+      }
+    }
+
+    &.search {
+      .GnbInner {
+        .GnbHeader {
+          .GnbHeaderLogo
+          , .GnbHeaderNav { display:none; }
+          .GnbHeaderUtil {
+            @include flexWidth(1 1);
+            .GnbHeaderSearch {
+              width:100%; display:block;
+              .GnbHeaderSearchBox {
+                display:block;
+                @include boxSizing;
+                @include flexBox;
+                .GnbSearch {
+                  width:100%;
+                  @include flexBox;
+                  @include flexWidth(1 1);
+                  @include alignItems(center);
+                }
+                .GnbHeaderSearchBack {
+                  padding-left:8px;
+                  @include flexBox;
+                  @include flexWidth(0 0 auto);
+                  @include alignItems(center);
+                }
+              }
+              .GnbHeaderSearchBtn { display:none; }
+            }
+            .GnbHeaderMy { display:none; }
+          }
+        }
+      }
+    }
+  }
+}
+
+@include for-360-only {
+  #Gnb {
+    .GnbHeaderLogo.sub {
+      .linkFullIcon {
+        position:relative;
+        &:after { position:absolute; content:''; left:-3px; top:50%; margin-top:-8px; width:2px; height:16px; background:$BGExtraL; display:block; }
+        &:first-of-type {
+          &:after { display:none;}
+        }
+      }
+      i.icon {
+        &.logobooksSel { background-position:0px -82px; }
+        &.logopassSel { background-position:-148px -82px; }
+      }
+    }
+
+    &.search {
+      .GnbInner {
+        .GnbHeader {
+          .GnbHeaderLogo
+          , .GnbHeaderNav { display:none; }
+          .GnbHeaderUtil {
+            @include flexWidth(1 1);
+            .GnbHeaderSearch {
+              width:100%; display:block;
+              .GnbHeaderSearchBox {
+                display:block;
+                @include boxSizing;
+                @include flexBox;
+                .GnbSearch {
+                  @include flexBox;
+                  @include flexWidth(1 1);
+                  @include alignItems(center);
+                }
+                .GnbHeaderSearchBack {
+                  padding-left:8px;
+                  @include flexBox;
+                  @include flexWidth(0 0 auto);
+                  @include alignItems(center);
+                }
+              }
+              .GnbHeaderSearchBtn { display:none; }
+            }
+            .GnbHeaderMy { display:none; }
+          }
+        }
+      }
+    }
+  }
+}
+
+@include for-768-only {
+  #Gnb {
+    padding-top:8px;
+    &.main { border-bottom-width:1px; }
+    &.sub { border-bottom-width:1px; }
+    .GnbInner {
+      .GnbHeader {
+        padding-left:32px; padding-right:36px; padding-top:0; padding-bottom:0;
+        .GnbHeaderLogo {
+          @include flexWidth(0 0 auto);
+        }
+        .GnbHeaderNav {
+          @include flexBox;
+        }
+      }
+      .GnbNav { display:none; }
+    }
+
+    .CategoryBar .linkCategory span .textSt {
+      &.tB14 { @include FSST16; color:$FCMedium; }
+    }
+    .CategoryBar .linkCategorySel span .textSt {
+      &.tB14B { @include FSST16B; color:$FCDark; }
+    }
+
+    &.search {
+      padding-top:0;
+      .GnbInner {
+        .GnbHeader {
+          padding-top:8px; padding-bottom:8px;
+          .GnbHeaderLogo
+          , .GnbHeaderNav { display:none; }
+          .GnbHeaderUtil {
+            @include flexWidth(1 1);
+            .GnbHeaderSearch {
+              width:100%; display:block;
+              .GnbHeaderSearchBox {
+                display:block;
+                @include boxSizing;
+                @include flexBox;
+                .GnbSearch {
+                  @include flexBox;
+                  @include flexWidth(1 1);
+                  @include alignItems(center);
+                }
+                .GnbHeaderSearchBack {
+                  padding-left:8px;
+                  @include flexBox;
+                  @include flexWidth(0 0 auto);
+                  @include alignItems(center);
+                }
+              }
+              .GnbHeaderSearchBtn { display:none; }
+            }
+            .GnbHeaderMy { display:none; }
+          }
+        }
+      }
+    }
+  }
+}
+
+@include for-1080-only {
+  #Gnb {
+    padding-top:8px;
+    &.main { border-bottom-width:1px; }
+    &.sub { border-bottom-width:1px; }
+    &.search { border-bottom-width:1px; }
+    .GnbInner {
+      .GnbHeader {
+        padding-left:8px; padding-right:12px; padding-top:0; padding-bottom:0;
+        .GnbHeaderLogo {
+          @include flexWidth(0 0 auto);
+        }
+        .GnbHeaderNav {
+          @include flexBox;
+        }
+        .GnbHeaderUtil {
+          .GnbHeaderSearch {
+            .GnbHeaderSearchBox {
+              display:inline-block;
+              .GnbHeaderSearchBack { display:none; }
+            }
+            .GnbHeaderSearchBtn { display:none;}
+          }
+          .GnbHeaderMy { margin-left:12px; }
+        }
+      }
+      .GnbNav { display:none; }
+    }
+
+    .CategoryBar .linkCategory span .textSt {
+      &.tB14 { @include FSST16; color:$FCMedium; }
+    }
+    .CategoryBar .linkCategorySel span .textSt {
+      &.tB14B { @include FSST16B; color:$FCDark; }
+    }
+  }
+}

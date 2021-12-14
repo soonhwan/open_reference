@@ -1,0 +1,62 @@
+@import "~styles/base/util";
+
+.SearchHistoryWrap {
+  position:relative; z-index:1000;
+  @include pcMaxWidth;
+  @include boxSizing;
+  .SearchHistoryInner {}
+  .SearchHistoryBox {}
+  .SearchHistoryBoxInner { padding-bottom:16px; }
+
+  .SearchHistoryItem {
+    width:100%; padding:4px 8px; table-layout:fixed; display:table;
+    @include boxSizing;
+  }
+  .SearchHistoryItemLink {
+    vertical-align:middle; display:table-cell;
+    @include boxSizing;
+    .searchHistoryLink {
+      padding-top:10px; padding-bottom:10px; display:block;
+      > span { display:block;}
+    }
+  }
+  .SearchHistoryItemDel {
+    width:40px; vertical-align:middle; display:table-cell;
+    @include boxSizing;
+  }
+
+  .SearchHistoryAllDel { 
+    margin:0 16px;
+    .SearchHistoryAllDelInner {
+      padding-top:8px; border-top:1px solid $BCExtraL;
+      .searchHistoryMoreLink {
+        padding-top:6px; padding-bottom:6px; text-align:center; display:block;
+        > span { display:block;}
+      }
+    }
+  }
+}
+
+@include for-768-only {
+  .SearchHistoryWrap {
+    padding:0 24px;
+  }
+}
+
+@include for-1080-only {
+  .SearchHistoryWrap {
+    .SearchHistoryInner {
+      position:absolute; right:64px; top:-3px; width:280px; border:1px solid $BCBlack10; background-color:#ffffff;
+      @include vendorPrefix(border-radius, 12px);
+      @include Shadow1;
+    }
+    .SearchHistoryBox {
+      padding:7px 0 17px 0;
+    }
+    .SearchHistoryBoxInner { padding-bottom:0px; }
+    .SearchHistoryBoxScroll { overflow-y:auto; }
+    .SearchHistoryAllDel { 
+      .SearchHistoryAllDelInner { padding-top:6px; }
+    }
+  }
+}

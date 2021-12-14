@@ -1,0 +1,75 @@
+@import "~styles/base/util";
+
+.ChargeList {
+  padding:0; background-color:#ffffff;
+  @include pcMaxWidth;
+  @include boxSizing;
+  .ChargeListInner { padding:0 16px; }
+  .ChargeListItem { padding:8px 0; }
+  .ChargeListItemInner {
+    padding:0 15px; border:1px solid $BCExtraL;
+    @include vendorPrefix(border-radius, 16px);
+  }
+  .ChargeListCo {
+    width:100%; height:70px;
+    @include flexBox;
+    @include flexWrap(nowrap);
+  }
+  .ChargeListCoCell {
+    line-height:16px;
+    overflow: hidden;
+    @include boxSizing;
+    @include flexWidth(1 1);
+    @include alignItems(center);
+    @include alignSelf(center);
+    &.Btn  {
+      padding:0 0 0 11px;
+      @include flexWidth(0 0 auto);
+      @include flexDirection(column);
+      @include alignSelf(center);
+    }
+  }
+
+  .ChargeListCoDate { padding-top:4px; }
+  .tChargeListTextAcc {
+    position:relative; top:3px;
+    i.accumulate20 { margin-left:1px; top:0px; }
+  }
+  .ChargeListBtn { width:88px; }
+}
+
+@include for-768-only {
+  .ChargeList {
+    padding:0 24px;
+    .ChargeListInner {}
+    .ChargeListItem {}
+  }
+}
+
+@include for-1080-only {
+  .ChargeList {
+    .ChargeListInner {}
+    .ChargeListItem {}
+    .ChargeListItemInner { padding:0 39px; }
+
+    .ChargeListCoCell {
+      .tChargeListTextCash { @include FSENG26; }
+      .tChargeListTextPoint { @include FSENG26; }
+      .tChargeListTextAcc {
+        margin-left:4px; top:6px; @include FSENG15;
+        i.accumulate20 { width:30px; height:16px; background-position:-689px -58px; }
+      }
+      .tChargeListTextDate { @include FSB14; }
+      i.cash16 { top:2px; width:24px; height:24px; background-position:-600px -33px; }
+      i.point16 { top:2px; width:24px; height:24px; background-position:-625px -33px; }
+
+      .ChargeListBtn {
+        width:160px; padding-top:13px; padding-bottom:13px; 
+        .tB12 { @include FSST16; }
+        &.btnWhite {
+          padding-top:12px; padding-bottom:12px; 
+        }
+      }
+    }
+  }
+}

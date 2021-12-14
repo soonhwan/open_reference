@@ -1,0 +1,30 @@
+{
+  "result_message": "",
+  "result_code": "00",
+  "params": {
+    "upMenuKey": "passFantasyR",
+    "menuList": [
+      {
+        "menuKey": "passFantasyRAll",
+        "menuName": "전체",
+        "groupList": [
+          {
+            "title": "일간",
+            "listId": "RNK050800004",
+            "menuId": "DP13041|DP13042|DP13043|DP13044"
+          },
+          {
+            "title": "주간",
+            "listId": "RNK050800001",
+            "menuId": "DP13041|DP13042|DP13043|DP13044"
+          },
+          {
+            "title": "월간",
+            "listId": "RNK050800005",
+            "menuId": "DP13041|DP13042|DP13043|DP13044"
+          }
+        ]
+      }
+    ]
+  }
+}

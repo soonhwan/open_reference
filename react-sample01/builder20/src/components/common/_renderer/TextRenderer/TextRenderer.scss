@@ -1,0 +1,217 @@
+@import "~styles/base/util";
+
+.textSt {
+  @include FSST16; color:$FCDark; vertical-align:top; display:inline-block;
+
+  .linkH32 > &, &.tH32 { @include FSH32; }
+  .linkH24 > &, &.tH24 { @include FSH24; }
+  .linkST20 > &, &.tST20 { @include FSST20; }
+  .linkST20B > &, &.tST20B { @include FSST20B; }
+  .linkST18 > &, &.tST18 { @include FSST18; }
+  .linkST18B > &, &.tST18B { @include FSST18B; }
+  .linkST16 > &, &.tST16 { @include FSST16; }
+  .linkST16B > &, &.tST16B { @include FSST16B; }
+  .linkB14 > &, &.tB14 { @include FSB14; }
+  .linkB14B > &, &.tB14B { @include FSB14B; }
+  .linkB12 > &, &.tB12 { @include FSB12; }
+  .linkB12B > &, &.tB12B { @include FSB12B; }
+
+  .linkC10 > &, &.tC10 { @include FSC10; }
+  .linkC10B > &, &.tC10B { @include FSC10B; }
+
+  .linkENG32 > &, &.tENG32 { @include FSENG32; }
+  .linkENG32B > &, &.tENG32B { @include FSENG32B; }
+  .linkENG26 > &, &.tENG26 { @include FSENG26; }
+  .linkENG26B > &, &.tENG26B { @include FSENG26B; }
+  .linkENG22 > &, &.tENG22 { @include FSENG22; }
+  .linkENG22B > &, &.tENG22B { @include FSENG22B; }
+  .linkENG18 > &, &.tENG18 { @include FSENG18; }
+  .linkENG18B > &, &.tENG18B { @include FSENG18B; }
+  .linkENG15 > &, &.tENG15 { @include FSENG15; }
+  .linkENG15B > &, &.tENG15B { @include FSENG15B; }
+  .linkENG10 > &, &.tENG10 { @include FSENG10; }
+  .linkENG10B > &, &.tENG10B { @include FSENG10B; }
+
+  .linkDark > &, &.tDark { color:$FCDark; }
+  .linkDark90 > &, &.tDark90 { color:$FCDark90; }
+  .linkDark70 > &, &.tDark70 { color:$FCDark70; }
+  .linkDark50 > &, &.tDark50 { color:$FCDark50; }
+  .linkDark30 > &, &.tDark30 { color:$FCDark30; }
+  .linkDark10 > &, &.tDark10 { color:$FCDark10; }
+
+  .linkMedium > &, &.tMedium { color:$FCMedium; }
+  .linkMedium90 > &, &.tMedium90 { color:$FCMedium90; }
+  .linkMedium70 > &, &.tMedium70 { color:$FCMedium70; }
+  .linkMedium50 > &, &.tMedium50 { color:$FCMedium50; }
+  .linkMedium30 > &, &.tMedium30 { color:$FCMedium30; }
+  .linkMedium10 > &, &.tMedium10 { color:$FCMedium10; }
+
+  .linkLight > &, &.tLight { color:$FCLight; }
+  .linkLight90 > &, &.tLight90 { color:$FCLight90; }
+  .linkLight70 > &, &.tLight70 { color:$FCLight70; }
+  .linkLight50 > &, &.tLight50 { color:$FCLight50; }
+  .linkLight30 > &, &.tLight30 { color:$FCLight30; }
+  .linkLight10 > &, &.tLight10 { color:$FCLight10; }
+
+  .linkExtraL > &, &.tExtraL { color:$FCExtraL; }
+  .linkExtraL90 > &, &.tExtraL90 { color:$FCExtraL90; }
+  .linkExtraL70 > &, &.tExtraL70 { color:$FCExtraL70; }
+  .linkExtraL50 > &, &.tExtraL50 { color:$FCExtraL50; }
+  .linkExtraL30 > &, &.tExtraL30 { color:$FCExtraL30; }
+  .linkExtraL10 > &, &.tExtraL10 { color:$FCExtraL10; }
+
+  .linkWhite > &, &.tWhite { color:$FCWhite; }
+  .linkWhite90 > &, &.tWhite90 { color:$FCWhite90; }
+  .linkWhite70 > &, &.tWhite70 { color:$FCWhite70; }
+  .linkWhite50 > &, &.tWhite50 { color:$FCWhite50; }
+  .linkWhite30 > &, &.tWhite30 { color:$FCWhite30; }
+  .linkWhite10 > &, &.tWhite10 { color:$FCWhite10; }
+
+  .linkPoint > &, &.tPoint { color:$FCPoint; }
+  .linkPoint90 > &, &.tPoint90 { color:$FCPoint90; }
+  .linkPoint70 > &, &.tPoint70 { color:$FCPoint70; }
+  .linkPoint50 > &, &.tPoint50 { color:$FCPoint50; }
+  .linkPoint30 > &, &.tPoint30 { color:$FCPoint30; }
+  .linkPoint10 > &, &.tPoint10 { color:$FCPoint10; }
+
+  .linkSecondary > &, &.tSecondary { color:$FCSecondary; }
+  .linkSecondary90 > &, &.tSecondary90 { color:$FCSecondary90; }
+  .linkSecondary70 > &, &.tSecondary70 { color:$FCSecondary70; }
+  .linkSecondary50 > &, &.tSecondary50 { color:$FCSecondary50; }
+  .linkSecondary30 > &, &.tSecondary30 { color:$FCSecondary30; }
+  .linkSecondary10 > &, &.tSecondary10 { color:$FCSecondary10; }
+
+  .linkError > &, &.tError { color:$FCError; }
+  .linkError90 > &, &.tError90 { color:$FCError90; }
+  .linkError70 > &, &.tError70 { color:$FCError70; }
+  .linkError50 > &, &.tError50 { color:$FCError50; }
+  .linkError30 > &, &.tError30 { color:$FCError30; }
+  .linkError10 > &, &.tError10 { color:$FCError10; }
+
+  .linkSuccess > &, &.tSuccess { color:$FCSuccess; }
+  .linkSuccess90 > &, &.tSuccess90 { color:$FCSuccess90; }
+  .linkSuccess70 > &, &.tSuccess70 { color:$FCSuccess70; }
+  .linkSuccess50 > &, &.tSuccess50 { color:$FCSuccess50; }
+  .linkSuccess30 > &, &.tSuccess30 { color:$FCSuccess30; }
+  .linkSuccess10 > &, &.tSuccess10 { color:$FCSuccess10; }
+
+  &.tEllipsis { @include textEll(block,20px); }
+  &.tLineEll1 { @include textLineEll(1,40px); }
+  &.tLineEll2 { @include textLineEll(2,40px); }
+  &.tLineEll3 { @include textLineEll(3,60px); }
+  &.tLineEll4 { @include textLineEll(4,80px); }
+
+  .linkH32 > &, &.tH32 {
+    &.tEllipsis { @include textEll(block,42px); }
+    &.tLineEll1 { @include textLineEll(1,42px); }
+    &.tLineEll2 { @include textLineEll(2,84px); }
+    &.tLineEll3 { @include textLineEll(3,126px); }
+    &.tLineEll4 { @include textLineEll(4,168px); }
+  }
+  .linkH24 > &, &.tH24 {
+    &.tEllipsis { @include textEll(block,30px); }
+    &.tLineEll1 { @include textLineEll(1,30px); }
+    &.tLineEll2 { @include textLineEll(2,60px); }
+    &.tLineEll3 { @include textLineEll(3,90px); }
+    &.tLineEll4 { @include textLineEll(4,120px); }
+  }
+  .linkST20 > &, &.tST20
+  , .linkST20B > &, &.tST20B
+  , .linkST18 > &, &.tST18
+  , .linkST18B > &, &.tST18B {
+    &.tEllipsis { @include textEll(block,24px); }
+    &.tLineEll1 { @include textLineEll(1,24px); }
+    &.tLineEll2 { @include textLineEll(2,48px); }
+    &.tLineEll3 { @include textLineEll(3,72px); }
+    &.tLineEll4 { @include textLineEll(4,96px); }
+  }
+  .linkST16 > &, &.tST16
+  , .linkST16B > &, &.tST16B {
+    &.tEllipsis { @include textEll(block,22px); }
+    &.tLineEll1 { @include textLineEll(1,22px); }
+    &.tLineEll2 { @include textLineEll(2,44px); }
+    &.tLineEll3 { @include textLineEll(3,66px); }
+    &.tLineEll4 { @include textLineEll(4,88px); }
+  }
+  .linkB14 > &, &.tB14
+  , .linkB14B > &, &.tB14B {
+    &.tEllipsis { @include textEll(block,20px); }
+    &.tLineEll1 { @include textLineEll(1,20px); }
+    &.tLineEll2 { @include textLineEll(2,40px); }
+    &.tLineEll3 { @include textLineEll(3,60px); }
+    &.tLineEll4 { @include textLineEll(4,80px); }
+  }
+  .linkB12 > &, &.tB12
+  , .linkB12B > &, &.tB12B {
+    &.tEllipsis { @include textEll(block,16px); }
+    &.tLineEll1 { @include textLineEll(1,16px); }
+    &.tLineEll2 { @include textLineEll(2,32px); }
+    &.tLineEll3 { @include textLineEll(3,48px); }
+    &.tLineEll4 { @include textLineEll(4,64px); }
+  }
+  .linkC10 > &, &.tC10
+  , .linkC10B > &, &.tC10B {
+    &.tEllipsis { @include textEll(block,14px); }
+    &.tLineEll1 { @include textLineEll(1,14px); }
+    &.tLineEll2 { @include textLineEll(2,28px); }
+    &.tLineEll3 { @include textLineEll(3,42px); }
+    &.tLineEll4 { @include textLineEll(4,56px); }
+  }
+
+  .linkENG32 > &, &.tENG32
+  , .linkENG32B > &, &.tENG32B {
+    &.tEllipsis { @include textEll(block,34px); }
+    &.tLineEll1 { @include textLineEll(1,34px); }
+    &.tLineEll2 { @include textLineEll(2,68px); }
+    &.tLineEll3 { @include textLineEll(3,102px); }
+    &.tLineEll4 { @include textLineEll(4,136px); }
+  }
+  .linkENG26 > &, &.tENG26
+  , .linkENG26B > &, &.tENG26B {
+    &.tEllipsis { @include textEll(block,28px); }
+    &.tLineEll1 { @include textLineEll(1,28px); }
+    &.tLineEll2 { @include textLineEll(2,56px); }
+    &.tLineEll3 { @include textLineEll(3,84px); }
+    &.tLineEll4 { @include textLineEll(4,112px); }
+  }
+  .linkENG22 > &, &.tENG22
+  , .linkENG22B > &, &.tENG22B {
+    &.tEllipsis { @include textEll(block,24px); }
+    &.tLineEll1 { @include textLineEll(1,24px); }
+    &.tLineEll2 { @include textLineEll(2,48px); }
+    &.tLineEll3 { @include textLineEll(3,72px); }
+    &.tLineEll4 { @include textLineEll(4,96px); }
+  }
+  .linkENG18 > &, &.tENG18
+  , .linkENG18B > &, &.tENG18B {
+    &.tEllipsis { @include textEll(block,20px); }
+    &.tLineEll1 { @include textLineEll(1,20px); }
+    &.tLineEll2 { @include textLineEll(2,40px); }
+    &.tLineEll3 { @include textLineEll(3,60px); }
+    &.tLineEll4 { @include textLineEll(4,80px); }
+  }
+
+  .linkENG15 > &, &.tENG15
+  , .linkENG15B > &, &.tENG15B {
+    &.tEllipsis { @include textEll(block,16px); }
+    &.tLineEll1 { @include textLineEll(1,16px); }
+    &.tLineEll2 { @include textLineEll(2,32px); }
+    &.tLineEll3 { @include textLineEll(3,48px); }
+    &.tLineEll4 { @include textLineEll(4,64px); }
+  }
+
+  .linkENG10 > &, &.tENG10
+  , .linkENG10B > &, &.tENG10B {
+    &.tEllipsis { @include textEll(block,12px); }
+    &.tLineEll1 { @include textLineEll(1,12px); }
+    &.tLineEll2 { @include textLineEll(2,24px); }
+    &.tLineEll3 { @include textLineEll(3,36px); }
+    &.tLineEll4 { @include textLineEll(4,48px); }
+  }
+
+  &.tTextBlock { display:block; }
+}
+
+
+@include for-1080-only {
+}

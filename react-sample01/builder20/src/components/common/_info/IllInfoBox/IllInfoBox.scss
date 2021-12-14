@@ -1,0 +1,71 @@
+@import "~styles/base/util";
+
+.IllInfoBox {
+  position:relative;
+  @include pcMaxWidth;
+  @include boxSizing;
+  .IllInfoBoxInner {
+    padding:0 24px; 
+    @include pcMaxWidth;
+    @include boxSizing;
+    max-width:800px;
+  }
+  .IllInfoBoxBody { width:100%; display:block;}
+  .IllInfoBoxBodyInner { padding:24px 0 24px 0; }
+
+  .IllInfoBoxThumb {
+    width:200px; margin:0 auto; padding:0 0 16px 0;
+    img { width:100%; vertical-align:top; }
+  }
+  .IllInfoBoxTitle {
+    padding:0 0 0 0; text-align:center;
+    @include FSST16; color:$FCDark;
+  }
+  .IllInfoBoxSummary {
+    padding:8px 0 0 0; text-align:center;
+    @include FSB14; color:$FCMedium;
+  }
+
+  .IllInfoBoxMoreBtn { padding:0 0;}
+
+  &.complete {
+    .IllInfoBoxBodyInner { padding:47px 0 47px 0; }
+    .IllInfoBoxMoreBtn { padding:16px 0 0 0; width:240px; margin:0 auto; }
+  }
+}
+
+@include for-768-only {
+  .IllInfoBox {
+    .IllInfoBoxInner { padding:0 40px; }
+    .IllInfoBoxBody {}
+    .IllInfoBoxBodyInner {}
+
+    &.complete {
+      .IllInfoBoxBodyInner { padding:103px 0 103px 0; }
+      .IllInfoBoxMoreBtn { width:400px; }
+    }
+  }
+}
+
+@include for-1080-only {
+  .IllInfoBox {
+    .IllInfoBoxInner { padding:0 72px; }
+    .IllInfoBoxBody { }
+    .IllInfoBoxBodyInner { padding:32px 0 32px 0; }
+
+    .IllInfoBoxThumb { width:240px; padding-bottom:24px; }
+    .IllInfoBoxTitle { @include FSST20; }
+    .IllInfoBoxSummary { @include FSST16; }
+
+    &.complete {
+      .IllInfoBoxBodyInner { padding:75px 0 75px 0; }
+      .IllInfoBoxMoreBtn {
+        padding:16px 0 0 0; width:400px;
+        .btnLarge {
+          padding-top:16px; padding-bottom:16px;
+          .tST16 { @include FSST18; }
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,63 @@
+@import "~styles/base/util";
+
+.OneadayBox {
+  background-color:#ffffff;
+  width:100%; padding:0;
+  @include pcMaxWidth;
+  @include boxSizing;
+  .OneadayBoxWrap { width:100%; padding:16px 16px 16px 16px; @include boxSizing;}
+  .OneadayBoxInner { width:100%; }
+  .OneadayBoxLink {
+    width:100%; padding:12px 24px 12px 24px; background-color:$BCGrey; table-layout:fixed; display:table;
+    @include boxSizing;
+    @include vendorPrefix(border-radius,16px);
+
+    .OneadayBoxLinkLeft
+    , .OneadayBoxLinkRight { vertical-align:middle; display:table-cell; }
+    .OneadayBoxLinkRight { width:120px; }
+  }
+
+  .OneadayBoxHeader { padding-bottom:8px; display:block; }
+  .OneadayBoxTitle { display:block; }
+  .OneadayBoxSummary { display:block; }
+  .OneadayBoxLinkThumbnail {
+    .Thumbnail { margin:0 0 0 auto; }
+  }
+}
+
+@include for-768-only {
+  .OneadayBox {
+    .OneadayBoxWrap { padding:16px 40px 16px 40px; }
+    .OneadayBoxLink {
+      padding:12px 40px 12px 40px;
+      .OneadayBoxLinkRight { width:152px; }
+    }
+  }
+}
+
+@include for-1080-only {
+  .OneadayBox {
+    .OneadayBoxWrap { padding:16px; }
+    .OneadayBoxLink {
+      padding:20px 80px 20px 80px;
+      .OneadayBoxLinkRight { width:232px; }
+    }
+
+    .OneadayBoxHeader {
+      .OneadayBoxTitle {
+        margin-right:12px; display:inline-block;
+        .tST18B { @include FSH32; }
+      }
+      .tENG22B { position:relative; top:5px; @include FSENG32B; }
+    }
+    .OneadayBoxSummary {
+      .tB14 { @include FSST20; min-height:48px !important; }
+    }
+    .OneadayBoxLinkThumbnail {
+      .Thumbnail {
+        width:144px;
+        &.square { width:192px; }
+      }
+    }
+  }
+}

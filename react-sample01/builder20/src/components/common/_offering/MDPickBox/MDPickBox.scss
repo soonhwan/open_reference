@@ -1,0 +1,92 @@
+@import "~styles/base/util";
+
+.MDPickBox {
+  background-color:#ffffff;
+  width:100%; padding:0;
+  @include pcMaxWidth;
+  @include boxSizing;
+  .MDPickBoxWrap { width:100%; padding:16px 16px 16px 16px; @include boxSizing;}
+  .MDPickBoxInner { width:100%; display:block; @include boxSizing; }
+  .MDPickBoxThumbnailWrap { display:block; @include boxSizing; }
+  .MDPickBoxThumbnailLink {
+    width:100%; height:184px; table-layout:fixed; display:table;
+    .MDPickBoxThumbnailCell {
+      position:relative; vertical-align:middle; display:table-cell; overflow:hidden;
+      @include vendorPrefix(border-radius,16px);
+    }
+    .MDPickBoxThumbnailBG {
+      position:absolute; left:-5%; top:-5%; width:110%; height:110%; z-index:1;
+      background-repeat:no-repeat; background-position:center center;
+      @include vendorPrefix(background-size,cover);
+      @include vendorPrefix(filter,blur(5px));
+      &:after { position:absolute; content:''; left:0; top:0; width:100%; height:100%; background-color:$BGBlack30; display:block;}
+    }
+    .MDPickBoxThumbnail {
+      position:relative; z-index:11;
+      .Thumbnail.MDPick { margin:0 auto; }
+    }
+  }
+  .MDPickBoxTextWrap { padding-top:12px; display:block; @include boxSizing; }
+  .MDPickBoxLink { display:block; }
+  .MDPickBoxTitle { padding:0 0 8px 0; }
+  .tMDPickBoxTextTitle { padding-top:16px; padding-right:4px; }
+  .MDPickBoxSubTitle {
+    position:relative; padding:6px 12px; display:inline-block; background-color:$BGPoint;
+    @include vendorPrefix(border-radius, 16px)
+    &:before {
+      position:absolute; content:''; left:0; bottom:0; width:11px; height:10px;
+      background:url('/static/images/bg/mdpick_badge_01.png') no-repeat; display:block;
+      @include fontSizeZero;
+      @include vendorPrefix(background-size,11px 10px);
+    }
+  }
+
+  .MDPickBoxKeyword {
+    .SecondaryBarInner { padding:0; }
+    .SecondaryBar.keyword .SecondaryBarInner ul li { padding:8px 8px 0 0; }
+  }
+}
+
+@include for-768-only {
+  .MDPickBox {
+    .MDPickBoxWrap { padding:16px 40px 16px 40px; }
+    .MDPickBoxInner { table-layout:fixed; display:table; }
+    .MDPickBoxThumbnailWrap { width:320px; vertical-align:middle; display:table-cell; }
+    .MDPickBoxTextWrap { padding-top:0; padding-left:32px; vertical-align:middle; display:table-cell; }
+    .MDPickBoxLink { }
+
+    .MDPickBoxKeyword {
+      .SecondaryBarWrap { padding:0; }
+    }
+  }
+}
+
+@include for-1080-only {
+  .MDPickBox {
+    .MDPickBoxWrap { padding:24px 16px 24px 16px; }
+    .MDPickBoxInner { table-layout:fixed; display:table; }
+    .MDPickBoxThumbnailWrap { width:520px; vertical-align:middle; display:table-cell; }
+    .MDPickBoxThumbnailLink {
+      height:240px;
+      .MDPickBoxThumbnail {
+        .Thumbnail.MDPick {
+          width:144px;
+          &.square { width:192px; }
+        }
+      }
+    }
+    .MDPickBoxTextWrap { padding-top:0; padding-left:40px; vertical-align:middle; display:table-cell; }
+    .MDPickBoxLink { padding-bottom:4px; }
+
+    .MDPickBoxTitle {
+      .tMDPickBoxTextTitle { @include FSH32; padding-top:0; padding-right:8px; }
+    }
+    .MDPickBoxSummary {
+      .tB14 { @include FSST20; min-height:72px; }
+    }
+
+    .MDPickBoxKeyword {
+      .SecondaryBar.keyword .SecondaryBarInner ul li { padding:12px 12px 0 0; }
+    }
+  }
+}

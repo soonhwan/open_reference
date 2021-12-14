@@ -1,0 +1,176 @@
+@import "~styles/base/util";
+
+.Thumbnail {
+  position: relative;
+  width:96px;
+
+  .ThumbnailInner {
+    position:relative; width:100%; overflow:hidden;
+    @include vendorPrefix(border-radius, 12px);
+    &:before {
+      position:absolute; content:''; left:0; top:0; width:100%; height:100%; border:1px solid $BGBlack10; display:block; z-index:51;
+      @include vendorPrefix(border-radius, 12px);
+      @include boxSizing;
+    }
+    .ThumbnailImg { width:100%; vertical-align:top;}
+    .ThumbnailTop {
+      position:absolute; left:0; top:0; width:100%; display:block; z-index:11;
+      .ThumbnailTopBadge {
+        max-width:100%; padding:3px 6px 3px 8px; line-height:14px; background-color:$BGPoint90; display:inline-block;
+        @include vendorPrefix(border-radius, 0 4px 4px 0);
+        @include boxSizing;
+      }
+    }
+    .ThumbnailBottom {
+      position:absolute; left:0; bottom:0; width:100%; line-height:16px; display:block; z-index:11;
+      .ThumbnailBottomAudioBook { float:left; padding:0 0 6px 6px; }
+      .ThumbnailBottomPlus19 { float:right; padding:0 6px 6px 0; }
+      .ThumbnailBottomSetProd {
+        clear:both; position:relative; width:100%; padding:4px; text-align:center; background-color:$BGDark90; display:block;
+        @include boxSizing;
+        &:before, &:after {
+          position:absolute; content:''; width:4px; height:4px; margin:0; padding:0; display:block;
+          background:url('/static/images/bg/thumbnail_set_prod.png') repeat-y 0 0; display:block;
+          @include fontSizeZero;
+          @include vendorPrefix(background-size,8px 4px);
+        }
+        &:before { left:0; top:-4px; background-position:0 0; }
+        &:after { right:0; top:-4px; background-position:-4px 0; }
+      }
+    }
+
+    .ThumbnailEditBox {
+      position:absolute; left:0; top:0; bottom:0; right:0; width:100%; height:100%; display:block; z-index:41; background-color:$BGBlack30;
+      .ThumbnailEditBoxInner {
+        width:100%; height:100%; text-align:center; vertical-align:middle; display:table;
+        .ThumbnailEditBoxInnerCell {
+          width:100%; height:100%; text-align:center; vertical-align:middle; display:table-cell;
+        }
+      }
+    }
+
+  }
+
+  &.default1Row
+  , &.ranking
+  , &.swiperCard
+  , &.historyList
+  , &.giftReceived
+  , &.giftSent {
+    width:96px;
+  }
+  
+
+  &.rankingOffering
+  , &.noticeList
+  , &.replyList
+  , &.episode {
+    width:64px;
+  }
+
+  &.Oneaday {
+    width:96px;
+    &.square { width:112px; }
+  }
+
+  &.MDPick {
+    width:112px;
+    &.square { width:144px; }
+  }
+
+  &.DetailNextProduct {
+    width:32px;
+    .ThumbnailInner {
+      @include vendorPrefix(border-radius, 4px);
+      &:before { @include vendorPrefix(border-radius, 4px); }
+      .ThumbnailBottom { line-height:12px; }
+      .ThumbnailBottomAudioBook {
+        padding:0 0 2px 2px;
+        .audiobook16 { width:12px; height:12px; background-position:-39px -500px; }
+      }
+      .ThumbnailBottomPlus19 {
+        padding:0 2px 2px 0;
+        .adult16 { width:12px; height:12px; background-position:-26px -500px; }
+      }
+    }
+    &.square {
+      width:64px;
+      .ThumbnailInner {
+        @include vendorPrefix(border-radius, 12px);
+        &:before { @include vendorPrefix(border-radius, 12px); }
+        .ThumbnailBottomAudioBook {
+          padding:0 0 6px 6px;
+          .audiobook16 { width:16px; height:16px; background-position:-157px -500px; }
+        }
+        .ThumbnailBottomPlus19 {
+          padding:0 6px 6px 0;
+          .adult16 { width:16px; height:16px; background-position:-140px -500px; }
+        }
+      }
+    }
+  }
+
+  &.PayPopup {
+    width:64px;
+  }
+
+  &.like
+  , &.Detail {
+    width:100%;
+  }
+
+  &.SearchAuto {
+    width:32px;
+    .ThumbnailInner {
+      @include vendorPrefix(border-radius, 4px);
+      &:before { @include vendorPrefix(border-radius, 4px); }
+      .ThumbnailBottom { line-height:12px; }
+      .ThumbnailBottomAudioBook {
+        padding:0 0 2px 2px;
+        .audiobook16 { width:12px; height:12px; background-position:-39px -500px; }
+      }
+      .ThumbnailBottomPlus19 {
+        padding:0 2px 2px 0;
+        .adult16 { width:12px; height:12px; background-position:-26px -500px; }
+      }
+    }
+  }
+}
+
+
+@include for-1080-only {
+  .Thumbnail {
+    &.default1Row
+    , &.ranking
+    , &.swiperCard
+    , &.historyList
+    , &.giftReceived
+    , &.giftSent {
+      width:112px;
+    }
+
+    &.rankingOffering
+    , &.noticeList
+    , &.replyList
+    , &.episode {
+      width:96px;
+    }
+
+    &.DetailNextProduct {
+      width:64px;
+      .ThumbnailInner {
+        @include vendorPrefix(border-radius, 12px);
+        &:before { @include vendorPrefix(border-radius, 12px); }
+        .ThumbnailBottom { line-height:12px; }
+        .ThumbnailBottomAudioBook {
+          padding:0 0 6px 6px;
+            .audiobook16 { width:16px; height:16px; background-position:-157px -500px; }
+        }
+        .ThumbnailBottomPlus19 {
+          padding:0 6px 6px 0;
+            .adult16 { width:16px; height:16px; background-position:-140px -500px; }
+        }
+      }
+    }
+  }
+}

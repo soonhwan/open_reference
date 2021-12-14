@@ -1,0 +1,84 @@
+
+
+
+.toast-box-wrap {
+  position:fixed; left:50%; bottom:74px; width:70%; padding:14px 20px 14px 20px; 
+  font-size:14px; color:#ffffff; line-height:18px; text-align:center; -webkit-border-radius:13px; border-radius:13px; background:rgba(60,60,60,0.85); display:block;
+  -webkit-transform:translate(-50%,0); transform:translate(-50%,0);
+  // opacity:0; z-index:9000;
+  // -webkit-transition:opacity 0.5s; transition:opacity 0.5s;
+  opacity:0;
+  z-index:10000;
+}
+
+.toast-box-wrap-enter {
+  opacity: 0;
+  // transform: translate(-50%, 46px);
+  transform: translate(-50%, 0);
+}
+.toast-box-wrap-enter-active {
+  opacity: 1;
+  transform: translate(-50%, 0);
+  transition: opacity 500ms, transform 500ms;
+}
+.toast-box-wrap-enter-done {
+  opacity: 1;
+  transform: translate(-50%, 0);
+}
+.toast-box-wrap-exit {
+  opacity: 1;
+  transform: translate(-50%, 0);
+}
+.toast-box-wrap-exit-active {
+  opacity: 0;
+  transform: translate(-50%, 0);
+  transition: opacity 1000ms, transform 1000ms;
+}
+.toast-box-wrap-exit-done {
+  opacity: 0;
+  transform: translate(-50%, 0);
+}
+
+
+/*
+.toast-fade-enter {
+  animation-duration: .5s;
+  animation-fill-mode: both;
+  animation-timing-function: ease-in;
+  animation-name: toastFadeIn;
+}
+
+.toast-fade-leave {
+  animation-duration: .5s;
+  animation-fill-mode: both;
+  animation-timing-function: ease-out;
+  animation-name: toastFadeOut;
+}
+
+@keyframes toastFadeIn {
+  0% {
+    opacity: 0;
+    transform: translate(0,0);
+  }
+  100% {
+    opacity: 1;
+    transform: translate(-50%,0);
+  }
+}
+
+@keyframes toastFadeOut {
+  0% {
+    opacity: 1;
+    transform: translate(-50%,0);
+  }
+  100% {
+    opacity: 0;
+    transform: translate(0,0);
+  }
+}
+*/
+
+// .popup-dimmed-bg { position:fixed; left:0; top:0; right:0; bottom:0; background:rgba(0,0,0,0.6); z-index:9000; display:none; opacity:0; }
+// .popup-dimmed-bg.lower { -webkit-transition: all 0; transition: all 0; display:block; opacity:1; }
+// .popup-dimmed-bg { -webkit-transition:all 0.8s; transition:all 0.8s; }
+// .popup-dimmed-bg.ani { opacity:1; }

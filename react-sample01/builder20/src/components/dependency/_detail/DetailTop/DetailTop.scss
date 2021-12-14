@@ -1,0 +1,312 @@
+@import "~styles/base/util";
+
+.DetailTopWrap {
+  background-color:#ffffff;
+  .DetailTopInner {
+    padding:16px 0 0 0;
+    @include pcMaxWidth;
+  }
+  .DetailTopBox {
+    width:100%;
+    @include boxSizing;
+    @include flexBox;
+    @include flexWrap(wrap);
+  }
+  .DetailTopThumbnail {
+    width:100%;
+    @include boxSizing;
+    @include flexWidth(0 0 auto);
+    @include alignItems(center);
+  }
+  .DetailTopInfo {
+    width:100%;
+    overflow:hidden;
+    @include boxSizing;
+    @include flexWidth(0 0 auto);
+    @include flexDirection(column);
+    @include alignSelf(center);
+  }
+
+  .DetailTopThumbnailLink {
+    width:31.11%; margin:0 auto; display:block;
+  }
+  .DetailTopTextHeader {
+    padding:12px 16px 0 16px;
+    .DetailTopTextGenre { margin:0 0 4px 0; }
+    .tDetailTopTextTitle { display:block; }
+  }
+
+  .DetailTopTextAddition {
+    padding:14px 16px 1px 16px;
+  }
+  .DetailTopTextAudioPublisher {
+    dl {
+      position:relative;
+      dt { position:absolute; left:0; top:0; @include FSB14; color:$FCLight; }
+      dd { margin:0 0 2px 32px; }
+      &:last-of-type {
+        dd { margin-bottom:0; }
+      }
+    }
+  }
+  .DetailTopTextAddition01 { padding:2px 0 1px 0; }
+
+  .DetailTopTextEtcBox {
+    padding:0 16px 1px 16px;
+    .DetailTopTextAvgScoreBox {
+      vertical-align:top; display:inline-block;
+      .DetailTopTextAvgScoreIcon {
+        margin-right:4px; vertical-align:top; display:inline-block;
+      }
+    }
+    .DetailTopTextReadmeBox {
+      vertical-align:top; display:inline-block;
+      .DetailTopTextReadmeIcon {
+        margin-right:2px; vertical-align:top; display:inline-block;
+      }
+    }
+    > div {
+      position:relative; padding:0 8px 0 9px;
+      &:before { position:absolute; content:''; left:0; top:50%; margin-top:-6px; width:1px; height:12px; background-color:$BGExtraL; display:block; }
+      &:first-of-type {
+        padding-left:0;
+        &:before { display:none;}
+      }
+    }
+  }
+
+  .DetailTopTextFooter {
+    width:100%; padding:0 0 0 0;
+    @include boxSizing;
+    @include flexBox;
+    @include flexWrap(wrap);
+    .DetailTopTextFooterUtil {
+      width:100%; padding:0 16px 0 16px;
+      @include boxSizing;
+      @include flexWidth(0 0 auto);
+      @include alignItems(center);
+      ul {
+        position:relative; width:100%;
+        li {
+          position:relative; width:25%; padding:8px 0 8px 0; vertical-align:top; display:inline-block;
+          &:before { position:absolute; content:''; left:0; top:50%; margin-top:-12px; width:1px; height:24px; background-color:$BGExtraL; display:block; }
+          &:first-of-type {
+            padding-left:0;
+            &:before { display:none;}
+          }
+          &.LiScoreContainer {
+            position: static;
+            &:before { left: 103px; }
+          }
+        }
+        .btnDetailUtil {
+          width:100%; text-align:center; padding-top:8px; padding-bottom:8px;
+          @include boxSizing;
+          i.icon { margin-bottom:4px;}
+          .tDetailUtilText { display:block; }
+        }
+      }
+      .DetailTopTextFooterMyAvgscore {
+        padding:20px 0; text-align:center; height:80px; @include boxSizing;
+        .linkIcon40 { padding:0; margin:0 4px; }
+        &.Container {
+          position: absolute;
+          left: 0;
+          top: 0;
+          width: 100%;
+          background: #fff;
+          z-index: 10;
+        }
+      }
+    }
+    .DetailTopTextFooterBtn {
+      width:100%; padding:0 16px 0 16px;
+      overflow:hidden;
+      @include boxSizing;
+      @include flexWidth(0 0 auto);
+      @include flexDirection(column);
+      @include alignSelf(center);
+    }
+  }
+
+  &.square {
+    .DetailTopThumbnailLink { width:40%; }
+  }
+
+  &.webtoon {
+    .DetailTopThumbnail { padding:0 16px; }
+    .DetailTopThumbnailLink { width:100%; }
+  }
+}
+
+@include for-768-only {
+  .DetailTopWrap {
+    .DetailTopInner {
+      padding:40px 0 0 0;
+      @include flexWrap(nowrap);
+    }
+    .DetailTopThumbnail { 
+      width:184px; padding-left:40px; padding-bottom:14px;
+      @include flexWidth(0 0 auto);
+      
+    }
+    .DetailTopInfo {
+      padding:0 24px 0 24px;
+      @include flexWidth(1 1);
+      @include alignSelf(flex-start);
+    }
+
+    .DetailTopThumbnailLink { width:100%; }
+
+    .DetailTopTextFooter {
+      padding:0 0 0 0;
+      @include flexWrap(nowrap);
+      .DetailTopTextFooterUtil {
+        width:360px; padding:0 16px 0 16px;
+        @include flexWidth(0 0 auto);
+      }
+      .DetailTopTextFooterBtn {
+        padding:0 16px 0 16px; text-align:right;
+        @include flexWidth(1 1);
+        @include alignSelf(center);
+        .btnBlock { width:120px; display:inline-block; }
+      }
+    }
+  
+    &.square {
+      .DetailTopThumbnailLink { width:100%; }
+    }
+
+    &.webtoon {
+      .DetailTopInner {
+        @include flexWrap(wrap);
+      }
+      .DetailTopThumbnail {
+        width:100%;
+        @include flexWidth(0 0 auto);
+      }
+      .DetailTopInfo {
+        width:100%;
+        @include alignSelf(center);
+      }
+      .DetailTopThumbnail { padding:0 40px; }
+    }
+  }
+}
+
+@include for-1080-only {
+  .DetailTopWrap {
+    .DetailTopInner {
+      padding:40px 0 0 0;
+      @include flexWrap(nowrap);
+    }
+    .DetailTopThumbnail { 
+      width:224px; padding-left:16px; padding-right:16px; padding-bottom:24px;
+      @include flexWidth(0 0 auto);
+    }
+    .DetailTopInfo {
+      padding:0;
+      @include flexWidth(1 1);
+      @include alignSelf(flex-start);
+    }
+
+    .DetailTopThumbnailLink { width:100%; }
+
+    .DetailTopTextHeader {
+      .DetailTopTextGenre { margin-bottom:6px; @include FSST16; height:22px; }
+      .tDetailTopTextTitle { @include FSH32; }
+    }
+
+    .DetailTopTextAddition {
+      padding:16px 16px 1px 16px;
+      .DetailTopTextArtist { @include FSST16; height:22px; }
+    }
+    .DetailTopTextAudioPublisher {
+      dl {
+        dt { @include FSST16; }
+        dd {
+          margin:0 0 4px 40px;
+          .DetailTopTextPublisher {
+            @include FSST16; @include textEll(block, 22px);
+          }
+        }
+        &:last-of-type {
+          dd { margin-bottom:0; }
+        }
+      }
+    }
+    .DetailTopTextAddition01 {
+      padding:4px 0 1px 0;
+      .DetailTopTextPublisher
+      , .DetailTopTextEpisode { @include FSST16; @include textEll(block, 22px); }
+    }
+    .DetailTopTextEtcBox {
+      padding:0 16px 1px 16px;
+      .DetailTopTextAvgScoreBox {
+        .DetailTopTextAvgScoreIcon {
+          i.avgscore20 { width:24px; height:24px; background-position:-475px -575px; }
+          i.avgscoreSel20 { width:24px; height:24px; background-position:-500px -575px; }
+        }
+        .tDetailTopTextAvgScore { position:relative; top:1px; @include FSST16; }
+      }
+      .DetailTopTextReadmeBox {
+        .DetailTopTextReadmeIcon {
+          i.readme20 { width:24px; height:24px; background-position:-525px -575px; }
+        }
+        .tDetailTopTexReadme { position:relative; top:1px; @include FSST16; }
+      }
+      > div {
+        padding:0 12px 0 13px;
+        &:before { margin-top:-8px; height:16px; }
+        &:first-of-type {
+          padding-left:0;
+          &:before { display:none;}
+        }
+      }
+    }
+
+    .DetailTopTextFooter {
+      padding:0 0 0 0;
+      @include flexWrap(nowrap);
+      .DetailTopTextFooterUtil {
+        width:444px; padding:0 16px 0 16px;
+        @include flexWidth(0 0 auto);
+        ul {
+          li {
+            padding-top:17px; padding-bottom:17px;
+          }
+          .btnDetailUtil {
+            i.commentBlack24 { width:32px; height:32px; background-position:-649px -500px; }
+            i.sharingBlack24 { width:32px; height:32px; background-position:-682px -500px; }
+            i.likeBlack24 { width:32px; height:32px; background-position:-550px -533px; }
+            i.likeBlackSel24 { width:32px; height:32px; background-position:-583px -533px; }
+            i.avgscoreBlack24 { width:32px; height:32px; background-position:-616px -533px; }
+            i.avgscoreBlackSel24 { width:32px; height:32px; background-position:-649px -533px; }
+            .tDetailUtilText { @include FSST16; }
+          }
+        }
+      }
+      .DetailTopTextFooterBtn {
+        padding:0 16px 0 16px; text-align:right;
+        @include flexWidth(1 1);
+        @include alignSelf(center);
+        .btnBlock { padding-top:16px; padding-bottom:16px; width:140px; display:inline-block; }
+      }
+      .DetailTopTextFooterUtil {
+        .DetailTopTextFooterMyAvgscore {
+          padding-top:30px; padding-bottom:30px; height:108px;
+          i.detailAvgscore40 { width:48px; height:48px; background-position:-715px -451px; }
+          i.detailAvgscoreSel40 { width:48px; height:48px; background-position:-764px -451px; }
+        }
+      }
+    }
+  
+    &.square {
+      .DetailTopThumbnailLink { width:100%; }
+    }
+
+    &.webtoon {
+      .DetailTopThumbnail { width:480px; }
+    }
+  }
+}

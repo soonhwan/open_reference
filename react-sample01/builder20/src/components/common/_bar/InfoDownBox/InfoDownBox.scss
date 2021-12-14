@@ -1,0 +1,141 @@
+@import "~styles/base/util";
+
+.InfoDownBox {
+  .InfoDownBoxWrap {
+    padding:8px 0 16px 0;
+    @include pcMaxWidth;
+    @include boxSizing;
+  }
+  .InfoDownBoxInner {
+    position:relative;
+    .InfoDownBoxHeader { position:relative; padding:6px 40px 6px 16px; }
+    .InfoDownBoxAuthor {
+      padding:10px 16px 4px 16px;
+      ul {
+        padding:0;
+        li {
+          position:relative; padding:0 0 2px 36px;
+          &:last-of-type { padding-bottom:0; }
+        }
+        .tInfoDownBoxAuthorTitle { position:absolute; left:0; top:0; }
+        .tInfoDownBoxAuthorText {}
+      }
+    }
+    .InfoDownBoxCo {
+      padding:8px 16px 0 16px;
+      @include FSB14; color:$FCDark;
+    }
+    .InfoDownBoxMore {
+      position:absolute; left:0; top:0; width:100%; padding:4px 12px 4px 16px; display:block;
+      @include boxSizing;
+      .InfoDownBoxMoreLink {
+        text-align:right; display:block;
+        i.downGrey24 {
+          @include vendorPrefix(transition, transform 0.2s);
+        }
+      }
+    }
+  }
+
+  &.basic
+  , &.author
+  , &.notice {
+    &.close {
+      .InfoDownBoxCoInner { @include textLineEll(3,60px) }
+    }
+    &.open {
+      i.downGrey24 { @include vendorPrefix(transform, rotate(180deg)); }
+    }
+  }
+
+  &.notice {
+    .InfoDownBoxInner {
+      .InfoDownBoxHeader {
+        padding-left:40px;
+        i.infoBlack20 { position:absolute; left:16px; top:50%; margin-top:-10px; }
+      }
+    }
+  }
+
+  &.hidden {
+    .InfoDownBoxWrap { padding-top:0; padding-bottom:24px; }
+    .InfoDownBoxInner {
+      margin:0 16px 0 16px; padding-top:8px; border-top:1px solid $BGExtraL; border-bottom:1px solid $BGExtraL;
+      .InfoDownBoxHeader { padding-left:0; padding-right:24px; }
+      .InfoDownBoxCo {
+        padding-left:0; padding-right:0;
+        span { padding-bottom:24px; display:block; }
+        em { margin-right:2px; }
+        span.textSt { padding-bottom:8px; }
+      }
+      .InfoDownBoxMore {
+        top:8px; padding-right:0;
+        .InfoDownBoxMoreLink { position:relative; right:-4px; }
+      }
+    }
+    &.close {
+      .InfoDownBoxCoInner { display:none; }
+    }
+    &.open {
+      .InfoDownBoxCo { padding-top:0; }
+      .InfoDownBoxCoInner { display:block; }
+      i.downGrey24 { @include vendorPrefix(transform, rotate(180deg)); }
+    }
+  }
+}
+
+@include for-768-only {
+  .InfoDownBox {
+    .InfoDownBoxWrap { padding:8px 24px 16px 24px; }
+    .InfoDownBoxInner {}
+  }
+}
+
+@include for-1080-only {
+  .InfoDownBox {
+    .InfoDownBoxWrap { padding:8px 0 24px 0; }
+    .InfoDownBoxInner {
+      .InfoDownBoxHeader {
+        padding:9px 44px 9px 16px;
+        .tB14B { @include FSST16B; height:22px; }
+      }
+      .InfoDownBoxAuthor {
+        padding-top:12px;
+        ul {
+          li {
+            padding:0 0 4px 40px;
+            &:last-of-type { padding-bottom:0; }
+          }
+          .tInfoDownBoxAuthorTitle { @include FSST16; }
+          .tInfoDownBoxAuthorText { @include FSST16; }
+        }
+      }
+      .InfoDownBoxCo {
+        @include FSST16;
+      }
+      .InfoDownBoxMore { padding:8px 12px 8px 16px; }
+    }
+
+    &.basic
+    , &.author
+    , &.notice {
+      &.close {
+        .InfoDownBoxCoInner { @include textLineEll(3,66px) }
+      }
+    }
+
+    &.hidden {
+      .InfoDownBoxWrap { padding-bottom:32px; }
+      .InfoDownBoxInner {
+        .InfoDownBoxCo {
+          span { padding-bottom:32px; }
+          em { margin-right:4px; }
+          span.textSt { padding-bottom:12px; @include FSST16B; height:22px; }
+        }
+      }
+      &.open {
+        .InfoDownBoxCo { padding-top:4px; }
+      }
+    }
+  }
+}

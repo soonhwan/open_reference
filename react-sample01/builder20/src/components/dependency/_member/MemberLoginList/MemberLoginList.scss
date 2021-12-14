@@ -1,0 +1,45 @@
+@import "~styles/base/util";
+
+.MemberLoginList {
+  position:relative;
+  @include pcMaxWidth;
+  @include boxSizing;
+  .MemberLoginListInner {}
+  .MemberLoginListBody { width:100%; padding:0 16px; display:block; @include boxSizing;}
+  .MemberLoginListBodyInner { padding:16px 0 16px 0; }
+
+  .MemberLoginListItem {
+    padding-bottom:12px;
+    .btnWhite { border-color:$BCDark; }
+    i.icon22 { margin-right:4px; }
+  }
+}
+
+@include for-768-only {
+  .MemberLoginList {
+    .MemberLoginListInner { padding:0 24px; }
+    .MemberLoginListBody {}
+    .MemberLoginListBodyInner {}
+  }
+}
+
+@include for-1080-only {
+  .MemberLoginList {
+    .MemberLoginListInner { padding:0; }
+    .MemberLoginListBody { }
+    .MemberLoginListBodyInner { padding-top:24px; padding-bottom:24px; }
+
+    .MemberLoginListItem {
+      .btnWhite { padding-top:15px; padding-bottom:15px; }
+      i.icon22 {
+        top:-1px;
+        &.snsfacebook22 { width:24px; height:24px; background-position:-500px 0px; }
+        &.snsgoogle22 { width:24px; height:24px; background-position:-525px 0px; }
+        &.snsnaver22 { width:24px; height:24px; background-position:-550px 0px; }
+        &.snsapple22 { width:24px; height:24px; background-position:-575px 0px; }
+        &.snstworld22 { width:24px; height:24px; background-position:-500px -25px; }
+        &.snsmdn22 { width:24px; height:24px; background-position:-525px -25px; }
+      }
+    }
+  }
+}

@@ -1,0 +1,56 @@
+@import "~styles/base/util";
+
+.BtnGroup {
+  position:relative; padding:0;
+  @include pcMaxWidth;
+  @include boxSizing;
+  .BtnGroupInner {
+    padding:0 16px 8px 16px;
+  }
+  .BtnGroupBox {
+    width:100%;
+    @include boxSizing;
+    @include flexBox;
+    @include flexWrap(nowrap);
+  }
+  .BtnGroupBoxCell {
+    padding:0 0 0 8px;
+    @include boxSizing;
+    @include flexWidth(1 1);
+    @include alignItems(center);
+    &:first-of-type {
+      padding-left:0;
+    }
+  }
+
+  &.row {
+    .BtnGroupBox { display:block; }
+    .BtnGroupBoxCell {
+      padding:0 0 8px 0; display:block;
+      &:last-of-type { padding-bottom:0; }
+    }
+  }
+}
+
+@include for-768-only {
+  .BtnGroup {
+    padding-left:24px; padding-right:24px;
+  }
+}
+
+@include for-1080-only {
+  .BtnGroup {
+    .BtnGroupInner { padding-bottom:16px; }
+    .BtnGroupBoxCell {
+      .btnLarge { padding-top:16px; padding-bottom:16px; }
+      .tST16 { @include FSST18; }
+    }
+
+    &.row {
+      .BtnGroupBoxCell {
+        padding:0 0 16px 0;
+        &:last-of-type { padding-bottom:0; }
+      }
+    }
+  }
+}

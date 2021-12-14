@@ -1,0 +1,385 @@
+@import "~styles/base/util";
+
+.ItemRendererLinkBox {
+  height:100%; overflow:hidden;
+  @include flexBox;
+  @include flexWidth(1 1);
+  @include alignItems(center);
+  .ItemRendererLinkBoxInner {
+    position:relative; overflow:hidden;
+    @include vendorPrefix(border-radius, 16px);
+    @include flexBox;
+    @include flexWidth(1 1);
+    @include alignItems(stretch);
+
+    &.noticeList
+    , &.replyList {
+      &.newSel {
+        background-color:$BCSecondary10;
+      }
+    }
+  }
+
+  &.typegrid
+  , &.typegridEdit
+  , &.type2n
+  , &.type3n {
+    @include alignItems(flex-end);
+    .ItemRendererLinkBoxInner {
+      @include alignItems(flex-end);
+    }
+  }
+
+  &.type2n
+  , &.type3n { width:113px; }
+
+  &.typelistEdit
+  , &.typegridEdit {
+    .ItemRendererLinkBoxInner.editSel {
+      background-color:$BGPoint10;
+      .Thumbnail {
+        .ThumbnailInner {
+          &:before { border-color:$BGPoint; }
+          .ThumbnailEditBox {
+            background-color:$BGPoint50;
+            .ThumbnailEditBoxInner {
+              .thumbEdit32 { background-position:-583px -500px; }
+            }
+          }
+        }
+      }
+
+      &.like {
+        background-color:transparent;
+      }
+    }
+  }
+}
+
+.ItemRendererLink {
+  padding:8px; overflow:hidden;
+  @include flexBox;
+  @include flexWidth(1 1);
+  @include flexDirection(column);
+  @include alignSelf(center);
+  .ItemRendererInner {
+    width:100%;
+    @include boxSizing;
+    @include flexBox;
+    .itemRendererThumbnail {
+      margin-right:16px;
+      @include flexBox;
+      @include flexWidth(0 0 auto);
+      @include alignItems(center);
+    }
+    .itemRendererTextWrap {
+      overflow:hidden;
+      @include flexBox;
+      @include flexWidth(1 1);
+      @include flexDirection(column);
+      @include alignSelf(center);
+
+      .tItemRendererTextRanking { margin-bottom:2px; font-size:18px; line-height:20px; letter-spacing:0; @include numFamily; }
+      .ItemRendererTextTitle { margin-bottom:4px; color:$FCDark; @include FSB14; @include textLineEll(2,40px); }
+      .ItemRendererTextTitleBookPass { color:$FCPoint; }
+      .ItemRendererTextTitleLike { color:$FCDark; @include FSB12; @include textEll(block,16px); }
+      .ItemRendererTextTitleRankOffer { margin-bottom:4px; color:$FCDark; @include FSB14; @include textLineEll(2,40px); }
+      .ItemRendererTextArtist { margin-bottom:4px; color:$FCMedium; @include FSB12; @include textEll(block,16px); }
+      .ItemRendererTextArtistLike { color:$FCMedium; @include FSB12; @include textEll(block,16px); }
+      .ItemRendererTextArtistRankOffer { color:$FCMedium; @include FSB12; @include textEll(block,16px); }
+      .tItemRendererTextSeries { display:block;}
+      .tItemRendererTextPublisher { display:block;}
+      .tItemRendererTextRegDt { display:block; }
+      .tItemRendererTextFile { display:block; }
+      .tItemRendererTextPrice { display:block; }
+      .tItemRendererTextPriceDel { text-decoration:line-through; display:block; }
+      .tItemRendererTextPerson { display:block; }
+      .tItemRendererTextCommentDesc { margin-bottom:4px; display:block; @include textLineEll(2, 32px); }
+      .ItemRendererTextAvgScore { display:block; }
+      .ItemRendererTextComment { display:block; }
+
+      .itemRendererTextAddition {
+        @include FSB12;
+        @include textEll(block, 16px);
+        .textSt {
+          position:relative; padding:0 8px 0 9px; display:inline;
+          > span { display:inline; }
+          .textSt { display:inline; }
+          &:before { position:absolute; content:''; left:0; top:50%; margin-top:-5px; width:1px; height:12px; background-color:$BGExtraL; display:block; }
+          &:first-of-type {
+            padding-left:0;
+            &:before { display:none; }
+          }
+        }
+      }
+      .itemRendererTextEvaluation {
+        @include FSB12;
+        @include textEll(block, 16px);
+        .linkSt {
+          position:relative; padding:0 8px 0 9px; display:inline;
+          > span { display:inline; }
+          .textSt { display:inline; }
+          &:before { position:absolute; content:''; left:0; top:50%; margin-top:-5px; width:1px; height:12px; background-color:$BGExtraL; display:block; }
+          &:first-of-type {
+            padding-left:0;
+            &:before { display:none; }
+          }
+        }
+      }
+      .itemRendererTextAudioBooks {
+        @include FSB12;
+        @include textEll(block, 16px);
+        .textSt {
+          position:relative; padding:0 8px 0 9px; display:inline;
+          > span { display:inline; }
+          .textSt { display:inline; }
+          &:before { position:absolute; content:''; left:0; top:50%; margin-top:-5px; width:1px; height:12px; background-color:$BGExtraL; display:block; }
+          &:first-of-type {
+            padding-left:0;
+            &:before { display:none; }
+          }
+        }
+      }
+      .itemRendererTextPriceBox {
+        @include FSB12;
+        .itemRendererTextPriceSub {
+          @include textEll(block, 16px);
+        }
+        .textSt {
+          margin:0 3px 0 0; display:inline;
+          &:last-of-type { margin-right:0; }
+        }
+        .tItemRendererTextPriceDel { margin-right:9px;}
+      }
+    }
+  }
+
+  &.ranking {
+    .ItemRendererInner {
+      .ItemRendererTextArtist { margin-bottom:0;}
+    }
+  }
+
+  &.like {
+    padding-bottom:8px;
+    .ItemRendererInner {
+      display:block;
+      .itemRendererThumbnail { margin-right:0; margin-bottom:4px; display:block; }
+      .itemRendererTextWrap { display:block; }
+    }
+  }
+
+  &.swiperCard {
+    padding-bottom:12px;
+    .ItemRendererInner {
+      width:96px; margin:0 auto; display:block;
+      .itemRendererThumbnail { margin-right:0; margin-bottom:4px; display:block; }
+      .itemRendererTextWrap { display:block; }
+    }
+  }
+
+  &.noticeList {
+
+  }
+
+  &.replyList {
+    .itemRendererTextWrap {
+      .ItemRendererTextTitle { @include textLineEll(1,20px); }
+    }
+  }
+
+  &.historyList {
+    .itemRendererTextWrap {
+      .tItemRendererTextRegDt {
+        em { color:$FCError; }
+      }
+    }
+  }
+}
+
+.ItemRendererSideBtn {
+  padding:4px 8px 4px 8px; overflow:hidden;
+  @include boxSizing;
+  @include flexBox;
+  @include flexWidth(0 0 auto);
+  @include alignItems(center);
+
+  .ItemRendererSideReceipt {
+    padding:6px 4px 4px 4px !important;
+    > span {
+      text-align:center; display:block;
+      .textSt { padding:4px 0 0 0; display:block; }
+    }
+  }
+  .ItemRendererSideGift {
+    padding:6px 4px 4px 4px !important;
+    > span {
+      text-align:center; display:block;
+      .textSt { padding:4px 0 0 0; display:block; }
+    }
+  }
+  .ItemRendererSideEpisode {
+    padding:6px 4px 4px 4px !important;
+    > span {
+      text-align:center; display:block;
+      .textSt { padding:4px 0 0 0; display:block; }
+    }
+  }
+}
+
+.ItemRendererEditLink {
+  position:absolute; left:0; top:0; width:100%; height:100%; display:block; z-index:101;;
+}
+
+@include for-1080-only {
+  .ItemRendererLinkBox {
+    &.type2n
+    , &.type3n { width:136px; }
+  }
+  .ItemRendererLink {
+    .ItemRendererInner {
+      .itemRendererTextWrap {
+        .ItemRendererTextTitle { margin-bottom:8px; @include FSST18; @include textLineEll(2,48px); }
+        .ItemRendererTextTitleLike { color:$FCDark; @include FSB14; @include textEll(block,20px); }
+        .ItemRendererTextArtist { margin-bottom:8px; @include FSB14; @include textEll(block,20px); }
+        .ItemRendererTextArtistLike { margin-bottom:4px; color:$FCMedium; @include FSB12; @include textEll(block,20px); }
+
+        .itemRendererTextAddition {
+          @include FSB14;
+          @include textEll(block, 20px);
+          .textSt {
+            @include FSB14;
+            &:before { margin-top:-6px; height:14px; }
+          }
+        }
+        .itemRendererTextEvaluation {
+          @include FSB14;
+          @include textEll(block, 20px);
+          .linkSt {
+            position:relative; padding:0 8px 0 9px; display:inline-block;
+            @include FSB14;
+            &:before { margin-top:-6px; height:14px; }
+            i.avgscore12 { width:16px; height:16px; background-position:-174px -500px; }
+            i.comment12 { width:16px; height:16px; background-position:-140px -517px; }
+            .tB12 { @include FSB14 }
+          }
+        }
+
+        .itemRendererTextAudioBooks {
+          @include FSB14;
+          @include textEll(block, 20px);
+          .textSt {
+            @include FSB14;
+            &:before { margin-top:-6px; height:14px; }
+          }
+        }
+
+        .itemRendererTextPriceBox {
+          @include FSB14;
+          .itemRendererTextPriceSub {
+            @include textEll(block, 20px);
+          }
+          .textSt { @include FSB14; }
+          .tItemRendererTextPriceDel { margin-right:12px;}
+        }
+      }
+    }
+    &.default1Row
+    , &.search1Row
+    , &.historyList {
+      padding:12px 8px;
+    }
+
+    &.ranking {
+      .ItemRendererInner {
+        .tItemRendererTextRanking { margin-bottom:6px; font-size:22px; line-height:22px; }
+        .ItemRendererTextArtist { margin-bottom:0;}
+      }
+    }
+
+    &.like {
+      .ItemRendererInner {
+        .itemRendererThumbnail { margin-bottom:8px; }
+      }
+    }
+
+    &.swiperCard {
+      .ItemRendererInner {
+        width:112px; margin:0 auto;
+        .itemRendererThumbnail { margin-bottom:8px; }
+        .itemRendererTextWrap {  
+          .ItemRendererTextArtistLike { margin-bottom:0px;}
+        }
+      }
+    }
+
+    &.noticeList {
+      .tItemRendererTextRegDt { @include FSB14; }
+    }
+    &.replyList {
+      .itemRendererTextWrap {
+        .tItemRendererTextRegDt { @include FSB14; }
+        .tItemRendererTextCommentDesc { margin-bottom:8px; @include FSB14; @include textLineEll(2, 40px); }
+      }
+    }
+
+    &.historyList {
+      .itemRendererTextWrap {
+        .tItemRendererTextRegDt { @include FSB14; }
+        .tItemRendererTextPrice { @include FSB14; }
+      }
+    }
+    
+    &.giftReceived {
+      .itemRendererTextWrap {
+        .tItemRendererTextRegDt { @include FSB14; }
+        .tItemRendererTextPrice { @include FSB14; }
+        .tItemRendererTextPerson { @include FSB14; }
+      }
+    }
+
+    &.giftSent {
+      .itemRendererTextWrap {
+        .tItemRendererTextRegDt { @include FSB14; }
+        .tItemRendererTextPrice { @include FSB14; }
+        .tItemRendererTextPerson { @include FSB14; }
+      }
+    }
+
+    &.episode {
+      .itemRendererTextWrap {
+        .tItemRendererTextFile { @include FSB14; }
+      }
+    }
+  }
+
+  .ItemRendererSideBtn {
+    .ItemRendererSideReceipt {
+      padding:10px 6px 6px 6px !important;
+      > span {
+        i.icon {
+          &.receipt20 { width:24px; height:24px; background-position:-450px -675px; }
+        }
+        .textSt { @include FSB14; }
+      }
+    }
+    .ItemRendererSideGift {
+      padding:10px 6px 6px 6px !important;
+      > span {
+        i.icon {
+          &.giftGrey20 { width:24px; height:24px; background-position:-475px -675px; }
+        }
+        .textSt { @include FSB14; }
+      }
+    }
+    .ItemRendererSideEpisode {
+      padding:10px 6px 6px 6px !important;
+      > span {
+        i.icon {
+          &.episodeViewGrey20 { width:24px; height:24px; background-position:-500px -675px; }
+        }
+        .textSt { @include FSB14; }
+      }
+    }
+  }
+}

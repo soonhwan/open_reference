@@ -1,0 +1,68 @@
+{
+  "result_code": "00",
+  "result_message": "",
+  "params": {
+    "orderCol": "regDate",
+    "couponCnt": 2,
+    "couponList": [
+      {
+        "couponId": "OP0000052464",
+        "issuSeq": 1034566735,
+        "couponName": "탱크배틀할인쿠폰",
+        "couponMsg": "이 쿠폰은 티스토어 고객에게 드리는 선물입니다.",
+        "couponDcType": "PD015501",
+        "couponAmt": 1000,
+        "dcMaxAmt": 1000,
+        "prchsMinAmt": 5000,
+        "makeHost": "OR002301",
+        "couponType": "PD015101",
+        "useCntSetYn": "Y",
+        "useSetCnt": 3,
+        "useRestCnt": 2,
+        "validStartDt": "20150401000000",
+        "validEndDt": "20150407000000",
+        "prodList": [
+          {
+            "prodType": "PD015202",
+            "prodId": "0000065196",
+            "subApplyYn": "N"
+          }
+        ],
+        "allowTelecomList": [
+          "US001201",
+          "US001202",
+          "US001203"
+        ],
+        "allowAppPlayerList": [
+          "MK003802"
+        ]
+      },
+      {
+        "couponId": "OP0000052465",
+        "issuSeq": 34574,
+        "couponName": "탱크 포탄 100",
+        "couponMsg": "이 쿠폰은 티스토어 고객에게 드리는 선물입니다.",
+        "couponDcType": "PD015502",
+        "couponAmt": 10,
+        "dcMaxAmt": 500,
+        "prchsMinAmt": 5000,
+        "makeHost": "OR002301",
+        "couponType": "PD015102",
+        "useCntSetYn": "N",
+        "useSetCnt": 1,
+        "useRestCnt": 1,
+        "validStartDt": "20150401000000",
+        "validEndDt": "20150407000000",
+        "prodList": [
+          {
+            "prodType": "PD015202",
+            "prodId": "0900027452",
+            "subApplyYn": "N"
+          }
+        ],
+        "allowAppPlayerList": [],
+        "usedYn": "Y"
+      }
+    ]
+  }
+}

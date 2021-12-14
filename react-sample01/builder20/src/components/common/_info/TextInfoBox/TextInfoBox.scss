@@ -1,0 +1,48 @@
+@import "~styles/base/util";
+
+.TextInfoBox {
+  position:relative; padding:0;
+  @include pcMaxWidth;
+  @include boxSizing;
+  .TextInfoBoxInner {
+    padding:0 16px 8px 16px; 
+    @include boxSizing;
+  }
+  .TextInfoBoxBody {}
+  .TextInfoTitle { margin-bottom:8px;}
+
+  &.line {
+    .TextInfoBoxBody {
+      position:relative; padding-top:28px;
+      &:before { position:absolute; content:''; left:0; top:8px; right:0; width:100%; height:1px; border-top:1px solid $BCExtraL; border-bottom:1px solid $BCExtraL; display:block; }
+    }
+  }
+
+  &.checkboxLine {
+    .TextInfoBoxBody {
+      position:relative; padding-top:20px;
+      &:before { position:absolute; content:''; left:0; top:8px; right:0; width:100%; height:1px; border-top:1px solid $BCExtraL; border-bottom:1px solid $BCExtraL; display:block; }
+    }
+    .formCheckbox {
+      padding-left:0; padding-right:0;
+      .formCheckboxInner { padding-top:4px; padding-bottom:4px; }
+    }
+  }
+}
+
+@include for-768-only {
+  .TextInfoBox {
+    padding:0 24px;
+    .TextInfoBoxInner { padding-bottom:16px; }
+  }
+}
+
+@include for-1080-only {
+  .TextInfoBox {
+    .TextInfoBoxInner {
+      padding-bottom:16px;
+      .TextInfoTitle { @include FSB14B; }
+      .TextInfoDesc { @include FSB14; }
+    }
+  }
+}

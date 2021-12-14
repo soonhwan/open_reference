@@ -1,0 +1,32 @@
+
+.comment-module {
+    background: #fff;
+}
+
+.comment-module-item {
+    margin: 0 15px 0 15px;
+    border-bottom: 1px solid rgba(0,0,0,.03);
+}
+.comment-module-item.no {
+    border-bottom-width: 0;
+
+    span {
+      padding: 122px 0 22px 0;
+      text-align: center;
+      display: block;
+
+      img {
+        width: 120px;
+        vertical-align: top;
+      }
+    }
+
+    strong {
+      padding: 4px 15px 0 15px;
+      font-size: 16px;
+      line-height: 20px;
+      font-weight: 400;
+      text-align: center;
+      display: block;
+    }
+}

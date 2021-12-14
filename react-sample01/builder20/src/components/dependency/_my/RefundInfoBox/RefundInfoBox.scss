@@ -1,0 +1,49 @@
+@import "~styles/base/util";
+
+.RefundInfoBoxWrap {
+  padding:0;
+  @include pcMaxWidth;
+  @include boxSizing;
+  .RefundInfoBoxInner { padding:0 16px 16px 16px; }
+  .RefundInfoBoxCo {
+    padding:0 0 0 0; border:1px solid $BGBlack10;
+    @include vendorPrefix(border-radius,16px);
+  }
+  .RefundInfoBoxBody {
+    padding:15px 15px 11px 15px;
+    ul {
+      width:100%; display:block;
+      &.total {
+        margin-top:8px; padding:11px 0 0 0; border-top:1px solid $BCExtraL;
+      }
+    }
+    li { width:100%; padding:0 8px 4px 8px; display:block; @include boxSizing; }
+    dl { position:relative;}
+    dt { position:absolute; left:0; top:0; }
+    dd { padding:0 0 0 120px; text-align:right; }
+  }
+}
+
+@include for-768-only {
+  .RefundInfoBoxWrap {
+    padding:0 24px;
+  }
+}
+
+@include for-1080-only {
+  .RefundInfoBoxWrap {
+    .RefundInfoBoxInner { padding:0 16px 24px 16px; }
+
+    .RefundInfoBoxBody {
+      padding:23px 15px 15px 15px;
+      ul {
+        &.total {
+          margin-top:16px; padding:16px 0 0 0; border-top:1px solid $BCExtraL;
+        }
+      }
+      li { padding:0 37px 8px 37px; }
+      .tB14 { @include FSST16; }
+      .tB14B { @include FSST16B; }
+    }
+  }
+}

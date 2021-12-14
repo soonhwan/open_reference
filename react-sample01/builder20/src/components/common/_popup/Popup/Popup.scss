@@ -1,0 +1,164 @@
+@import "~styles/base/util";
+
+/* pointer-events IE10 확인 필요 */
+.PopupWrap {
+  position:fixed; left:0; right:0; top:0; bottom:0; width:100%; height:100%; background-color:transparent; z-index:6000; pointer-events:none;
+  @include boxSizing;
+  @include flexBox;
+  @include flexWidth(1 1);
+  @include alignItems(flex-end);
+  .PopupWrapInner {
+    width:100%; background-color:$BGWhite; @include Shadow1R;
+    @include vendorPrefix(border-radius, 12px 12px 0 0);
+    @include boxSizing;
+    @include flexBox;
+    @include flexWidth(0 0 auto);
+    @include alignSelf(flex-end);
+
+    .PopupContentWrap {
+      width:100%; padding:16px 16px 8px 16px; pointer-events:auto;
+      @include boxSizing;
+    }
+  }
+
+  .PopupContentTitle { padding:8px 8px 10px 8px; }
+  .PopupContentCoScroll { max-height:330px; overflow-y:auto; }
+  .PopupContentCo {
+    padding:0 8px 0 8px;
+    .PopupContentDetail {
+      padding:12px 0 24px 0;
+    }
+  }
+
+  .PopupContentShare {
+    padding:8px 0 16px 0; text-align:center;
+    .PopupContentShareCell {
+      width:88px; margin-left:24px; vertical-align:top; display:inline-block;
+      img { width:100%; vertical-align:top; }
+      &:first-of-type { margin-left:0; }
+    }
+  }
+
+  .PopupFooterBtn {
+    margin:0 0 0 0; padding:8px 0 16px 0;
+    .PopupFooterBtnInner {
+      width:100%;
+      @include boxSizing;
+      @include flexBox;
+      @include flexJustifyContent(flex-end);
+      .PopupFooterBtnLeft {
+        padding-left:8px;
+        @include flexBox;
+        @include flexWidth(1 1);
+        @include alignItems(center);
+      }
+      .PopupFooterBtnRight {
+        @include flexBox;
+        @include flexWidth(0 0 auto);
+        @include alignItems(center);
+      }
+      .formCheckbox {
+        padding-top:6px; padding-bottom:6px; padding-left:20px;
+        label {
+          @include FSB14; color:$FCDark;
+          &:after
+          , &:before { left:-18px; top:1px; }
+          &:before { width:18px; height:18px; background-position:-225px -500px; }
+          &:after { width:18px; height:18px; background-position:-244px -500px; }
+        }
+      }
+    }
+  }
+
+  &.confirmBtnStyle {
+    .PopupFooterBtn {
+      margin:0 0 0 0;
+      padding:0 0 0px 0;
+      .PopupFooterBtnInner {
+        display:block;
+        .PopupFooterBtnLeft { padding:0 0 8px 8px; display:block; }
+        .PopupFooterBtnRight {
+          padding:8px 0 0 0; display:block;
+          .btnPrimary
+          , .btnLink { padding-top:14px; padding-bottom:14px; width:100%; text-align:center; @include boxSizing; }
+        }
+      }
+    }
+  }
+
+  &.detailCover {
+    padding:0 24px;
+    .PopupWrapInner {
+      width:100%; max-height:100%; background-color:transparent;
+      @include alignSelf(center); @include ShadowNo; @include vendorPrefix(border-radius,0);
+      .PopupContentWrap {
+        position:relative; margin:0; padding:0; text-align:center; display:block;
+      }
+      .PopupContentCover {
+        position: relative; display:inline-block;
+        .PopupContentCoverClose { position:absolute; right:0; top:0; padding:0; }
+        img {  width:auto; padding:40px 0; max-width:100%; height:auto; display:block; line-height:0; @include vendorPrefix(box-sizing,border-box) }
+      }
+    }
+  }
+
+  &.appMove {
+    .PopupWrapInner {
+      background: #ff9a2a;
+      background: -moz-linear-gradient(top,  #ff9a2a 0%, #fc6b05 100%);
+      background: -webkit-linear-gradient(top,  #ff9a2a 0%,#fc6b05 100%);
+      background: linear-gradient(to bottom,  #ff9a2a 0%,#fc6b05 100%);
+      filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ff9a2a', endColorstr='#fc6b05',GradientType=0 );
+      .PopupContentCo {
+        text-align:center;
+        .textSt { display:block;}
+      }
+      .PopupFooterBtn {
+        padding:8px 24px 8px 24px;
+        .PopupFooterBtnRight {
+          .btnPrimary {
+            background-color:$BGWhite;
+            .tWhite { color:$FCPoint; }
+          }
+          .btnLink {
+            .tDark { color:$FCWhite; }
+          }
+        }
+      }
+    }
+  }
+}
+
+@include for-min-only {
+  .PopupWrap {
+    &.share {
+      .PopupContentShare {
+        .PopupContentShareCell {
+          width:28%; margin-left:7.6%;
+        }
+      }
+    }
+  }
+}
+
+@include for-768-only {
+  .PopupWrap {
+    .PopupWrapInner {
+      width:360px; margin:0 auto;
+      @include vendorPrefix(border-radius, 12px);
+      @include alignSelf(center);
+      @include Shadow1;
+    }
+  }
+}
+
+@include for-1080-only {
+  .PopupWrap {
+    .PopupWrapInner {
+      width:360px; margin:0 auto;
+      @include vendorPrefix(border-radius, 12px);
+      @include alignSelf(center);
+      @include Shadow1;
+    }
+  }
+}

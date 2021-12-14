@@ -1,0 +1,88 @@
+@import "~styles/base/util";
+
+.DetailNextProductWrap {
+  background-color:#ffffff;
+  .DetailNextProductInner {
+    padding:0 0 0 0;
+    @include pcMaxWidth;
+    @include boxSizing;
+  }
+  .DetailNextProductBox {
+    padding:0 16px 0 16px;
+    @include boxSizing;
+  }
+  .DetailNextProductBoxInner {
+    width:100%; padding:0; border-top:1px solid $BCExtraL; border-bottom:1px solid $BCExtraL;
+    @include boxSizing;
+    @include flexBox;
+    @include flexWrap(nowrap);
+  }
+  .DetailNextProductLink {
+    padding:8px 0 8px 0;
+    overflow:hidden;
+    @include boxSizing;
+    @include flexBox;
+    @include flexWidth(1 1);
+    // @include flexDirection(column);
+    @include alignSelf(center);
+    @include alignItems(center);
+    @include flexWrap(nowrap);
+
+    .DetailNextProductThumbnail {
+      max-width:80px; padding-right:8px;
+      @include boxSizing;
+      @include flexWidth(0 0 auto);
+      @include flexDirection(column);
+      @include alignSelf(center);
+      @include alignItems(center);
+    }
+    .DetailNextProductText {
+      overflow:hidden;
+      @include boxSizing;
+      @include flexWidth(1 1);
+      @include flexDirection(column);
+      @include alignSelf(center);
+      @include alignItems(center);
+  
+      .DetailNextProductNm { margin-bottom:0; }
+      .DetailNextProductOwn { margin-top:2px;}
+    }
+  }
+  .DetailNextProductBtn {
+    padding-left:12px;
+    @include boxSizing;
+    @include flexWidth(0 0 auto);
+    @include alignSelf(center);
+    @include alignItems(center);
+
+    .btnBlock { width:54px; @include boxSizing; }
+  }
+}
+
+@include for-768-only {
+  .DetailNextProductWrap {
+    .DetailNextProductInner { padding:0 24px 0 24px; }
+    .DetailNextProductBox { padding:0 20px 0 20px; }
+  }
+}
+
+@include for-1080-only {
+  .DetailNextProductWrap {
+    .DetailNextProductLink {
+      padding:12px 0 12px 0;
+      .DetailNextProductThumbnail { padding-right:16px;}
+      .DetailNextProductText {
+        .DetailNextProductNm { @include FSST16; height:22px; }
+        .DetailNextProductTitle { @include FSST16; height:22px; }
+        .DetailNextProductOwn { margin-top:4px; @include FSB14; height:20px; }
+      }
+    }
+    .DetailNextProductBtn {
+      padding-left:40px;
+      .btnBlock {
+        width:88px; @include boxSizing; padding-top:12px; padding-bottom:12px;
+        .tB12B { @include FSST16B; }
+      }
+    }
+  }
+}

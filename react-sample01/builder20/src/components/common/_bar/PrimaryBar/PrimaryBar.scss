@@ -1,0 +1,281 @@
+@import "~styles/base/util";
+
+.CoreButtonPrev
+, .CoreButtonNext {
+  @include iconPicUrl;
+}
+
+.PrimaryBar {
+  width:100%; padding:0;
+  @include pcMaxWidth;
+  @include boxSizing;
+  .PrimaryBarWrap {
+    width:100%; padding:0;
+    @include boxSizing;
+  }
+  .PrimaryBarInner {
+    width:100%; padding:0; overflow:hidden;
+    @include boxSizing;
+
+    .swiper-container {
+      overflow:visible;
+      .swiper-wrapper {
+        .swiper-slide { width:auto; }
+      }
+
+      .CoreDimLeft {
+        position:absolute; left:0; top:0; width:32px; height:48px; margin:0; padding:0; opacity:1; z-index:2;
+        background:url('/static/images/bg/corebar_dim_left.png') repeat-y; display:block;
+        @include fontSizeZero;
+        @include vendorPrefix(background-size,32px 48px);
+        &.disabled {
+          opacity:0;
+        }
+      }
+      .CoreDimRight {
+        position:absolute; right:-12px; top:0; width:32px; height:48px; margin:0; padding:0; opacity:1; z-index:2;
+        background:url('/static/images/bg/corebar_dim_right.png') repeat-y; display:block;
+        @include fontSizeZero;
+        @include vendorPrefix(background-size,32px 48px);
+        &.disabled {
+          opacity:0;
+        }
+      }
+      .CoreButtonPrev {
+        position:absolute; left:-8px; top:4px; width:40px; height:40px; opacity:1; background-position:0px -450px; z-index:3;
+        &.disabled { display:none; }
+      }
+      .CoreButtonNext {
+        position:absolute; right:-8px; top:4px; width:40px; height:40px; opacity:1; background-position:-45px -450px; z-index:3;
+        &.disabled { display:none; }
+      }
+    }
+  }
+
+  &.core {
+    .PrimaryBarWrap { }
+    .PrimaryBarInner {
+      padding:8px 12px 16px 0;
+    }
+    .corelink {
+      margin:0 0 0 12px; padding:9px 11px; border:1px solid $BGBlack10;
+      @include vendorPrefix(border-radius,20px);
+      @include Shadow3;
+      &.corelinkSel {
+      }
+    }
+  }
+
+  &.landingNav {
+    border-bottom:1px solid $BCExtraL;
+    .PrimaryBarWrap { }
+    .PrimaryBarInner {
+      padding:6px 12px 13px 8px;
+      .swiper-container{
+        .CoreDimLeft { left:-8px; }
+        .CoreDimRight { }
+        .CoreButtonPrev { left:-8px; }
+        .CoreButtonNext {}
+      }
+    }
+    .landingNavlink {
+      margin:0 0 0 4px; padding:7px 11px 7px 11px; border:1px solid transparent;
+      @include vendorPrefix(border-radius,16px);
+      &.landingNavlinkSel {
+        border-color:$BGBlack10;
+        @include Shadow3;
+      }
+    }
+  }
+
+  &.rankingNav {
+    .PrimaryBarWrap { }
+    .PrimaryBarInner {
+      padding:0 16px 0 16px;
+      .swiper-container{
+        .CoreDimLeft { left:-16px; }
+        .CoreDimRight { right:-16px; }
+        .CoreButtonPrev { left:-16px; }
+        .CoreButtonNext { right:-16px; }
+      }
+    }
+    .rankingNavlink {
+      margin:0 0 0 24px; padding:8px 0 6px 0;
+      > span { position:relative; padding:0 0 6px 0; display:block;}
+      &.rankingNavlinkSel {
+        > span {
+          &:before { position:absolute; content:''; left:0; bottom:0; width:100%; height:2px; background-color:$BGDark; display:block; }
+        }
+      }
+    }
+
+    .swiper-slide {
+      &:first-of-type {
+        .rankingNavlink { margin-left:0; }
+      }
+    }
+  }
+
+  &.keyword {
+    .PrimaryBarWrap {}
+    .PrimaryBarInner {
+      padding:8px 12px 16px 4px;
+      .swiper-container{
+        .CoreDimLeft { left:-4px; }
+        .CoreDimRight { }
+        .CoreButtonPrev { left:-4px; }
+        .CoreButtonNext {}
+      }
+    }
+    .keywordlink {
+      margin:0 0 0 8px; padding:6px 8px 6px 8px; background-color:$BGExtraL;
+      @include vendorPrefix(border-radius,16px);
+      &.keywordlinkSel {
+      }
+    }
+  }
+}
+
+@include for-min-only {
+  .PrimaryBar {
+    .PrimaryBarInner {
+      .swiper-container {
+        .CoreButtonPrev { display:none !important; }
+        .CoreButtonNext { display:none !important; }
+      }
+    }
+  }
+}
+
+@include for-360-only {
+  .PrimaryBar {
+    .PrimaryBarInner {
+      .swiper-container {
+        .CoreButtonPrev { display:none !important; }
+        .CoreButtonNext { display:none !important; }
+      }
+    }
+  }
+}
+
+@include for-768-only {
+  .PrimaryBar {
+    .PrimaryBarInner {
+      .swiper-container {
+        .CoreButtonPrev { display:none !important; }
+        .CoreButtonNext { display:none !important; }
+      }
+    }
+
+    &.core {
+      .PrimaryBarWrap { padding-left:24px; padding-right:24px; }
+      .PrimaryBarInner {
+        padding:6px 12px 18px 0;
+      }
+      .corelink {
+        > span {}
+        &.corelinkSel {
+        }
+      }
+    }
+  
+    &.landingNav {
+      .PrimaryBarWrap { padding-left:24px; padding-right:24px; }
+      .PrimaryBarInner {
+        padding:6px 12px 13px 8px;
+      }
+      .landingNavlink {
+        &.landingNavlinkSel {
+        }
+      }
+    }
+
+    &.rankingNav {
+      .PrimaryBarWrap { padding-left:24px; padding-right:24px; }
+    }
+  
+    &.keyword {
+      .PrimaryBarWrap { padding-left:24px; padding-right:24px; }
+      .PrimaryBarInner {
+      }
+      .keywordlink {
+        &.keywordlinkSel {
+        }
+      }
+    }
+  }
+}
+
+@include for-1080-only {
+  .PrimaryBar {
+    &.core {
+      .PrimaryBarWrap {}
+      .PrimaryBarInner {
+        .swiper-container {
+          .CoreDimLeft { left:0; }
+          .CoreDimRight { right:-12px; }
+          .CoreButtonPrev { left:0; }
+          .CoreButtonNext { right:-12px; }
+        }
+      }
+      .corelink {
+        padding:12px 14px 12px 15px;
+        @include vendorPrefix(border-radius,24px);
+        .tB14 { @include FSST16; }
+        &.corelinkSel {
+        }
+      }
+    }
+  
+    &.landingNav {
+      margin-bottom:8px; 
+      .PrimaryBarWrap { }
+      .PrimaryBarInner {
+        padding:12px 12px 11px 4px;
+        .swiper-container {
+          .CoreDimLeft { top:-4px; left:-4px; }
+          .CoreDimRight { top:-4px; }
+          .CoreButtonPrev { top:0px; left:-4px; }
+          .CoreButtonNext { top:0px; }
+        }
+      }
+      .landingNavlink {
+        margin-left:8px; padding:8px 12px 8px 12px;
+        .tB14 { @include FSST16; }
+        &.landingNavlinkSel {
+        }
+      }
+    }
+
+    &.rankingNav {
+      .PrimaryBarWrap {}
+      .PrimaryBarInner {
+      }
+      .rankingNavlink {
+        padding:10px 0 8px 0;
+        > span { padding:0 0 8px 0; }
+        .textSt { @include FSST16; }
+      }
+    }
+  
+    &.keyword {
+      .PrimaryBarWrap {}
+      .PrimaryBarInner {
+        padding:16px 12px 16px 0px;
+        .swiper-container {
+          .CoreDimLeft { top:-4px; left:0px; }
+          .CoreDimRight { top:-4px; }
+          .CoreButtonPrev { top:0px; left:0px; }
+          .CoreButtonNext { top:0px; }
+        }
+      }
+      .keywordlink {
+        margin-left:12px; padding:9px 12px 9px 12px;
+        @include vendorPrefix(border-radius,20px);
+        .tB14 { @include FSST16; }
+        &.keywordlinkSel {
+        }
+      }
+    }
+  }
+}

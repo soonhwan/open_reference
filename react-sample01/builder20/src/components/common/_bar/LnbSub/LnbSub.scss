@@ -1,0 +1,43 @@
+@import "~styles/base/util";
+
+.LnbSub {
+  .LnbSubInner {
+    width:100%; padding:0 16px 0 16px;
+    @include pcMaxWidth;
+    @include boxSizing;
+
+    .LnbSubHeader {
+      padding-bottom:4px;
+    }
+    .LnbSubSummary {
+      position:relative; padding-bottom:28px;
+      &:after {
+        position:absolute; content:''; left:0; bottom:9px; width:100%; height:4px; border-top:1px solid $BCExtraL; border-bottom:1px solid $BCExtraL; display:block;
+        @include boxSizing;
+      }
+    }
+  }
+}
+
+@include for-768-only {
+  .LnbSub {
+    .LnbSubInner {
+      padding:0 40px 0 40px;
+      .LnbSubHeader { }
+      .LnbSubSummary { }
+    }
+  }
+}
+
+@include for-1080-only {
+  .LnbSub {
+    .LnbSubInner {
+      .LnbSubHeader {
+        .tB14 { @include FSST16; }
+      }
+      .LnbSubSummary {
+        .tB14 { @include FSST16; }
+      }
+    }
+  }
+}

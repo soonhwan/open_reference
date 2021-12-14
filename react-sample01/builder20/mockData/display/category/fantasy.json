@@ -1,0 +1,72 @@
+{
+  "result_message": "",
+  "result_code": "00",
+  "params": {
+    "upMenuKey": "fantasy",
+    "menuList": [
+      {
+        "menuKey": "fantasyAll",
+        "menuName": "전체",
+        "groupList": [
+          {
+            "title": "최신순",
+            "listId": "RNK050040001",
+            "menuId": "DP13041|DP13042|DP13043|DP13044"
+          },
+          {
+            "title": "인기순",
+            "listId": "RNK050700001",
+            "menuId": "DP13041|DP13042|DP13043|DP13044"
+          },
+          {
+            "title": "평점순",
+            "listId": "RNK050060001",
+            "menuId": "DP13041|DP13042|DP13043|DP13044"
+          }
+        ]
+      },
+      {
+        "menuKey": "DP13042",
+        "menuName": "판타지",
+        "groupList": [
+          {
+            "title": "최신순",
+            "listId": "RNK050040001",
+            "menuId": "DP13042"
+          },
+          {
+            "title": "인기순",
+            "listId": "RNK050700001",
+            "menuId": "DP13042"
+          },
+          {
+            "title": "평점순",
+            "listId": "RNK050060001",
+            "menuId": "DP13042"
+          }
+        ]
+      },
+      {
+        "menuKey": "DP13043",
+        "menuName": "역사/대하",
+        "groupList": [
+          {
+            "title": "최신순",
+            "listId": "RNK050040001",
+            "menuId": "DP13043"
+          },
+          {
+            "title": "인기순",
+            "listId": "RNK050700001",
+            "menuId": "DP13043"
+          },
+          {
+            "title": "평점순",
+            "listId": "RNK050060001",
+            "menuId": "DP13043"
+          }
+        ]
+      }
+    ]
+  }
+}
