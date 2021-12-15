@@ -1,55 +1,75 @@
 import React from 'react';
 import { AppLayout } from 'components';
 import { SubTitle } from 'styles/common';
-import styled from 'styled-components';
 
-import { StylesProvider } from '@material-ui/core/styles';
-import Stack from '@mui/material/Stack';
-import Button from '@mui/material/Button';
+import 'antd/dist/antd.css';
+import { Layout, Menu, Breadcrumb } from 'antd';
+import { UserOutlined, LaptopOutlined, NotificationOutlined } from '@ant-design/icons';
 
-const MyButton = styled(Button)`
-  background: linear-gradient(45deg, #fe6b8b 30%, #ff8e53 90%);
-  border: 0;
-  border-radius: 30px;
-  box-shadow: 0 3px 5px 2px rgba(255, 105, 135, 0.3);
-  color: white;
-  height: 48px;
-  padding: 0 30px;
-  transition: all 0.3s;
-  :hover {
-    background: green;
-  }
-`;
-
-const MyButton2 = styled(Button)`
-  background: linear-gradient(45deg, #fe6b8b 30%, #ff8e53 90%);
-  border: 0;
-  border-radius: 30px;
-  box-shadow: 0 3px 5px 2px rgba(255, 105, 135, 0.3);
-  color: white;
-  height: 48px;
-  padding: 0 30px;
-  :hover {
-    background: red;
-  }
-`;
 const Main = () => {
 
+  const { SubMenu } = Menu;
+  const { Header, Content, Sider } = Layout;
+  
   return (
     <AppLayout>
       <SubTitle size={24}>메인</SubTitle>
-
-      <MyButton variant="outlined">Styled Components</MyButton>
-      <br /><br />
-      <StylesProvider injectFirst>
-        <MyButton2>Styled Components</MyButton2>
-      </StylesProvider>
-      
-      <Stack spacing={2} direction="row">
-        <Button variant="text">Text</Button>
-        <Button variant="contained">Contained</Button>
-        <Button variant="outlined">Outlined</Button>
-      </Stack>
+    
+      <Layout>
+        <Header>
+          <div className="logo" />
+          <Menu theme="dark" mode="horizontal" defaultSelectedKeys={['1']}>
+            <Menu.Item key="1">nav 1</Menu.Item>
+            <Menu.Item key="2">nav 2</Menu.Item>
+            <Menu.Item key="3">nav 3</Menu.Item>
+          </Menu>
+        </Header>
+        <Layout>
+          <Sider width={200}>
+            <Menu
+              mode="inline"
+              defaultSelectedKeys={['1']}
+              defaultOpenKeys={['sub1']}
+              style={{ height: '100%', borderRight: 0 }}
+            >
+              <SubMenu key="sub1" icon={<UserOutlined />} title="subnav 1">
+                <Menu.Item key="1">option1</Menu.Item>
+                <Menu.Item key="2">option2</Menu.Item>
+                <Menu.Item key="3">option3</Menu.Item>
+                <Menu.Item key="4">option4</Menu.Item>
+              </SubMenu>
+              <SubMenu key="sub2" icon={<LaptopOutlined />} title="subnav 2">
+                <Menu.Item key="5">option5</Menu.Item>
+                <Menu.Item key="6">option6</Menu.Item>
+                <Menu.Item key="7">option7</Menu.Item>
+                <Menu.Item key="8">option8</Menu.Item>
+              </SubMenu>
+              <SubMenu key="sub3" icon={<NotificationOutlined />} title="subnav 3">
+                <Menu.Item key="9">option9</Menu.Item>
+                <Menu.Item key="10">option10</Menu.Item>
+                <Menu.Item key="11">option11</Menu.Item>
+                <Menu.Item key="12">option12</Menu.Item>
+              </SubMenu>
+            </Menu>
+          </Sider>
+          <Layout style={{ padding: '0 24px 24px' }}>
+            <Breadcrumb style={{ margin: '16px 0' }}>
+              <Breadcrumb.Item>Home</Breadcrumb.Item>
+              <Breadcrumb.Item>List</Breadcrumb.Item>
+              <Breadcrumb.Item>App</Breadcrumb.Item>
+            </Breadcrumb>
+            <Content
+              style={{
+                padding: 24,
+                margin: 0,
+                minHeight: 280,
+              }}
+            >
+              Content
+            </Content>
+          </Layout>
+        </Layout>
+      </Layout>  
     </AppLayout>
   )
 }

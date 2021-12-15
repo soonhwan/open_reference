@@ -6,7 +6,7 @@ const Footer = () => {
   return (
     <FooterWrap>
       <h2><Link href="/main"><a>NEXT PROJECT</a></Link></h2>
-      <p>ⓒ 2020 PUBLISHING BY SUNG-YEONWOOK</p>
+      <p>ⓒ 2020 PUBLISHING BY SUNG</p>
     </FooterWrap>
   )
 }
