@@ -68,7 +68,8 @@ const Main = () => {
             </Content>
           </Layout>
         </Layout>
-      </Layout>  
+      </Layout> 
+       
     </AppLayout>
   )
 }

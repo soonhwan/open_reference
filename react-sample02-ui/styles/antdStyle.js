@@ -1,10 +1,10 @@
-import styled, { createGlobalStyle } from 'styled-components';
-import { Button, Select, Tooltip } from 'antd';
+import styled, { createGlobalStyle, css } from 'styled-components';
+import { Button, Select, Tooltip, Dropdown } from 'antd';
 
-export const WC = {};
+export const W = {};
 
 //Button
-WC.Button = styled(Button)`
+W.Button = styled(Button)`
   font-size: ${props => props.size}px;
   background: #333;
   transition: all 0.3s;
@@ -18,21 +18,33 @@ WC.Button = styled(Button)`
   &.ant-btn-circle { 
     border-radius: 10%; 
   }
-  &.btn-st1 {
-    background: blue;  
-  }
-  &.btn-st2 {
-    background: red;  
-  }
   :hover {
     background: green;
   }
+  ${(props) => {
+    switch (props.className) {
+      case "type01":
+        return css`
+          background: blue;
+          &::after {
+            content: 'st1';
+          }
+        `;
+      case "type02":
+        return css`
+          background: red;
+          &::after {
+            content: 'st2';
+          }
+        `;
+    }
+  }}
 `;
 
 //SelectDropdown
-WC.SelectDropdown = createGlobalStyle`
+W.SelectDropdown = createGlobalStyle`
   .ant-select-dropdown {
-    &.select-st1 {
+    &.type01 {
       color: yellow;
       background-color: green;
     }
@@ -40,36 +52,106 @@ WC.SelectDropdown = createGlobalStyle`
 `;
 
 //Select
-WC.Select = styled(Select)`
-  &.select-st1 {
+W.Select = styled(Select)`
+  &.type01 {
     .ant-select-selector {
       background: blue;
       color: gray;
     }
   }
-  ${WC.SelectDropdown}
+  ${W.SelectDropdown}
 `;
 
 //TooltipOverlay
-WC.TooltipOverlay = createGlobalStyle`
+W.TooltipOverlay = createGlobalStyle`
   .ant-tooltip {
-    &.tooltip-st1 .ant-tooltip-inner {
-      color: blue;
-      background-color: green;
-    }
-    &.tooltip-st2 .ant-tooltip-inner {
-      background-color: #f79595;
-    }
+    ${(props) => {
+      switch (props.overlayClassName) {
+        case "type01":
+          return css`
+            &.type01 .ant-tooltip-inner {
+              color: blue;
+              background-color: green;
+            }
+          `;
+        case "type02":
+          return css`
+            &.type02 .ant-tooltip-inner {
+              background-color: #bd7272;
+            }
+          `;
+      }
+    }}
   }
 `;
 
 //Tooltip
-WC.Tooltip = styled(Tooltip)`
-  &.tooltip-st1 {
-    background-color: #333;
+W.Tooltip = styled(Tooltip)`
+  ${(props) => {
+    switch (props.className) {
+      case "type01":
+        return css`
+          background-color: #333;
+        `;
+      case "type02":
+        return css`
+          background-color: #f79595;
+        `;
+    }
+  }} 
+  ${W.TooltipOverlay}
+`;
+
+
+//DropdownOverlay
+W.DropdownOverlay = createGlobalStyle`
+  .ant-dropdown {
+    .ant-dropdown-menu-item {
+      a {
+        color: blue;
+      }
+    }
+  
+    ${(props) => {
+      switch (props.overlayClassName) {
+        case "type01":
+          return css`
+            &.type01 .ant-dropdown-menu-item {
+              &.ant-dropdown-menu-item-active {
+                a {
+                  color: #333;
+                }
+                background-color: green;
+              }
+            }
+          `;
+        case "type02":
+          return css`
+            &.type02 .ant-dropdown-menu-item {
+              a {
+                color: red;
+              }
+            }
+          `;
+      }
+    }}
   }
-  &.tooltip-st2 {
-    background-color: #f79595;
-  }
-  ${WC.TooltipOverlay}
+`;
+
+//Dropdown
+W.Dropdown = styled(Dropdown)`
+  ${(props) => {
+    switch (props.className) {
+      case "type01":
+        return css`
+          color: red;
+          background: #333;
+        `;
+      case "type02":
+        return css`
+          color: gray;
+        `;
+    }
+  }} 
+  ${W.DropdownOverlay}
 `;
