@@ -2,7 +2,6 @@ import React from 'react';
 import { AppLayout } from 'components';
 import { SubTitle } from 'styles/common';
 
-import 'antd/dist/antd.css';
 import { Layout, Menu, Breadcrumb } from 'antd';
 import { UserOutlined, LaptopOutlined, NotificationOutlined } from '@ant-design/icons';
 

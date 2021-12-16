@@ -1,15 +1,17 @@
 import React, { useState, useCallback, useEffect, memo } from 'react';
 import { AppLayout } from 'components';
 import { SubTitle } from 'styles/common';
-import { ButtonSt1, ButtonSt2, TooltipSt2, SelectSt2, SelectOptionSt2 } from 'styles/antdStyle';
+import { WC } from 'styles/antdStyle';
 
 import { SearchOutlined } from '@ant-design/icons';
-import { DatePicker, Space, Tooltip } from 'antd';
+import { DatePicker, Space, Button, Select } from 'antd';
+
+
 
 
 const About = () => {
   const { RangePicker } = DatePicker;
-  const { Option } = SelectSt2;
+  const { Option } = Select;
 
   const onClick = useCallback((e) => {
     console.log('onClick === ', e);
@@ -23,28 +25,41 @@ const About = () => {
     <AppLayout>
       <SubTitle size={24}>회사소개</SubTitle>
 
-      <ButtonSt1 size={20} type="link" onClick={onClick}>버튼</ButtonSt1>
+      <WC.Button className="btn-st1" size={20} type="link" onClick={onClick}>버튼</WC.Button>      
       <br /><br />
-      <ButtonSt2 type="text" onClick={onClick}>버튼2</ButtonSt2>
+      <WC.Button  className="btn-st2" type="text" onClick={onClick}>버튼2</WC.Button>
       <br /><br />
-      <ButtonSt2 disabled onClick={onClick}>버튼 disabled</ButtonSt2>
+      <WC.Button disabled onClick={onClick}>버튼 disabled</WC.Button>
       <br /><br />
-      {/* <Tooltip  title="search">
-        <TooltipSt2 />
-        <ButtonSt1 type="primary" shape="circle" icon={<SearchOutlined />} />
-      </Tooltip>
-      <Tooltip  title="search2222">
-        <TooltipSt2 />
-        <ButtonSt1 type="primary" shape="circle" icon={<SearchOutlined />} />
-      </Tooltip> */}
+
+      <WC.Tooltip 
+        title="search"
+        className="tooltip-st1"
+        overlayClassName="tooltip-st1"
+      >
+        <Button type="primary" shape="circle" icon={<SearchOutlined />} />
+      </WC.Tooltip>
+      <WC.Tooltip  
+        title="search2222"
+        className="tooltip-st2"
+        overlayClassName="tooltip-st2"
+      >
+        <Button type="primary" shape="circle" icon={<SearchOutlined />} />
+      </WC.Tooltip>
       <br /><br />
-      <SelectSt2 defaultValue="lucy" style={{ width: 120 }} onChange={handleChange}>
-        <SelectOptionSt2 />
+
+      <WC.Select
+        defaultValue="lucy" 
+        style={{ width: 120 }} 
+        onChange={handleChange}
+        className="select-st1"
+        dropdownClassName="select-st1"
+      >
         <Option value="jack">Jack</Option>
         <Option value="lucy">Lucy</Option>
         <Option value="disabled" disabled>Disabled</Option>
         <Option value="Yiminghe">yiminghe</Option>
-      </SelectSt2>
+      </WC.Select>
       <br /><br />
 
       <Space direction="vertical" size={12}>

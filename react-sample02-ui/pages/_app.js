@@ -3,6 +3,7 @@ import PropTypes from 'prop-types';
 import Head from 'next/head';
 import { enableES5, setAutoFreeze } from 'immer'
 import wrapper from 'store/configureStore';
+import 'antd/dist/antd.css';
 
 enableES5();
 setAutoFreeze(process.env.NODE_ENV !== 'production')
