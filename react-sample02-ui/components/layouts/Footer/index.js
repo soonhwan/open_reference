@@ -5,8 +5,7 @@ import { FooterWrap } from './styles';
 const Footer = () => {
   return (
     <FooterWrap>
-      <h2><Link href="/main"><a>NEXT PROJECT</a></Link></h2>
-      <p>ⓒ 2020 PUBLISHING BY SUNG</p>
+      Footer
     </FooterWrap>
   )
 }

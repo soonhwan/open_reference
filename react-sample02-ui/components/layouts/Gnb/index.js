@@ -7,8 +7,8 @@ const Gnb = () => {
 
   return (
     <GnbWrap>
-      <li><Link href="/about"><a>회사소개</a></Link></li>      
-      <li><Link href="/"><a>코딩맵 <span>&amp; 컴포넌트</span></a></Link></li>
+      <li><Link href="/about">회사소개</Link></li>      
+      <li><Link href="/">코딩맵 &amp; 컴포넌트</Link></li>
     </GnbWrap>
   )
 }

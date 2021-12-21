@@ -7,7 +7,6 @@ const Index = () => {
     { name: '회사소개', href: '/about' },
     { name: '프로필', href: '/profile' },
     { name: '회원가입', href: '/signup' },
-    { name: '테스트/유틸', href: '/test/utils' },
   ]
 
   return (

@@ -3,20 +3,27 @@ import PropTypes from 'prop-types';
 import Head from 'next/head';
 import { enableES5, setAutoFreeze } from 'immer'
 import wrapper from 'store/configureStore';
-import 'antd/dist/antd.css';
+import { ConfigProvider } from 'antd';
+import ko_KR from 'antd/lib/locale/ko_KR';
+import 'antd/dist/antd.min.css';
+
 
 enableES5();
 setAutoFreeze(process.env.NODE_ENV !== 'production')
 
 const NextProject = ({ Component }) => {
+
   return (
     <>
       <Head>
         <meta charSet="utf-8" />
         <title>NEXT PROJECT</title>
         <link rel="preconnect" href="https://fonts.gstatic.com" />
+        <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@100;300;400;500;700;900&display=swap" rel="stylesheet"></link>
       </Head>
-      <Component />
+      <ConfigProvider locale={ko_KR}>
+        <Component />
+      </ConfigProvider>
     </>
   );
 };
