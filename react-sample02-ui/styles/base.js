@@ -9,7 +9,7 @@ export const DEVICE_MOBILE = '@media screen and (max-width: 768px)';
 export const DEVICE_TABLET = '@media screen and (max-width: 1080px)';
 export const DEVICE_DESKTOP = '@media screen and (min-width: 1081px)';
 
-export const Global = createGlobalStyle`
+export const GlobalStyles = createGlobalStyle`
   body {
     margin: 0;
     padding: 0;

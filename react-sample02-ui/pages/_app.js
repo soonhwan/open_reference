@@ -8,7 +8,7 @@ import ko_KR from 'antd/lib/locale/ko_KR';
 import 'antd/dist/antd.min.css';
 import styles from 'styles';
 
-const { Global } = styles;
+const { GlobalStyles } = styles;
 enableES5();
 setAutoFreeze(process.env.NODE_ENV !== 'production')
 
@@ -16,7 +16,7 @@ const NextProject = ({ Component }) => {
 
   return (
     <>
-      <Global />
+      <GlobalStyles />
       <Head>
         <meta charSet="utf-8" />
         <title>NEXT PROJECT</title>

@@ -1,8 +1,8 @@
-import { Global } from './base';
+import { GlobalStyles } from './base';
 import { Container } from './common';
 
 const styles = {
-  Global,
+  GlobalStyles,
   Container,
 }
 
