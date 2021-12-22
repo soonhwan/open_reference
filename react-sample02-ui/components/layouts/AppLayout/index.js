@@ -3,9 +3,7 @@ import PropTypes from 'prop-types';
 import { Header, Footer, Gnb } from 'components';
 import { Layout, Menu } from 'styles/antd';
 import { UserOutlined, LaptopOutlined, NotificationOutlined } from '@ant-design/icons';
-import styles from 'styles';
 
-const { Global, Container } = styles;
 const { SubMenu } = Menu;
 const { Content, Sider } = Layout;
 
@@ -27,7 +25,6 @@ const AppLayout = ({ children }) => {
 
   return (
     <>
-      <Global />
       <div id="wrapper">
         <Header />
         <Layout>

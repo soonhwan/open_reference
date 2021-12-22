@@ -82,8 +82,8 @@ const SampleAntd = () => {
         <div className="example">
           <Transfer dataSource={[]} showSearch targetKeys={[]} render={item => item.title} />
         </div>
-        <div className="site-config-provider-calendar-wrapper">
-          <Calendar fullscreen={false} />
+        <div className="example">
+          <Calendar />
         </div>
         <div className="example">
           <Table dataSource={[]} columns={columns} />
