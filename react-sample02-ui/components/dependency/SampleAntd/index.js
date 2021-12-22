@@ -1,5 +1,4 @@
 import React, { useEffect, useState, useCallback, memo } from 'react';
-import PropTypes from 'prop-types';
 import { SampleAntdWrap } from './styles';
 import { Pagination,
   DatePicker,

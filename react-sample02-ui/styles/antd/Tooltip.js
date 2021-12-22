@@ -5,6 +5,7 @@ import { Tooltip } from 'antd';
 const TooltipOverlay = createGlobalStyle`
   .ant-tooltip {
     ${(props) => {
+      console.log('props ===> ', props);
       switch (props.overlayClassName) {
         case "type01":
           return css`

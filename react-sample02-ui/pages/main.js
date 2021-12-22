@@ -21,7 +21,7 @@ const Main = () => {
   useEffect(() => {
     setTimeout(function(){
       setShow(true)
-    }, 1000);
+    }, 3000);
   }, []);
 
   const menu = (
@@ -70,7 +70,7 @@ const Main = () => {
 
       <Button className="type01" size={20} type="link" onClick={onClick}>버튼</Button><br /><br />
       
-      {show && <Button  className="type02" type="text" onClick={onClick}>버튼2</Button>}<br /><br />
+      {show && <Button  className="type02" type="text" onClick={onClick}>버튼</Button>}<br /><br />
 
       <Button size={24} type="primary" onClick={onClick}>antd 버튼</Button><br /><br />
       
