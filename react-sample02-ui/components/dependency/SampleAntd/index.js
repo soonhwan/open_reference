@@ -9,10 +9,12 @@ import { Pagination,
   Modal,
   Button,
   Select,
-  Transfer } from 'styles/antd';
+  Transfer,
+  Typography } from 'styles/antd';
 
 const { Option } = Select;
 const { RangePicker } = DatePicker;
+const { Title } = Typography;
 const columns = [
   {
     title: 'Name',
@@ -57,6 +59,13 @@ const SampleAntd = () => {
   return (
     <SampleAntdWrap>
       <div className="locale-components">
+        <div className='example'>
+          <Title>h1. Ant Design</Title>
+          <Title level={2}>h2. Ant Design</Title>
+          <Title level={3}>h3. Ant Design</Title>
+          <Title level={4}>h4. Ant Design</Title>
+          <Title level={5}>h5. Ant Design</Title>
+        </div>
         <div className="example">
           <Pagination defaultCurrent={1} total={50} showSizeChanger />
         </div>
