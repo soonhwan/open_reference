@@ -1,7 +1,7 @@
 /*
   - 컴포넌트 경로를 처리하는 index 
   - import 호출 방법
-      예) import { MainLayout, TopSellerList } from '@components/index';
+      예) import { MainLayout, Header } from 'components';
 */
 
 //common - 단순 재사용이 많은 공통 컴포넌트
