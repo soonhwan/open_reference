@@ -1,9 +1,0 @@
-@import "~styles/base/util";
-
-.IconButton, a.IconButton, button.IconButton {
-	padding:8px; font-size:0; color:transparent; line-height:0; text-decoration:none; vertical-align:top; display:inline-block;
-
-	&.logo {
-		padding:0;
-	}
-}
