@@ -68,4 +68,23 @@ export const GlobalStyles = createGlobalStyle`
   .c-point1 { color: #fa5500; }
   .c-point2 { color: #a4a4a4; }
   
+  .ReactModal__Overlay {
+    z-index: 1000;
+    word-break: break-word;
+    display: flex;
+    align-items: flex-end;
+    justify-content: center;
+  }
+
+  .ReactModal__Content {
+    background-color: #999;
+    height: 80vh;
+    overflow-y: auto;
+    width: 90vw;
+    position: relative;
+  }
+
+  .ReactModal__Body--open {
+    overflow: hidden;
+  }
 `;
