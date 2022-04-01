@@ -3,6 +3,16 @@ import baseUtils from "./baseUtils";
 // 기초 유틸
 const utils: any = {};
 
+// className 합치기 반환
+utils.setClassNameBind = function (arr: []) {
+  return arr.filter((el) => el !== '').join(' ');
+};
+
+// string 문자열 찾기 true || false 반환
+utils.setIncludesStr = function (str: string, includes: string) {
+  return str.includes(includes);
+};
+
 // string 문자열에 콤마(',')를 찍고, 구분자를 뒤에 붙여준다
 utils.setComma = function (str: string, separator: string) {
   let result = "";

@@ -40,10 +40,12 @@ const MDPickList: FC<IProps> = ({ data, onEvent }) => {
   // ITEM RENDERER : getItemList
   const getItemList = (value: any, itemList: any) => {
     return itemList?.map((v: any, i: any) => {
-      console.log('getItemList ==> ', value, i);
-      if(i >= 5 && i % 5 === 0){
-        console.log('분기!')
-      }
+      //console.log('getItemList ==> ', value, i, i % 6);
+      /* if(i % 6 === 0){
+        console.log('%% ==> ', value, i)
+      } else {
+        console.log('getItemList ==> ', value, i)
+      } */
       return (
         <SwiperSlide key={i} data-value={value}>
           <ul className="thumbnail_list slide_item2">

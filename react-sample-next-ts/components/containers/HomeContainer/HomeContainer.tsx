@@ -99,50 +99,50 @@ const HomeContainer: FC = () => {
         isOpen={modalIsOpen}
         onAfterOpen={afterOpenModal}
         onRequestClose={closeModal}
-        //preventScroll={true}
         contentLabel="Example Modal"
         className="ReactModal__Content"
       >
-        <h2 ref={(_subtitle) => (subtitle = _subtitle)}>Hello</h2>
-        <button onClick={closeModal}>close</button>
-        <div>start I am a modal</div>
-        <div>I am a modal</div>
-        <div>I am a modal</div>
-        <div>I am a modal</div>
-        <div>I am a modal</div>
-        <div>I am a modal</div>
-        <div>I am a modal</div>
-        <div>I am a modal</div>
-        <div>I am a modal</div>
-        <div>I am a modalmodalmodalmodalmodalmodalmodalmodalmodalmodalmodalmodalmodalmodalmodalmodalmodalmodalmodalmodalmodalmodalmodalmodalmodalmodalmodalmodalmodalmodalmodalmodalmodal</div>
-        <div>I am a modal</div>
-        <div>I am a modal</div>
-        <div>I am a modal</div>
-        <div>I am a modal</div>
-        <div>I am a modal</div>
-        <div>I am a modal</div>
-        <div>I am a modal</div>
-        <div>I am a modal</div>
-        <div>I am a modal</div>
-        <div>I am a modal</div>
-        <div>I am a modal</div>
-        <div>I am a modal</div>
-        <div>I am a modal</div>
-        <div>I am a modal</div>
-        <div>I am a modal</div>
-        <div>I am a modal</div>
-        <div>I am a modal</div>
-        <div>I am a modal</div>
-        <div>I am a modal</div>
-        <div>I am a modal</div>
-        <div>I am a modal</div>
-        <div>I am a modal</div>
-        <div>I am a modal</div>
-        <div>I am a modal</div>
-        <div>I am a modal</div>
-        <div>I am a modal end</div>
+        <div className="MainPopupContainer">
+          <h2 ref={(_subtitle) => (subtitle = _subtitle)}>Hello</h2>
+          <button onClick={closeModal}>close</button>
+          <div>start I am a modal</div>
+          <div>I am a modal</div>
+          <div>I am a modal</div>
+          <div>I am a modal</div>
+          <div>I am a modal</div>
+          <div>I am a modal</div>
+          <div>I am a modal</div>
+          <div>I am a modal</div>
+          <div>I am a modal</div>
+          <div>I am a modalmodalmodalmodalmodalmodalmodalmodalmodalmodalmodalmodalmodalmodalmodalmodalmodalmodalmodalmodalmodalmodalmodalmodalmodalmodalmodalmodalmodalmodalmodalmodalmodal</div>
+          <div>I am a modal</div>
+          <div>I am a modal</div>
+          <div>I am a modal</div>
+          <div>I am a modal</div>
+          <div>I am a modal</div>
+          <div>I am a modal</div>
+          <div>I am a modal</div>
+          <div>I am a modal</div>
+          <div>I am a modal</div>
+          <div>I am a modal</div>
+          <div>I am a modal</div>
+          <div>I am a modal</div>
+          <div>I am a modal</div>
+          <div>I am a modal</div>
+          <div>I am a modal</div>
+          <div>I am a modal</div>
+          <div>I am a modal</div>
+          <div>I am a modal</div>
+          <div>I am a modal</div>
+          <div>I am a modal</div>
+          <div>I am a modal</div>
+          <div>I am a modal</div>
+          <div>I am a modal</div>
+          <div>I am a modal</div>
+          <div>I am a modal</div>
+          <div>I am a modal end</div>
+        </div>
       </Modal>
-
     </HomeContainerWrap>
   );
 };

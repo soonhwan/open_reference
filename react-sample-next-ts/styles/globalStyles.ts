@@ -38,17 +38,6 @@ export const GlobalStyles = createGlobalStyle`
   /* base - a */
   a,a:link,a:visited,a:hover,a:focus,a:active{text-decoration:none;}
 
-  /* ------------- utils */
-  .a11y {overflow:hidden;position:absolute;clip:rect(0 0 0 0);width:1px;height:1px;margin:-1px;border:0;padding:0;}
-  /* skip_nav */
-  .nav-skip{position:absolute;top:0;left:0;width:100%;z-index:9999;}
-  .nav-skip a{position:absolute;display:block;width:100%;left:0;text-align:center;top:-10000px;font-size:1em;}
-  .nav-skip a:hover,.nav-skip a:focus,.nav-skip a:active {position:absolute;top:0;padding:5px 0;font-weight:bold;color:#000;background:#fff;}
-  /* etc */
-  .ellipsis {display:block;text-overflow:ellipsis;white-space:nowrap;overflow:hidden;} 
-  .ellipsis2 {display:block;text-overflow:ellipsis;overflow:hidden;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;word-wrap:break-word;} 
-  .no-scroll body {overflow: hidden;position: fixed;width: 100%;}
-
   /* ------------- layout */
   body,input,select,textarea,button {
     font:15px/1.4 ${({ theme }) => theme.fontFamily};

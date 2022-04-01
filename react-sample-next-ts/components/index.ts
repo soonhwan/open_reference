@@ -5,6 +5,10 @@
 */
 
 //common - 단순 재사용이 많은 공통 컴포넌트
+export { default as NavSkip } from './common/NavSkip';
+export { default as Icon } from './common/Icon';
+export { default as Button } from './common/Button';
+
 export { default as Header } from './common/Header';
 export { default as Footer } from './common/Footer';
 export { default as BottomNav } from './common/BottomNav';
