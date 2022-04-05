@@ -1,0 +1,28 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="100%" height="100%" viewBox="0 0 40 40">
+    <defs>
+        <clipPath id="ozoganl4xa">
+            <path data-name="Rectangle 949" transform="translate(340 510)" style="stroke:#222;fill:#fff" d="M0 0h10v20H0z"/>
+        </clipPath>
+    </defs>
+    <rect data-name="bg_000_7%" width="40" height="40" rx="20" style="opacity:.07"/>
+    <rect width="38" height="38" rx="19" transform="translate(1 1)" style="fill:#fff"/>
+    <path transform="translate(8 8)" style="fill:transparent" d="M0 0h24v24H0z"/>
+    <g data-name="Mask Group 77" transform="translate(-319.373 -500)" style="clip-path:url(#ozoganl4xa)">
+        <g data-name="Ellipse 17" transform="translate(330 510)" style="stroke-width:1.3px;fill:none;stroke:#222">
+            <circle cx="10" cy="10" r="10" style="stroke:none"/>
+            <circle cx="10" cy="10" r="9.35" style="fill:none"/>
+        </g>
+    </g>
+    <g data-name="Mask Group 78" transform="rotate(90 430.313 110.314)" style="clip-path:url(#ozoganl4xa)">
+        <g data-name="Ellipse 18" transform="translate(330 510)" style="stroke-width:1.3px;fill:none;stroke:#222">
+            <circle cx="10" cy="10" r="10" style="stroke:none"/>
+            <circle cx="10" cy="10" r="9.35" style="fill:none"/>
+        </g>
+    </g>
+    <path data-name="Path 460" d="m2807.149 645.535 2.622-2.622 2.622 2.622" transform="rotate(-18.01 -557.879 9166.97)" style="stroke-linejoin:round;stroke-width:1.3px;fill:none;stroke:#222"/>
+    <path data-name="Path 464" d="M2807.959 629.669h1.184" transform="translate(-2788.332 -619.02)" style="stroke-linecap:round;stroke-width:1.3px;fill:none;stroke:#222"/>
+    <path data-name="Path 465" d="M2809 633.4v5.46l2.968 2.968" transform="translate(-2788.373 -618.602)" style="stroke-linejoin:round;stroke-width:1.3px;fill:none;stroke:#222"/>
+    <path data-name="Line 4" transform="rotate(28 -13.195 38.465)" style="stroke-linecap:round;stroke-width:1.3px;fill:none;stroke:#222" d="m0 1 .8-1"/>
+    <path data-name="Line 5" transform="matrix(.998 .07 -.07 .998 13.172 13.1)" style="stroke-linecap:round;stroke-width:1.3px;fill:none;stroke:#222" d="m0 1 .8-1"/>
+    <path data-name="Line 6" transform="rotate(-18.01 57.824 -26.953)" style="stroke-linecap:round;stroke-width:1.3px;fill:none;stroke:#222" d="m0 1 .8-1"/>
+</svg>

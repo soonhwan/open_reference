@@ -1,5 +1,5 @@
 /* eslint-disable react/display-name */
-import React, { memo, useMemo, useState, FC, useCallback, useRef, forwardRef } from 'react';
+import React, { memo, useMemo, useState, FC, useCallback, useRef, forwardRef, useEffect } from 'react';
 import { ButtonWrap, LinkWrap } from './ButtonStyles';
 import utils from 'utils';
 
@@ -14,48 +14,50 @@ interface IProps {
   target: string;
   rel: string;
   ref: any;
+  icon: any;
   onClick: any;
   onEvent: any;
 }
 
-const Button: FC<IProps> = forwardRef(({ id, type, href, className, disabled, target, rel, label, onClick, onEvent, children }, ref) => {
-  const chkRef = useRef(null);
-
-  const ctarget = {
-
-  }
-
+const Button: FC<IProps> = forwardRef(({ id, type = 'button', href, className, disabled, target, rel, icon, label, onClick, children }, ref) => {
+  const btnRef = useRef<any>(ref || null);
+  
   const param = {
-    id: id,
-    type: type,
-    href: href,
+    id: id || undefined,
+    href: href || undefined,
+    ref: btnRef,
+    className: useMemo(() => {
+      return utils.setClassNameBind([
+        'btn-base',
+        disabled ? 'disabled' : '',
+        className ? className : '',
+      ])
+    }, [disabled, className]),
+    type: href ? null : type,
     target: target,
     disabled: disabled,
     rel: target ? rel : null,
     'aria-label': label,
-    ref: ref,
+    icon: icon,
     onClick: (e: any) => {
-      if (typeof onClick === 'function') {
-        onClick(e);
-      }
+      e.param = {
+        id: param.id,
+        href: param.href,
+        className: param.className,
+        //target: param.ref.current.target || undefined,
+        //disabled: param.ref.current.disabled ? true : false,
+      };
+      if(typeof onClick === 'function') onClick(e);
     },
-    onEvent: (e: any) => {
-      if (typeof onEvent === 'function') {
-        onEvent(e);
-      }
-    },
-    className: useMemo(() => {
-      return utils.setClassNameBind([
-        'btn-base',
-        className ? className : '',
-      ])
-    }, [className])
   }
 
   // ITEM RENDERER : getChildrenRender
   const getChildrenRender = () => {
     return (
-      <>{children}</>  
+      <>
+        {!utils.isEmpty(icon) && icon}
+        {!utils.isEmpty(children) && utils.isString(children) ? <span>{children}</span> : children}
+      </>
     )
   } 
 
@@ -63,7 +65,7 @@ const Button: FC<IProps> = forwardRef(({ id, type, href, className, disabled, ta
   const getLinkRender = () => {
     return (
       <LinkWrap {...param}>
-        {!utils.isEmpty(children) && getChildrenRender()}
+        {getChildrenRender()}
       </LinkWrap>
     );  
   }
@@ -72,7 +74,7 @@ const Button: FC<IProps> = forwardRef(({ id, type, href, className, disabled, ta
   const getButtonRender = () => {
     return (
       <ButtonWrap {...param}>
-        {!utils.isEmpty(children) && getChildrenRender()}
+        {getChildrenRender()}
       </ButtonWrap>
     );  
   }

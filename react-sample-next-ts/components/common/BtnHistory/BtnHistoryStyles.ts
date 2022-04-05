@@ -1,8 +1,8 @@
 import styled from 'styled-components'
 
-export const BtnTopWrap = styled.div`
+export const BtnHistoryWrap = styled.div`
   position: absolute;
-  bottom: 80px; right: 1.25rem;
+  bottom: 124px; right: 1.25rem;
   transition: all 0.3s;
 
   /* .btn_top.active { display: block; }

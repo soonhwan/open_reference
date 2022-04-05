@@ -1,5 +1,7 @@
 import React, { memo, useState, FC, useCallback } from 'react';
 import { BtnTopWrap } from './BtnTopStyles';
+import { Button } from "components";
+import { BtnBnbTop } from 'styles/svg' 
 
 interface IProps {
   mode?: any;
@@ -14,10 +16,8 @@ const BtnTop: FC<IProps> = ({ mode }) => {
   }, []);
 
   return (
-    <BtnTopWrap>
-      <button type="button" name="button" className="btn_top" onClick={scrollToTop}>
-        <img src="//static.wconcept.co.kr/mobile/images/common/btn_page_top_white.png" className="img-responsive" alt="" />
-      </button>
+    <BtnTopWrap className="btn-top">
+      <Button label="페이지 맨위로" icon={<BtnBnbTop />} onClick={scrollToTop} />
     </BtnTopWrap>
   );
 }

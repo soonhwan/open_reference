@@ -38,6 +38,9 @@ export const GlobalStyles = createGlobalStyle`
   /* base - a */
   a,a:link,a:visited,a:hover,a:focus,a:active{text-decoration:none;}
 
+  /* ------------- utils */
+  .a11y {overflow:hidden;position:absolute;clip:rect(0 0 0 0);width:1px;height:1px;margin:-1px;border:0;padding:0;}
+
   /* ------------- layout */
   body,input,select,textarea,button {
     font:15px/1.4 ${({ theme }) => theme.fontFamily};

@@ -1,7 +1,8 @@
-import { css, keyframes } from "styled-components";
+import { css, keyframes } from 'styled-components'
 
 const mixin: any = {};
 
+//keyframes
 mixin.fadeIn = keyframes`
   0% {
     opacity: 0;
@@ -11,8 +12,11 @@ mixin.fadeIn = keyframes`
   }
 `;
 
-mixin.pixelToRem = (size: number) => `${size / 16}rem`;
+//utils
+mixin.pixelToRem = (size: number, standard: number = 16 ) => `${size / standard}rem`;
+mixin.getSizeBox = (w: number, h: number) => `width: ${w}px; height: ${h}px;`; 
 
+//css
 mixin.a11y = () => {
   return css`
     overflow: hidden;
@@ -37,9 +41,9 @@ mixin.ellipsis = (line: number = 1) => {
   `;
 };
 
-mixin.flex = (direction = "row", align = "center", justify = "center") => {
+mixin.flex = ({ display = 'flex', direction = 'row', align = 'center', justify = 'center' }) => {
   return css`
-    display: flex;
+    display: ${display};
     flex-direction: ${direction};
     align-items: ${align};
     justify-content: ${justify};
