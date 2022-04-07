@@ -15,38 +15,59 @@ export const ActionbarWrap = styled.div<IProps>`
     left: 0;
     bottom: 0;
     width: 100%;
-    ${mixin.flex}
     
-    ul {
-      width: calc(100% - 115px);
-      height: 50px;
-      background-color: #fff;
-      padding-left: 10px;
+    .actionbar-main {
       ${mixin.flex}
-      border-top: 1px solid #f5f5f5;
+      
+      nav {
+        width: calc(100% - 115px);
+        
+        ul {
+          background-color: #fff;
+          height: 50px;
+          padding-left: 10px;
+          border-top: 1px solid #f5f5f5;
+          ${mixin.flex}
 
-      li {
-        flex: 1;
-        margin-left: 10px;
-                
-        .btn-base {
-          width: 100%;
+          li {
+            flex: 1;
+            margin-left: 10px;
+                    
+            .btn-base {
+              width: 100%;
+            }
+          }
         }
       }
-
-      .active .btn-base svg path {
-        stroke: #fa5500 !important;
-      }
-    }
+    
+      .area-btn {
+        width: 115px;
+        height: 50px;
+        text-align: center;
+        background: url("/images/bg_actionbar_white.svg") 0 0 no-repeat;
   
-    .area-btn {
-      width: 115px;
-      height: 50px;
-      text-align: center;
-      background: url("/images/bg_actionbar_white.svg") 0 0 no-repeat;
+        .btn-gender {
+          transform: translate(7px, -19px);
+        }
+      }  
+      
+      &.is-men {
+        nav ul {
+          background-color: #000;
+          border-top: 1px solid #000;
 
-      .btn-gender {
-        transform: translate(7px, -19px);
+          li .btn-base svg * {
+            stroke: #fff !important;
+          }
+        }
+
+        .area-btn {
+          background: url("/images/bg_actionbar_black.svg") 0 0 no-repeat;
+        }  
+      }
+
+      nav ul li.active .btn-base svg * {
+        stroke: #fa5500 !important;
       }
     }
   }

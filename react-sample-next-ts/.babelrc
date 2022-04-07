@@ -17,7 +17,7 @@
           "styles": "./styles",
           "utils": "./utils"
         },
-        "extensions": [".ts", ".tsx"]
+        "extensions": [".js", ".jsx", ".ts", ".tsx"]
       }
     ]
   ]

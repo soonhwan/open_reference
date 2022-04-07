@@ -104,6 +104,7 @@ export const MainLayoutWrap = styled.div<IProps>`
 
   #main_pages .main_top_banner .swiper-pagination { left: auto; bottom: 1.25rem; right: 1.25rem; background: rgba(0, 0, 0, 0.2); width: 3rem; line-height: 1.5rem; text-align: center; color: #fff; font-size: 0.75rem; -webkit-border-radius: 1.875rem; -moz-border-radius: 1.875rem; border-radius: 1.875rem; }
 
+  
   &.common-hide {
     #header {
       transform: translateY(-50px);

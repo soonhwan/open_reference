@@ -1,12 +1,11 @@
 import React, { memo, useState, FC, useCallback } from 'react';
+import Link from 'next/link';
 import { BtnHistoryWrap } from './BtnHistoryStyles';
 import { Button } from "components";
 import { BtnBnbHistory } from 'styles/svg' 
-import Link from 'next/link';
 
 interface IProps {
-  mode?: any;
-  onEvent?: any;
+  mode?: string;
 }
 
 const BtnHistory: FC<IProps> = ({ mode }) => {

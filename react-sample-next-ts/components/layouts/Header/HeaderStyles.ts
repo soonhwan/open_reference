@@ -9,8 +9,11 @@ export const HeaderWrap = styled.header`
   .inner-header {
     height: inherit;
     padding: 0 14px 0 10px;
-    ${mixin.flex({ justify : 'space-between'})}
+  }
   
+  .header-main {
+    ${mixin.flex({ justify : 'space-between'})}
+
     .btn-cart {
       position: relative;
 

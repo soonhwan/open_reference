@@ -21,17 +21,24 @@ import btn_bnb_women from "styles/svg/btn_bnb_women.svg";
 import btn_page_top from "styles/svg/btn_page_top.svg";
 import btn_history from "styles/svg/btn_history.svg";
 
+//---------------- utils
+const getStyle = (w: number, h:number) => {
+  return css`
+    ${mixin.getSizeBox(w, h)}
+  `
+}
+
 //---------------- styled
-export const IconSearch = styled(ico_search)` ${mixin.getSizeBox(32, 32)} `;
-export const IconAlarm = styled(ico_alarm)` ${mixin.getSizeBox(32, 32)} `;
-export const IconCart = styled(ico_cart)` ${mixin.getSizeBox(32, 32)} `;
-export const IconHome = styled(ico_home)` ${mixin.getSizeBox(32, 32)} `;
-export const IconCategory = styled(icon_category)` ${mixin.getSizeBox(32, 32)} `;
-export const IconMyheart = styled(icon_myheart)` ${mixin.getSizeBox(32, 32)} `;
-export const IconMy = styled(icon_my)` ${mixin.getSizeBox(32, 32)} `;
-export const LogoW = styled(logo_W)` ${mixin.getSizeBox(50, 50)} `;
-export const LogoDSTANCE = styled(logo_dstance)` ${mixin.getSizeBox(114, 50)} `;
-export const BtnBnbMen = styled(btn_bnb_men)` ${mixin.getSizeBox(60, 60)} `;
-export const BtnBnbWomen = styled(btn_bnb_women)` ${mixin.getSizeBox(60, 60)} `;
-export const BtnBnbTop = styled(btn_page_top)` ${mixin.getSizeBox(40, 40)} `;
-export const BtnBnbHistory = styled(btn_history)` ${mixin.getSizeBox(40, 40)} `;
+export const IconSearch = styled(ico_search)` ${getStyle(32, 32)} `;
+export const IconAlarm = styled(ico_alarm)` ${getStyle(32, 32)} `;
+export const IconCart = styled(ico_cart)` ${getStyle(32, 32)} `;
+export const IconHome = styled(ico_home)` ${getStyle(32, 32)} `;
+export const IconCategory = styled(icon_category)` ${getStyle(32, 32)} `;
+export const IconMyheart = styled(icon_myheart)` ${getStyle(32, 32)} `;
+export const IconMy = styled(icon_my)` ${getStyle(32, 32)} `;
+export const LogoW = styled(logo_W)` ${getStyle(50, 50)} `;
+export const LogoDSTANCE = styled(logo_dstance)` ${getStyle(114, 50)} `;
+export const BtnBnbMen = styled(btn_bnb_men)` ${getStyle(60, 60)} `;
+export const BtnBnbWomen = styled(btn_bnb_women)` ${getStyle(60, 60)} `;
+export const BtnBnbTop = styled(btn_page_top)` ${getStyle(40, 40)} `;
+export const BtnBnbHistory = styled(btn_history)` ${getStyle(40, 40)} `;

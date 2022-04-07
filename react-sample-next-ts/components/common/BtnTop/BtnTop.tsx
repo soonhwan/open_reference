@@ -4,8 +4,7 @@ import { Button } from "components";
 import { BtnBnbTop } from 'styles/svg' 
 
 interface IProps {
-  mode?: any;
-  onEvent?: any;
+  mode?: string;
 }
 
 const BtnTop: FC<IProps> = ({ mode }) => {

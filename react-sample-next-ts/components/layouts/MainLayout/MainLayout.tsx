@@ -1,5 +1,5 @@
 import React, { memo, FC, useEffect, useState, useCallback } from "react";
-import { Header, Footer, Actionbar, BtnTop, NavSkip, Button } from "components";
+import { Header, Footer, Actionbar, GnbMenu } from "components";
 import { MainLayoutWrap } from "./MainLayoutStyles";
 import { useScroll } from "hooks";
 
@@ -32,20 +32,15 @@ const MainLayout: FC<IProps> = ({ children }) => {
 
   }, [scrollDirection, scrollY, scrollBottom])
 
-  const onClickBtn = useCallback((e: any) => {
-    //e.preventDefault();
-    console.log('onClickBtn', e);
-  }, []);
-
   return (
     <MainLayoutWrap>
-    {/* <MainLayoutWrap className={commonShow ? "common-hide" : ""}> */}
-      <NavSkip />     
-      <Header />
-      {children}
-      <Actionbar />
-      <Footer id="#footer" />
-      {/* {btnTopShow && <BtnTop />} */}
+      <div className={commonShow ? "common-hide" : ""}>
+        <Header mode="main" />
+        <GnbMenu />
+        {children}
+        <Actionbar mode="main" gender="men" />
+        <Footer />
+      </div>
     </MainLayoutWrap>
   );
 };

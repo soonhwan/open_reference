@@ -5,11 +5,12 @@ import { CountWrap } from './CountStyles';
 
 interface IProps {
   count: number;
+  label: string;
 }
 
-const Button: FC<IProps> = ({ count = 0 }) => {
+const Button: FC<IProps> = ({ count = 0, label }) => {
   return (
-    <CountWrap className="count">{count}</CountWrap>
+    <CountWrap className="count" aria-label={label}>{count}</CountWrap>
   );
 }
 
