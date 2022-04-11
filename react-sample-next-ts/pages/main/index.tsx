@@ -1,12 +1,11 @@
 import type { NextPage } from "next";
+import React, { useEffect } from "react";
 import { MainLayout, HomeContainer } from "components";
 
 const MainPage: NextPage = () => {
   return (
-    <MainLayout>      
-      <div id="main_pages">
-        <HomeContainer />
-      </div>
+    <MainLayout id="main-pages">      
+      <HomeContainer />
     </MainLayout>
   );
 };

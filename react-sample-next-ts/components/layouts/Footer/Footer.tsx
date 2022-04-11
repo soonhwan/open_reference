@@ -18,7 +18,7 @@ const Footer: FC<IProps> = ({ mode }) => {
       <ul className="nav-util">
         <li><Link href="/MyPage/History"><a>로그인</a></Link></li>
         {/* <li><Link href="../Member/Logout"><a>로그아웃</a></Link></li> */}
-        <li><Link href="../CustomerCenter"><a>고객센터</a></Link></li>
+        <li><Link href="/CustomerCenter"><a>고객센터</a></Link></li>
         <li><a href="www.wconcept.co.kr" target="_blank" rel="noopener">PC 버전</a></li>
         <li><a href="#" onClick={onClickAppDown}>APP다운</a></li>
       </ul>
@@ -38,10 +38,10 @@ const Footer: FC<IProps> = ({ mode }) => {
           고객센터 : <a className="tel" href="tel:1566-5027">1566-5027</a> | 운영시간 : 평일 09:00~18:00 (점심시간 : 12:30~13:30) | <a className="tel" href="mailto:cs_help@wconcept.co.kr" target="_blank" rel="noreferrer">cs_help@wconcept.co.kr</a>
         </p>
         <ul className="nav-terms">
-          <li><Link href="../Etc/Company"><a>회사소개</a></Link></li>
-          <li><Link href="../CustomerAgreement"><a>이용약관</a></Link></li>
-          <li><Link href="../CustomerPrivacy"><a className="bold">개인정보취급방침</a></Link></li>
-          <li><Link href="../Etc/Marketting"><a>제휴문의</a></Link></li>
+          <li><Link href="/Etc/Company"><a>회사소개</a></Link></li>
+          <li><Link href="/CustomerAgreement"><a>이용약관</a></Link></li>
+          <li><Link href="/CustomerPrivacy"><a className="bold">개인정보취급방침</a></Link></li>
+          <li><Link href="/Etc/Marketting"><a>제휴문의</a></Link></li>
         </ul>
         <p>COPYRIGHT ⓒ 2020 ㈜더블유컨셉코리아 ALL RIGHTS RESERVED.</p>
       </div>

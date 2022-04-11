@@ -1,15 +1,17 @@
-import React, { memo, useState, FC, useCallback } from 'react';
+import React, { memo, useState, FC, useCallback, useEffect } from 'react';
 import Link from 'next/link';
 import { ActionbarWrap } from './ActionbarStyles';
 import { Button, BtnTop, BtnHistory } from "components";
 import { IconHome, IconCategory, IconMyheart, IconMy, BtnBnbMen, BtnBnbWomen } from 'styles/svg' 
 
 interface IProps {
-  mode?: string;
-  gender?: string;
+  mode: string;
+  gender: string;
+  btnTopShow: boolean;
+  btnHistoryShow: boolean;
 }
 
-const Actionbar: FC<IProps> = ({ mode = 'main', gender = 'women' }) => {
+const Actionbar: FC<IProps> = ({ mode = 'main', gender = 'women', btnHistoryShow = false, btnTopShow = false }) => {
   // EVENT HANDLER : 성별 클릭
   const onClicGender = useCallback(() => {
     console.log('onClicGender')
@@ -19,6 +21,10 @@ const Actionbar: FC<IProps> = ({ mode = 'main', gender = 'women' }) => {
   const onClicCategory = useCallback(() => {
     console.log('onClicCategory')
   }, []);
+
+  useEffect(()=>{
+    console.log('btnTopShow => ', btnTopShow)
+  },[btnTopShow])
 
   // ITEM RENDERER : getActionbarMain
   const getActionbarMain = useCallback(() => {
@@ -33,15 +39,14 @@ const Actionbar: FC<IProps> = ({ mode = 'main', gender = 'women' }) => {
           </ul>
         </nav>
         <div className="area-btn">
-          {gender === 'women' && <Button className="btn-gender" label="go men" icon={<BtnBnbMen />} onClick={onClicCategory} />}
-          {gender === 'men' && <Button className="btn-gender" label="go women" icon={<BtnBnbWomen />} onClick={onClicCategory} />}
-          
+          {gender === 'women' && <Button className="btn-gender" label="go men" icon={<BtnBnbMen />} onClick={onClicGender} />}
+          {gender === 'men' && <Button className="btn-gender" label="go women" icon={<BtnBnbWomen />} onClick={onClicGender} />}          
         </div>
-        <BtnHistory />
-        <BtnTop />
+        <BtnTop show={btnTopShow} />
+        <BtnHistory show={btnHistoryShow} />
       </div>
     )
-  }, [gender]);
+  }, [btnHistoryShow, btnTopShow, gender, onClicCategory, onClicGender]);
 
   return (
     <ActionbarWrap id="actionbar">

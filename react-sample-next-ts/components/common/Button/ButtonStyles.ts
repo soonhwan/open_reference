@@ -2,7 +2,6 @@ import styled, { css } from 'styled-components';
 import mixin from 'styles/utils'
 import utils from 'utils'
 
-
 interface IProps {
   className: string;
 }

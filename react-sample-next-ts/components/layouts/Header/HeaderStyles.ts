@@ -3,12 +3,16 @@ import mixin from 'styles/utils'
 
 export const HeaderWrap = styled.header`
   position: relative;
+  width: 100%;
   height: 50px;
-  z-index: 1;
+  z-index: 10;
   
   .inner-header {
+    width: inherit;
     height: inherit;
     padding: 0 14px 0 10px;
+    background-color: #fff;
+    transition: transform 0.3s, top 0.3s;
   }
   
   .header-main {

@@ -1,6 +1,9 @@
 import styled from 'styled-components'
 
 export const FooterWrap = styled.footer`
+  position: relative;
+  z-index: 5;
+
   .inner-footer {
     margin-top: 3.75rem; 
     padding-bottom: 50px; 

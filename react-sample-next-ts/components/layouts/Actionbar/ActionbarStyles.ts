@@ -7,7 +7,7 @@ interface IProps {
 
 export const ActionbarWrap = styled.div<IProps>`
   position: relative;
-  z-index: 1;
+  z-index: 10;
 
   .inner-actionbar {
     position: fixed;
@@ -15,6 +15,7 @@ export const ActionbarWrap = styled.div<IProps>`
     left: 0;
     bottom: 0;
     width: 100%;
+    transition: transform 0.3s;
     
     .actionbar-main {
       ${mixin.flex}

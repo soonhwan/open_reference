@@ -5,12 +5,12 @@ import { Button } from "components";
 import { BtnBnbHistory } from 'styles/svg' 
 
 interface IProps {
-  mode?: string;
+  show?: boolean;
 }
 
-const BtnHistory: FC<IProps> = ({ mode }) => {
+const BtnHistory: FC<IProps> = ({ show }) => {
   return (
-    <BtnHistoryWrap className="btn-history">
+    <BtnHistoryWrap className={'btn-history' + (show ? ' is-show' : '')}>
       <Link href="/MyPage/History" passHref><Button label="history" icon={<BtnBnbHistory />} /></Link>      
     </BtnHistoryWrap>
   );

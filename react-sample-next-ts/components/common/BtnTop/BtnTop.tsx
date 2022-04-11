@@ -4,10 +4,10 @@ import { Button } from "components";
 import { BtnBnbTop } from 'styles/svg' 
 
 interface IProps {
-  mode?: string;
+  show?: boolean;
 }
 
-const BtnTop: FC<IProps> = ({ mode }) => {
+const BtnTop: FC<IProps> = ({ show }) => {
 
   // EVENT HANDLER : scrollToTop
   const scrollToTop = useCallback(() => {
@@ -15,7 +15,7 @@ const BtnTop: FC<IProps> = ({ mode }) => {
   }, []);
 
   return (
-    <BtnTopWrap className="btn-top">
+    <BtnTopWrap className={'btn-top' + (show ? ' is-show' : '')}>
       <Button label="페이지 맨위로" icon={<BtnBnbTop />} onClick={scrollToTop} />
     </BtnTopWrap>
   );

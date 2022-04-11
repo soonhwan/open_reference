@@ -10,7 +10,7 @@ utils.setClassNameBind = function (arr: []) {
 
 // string 문자열 찾기
 utils.setSearchStr = function (str: string, val: string) {
-  console.log('str => ', str, ', val => ', val)
+  //console.log('str => ', str, ', val => ', val)
   return str.includes(val);
 };
 

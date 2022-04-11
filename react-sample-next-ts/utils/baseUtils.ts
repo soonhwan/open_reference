@@ -20,4 +20,7 @@ const utils: any = {
   validLen: (val: string | any[], cond: boolean) => { return cond !== false ? (val + '').trim().length : val.length },
 }
 
+//typeof window
+utils.IS_BROWSER = typeof window !== 'undefined';
+
 export default utils;

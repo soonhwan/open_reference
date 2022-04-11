@@ -10,10 +10,11 @@ export { default as Button } from './common/Button';
 export { default as Count } from './common/Count';
 export { default as BtnTop } from './common/BtnTop';
 export { default as BtnHistory } from './common/BtnHistory';
+export { default as CategoryNav } from './common/CategoryNav';
+export { default as Select } from './common/Select';
 
-
+//test
 export { default as Pagination } from './common/Pagination';
-export { default as GnbMenu } from './common/GnbMenu';
 export { default as TopSellerCategory } from './common/TopSellerCategory';
 export { default as TopSellerCategoryDepth2 } from './common/TopSellerCategoryDepth2';
 export { default as TopSellerSort } from './common/TopSellerSort';
@@ -35,6 +36,7 @@ export { default as HomeContainer } from './containers/HomeContainer';
 export { default as Header } from './layouts/Header';
 export { default as Actionbar } from './layouts/Actionbar';
 export { default as Footer } from './layouts/Footer';
+export { default as CommonLayout } from './layouts/CommonLayout';
 export { default as MainLayout } from './layouts/MainLayout';
 
 //popup - 팝업 컨텐츠 모음
