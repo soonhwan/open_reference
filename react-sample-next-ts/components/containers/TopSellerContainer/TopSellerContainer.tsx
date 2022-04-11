@@ -85,12 +85,18 @@ const TopSellerContainer: FC<IProps> = ({ data }) => {
     setCategoryValueDepth2(value);
   }, []);
 
+  // EVENT HANDLER : onChangeSelect
+  const onChangeSelect = useCallback((value) => {
+    console.log('onChangeSelect => ', value);
+  }, []);
+
   // EVENT CALLBACK SET
   const handleEvent = useCallback((eventNm, data, event) => {
     switch (eventNm) {
       case 'click_CategoryNav': onClickCategory(data); break
+      case 'change_Select': onChangeSelect(data); break
     }
-  }, [onClickCategory]);
+  }, [onChangeSelect, onClickCategory]);
 
   return (
     <TopSellerContainerWrap id="top_seller">

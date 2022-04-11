@@ -69,17 +69,17 @@ const Select: FC<IProps> = ({ id, name, label, disabled, readOnly, data, selecte
           <option 
             key={i} 
             value={v.value} 
-            //{v.value === inputValue ? 'selected' : ''}
+            selected={v.value === inputValue}
           >{v.text}</option>
         </>
       )
     })
-  }, [data])
+  }, [data, inputValue])
 
   // ITEM RENDERER : getLabel  
   const getLabel = useCallback(() => {
-    return <label className="label">{label}</label>
-  }, [label])
+    return <label className="label">{label || utils.findItemByValue(data, inputValue, 'text')}</label>
+  }, [data, inputValue, label])
 
   return (
     <SelectWrap className={_className}>
