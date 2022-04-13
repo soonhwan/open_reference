@@ -45,7 +45,7 @@ const SortingBar: FC<IProps> = ({ id, mode, txt, data, className, selectedValue,
 
   return (
     <SortingBarWrap className={_className} mode={mode} id={id}>
-      <span className="txt"><em>{txt}</em> 기준</span>
+      <span className="txt" dangerouslySetInnerHTML={{ __html: txt }}></span>
       <Select 
         mode="sorting"
         data={data} 

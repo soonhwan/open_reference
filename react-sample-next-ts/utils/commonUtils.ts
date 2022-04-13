@@ -51,14 +51,6 @@ utils.setPhoneHyphen = function (str: string) {
   return str;
 };
 
-// 특정 위치로 스크롤링
-utils.scrollToTarget = (ref: any) => {
-  window.scrollTo({
-    top: window.pageYOffset + ref.current.getBoundingClientRect().top,
-    behavior: "auto",
-  });
-};
-
 // 클릭 이벤트 설정 시 제외 영역을 지정
 utils.getExcludeArea = (selectors: any, event: any) => {
   if (selectors.length > 0) {

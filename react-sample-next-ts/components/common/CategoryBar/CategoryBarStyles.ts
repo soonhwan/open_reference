@@ -17,13 +17,15 @@ export const CategoryBarWrap = styled.div<IProps>`
       width: auto;
 
       &:first-child {
-        margin-left: 0;
+        margin-left: 0 !important;
       }
     }
 
     .btn {
       white-space: nowrap; 
       position: relative; 
+      overflow: hidden;
+      transition: margin 0.3s;
     }
   }
   

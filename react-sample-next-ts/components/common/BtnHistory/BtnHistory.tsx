@@ -8,7 +8,7 @@ interface IProps {
   show?: boolean;
 }
 
-const BtnHistory: FC<IProps> = ({ show }) => {
+const BtnHistory: FC<IProps> = ({ show = false }) => {
   return (
     <BtnHistoryWrap className={'btn-history' + (show ? ' is-show' : '')}>
       <Link href="/MyPage/History" passHref><Button label="history" icon={<BtnBnbHistory />} /></Link>      

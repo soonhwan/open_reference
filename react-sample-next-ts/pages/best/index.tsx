@@ -52,12 +52,9 @@ const sortingList = [
   { text: '월간', value: 'opt-3'},
 ]
 
-const time = '06/23 07:17';
+const timeTxt = `<em>06/23 07:17</em> 기준`;
 
-const BestPage: NextPage = () => {
-  //list
-  const [list, setList] = useState(listData.data);
-  
+const BestPage: NextPage = () => {  
   //category sorting
   const [categorySorting, setCategorySorting] = useState(categoryList.data);
   const [categorySortingValue, setCategorySortingValue] = useState('opt-2');
@@ -66,9 +63,12 @@ const BestPage: NextPage = () => {
   const [categoryDepth2, setCategoryDepth2] = useState(null);
   const [categoryValueDepth2, setCategoryValueDepth2] = useState('');
 
-  //list sorting
+  //상품 list sorting
   const [sortingData, setSortingData] = useState(sortingList);
   const [sortingValue, setSortingValue] = useState('opt-1');
+
+  //상품 list
+  const [productList, setProductList] = useState(listData.data);
 
   //category 초기 셋팅
   useEffect(()=>{
@@ -119,7 +119,7 @@ const BestPage: NextPage = () => {
   }, [onChangeCategorySortingBarCategory, onChangeCategorySortingBarSorting, onChangeSortingBar]);
 
   return (
-    <MainLayout>
+    <MainLayout className="best-page">
       <CategorySortingBar 
         sorting={{ data: categorySorting, value: categorySortingValue }}
         category={{ data: categoryDepth2, value: categoryValueDepth2 }}
@@ -129,11 +129,11 @@ const BestPage: NextPage = () => {
       <SortingBar 
         data={sortingData} 
         selectedValue={sortingValue} 
-        txt={time} 
+        txt={timeTxt} 
         onEvent={handleEvent} 
       />
 
-      <TopSellerList data={list} />
+      <TopSellerList data={productList} />
     </MainLayout>
   );
 };

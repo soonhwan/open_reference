@@ -1,8 +1,11 @@
-import React, { memo, FC, useEffect, useState, useCallback } from "react";
-import { Header, Footer, Actionbar, CategoryBar, CommonLayout } from "components";
+import React, { memo, FC, useMemo, useState, useCallback } from "react";
+import { CategoryBar, CommonLayout } from "components";
 import { MainLayoutWrap } from "./MainLayoutStyles";
+import utils from 'utils';
 
 interface IProps {
+  id: string;
+  className: string;
   children?: any;
 }
 
@@ -16,7 +19,7 @@ const categoryList = [
   { text: 'SHOWINDOW', value: "opt-7", link: null },
 ];
 
-const MainLayout: FC<IProps> = ({ children }) => {
+const MainLayout: FC<IProps> = ({ id, className, children }) => {
   const headerMode = 'main'
   const actionbarMode = 'main'
   const genderType = 'women'
@@ -24,6 +27,13 @@ const MainLayout: FC<IProps> = ({ children }) => {
   //header gnb
   const [category, setCategory] = useState(categoryList);
   const [itemValue, setItemValue] = useState("opt-3");
+
+  const _className = useMemo(() => {
+    return utils.setClassNameBind([
+      'main-layout', 
+      className ? className : '',
+    ])
+  }, [className])
 
   // EVENT HANDLER : onClickCategory
   const onClickCategory = useCallback((data) => {
@@ -39,7 +49,7 @@ const MainLayout: FC<IProps> = ({ children }) => {
   }, [onClickCategory]);
   
   return (
-    <MainLayoutWrap>
+    <MainLayoutWrap className={_className} id={id}>
       <CommonLayout 
         headerMode={headerMode} 
         actionbarMode={actionbarMode} 

@@ -1,8 +1,10 @@
-import React, { memo, FC, useEffect, useState, useMemo } from "react";
+import React, { memo, FC, useEffect, useState, useCallback } from "react";
 import { Header, Footer, Actionbar, CategoryBar } from "components";
 import { CommonLayoutWrap } from "./CommonLayoutStyles";
 import { useScroll } from "hooks";
 import utils from "utils";
+
+const IS_BROWSER = utils.IS_BROWSER
 
 interface IProps {
   children?: any;
@@ -60,11 +62,24 @@ const CommonLayout: FC<IProps> = ({ children, headerMode, actionbarMode, genderT
     //className bind
     setClassName(utils.setClassNameBind([
       isFixHeader ? 'is-fix-header' : '', 
-      isScrollDir ? 'is-'+isScrollDir : '',
-      isScrollBottom ? 'is-'+isScrollBottom : '',
+      isScrollDir ? 'is-' + isScrollDir : '',
+      isScrollBottom ? 'is-' + isScrollBottom : '',
     ]))
 
   }, [scrollDirection, scrollY, scrollBottom, isFixHeader, isScrollDir, isScrollBottom])
+
+  // EVENT HANDLER : BtnTop 클릭
+  const onClickBtnTop = useCallback(() => {
+    //console.log('onClickBtnTop')
+    window.scrollTo({ top: 0, behavior: 'smooth'})
+  }, []);
+
+  // EVENT CALLBACK SET
+  const handleEvent = useCallback((eventNm, data, event) => {
+    switch (eventNm) {
+      case 'click_Actionbar_btnTop': onClickBtnTop(); break
+    }
+  }, [onClickBtnTop]);
 
   return (
     <CommonLayoutWrap className={className}>
@@ -80,6 +95,7 @@ const CommonLayout: FC<IProps> = ({ children, headerMode, actionbarMode, genderT
         gender={genderType} 
         btnHistoryShow={btnHistoryShow} 
         btnTopShow={btnTopShow} 
+        onEvent={handleEvent}
       />
       <Footer />
     </CommonLayoutWrap>

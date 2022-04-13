@@ -5,7 +5,7 @@ interface IProps {
 }
 
 export const CommonLayoutWrap = styled.div<IProps>`
-  /* .scroll-track {
+  .scroll-track {
     position: fixed;
     background-color: red;
     color: #fff;
@@ -13,8 +13,9 @@ export const CommonLayoutWrap = styled.div<IProps>`
     font-size: 20px;
     line-height: 22px;
     z-index: 40;
-    top: 200px;
-  } */
+    top: 50%;
+    transform: translateY(-50%);
+  }
 
   &.is-fix-header {
     #header .inner-header {
@@ -24,16 +25,7 @@ export const CommonLayoutWrap = styled.div<IProps>`
 
     &.is-scrollUp {
       #header .inner-header {
-        //transform: translateY(-100%);
         top: -50px;
-      }
-    }
-
-    &.is-scrollDown {
-
-      .category-bar.header-nav {
-        top: 50px;
-        //transform: translateY(100%);
       }
     }
   }
