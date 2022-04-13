@@ -7,11 +7,13 @@
 //common - 단순 재사용이 많은 공통 컴포넌트
 export { default as NavSkip } from './common/NavSkip';
 export { default as Button } from './common/Button';
+export { default as Select } from './common/Select';
 export { default as Count } from './common/Count';
 export { default as BtnTop } from './common/BtnTop';
 export { default as BtnHistory } from './common/BtnHistory';
-export { default as CategoryNav } from './common/CategoryNav';
-export { default as Select } from './common/Select';
+export { default as CategoryBar } from './common/CategoryBar';
+export { default as SortingBar } from './common/SortingBar';
+export { default as CategorySortingBar } from './common/CategorySortingBar';
 
 //test
 export { default as Pagination } from './common/Pagination';

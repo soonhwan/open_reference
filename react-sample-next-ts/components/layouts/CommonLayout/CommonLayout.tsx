@@ -1,5 +1,5 @@
 import React, { memo, FC, useEffect, useState, useMemo } from "react";
-import { Header, Footer, Actionbar, CategoryNav } from "components";
+import { Header, Footer, Actionbar, CategoryBar } from "components";
 import { CommonLayoutWrap } from "./CommonLayoutStyles";
 import { useScroll } from "hooks";
 import utils from "utils";

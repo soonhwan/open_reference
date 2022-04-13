@@ -1,43 +1,63 @@
 import React, { memo, useState, FC, useCallback, useMemo, useEffect } from 'react';
-import { CategoryNavWrap } from './CategoryNavStyles';
+import { CategoryBarWrap } from './CategoryBarStyles';
 import { A11y, FreeMode } from 'swiper';
 import { Swiper, SwiperSlide } from 'swiper/react';
 import 'swiper/css';
 import utils from "utils";
 
-const CLICK_CATEGORYNAV = "click_CategoryNav";
-const CLICK_CATEGORYNAV_BTN = "click_CategoryNav_btn";
+const CLICK_CATEGORYBAR = "click_CategoryBar";
+const CLICK_CATEGORYBAR_BTN = "click_CategoryBar_btn";
 
 interface IProps {
+  id: string;
   mode: string;
   data?: any;
   selectedValue: string;
+  className: string;
   onEvent: any;
 }
 
-const CategoryNav: FC<IProps> = ({ mode, data, selectedValue, onEvent }) => {
-  const [_selectedValue, setselectedValue] = useState(selectedValue);
+const CategoryBar: FC<IProps> = ({ id, mode, data, className, selectedValue, onEvent }) => {
+  const [_selectedValue, setSelectedValue] = useState(selectedValue);
 
   useEffect(() => {
-    setselectedValue(selectedValue);
-    console.log("useEffect CategoryTab ==> ", selectedValue);
+    setSelectedValue(selectedValue);
+    //console.log("useEffect CategoryTab ==> ", selectedValue);
   }, [selectedValue]);
 
   const _className = useMemo(() => {
     return utils.setClassNameBind([
-      'category-nav', 
-      mode ? mode + '-st': '',
+      'category-bar', 
+      mode ? mode : '',
+      className ? className : '',
     ])
-  }, [mode])
+  }, [mode, className])
 
   // EVENT HANDLER : onClickSwiper
   const onClickSwiper = useCallback((swiper) => {
     if (swiper.clickedSlide !== undefined) {
-      const v = swiper.clickedSlide.getAttribute("data-value");
-      //console.log('onClickSwiper => ', v);
-      onEvent(CLICK_CATEGORYNAV, v);
+      const param = {
+        value: swiper.clickedSlide.getAttribute("data-value"),
+        id: id || undefined,
+      }
+      //console.log('onClickSwiper => ', param);
+      onEvent(CLICK_CATEGORYBAR, param);
     }
-  }, [onEvent]);
+  }, [id, onEvent]);
+
+  // ITEM RENDERER : getSlideCont  
+  const getSlideCont = useCallback((v: any) => {
+    if(mode == 'header-nav'){
+      return v.text
+    } else if(mode == 'category-nav'){
+      return (
+        <>
+          <span className="vis"><img src={v.img} alt={v.text} /></span>
+          <span className="txt">{v.text}</span>
+        </>
+      )
+    }
+  }, [mode])
 
   // ITEM RENDERER : getListRender  
   const getListRender = useCallback(() => {
@@ -53,14 +73,16 @@ const CategoryNav: FC<IProps> = ({ mode, data, selectedValue, onEvent }) => {
           className={_className}
           data-value={v.value}
         >
-          <button className="btn">{v.text}</button>
+          <button className="btn">
+            {getSlideCont(v)}
+          </button>
         </SwiperSlide>
       )
     })
-  }, [data, _selectedValue])
+  }, [data, _selectedValue, getSlideCont])
 
   return (
-    <CategoryNavWrap className={_className}>
+    <CategoryBarWrap className={_className} mode={mode} id={id}>
       <Swiper
         modules={[FreeMode, A11y]}
         spaceBetween={0}
@@ -80,8 +102,8 @@ const CategoryNav: FC<IProps> = ({ mode, data, selectedValue, onEvent }) => {
       >
         {getListRender()}
       </Swiper>
-    </CategoryNavWrap>
+    </CategoryBarWrap>
   );
 }
 
-export default memo(CategoryNav);
+export default memo(CategoryBar);

@@ -24,13 +24,16 @@ export const CommonLayoutWrap = styled.div<IProps>`
 
     &.is-scrollUp {
       #header .inner-header {
-        transform: translateY(-100%);
+        //transform: translateY(-100%);
+        top: -50px;
       }
     }
 
     &.is-scrollDown {
-      .category-nav.main-st {
+
+      .category-bar.header-nav {
         top: 50px;
+        //transform: translateY(100%);
       }
     }
   }

@@ -1,5 +1,6 @@
 import React, { memo, useState, FC, useCallback, useEffect, useMemo } from 'react';
 import { SelectWrap } from './SelectStyles';
+import { IconSelArrow } from 'styles/svg'
 import utils from 'utils';
 
 const CHANGE_SELECT = "change_Select";
@@ -7,11 +8,13 @@ const CHANGE_SELECT = "change_Select";
 interface IProps {
   id: string;
   name: string;
+  mode: string;
   label: string,
   disabled: boolean;
   readOnly: boolean;
   selectedValue: string;
   className: string;
+  style: any;
   data?: any;
   onFocus: any;
   onBlur: any;
@@ -19,7 +22,7 @@ interface IProps {
   onEvent: any;
 }
 
-const Select: FC<IProps> = ({ id, name, label, disabled, readOnly, data, selectedValue, className, onFocus, onBlur, onChange, onEvent }) => {
+const Select: FC<IProps> = ({ id, name, mode, label, disabled, readOnly, data, selectedValue, style, className, onFocus, onBlur, onChange, onEvent }) => {
   const [inputValue, setInputValue] = useState(selectedValue);
 
   useEffect(() => {
@@ -31,9 +34,10 @@ const Select: FC<IProps> = ({ id, name, label, disabled, readOnly, data, selecte
       'select-base', 
       disabled ? 'disabled' : '',
       readOnly ? 'readOnly' : '',
+      mode ? mode : '',
       className ? className : '',
     ])
-  }, [className, disabled, readOnly])
+  }, [className, disabled, mode, readOnly])
 
   const param = {
     id: id || undefined,
@@ -78,11 +82,16 @@ const Select: FC<IProps> = ({ id, name, label, disabled, readOnly, data, selecte
 
   // ITEM RENDERER : getLabel  
   const getLabel = useCallback(() => {
-    return <label className="label">{label || utils.findItemByValue(data, inputValue, 'text')}</label>
-  }, [data, inputValue, label])
+    return (
+      <label className="label">
+        <span className="txt">{label || data.find((v: any) => v['value'] === inputValue).text}</span>
+        <span className="arrow">{mode === 'sorting' && <IconSelArrow />}</span>
+      </label>
+    )
+  }, [data, inputValue, label, mode])
 
   return (
-    <SelectWrap className={_className}>
+    <SelectWrap className={_className} mode={mode} style={style}>
       <select {...param}>
         {getOption()}
       </select>

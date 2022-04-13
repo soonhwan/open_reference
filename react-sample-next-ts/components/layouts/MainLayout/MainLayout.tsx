@@ -1,5 +1,5 @@
 import React, { memo, FC, useEffect, useState, useCallback } from "react";
-import { Header, Footer, Actionbar, CategoryNav, CommonLayout } from "components";
+import { Header, Footer, Actionbar, CategoryBar, CommonLayout } from "components";
 import { MainLayoutWrap } from "./MainLayoutStyles";
 
 interface IProps {
@@ -19,21 +19,22 @@ const categoryList = [
 const MainLayout: FC<IProps> = ({ children }) => {
   const headerMode = 'main'
   const actionbarMode = 'main'
-  const categoryNavMode = 'main'
   const genderType = 'women'
+
+  //header gnb
   const [category, setCategory] = useState(categoryList);
   const [itemValue, setItemValue] = useState("opt-3");
 
   // EVENT HANDLER : onClickCategory
-  const onClickCategory = useCallback((value) => {
-    console.log('onClickCategory => ', value);
-    setItemValue(value);
+  const onClickCategory = useCallback((data) => {
+    console.log('onClickCategory => ', data);
+    setItemValue(data.value);
   }, []);
 
   // EVENT CALLBACK SET
   const handleEvent = useCallback((eventNm, data, event) => {
     switch (eventNm) {
-      case 'click_CategoryNav': onClickCategory(data); break
+      case 'click_CategoryBar': onClickCategory(data); break
     }
   }, [onClickCategory]);
   
@@ -44,13 +45,13 @@ const MainLayout: FC<IProps> = ({ children }) => {
         actionbarMode={actionbarMode} 
         genderType={genderType}
       >
-        <CategoryNav 
-          mode="main" 
+        <CategoryBar 
+          mode="header-nav"
           data={category} 
           selectedValue={itemValue} 
           onEvent={handleEvent}
         />
-        {children}
+        <div id="container">{children}</div>
       </CommonLayout>
     </MainLayoutWrap>
   );

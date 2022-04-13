@@ -1,9 +1,9 @@
 import styled, { css } from 'styled-components';
 import mixin from 'styles/utils'
-import utils from 'utils'
 
 interface IProps {
   className: string;
+  mode: string;
 }
 
 const getStyle = (props: any) => {
@@ -18,27 +18,22 @@ const getStyle = (props: any) => {
       margin-left: 4px;
     }
 
-    /* ${utils.setSearchStr(props.className, 'btn-logo') && (() => {
-      return css`
-        width: 50px;
-        height: 50px;
-      `;
-    })}
-
-    ${utils.setSearchStr(props.className, 'btn-logo-ds') && (() => {
-      return css`
-        width: 144px;
-        height: 50px;
-      `;
-    })}
-
-    ${(utils.setSearchStr(props.className, 'btn-serach') || 
-      utils.setSearchStr(props.className, 'btn-cart')) && (() => {
-        return css`
-          width: 32px;
-          height: 32px;
-        `;
-      })} */
+    /* ${props => {
+      switch (props.mode) {
+        case "btn-st1":
+          return css`
+            background-color: red;
+          `;
+        case "btn-st2":
+          return css`
+            background-color: gray;
+          `;
+        case "btn-st3":
+          return css`
+            background-color: blue;
+          `;
+      }
+    }} */
   `; 
 }
 

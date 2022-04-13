@@ -22,10 +22,6 @@ const Actionbar: FC<IProps> = ({ mode = 'main', gender = 'women', btnHistoryShow
     console.log('onClicCategory')
   }, []);
 
-  useEffect(()=>{
-    console.log('btnTopShow => ', btnTopShow)
-  },[btnTopShow])
-
   // ITEM RENDERER : getActionbarMain
   const getActionbarMain = useCallback(() => {
     return (

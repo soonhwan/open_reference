@@ -51,25 +51,6 @@ utils.setPhoneHyphen = function (str: string) {
   return str;
 };
 
-// array 관련
-utils.findItemByValue = function(list: any[], value: any, valueKey: string | number) {
-  if (baseUtils.isEmptyList(list)) {
-    return null
-  }
-  const result = list.find(item => item[valueKey] === value)
-  return baseUtils.isUndefined(result) ? null : result
-}
-
-// element 가 object 일 경우 
-utils.findIndexByValue = function(list, value) {
-  if (baseUtils.isEmptyList(list)) {
-    return null
-  }
-  return list.findIndex((element, index, array) => {
-    return element.value === value
-  })
-}
-
 // 특정 위치로 스크롤링
 utils.scrollToTarget = (ref: any) => {
   window.scrollTo({

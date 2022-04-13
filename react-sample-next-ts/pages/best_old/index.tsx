@@ -1,10 +1,10 @@
 import type { NextPage } from "next";
-import { CategoryNav, MainLayout, TopSellerContainer } from "components";
+import { CategoryBar, MainLayout, TopSellerContainer } from "components";
 
 const BestPage: NextPage = () => {
   return (
     <MainLayout>
-      <CategoryNav />
+      <CategoryBar />
       <div id="main_pages">
         <TopSellerContainer />
       </div>

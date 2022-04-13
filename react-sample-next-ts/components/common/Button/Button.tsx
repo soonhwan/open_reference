@@ -10,6 +10,8 @@ interface IProps {
   children: any;
   label: string;
   className: string;
+  mode: string;
+  style: any;
   disabled: boolean;
   target: string;
   rel: string;
@@ -19,7 +21,7 @@ interface IProps {
   onEvent: any;
 }
 
-const Button: FC<IProps> = forwardRef(({ id, type = 'button', href, className, disabled, target, rel, icon, label, onClick, children }, ref) => {
+const Button: FC<IProps> = forwardRef(({ id, type = 'button', href, className, mode, style, disabled, target, rel, icon, label, onClick, children }, ref) => {
   const btnRef = useRef<any>(ref || null);
   
   const param = {
@@ -30,15 +32,18 @@ const Button: FC<IProps> = forwardRef(({ id, type = 'button', href, className, d
       return utils.setClassNameBind([
         'btn-base',
         disabled ? 'disabled' : '',
+        mode ? mode : '',
         className ? className : '',
       ])
-    }, [disabled, className]),
+    }, [disabled, mode, className]),
     type: href ? null : type,
     target: target,
     disabled: disabled,
     rel: target ? rel : null,
     'aria-label': label,
     icon: icon,
+    mode: mode,
+    style: style,
     onClick: (e: any) => {
       e.param = {
         id: param.id,
