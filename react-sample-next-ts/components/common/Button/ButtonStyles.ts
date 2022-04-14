@@ -1,5 +1,6 @@
 import styled, { css } from 'styled-components';
 import mixin from 'styles/utils'
+import utils from 'utils'
 
 interface IProps {
   className: string;
@@ -18,22 +19,19 @@ const getStyle = (props: any) => {
       margin-left: 4px;
     }
 
-    /* ${props => {
-      switch (props.mode) {
-        case "btn-st1":
+    ${props => {
+      const cName = props.className;
+      switch (true) {
+        case utils.setSearchStr(cName, 'btn-heart'):
           return css`
-            background-color: red;
-          `;
-        case "btn-st2":
-          return css`
-            background-color: gray;
-          `;
-        case "btn-st3":
-          return css`
-            background-color: blue;
+            &.active {
+              path {
+                fill: #fa5500 !important;
+              }
+            }
           `;
       }
-    }} */
+    }}
   `; 
 }
 

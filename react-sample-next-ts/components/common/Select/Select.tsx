@@ -30,7 +30,7 @@ const Select: FC<IProps> = ({ id, name, mode, label, disabled, readOnly, data, s
   }, [selectedValue])
 
   const _className = useMemo(() => {
-    return utils.setClassNameBind([
+    return utils.classNameBind([
       'select-base', 
       disabled ? 'disabled' : '',
       readOnly ? 'readOnly' : '',

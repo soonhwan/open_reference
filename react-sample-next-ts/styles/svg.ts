@@ -11,6 +11,8 @@ import icon_category from "styles/svg/icon_category.svg";
 import icon_myheart from "styles/svg/icon_myheart.svg";
 import icon_my from "styles/svg/icon_my.svg";
 import icon_select_arrow from "styles/svg/icon_select_arrow.svg";
+import icon_heart from "styles/svg/icon_heart.svg";
+import icon_star from "styles/svg/icon_star.svg";
 
 //btn
 import btn_bnb_men from "styles/svg/btn_bnb_men.svg";
@@ -39,6 +41,8 @@ export const IconCategory = styled(icon_category)` ${getStyle(32, 32)} `;
 export const IconMyheart = styled(icon_myheart)` ${getStyle(32, 32)} `;
 export const IconMy = styled(icon_my)` ${getStyle(32, 32)} `;
 export const IconSelArrow = styled(icon_select_arrow)` ${getStyle(16, 16)} `;
+export const IconHeart = styled(icon_heart)` ${getStyle(16, 16)} `;
+export const IconStar = styled(icon_star)` ${getStyle(12, 12)} `;
 
 //btn
 export const BtnBnbMen = styled(btn_bnb_men)` ${getStyle(60, 60)} `;

@@ -4,7 +4,7 @@
 */
 import type { NextPage } from "next";
 import React, { useState, useCallback, useEffect } from 'react';
-import { MainLayout, CategoryBar, SortingBar, CategorySortingBar, Select, TopSellerList } from 'components';
+import { MainLayout, CategoryBar, SortingBar, CategorySortingBar, Select, ProductList } from 'components';
 //import { TopSellerContainerWrap } from './TopSellerContainerStyles';
 import listData from '../../mockData/response_1644294867507.json'
 //import categoryList from '../../mockData/response_1644294867494.json'
@@ -133,7 +133,7 @@ const BestPage: NextPage = () => {
         onEvent={handleEvent} 
       />
 
-      <TopSellerList data={productList} />
+      <ProductList data={productList} />
     </MainLayout>
   );
 };

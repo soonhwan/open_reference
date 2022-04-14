@@ -60,7 +60,7 @@ const CommonLayout: FC<IProps> = ({ children, headerMode, actionbarMode, genderT
     }
     
     //className bind
-    setClassName(utils.setClassNameBind([
+    setClassName(utils.classNameBind([
       isFixHeader ? 'is-fix-header' : '', 
       isScrollDir ? 'is-' + isScrollDir : '',
       isScrollBottom ? 'is-' + isScrollBottom : '',

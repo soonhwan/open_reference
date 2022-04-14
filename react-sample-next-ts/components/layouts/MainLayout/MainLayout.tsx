@@ -26,10 +26,10 @@ const MainLayout: FC<IProps> = ({ id, className, children }) => {
 
   //header gnb
   const [category, setCategory] = useState(categoryList);
-  const [itemValue, setItemValue] = useState("opt-3");
+  const [itemValue, setItemValue] = useState('opt-3');
 
   const _className = useMemo(() => {
-    return utils.setClassNameBind([
+    return utils.classNameBind([
       'main-layout', 
       className ? className : '',
     ])

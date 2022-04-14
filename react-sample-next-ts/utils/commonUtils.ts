@@ -4,7 +4,7 @@ import baseUtils from "./baseUtils";
 const utils: any = {};
 
 // className 합치기
-utils.setClassNameBind = function (arr: []) {
+utils.classNameBind = function (arr: []) {
   return arr.filter((el) => el !== '').join(' ');
 };
 

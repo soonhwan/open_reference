@@ -26,7 +26,7 @@ const CategoryBar: FC<IProps> = ({ id, mode, data, className, selectedValue, onE
   }, [selectedValue]);
 
   const _className = useMemo(() => {
-    return utils.setClassNameBind([
+    return utils.classNameBind([
       'category-bar', 
       mode ? mode : '',
       className ? className : '',
@@ -52,7 +52,7 @@ const CategoryBar: FC<IProps> = ({ id, mode, data, className, selectedValue, onE
     } else if(mode == 'category-nav'){
       return (
         <>
-          <span className="vis"><img src={v.img} alt={v.text} /></span>
+          <span className="thumb"><img src={v.img} alt={v.text} /></span>
           <span className="txt">{v.text}</span>
         </>
       )
@@ -62,7 +62,7 @@ const CategoryBar: FC<IProps> = ({ id, mode, data, className, selectedValue, onE
   // ITEM RENDERER : getListRender  
   const getListRender = useCallback(() => {
     return data?.map((v: any, i: number) => {
-      const _className = utils.setClassNameBind([
+      const _className = utils.classNameBind([
         v.value === _selectedValue ? 'active' : '',
         v.dot ? 'dot' : '',
       ])

@@ -20,10 +20,17 @@ export const MainLayoutWrap = styled.div<IProps>`
     
     &.best-page {
       .category-sorting-bar {
-        position: sticky;
+        //position: sticky;
+        position: relative;
         //top: -60px;
-        top: 0;
+        //top: 0;
         z-index: 9;
+      }
+
+      .is-fix-header .category-sorting-bar {
+        position: fixed;
+        width: 100%;
+        top: 0;
       }
 
       .is-fix-header.is-scrollUp {
@@ -35,7 +42,7 @@ export const MainLayoutWrap = styled.div<IProps>`
               margin-top: -60px;
             }
 
-            .vis {
+            .thumb {
               width: 0;
             }
           }
@@ -51,7 +58,7 @@ export const MainLayoutWrap = styled.div<IProps>`
               margin-top: 0;
             }
 
-            .vis {
+            .thumb {
               width: 60px;
             }
           }

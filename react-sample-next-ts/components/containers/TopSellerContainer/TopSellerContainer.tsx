@@ -1,5 +1,5 @@
 import React, { memo, useState, FC, useCallback, useEffect } from 'react';
-import { CategoryBar, TopSellerCategory, TopSellerCategoryDepth2, Select, TopSellerList } from 'components';
+import { CategoryBar, TopSellerCategory, TopSellerCategoryDepth2, Select, ProductList } from 'components';
 import { TopSellerContainerWrap } from './TopSellerContainerStyles';
 import listData from '../../../mockData/response_1644294867507.json'
 //import categoryList from '../../../mockData/response_1644294867494.json'
@@ -148,7 +148,7 @@ const TopSellerContainer: FC<IProps> = ({ data }) => {
         />
       </div>
 
-      <TopSellerList data={list} />
+      <ProductList data={list} />
       
     </TopSellerContainerWrap>
   );

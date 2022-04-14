@@ -32,7 +32,7 @@ const CategorySortingBar: FC<IProps> = ({ id, mode, sorting, category, className
   }, [category, sorting]);
 
   const _className = useMemo(() => {
-    return utils.setClassNameBind([
+    return utils.classNameBind([
       'category-sorting-bar', 
       mode ? mode : '',
       className ? className : '',

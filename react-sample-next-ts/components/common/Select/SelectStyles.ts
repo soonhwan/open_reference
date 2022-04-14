@@ -1,5 +1,6 @@
 import styled, { css } from 'styled-components'
 import mixin from 'styles/utils'
+import utils from 'utils'
 
 interface IProps {
   className: string;
@@ -37,8 +38,9 @@ export const SelectWrap = styled.div`
   }
 
   ${props => {
-    switch (props.mode) {
-      case "sorting":
+    const cName = props.className;
+    switch (true) {
+      case utils.setSearchStr(cName, 'sorting'):
         return css`
         .label {
           

@@ -41,12 +41,13 @@ mixin.ellipsis = (line: number = 1) => {
   `;
 };
 
-mixin.flex = ({ display = 'flex', direction = 'row', align = 'center', justify = 'center' }) => {
+mixin.flex = ({ display = 'flex', direction = 'row', wrap = 'nowrap', align = 'center', justify = 'center' }) => {
   return css`
     display: ${display};
     flex-direction: ${direction};
-    align-items: ${align};
+    flex-wrap: ${wrap};
     justify-content: ${justify};
+    align-items: ${align};
   `;
 };
 

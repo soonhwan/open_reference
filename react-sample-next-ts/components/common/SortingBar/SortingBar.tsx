@@ -23,7 +23,7 @@ const SortingBar: FC<IProps> = ({ id, mode, txt, data, className, selectedValue,
   }, [selectedValue]);
 
   const _className = useMemo(() => {
-    return utils.setClassNameBind([
+    return utils.classNameBind([
       'sorting-bar', 
       mode ? mode : '',
       className ? className : '',

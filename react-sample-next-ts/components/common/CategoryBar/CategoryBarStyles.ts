@@ -1,5 +1,6 @@
 import styled, { css } from 'styled-components'
 import mixin from 'styles/utils'
+import utils from 'utils'
 
 interface IProps {
   className: string;
@@ -30,8 +31,9 @@ export const CategoryBarWrap = styled.div<IProps>`
   }
   
   ${props => {
-    switch (props.mode) {
-      case "header-nav":
+    const cName = props.className;
+    switch (true) {
+      case utils.setSearchStr(cName, 'header-nav'):
         return css`
           border-bottom: 1px solid #f5f5f5;
 
@@ -75,7 +77,7 @@ export const CategoryBarWrap = styled.div<IProps>`
             }
           }
         `;
-      case "category-nav":
+      case utils.setSearchStr(cName, 'category-nav'):
         return css`
           .list {  
             padding: 0 20px;
@@ -86,7 +88,7 @@ export const CategoryBarWrap = styled.div<IProps>`
               .btn {
                 ${mixin.flex({ direction: 'column' })}
 
-                .vis {
+                .thumb {
                   width: 60px;
                   height: 60px;
                   overflow: hidden;
