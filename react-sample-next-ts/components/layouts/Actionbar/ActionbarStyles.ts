@@ -45,12 +45,18 @@ export const ActionbarWrap = styled.div<IProps>`
         width: 115px;
         height: 50px;
         text-align: center;
-        background: url("/images/bg_actionbar_white.svg") 0 0 no-repeat;
-  
+        background: #fff;
+
         .btn-gender {
-          transform: translate(7px, -19px);
+          transform: translate(7px, -18px);
         }
       }  
+
+      &.is-women {
+        .area-btn {
+          background: url("/images/bg_actionbar_white.svg") 0 0 no-repeat;
+        }  
+      }
       
       &.is-men {
         nav ul {

@@ -34,7 +34,7 @@ const Select: FC<IProps> = ({ id, name, mode, label, disabled, readOnly, data, s
       'select-base', 
       disabled ? 'disabled' : '',
       readOnly ? 'readOnly' : '',
-      mode ? mode : '',
+      mode ? 'select-' + mode : '',
       className ? className : '',
     ])
   }, [className, disabled, mode, readOnly])

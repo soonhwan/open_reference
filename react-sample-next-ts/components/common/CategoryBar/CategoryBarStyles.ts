@@ -88,18 +88,6 @@ export const CategoryBarWrap = styled.div<IProps>`
               .btn {
                 ${mixin.flex({ direction: 'column' })}
 
-                .thumb {
-                  width: 60px;
-                  height: 60px;
-                  overflow: hidden;
-                  
-                  img {
-                    width: 100%;
-                    height: 100%;
-                    object-fit: cover;
-                  }
-                }
-
                 .txt {
                   font-size: 13px; 
                   color: #ccc;

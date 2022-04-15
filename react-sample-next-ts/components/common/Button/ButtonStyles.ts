@@ -22,8 +22,11 @@ const getStyle = (props: any) => {
     ${props => {
       const cName = props.className;
       switch (true) {
-        case utils.setSearchStr(cName, 'btn-heart'):
+        case utils.setSearchStr(cName, 'btn-like'):
           return css`
+            width: 30px;
+            height: 30px;
+            
             &.active {
               path {
                 fill: #fa5500 !important;

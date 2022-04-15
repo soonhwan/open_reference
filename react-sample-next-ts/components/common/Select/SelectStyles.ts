@@ -28,11 +28,7 @@ export const SelectWrap = styled.div`
   .label {
     ${mixin.flex({ display : 'inline-flex' })}
 
-    .txt {
-      display: inline-block;
-    }
-
-    .arrow {
+    .txt, .arrow {
       display: inline-block;
     }
   }
@@ -40,10 +36,9 @@ export const SelectWrap = styled.div`
   ${props => {
     const cName = props.className;
     switch (true) {
-      case utils.setSearchStr(cName, 'sorting'):
+      case utils.setSearchStr(cName, 'select-sorting'):
         return css`
-        .label {
-          
+        .label {          
           .txt {            
             font-size: 13px;
             line-height: 19px;

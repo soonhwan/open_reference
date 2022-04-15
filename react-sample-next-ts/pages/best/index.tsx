@@ -133,7 +133,7 @@ const BestPage: NextPage = () => {
         onEvent={handleEvent} 
       />
 
-      <ProductList data={productList} />
+      <ProductList mode="product" data={productList} />
     </MainLayout>
   );
 };

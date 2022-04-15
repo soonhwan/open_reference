@@ -1,5 +1,6 @@
 import React, { memo, useState, FC, useCallback, useMemo, useEffect } from 'react';
 import { CategoryBarWrap } from './CategoryBarStyles';
+import { Thumbnail } from "components";
 import { A11y, FreeMode } from 'swiper';
 import { Swiper, SwiperSlide } from 'swiper/react';
 import 'swiper/css';
@@ -47,12 +48,12 @@ const CategoryBar: FC<IProps> = ({ id, mode, data, className, selectedValue, onE
 
   // ITEM RENDERER : getSlideCont  
   const getSlideCont = useCallback((v: any) => {
-    if(mode == 'header-nav'){
+    if(mode === 'header-nav'){
       return v.text
-    } else if(mode == 'category-nav'){
+    } else if(mode === 'category-nav'){
       return (
         <>
-          <span className="thumb"><img src={v.img} alt={v.text} /></span>
+          <Thumbnail mode={mode} src={v.img} alt={v.text}  />
           <span className="txt">{v.text}</span>
         </>
       )

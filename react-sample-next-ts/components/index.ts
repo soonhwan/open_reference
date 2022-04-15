@@ -8,10 +8,12 @@
 export { default as NavSkip } from './common/NavSkip';
 export { default as Button } from './common/Button';
 export { default as Select } from './common/Select';
+export { default as Label } from './common/Label';
 export { default as Count } from './common/Count';
 export { default as BtnTop } from './common/BtnTop';
 export { default as BtnHistory } from './common/BtnHistory';
-export { default as BtnHeart } from './common/BtnHeart';
+export { default as BtnLike } from './common/BtnLike';
+export { default as Thumbnail } from './common/Thumbnail';
 export { default as CategoryBar } from './common/CategoryBar';
 export { default as SortingBar } from './common/SortingBar';
 export { default as CategorySortingBar } from './common/CategorySortingBar';

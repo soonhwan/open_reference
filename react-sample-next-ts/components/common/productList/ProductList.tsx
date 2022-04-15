@@ -1,7 +1,7 @@
 import React, { memo, useState, FC, useCallback, useEffect, useMemo } from 'react';
 import { ProductListWrap } from './ProductListStyles';
-import { Button, BtnHeart } from "components";
-import { IconHeartOff } from 'styles/svg'
+import { Label, BtnLike, Thumbnail } from "components";
+import { IconHeart, IconStar } from 'styles/svg'
 import utils from 'utils';
 
 interface IProps {
@@ -29,13 +29,13 @@ const ProductList: FC<IProps> = ({ id, data, mode, className, onEvent }) => {
 
   // EVENT HANDLER : 찜 하기 클릭
   const onClicHeart = useCallback((value) => {
-    console.log('onClicHeart => ', value);
+    //console.log('onClicHeart => ', value);
   }, []);
 
   // EVENT CALLBACK SET
   const handleEvent = useCallback((eventNm, data, event) => {
     switch (eventNm) {
-      case 'click_BtnHeart': onClicHeart(data); break
+      case 'click_BtnLike': onClicHeart(data); break
     }
   }, [onClicHeart]);
 
@@ -43,53 +43,39 @@ const ProductList: FC<IProps> = ({ id, data, mode, className, onEvent }) => {
   const getListRender = useCallback(() => {
     return _data?.map((v: any, i: number) => {
       return (
-        <li key={i} className="item">          
-          <a href="#" className="area-click">
-            <span className="thumb"><img src="/images/dummy/dummy06.jpg" alt="" /></span>
-            {/* <div className="img">
-              
-              <span className="mask_funding">FUNDING</span>
-              <span className="mask_pre_order">PRE-ORDER</span>
-              <span className="rank"><em>{i+1}</em></span>
-            </div> */}
-            <div className="text">
-              <p className="title">{v.brandNameEn}</p>
-              <p className="front">{v.itemNameFront}</p>
-              <p className="detail">{v.itemName}</p>
-              <p className="price">
-                <strong>{v.finalPrice}</strong>
-                <span>{v.salePrice}</span>
+        <li key={i} className="pl-item">          
+          <a href="#" className="pli-info">
+            <Thumbnail mode={mode} src="/images/dummy/dummy06.jpg" alt="&nbsp;"  />
+            <span className="info">
+              <span className="title">{v.brandNameEn}</span>
+              <span className="front">{v.itemNameFront}</span>
+              <span className="detail">{v.itemName}</span>
+              <span className="price">
+                <strong>{utils.setComma(v.finalPrice)}</strong>
+                <span>{utils.setComma(v.salePrice)}</span>
                 <em>{v.finalDiscountRate}%</em>
-              </p>
-              <div className="labels">
-                <span className="reservation">예약</span>
-                <span className="coupon">쿠폰</span>
-                <span className="exclusive">단독</span>
-                <span className="limit">한정</span>
-                <span className="lb-set">세트</span>
-              </div>
-              <div className="review_box">
-                <div className="graph">
-                    <span className="inner" style={{'width':(v.reviewScore/5*100)+'%'}}>97%</span>
-                </div>
-                <div className="review_count">{v.reviewCnt}</div>
-              </div>
-              <div className="react">
-                <div className="review_count">
-                  <span><em>{v.reviewScore}</em>({v.reviewCnt})</span>
-                </div>
-                <div className="like_count">
-                  <span>9,999+</span>
-                </div>
-              </div>
-            </div>
+              </span>
+              <span className="stats">
+                <span className="review"><IconStar /><em>4.8</em><span className="cnt">(9,999+)</span></span>
+                <span className="like"><IconHeart /><span className="cnt">9,999+</span></span>
+              </span>
+              <span className="tag">
+                <Label mode="tag" color="black">펀딩상품</Label>
+                <Label mode="tag" color="orange">클리어런스</Label>
+              </span>
+              <span className="labels">
+                <Label>오늘출발</Label>
+                <Label>쿠폰</Label>
+                <Label mode="tag" color="gray">SOLD OUT</Label>
+              </span>
+            </span>
           </a>
-          <BtnHeart active={false} onEvent={handleEvent}/>
-          <span className="rank"><em>1</em></span>
+          <BtnLike active={false} onEvent={handleEvent}/>
+          <span className="rank"><em>{i+1}</em></span>
         </li>
       )
     })
-  }, [_data, handleEvent])
+  }, [_data, handleEvent, mode])
 
   return (
     <ProductListWrap className={_className} id={id}>

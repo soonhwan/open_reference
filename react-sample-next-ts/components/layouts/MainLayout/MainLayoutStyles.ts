@@ -42,7 +42,7 @@ export const MainLayoutWrap = styled.div<IProps>`
               margin-top: -60px;
             }
 
-            .thumb {
+            .thumb-category-nav {
               width: 0;
             }
           }
@@ -58,7 +58,7 @@ export const MainLayoutWrap = styled.div<IProps>`
               margin-top: 0;
             }
 
-            .thumb {
+            .thumb-category-nav {
               width: 60px;
             }
           }
