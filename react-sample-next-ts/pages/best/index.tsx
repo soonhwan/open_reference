@@ -5,8 +5,9 @@
 import type { NextPage } from "next";
 import React, { useState, useCallback, useEffect } from 'react';
 import { MainLayout, CategoryBar, SortingBar, CategorySortingBar, Select, ProductList } from 'components';
-//import { TopSellerContainerWrap } from './TopSellerContainerStyles';
+import { useInfiniteScroll } from "hooks";
 import listData from '../../mockData/response_1644294867507.json'
+import { LoaderSpinner } from "../../components";
 //import categoryList from '../../mockData/response_1644294867494.json'
 
 const categoryList = {
@@ -70,6 +71,9 @@ const BestPage: NextPage = () => {
   //상품 list
   const [productList, setProductList] = useState(listData.data);
 
+  //Loader
+  const [isLoader, setIsLoader] = useState(false);
+
   //category 초기 셋팅
   useEffect(()=>{
     if(categorySortingValue !== 'opt-1') {
@@ -78,6 +82,27 @@ const BestPage: NextPage = () => {
       setCategoryValueDepth2(listDepth2.categoryList[0].value);
     }
   },[categorySorting, categorySortingValue])
+
+  //list add fetch
+  const isFetching = useInfiniteScroll(fetchMoreListItems)
+  function fetchMoreListItems() {
+    if(!isLoader){
+      setIsLoader(true)
+      const moreList = productList.concat(listData.data)
+      setTimeout(()=>{
+        setProductList(moreList)
+      }, 1000)
+    }
+  }
+
+  //list add fetch complete
+  useEffect(()=>{
+    if(isFetching && isLoader){
+      setTimeout(()=>{
+        setIsLoader(false)
+      }, 1000)
+    }    
+  },[isFetching, isLoader])
 
   // EVENT HANDLER : onChangeCategorySortingBarCategory
   const onChangeCategorySortingBarCategory = useCallback((data) => {
@@ -118,6 +143,20 @@ const BestPage: NextPage = () => {
     }
   }, [onChangeCategorySortingBarCategory, onChangeCategorySortingBarSorting, onChangeSortingBar]);
 
+  // ITEM RENDERER : getListRender
+  const getListRender = useCallback(() => {
+    if (productList?.length > 0) {
+      return (
+        <>
+          <ProductList mode="product" data={productList} />
+          {isLoader && <LoaderSpinner />}
+        </>
+      )
+    } else {
+      return <div>리스트가 없습니다.</div>
+    }
+  }, [isLoader, productList]);
+
   return (
     <MainLayout className="best-page">
       <CategorySortingBar 
@@ -133,7 +172,7 @@ const BestPage: NextPage = () => {
         onEvent={handleEvent} 
       />
 
-      <ProductList mode="product" data={productList} />
+      {getListRender()}    
     </MainLayout>
   );
 };

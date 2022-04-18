@@ -69,7 +69,6 @@ export const ProductListWrap = styled.div<IProps>`
         display: block;
         font-family: "ProximaNova-bold";
         font-size: 13px;
-        line-height: 13px;
         color: #000;
         font-weight: 600;
         ${mixin.ellipsis(1)}
@@ -79,7 +78,6 @@ export const ProductListWrap = styled.div<IProps>`
         display: block;
         margin-top: 8px;
         font-size: 12px;
-        line-height: 14px;
         color: #7b7b7b;
         ${mixin.ellipsis(1)}
       }
@@ -88,7 +86,6 @@ export const ProductListWrap = styled.div<IProps>`
         display: block;
         margin-top: 4px;
         font-size: 12px;
-        line-height: 14px;
         color: #7b7b7b;
         ${mixin.ellipsis(1)}
       }

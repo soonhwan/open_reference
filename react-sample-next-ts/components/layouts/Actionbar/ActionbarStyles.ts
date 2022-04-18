@@ -21,7 +21,7 @@ export const ActionbarWrap = styled.div<IProps>`
       ${mixin.flex}
       
       nav {
-        width: calc(100% - 115px);
+        width: calc(100% - 105px);
         
         ul {
           background-color: #fff;
@@ -42,13 +42,13 @@ export const ActionbarWrap = styled.div<IProps>`
       }
     
       .area-btn {
-        width: 115px;
+        width: 105px;
         height: 50px;
         text-align: center;
         background: #fff;
 
         .btn-gender {
-          transform: translate(7px, -18px);
+          transform: translate(12px, -18px);
         }
       }  
 

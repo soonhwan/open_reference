@@ -17,6 +17,7 @@ export { default as Thumbnail } from './common/Thumbnail';
 export { default as CategoryBar } from './common/CategoryBar';
 export { default as SortingBar } from './common/SortingBar';
 export { default as CategorySortingBar } from './common/CategorySortingBar';
+export { default as LoaderSpinner } from './common/LoaderSpinner';
 
 //test
 export { default as Pagination } from './common/Pagination';
