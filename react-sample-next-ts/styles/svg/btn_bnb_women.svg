@@ -1,9 +1,0 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 60 60">
-    <g style="fill:#fff;stroke:#f5f5f5">
-        <rect width="60" height="60" rx="30" style="stroke:none"/>
-        <rect x=".5" y=".5" width="59" height="59" rx="29.5" style="fill:none"/>
-    </g>
-    <text transform="translate(29.999 41)" style="font-size:13px;font-family:ProximaNova-Bold,Proxima Nova;font-weight:700;letter-spacing:-.035em"><tspan x="-23.985" y="0">WOMEN</tspan></text>
-    <text data-name="Go" transform="translate(24.999 24)" style="font-size:12px;font-family:ProximaNova-Medium,Proxima Nova;font-weight:500"><tspan x="-7.722" y="0">Go</tspan></text>
-    <path data-name="Path 397" d="m43.108 22.726 3.4 3.4-3.4 3.4" transform="translate(-6.108 -5.726)" style="stroke:#000;stroke-linejoin:round;fill:none"/>
-</svg>
