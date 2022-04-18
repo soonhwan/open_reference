@@ -4,7 +4,7 @@
       예) import { MainLayout, Header } from 'components';
 */
 
-//common - 단순 재사용이 많은 공통 컴포넌트
+//common - 재사용이 많은 공통 컴포넌트
 export { default as NavSkip } from './common/NavSkip';
 export { default as Button } from './common/Button';
 export { default as Select } from './common/Select';
@@ -18,13 +18,9 @@ export { default as CategoryBar } from './common/CategoryBar';
 export { default as SortingBar } from './common/SortingBar';
 export { default as CategorySortingBar } from './common/CategorySortingBar';
 export { default as LoaderSpinner } from './common/LoaderSpinner';
+export { default as ProductList } from './common/ProductList';
 
 //test
-export { default as Pagination } from './common/Pagination';
-export { default as TopSellerCategory } from './common/TopSellerCategory';
-export { default as TopSellerCategoryDepth2 } from './common/TopSellerCategoryDepth2';
-export { default as TopSellerSort } from './common/TopSellerSort';
-export { default as ProductList } from './common/ProductList';
 export { default as MainKv } from './common/MainKv';
 export { default as MainMDPick } from './common/MainMDPick';
 export { default as MainPreOpen } from './common/MainPreOpen';
@@ -35,7 +31,6 @@ export { default as MDPickList } from './common/MDPickList';
 
 
 //containers - data fetch / store
-export { default as TopSellerContainer } from './containers/TopSellerContainer';
 export { default as HomeContainer } from './containers/HomeContainer';
 
 //layout - 레이아웃 모음

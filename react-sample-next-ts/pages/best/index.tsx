@@ -4,11 +4,9 @@
 */
 import type { NextPage } from "next";
 import React, { useState, useCallback, useEffect } from 'react';
-import { MainLayout, CategoryBar, SortingBar, CategorySortingBar, Select, ProductList } from 'components';
+import { MainLayout, LoaderSpinner, SortingBar, CategorySortingBar, ProductList } from 'components';
 import { useInfiniteScroll } from "hooks";
 import listData from '../../mockData/response_1644294867507.json'
-import { LoaderSpinner } from "../../components";
-//import categoryList from '../../mockData/response_1644294867494.json'
 
 const categoryList = {
   'data': [
@@ -83,12 +81,12 @@ const BestPage: NextPage = () => {
     }
   },[categorySorting, categorySortingValue])
 
-  //list add fetch
+  //list add fetching
   const isFetching = useInfiniteScroll(fetchMoreListItems)
   function fetchMoreListItems() {
-    if(!isLoader){
+    const moreList = productList.concat(listData.data)
+    if(moreList.length < 101 && !isLoader){
       setIsLoader(true)
-      const moreList = productList.concat(listData.data)
       setTimeout(()=>{
         setProductList(moreList)
       }, 1000)

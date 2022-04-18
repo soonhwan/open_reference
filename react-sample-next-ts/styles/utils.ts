@@ -13,7 +13,8 @@ mixin.fadeIn = keyframes`
 `;
 
 //utils
-mixin.pixelToRem = (size: number, standard: number = 16 ) => `${size / standard}rem`;
+mixin.pixelToRem = (size: string, standard: number = 16 ) => size.split(' ').map(v => `${v / standard}rem`).join(' ');
+
 mixin.getSizeBox = (w: number, h: number) => `width: ${w}px; height: ${h}px;`; 
 
 //css
